@@ -1,0 +1,15 @@
+[
+    {
+        "id": "v6",
+        "version": "6.0.0",
+        "title": "Version 6.x (Legacy release)",
+        "branch": "v6-docs"
+    },
+    {
+        "id": "v7",
+        "version": "7.0.0",
+        "title": "Version 7.x (Current release)",
+        "branch": "latest",
+        "default": true
+    }
+]

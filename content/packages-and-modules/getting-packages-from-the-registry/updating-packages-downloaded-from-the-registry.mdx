@@ -1,0 +1,81 @@
+---
+title: Updating packages downloaded from the registry
+redirect_from:
+  - /getting-started/updating-local-packages
+  - /getting-started/updating-global-packages
+---
+
+Updating local and global packages you downloaded from the registry helps keep your code and tools stable, usable, and secure.
+
+## Updating local packages
+
+We recommend regularly updating the local packages your project depends on to improve your code as improvements to its dependencies are made.
+
+1. Navigate to the root directory of your project and ensure it contains a `package.json` file:
+
+   ```
+   cd /path/to/project
+   ```
+
+2. In your project root directory, run the [`update` command][npm-update]:
+
+   ```
+   npm update
+   ```
+
+3. To test the update, run the [`outdated` command][npm-outdated]. There should not be any output.
+
+   ```
+   npm outdated
+   ```
+
+## Updating globally-installed packages
+
+<Note>
+
+**Note:** If you are using npm version 2.6.0 or less, run [this script](https://gist.github.com/othiym23/4ac31155da23962afd0e) to update all outdated global packages.
+
+However, please consider upgrading to the latest version of npm:
+
+```
+npm install npm@latest -g
+```
+
+</Note>
+
+### Determining which global packages need updating
+
+To see which global packages need to be updated, on the command line, run:
+
+```
+npm outdated -g --depth=0
+```
+
+### Updating a single global package
+
+To update a single global package, on the command line, run:
+
+```
+npm update -g <package_name>
+```
+
+### Updating all globally-installed packages
+
+To update all global packages, on the command line, run:
+
+```
+npm update -g
+```
+
+## Resources
+
+<iframe src="https://www.youtube.com/embed/HRudtPGcOt4" frameborder="0" allowfullscreen></iframe>
+
+### CLI commands
+
+- [npm-update](/cli/update)
+- [npm-outdated](/cli/outdated)
+
+
+[npm-update]: /cli/update
+[npm-outdated]: /cli/outdated

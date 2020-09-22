@@ -1,0 +1,78 @@
+---
+title: Creating Node.js modules
+redirect_from:
+  - /getting-started/creating-node-modules
+---
+
+Node.js modules are a type of [package][about-pkgs] that can be published to npm.
+
+## Overview
+
+1. [Create a `package.json` file](#create-a-package-json-file)
+2. [Create the file that will be loaded when your module is required by another application](#create-the-file-that-will-be-loaded-when-your-module-is-required-by-another-application)
+3. [Test your module](#test-your-module)
+
+## Create a `package.json` file
+
+1. To create a `package.json` file, on the command line, in the root directory of your Node.js module, run `npm init`:
+   - For [scoped modules][scoped-pkg], run `npm init --scope=@scope-name`
+   - For [unscoped modules][unscoped-pkg], run `npm init`
+2. Provide responses for the required fields (`name` and `version`), as well as the `main` field:
+   - `name`: The name of your module.
+   - `version`: The initial module version. We recommend following [semantic versioning guidelines][semver] and starting with `1.0.0`.
+
+For more information on `package.json` files, see "[Creating a package.json file][creating-pkg-json]".
+
+## Create the file that will be loaded when your module is required by another application
+
+
+In the file, add a function as a property of the `exports` object. This will make the function available to other code:
+
+```
+exports.printMsg = function() {
+  console.log("This is a message from the demo package");
+}
+```
+
+## Test your module
+
+1. Publish your package to npm:
+
+   - For [private packages][priv-pkg-pub] and [unscoped packages][unscoped-pkg-pub], use `npm publish`.
+   - For [scoped public packages][scoped-pkg-pub], use `npm publish --access public`
+
+2. On the command line, create a new test directory outside of your project directory.
+
+   ```
+   mkdir test-directory
+   ```
+
+3. Switch to the new directory:
+
+   ```
+   cd /path/to/test-directory
+   ```
+
+4. In the test directory, install your module:
+
+   ```
+   npm install <your-module-name>
+   ```
+
+5. In the test directory, create a `test.js` file which requires your module and calls your module as a method.
+
+6. On the command line, run `node test.js`. The message sent to the console.log should appear.
+
+## Resources
+
+<iframe src="https://www.youtube.com/embed/3I78ELjTzlQ" frameborder="0" allowfullscreen></iframe>
+
+
+[about-pkgs]: about-packages-and-modules
+[scoped-pkg]: about-scopes
+[unscoped-pkg]: creating-and-publishing-unscoped-public-packages
+[semver]: about-semantic-versioning
+[creating-pkg-json]: creating-a-package-json-file
+[priv-pkg-pub]: creating-and-publishing-private-packages#publishing-private-packages
+[unscoped-pkg-pub]: creating-and-publishing-unscoped-public-packages#publishing-unscoped-public-packages
+[scoped-pkg-pub]: creating-and-publishing-scoped-public-packages#publishing-scoped-public-packages

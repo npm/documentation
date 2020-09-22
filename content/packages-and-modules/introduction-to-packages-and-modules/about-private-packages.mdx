@@ -1,0 +1,37 @@
+---
+title: About private packages
+---
+
+<div class="note">
+
+To use private packages, you must
+
+<ul>
+<li> be using npm version 2.7.0 or greater. To upgrade, on the command line, run <code class="highlighter-rouge">npm install npm@latest -g</code></li>
+<li>have a <a href="https://www.npmjs.com/pricing">paid user or organization account</a></li>
+</ul>
+
+</div>
+
+With npm private packages, you can use the npm registry to host code that is only visible to you and chosen collaborators, allowing you to manage and use private code alongside public code in your projects.
+
+Private packages always have a scope, and scoped packages are private by default.
+
+* **User-scoped private packages** can only be accessed by you and collaborators to whom you have granted read or read/write access. For more information, see "[Adding collaborators to private packages owned by a user account][user-pkg-add]".
+* **Organization-scoped private packages** can only be accessed by teams that have been granted read or read/write access. For more information, see "[Managing team access to organization packages][team-pkg-add]".
+
+## Next steps
+
+- "[Creating and publishing private packages][create-priv-pkg]"
+- "[Using npm packages in your projects][use-pkg]"
+
+## Resources
+
+<iframe src="https://www.youtube.com/embed/O6JoXGnHK_Y" frameborder="0" allowfullscreen></iframe>
+
+[paid-acct]: https://www.npmjs.com/pricing
+[user-pkg-add]: adding-collaborators-to-private-packages-owned-by-a-user-account
+[team-pkg-add]: managing-team-access-to-organization-packages
+[create-priv-pkg]: creating-and-publishing-private-packages
+[install-pkgs]: installing-packages-and-dependencies#installing-private-packages
+[use-pkg]: using-npm-packages-in-your-projects

@@ -1,0 +1,69 @@
+---
+title: Unpublishing packages from the registry
+---
+import shared from '../../../src/shared.js'
+
+## How to unpublish
+
+As a package owner or collaborator, if your package has no dependents, you can permanently remove it from the npm registry by using the CLI. You can [unpublish][unpublish-cli] within 72 hours of the initial publish. Beyond 72 hours,so you can still unpublish your package if [it meets certain criteria](https://www.npmjs.com/policies/unpublish).
+
+<Note>
+
+**Note:** Removing all the collaborators or teams from the package will not unpublish it.
+
+</Note>
+
+### Unpublishing a single version of a package
+
+To unpublish a single version of a package, run the following command, replacing `<package-name>` with the name of your package, and `<version>` with your version number:
+
+```
+npm unpublish <package-name>@<version>
+```
+
+### Unpublishing an entire package
+
+To unpublish an entire package, run the following command, replacing `<package-name>` with the name of your package:
+
+```
+npm unpublish <package-name> -f
+```
+
+If you have [two-factor authentication][two-factor-auth] enabled for writes, you will need to add a one-time password to the `unpublish` command, `--otp=123456` (where *123456* is the code from your authenticator app).
+
+<>If you need help unpublishing your package, please {shared['contact-support'].text}. If you are an Enterprise customer, please {shared['contact-enterprise-support'].text}</>.
+
+<Note>
+
+**Note:** If you unpublish an entire package, you may not publish any new versions of that package until 24 hours have passed.
+
+</Note>
+
+## When to unpublish
+
+Unpublishing a package permanently removes the package from the registry so it is no longer available for other users to install. Once a package is unpublished, republishing under the same name is blocked for 24 hours. If you've unpublished a package by mistake, we'd recommend publishing again under a different name, or for unpublished versions, bumping the version number and publishing again.
+
+You might want to unpublish a package because you:
+
+* Published something accidentally.
+* Wanted to test npm.
+* Published content you [didn't intend to be public][oh-no].
+* Want to rename a package. (The only way to rename a package is to re-publish it under a new name)
+
+<Note>
+
+**Note:** `package-name@version` is unique, and cannot be reused by unpublishing and re-publishing it. We recommend publishing a minor version update instead.
+
+</Note>
+
+## When to deprecate
+
+If you are no longer interested in maintaining a package, but want it to remain available for users to install, or if your package has dependents, we'd recommend [deprecating][deprecate-cli] it. To learn about how to deprecate a package, see "[Deprecating and undeprecating packages or package versions][deprecate-package]".
+
+
+[unpublish-cli]: cli/unpublish
+[oh-no]: https://blog.npmjs.org/post/101934969510/oh-no-i-accidentally-published-private-data-to
+[deprecate-cli]: cli/deprecate
+[deprecate-package]: deprecating-and-undeprecating-packages-or-package-versions
+[unpublish-policy]: https://www.npmjs.com/policies/unpublish
+[two-factor-auth]: about-two-factor-authentication

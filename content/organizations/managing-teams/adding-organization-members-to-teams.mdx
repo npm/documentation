@@ -1,0 +1,63 @@
+---
+title: Adding organization members to teams
+redirect_from:
+  - /adding-org-members-to-teams
+---
+import shared from '../../../src/shared.js'
+
+As an organization owner or team admin, you can add organization members to teams to give them access to a specific set of packages governed by the organization.
+
+<Note>
+
+**Note:** An npm user must be a member of your organization before you can add them to a team. To add a member to your organization, see "[Adding members to your organization][add-organization-members]".
+
+</Note>
+
+1. <>{shared['user-login'].text}</>
+
+   <>{shared['user-login'].image}</>
+
+2. <>{shared['profile-settings'].text}</>
+
+   <>{shared['profile-settings'].image}</>
+
+3. <>{shared['organization-selection'].text}</>
+
+   <>{shared['organization-selection'].image}</>
+
+4. <>{shared['organization-teams-tab'].text}</>
+
+   <>{shared['organization-teams-tab'].image}</>
+
+5. Beside the team you want to add members to, click **Members**.
+
+   <Screenshot src="/organizations/managing-teams/team-members.png" alt="Screenshot of the team members button" />
+
+6. In the "Username" field, type the npm username of the organization member you would like to add to your team.
+
+   <Screenshot src="/organizations/managing-teams/team-member-select.png" alt="Screenshot of the team member selection" />
+
+7. Click **+ Add User**.
+
+   <Screenshot src="/organizations/managing-teams/team-member-add-button.png" alt="Screenshot of the team member add button" />
+
+<Note>
+
+**Note:** organization members are not notified when they are added to a team. We recommend telling the organization member you have added them to a team.
+
+</Note>
+
+## Managing teams from the CLI
+
+If you would like to manage the membership of your team from
+the command line interface (CLI), you can use:
+
+```
+npm team
+```
+
+For more information, see the [CLI documentation on teams][team-cli].
+
+
+[add-organization-members]: adding-members-to-your-organization
+[team-cli]: /cli/team

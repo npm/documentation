@@ -1,0 +1,33 @@
+---
+title: Adding collaborators to private packages owned by a user account
+---
+
+As an npm user with a paid user account, you can another npm user with a paid account as a collaborator on a private package you own.
+
+<Note>
+
+**Note:** The user you want to add as a collaborator on your private package must have a paid user account. To sign up for a paid account, they can visit `https://https://www.npmjs.com/settings/username/billing`, replacing `username` with their npm username.
+
+</Note>
+
+## Granting access to a private user package on the web
+
+1. On the [npm website][npmjs-com], go to the package to which you want to add a collaborator: `https://www.npmjs.com/package/<your-package-name>`
+2. On the package page, under "Collaborators", click **+**.
+3. Enter the npm username of the collaborator.
+4. Click **Submit**.
+
+## Granting private package access from the command line interface
+
+To add a collaborator to a package on the command line, run the following command, replacing `<user>` with the npm username of your collaborator, and `<your-package-name>` with the name of the private package:
+
+```
+npm owner add <user> <your-package-name>
+```
+
+## Granting access to private organization packages
+
+To grant an npm user access to private organization packages, you must have an organization owner add them to your organization, then add them to a team that has access to the private package. For more information, see "[Adding members to your organization][add-org-members]".
+
+[npmjs-com]: https://npmjs.com
+[add-org-members]: adding-members-to-your-organization

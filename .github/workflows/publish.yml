@@ -1,0 +1,62 @@
+name: Publish
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    # Check out the content (source branch)
+    - name: Check out source
+      uses: actions/checkout@v2
+
+    # Check out the `dist` branch into the `public` directory.
+    - name: Check out documentation branch
+      uses: actions/checkout@v2
+      with:
+        ref: 'dist'
+        path: 'public'
+
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+
+    # Update npm to v7
+    - name: Update npm v7
+      run: npm install -g npm@latest
+
+    # Build the site
+    - name: Install npm packages
+      run: npm install
+    - name: Build documentation
+      run: npm run build
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    # Check for changes; this avoids publishing a new change to the
+    # dist branch when we made a change to (for example) a unit test.
+    # If there were changes made in the publish step above, then this
+    # will set the variable `has_changes` to `1` for subsequent steps.
+    - name: Check for changes
+      id: status
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "::set-output name=has_changes::1"
+        fi
+      working-directory: public
+
+    # Commit the changes to the dist branch and push the changes up to
+    # GitHub.  (Replace the name and email address with your own.)
+    # This step only runs if the previous step set `has_changes` to `1`.
+    - name: Publish documentation
+      run: |
+        git add --verbose .
+        git config user.name 'CI User'
+        git config user.email 'noreply@npmjs.com'
+        git commit -m 'Update from CI'
+        git push origin dist
+      if: steps.status.outputs.has_changes == '1'
+      working-directory: public

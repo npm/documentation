@@ -1,0 +1,88 @@
+---
+title: Configuring your registry settings as an npm Enterprise user
+---
+
+<div class="note">
+
+<span class="bold">Note:</span> npm Enterprise requires npm 4.4.x or greater. To download the latest version of npm, on the command line, run <code class="highlighter-rouge">
+[sudo] npm install npm -g</code>
+
+</div>
+
+You can configure your npm client to publish to and install from your private npm Enterprise registry by:
+
+* Setting your company's npm Enterprise registry as your default registry (recommended)
+* Using npmrc to managing multiple profiles for different registries
+* Configuring scopes to point to different registries
+
+## Setting your company's npm Enterprise registry as your default registry
+
+The easiest way to publish to and install from your company's npm Enterprise registry is to set it as your default registry.
+
+On the command line, run the following command, replacing "your-registry" with the name of your company's npm Enterprise registry:
+
+```
+npm config set registry https://registry.your-registry.npme.io/
+```
+
+## Using npmrc to managing multiple profiles for different registries
+
+If you need to publish and install packages to and from different registries -- for example, an npm Enterprise registry for work-related code, and the npmjs.com public registry for open source projects -- you can create and manage a separate npm user profile for each registry using the [npmrc](https://www.npmjs.com/package/npmrc) tool.
+
+### Overview
+
+- [Install npmrc](#install-npmrc)
+- [Create an npm Enterprise profile](#create-an-npm-enterprise-profile)
+- [Create a profile for the public npm registry](#create-a-profile-for-the-public-npm-registry)
+- [Switch profiles with npmrc](#switch-profiles-with-npmrc)
+
+### Install npmrc
+
+To install npmrc, on the command line, run
+
+```
+npm i npmrc -g
+```
+
+### Create an npm Enterprise profile
+
+After installing npmrc, you can create a profile to access your company's Enterprise registry.
+
+1. To create an npm Enterprise profile, on the command line, run `npmrc -c name-of-profile`. For example, to create a profile called "work", run the following command:
+    ```
+    npmrc -c work
+    ```
+2. To set an npm Enterprise registry for the profile, run the following command, replacing your-company-registry with the name of your company's npm Enterprise registry:
+    ```
+    npm config set registry https://registry.your-company-registry.npme.io/
+    ```
+
+### Create a profile for the public npm registry
+
+After you have created your npm Enterprise profile, you can create a second profile for a different registry, such as the [public npm registry](https://registry.npmjs.com).
+
+1. To create a profile for the public registry, on the command line, run `npmrc -c name-of-profile`. For example, to create a profile called "open-source", run `npmrc -c open-source`.
+2. To set the public registry for your open source profile, run the following command:
+    ```
+    npm config set registry https://registry.npmjs.org/
+    ```
+
+### Switch profiles with npmrc
+
+To switch profiles, on the command line, run the following command,
+replacing `profile-name` with the name of your profile:
+
+```
+  npmrc profile-name
+```
+
+## Configuring scopes to point to different registries
+
+You can also map different scopes to different npm registries. For example, to use the scope `@company-scope` from your npm Enterprise registry, while continuing to install public packages from the public npm registry, run the following command, replacing `@company-scope` with the scope, and `company-registry` with the name of your company's npm Enterprise registry:
+
+```
+  npm login --scope=@company-scope --registry=https://registry.company-registry.npme.io/
+```
+
+
+[download-install]: downloading-and-installing-node-js-and-npm
