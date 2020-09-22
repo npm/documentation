@@ -1,0 +1,38 @@
+---
+title: Requiring 2FA for package publishing and settings modification
+---
+import shared from '../../../src/shared.js'
+
+To protect your packages, as a package publisher, you can require everyone who has write access to a package to have two-factor authentication (2FA) enabled.  This will require that users provide a one-time password in addition to their login token when they publish the package.  For more information, see "[Configuring two-factor authentication][config-2fa]".
+
+You may also choose to allow publishing with either two-factor authentication _or_ with [automation tokens][creating-tokens].  This lets you configure automation tokens in a CI/CD workflow, but requires two-factor authentication from interactive publishes.
+
+## Configuring two-factor authentication
+
+1. <>{shared['user-login'].text}</>
+
+   <>{shared['user-login'].image}</>
+
+2. Navigate to the package on which you want to require a second factor to publish or modify settings.
+
+3. Click **Settings**.
+
+   <Screenshot src="/packages-and-modules/securing-your-code/2fa-package-admin.png" alt="Screenshot showing the admin tab on a package page" />
+
+4. Under "Publishing access", select the requirements to publish a package.
+   1. **Two-factor authentication is not required**  
+      With this option, a maintainer can publish a package or change the package settings whether they have two-factor authentication enabled or not.  This is the least secure setting.
+
+   2. **Require two-factor authentication or automation tokens**  
+      With this option, maintainers must have two-factor authentication enabled for their account.  If they publish a package interactively, using the `npm publish` command, they will be required to enter a one-time passcode when they perform the publish.  However, maintainers may also create an [automation token][creating-tokens] and use that to publish.  A one-time passcode is _not_ required when using an automation token, making it useful for continuous integration and continuous deployment workflows.
+
+   3. **Two-factor authentication only**  
+      With this option, a maintainer must have two-factor authentication enabled for their account, and they must publish interactively.  Maintainers will be required to enter a one-time passcode when they perform the publish.
+
+   <Screenshot src="/packages-and-modules/securing-your-code/2fa-package-require.png" alt="Screenshot showing the require two-factor option for a package" />
+
+5. Click **Update Package Settings**.
+
+   <Screenshot src="/packages-and-modules/securing-your-code/2fa-package-update.png" alt="Screenshot showing the update package settings button" />
+
+[config-2fa]: configuring-two-factor-authentication

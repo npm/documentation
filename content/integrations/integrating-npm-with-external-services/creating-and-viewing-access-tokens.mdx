@@ -1,0 +1,94 @@
+---
+title: Creating and viewing access tokens
+redirect_from: [ /creating-and-viewing-authentication-tokens ]
+---
+
+You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) access tokens from the website and command line interface (CLI).
+
+## Creating access tokens
+
+### Creating tokens on the website
+
+1. In the upper right corner of the page, click your profile picture, then click **Access Tokens**.
+
+   <Screenshot src="/integrations/integrating-npm-with-external-services/tokens-profile.png" alt="Screenshot of the account menu with the tokens link selected" />
+
+2. Click **Create New Token**.
+
+   <Screenshot src="/integrations/integrating-npm-with-external-services/create-token.png" alt="Screenshot of the create new token button" />
+
+3. Select the type of access token:
+
+   - **Read-only**: a read-only token can only be used to download packages from the registry.  It will have permission to read any private package that you have access to.  This is recommended for automation and workflows where you are installing packages, but not publishing new ones.
+
+   - **Automation**: an automation token can download packages and publish new ones, but if you have two-factor authentication (2FA) configured on your account, it will **not** be enforced.  You can use an automation token in continuous integration workflows and other automation systems to publish a package even when you cannot enter a one-time passcode.  This is recommended for automation workflows where you are publishing new packages.
+
+   - **Publish**: a publish token can perform any action on your behalf, including downloading packages, publishing packages, and changing user settings or package settings.  If you have two-factor authentication configured on your account, you will be required to enter a one-time passcode when using a publish token.  This is recommended for interactive workflows.
+
+   <Screenshot src="/integrations/integrating-npm-with-external-services/token-level-select.png" alt="Screenshot of the access level selection" />
+
+4. Click **Generate Token**.
+
+5. Copy the token from the top of page.
+
+### Creating tokens with the CLI
+
+You can create tokens with read-only permissions or read and publish permissions with the CLI; you cannot currently create automation tokens.
+
+- **Read-only:** Tokens that allow installation and distribution only, but no publishing or other rights associated with your account.
+- **Publish:** The default setting for new tokens, and most permissive token type. Publish tokens allow installation, distribution, modification, publishing, and all rights that you have on your account.
+
+In addition, you can specify that the token is only valid for a specific IPv4 address range, using [CIDR][cidr-wiki] notation.  The token will only be valid when used from the specified IP addresses.
+
+1. To create a new token, on the command line, run:
+   * `npm token create` for a read and publish token
+   * `npm token create --read-only` for a read-only token
+   * `npm token create --cidr=[list]` for a CIDR-restricted read and publish token. For example, `npm token create --cidr=192.0.2.0/24`
+   * `npm token create --read-only --cidr=[list]` for a CIDR-restricted read-only token
+2. When prompted, enter your password.
+3. If you have enabled [two-factor authentication][tfa], when prompted, enter a one-time password.
+4. Copy the token from the **token** field in the command output.
+
+#### CIDR-restricted token errors
+
+If the CIDR string you enter is invalid or in an inappropriate format, you will get an error similar to the one below:
+
+```
+npm ERR! CIDR whitelist contains invalid CIDR entry: X.X.X.X./YY,Z.Z.. . .
+```
+
+Make sure you are using a valid IPv4 range and try creating the token again.
+
+## Viewing access tokens
+
+<Note>
+
+**Note:** Full tokens are never displayed, only the first and last four characters will be shown. You can only view a full token immediately after creation.
+
+</Note>
+
+### Viewing tokens on the website
+
+To view all tokens associated with your account, in the upper right corner of the page, click your profile picture, then click **Access Tokens**.
+
+<Screenshot src="/integrations/integrating-npm-with-external-services/tokens-profile.png" alt="Screenshot of the account menu with the tokens link selected" />
+
+### Viewing tokens on the CLI
+
+To view all tokens associated with your account, on the command line, run the following command:
+
+```
+npm token list
+```
+
+#### Token attributes
+
+- **id:** Use the token ID to refer to the token in commands.
+- **token:** The first digits of the actual token.
+- **create:** Date the token was created.
+- **readonly:** If yes, indicates a read-only token. If no, indicates a token with both read and publish permissions.
+- **CIDR whitelist:** Restricts token use by IP address.
+
+
+[tfa]: about-two-factor-authentication
+[cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing

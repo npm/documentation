@@ -1,0 +1,53 @@
+---
+title: Defining a security policy
+---
+import shared from '../../../src/shared.js'
+
+As an Enterprise admin, you can prevent the download of insecure packages. For example, this is useful for keeping vulnerable dependencies out of your applications. At the moment, you can choose from three different security policies:
+
+* Allow all packages.
+* Block packages with critical vulnerabilities.
+* Block all vulnerable packages.
+
+<Note>
+
+**Note:** Packages are only blocked if they are not locally cached. Whenever you change policy, we recommend clearing your global cache (`npm cache clear --force`) and doing a clean install of your project (`npm clean-install`).
+
+</Note>
+
+All packages are allowed by default. To change your security policy:
+
+1. Log in to your Enterprise instance using your temporary username and password.
+
+2. <>{shared['enterprise-admin-panel'].text}</>
+
+   <>{shared['enterprise-admin-panel'].image}</>
+
+3. Click "settings".
+
+   <>{shared['enterprise-admin-panel-settings'].image}</>
+
+4. On the Settings page, under Security Policy, choose a policy.
+
+   <>{shared['enterprise-choose-security-policy'].image}</>
+
+5. Optionally provide a custom message for the install logs whenever a package is blocked.
+
+   <>{shared['enterprise-custom-blocking-message'].image}</>
+
+6. If present, check the "I acknowledge that this policy may cause my builds to break" box.
+
+   <Screenshot src="/enterprise/setup-and-configuration/acknowledge-blocking.png" alt="Screenshot showing an acknowledgement of broken builds" />
+
+7. Click "Apply Policy".
+
+If `npm install` attempts to download a package that violates the policy, developers will see an error similar to the following.
+
+```
+$ npm i lodash@1.0.0
+npm notice Could not download lodash 1.0.0 due to policy violations. Use `npm audit fix` to upgrade this dependency.
+npm ERR! code E403
+npm ERR! 403 Forbidden - GET https://registry.npmjs.com/lodash/-/lodash-1.0.0.tgz
+```
+
+To fix this error, use `npm audit fix` to upgrade dependencies to versions that don't violate policy.

@@ -1,0 +1,32 @@
+---
+title: Generating and locating npm-debug.log files
+redirect_from:
+  - /generating-and-locating-npm-debug-log-files
+---
+import shared from '../../../src/shared.js'
+
+When a package fails to install or publish, the npm CLI will generate an `npm-debug.log` file. This log file can help you (and [npm Support][support]) figure out what went wrong.
+
+If you need to generate a `npm-debug.log` file, you can run one of these commands.
+
+For installing packages:
+
+```
+npm install --timing
+```
+
+For publishing packages:
+
+```
+npm publish --timing
+```
+
+You can find the `npm-debug.log` file in your `.npm` directory. To find your `.npm` directory, use `npm config get cache`.
+
+If you use a CI environment, your logs are likely located elsewhere. For example, in Travis CI, you can find them in the `/home/travis/build` directory.
+
+<Note>
+<><strong>npm Enterprise users:</strong> If you need to {shared['contact-enterprise-support'].text}, we recommend attaching the entire contents of the `npm-debug.log` file or copying the contents into the body of the message, so that we can more easily diagnose the problem.</>
+</Note>
+
+[support]: https://www.npmjs.com/support

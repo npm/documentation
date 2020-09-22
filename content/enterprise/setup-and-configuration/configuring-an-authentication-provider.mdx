@@ -1,0 +1,52 @@
+---
+title: Configuring an authentication provider
+---
+import shared from '../../../src/shared.js'
+
+<Note>
+<><strong>Note:</strong> To avoid being locked out of your instance, you must connect your npm Enterprise admin account to your SSO account immediately after configuring an authentication provider. If you are locked out of your instance, {shared['contact-enterprise-support'].text}.</>
+</Note>
+
+As an Enterprise admin, you can configure your instance to use single sign-on (SSO) authentication through any external authentication provider that implements [OpenID Connect Core][oid-connect-core] and [OpenID Connect Discovery][oid-connect-discovery], such as [Auth0][auth0], [Azure Active Directory][azure], [Okta][okta], and [Google][google].
+
+1. Log in to your Enterprise instance using your temporary username and password.
+
+2. <>{shared['enterprise-admin-panel'].text}</>
+
+   <>{shared['enterprise-admin-panel'].image}</>
+
+3. Click "settings".
+
+   <>{shared['enterprise-admin-panel-settings'].image}</>
+
+4. On the Settings page, click "Configure Single Sign-On".
+
+   <Screenshot src="/enterprise/setup-and-configuration/sso-configure.png" alt="Screenshot of the single sign-on configuration form" />
+
+5. On the Single Sign-On configuration page, enter your SSO application settings:
+
+   * Domain: enter the base domain, without the `https://` prefix
+   * Client ID
+   * Client Secret
+
+   <Screenshot src="/enterprise/setup-and-configuration/sso-settings-form.png" alt="Screenshot of the single sign-on settings form" />
+
+6. Click **Save**.
+
+   <Screenshot src="/enterprise/setup-and-configuration/sso-save.png" alt="Screenshot of the single sign-on settings save button" />
+
+7. On your SSO provider application website, enter your npm Enterprise instance callback URL: `www.<company-name>.npme.io/sso/callback`.
+
+8. To connect your npm Enterprise admin account to your SSO account, visit `https://<company-name>.npme.io/login/via/1`.
+
+## Removing users from your authentication provider
+
+When you remove a user from your authentication provider, we also recommend [deactivating][deactivate-users] them in your instance.
+
+[OID-connect-core]: http://openid.net/specs/openid-connect-core-1_0.html
+[OID-connect-discovery]: http://openid.net/specs/openid-connect-discovery-1_0.html
+[auth0]: https://auth0.com/docs
+[azure]: https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-single-sign-on-portal
+[okta]: https://developer.okta.com/documentation/
+[google]: https://developers.google.com/identity/protocols/OpenIDConnect
+[deactivate-users]: viewing-deactivating-and-reactivating-users#deactivating-users

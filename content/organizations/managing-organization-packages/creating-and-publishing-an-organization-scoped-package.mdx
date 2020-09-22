@@ -1,0 +1,52 @@
+---
+title: Creating and publishing an organization scoped package
+redirect_from:
+  - /creating-and-publishing-an-org-scoped-package
+---
+import shared from '../../../src/shared.js'
+
+As an organization member, you can create and publish public and private packages within the organization's scope.
+
+## Creating an organization scoped package
+
+1. On the command line, make a directory with the name of the package you would like to create.
+
+   ```
+   mkdir /path/to/package/directory
+   ```
+
+2. Navigate to the newly-created package directory.
+
+3. To create an organization scoped package, on the command line, run:
+
+   ```
+   npm init --scope=<your_org_name>
+   ```
+
+4. To verify the package is using your organization scope, in a text editor, open the package's `package.json` file and check that the name is `@your_org_name/<pkg_name>`, replacing `your_org_name` with the name of your organization.
+
+## Publishing a private organization scoped package
+
+By default, `npm publish` will publish a scoped package as private.
+
+By default, any scoped package is published as private. However, if you have an organization that does not have the Private Packages feature, `npm publish` will fail unless you pass the `access` flag.
+
+1. On the command line, navigate to the package directory.
+
+2. Run `npm publish`.
+
+Private packages will say `private` below the package name on the npm website.
+
+<>{shared['organization-package-private'].image}</>
+
+## Publishing a public organization scoped package
+
+To publish an organization scoped package as public, use `npm publish --access public`.
+
+1. On the command line, navigate to the package directory.
+
+2. Run `npm publish --access public`.
+
+Public packages will say `public` below the package name on the npm website.
+
+<>{shared['organization-package-public'].image}</>

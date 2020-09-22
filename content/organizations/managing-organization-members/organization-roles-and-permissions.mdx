@@ -1,0 +1,33 @@
+---
+title: Organization roles and permissions
+redirect_from:
+  - /org-roles-and-permissions
+---
+import shared from '../../../src/shared.js'
+
+There are three roles in an organization:
+
+- **Owner:** Users who manage organization members and billing.
+- **Admin:** Users who manage team membership and package access.
+- **Member:** Users who create and publish packages in the organization scope.
+
+<><strong>On the public registry, you cannot remove the last owner from an organization.</strong> To delete an organization, {shared['contact-support'].text}.</>
+
+<Note>
+<><strong>npm Enterprise users:</strong> If you are using npm Enterprise, deactivating the only owner of an organization will cause that organization to be ownerless. If you have deactivated the last owner of an organization on an npm Enterprise instance, {shared['contact-enterprise-support'].text}.</>
+</Note>
+
+| Action                                                | **Owner** | **Admin** | **Member** |
+|:------------------------------------------------------|:---------:|:---------:|:----------:|
+| Manage organization billing                           | X         |         |          |
+| Add members to the organization                       | X         |         |          |
+| Remove members from the organization                  | X         |         |          |
+| Rename an organization                                | X         |         |          |
+| Delete an organization                                | X         |         |          |
+| Change any organization member's role                 | X         |         |          |
+| Create teams                                          | X         | X        |          |
+| Delete teams                                          | X         | X        |          |
+| Add any member to any team                            | X         | X        |          |
+| Remove any member from any team                       | X         | X        |          |
+| Manage team package access                            | X         | X        |          |
+| Create and publish packages in the organization scope | X         | X        | X         |

@@ -1,0 +1,86 @@
+---
+title: Adding members to your organization
+redirect_from:
+  - /adding-members-to-your-org
+---
+import shared from '../../../src/shared.js'
+
+As an organization owner, you can add other npm users to your organization to give them read or read and write access to public and private packages within your organization's scope, as well as public unscoped packages governed by your organization.
+
+<Note>
+
+**npm Enterprise users:** Make sure new users have been added to your enterprise instance before inviting them to an organization within the instance.
+
+</Note>
+
+When you add a member to your organization, they are sent an email inviting them to the organization.
+
+Once the new member [accepts the invitation][accept-invitation], they are:
+
+- assigned the role of "[member][member-perms]"
+- added to the ["developers" team][developers-team]
+
+If you have a [paid organization][paid-org], as part of an npm Teams plan, you will be billed $7 per month for each new member.
+
+## Inviting members to your organization
+
+1. <>{shared['user-login'].text}</>
+
+   <>{shared['user-login'].image}</>
+
+2. <>{shared['profile-settings'].text}</>
+
+   <>{shared['profile-settings'].image}</>
+
+3. <>{shared['organization-selection'].text}</>
+
+   <>{shared['organization-selection'].image}</>
+
+4. <>{shared['organization-members-tab'].text}</>
+
+   <>{shared['organization-members-tab'].image}</>
+
+5. Click the **Invite Members** button.
+
+   <Screenshot src="/organizations/managing-organization-members/invite-members-button.png" alt="Screenshot of the invite members button" />
+
+6. In the "Username or email" field, type the username or email address of the person you wish to invite.
+
+   <Screenshot src="/organizations/managing-organization-members/username-or-email-field.png" alt="Screenshot of the username or email field" />
+
+7. Click **Invite**.
+
+   <Screenshot src="/organizations/managing-organization-members/invite-button.png" alt="Screenshot of the invite button" />
+
+## Revoking an organization invitation
+
+As an organization owner, if you've made a mistake in inviting someone to your organization, you can revoke the organization invitation.
+
+1. <>{shared['user-login'].text}</>
+
+   <>{shared['user-login'].image}</>
+
+2. <>{shared['profile-settings'].text}</>
+
+   <>{shared['profile-settings'].image}</>
+
+3. <>{shared['organization-selection'].text}</>
+
+   <>{shared['organization-selection'].image}</>
+
+4. <>{shared['organization-members-tab'].text}</>
+
+   <>{shared['organization-members-tab'].image}</>
+
+5. Click the **Invite Members** button.
+
+   <Screenshot src="/organizations/managing-organization-members/invite-members-button.png" alt="Screenshot of the invite members button" />
+
+6. Under the "Invitations" field, click the **X** next to the name of the user invitation you would like to revoke.
+
+   <Screenshot src="/organizations/managing-organization-members/revoke-invitation.png" alt="Screenshot of the revoke invitation button" />
+
+[accept-invitation]: accepting-or-rejecting-an-org-invitation
+[member-perms]: org-roles-and-permissions
+[developers-team]: about-developers-team
+[paid-org]: upgrading-to-a-paid-org-plan

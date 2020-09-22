@@ -1,0 +1,44 @@
+---
+title: Converting your user account to an organization
+redirect_from:
+  - /converting-your-user-account-to-an-org
+---
+import shared from '../../../src/shared.js'
+
+If you have an npm user account, you can convert your user account to an organization. When you convert your user account to an organization, we will:
+
+- Create a new organization with the name of your user account.
+- Prompt you to create a new npm user account. We recommend choosing a variation of your old user name so collaborators will recognize you. For example, if your old username was "wombat", your new username might be "wombat-new".
+- Make your your new npm user account an owner of your new organization.
+- Add your new npm user account to a team called "Developers" in your new organization.
+- Transfer packages owned by your user account to your new organization.
+- Transfer your existing organization and team memberships and contributor access settings to your new user account.
+
+**Note:** Once your old user account has been converted to an organization, you will no longer be able to sign in to npm with your old user account.
+
+1. <>{shared['user-login'].text}</>
+
+   <>{shared['user-login'].image}</>
+
+2. <>{shared['organization-create'].text}</>
+
+   <>{shared['organization-create'].image}</>
+
+3. Below the account creation form, click **Convert**.
+
+   <Screenshot src="/organizations/creating-and-managing-organizations/convert-from-user.png" alt="Screenshot showing the convert dialog" />
+
+4. Review the account conversion steps and click **Continue**.
+
+   <Screenshot src="/organizations/creating-and-managing-organizations/convert-confirmation.png" alt="Screenshot showing the convert confirmation dialog" />
+
+5. On the new user account creation page, in the "Username" field, type the name of your new user account, then click **Submit**.
+
+   <Screenshot src="/organizations/creating-and-managing-organizations/convert-new-username.png" alt="Screenshot showing the convert username dialog" />
+
+6. On the plan selection page, select either the "Unlimited private packages" paid plan or the "Unlimited public packages" free plan, then click **Buy** or **Create**.
+
+   <>{shared['billing-organization-plans'].image}</>
+
+7. If you selected to use the unlimited private packages plan, in the payment dialog, provide the email, name, address, and credit card information for the card that will be used to pay for the organization.
+

@@ -1,0 +1,134 @@
+---
+title: Managing team access to organization packages
+redirect_from:
+  - /managing-team-access-to-org-packages
+  - /managing-team-access-to-packages
+---
+import shared from '../../../src/shared.js'
+
+As an organization owner or team admin, you can add or remove package access to or from teams in your organization.
+
+## Adding package access to a team
+
+### Adding package access to a team on the web
+
+1. <>{shared['user-login'].text}</>
+
+   <>{shared['user-login'].image}</>
+
+2. <>{shared['profile-settings'].text}</>
+
+   <>{shared['profile-settings'].image}</>
+
+3. <>{shared['organization-selection'].text}</>
+
+   <>{shared['organization-selection'].image}</>
+
+4. <>{shared['organization-teams-tab'].text}</>
+
+   <>{shared['organization-teams-tab'].image}</>
+
+5. Beside the team to which you want to add package access, click **Packages**.
+
+   <Screenshot src="/organizations/managing-teams/team-packages-button.png" alt="Screenshot of the packages button" />
+
+6. On the "Add Packages" page, in the "Package" field, type the name of the package and select from the dropdown menu.
+
+   <Screenshot src="/organizations/managing-teams/team-package-select.png" alt="Screenshot of the package selection" />
+
+7. Click **+ Add Existing Package**.
+
+   <Screenshot src="/organizations/managing-teams/team-package-add-existing-button.png" alt="Screenshot of the add package button" />
+
+8. Beside the package name, click **read** or **read/write** to set the team permissions for the package.
+
+   <Screenshot src="/organizations/managing-teams/team-package-permissions.png" alt="Screenshot of the team package permission option" />
+
+### Adding package access to a team using the CLI
+
+As an organization owner or team admin, you can use the the CLI `access` command to add package access to a team on
+the command line:
+
+```
+npm access grant <read-only|read-write> <org:team> [<package>]
+```
+
+For more information, see "[npm-access][access-cli]".
+
+## Removing package access from a team
+
+### Removing package access from a team on the web
+
+1. <>{shared['user-login'].text}</>
+
+   <>{shared['user-login'].image}</>
+
+2. <>{shared['profile-settings'].text}</>
+
+   <>{shared['profile-settings'].image}</>
+
+3. <>{shared['organization-selection'].text}</>
+
+   <>{shared['organization-selection'].image}</>
+
+4. <>{shared['organization-teams-tab'].text}</>
+
+   <>{shared['organization-teams-tab'].image}</>
+
+5. Beside the team from which you want to remove package access, click **Packages**.
+
+   <Screenshot src="/organizations/managing-teams/team-packages-button.png" alt="Screenshot of the packages button" />
+
+6. Beside the name of the package from which you want to remove access, click **x**.
+
+   <Screenshot src="/organizations/managing-teams/team-package-remove-button.png" alt="Screenshot of the remove package button" />
+
+### Removing package access from a team using the CLI
+
+As an organization owner or team admin, you can also use the the CLI `access` command to revoke package access from a team on
+the command line:
+
+```
+npm access revoke <org:team> [<package>]
+```
+For more information, see "[npm-access][access-cli]".
+
+## Changing package access for a team
+
+### Changing package access for a team on the web
+
+1. <>{shared['user-login'].text}</>
+
+   <>{shared['user-login'].image}</>
+
+2. <>{shared['profile-settings'].text}</>
+
+   <>{shared['profile-settings'].image}</>
+
+3. <>{shared['organization-selection'].text}</>
+
+   <>{shared['organization-selection'].image}</>
+
+4. <>{shared['organization-teams-tab'].text}</>
+
+   <>{shared['organization-teams-tab'].image}</>
+
+5. Beside the team from which you want to remove package access, click **Packages**.
+
+   <Screenshot src="/organizations/managing-teams/team-packages-button.png" alt="Screenshot of the packages button" />
+
+6. Beside the package name, click **read** or **read/write** to set the team permissions for the package.
+
+   <Screenshot src="/organizations/managing-teams/team-package-change-permissions.png" alt="Screenshot of the change package permission option" />
+
+### Changing package access for a team from the CLI
+
+As an organization owner or team admin, you can change package access for a team from the command line:
+
+```
+npm access
+```
+For more information, see the [`npm-access` CLI documentation][access-cli].
+
+
+[access-cli]: /cli/access

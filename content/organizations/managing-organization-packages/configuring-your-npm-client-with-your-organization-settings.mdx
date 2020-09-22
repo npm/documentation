@@ -1,0 +1,88 @@
+---
+title: Configuring your npm client with your organization settings
+redirect_from:
+  - /configuring-your-npm-client-with-your-org-settings
+---
+import shared from '../../../src/shared.js'
+
+As an organization member, you can configure your npm client to:
+
+- make a single package or all new packages you create locally use your organization's scope
+- make a single package or all new packages you create locally have default public visibility
+
+Before configuring your npm client, you must [install npm][install-npm].
+
+## Configuring your npm client to use your organization's scope
+
+If you will be publishing packages with your organization's scope often, you can add your organization's scope to your global `.npmrc` configuration file.
+
+### Setting your organization scope for all new packages
+
+<Note>
+
+**Note:** Setting the organization scope using the steps below will only set the scope for new packages; for existing packages, you will need to update the `name` field in `package.json`.
+
+</Note>
+
+On the command line, run the following command, replacing &lt;org-name&gt; with the name of your organization:
+
+```
+npm config set scope <org-name> --global
+```
+
+For packages you do not want to publish with your organization's scope, you must manually edit the package's `package.json` to remove the organization scope from the `name` field.
+
+### Setting your organization scope for a single package
+
+1. On the command line, navigate to the package directory.
+
+   ```
+   cd /path/to/package
+   ```
+
+2. Run the following command, replacing &lt;org-name&gt; with the name of your organization:
+
+    ```
+    npm config set scope <org-name>
+    ```
+
+## Changing default package visibility to public
+
+By default, publishing a scoped package with `npm publish` will publish the package as private. If you are a member of an organization on the free organization plan, or are on the paid organization plan but want to publish a scoped package as public, you must pass the `--access public` flag:
+
+```
+npm publish --access public
+```
+
+### Setting package visibility to public for a single package
+
+You can set a single package to pass `--access public ` to every `npm publish` command that you issue for that package.
+
+1. On the command line, navigate to the package directory.
+
+   ```
+   cd /path/to/package
+
+2. Run the following command:
+
+    ```
+    npm config set access public
+    ```
+
+### Setting package visibility to public for all packages
+
+You can set all packages to pass `--access public ` to every `npm publish` command that you issue for that package.
+
+<Note>
+
+**Warning:** Setting packages access to `public` in your global `.npmrc` will affect all packages you create, including packages in your personal account scope, as well as packages scoped to your organization.
+
+</Note>
+
+On the command line, run the following command:
+
+```
+npm config set access public --global
+```
+
+[install-npm]: downloading-and-installing-node-js-and-npm

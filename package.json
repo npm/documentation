@@ -1,0 +1,18 @@
+{
+  "name": "npm-documentation",
+  "repository": "npm/documentation",
+  "version": "0.1.0",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "now-build": "npm run build",
+    "serve": "gatsby serve"
+  },
+  "dependencies": {
+    "gatsby": "^2.24.65",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "gatsby-theme-doctornpm": "^1.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

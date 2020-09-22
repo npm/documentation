@@ -1,0 +1,49 @@
+---
+title: Transferring a package from a user account to another user account
+---
+
+As a package owner or maintainer, you can transfer ownership of a package you no longer wish to maintain to another trusted npm user on either the npm website or the command line.
+
+For more information on how npm support handles package name disputes between users, you can refer to npm's [package name dispute policy][dispute-policy].
+
+<Note>
+
+**Note:** If your package is scoped and private, the new package owner must also have a [paid user account](https://www.npmjs.com/pricing). It is possible to transfer ownership of user-scoped packages, however we don't recommend it because it can create some ownership confusion.
+
+</Note>
+
+## Transferring a package from a user account to another user account on the website
+
+To transfer a package you own or maintain to another user, follow these steps:  
+
+1. Navigate to the package page for the package you want to transfer, replacing `<your-package-name>` with the name of your package:
+`https://www.npmjs.com/package/<your-package-name>`.
+
+2. On the package Admin tab, under "Maintainers", enter the npm username of the new maintainer.
+
+   <Screenshot src="/packages-and-modules/updating-and-managing-your-published-packages/package-maintainer-invite.png" alt="Screenshot showing text field to invite maintainers" />
+
+3. Click "Invite."
+
+4. To remove yourself as a maintainer, under the maintainers list, click the "x" next to your username.
+
+   <Screenshot src="/packages-and-modules/updating-and-managing-your-published-packages/package-maintainer-list.png" alt="Screenshot showing maintainer list" />
+
+## Transferring a package from a user account to another user account on the command line
+
+To transfer a package to another npm user using the CLI, run the [`npm owner add`][npm-owner] and `rm` commands in order, replacing `<their-username>` with the other user's npm username, `<your-username>` with your npm username, and `<package-name>` with the package you want to transfer:
+
+```
+npm owner add <their-username> <package-name>
+npm owner rm <your-username> <package-name>
+```
+
+If you have two-factor authentication enabled for writes, add a one-time password to the command, `--otp=123456` (where *123456* is the code from your authenticator application).
+
+```
+npm owner add <their-username> <package-name> --otp=123456
+npm owner rm <your-username> <package-name> --otp=123456
+```
+
+[dispute-policy]: https://www.npmjs.com/policies/disputes
+[npm-owner]: cli/owner
