@@ -24,8 +24,8 @@ Pull requests to CLI documentation in this repository will be closed.
 
 ## Theme
 
-The gatsby theme used here is a variation of
-[doctocat](https://github.com/primer/doctocat), with some theme changes
+The gatsby theme used here is "doctornpm" - a variation of
+[doctocat](https://github.com/primer/doctocat) with some theme changes
 for npm's design language and additional components to support multiple
 versions of the CLI documentation.
 
