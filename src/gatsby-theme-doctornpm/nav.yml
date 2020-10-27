@@ -167,12 +167,12 @@
       shortName: Integrating with external services
       url: /integrations/integrating-npm-with-external-services
       children:
-        - title: About authentication tokens
-          url: /about-authentication-tokens
-        - title: Creating and viewing authentication tokens
-          url: /creating-and-viewing-authentication-tokens
-        - title: Revoking authentication tokens
-          url: /revoking-authentication-tokens
+        - title: About access tokens
+          url: /about-access-tokens
+        - title: Creating and viewing access tokens
+          url: /creating-and-viewing-access-tokens
+        - title: Revoking access tokens
+          url: /revoking-access-tokens
         - title: Using private packages in a CI/CD workflow
           url: /using-private-packages-in-a-ci-cd-workflow
         - title: Docker and private modules
