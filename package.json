@@ -5,8 +5,10 @@
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
+    "build-prefix-paths": "gatsby build --prefix-paths",
     "now-build": "npm run build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "serve-prefix-paths": "gatsby serve --prefix-paths"
   },
   "dependencies": {
     "gatsby": "^2.24.65",
