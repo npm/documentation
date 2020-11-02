@@ -8,6 +8,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    # Set up dependencies
+    - name: Install dependencies
+      run: sudo apt install libvips-dev
+
     # Check out the content (source branch)
     - name: Check out source
       uses: actions/checkout@v2
