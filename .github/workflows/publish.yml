@@ -10,7 +10,7 @@ jobs:
     steps:
     # Set up dependencies
     - name: Install dependencies
-      run: sudo apt install libvips-dev libglib2.0-dev
+      run: sudo apt install libvips-dev vips-cpp libglib2.0-dev
 
     # Check out the content (source branch)
     - name: Check out source
