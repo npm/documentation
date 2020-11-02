@@ -6,12 +6,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
-    # Set up dependencies
-    - name: Install dependencies
-      run: sudo apt-get remove libvips-dev libglib2.0-dev
-
     # Check out the content (source branch)
     - name: Check out source
       uses: actions/checkout@v2
