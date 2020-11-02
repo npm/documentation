@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
     # Check out the content (source branch)
     - name: Check out source
@@ -22,7 +22,7 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: 14.x
+        node-version: 12.x
 
     # Update npm to v7
     - name: Update npm v7
