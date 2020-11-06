@@ -13,7 +13,7 @@
   "dependencies": {
     "gatsby": "^2.24.65",
     "gatsby-plugin-meta-redirect": "^1.1.1",
-    "gatsby-theme-doctornpm": "^1.2.0",
+    "gatsby-theme-doctornpm": "^1.2.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }
