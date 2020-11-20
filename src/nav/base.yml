@@ -156,8 +156,6 @@
       url: /verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry
     - title: Requiring 2FA for package publishing and settings modification
       url: /requiring-2fa-for-package-publishing-and-settings-modification
-    - title: Reporting a vulnerability in an npm package
-      url: /reporting-a-vulnerability-in-an-npm-package
     - title: Reporting malware in an npm package
       url: /reporting-malware-in-an-npm-package
 
