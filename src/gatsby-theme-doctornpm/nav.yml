@@ -159,7 +159,7 @@
         - title: Requiring 2FA for package publishing and settings modification
           url: /requiring-2fa-for-package-publishing-and-settings-modification
         - title: Reporting malware in an npm package
-          url: /reporting-malware-in-an-npm-package  
+          url: /reporting-malware-in-an-npm-package
 - title: Integrations
   url: /integrations
   children:
