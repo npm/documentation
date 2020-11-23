@@ -32,7 +32,7 @@ account information.
 
 The npm public registry is powered by a CouchDB database,
 of which there is a public mirror at
-<https://skimdb.npmjs.com/registry>.  The code for the couchapp is
+<https://replicate.npmjs.com>.  The code for the couchapp is
 available at <https://github.com/npm/npm-registry-couchapp>.
 
 The registry URL used is determined by the scope of the package (see
