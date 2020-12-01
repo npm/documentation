@@ -567,12 +567,6 @@
             - title: npm bugs
               url: /cli/v7/commands/npm-bugs
               description: Bugs for a package in a web browser maybe
-            - title: npm build
-              url: /cli/v7/commands/npm-build
-              description: Build a package
-            - title: npm bundle
-              url: /cli/v7/commands/npm-bundle
-              description: Removed
             - title: npm cache
               url: /cli/v7/commands/npm-cache
               description: Manipulates packages cache

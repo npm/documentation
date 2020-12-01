@@ -298,19 +298,28 @@ function translate(config, data) {
 
 function ensurePagesLinked(config) {
     const nav = yaml.parse(fs.readFileSync(outputNavFile, 'utf8'));
-    let unseen = { }
+    let pages = { }
     let success = true
 
-    Object.values(pagesForVersion).forEach((pages) => {
-        pages.forEach((page) => {
+    Object.values(pagesForVersion).forEach((p) => {
+        p.forEach((page) => {
             const file = path.join(path.sep, page).replace(/\.md$/, '');
-            unseen[file] = true;
+            pages[file] = true;
         })
     })
 
-    walkNodes(nav, unseen);
+    // identify nav items that aren't pages
+    walkNavigation(nav, (n) => {
+        if (!pages[n.url]) {
+            console.log(`warning: ${n.url} included in navigation but does not exist`);
+            success = false;
+        }
+    });
 
-    Object.keys(unseen).forEach((page) => {
+    // identify pages that aren't listed in the nav
+    walkNavigation(nav, (n) => { delete pages[n.url] });
+
+    Object.keys(pages).forEach((page) => {
         console.log(`warning: ${page} is not included in navigation`);
         success = false;
     });
@@ -318,16 +327,18 @@ function ensurePagesLinked(config) {
     return success;
 }
 
-function walkNodes(nodes, unseen) {
+function walkNavigation(nodes, fn) {
     nodes.forEach((n) => {
-        delete unseen[n.url];
+        if (!n.children && !n.variants && n.url.startsWith('/cli/')) {
+            fn(n);
+        }
 
         if (n.variants) {
-            walkNodes(n.variants, unseen);
+            walkNavigation(n.variants, fn);
         }
 
         if (n.children) {
-            walkNodes(n.children, unseen);
+            walkNavigation(n.children, fn);
         }
     })
 }

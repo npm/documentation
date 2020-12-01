@@ -20,12 +20,6 @@
   - title: npm bugs
     url: /commands/npm-bugs
     description: Bugs for a package in a web browser maybe
-  - title: npm build
-    url: /commands/npm-build
-    description: Build a package
-  - title: npm bundle
-    url: /commands/npm-bundle
-    description: Removed
   - title: npm cache
     url: /commands/npm-cache
     description: Manipulates packages cache
