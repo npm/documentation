@@ -23,6 +23,7 @@ you will most certainly enjoy this command.
 ### See Also
 
 * [npm star](/cli/v7/commands/npm-star)
+* [npm unstar](/cli/v7/commands/npm-unstar)
 * [npm view](/cli/v7/commands/npm-view)
 * [npm whoami](/cli/v7/commands/npm-whoami)
 * [npm adduser](/cli/v7/commands/npm-adduser)

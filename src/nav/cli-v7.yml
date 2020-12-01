@@ -173,6 +173,9 @@
   - title: npm unpublish
     url: /commands/npm-unpublish
     description: Remove a package from the registry
+  - title: npm unstar
+    url: /commands/npm-unstar
+    description: Remove an item from your favorite packages
   - title: npm update
     url: /commands/npm-update
     description: Update a package

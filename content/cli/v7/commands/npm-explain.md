@@ -59,7 +59,7 @@ node_modules/nyc/node_modules/find-up
 #### json
 
 * Default: false
-* Type: Bolean
+* Type: Boolean
 
 Show information in JSON format.
 

@@ -720,6 +720,9 @@
             - title: npm unpublish
               url: /cli/v7/commands/npm-unpublish
               description: Remove a package from the registry
+            - title: npm unstar
+              url: /cli/v7/commands/npm-unstar
+              description: Remove an item from your favorite packages
             - title: npm update
               url: /cli/v7/commands/npm-update
               description: Update a package

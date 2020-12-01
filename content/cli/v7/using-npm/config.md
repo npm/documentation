@@ -435,7 +435,7 @@ Format `package-lock.json` or `npm-shrinkwrap.json` as a human readable file.
 * Type: Boolean
 
 When "true" displays the message at the end of each `npm install`
-aknowledging the number of dependencies looking for funding.
+acknowledging the number of dependencies looking for funding.
 See [`npm fund`](/cli/v7/commands/npm-fund) for details.
 
 #### fetch-retries
@@ -1099,7 +1099,7 @@ using legacy search endpoint.
 
 If true, success/failure metrics will be reported to the registry stored in
 `metrics-registry`.  These requests contain the number of successful and
-failing runs of the npm CLI and the time period overwhich those counts were
+failing runs of the npm CLI and the time period over which those counts were
 gathered. No identifying information is included in these requests.
 
 #### shell
