@@ -38,6 +38,9 @@
   - title: npm deprecate
     url: /commands/npm-deprecate
     description: Deprecate a version of a package
+  - title: npm diff
+    url: /commands/npm-diff
+    description: The registry diff command
   - title: npm dist-tag
     url: /commands/npm-dist-tag
     description: Modify package distribution tags
@@ -137,6 +140,9 @@
   - title: npm search
     url: /commands/npm-search
     description: Search for packages
+  - title: npm set-script
+    url: /commands/npm-set-script
+    description: Set tasks in the scripts section of package.json
   - title: npm shrinkwrap
     url: /commands/npm-shrinkwrap
     description: Lock down dependency versions for publication
@@ -199,18 +205,15 @@
   - title: .npmrc
     url: /configuring-npm/npmrc
     description: The npm config files
+  - title: npm-shrinkwrap.json
+    url: /configuring-npm/npm-shrinkwrap-json
+    description: A publishable lockfile
   - title: package.json
     url: /configuring-npm/package-json
     description: Specifics of npm's package.json handling
-  - title: package-locks
-    url: /configuring-npm/package-locks
-    description: An explanation of npm lockfiles
   - title: package-lock.json
     url: /configuring-npm/package-lock-json
     description: A manifestation of the manifest
-  - title: shrinkwrap.json
-    url: /configuring-npm/shrinkwrap-json
-    description: A publishable lockfile
 
 - title: Using npm
   shortName: Using
@@ -222,9 +225,6 @@
   - title: Config
     url: /using-npm/config
     description: About npm configuration
-  - title: semver
-    url: /using-npm/semver
-    description: The semantic versioner for npm
   - title: Scope
     url: /using-npm/scope
     description: Scoped packages
@@ -237,9 +237,6 @@
   - title: Organizations
     url: /using-npm/orgs
     description: Working with teams & organizations
-  - title: Disputes
-    url: /using-npm/disputes
-    description: Handling module name disputes
   - title: Developers
     url: /using-npm/developers
     description: Developer guide
