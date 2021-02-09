@@ -2,14 +2,14 @@
     {
         "id": "v6",
         "version": "6.0.0",
-        "title": "Version 6.x (LTS release)",
-        "branch": "v6",
-        "default": true
+        "title": "Version 6.x (Legacy release)",
+        "branch": "v6-docs"
     },
     {
         "id": "v7",
         "version": "7.0.0",
-        "title": "Version 7.x (Development release)",
-        "branch": "latest"
+        "title": "Version 7.x (LTS release)",
+        "branch": "latest",
+        "default": true
     }
 ]
