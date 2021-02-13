@@ -2,6 +2,13 @@
 title: npm-completion
 section: 1
 description: Tab Completion for npm
+redirect_from:
+  - /cli/completion
+  - /cli/completion.html
+  - /cli/commands/completion
+  - /cli-commands/completion
+  - /cli-commands/completion.html
+  - /cli-commands/npm-completion
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-completion.md

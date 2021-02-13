@@ -2,15 +2,8 @@
 title: npm-bundle
 section: 1
 description: REMOVED
-redirect_from:
-  - /cli/bundle
-  - /cli/bundle.html
-  - /cli/commands/bundle
-  - /cli-commands/bundle
-  - /cli-commands/bundle.html
-  - /cli-commands/npm-bundle
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/commands/npm-bundle.md
 ---
 

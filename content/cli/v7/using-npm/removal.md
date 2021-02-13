@@ -2,6 +2,13 @@
 title: removal
 section: 7
 description: Cleaning the Slate
+redirect_from:
+  - /using-npm/removal
+  - /using-npm/removal.html
+  - /misc/removal
+  - /misc/removal.html
+  - /misc/removing-npm
+  - /misc/removing-npm.html
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/using-npm/removal.md
@@ -60,8 +67,6 @@ modules.  To track those down, you can do the following:
 ```bash
 find /usr/local/{lib/node,bin} -exec grep -l npm \{\} \; ;
 ```
-
-(This is also in the README file.)
 
 ### See also
 

@@ -2,6 +2,13 @@
 title: npm-org
 section: 1
 description: Manage orgs
+redirect_from:
+  - /cli/org
+  - /cli/org.html
+  - /cli/commands/org
+  - /cli-commands/org
+  - /cli-commands/org.html
+  - /cli-commands/npm-org
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-org.md
@@ -55,10 +62,11 @@ $ npm org ls my-org @mx-santos
 
 ### Description
 
-You can use the `npm org` commands to manage and view users of an organization.
-It supports adding and removing users, changing their roles, listing them, and
-finding specific ones and their roles.
+You can use the `npm org` commands to manage and view users of an
+organization.  It supports adding and removing users, changing their roles,
+listing them, and finding specific ones and their roles.
 
 ### See Also
 
+* [using orgs](/cli/v7/using-npm/orgs)
 * [Documentation on npm Orgs](https://docs.npmjs.com/orgs/)

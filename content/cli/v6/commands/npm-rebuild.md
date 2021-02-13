@@ -2,15 +2,8 @@
 title: npm-rebuild
 section: 1
 description: Rebuild a package
-redirect_from:
-  - /cli/rebuild
-  - /cli/rebuild.html
-  - /cli/commands/rebuild
-  - /cli-commands/rebuild
-  - /cli-commands/rebuild.html
-  - /cli-commands/npm-rebuild
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/commands/npm-rebuild.md
 ---
 

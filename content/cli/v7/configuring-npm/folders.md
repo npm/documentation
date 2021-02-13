@@ -2,6 +2,11 @@
 title: folders
 section: 5
 description: Folder Structures Used by npm
+redirect_from:
+  - /configuring-npm/folders
+  - /configuring-npm/folders.html
+  - /files/folders
+  - /files/folders.html
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/configuring-npm/folders.md

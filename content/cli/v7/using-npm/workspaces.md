@@ -2,6 +2,11 @@
 title: workspaces
 section: 7
 description: Working with workspaces
+redirect_from:
+  - /using-npm/workspaces
+  - /using-npm/workspaces.html
+  - /misc/workspaces
+  - /misc/workspaces.html
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/using-npm/workspaces.md

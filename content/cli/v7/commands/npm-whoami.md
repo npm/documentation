@@ -2,6 +2,13 @@
 title: npm-whoami
 section: 1
 description: Display npm username
+redirect_from:
+  - /cli/whoami
+  - /cli/whoami.html
+  - /cli/commands/whoami
+  - /cli-commands/whoami
+  - /cli-commands/whoami.html
+  - /cli-commands/npm-whoami
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-whoami.md

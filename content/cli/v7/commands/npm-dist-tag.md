@@ -2,6 +2,13 @@
 title: npm-dist-tag
 section: 1
 description: Modify package distribution tags
+redirect_from:
+  - /cli/dist-tag
+  - /cli/dist-tag.html
+  - /cli/commands/dist-tag
+  - /cli-commands/dist-tag
+  - /cli-commands/dist-tag.html
+  - /cli-commands/npm-dist-tag
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-dist-tag.md

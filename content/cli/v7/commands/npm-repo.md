@@ -2,6 +2,13 @@
 title: npm-repo
 section: 1
 description: Open package repository page in the browser
+redirect_from:
+  - /cli/repo
+  - /cli/repo.html
+  - /cli/commands/repo
+  - /cli-commands/repo
+  - /cli-commands/repo.html
+  - /cli-commands/npm-repo
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-repo.md
@@ -16,9 +23,9 @@ npm repo [<pkgname> [<pkgname> ...]]
 ### Description
 
 This command tries to guess at the likely location of a package's
-repository URL, and then tries to open it using the `--browser`
-config param. If no package name is provided, it will search for
-a `package.json` in the current folder and use the `name` property.
+repository URL, and then tries to open it using the `--browser` config
+param. If no package name is provided, it will search for a `package.json`
+in the current folder and use the `repository` property.
 
 ### Configuration
 

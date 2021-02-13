@@ -2,6 +2,13 @@
 title: npm-explain
 section: 1
 description: Explain installed packages
+redirect_from:
+  - /cli/explain
+  - /cli/explain.html
+  - /cli/commands/explain
+  - /cli-commands/explain
+  - /cli-commands/explain.html
+  - /cli-commands/npm-explain
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-explain.md
@@ -11,6 +18,8 @@ github_path: docs/content/commands/npm-explain.md
 
 ```bash
 npm explain <folder | specifier>
+
+alias: why
 ```
 
 ### Description

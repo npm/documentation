@@ -2,15 +2,8 @@
 title: npm-test
 section: 1
 description: Test a package
-redirect_from:
-  - /cli/test
-  - /cli/test.html
-  - /cli/commands/test
-  - /cli-commands/test
-  - /cli-commands/test.html
-  - /cli-commands/npm-test
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/commands/npm-test.md
 ---
 

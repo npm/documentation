@@ -2,13 +2,8 @@
 title: registry
 section: 7
 description: The JavaScript Package Registry
-redirect_from:
-  - /using-npm/registry
-  - /using-npm/registry.html
-  - /misc/registry
-  - /misc/registry.html
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/using-npm/registry.md
 ---
 

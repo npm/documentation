@@ -298,10 +298,10 @@
   shortName: CLI
   url: /cli
   variants:
-    - title: Version 6.x (LTS release)
+    - title: Version 6.x (Legacy release)
       shortName: v6
       url: /cli/v6
-      default: true
+      default: null
       children:
         - title: CLI Commands
           shortName: Commands
@@ -540,10 +540,10 @@
             - title: Removal
               url: /cli/v6/using-npm/removal
               description: Cleaning the slate
-    - title: Version 7.x (Development release)
+    - title: Version 7.x (LTS release)
       shortName: v7
       url: /cli/v7
-      default: null
+      default: true
       children:
         - title: CLI Commands
           shortName: Commands
@@ -585,6 +585,9 @@
             - title: npm deprecate
               url: /cli/v7/commands/npm-deprecate
               description: Deprecate a version of a package
+            - title: npm diff
+              url: /cli/v7/commands/npm-diff
+              description: The registry diff command
             - title: npm dist-tag
               url: /cli/v7/commands/npm-dist-tag
               description: Modify package distribution tags
@@ -684,6 +687,9 @@
             - title: npm search
               url: /cli/v7/commands/npm-search
               description: Search for packages
+            - title: npm set-script
+              url: /cli/v7/commands/npm-set-script
+              description: Set tasks in the scripts section of package.json
             - title: npm shrinkwrap
               url: /cli/v7/commands/npm-shrinkwrap
               description: Lock down dependency versions for publication
@@ -745,18 +751,15 @@
             - title: .npmrc
               url: /cli/v7/configuring-npm/npmrc
               description: The npm config files
+            - title: npm-shrinkwrap.json
+              url: /cli/v7/configuring-npm/npm-shrinkwrap-json
+              description: A publishable lockfile
             - title: package.json
               url: /cli/v7/configuring-npm/package-json
               description: Specifics of npm's package.json handling
-            - title: package-locks
-              url: /cli/v7/configuring-npm/package-locks
-              description: An explanation of npm lockfiles
             - title: package-lock.json
               url: /cli/v7/configuring-npm/package-lock-json
               description: A manifestation of the manifest
-            - title: shrinkwrap.json
-              url: /cli/v7/configuring-npm/shrinkwrap-json
-              description: A publishable lockfile
         - title: Using npm
           shortName: Using
           url: /cli/v7/using-npm
@@ -767,9 +770,6 @@
             - title: Config
               url: /cli/v7/using-npm/config
               description: About npm configuration
-            - title: semver
-              url: /cli/v7/using-npm/semver
-              description: The semantic versioner for npm
             - title: Scope
               url: /cli/v7/using-npm/scope
               description: Scoped packages
@@ -782,9 +782,6 @@
             - title: Organizations
               url: /cli/v7/using-npm/orgs
               description: Working with teams & organizations
-            - title: Disputes
-              url: /cli/v7/using-npm/disputes
-              description: Handling module name disputes
             - title: Developers
               url: /cli/v7/using-npm/developers
               description: Developer guide

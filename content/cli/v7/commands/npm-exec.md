@@ -2,6 +2,13 @@
 title: npm-exec
 section: 1
 description: Run a command from a local or remote npm package
+redirect_from:
+  - /cli/exec
+  - /cli/exec.html
+  - /cli/commands/exec
+  - /cli-commands/exec
+  - /cli-commands/exec.html
+  - /cli-commands/npm-exec
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-exec.md
@@ -19,9 +26,11 @@ npx <pkg>[@<specifier>] [args...]
 npx -p <pkg>[@<specifier>] <cmd> [args...]
 npx -c '<cmd> [args...]'
 npx -p <pkg>[@<specifier>] -c '<cmd> [args...]'
+Run without --call or positional args to open interactive subshell
 
 alias: npm x, npx
 
+common options:
 --package=<pkg> (may be specified multiple times)
 -p is a shorthand for --package only when using npx executable
 -c <cmd> --call=<cmd> (may not be mixed with positional arguments)
@@ -32,6 +41,11 @@ alias: npm x, npx
 This command allows you to run an arbitrary command from an npm package
 (either one installed locally, or fetched remotely), in a similar context
 as running it via `npm run`.
+
+Run without positional arguments or `--call`, this allows you to
+interactively run commands in the same sort of shell environment that
+`package.json` scripts are run.  Interactive mode is not supported in CI
+environments when standard input is a TTY, to prevent hangs.
 
 Whatever packages are specified by the `--package` option will be
 provided in the `PATH` of the executed command, along with any locally
@@ -168,6 +182,28 @@ This resulted in some shifts in its functionality:
 - The `--always-spawn` option is redundant, and thus removed.
 - The `--shell` option is replaced with `--script-shell`, but maintained
   in the `npx` executable for backwards compatibility.
+
+### A note on caching
+
+The npm cli utilizes its internal package cache when using the package
+name specified.  You can use the following to change how and when the
+cli uses this cache. See [`npm cache`](/cli/v7/commands/npm-cache) for more on
+how the cache works.
+
+#### prefer-online
+
+Forces staleness checks for packages, making the cli look for updates
+immediately even if the package is already in the cache.
+
+#### prefer-offline
+
+Bypasses staleness checks for packages.  Missing data will still be
+requested from the server. To force full offline mode, use `offline`.
+
+#### offline
+
+Forces full offline mode. Any packages not locally cached will result in
+an error.
 
 ### See Also
 

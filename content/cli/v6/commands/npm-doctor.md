@@ -2,15 +2,8 @@
 title: npm-doctor
 section: 1
 description: Check your environments
-redirect_from:
-  - /cli/doctor
-  - /cli/doctor.html
-  - /cli/commands/doctor
-  - /cli-commands/doctor
-  - /cli-commands/doctor.html
-  - /cli-commands/npm-doctor
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/commands/npm-doctor.md
 ---
 

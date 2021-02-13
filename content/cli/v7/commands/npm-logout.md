@@ -2,6 +2,13 @@
 title: npm-logout
 section: 1
 description: Log out of the registry
+redirect_from:
+  - /cli/logout
+  - /cli/logout.html
+  - /cli/commands/logout
+  - /cli-commands/logout
+  - /cli-commands/logout.html
+  - /cli-commands/npm-logout
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-logout.md
@@ -15,13 +22,13 @@ npm logout [--registry=<url>] [--scope=<@scope>]
 
 ### Description
 
-When logged into a registry that supports token-based authentication, tell the
-server to end this token's session. This will invalidate the token everywhere
-you're using it, not just for the current environment.
+When logged into a registry that supports token-based authentication, tell
+the server to end this token's session. This will invalidate the token
+everywhere you're using it, not just for the current environment.
 
-When logged into a legacy registry that uses username and password authentication, this will
-clear the credentials in your user configuration. In this case, it will _only_ affect
-the current environment.
+When logged into a legacy registry that uses username and password
+authentication, this will clear the credentials in your user configuration.
+In this case, it will _only_ affect the current environment.
 
 If `--scope` is provided, this will find the credentials for the registry
 connected to that scope, if set.

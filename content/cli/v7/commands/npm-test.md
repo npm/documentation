@@ -2,6 +2,13 @@
 title: npm-test
 section: 1
 description: Test a package
+redirect_from:
+  - /cli/test
+  - /cli/test.html
+  - /cli/commands/test
+  - /cli-commands/test
+  - /cli-commands/test.html
+  - /cli-commands/npm-test
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-test.md
@@ -17,7 +24,28 @@ aliases: t, tst
 
 ### Description
 
-This runs a package's "test" script, if one was provided.
+This runs a predefined command specified in the `"test"` property of
+a package's `"scripts"` object.
+
+### Example
+
+```json
+{
+  "scripts": {
+    "test": "node test.js"
+  }
+}
+```
+
+```bash
+npm test
+> npm@x.x.x test
+> node test.js
+
+(test.js output would be here)
+```
+
+
 
 ### See Also
 

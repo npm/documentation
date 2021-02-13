@@ -2,15 +2,8 @@
 title: npm-outdated
 section: 1
 description: Check for outdated packages
-redirect_from:
-  - /cli/outdated
-  - /cli/outdated.html
-  - /cli/commands/outdated
-  - /cli-commands/outdated
-  - /cli-commands/outdated.html
-  - /cli-commands/npm-outdated
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/commands/npm-outdated.md
 ---
 

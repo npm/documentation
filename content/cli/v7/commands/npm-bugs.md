@@ -2,6 +2,13 @@
 title: npm-bugs
 section: 1
 description: Report bugs for a package in a web browser
+redirect_from:
+  - /cli/bugs
+  - /cli/bugs.html
+  - /cli/commands/bugs
+  - /cli-commands/bugs
+  - /cli-commands/bugs.html
+  - /cli-commands/npm-bugs
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-bugs.md

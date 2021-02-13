@@ -2,13 +2,8 @@
 title: disputes
 section: 7
 description: Handling Module Name Disputes
-redirect_from:
-  - /using-npm/disputes
-  - /using-npm/disputes.html
-  - /misc/disputes
-  - /misc/disputes.html
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/using-npm/disputes.md
 ---
 

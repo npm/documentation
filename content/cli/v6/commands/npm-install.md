@@ -2,16 +2,8 @@
 title: npm-install
 section: 1
 description: Install a package
-redirect_from:
-  - /cli/install
-  - /cli/install.html
-  - /cli/commands/install
-  - /cli-commands/install
-  - /cli-commands/install.html
-  - /cli-commands/npm-install
-  - /cli-documentation/install
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/commands/npm-install.md
 ---
 

@@ -2,6 +2,13 @@
 title: npm-start
 section: 1
 description: Start a package
+redirect_from:
+  - /cli/start
+  - /cli/start.html
+  - /cli/commands/start
+  - /cli-commands/start
+  - /cli-commands/start.html
+  - /cli-commands/npm-start
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-start.md
@@ -15,12 +22,38 @@ npm start [-- <args>]
 
 ### Description
 
-This runs an arbitrary command specified in the package's `"start"` property of
-its `"scripts"` object. If no `"start"` property is specified on the
-`"scripts"` object, it will run `node server.js`.
+This runs a predefined command specified in the `"start"` property of
+a package's `"scripts"` object.
+
+If the `"scripts"` object does not define a  `"start"` property, npm
+will run `node server.js`.
+
+Note that this is different from the default node behavior of running
+the file specified in a package's `"main"` attribute when evoking with
+`node .`
 
 As of [`npm@2.0.0`](https://blog.npmjs.org/post/98131109725/npm-2-0-0), you can
 use custom arguments when executing scripts. Refer to [`npm run-script`](/cli/v7/commands/npm-run-script) for more details.
+
+### Example
+
+```json
+{
+  "scripts": {
+    "start": "node foo.js"
+  }
+}
+```
+
+```bash
+npm start
+
+> npm@x.x.x start
+> node foo.js
+
+(foo.js output would be here)
+
+```
 
 ### See Also
 

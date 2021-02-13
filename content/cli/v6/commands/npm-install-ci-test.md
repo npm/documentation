@@ -2,15 +2,8 @@
 title: npm-install-ci-test
 section: 1
 description: Install a project with a clean slate and run tests
-redirect_from:
-  - /cli/install-ci-test
-  - /cli/install-ci-test.html
-  - /cli/commands/install-ci-test
-  - /cli-commands/install-ci-test
-  - /cli-commands/install-ci-test.html
-  - /cli-commands/npm-install-ci-test
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/commands/npm-install-ci-test.md
 ---
 

@@ -2,15 +2,8 @@
 title: npm-prefix
 section: 1
 description: Display prefix
-redirect_from:
-  - /cli/prefix
-  - /cli/prefix.html
-  - /cli/commands/prefix
-  - /cli-commands/prefix
-  - /cli-commands/prefix.html
-  - /cli-commands/npm-prefix
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/commands/npm-prefix.md
 ---
 

@@ -2,6 +2,13 @@
 title: npm-cache
 section: 1
 description: Manipulates packages cache
+redirect_from:
+  - /cli/cache
+  - /cli/cache.html
+  - /cli/commands/cache
+  - /cli-commands/cache
+  - /cli-commands/cache.html
+  - /cli-commands/npm-cache
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-cache.md

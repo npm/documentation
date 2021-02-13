@@ -2,15 +2,8 @@
 title: npm-update
 section: 1
 description: Update a package
-redirect_from:
-  - /cli/update
-  - /cli/update.html
-  - /cli/commands/update
-  - /cli-commands/update
-  - /cli-commands/update.html
-  - /cli-commands/npm-update
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/commands/npm-update.md
 ---
 

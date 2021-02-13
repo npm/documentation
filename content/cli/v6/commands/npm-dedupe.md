@@ -2,15 +2,8 @@
 title: npm-dedupe
 section: 1
 description: Reduce duplication
-redirect_from:
-  - /cli/dedupe
-  - /cli/dedupe.html
-  - /cli/commands/dedupe
-  - /cli-commands/dedupe
-  - /cli-commands/dedupe.html
-  - /cli-commands/npm-dedupe
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/commands/npm-dedupe.md
 ---
 

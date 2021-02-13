@@ -2,6 +2,11 @@
 title: scripts
 section: 7
 description: How npm handles the "scripts" field
+redirect_from:
+  - /using-npm/scripts
+  - /using-npm/scripts.html
+  - /misc/scripts
+  - /misc/scripts.html
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/using-npm/scripts.md
@@ -27,7 +32,7 @@ To create "pre" or "post" scripts for any scripts defined in the `"scripts"` sec
 
 ### Life Cycle Scripts
 
-There are some special life cycle scripts that happen only in certain situations. These scripts happen in addtion to the "pre" and "post" script.
+There are some special life cycle scripts that happen only in certain situations. These scripts happen in addition to the "pre" and "post" script.
 * `prepare`, `prepublish`, `prepublishOnly`, `prepack`, `postpack`
 
 **prepare** (since `npm@4.0.0`)

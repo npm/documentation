@@ -2,15 +2,8 @@
 title: npm-logout
 section: 1
 description: Log out of the registry
-redirect_from:
-  - /cli/logout
-  - /cli/logout.html
-  - /cli/commands/logout
-  - /cli-commands/logout
-  - /cli-commands/logout.html
-  - /cli-commands/npm-logout
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/commands/npm-logout.md
 ---
 

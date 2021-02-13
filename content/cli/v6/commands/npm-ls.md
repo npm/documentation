@@ -2,15 +2,8 @@
 title: npm-ls
 section: 1
 description: List installed packages
-redirect_from:
-  - /cli/ls
-  - /cli/ls.html
-  - /cli/commands/ls
-  - /cli-commands/ls
-  - /cli-commands/ls.html
-  - /cli-commands/npm-ls
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/commands/npm-ls.md
 ---
 

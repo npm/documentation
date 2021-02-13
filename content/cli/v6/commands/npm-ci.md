@@ -2,15 +2,8 @@
 title: npm-ci
 section: 1
 description: Install a project with a clean slate
-redirect_from:
-  - /cli/ci
-  - /cli/ci.html
-  - /cli/commands/ci
-  - /cli-commands/ci
-  - /cli-commands/ci.html
-  - /cli-commands/npm-ci
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/commands/npm-ci.md
 ---
 

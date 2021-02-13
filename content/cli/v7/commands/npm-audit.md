@@ -2,6 +2,13 @@
 title: npm-audit
 section: 1
 description: Run a security audit
+redirect_from:
+  - /cli/audit
+  - /cli/audit.html
+  - /cli/commands/audit
+  - /cli-commands/audit
+  - /cli-commands/audit.html
+  - /cli-commands/npm-audit
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-audit.md
@@ -193,5 +200,4 @@ $ npm audit --audit-level=moderate
 ### See Also
 
 * [npm install](/cli/v7/commands/npm-install)
-* [package-locks](/cli/v7/configuring-npm/package-locks)
 * [config](/cli/v7/using-npm/config)

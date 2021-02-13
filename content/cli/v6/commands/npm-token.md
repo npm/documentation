@@ -2,15 +2,8 @@
 title: npm-token
 section: 1
 description: Manage your authentication tokens
-redirect_from:
-  - /cli/token
-  - /cli/token.html
-  - /cli/commands/token
-  - /cli-commands/token
-  - /cli-commands/token.html
-  - /cli-commands/npm-token
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/commands/npm-token.md
 ---
 

@@ -2,13 +2,8 @@
 title: package-locks
 section: 5
 description: An explanation of npm lockfiles
-redirect_from:
-  - /configuring-npm/package-locks
-  - /configuring-npm/package-locks.html
-  - /files/package-locks
-  - /files/package-locks.html
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/configuring-npm/package-locks.md
 ---
 

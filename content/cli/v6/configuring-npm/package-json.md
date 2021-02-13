@@ -2,15 +2,8 @@
 title: package.json
 section: 5
 description: Specifics of npm's package.json handling
-redirect_from:
-  - /configuring-npm/package-json
-  - /configuring-npm/package-json.html
-  - /configuring-npm/package.json
-  - /creating-a-packge-json-file
-  - /files/package.json
-  - /files/package.json.html
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/configuring-npm/package-json.md
 ---
 

@@ -2,6 +2,13 @@
 title: npm-fund
 section: 1
 description: Retrieve funding information
+redirect_from:
+  - /cli/fund
+  - /cli/fund.html
+  - /cli/commands/fund
+  - /cli-commands/fund
+  - /cli-commands/fund.html
+  - /cli-commands/npm-fund
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-fund.md

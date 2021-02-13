@@ -2,13 +2,8 @@
 title: semver
 section: 7
 description: The semantic versioner for npm
-redirect_from:
-  - /using-npm/semver
-  - /using-npm/semver.html
-  - /misc/semver
-  - /misc/semver.html
 github_repo: npm/cli
-github_branch: v6
+github_branch: v6-docs
 github_path: docs/content/using-npm/semver.md
 ---
 

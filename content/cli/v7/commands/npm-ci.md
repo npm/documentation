@@ -2,6 +2,13 @@
 title: npm-ci
 section: 1
 description: Install a project with a clean slate
+redirect_from:
+  - /cli/ci
+  - /cli/ci.html
+  - /cli/commands/ci
+  - /cli-commands/ci
+  - /cli-commands/ci.html
+  - /cli-commands/npm-ci
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-ci.md
@@ -71,4 +78,4 @@ cache:
 ### See Also
 
 * [npm install](/cli/v7/commands/npm-install)
-* [package-locks](/cli/v7/configuring-npm/package-locks)
+* [package-lock.json](/cli/v7/configuring-npm/package-lock-json)

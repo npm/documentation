@@ -2,6 +2,13 @@
 title: npm-ping
 section: 1
 description: Ping npm registry
+redirect_from:
+  - /cli/ping
+  - /cli/ping.html
+  - /cli/commands/ping
+  - /cli-commands/ping
+  - /cli-commands/ping.html
+  - /cli-commands/npm-ping
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-ping.md
@@ -28,5 +35,6 @@ Ping error: {*Detail about error}
 
 ### See Also
 
+* [npm doctor](/cli/v7/commands/npm-doctor)
 * [npm config](/cli/v7/commands/npm-config)
 * [npmrc](/cli/v7/configuring-npm/npmrc)

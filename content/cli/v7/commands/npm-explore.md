@@ -2,6 +2,13 @@
 title: npm-explore
 section: 1
 description: Browse an installed package
+redirect_from:
+  - /cli/explore
+  - /cli/explore.html
+  - /cli/commands/explore
+  - /cli-commands/explore
+  - /cli-commands/explore.html
+  - /cli-commands/npm-explore
 github_repo: npm/cli
 github_branch: latest
 github_path: docs/content/commands/npm-explore.md
