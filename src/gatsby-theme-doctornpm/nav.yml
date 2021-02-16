@@ -301,7 +301,7 @@
     - title: Version 6.x (Legacy release)
       shortName: v6
       url: /cli/v6
-      default: null
+      default: false
       children:
         - title: CLI Commands
           shortName: Commands
@@ -540,7 +540,7 @@
             - title: Removal
               url: /cli/v6/using-npm/removal
               description: Cleaning the slate
-    - title: Version 7.x (LTS release)
+    - title: Version 7.x (Current release)
       shortName: v7
       url: /cli/v7
       default: true
