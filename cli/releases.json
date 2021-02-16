@@ -8,7 +8,7 @@
     {
         "id": "v7",
         "version": "7.0.0",
-        "title": "Version 7.x (LTS release)",
+        "title": "Version 7.x (Current release)",
         "branch": "latest",
         "default": true
     }

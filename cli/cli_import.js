@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // cli_import: include the npm cli documentation into the main docs
 // 
 // This script will:
@@ -50,13 +51,25 @@ const cliUrl = '/cli';
 const cliContentPath = path.join('docs', 'content');
 const cliNavPath = path.join('docs', 'src', '@npm', 'gatsby-theme-doctornpm', 'nav.yml');
 
+const indexMarkdown = `<Index depth="1" />`;
+
 const translations = {
     'index.mdx': {
-        'frontmatter': {
-            'title': 'CLI documentation',
-        },
-        'mdx': `<Index depth="1" />`,
-    }
+        'frontmatter': { 'title': 'CLI documentation' },
+        'mdx': indexMarkdown,
+    },
+    'commands/index.mdx': {
+        'frontmatter': { 'title': 'CLI commands' },
+        'mdx': indexMarkdown,
+    },
+    'configuring-npm/index.mdx': {
+        'frontmatter': { 'title': 'Configuring npm' },
+        'mdx': indexMarkdown,
+    },
+    'using-npm/index.mdx': {
+        'frontmatter': { 'title': 'Using npm' },
+        'mdx': indexMarkdown,
+    },
 };
 
 const redirects = {
@@ -161,7 +174,7 @@ function readNavForVersion(config) {
         "title": config.title,
         "shortName": config.id,
         "url": `${cliUrl}/${config.id}`,
-        "default": config.default,
+        "default": config.default ? true : false,
         "children": children
     };
 }
@@ -182,6 +195,10 @@ function rewriteUrls(config, nodes) {
 function translate(config, data) {
     const translation = translations[data.path] ?  translations[data.path] : { };
     let matches;
+
+    if (!data.frontmatter) {
+        data.frontmatter = { };
+    }
 
     if (data.path.match(/^index(?:\.md(x)?)?/)) {
         if (config.default && data.frontmatter) {
@@ -278,10 +295,9 @@ function translate(config, data) {
         }
     }
 
-    if (data.mdx && translation.mdx) {
+    if ((data.mdx || !data.contents) && translation.mdx) {
         data.mdx = translation.mdx;
     }
-
     else if (data.mdx) {
         function replacer(matches, p1, p2) {
             return `[${p1}](/cli/${config.id}/${p2})`;
@@ -319,7 +335,7 @@ function ensurePagesLinked(config) {
     // identify pages that aren't listed in the nav
     walkNavigation(nav, (n) => { delete pages[n.url] });
 
-    Object.keys(pages).forEach((page) => {
+    Object.keys(pages).filter(p => !p.match("^(.*\/)?index\.md(x)?$")).forEach((page) => {
         console.log(`warning: ${page} is not included in navigation`);
         success = false;
     });
@@ -349,15 +365,24 @@ function copyDocs(config, relativedir) {
 
     let paths = [ ]
 
-    fs.readdirSync(dirPath).forEach((fn) => {
+    const children = fs.readdirSync(dirPath);
+
+    if (!children.includes("index.md") && !children.includes("index.mdx")) {
+        children.push("index.mdx");
+    }
+
+    children.forEach((fn) => {
         const relativechild = relativedir ? path.join(relativedir, fn) : fn;
         const childpath = path.join(contentRoot, relativechild);
+        const exists = fs.existsSync(childpath);
 
-        if (fs.lstatSync(childpath).isDirectory()) {
-            paths = paths.concat(copyDocs(config, relativechild));
-        } else {
-            const contents = fs.readFileSync(childpath).toString();
-            const components = contents.match(/^---\n(.*)\n---\n(.*)/s);
+        if (exists && fs.lstatSync(childpath).isDirectory()) {
+            const childpaths = copyDocs(config, relativechild);
+            paths = paths.concat(childpaths);
+        }
+        else {
+            const contents = exists ? fs.readFileSync(childpath).toString() : null;
+            const components = contents ? contents.match(/^---\n(.*)\n---\n(.*)/s) : null;
             let output;
 
             let filedata = {
