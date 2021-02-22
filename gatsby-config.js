@@ -15,8 +15,7 @@ module.exports = {
         repo: {
           url: 'https://github.com/npm/documentation',
           defaultBranch: 'main',
-        },
-        pathPrefix: process.env.PATH_PREFIX || ''
+        }
       },
     },
     'gatsby-plugin-meta-redirect'
