@@ -21,7 +21,7 @@ modified in this repository.  Instead, the canonical location for it
 is in the [npm/cli](https://github.com/npm/cli) repository.  Modifications
 to those files are automatically included here for completeness.
 
-Pull requests to CLI documentation in this repository will be closed.
+(Pull requests to CLI documentation in this repository will be closed.)
 
 ## Theme
 
