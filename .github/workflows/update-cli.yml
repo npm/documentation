@@ -29,20 +29,12 @@ jobs:
     - name: Update npm v7
       run: npm install -g npm@latest
 
-    # Update the submodules to get the latest documentation updates from
-    # the CLI project itself.
-    - name: Update submodules
-      run: |
-        git submodule update --init
-        ( cd cli/v6 && git fetch --all && git reset --hard origin/v6-docs )
-        git add cli/v6
-        ( cd cli/v7 && git fetch --all && git reset --hard origin/latest )
-        git add cli/v7
-
     # Add the CLI documentation to the content directory.
     - name: Install npm packages
       run: npm install
-    - name: Update documentation
+    - name: Fetch latest documentation
+      run: node cli/cli_fetch.js
+    - name: Import documentation
       run: node cli/cli_import.js
 
     # Check for changes; this avoids publishing a new change to the
