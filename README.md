@@ -1,5 +1,7 @@
 # npm Documentation
 
+[![Publish](https://github.com/npm/documentation/actions/workflows/publish.yml/badge.svg)](https://github.com/npm/documentation/actions/workflows/publish.yml)
+
 This is the documentation for
 [https://docs.npmjs.com/](https://docs.npmjs.com/).
 
@@ -171,6 +173,19 @@ editing its behavior or debugging.
    adding historical redirects) and putting it in this repository's
    `content` directory.  In addition, it will take the `docs/nav.yml`
    and include it in this repository's navigation.
+
+## Deploying changes
+
+The docs site (https://docs.npmjs.com/) is published from a
+[GitHub Actions workflow](https://github.com/npm/documentation/actions/workflows/publish.yml)
+on any push into the main branch.  That means that the workflow for
+updating the site is:
+
+1. Make your changes locally, review them, commit them.
+2. Open a pull request for review
+3. Merge that pull request
+
+On step three, your changes will be published live!  🎉
 
 ## Theme
 
