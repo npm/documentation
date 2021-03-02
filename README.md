@@ -7,12 +7,26 @@ This is the documentation for
 
 ### Table of Contents
 
+* [Quick start](#quick-start)
 * [Running locally](#running-locally)
 * [Updating content](#updating-content)
 * [Navigation](#navigation)
 * [CLI](#cli)
 * [Deploying changes](#deploying-changes)
 * [Theme](#theme)
+
+## Quick start
+
+1. `npm install` to download gatsby, our theme, and the dependencies
+2. `npm run develop`: starts the test server at `http://localhost:8000`.
+3. Update the content - it's Mdx, which is like markdown - in the `content`
+   directory.
+4. Review your content at `http://localhost:8000`.  (Gatsby watches the
+   filesystem and will reload your content changes immediately.)
+5. Once you're happy, commit it and open a pull request at
+   https://github.com/npm/documentation.
+6. Once the content is reviewed, merge the pull request.  That will
+   [deploy the site](https://github.com/npm/documentation/actions/workflows/publish.yml).
 
 ## Running locally
 
