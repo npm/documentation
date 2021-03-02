@@ -5,6 +5,15 @@
 This is the documentation for
 [https://docs.npmjs.com/](https://docs.npmjs.com/).
 
+### Table of Contents
+
+* [Running locally](#running-locally)
+* [Updating content](#updating-content)
+* [Navigation](#navigation)
+* [CLI](#cli)
+* [Deploying changes](#deploying-changes)
+* [Theme](#theme)
+
 ## Running locally
 
 First, `npm install` the dependencies.  This will install gatsby, et al.
@@ -15,6 +24,8 @@ The gatsby server will be started on port 8000.  You can navigate to
 
 **Gatsby will watch your filesystem looking for updates.**  Any content
 changes you make should be reflected in the site immediately.
+
+## Updating content
 
 ### Documentation content
 
