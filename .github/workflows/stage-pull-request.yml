@@ -1,0 +1,59 @@
+name: Stage Pull Request
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, closed]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'Pull Request Number'
+        required: true
+
+env:
+  staging_repo: 'npm/docs-staging'
+
+jobs:
+  stage_pr:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "${{ toJson(github) }}"
+    - name: Identify pull request
+      id: pull_request
+      run: |
+        NOTIFY="false"
+
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          PR_NUMBER="${{ github.event.inputs.pr_number }}"
+        elif [ "${{ github.event_name }}" = "pull_request_target" ]; then
+          PR_NUMBER="${{ github.event.pull_request.number }}"
+
+          if [ "${{github.event.action}}" = "opened" ]; then
+            NOTIFY="true"
+          fi
+        fi
+
+        if [ "$PR_NUMBER" = "" ]; then
+          echo "::error::Unknown event type or unset pull request number"
+          exit 1
+        fi
+
+        echo "Building pull request ${PR_NUMBER}"
+
+        curl -f -X POST -u ":${{ secrets.NPM_DOCS_TOKEN }}" \
+          -H "Accept: application/vnd.github.everest-preview+json" \
+          -H "Content-Type: application/json" \
+          --data "{ \"event_type\": \"publish_pr\", \"client_payload\": { \"pr_number\":\"$PR_NUMBER\", \"notify\":\"$NOTIFY\" } }" \
+          https://api.github.com/repos/${{ env.staging_repo }}/dispatches
+
+#    - name: Identify pull request
+#      if: github.event_name == "pull_request_target"
+#      uses: actions/github-script@v3
+#      with:
+#        script: |
+#          github.issues.createComment({
+#            issue_number: context.issue.number,
+#            owner: context.repo.owner,
+#            repo: context.repo.repo,
+#            body: "👋 Thanks for opening a pull request!  We're building a staging 
+#          })
