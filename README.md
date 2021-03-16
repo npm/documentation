@@ -25,7 +25,9 @@ This is the documentation for
    filesystem and will reload your content changes immediately.)
 5. Once you're happy, commit it and open a pull request at
    https://github.com/npm/documentation.
-6. Once the content is reviewed, merge the pull request.  That will
+6. A CI workflow run will publish your PR to the staging documentation
+   site at https://docs-staging.npmjs.com/.
+8. Once the content is reviewed, merge the pull request.  That will
    [deploy the site](https://github.com/npm/documentation/actions/workflows/publish.yml).
 
 ## Running locally
@@ -198,6 +200,18 @@ editing its behavior or debugging.
    adding historical redirects) and putting it in this repository's
    `content` directory.  In addition, it will take the `docs/nav.yml`
    and include it in this repository's navigation.
+
+## Reviewing changes
+
+The staging docs site (https://docs-staging.npmjs.com/) is published
+from a set of GitHub actions workflows.  Since it is a separate site
+(with a separate GitHub Pages instance), the staging site lives in a
+[separate GitHub repository](https://github.com/npm/docs-staging).
+As a result when a pull request is opened in _this_ repository, we
+send a repository dispatch event to the `docs-staging` repository.
+
+A GitHub Actions workflow run in that repository will then build the
+pull request and publish the staging site for review.
 
 ## Deploying changes
 
