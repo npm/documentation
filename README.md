@@ -233,3 +233,8 @@ The gatsby theme used here is "doctornpm" - a variation of
 for npm's design language and additional components to support multiple
 versions of the CLI documentation.
 
+## License
+
+The npm product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
+
+All other code in this repository is licensed under a [MIT license](LICENSE-CODE).
