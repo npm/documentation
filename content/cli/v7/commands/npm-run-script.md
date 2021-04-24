@@ -199,7 +199,7 @@ children workspaces)
 
 #### workspaces
 
-* Alias: `-ws`
+* Alias: `--ws`
 * Type: Boolean
 * Default: `false`
 
@@ -214,3 +214,4 @@ project.
 * [npm restart](/cli/v7/commands/npm-restart)
 * [npm stop](/cli/v7/commands/npm-stop)
 * [npm config](/cli/v7/commands/npm-config)
+* [npm workspaces](/cli/v7/using-npm/workspaces)
