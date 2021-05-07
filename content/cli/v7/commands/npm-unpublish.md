@@ -44,7 +44,7 @@ This removes a package version from the registry, deleting its entry and
 removing the tarball.
 
 The npm registry will return an error if you are not [logged
-in](/cli/v7/commands/npm-login).
+in](/cli/v7/commands/npm-adduser).
 
 If you do not specify a version or if you remove all of a package's
 versions then the registry will remove the root package entry entirely.
@@ -62,4 +62,4 @@ passed.
 * [npm registry](/cli/v7/using-npm/registry)
 * [npm adduser](/cli/v7/commands/npm-adduser)
 * [npm owner](/cli/v7/commands/npm-owner)
-* [npm login](/cli/v7/commands/npm-login)
+* [npm login](/cli/v7/commands/npm-adduser)

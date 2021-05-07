@@ -213,7 +213,7 @@ not be included in the package tarball.
 
 This allows a package maintainer to install all of their dependencies
 (and dev dependencies) locally, but only re-publish those items that
-cannot be found elsewhere.  See [`package.json`](/cli/v7/configuring-npm/package.json) for more information.
+cannot be found elsewhere.  See [`package.json`](/cli/v7/configuring-npm/package-json) for more information.
 
 ### See also
 

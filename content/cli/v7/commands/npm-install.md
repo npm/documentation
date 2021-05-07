@@ -549,7 +549,6 @@ the specific folder structures that npm creates.
 * [npm link](/cli/v7/commands/npm-link)
 * [npm rebuild](/cli/v7/commands/npm-rebuild)
 * [npm scripts](/cli/v7/using-npm/scripts)
-* [npm build](/cli/v7/commands/npm-build)
 * [npm config](/cli/v7/commands/npm-config)
 * [npmrc](/cli/v7/configuring-npm/npmrc)
 * [npm registry](/cli/v7/using-npm/registry)

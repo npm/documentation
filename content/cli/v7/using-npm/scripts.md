@@ -126,11 +126,6 @@ The advantage of doing these things at `prepublish` time is that they can be don
 
 * `prepare`
 
-#### [`npm env`](/cli/v7/commands/npm-env)
-
-* `env` (You can override the default behavior of `npm env` by defining
-    a custom `env` entry in your `scripts` object)
-
 #### [`npm install`](/cli/v7/commands/npm-install)
 
 These also run when you run `npm install -g <pkg-name>`
@@ -187,7 +182,7 @@ If there is a `restart` script defined, these events are run, otherwise
 * `restart`
 * `postrestart`
 
-#### [`npm run <user defined>`](/cli/v7/commands/npm-run)
+#### [`npm run <user defined>`](/cli/v7/commands/npm-run-script)
 
 * `pre<user-defined>`
 * `<user-defined>`

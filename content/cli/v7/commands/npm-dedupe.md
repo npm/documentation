@@ -84,7 +84,7 @@ Using `npm find-dupes` will run the command in `--dry-run` mode.
 
 ### See Also
 
-* [npm find-dupes](/cli-commands/find-dupes)
-* [npm ls](/cli-commands/ls)
-* [npm update](/cli-commands/update)
-* [npm install](/cli-commands/install)
+* [npm find-dupes](/cli/v7/commands/npm-find-dupes)
+* [npm ls](/cli/v7/commands/npm-ls)
+* [npm update](/cli/v7/commands/npm-update)
+* [npm install](/cli/v7/commands/npm-install)

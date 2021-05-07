@@ -54,5 +54,5 @@ format an empty string.
 
 * [npm publish](/cli/v7/commands/npm-publish)
 * [npm registry](/cli/v7/using-npm/registry)
-* [npm owner](/cli-commands/owner)
-* [npm owner](/cli-commands/adduser)
+* [npm owner](/cli/v7/commands/npm-owner)
+* [npm owner](/cli/v7/commands/npm-adduser)
