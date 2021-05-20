@@ -24,7 +24,7 @@ that generate the site itself.
 8. Once the content is reviewed, merge the pull request.  That will
    [deploy the site](https://github.com/npm/documentation/actions/workflows/publish.yml).
 
-Do you want to know more?  Check out our [contributing guide](CONTRIBUTING.md).
+Do you want to know more? Check out our [contributing guide](CONTRIBUTING.md).
 
 ## Theme
 
