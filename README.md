@@ -35,7 +35,7 @@ versions of the CLI documentation.
 
 ## License
 
-The npm product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
+The npm product documentation in the content, and static folders are licensed under a [CC-BY 4.0 license](LICENSE).
 
 All other code in this repository is licensed under a [MIT license](LICENSE-CODE).
 

@@ -1,0 +1,12 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: documentation
+Upstream-Contact: Myles Borins <mylesborins@github.com>
+Source: https://github.com/npm/documentation
+
+Files: content/* static/*
+Copyright: 2020 GitHub
+License: CC-BY-4.0
+
+Files: cli/* src/* .github/* *.md *.js *.json .gitignore .gitmodules
+Copyright: 2020 GitHub
+License: MIT
