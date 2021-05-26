@@ -28,7 +28,7 @@ Do you want to know more? Check out our [contributing guide](CONTRIBUTING.md).
 
 ## Theme
 
-The gatsby theme used here is "doctornpm" - a variation of
+The gatsby theme used here is "[doctornpm](https://github.com/npm/doctornpm)" - a variation of
 [doctocat](https://github.com/primer/doctocat) with some theme changes
 for npm's design language and additional components to support multiple
 versions of the CLI documentation.
