@@ -37,6 +37,8 @@ Next, `npm run develop` to start the test server to view your changes.
 The gatsby server will be started on port 8000.  You can navigate to
 `http://localhost:8000` to view the site live.
 
+**For best results use npm 7**
+
 **Gatsby will watch your filesystem looking for updates.**  Any content
 changes you make should be reflected in the site immediately.
 
