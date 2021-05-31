@@ -18,6 +18,10 @@ const shared = {
         'text': (<>In the upper right corner of the page, click your profile picture, then click <strong>Profile Settings</strong>.</>),
         'image': (<Screenshot src="/shared/profile-settings.png" alt="Screenshot of profile settings selection in user menu" />)
     },
+    'account-settings': {
+        'text': (<>In the upper right corner of the page, click your profile picture, then click <strong>Account</strong>.</>),
+        'image': (<Screenshot src="/shared/account-settings.png" alt="Screenshot of account settings selection in user menu" />)
+    },
 
     /* Billing */
     'billing-creditcard-form': {
