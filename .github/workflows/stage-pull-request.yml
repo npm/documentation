@@ -16,8 +16,10 @@ jobs:
   stage_pr:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "${{ toJson(github) }}"
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJSON(github) }}
+      run: echo "$GITHUB_CONTEXT"
     - name: Identify pull request
       id: pull_request
       run: |
