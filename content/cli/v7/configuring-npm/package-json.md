@@ -559,12 +559,8 @@ had the following:
 }
 ```
 
-and then had a "start" command that then referenced the
-`npm_package_config_port` environment variable, then the user could
-override that by doing `npm config set foo:port 8001`.
-
-See [`config`](/cli/v7/using-npm/config) and [`scripts`](/cli/v7/using-npm/scripts) for
-more on package configs.
+It could also have a "start" command that referenced the
+`npm_package_config_port` environment variable.
 
 ### dependencies
 
