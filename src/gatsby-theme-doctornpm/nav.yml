@@ -325,6 +325,10 @@
       url: /business-solution-terms
     - title: Open-source terms
       url: /open-source-terms
+    - title: npm Orgs Payment Plan
+      url: /orgs-plan
+    - title: npm Paid Services Terms
+      url: /private-terms
 - title: npm CLI
   shortName: CLI
   url: /cli
