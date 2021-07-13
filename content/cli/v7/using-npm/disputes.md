@@ -12,7 +12,7 @@ disputes with other npm publishers. It also describes special steps you should
 take about names you think infringe your trademarks.
 
 This document is a clarification of the acceptable behavior outlined in the
-[npm Code of Conduct](https://docs.npmjs.com/conduct), and nothing in
+[npm Code of Conduct](https://www.npmjs.com/policies/conduct), and nothing in
 this document should be interpreted to contradict any aspect of the npm Code of
 Conduct.
 
@@ -97,7 +97,7 @@ to:
 6. Doing weird things with the registry, like using it as your own personal
    application database or otherwise putting non-packagey things into it.
 7. Other things forbidden by the npm
-   [Code of Conduct](https://docs.npmjs.com/conduct) such as hateful
+   [Code of Conduct](https://www.npmjs.com/policies/conduct) such as hateful
    language, pornographic content, or harassment.
 
 If you see bad behavior like this, please report it to <abuse@npmjs.com> right

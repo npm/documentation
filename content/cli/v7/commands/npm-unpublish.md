@@ -17,7 +17,7 @@ github_path: docs/content/commands/npm-unpublish.md
 ### Synopsis
 
 To learn more about how the npm registry treats unpublish, see our <a
-href="https://docs.npmjs.com/unpublish" target="_blank"
+href="https://www.npmjs.com/policies/unpublish" target="_blank"
 rel="noopener noreferrer"> unpublish policies</a>
 
 #### Unpublishing a single version of a package
