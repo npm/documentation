@@ -303,21 +303,21 @@
     url: /terms
   - title: Code of Conduct
     url: /conduct
-  - title: Dispute Resolution
+  - title: Package Name Disputes
     url: /disputes
   - title: npm License
     url: /npm-license
-  - title: Privacy Questions and Answers
+  - title: Privacy Policy
     url: /privacy
-  - title: npm Unpublish Policy
+  - title: Unpublish Policy
     url: /unpublish
-  - title: Receiving Reports
+  - title: Receiving Abuse Reports
     url: /receiving-reports
-  - title: Copyright Policy
+  - title: Copyright and DMCA Policy
     url: /dmca
-  - title: npm Trademark Policy
+  - title: Trademark Policy
     url: /trademark
-  - title: npm Security Policy
+  - title: Security
     url: /security
   - title: Replication and web crawler policy
     url: /crawlers
