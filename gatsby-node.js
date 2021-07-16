@@ -9,8 +9,9 @@ exports.onCreateNode = ({node, actions, getNode}) => {
       return;
     }
 
-    // directory index paths are unchanged
-    if (file.name === 'index') {
+    // directory index paths and policy are unchanged
+    if (file.name === 'index' ||
+        file.relativeDirectory.match('^policies(\/.*)?$')) {
       return;
     }
 

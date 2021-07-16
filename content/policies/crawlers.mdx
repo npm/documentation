@@ -1,0 +1,11 @@
+---
+title: Crawler policy
+---
+
+npm's full public dataset is available via the [public registry](https://docs.npmjs.com/misc/registry). Using CouchDB replication, you can get a full copy of all metadata, and it is acceptable within our terms of use to download copies of tarballs for inspection or experimentation.
+
+npm's [website](https://www.npmjs.com) also has package metadata available. We allow this content to be indexed by commercial crawlers such as GoogleBot. At our discretion, we also allow experimental crawlers to access the site, as long as they keep their request velocity to 1 request per second or less. At that velocity, indexing all packages would take 3 days, so if you want a full copy of our metadata it is always going to be faster to access the data via replication, which takes only an hour or two to provide full data and will thereafter automatically stay in sync.
+
+If you do not wish to install CouchDB to manage replication, we provide [open source software](https://github.com/npm/concurrent-couch-follower) that makes it easy to sync to the registry's public feed.
+
+If you attempt to access package metadata by high-velocity crawling of the npm website, we reserve the right to rate-limit or ban your IP, user-agent or both.

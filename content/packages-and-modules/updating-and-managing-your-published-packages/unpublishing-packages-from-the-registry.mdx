@@ -5,7 +5,7 @@ import shared from '../../../src/shared.js'
 
 ## How to unpublish
 
-As a package owner or collaborator, if your package has no dependents, you can permanently remove it from the npm registry by using the CLI. You can [unpublish][unpublish-cli] within 72 hours of the initial publish. Beyond 72 hours,so you can still unpublish your package if [it meets certain criteria](https://www.npmjs.com/policies/unpublish).
+As a package owner or collaborator, if your package has no dependents, you can permanently remove it from the npm registry by using the CLI. You can [unpublish](https://docs.npmjs.com/cli/v7/commands/npm-unpublish) within 72 hours of the initial publish. Beyond 72 hours, you can still unpublish your package if [it meets certain criteria](https://www.npmjs.com/policies/unpublish).
 
 <Note>
 
@@ -37,7 +37,7 @@ If you have [two-factor authentication][two-factor-auth] enabled for writes, you
 
 **Note:** If you unpublish an entire package, you may not publish any new versions of that package until 24 hours have passed.
 
-</Note>
+</Note> 
 
 ## When to unpublish
 
@@ -61,9 +61,8 @@ You might want to unpublish a package because you:
 If you are no longer interested in maintaining a package, but want it to remain available for users to install, or if your package has dependents, we'd recommend [deprecating][deprecate-cli] it. To learn about how to deprecate a package, see "[Deprecating and undeprecating packages or package versions][deprecate-package]".
 
 
-[unpublish-cli]: cli/unpublish
 [oh-no]: https://blog.npmjs.org/post/101934969510/oh-no-i-accidentally-published-private-data-to
 [deprecate-cli]: cli/deprecate
 [deprecate-package]: deprecating-and-undeprecating-packages-or-package-versions
-[unpublish-policy]: https://www.npmjs.com/policies/unpublish
 [two-factor-auth]: about-two-factor-authentication
+[unpublish]: /policies/unpublish

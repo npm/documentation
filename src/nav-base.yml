@@ -295,3 +295,31 @@
     children:
     - title: Sunsetting npm Enterprise
       url: /sunsetting-npm-enterprise
+
+- title: Policies
+  url: /policies
+  children:
+  - title: Terms of Use
+    url: /policies/terms
+  - title: Code of Conduct
+    url: /policies/conduct
+  - title: Package Name Disputes
+    url: /policies/disputes
+  - title: npm License
+    url: /policies/npm-license
+  - title: Privacy Policy
+    url: /policies/privacy
+  - title: Unpublish Policy
+    url: /policies/unpublish
+  - title: Receiving Abuse Reports
+    url: /policies/receiving-reports
+  - title: Copyright and DMCA Policy
+    url: /policies/dmca
+  - title: Trademark Policy
+    url: /policies/trademark
+  - title: Security
+    url: /policies/security
+  - title: Replication and web crawler policy
+    url: /policies/crawlers
+  - title: Our official list of domains
+    url: /policies/domains
