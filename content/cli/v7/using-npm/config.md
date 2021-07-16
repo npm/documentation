@@ -75,6 +75,7 @@ The following shorthands are parsed on the command-line:
 * `--desc`: `--description`
 * `-f`: `--force`
 * `-g`: `--global`
+* `-L`: `--location`
 * `-d`: `--loglevel info`
 * `-s`: `--loglevel silent`
 * `--silent`: `--loglevel silent`
@@ -178,9 +179,10 @@ to the same value as the current version.
 * Default: true
 * Type: Boolean
 
-When "true" submit audit reports alongside `npm install` runs to the default
-registry and all registries configured for scopes. See the documentation for
-[`npm audit`](/cli/v7/commands/npm-audit) for details on what is submitted.
+When "true" submit audit reports alongside the current npm command to the
+default registry and all registries configured for scopes. See the
+documentation for [`npm audit`](/cli/v7/commands/npm-audit) for details on what is
+submitted.
 
 #### `audit-level`
 
@@ -503,6 +505,7 @@ mistakes, unnecessary performance degradation, and malicious input.
 * Allow unpublishing all versions of a published package.
 * Allow conflicting peerDependencies to be installed in the root project.
 * Implicitly set `--yes` during `npm init`.
+* Allow clobbering existing values in `npm pkg`
 
 If you don't have a clear idea of what you want to do, it is strongly
 recommended that you do not use this option!
@@ -702,6 +705,9 @@ number, if not already set in package.json.
 
 Whether or not to output JSON data, rather than the normal output.
 
+* In `npm pkg set` it enables parsing set values with JSON.parse() before
+  saving them to your `package.json`.
+
 Not supported by all npm commands.
 
 #### `key`
@@ -760,6 +766,14 @@ Used with `npm ls`, limiting output to only those packages that are linked.
 
 The IP address of the local interface to use when making connections to the
 npm registry. Must be IPv4 in versions of Node prior to 0.12.
+
+#### `location`
+
+* Default: "user" unless `--global` is passed, which will also set this value
+  to "global"
+* Type: "global", "user", or "project"
+
+When passed to `npm config` this refers to which config file to use.
 
 #### `loglevel`
 

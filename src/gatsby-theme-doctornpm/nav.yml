@@ -660,6 +660,9 @@
             - title: npm ping
               url: /cli/v7/commands/npm-ping
               description: Ping npm registry
+            - title: npm pkg
+              url: /cli/v7/commands/npm-pkg
+              description: Manages your package.json
             - title: npm prefix
               url: /cli/v7/commands/npm-prefix
               description: Display prefix
