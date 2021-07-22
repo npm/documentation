@@ -5,11 +5,26 @@ redirect_from:
 ---
 import shared from '../../../src/shared.js'
 
-Organizations cannot be deleted from the website or command line interface.
+From the web, you can delete an organization.
 
-## Deleting an organization on the public registry
+1. <>{shared['user-login'].text}</>
 
-<>To delete an organization on the public registry, the organization owner should {shared['contact-support'].text}.</>
+   <>{shared['user-login'].image}</>
+
+2. <>{shared['account-settings'].text}</>
+
+   <>{shared['account-settings'].image}</>
+
+3. In the left sidebar, click the name of the organization you want to delete.
+    <Screenshot src="/organizations/creating-and-managing-organizations/left-sidebar.png" alt="Screenshot of left sidebar" />
+
+4. On the organization page, go to the billing tab.
+
+5. On this page, you will find a button to delete your organization. Click that.
+    <Screenshot src="/organizations/creating-and-managing-organizations/org-delete-button.png" alt="Screenshot of org delete button" />
+
+6. You will now be presented with an overview of how many npm packages will be deleted and deprecated as part of your organization deletion. If you agree with this, then enter your organization name and click "Delete this organization".
+    <Screenshot src="/organizations/creating-and-managing-organizations/org-delete-plan.png" alt="Screenshot of org delete plan" />
 
 ## Deleting an organization in npm Enterprise
 
