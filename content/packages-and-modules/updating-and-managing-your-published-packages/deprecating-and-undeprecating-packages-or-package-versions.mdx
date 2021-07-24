@@ -2,6 +2,8 @@
 title: Deprecating and undeprecating packages or package versions
 ---
 
+import shared from "../../../src/shared.js";
+
 If you no longer wish to maintain a package, or if you would like to encourage users to update to a new or different version, you can [deprecate][deprecate-cli] it. Deprecating a package or version will print a message to the terminal when a user installs it.
 
 A deprecation warning or message can say anything. You may wish to include a message encouraging users to update to a specific version, or an alternate, supported package.
@@ -43,6 +45,43 @@ npm deprecate <package-name>@<version> "<message>"
 The CLI will also accept version ranges for `<version>`.
 
 If you have two-factor auth, add a one-time password to the command, `--otp=123456` (where *123456* is the code from your authenticator).
+
+### Deprecatiing package from the web
+
+Package can be deprecated from the web if does not meet requirements from [unpublishing packages rules](/unpublishing-packages-from-the-registry#how-to-unpublish).
+
+1. <>{shared["user-login"].text}</>
+
+    <>{shared["user-login"].image}</>
+
+2. Navigate to the package page for the package you want to transfer, replacing `<your-package-name>` with the name of your package:
+   `https://www.npmjs.com/package/<your-package-name>`.
+
+3. Click **Settings**.
+    <Screenshot
+    	src="/packages-and-modules/securing-your-code/2fa-package-admin.png"
+    	alt="Screenshot showing the admin tab on a package page"
+    />
+
+4. On this page find a button to Deprecate package. Click it.
+
+	<Screenshot
+    	src="/packages-and-modules/deleting-deprecating/deprecate-package-settings.png"
+    	alt="Screenshot showing the admin tab on a package page"
+    />
+
+<Note>
+
+**Note:** If you have instead "Delete package" button. You cannot deprecate the package for now from the Web. But you can still [delete the package](/unpublishing-packages-from-the-registry#unpublish-package-from-the-web).
+
+</Note>
+
+5. Confirmation modal appear. In order to continue type **package name**.
+
+	<Screenshot
+    	src="/packages-and-modules/deleting-deprecating/deprecate-package-confirm.png"
+    	alt="Screenshot showing the admin tab on a package page"
+    />
 
 ## Undeprecating a package or version
 
