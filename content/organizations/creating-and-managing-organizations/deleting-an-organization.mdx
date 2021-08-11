@@ -5,7 +5,12 @@ redirect_from:
 ---
 import shared from '../../../src/shared.js'
 
-You can delete your organization through the npmjs website.
+An organization administrator can delete the organization; packages in
+the organization will also [be deleted](/unpublishing-packages-from-the-registry) if they fulfill the
+[requirements to unpublish packages](/policies/unpublish).  Packages that
+cannot be deleted will be
+[deprecated](/deprecating-and-undeprecating-packages-or-package-versions)
+instead.
 
 1. <>{shared['user-login'].text}</>
 
@@ -15,15 +20,20 @@ You can delete your organization through the npmjs website.
 
    <>{shared['account-settings'].image}</>
 
-3. In the left sidebar, click the name of the organization you want to delete.
+3. In the left sidebar, click the name of the organization that you want to delete.
     <Screenshot src="/organizations/creating-and-managing-organizations/left-sidebar.png" alt="Screenshot of left sidebar" />
 
-4. On the organization page, go to the billing tab.
+4. <>{shared['organization-billing-tab'].text}</>
 
-5. On this page, you will find a button to delete your organization. Click that.
+   <>{shared['organization-billing-tab'].image}</>
+
+5. Under "delete organization", click <strong>Delete</strong>.
     <Screenshot src="/organizations/creating-and-managing-organizations/org-delete-button.png" alt="Screenshot of org delete button" />
 
-6. You will now be presented with an overview of how many npm packages will be deleted and deprecated as part of your organization deletion. If you agree with this, then enter your organization name and click "Delete this organization".
+6. You will be given an overview of the packages in your organization and what will happen to them when your organization is deleted.  Packages that [can be unpublished](/unpublishing-packages-from-the-registry) will be deleted; packages that cannot be deleted will be [deprecated](/deprecating-and-undeprecating-packages-or-package-versions).
+
+   If you are sure that you want to continue, enter your organization name and click <strong>Delete this organization</strong>.
+
     <Screenshot src="/organizations/creating-and-managing-organizations/org-delete-plan.png" alt="Screenshot of org delete plan" />
 
 ## Deleting an organization in npm Enterprise

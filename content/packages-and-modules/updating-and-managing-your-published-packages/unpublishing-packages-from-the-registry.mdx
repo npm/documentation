@@ -3,9 +3,9 @@ title: Unpublishing packages from the registry
 ---
 import shared from '../../../src/shared.js'
 
-## How to unpublish
+As a package owner or collaborator, if your package has no dependents, you can permanently remove it from the npm registry by using the CLI. You can [unpublish](https://docs.npmjs.com/cli/v7/commands/npm-unpublish) within 72 hours of the initial publish; beyond 72 hours, you can still unpublish your package if [it meets certain criteria](https://www.npmjs.com/policies/unpublish).
 
-As a package owner or collaborator, if your package has no dependents, you can permanently remove it from the npm registry by using the CLI. You can [unpublish][unpublish-cli] within 72 hours of the initial publish. Beyond 72 hours, you can still unpublish your package if [it meets certain criteria][unpublish].
+These criteria are set to avoid damaging the JavaScript package ecosystem.  If you cannot unpublish your package, you can [deprecate it instead](/deprecating-and-undeprecating-packages-or-package-versions).
 
 <Note>
 
@@ -13,15 +13,48 @@ As a package owner or collaborator, if your package has no dependents, you can p
 
 </Note>
 
-### Unpublishing a single version of a package
+## Unpublishing a package
 
-To unpublish a single version of a package, run the following command, replacing `<package-name>` with the name of your package, and `<version>` with your version number:
+If you want to completely remove all versions of a package from the registry, you can unpublish it completely.  This will delete it from the registry and it will be unable to be installed.
 
-```
-npm unpublish <package-name>@<version>
-```
+To unpublish a package, you must meet the requirements of the [package unpublishing rules](#how-to-unpublish).
 
-### Unpublishing an entire package
+### Using the website
+
+1. <>{shared["user-login"].text}</>
+
+    <>{shared["user-login"].image}</>
+
+2. Navigate to the package page for the package you want to unpublish, replacing `<your-package-name>` with the name of your package:
+   `https://www.npmjs.com/package/<your-package-name>`.
+
+3. Click **Settings**.
+    <Screenshot
+    	src="/packages-and-modules/securing-your-code/2fa-package-admin.png"
+    	alt="Screenshot showing the admin tab on a package page"
+    />
+
+4. Under "delete package", click <strong>Delete package</strong>.
+
+	<Screenshot
+    	src="/packages-and-modules/deleting-deprecating/delete-package-settings.png"
+    	alt="Screenshot showing the admin tab on a package page"
+    />
+
+    <Note>
+
+    **Note:** If you cannot delete the package because it does not meet the [unpublishing requirements](#how-to-unpublish), then you will be prompted to [deprecate the package](/deprecating-and-undeprecating-packages-or-package-versions#deprecating-a-package-from-the-website).
+
+    </Note>
+
+5. Confirmation modal appear. In order to continue type **package name**.
+
+	<Screenshot
+    	src="/packages-and-modules/deleting-deprecating/delete-package-confirm.png"
+    	alt="Screenshot showing the admin tab on a package page"
+    />
+
+### Using the command line
 
 To unpublish an entire package, run the following command, replacing `<package-name>` with the name of your package:
 
@@ -39,42 +72,17 @@ If you have [two-factor authentication][two-factor-auth] enabled for writes, you
 
 </Note>
 
-### Unpublish a package from the website
+## Unpublishing a single version of a package
 
-Package can be deleted from the website if meets requirements from [package unpublishing rules](#how-to-unpublish).
+If you want to remove a single version of a package, you can unpublish one version without affecting the others.  This will delete only that version from the registry and it will be unable to be installed.
 
-1. <>{shared["user-login"].text}</>
+### Using the command line
 
-    <>{shared["user-login"].image}</>
+To unpublish a single version of a package, run the following command, replacing `<package-name>` with the name of your package, and `<version>` with your version number:
 
-2. Navigate to the package page for the package you want to transfer, replacing `<your-package-name>` with the name of your package:
-   `https://www.npmjs.com/package/<your-package-name>`.
-
-3. Click **Settings**.
-    <Screenshot
-    	src="/packages-and-modules/securing-your-code/2fa-package-admin.png"
-    	alt="Screenshot showing the admin tab on a package page"
-    />
-
-4. On this page find a button to Delete package. Click it.
-
-	<Screenshot
-    	src="/packages-and-modules/deleting-deprecating/delete-package-settings.png"
-    	alt="Screenshot showing the admin tab on a package page"
-    />
-
-<Note>
-
-**Note:** If you have instead "Deprecate package" button, you cannot delete the package. Refer to the [rules](#how-to-unpublish). But you can still [deprecate the package](/deprecating-and-undeprecating-packages-or-package-versions#deprecating-a-package-from-the-website).
-
-</Note>
-
-5. Confirmation modal appear. In order to continue type **package name**.
-
-	<Screenshot
-    	src="/packages-and-modules/deleting-deprecating/delete-package-confirm.png"
-    	alt="Screenshot showing the admin tab on a package page"
-    />
+```
+npm unpublish <package-name>@<version>
+```
 
 ## When to unpublish
 
