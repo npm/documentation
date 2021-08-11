@@ -34,6 +34,8 @@ jobs:
       run: npm install
     - name: Fetch latest documentation
       run: node cli/cli_fetch.js
+    - name: Clean up old documentation
+      run: rm -rf content/cli
     - name: Import documentation
       run: node cli/cli_import.js
 
