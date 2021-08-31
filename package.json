@@ -2,6 +2,7 @@
   "name": "npm-documentation",
   "repository": "npm/documentation",
   "version": "0.1.0",
+  "private": true,
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
