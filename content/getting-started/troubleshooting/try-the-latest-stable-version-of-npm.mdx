@@ -85,13 +85,13 @@ npm config get prefix -g
 If it isn't set to `<X>:\Users\<user>\AppData\Roaming\npm`, you can run the below command to correct it:
 
 ```
-npm config set prefix "${APPDATA}/npm" -g
+npm config set prefix %APPDATA%\npm -g
 ```
 
 Incidentally, if you would prefer that packages not be installed to your roaming profile (because you have a quota on your shared network, or it makes logging in or out from a domain sluggish), you can put it in your local app data instead:
 
 ```
-npm config set prefix "${LOCALAPPDATA}/npm" -g
+npm config set prefix %LOCALAPPDATA%\npm -g
 ```
 
 ...as well as copying `%APPDATA%\npm` to `%LOCALAPPDATA%\npm` (and updating your `%PATH%`, of course).
