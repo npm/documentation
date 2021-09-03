@@ -86,4 +86,4 @@ password, npm will prompt on the command line for one.
 * [npm publish](/cli/v7/commands/npm-publish)
 * [npm registry](/cli/v7/using-npm/registry)
 * [npm owner](/cli/v7/commands/npm-owner)
-* [npm owner](/cli/v7/commands/npm-adduser)
+* [npm adduser](/cli/v7/commands/npm-adduser)
