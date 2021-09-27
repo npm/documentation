@@ -25,25 +25,3 @@ Visibility of npm packages depends on the scope (namespace) in which the package
 <span class="bold">Note:</span> Only user accounts can create and manage unscoped packages. Organizations can only manage scoped packages.
 
 </div>
-
-## npm Enterprise
-
-<div class="note">
-
-The following table applies to customers who purchased <a href="https://docs.npmjs.com/enterprise">npm Enterprise</a> after July 26, 2018.
-
-</div>
-
-| Scope        | Access level | Can view and download | Can write (publish)                                                                  |
-|--------------|--------------|-----------------------------------------------------------------------------|---|
-| Org | Private      | Logged-in members of the Enterprise registry who belong to a team in the Org with read access to the package | Logged-in members of the Enterprise registry who belong to a team in the Org with read and write access to the package |
-| Org | Public       | All logged-in members of the Enterprise registry     | Logged-in members of the Enterprise registry who belong to a team in the Org with read and write access to the package |
-| User     | Private      | The package owner and logged-in members of the Enterprise registry who have been granted read access to the package  | The package owner and logged-in members of the Enterprise registry who have been granted read and write access to the package |
-| User     | Public       | All logged-in members of the Enterprise registry  | The package owner and logged-in members of the Enterprise registry who have been granted read and write access to the package |
-| Unscoped | Public | All users of the Enterprise registry | None (see note below) |
-
-<div class="note">
-
-<span class="bold">Note:</span> The unscoped namespace on npm Enterprise is reserved for unscoped packages in the public npm registry. To prevent npm Enterprise users from accidentally publishing proprietary code to the public npm registry, where it would be visible to anyone on the internet, we do not allow publishing unscoped packages to npm Enterprise.
-
-</div>
