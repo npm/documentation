@@ -51,10 +51,6 @@
           url: /about-npm-versions
         - title: Downloading and installing Node.js and npm
           url: /downloading-and-installing-node-js-and-npm
-        - title: Configuring your registry settings as an npm Enterprise user
-          url: /configuring-your-registry-settings-as-an-npm-enterprise-user
-        - title: Logging in to an npm Enterprise registry from the command line
-          url: /logging-in-to-an-npm-enterprise-registry-from-the-command-line
     - title: Troubleshooting
       url: /getting-started/troubleshooting
       children:
@@ -243,57 +239,6 @@
           url: /configuring-your-npm-client-with-your-organization-settings
         - title: Creating and publishing an organization scoped package
           url: /creating-and-publishing-an-organization-scoped-package
-- title: npm Enterprise
-  url: /enterprise
-  children:
-    - title: Setup and configuration
-      url: /enterprise/setup-and-configuration
-      children:
-        - title: Getting started with npm Enterprise
-          url: /getting-started-with-npm-enterprise
-        - title: Configuring an authentication provider
-          url: /configuring-an-authentication-provider
-        - title: Defining a security policy
-          url: /defining-security-policy
-    - title: Billing and seat management
-      shortName: Billing
-      url: /enterprise/billing-and-seat-management
-      children:
-        - title: Purchasing or removing seats
-          url: /purchasing-or-removing-seats
-        - title: Updating billing information
-          url: /updating-billing-information
-    - title: User management
-      url: /enterprise/user-management
-      children:
-        - title: About the Enterprise admin user
-          url: /about-the-enterprise-admin-user
-        - title: Promoting a non-admin user to admin
-          url: /promoting-a-non-admin-user-to-admin
-        - title: Demoting an admin to a non-admin user
-          url: /demoting-an-admin-to-a-non-admin-user
-        - title: Managing user security
-          url: /managing-user-security
-        - title: Viewing, deactivating, and reactivating users
-          url: /viewing-deactivating-and-reactivating-users
-        - title: Creating and managing organization and teams
-          url: /creating-and-managing-organizations-and-teams
-        - title: Permanently deleting a user
-          url: /permanently-deleting-a-user
-        - title: npm Enterprise roles and permissions
-          url: /npm-enterprise-roles-and-permissions
-    - title: Migration
-      url: /enterprise/migration
-      children:
-        - title: Migrating from an existing npm Enterprise instance
-          url: /migrating-from-an-existing-enterprise-instance
-        - title: Migrating from an organization on the public registry
-          url: /migrating-from-an-organization-on-the-public-registry
-    - title: Sunset
-      url: /enterprise/sunset
-      children:
-        - title: Sunsetting npm Enterprise
-          url: /sunsetting-npm-enterprise
 - title: Policies
   url: /policies
   children:
