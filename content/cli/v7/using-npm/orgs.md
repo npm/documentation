@@ -2,13 +2,8 @@
 title: orgs
 section: 7
 description: Working with Teams & Orgs
-redirect_from:
-  - /using-npm/orgs
-  - /using-npm/orgs.html
-  - /misc/orgs
-  - /misc/orgs.html
 github_repo: npm/cli
-github_branch: latest
+github_branch: v7
 github_path: docs/content/using-npm/orgs.md
 ---
 

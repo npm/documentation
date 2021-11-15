@@ -2,15 +2,8 @@
 title: npm-shrinkwrap
 section: 1
 description: Lock down dependency versions for publication
-redirect_from:
-  - /cli/shrinkwrap
-  - /cli/shrinkwrap.html
-  - /cli/commands/shrinkwrap
-  - /cli-commands/shrinkwrap
-  - /cli-commands/shrinkwrap.html
-  - /cli-commands/npm-shrinkwrap
 github_repo: npm/cli
-github_branch: latest
+github_branch: v7
 github_path: docs/content/commands/npm-shrinkwrap.md
 ---
 

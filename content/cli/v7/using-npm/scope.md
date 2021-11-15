@@ -2,14 +2,8 @@
 title: scope
 section: 7
 description: Scoped packages
-redirect_from:
-  - /using-npm/scope
-  - /using-npm/scope.html
-  - /misc/scope
-  - /misc/scope.html
-  - /using-npm/npm-scope
 github_repo: npm/cli
-github_branch: latest
+github_branch: v7
 github_path: docs/content/using-npm/scope.md
 ---
 

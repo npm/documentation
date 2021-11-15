@@ -2,13 +2,8 @@
 title: package-lock.json
 section: 5
 description: A manifestation of the manifest
-redirect_from:
-  - /configuring-npm/package-lock-json
-  - /configuring-npm/package-lock-json.html
-  - /files/package-lock.json
-  - /files/package-lock.json.html
 github_repo: npm/cli
-github_branch: latest
+github_branch: v7
 github_path: docs/content/configuring-npm/package-lock-json.md
 ---
 

@@ -2,13 +2,8 @@
 title: workspaces
 section: 7
 description: Working with workspaces
-redirect_from:
-  - /using-npm/workspaces
-  - /using-npm/workspaces.html
-  - /misc/workspaces
-  - /misc/workspaces.html
 github_repo: npm/cli
-github_branch: latest
+github_branch: v7
 github_path: docs/content/using-npm/workspaces.md
 ---
 
@@ -117,7 +112,7 @@ respect the provided `workspace` configuration.
 ### Using workspaces
 
 Given the [specifities of how Node.js handles module resolution](https://nodejs.org/dist/latest-v14.x/docs/api/modules.html#modules_all_together) it's possible to consume any defined workspace
-by its declared `package.json` `name`. Continuing from the example defined
+by it's declared `package.json` `name`. Continuing from the example defined
 above, let's also create a Node.js script that will require the `workspace-a`
 example module, e.g:
 

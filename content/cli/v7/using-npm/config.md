@@ -2,13 +2,8 @@
 title: config
 section: 7
 description: More than you probably want to know about npm configuration
-redirect_from:
-  - /using-npm/config
-  - /using-npm/config.html
-  - /misc/config
-  - /misc/config.html
 github_repo: npm/cli
-github_branch: latest
+github_branch: v7
 github_path: docs/content/using-npm/config.md
 ---
 
@@ -814,20 +809,6 @@ This is experimental, and not implemented by the npm public registry.
 <!-- automatically generated, do not edit manually -->
 <!-- see lib/utils/config/definitions.js -->
 
-#### `include-workspace-root`
-
-* Default: false
-* Type: Boolean
-
-Include the workspace root when workspaces are enabled for a command.
-
-When false, specifying individual workspaces via the `workspace` config, or
-all workspaces via the `workspaces` flag, will cause npm to operate only on
-the specified workspaces, and not on the root project.
-
-<!-- automatically generated, do not edit manually -->
-<!-- see lib/utils/config/definitions.js -->
-
 #### `init-author-email`
 
 * Default: ""
@@ -987,31 +968,6 @@ npm registry. Must be IPv4 in versions of Node prior to 0.12.
 * Type: "global", "user", or "project"
 
 When passed to `npm config` this refers to which config file to use.
-
-<!-- automatically generated, do not edit manually -->
-<!-- see lib/utils/config/definitions.js -->
-
-#### `lockfile-version`
-
-* Default: Version 2 if no lockfile or current lockfile version less than or
-  equal to 2, otherwise maintain current lockfile version
-* Type: null, 1, 2, 3, "1", "2", or "3"
-
-Set the lockfile format version to be used in package-lock.json and
-npm-shrinkwrap-json files. Possible options are:
-
-1: The lockfile version used by npm versions 5 and 6. Lacks some data that
-is used during the install, resulting in slower and possibly less
-deterministic installs. Prevents lockfile churn when interoperating with
-older npm versions.
-
-2: The default lockfile version used by npm version 7. Includes both the
-version 1 lockfile data and version 3 lockfile data, for maximum determinism
-and interoperability, at the expense of more bytes on disk.
-
-3: Only the new lockfile information introduced in npm version 7. Smaller on
-disk than lockfile version 2, but not interoperable with older npm versions.
-Ideal if all users are on npm version 7 and higher.
 
 <!-- automatically generated, do not edit manually -->
 <!-- see lib/utils/config/definitions.js -->
@@ -1791,8 +1747,8 @@ Valid values for the `workspace` config are either:
 
 * Workspace names
 * Path to a workspace directory
-* Path to a parent workspace directory (will result in selecting all
-  workspaces within that folder)
+* Path to a parent workspace directory (will result to selecting all of the
+  nested workspaces)
 
 When set for the `npm init` command, this may be set to the folder of a
 workspace which does not yet exist, to create the folder and set it up as a
@@ -1805,19 +1761,11 @@ This value is not exported to the environment for child processes.
 
 #### `workspaces`
 
-* Default: null
-* Type: null or Boolean
+* Default: false
+* Type: Boolean
 
-Set to true to run the command in the context of **all** configured
+Enable running a command in the context of **all** the configured
 workspaces.
-
-Explicitly setting this to false will cause commands like `install` to
-ignore workspaces altogether. When not set explicitly:
-
-- Commands that operate on the `node_modules` tree (install, update, etc.)
-will link workspaces into the `node_modules` folder. - Commands that do
-other things (test, exec, publish, etc.) will operate on the root project,
-_unless_ one or more workspaces are specified in the `workspace` config.
 
 This value is not exported to the environment for child processes.
 

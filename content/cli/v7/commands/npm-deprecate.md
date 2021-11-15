@@ -2,15 +2,8 @@
 title: npm-deprecate
 section: 1
 description: Deprecate a version of a package
-redirect_from:
-  - /cli/deprecate
-  - /cli/deprecate.html
-  - /cli/commands/deprecate
-  - /cli-commands/deprecate
-  - /cli-commands/deprecate.html
-  - /cli-commands/npm-deprecate
 github_repo: npm/cli
-github_branch: latest
+github_branch: v7
 github_path: docs/content/commands/npm-deprecate.md
 ---
 
