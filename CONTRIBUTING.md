@@ -172,7 +172,8 @@ that pulls documentation updates from the CLI into this repository.
 This is done nightly.
 
 This process can, of course, be done manually.  This may be useful for
-editing its behavior or debugging.
+editing its behavior or debugging, and it *should* be done when you're
+adding a new major version to the site.
 
 1. Review the configuration  
    The `cli/releases.json` configures how the CLI documentation is
