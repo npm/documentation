@@ -4,3 +4,6 @@
 [submodule "cli/v7"]
 	path = cli/v7
 	url = https://github.com/npm/cli
+[submodule "cli/v8"]
+	path = cli/v8
+	url = https://github.com/npm/cli
