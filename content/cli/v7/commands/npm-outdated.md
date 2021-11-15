@@ -2,15 +2,8 @@
 title: npm-outdated
 section: 1
 description: Check for outdated packages
-redirect_from:
-  - /cli/outdated
-  - /cli/outdated.html
-  - /cli/commands/outdated
-  - /cli-commands/outdated
-  - /cli-commands/outdated.html
-  - /cli-commands/npm-outdated
 github_repo: npm/cli
-github_branch: latest
+github_branch: v7
 github_path: docs/content/commands/npm-outdated.md
 ---
 
@@ -177,8 +170,8 @@ Valid values for the `workspace` config are either:
 
 * Workspace names
 * Path to a workspace directory
-* Path to a parent workspace directory (will result in selecting all
-  workspaces within that folder)
+* Path to a parent workspace directory (will result to selecting all of the
+  nested workspaces)
 
 When set for the `npm init` command, this may be set to the folder of a
 workspace which does not yet exist, to create the folder and set it up as a

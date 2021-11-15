@@ -2,15 +2,8 @@
 title: npm-unpublish
 section: 1
 description: Remove a package from the registry
-redirect_from:
-  - /cli/unpublish
-  - /cli/unpublish.html
-  - /cli/commands/unpublish
-  - /cli-commands/unpublish
-  - /cli-commands/unpublish.html
-  - /cli-commands/npm-unpublish
 github_repo: npm/cli
-github_branch: latest
+github_branch: v7
 github_path: docs/content/commands/npm-unpublish.md
 ---
 
@@ -117,8 +110,8 @@ Valid values for the `workspace` config are either:
 
 * Workspace names
 * Path to a workspace directory
-* Path to a parent workspace directory (will result in selecting all
-  workspaces within that folder)
+* Path to a parent workspace directory (will result to selecting all of the
+  nested workspaces)
 
 When set for the `npm init` command, this may be set to the folder of a
 workspace which does not yet exist, to create the folder and set it up as a
@@ -131,19 +124,11 @@ This value is not exported to the environment for child processes.
 
 #### `workspaces`
 
-* Default: null
-* Type: null or Boolean
+* Default: false
+* Type: Boolean
 
-Set to true to run the command in the context of **all** configured
+Enable running a command in the context of **all** the configured
 workspaces.
-
-Explicitly setting this to false will cause commands like `install` to
-ignore workspaces altogether. When not set explicitly:
-
-- Commands that operate on the `node_modules` tree (install, update, etc.)
-will link workspaces into the `node_modules` folder. - Commands that do
-other things (test, exec, publish, etc.) will operate on the root project,
-_unless_ one or more workspaces are specified in the `workspace` config.
 
 This value is not exported to the environment for child processes.
 

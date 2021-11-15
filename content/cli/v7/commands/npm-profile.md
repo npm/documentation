@@ -2,15 +2,8 @@
 title: npm-profile
 section: 1
 description: Change settings on your registry profile
-redirect_from:
-  - /cli/profile
-  - /cli/profile.html
-  - /cli/commands/profile
-  - /cli-commands/profile
-  - /cli-commands/profile.html
-  - /cli-commands/npm-profile
 github_repo: npm/cli
-github_branch: latest
+github_branch: v7
 github_path: docs/content/commands/npm-profile.md
 ---
 
