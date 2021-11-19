@@ -127,7 +127,9 @@ need to add them to `.npmignore` explicitly:
 * `._*`
 * `.DS_Store`
 * `.git`
+* `.gitignore`
 * `.hg`
+* `.npmignore`
 * `.npmrc`
 * `.lock-wscript`
 * `.svn`
