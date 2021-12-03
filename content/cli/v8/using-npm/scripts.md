@@ -267,7 +267,7 @@ package.json file, then your package scripts would have the
 in your code with `process.env.npm_package_name` and
 `process.env.npm_package_version`, and so on for other fields.
 
-See [`package-json.md`](/cli/v8/configuring-npm/package-json) for more on package configs.
+See [`package.json`](/cli/v8/configuring-npm/package-json) for more on package configs.
 
 #### current lifecycle event
 

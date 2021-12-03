@@ -1000,6 +1000,9 @@
             - title: Config
               url: /cli/v8/using-npm/config
               description: About npm configuration
+            - title: Logging
+              url: /cli/v8/using-npm/logging
+              description: Why, What & How we Log
             - title: Scope
               url: /cli/v8/using-npm/scope
               description: Scoped packages
