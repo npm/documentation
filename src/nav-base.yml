@@ -12,6 +12,8 @@
       url: /creating-a-new-npm-user-account
     - title: Creating a strong password
       url: /creating-a-strong-password
+    - title: Receiving a one-time password over email
+      url: /receiving-a-one-time-password-over-email
     - title: About two-factor authentication
       url: /about-two-factor-authentication
     - title: Configuring two-factor authentication
