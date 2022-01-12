@@ -142,8 +142,8 @@ const shared = {
 
     /* Organizations */
     'organization-create': {
-        'text': (<>In the upper right corner of the page, click your profile picture, then click <strong>Create an Organization</strong>.</>),
-        'image': (<Screenshot src="/shared/organization-create.png" alt="Screenshot of the create an organization dropdown menu" />),
+        'text': (<>In the upper right corner of the page, click your profile picture, then click <strong>Add an Organization</strong>.</>),
+        'image': (<Screenshot src="/shared/organization-create.png" alt="Screenshot of the add an organization dropdown menu" />),
     },
     'organization-selection': {
         'text': (<>In the left sidebar, click the name of your organization.</>),
