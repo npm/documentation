@@ -186,6 +186,8 @@
           url: /creating-an-organization
         - title: Converting your user account to an organization
           url: /converting-your-user-account-to-an-organization
+        - title: Requiring two-factor authentication in your organization
+          url: /requiring-two-factor-authentication-in-your-organization
         - title: Renaming an organization
           url: /renaming-an-organization
         - title: Deleting an organization
