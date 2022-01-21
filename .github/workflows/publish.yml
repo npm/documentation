@@ -22,11 +22,7 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: 12.x
-
-    # Update npm to v7
-    - name: Update npm v7
-      run: npm install -g npm@latest
+        node-version: 16.x
 
     # Build the site
     - name: Install npm packages
