@@ -178,3 +178,4 @@ This resulted in some shifts in its functionality:
 * [npm restart](/cli/v8/commands/npm-restart)
 * [npm stop](/cli/v8/commands/npm-stop)
 * [npm config](/cli/v8/commands/npm-config)
+* [npm exec](/cli/v8/commands/npm-exec)

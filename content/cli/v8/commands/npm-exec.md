@@ -398,3 +398,4 @@ project.
 * [npm stop](/cli/v8/commands/npm-stop)
 * [npm config](/cli/v8/commands/npm-config)
 * [npm workspaces](/cli/v8/using-npm/workspaces)
+* [npx](/cli/v8/commands/npx)
