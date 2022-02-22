@@ -31,7 +31,7 @@ npm install <tarball url>
 npm install <folder>
 
 aliases: npm i, npm add
-common options: [-P|--save-prod|-D|--save-dev|-O|--save-optional|--save-peer] [-E|--save-exact] [-B|--save-bundle] [--no-save] [--dry-run]
+common options: [-P|--save-prod|-D|--save-dev|-O|--save-optional|--save-peer] [-E|--save-exact] [-B|--save-bundle] [--lockfile-version] [--no-save] [--dry-run]
 ```
 
 ### Description
@@ -176,6 +176,10 @@ into a tarball (b).
 
     Further, if you have an `npm-shrinkwrap.json` or `package-lock.json`
     then it will be updated as well.
+
+    You can override the default format of your shrinkwrap and lockfiles by
+    setting `--lockfile-version [1|2|3]`, or by including this option in your
+    `.npmrc`.
 
     `<scope>` is optional. The package will be downloaded from the registry
     associated with the specified scope. If no registry is associated with
