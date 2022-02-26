@@ -34,7 +34,7 @@ To ensure the integrity of a package version you download from the npm public re
 2. Get the integrity field for that version (example below includes response):
 
    ```
-   npm view light-cycle@1.4.3 --json | npm exec json ".dist.integrity"
+   npm view light-cycle@1.4.3 dist.integrity
    ```
 
    Example response:
