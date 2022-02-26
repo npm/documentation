@@ -28,7 +28,7 @@ To ensure the integrity of a package version you download from the npm public re
 1. On the command line, fetch the signature for the package version you want and save it in a file:
 
    ```
-   npm view light-cycle@1.4.3 --json | npm exec json ".dist.npm-signature" > sig-to-check
+   npm view light-cycle@1.4.3 dist.npm-signature > sig-to-check
    ```
 
 2. Get the integrity field for that version (example below includes response):
