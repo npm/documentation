@@ -606,6 +606,8 @@ For example, these are all valid:
     "elf": "~1.2.3",
     "two": "2.x",
     "thr": "3.3.x",
+    "fou": "*",
+    "fiv": "",
     "lat": "latest",
     "dyl": "file:../dyl"
   }
