@@ -11,8 +11,9 @@ module.exports = {
       resolve: 'gatsby-theme-doctornpm',
       options: {
         icon: './src/images/npm-favicon.png',
-        editOnGitHub: false,
+        editOnGitHub: true,
         showContributors: false,
+        showSidebarEditLink: false,
         repo: {
           url: 'https://github.com/npm/documentation',
           defaultBranch: 'main',
@@ -21,5 +22,4 @@ module.exports = {
     },
     'gatsby-plugin-meta-redirect'
   ],
-  pathPrefix: process.env.PATH_PREFIX || ''
 }
