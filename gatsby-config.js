@@ -22,4 +22,5 @@ module.exports = {
     },
     'gatsby-plugin-meta-redirect'
   ],
+  pathPrefix: process.env.PATH_PREFIX || '',
 }

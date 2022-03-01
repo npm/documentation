@@ -47,15 +47,3 @@ jobs:
           -H "Content-Type: application/json" \
           --data "{ \"event_type\": \"publish_pr\", \"client_payload\": { \"pr_number\":\"$PR_NUMBER\", \"notify\":\"$NOTIFY\" } }" \
           https://api.github.com/repos/${{ env.staging_repo }}/dispatches
-
-#    - name: Identify pull request
-#      if: github.event_name == "pull_request_target"
-#      uses: actions/github-script@v3
-#      with:
-#        script: |
-#          github.issues.createComment({
-#            issue_number: context.issue.number,
-#            owner: context.repo.owner,
-#            repo: context.repo.repo,
-#            body: "👋 Thanks for opening a pull request!  We're building a staging 
-#          })
