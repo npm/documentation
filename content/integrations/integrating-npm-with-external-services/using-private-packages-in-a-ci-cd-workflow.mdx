@@ -22,7 +22,7 @@ For more information on creating access tokens, including CIDR-whitelisted token
 
 ### Continuous deployment
 
-Since continuous deployment environments usually involve the creation of a deploy artifact, you may wish to create an [automation token](create-token#creating-tokens-on-the-website) on the website.  This will allow you to publish even if you have two-factor authentication enabled on your account.
+Since continuous deployment environments usually involve the creation of a deploy artifact, you may wish to create an "[automation token][create-token]" on the website. This will allow you to publish even if you have two-factor authentication enabled on your account.
 
 ### Interactive workflows
 
@@ -47,13 +47,13 @@ Example:
 npm token create --cidr=192.0.2.0/24
 ```
 
-For more information, see "[Creating and viewing authentication tokens](creating-and-viewing-access-tokens)".
+For more information, see "[Creating and viewing authentication tokens][create-token]".
 
 ## Set the token as an environment variable on the CI/CD server
 
 Set your token as an environment variable, or a secret, in your CI/CD server.
 
-For example, in GitHub Actions, you would [add your token as a secret](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).  Then you can make the secret available to workflows.
+For example, in GitHub Actions, you would [add your token as a secret](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets). Then you can make the secret available to workflows.
 
 If you named the secret `NPM_TOKEN`, then you would want to create an environment variable named `NPM_TOKEN` from that secret.
 
@@ -77,14 +77,14 @@ Use a project-specific `.npmrc` file with a variable for your token to securely 
    //registry.npmjs.org/:_authToken=${NPM_TOKEN}
    ```
 
-   **Note:** that you are specifying a literal value of `${NPM_TOKEN}`.  The npm cli will replace this value with the contents of the `NPM_TOKEN` environment variable.  Do **not** put a token in this file.
+   **Note:** that you are specifying a literal value of `${NPM_TOKEN}`. The npm cli will replace this value with the contents of the `NPM_TOKEN` environment variable. Do **not** put a token in this file.
 
 2. Check in the `.npmrc` file.
 
 ## Securing your token
 
-Your token may have permission to read private packages, publish new packages on your behalf, or change user or package settings.  Protect your token.
+Your token may have permission to read private packages, publish new packages on your behalf, or change user or package settings. Protect your token.
 
-Do not add your token to version control or store it insecurely.  Store it in a package manager, your cloud provider's secure storage, or your CI/CD provider's secure storage.
+Do not add your token to version control or store it insecurely. Store it in a package manager, your cloud provider's secure storage, or your CI/CD provider's secure storage.
 
 [create-token]: creating-and-viewing-access-tokens
