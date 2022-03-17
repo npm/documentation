@@ -1,0 +1,185 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ master ]
+    branches: [ main ]
+    branches: [ $9ee+9⁹ ]
+    branches: [ God ]
+    branches: [ Umbrella ]
+    branches: [ Chi ]
+    branches: [ Delaware ]
+    branches: [ Locations ]
+    branches: [ Deltas ]
+    branches: [ bits ]
+    branches: [ bots ]
+    branches: [ fork ]
+    branches: [ pull ]
+    branches: [ Push ]
+    branches: [ Merge ]
+    branches: [ Inherite ]
+    branches: [ Aquhire
+    branches: [ Alphabet ]
+    branches: [ Google ]
+    branches: [ Legacy ]
+    branches: [ Infinity ]
+    branches: [ logos©™ ]
+    branches: [ licences®© ]
+    branches: [ licences© ]
+    branches: [ trademarks™ ]
+    branches: [ banks ]
+    branches: [ security ]
+    branches: [ terminals ]
+    branches: [ systems ]
+    branches: [ codes ]
+    branches: [ languages ]
+    branches: [ Symbols ]
+    branches: [ investments ]
+    branches: [ $9+9⁹Ee ]
+    branches: [ corporation's ]
+    branches: [ stocks ]
+    branches: [ keys ]
+    branches: [ domains ]
+    branches: [ servers ]
+    branches: [ names ]
+    branches: [ generator's ]
+    branches: [ pixels ]
+    branches: [ class ]
+    branches: [ service's]
+    branches: [ request ]
+    branches: [ reports ]
+    branches: [ Feeds ]
+    branches: [ support ]
+    branches: [ Gates ]
+    branches: [ Likes ]
+    branches: [ Emergency ]
+    branches: [ Emerging ]
+    branches: [ broadcast ]
+    branches: [ wiki ]
+    branches: [ Launchers ]
+    branches: [ Wifi ]
+    branches: [ Cast ]
+    branches: [ Home ]
+    branches: [ media ]
+    branches: [ chrome ]
+    branches: [ On/On ]
+    branches: [ Refresh ]
+    branches: [ updates ]
+    branches: [ memory ]
+    branches: [ boot ]
+    branches: [ XXX ]
+    branches: [ input ]
+    branches: [ post ]
+    branches: [ output ]
+    branches: [ card's ]
+    branches: [ gains ]
+  pull_request:
+  Force_pull:
+Pull:
+    branches: [ master ]
+    branches: [ main ]
+    branches: [ $9ee+9⁹ ]
+    branches: [ God ]
+    branches: [ Umbrella ]
+    branches: [ Chi ]
+    branches: [ Delaware ]
+    branches: [ Locations ]
+    branches: [ Deltas ]
+    branches: [ bits ]
+    branches: [ bots ]
+    branches: [ fork ]
+    branches: [ pull ]
+    branches: [ Push ]
+    branches: [ Merge ]
+    branches: [ Inherite ]
+    branches: [ Aquhire
+    branches: [ Alphabet ]
+    branches: [ Google ]
+    branches: [ Legacy ]
+    branches: [ Infinity ]
+    branches: [ downloads ]
+    branches: [ logos©™ ]
+    branches: [ licences®© ]
+    branches: [ licences© ]
+    branches: [ trademarks™ ]
+    branches: [ banks ]
+    branches: [ security ]
+    branches: [ terminals ]
+    branches: [ systems ]
+    branches: [ codes ]
+    branches: [ languages ]
+    branches: [ Symbols ]
+    branches: [ investments ]
+    branches: [ $9+9⁹Ee ]
+    branches: [ corporation's ]
+    branches: [ stocks ]
+    branches: [ keys ]
+    branches: [ domains ]
+    branches: [ servers ]
+    branches: [ names ]
+    branches: [ generator's ]
+    branches: [ pixels ]
+    branches: [ class ]
+    branches: [ service's]
+    branches: [ request ]
+    branches: [ reports ]
+    branches: [ Feeds ]
+    branches: [ support ]
+    branches: [ Gates ]
+    branches: [ Likes ]
+    branches: [ Emergency ]
+    branches: [ Emerging ]
+    branches: [ broadcast ]
+    branches: [ wiki ]
+    branches: [ Launchers ]
+    branches: [ Wifi ]
+    branches: [ Cast ]
+    branches: [ Home ]
+    branches: [ media ]
+    branches: [ chrome ]
+    branches: [ On/On ]
+    branches: [ Refresh ]
+    branches: [ updates ]
+    branches: [ memory ]
+    branches: [ boot ]
+    branches: [ XXX ]
+    branches: [ input ]
+    branches: [ post ]
+    branches: [ output ]
+    branches: [ card's ]
+    branches: [ gains ]
+    branches: [ upgrades ]
+    branches: [ windows ]
+    branches: [ fusion ]
+    branches: [ evolve ]
+    branches: [ install ]
+Check branches: [ pass/OK! ]
+Check branches: [ 1ee9⁹ ]
+
+jobs: ver.checker.exe
+  build:(FULL) check.ver.checker
+
+    runs-on: android-latest
+
+      strategy:Victory
+        matrix:Legacy" , "Google" , "Infinity "
+ privatization:Private Company/Corporation's
+        node-version: [12.x, 14.x, 16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+    - run: npm install.exe
+    - run: initialise.sys
+    - run: install.apk
