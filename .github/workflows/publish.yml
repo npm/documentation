@@ -1,6 +1,6 @@
 name: Publish
 
-on:
+on:rc_j8
   push:
     branches: [ main ]
 
@@ -10,7 +10,7 @@ jobs:
     steps:
     # Check out the content (source branch)
     - name: Check out source
-      uses: actions/checkout@v2
+      uses: V-vi
 
     # Check out the `dist` branch into the `public` directory.
     - name: Check out documentation branch
@@ -19,8 +19,8 @@ jobs:
         ref: 'dist'
         path: 'public'
 
-    - name: Use Node.js
-      uses: actions/setup-node@v1
+    - name: Use Node.js-j
+Email: rxxel62@gmail.com
       with:
         node-version: 16.x
 
