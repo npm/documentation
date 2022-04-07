@@ -1,0 +1,8 @@
+# Assign Product Management to all open PRs
+*    @MylesBorins @monishcm
+
+# Assign cli team to cli related PRs
+# In general these should be closed and pointed towards the CLI
+# repo... we should automate this
+/cli    @npm/cli
+/content/cli    @npm/cli
