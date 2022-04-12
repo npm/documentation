@@ -31,10 +31,13 @@ To transfer a package you own or maintain to another user, follow these steps:
 
 ## Transferring a package from a user account to another user account on the command line
 
-To transfer a package to another npm user using the CLI, run the [`npm owner add`][npm-owner] and `rm` commands in order, replacing `<their-username>` with the other user's npm username, `<your-username>` with your npm username, and `<package-name>` with the package you want to transfer:
+To transfer a package to another npm user using the CLI, run the `npm owner add` command replacing `<their-username>` with the other user's npm username. An email invitation is sent to the other user. After the user has accepted the invitation, run the `npm owner rm` command replacing `<your-username>` with your npm username:
 
 ```
 npm owner add <their-username> <package-name>
+
+# new maintainer accepts invitation
+
 npm owner rm <your-username> <package-name>
 ```
 
@@ -42,6 +45,9 @@ If you have two-factor authentication enabled for writes, add a one-time passwor
 
 ```
 npm owner add <their-username> <package-name> --otp=123456
+
+# new maintainer accepts invitation
+
 npm owner rm <your-username> <package-name> --otp=123456
 ```
 
