@@ -23,7 +23,7 @@ github_path: docs/content/commands/npm-view.md
 ```bash
 npm view [<@scope>/]<pkg>[@<version>] [<field>[.subfield]...]
 
-aliases: v, info, show
+aliases: info, show, v
 ```
 
 <!-- automatically generated, do not edit manually -->
@@ -189,6 +189,8 @@ Include the workspace root when workspaces are enabled for a command.
 When false, specifying individual workspaces via the `workspace` config, or
 all workspaces via the `workspaces` flag, will cause npm to operate only on
 the specified workspaces, and not on the root project.
+
+This value is not exported to the environment for child processes.
 
 <!-- automatically generated, do not edit manually -->
 <!-- see lib/utils/config/definitions.js -->

@@ -51,7 +51,7 @@ const shared = {
     },
     'billing-download-checked': {
         'text': (<>To download multiple receipts, first select the receipts that you wish to download by selecting the box next to the date.  To select all receipts, select the checkbox next to the "Date" header.  Then click <strong>Download Checked</strong>.</>),
-        'image': (<Screenshot src="/shared/billing-download-checked.png" alt="Screenshot of the the download checked option" />),
+        'image': (<Screenshot src="/shared/billing-download-checked.png" alt="Screenshot of the download checked option" />),
     },
     'billing-email': {
         'text': (<>To email a single receipt, find the row of the receipt you want to download, then, on the right side of the row, click the email icon.</>),

@@ -56,6 +56,13 @@ In short, the main differences between using `npm install` and `npm ci` are:
 * It will never write to `package.json` or any of the package-locks:
   installs are essentially frozen.
 
+NOTE: If you create your `package-lock.json` file by running `npm install`
+with flags that can affect the shape of your dependency tree, such as
+`--legacy-peer-deps`, you _must_ provide the same flags to `npm ci` or you
+are likely to encounter errors. An easy way to do this is to run
+`npm config set legacy-peer-deps=true --location=project` and commit the
+`.npmrc` file to your repo.
+
 ### Example
 
 Make sure you have a package-lock and an up-to-date install:
@@ -100,6 +107,21 @@ When "true" submit audit reports alongside the current npm command to the
 default registry and all registries configured for scopes. See the
 documentation for [`npm audit`](/cli/v8/commands/npm-audit) for details on what is
 submitted.
+
+<!-- automatically generated, do not edit manually -->
+<!-- see lib/utils/config/definitions.js -->
+
+#### `foreground-scripts`
+
+* Default: false
+* Type: Boolean
+
+Run all build scripts (ie, `preinstall`, `install`, and `postinstall`)
+scripts for installed packages in the foreground process, sharing standard
+input, output, and error with the main npm process.
+
+Note that this will generally make installs run slower, and be much noisier,
+but can be useful for debugging.
 
 <!-- automatically generated, do not edit manually -->
 <!-- see lib/utils/config/definitions.js -->

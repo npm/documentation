@@ -23,7 +23,7 @@ github_path: docs/content/commands/npm-search.md
 ```bash
 npm search [search terms ...]
 
-aliases: s, se, find
+aliases: find, s, se
 ```
 
 <!-- automatically generated, do not edit manually -->

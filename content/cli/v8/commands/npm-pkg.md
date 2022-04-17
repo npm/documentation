@@ -24,6 +24,8 @@ github_path: docs/content/commands/npm-pkg.md
 npm pkg set <key>=<value> [<key>=<value> ...]
 npm pkg get [<key> [<key> ...]]
 npm pkg delete <key> [<key> ...]
+npm pkg set [<array>[<index>].<key>=<value> ...]
+npm pkg set [<array>[].<key>=<value> ...]
 ```
 
 <!-- automatically generated, do not edit manually -->
@@ -207,6 +209,7 @@ mistakes, unnecessary performance degradation, and malicious input.
 * Allow conflicting peerDependencies to be installed in the root project.
 * Implicitly set `--yes` during `npm init`.
 * Allow clobbering existing values in `npm pkg`
+* Allow unpublishing of entire packages (not just a single version).
 
 If you don't have a clear idea of what you want to do, it is strongly
 recommended that you do not use this option!

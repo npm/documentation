@@ -33,7 +33,7 @@ npm install <tarball url>
 npm install <git:// url>
 npm install <github username>/<github project>
 
-aliases: i, in, ins, inst, insta, instal, isnt, isnta, isntal, add
+aliases: add, i, in, ins, inst, insta, instal, isnt, isnta, isntal, isntall
 ```
 
 <!-- automatically generated, do not edit manually -->
@@ -443,8 +443,7 @@ These are some of the most common options related to installation.
 <!-- see lib/utils/config/definitions.js -->
 #### `save`
 
-* Default: `true` unless when using `npm update` or `npm dedupe` where it
-  defaults to `false`
+* Default: `true` unless when using `npm update` where it defaults to `false`
 * Type: Boolean
 
 Save installed packages to a `package.json` file as dependencies.
@@ -513,6 +512,27 @@ will be preferred.
 <!-- automatically generated, do not edit manually -->
 <!-- see lib/utils/config/definitions.js -->
 
+#### `omit`
+
+* Default: 'dev' if the `NODE_ENV` environment variable is set to
+  'production', otherwise empty.
+* Type: "dev", "optional", or "peer" (can be set multiple times)
+
+Dependency types to omit from the installation tree on disk.
+
+Note that these dependencies _are_ still resolved and added to the
+`package-lock.json` or `npm-shrinkwrap.json` file. They are just not
+physically installed on disk.
+
+If a package type appears in both the `--include` and `--omit` lists, then
+it will be included.
+
+If the resulting omit list includes `'dev'`, then the `NODE_ENV` environment
+variable will be set to `'production'` for all lifecycle scripts.
+
+<!-- automatically generated, do not edit manually -->
+<!-- see lib/utils/config/definitions.js -->
+
 #### `strict-peer-deps`
 
 * Default: false
@@ -552,23 +572,17 @@ This configuration does not affect `npm ci`.
 <!-- automatically generated, do not edit manually -->
 <!-- see lib/utils/config/definitions.js -->
 
-#### `omit`
+#### `foreground-scripts`
 
-* Default: 'dev' if the `NODE_ENV` environment variable is set to
-  'production', otherwise empty.
-* Type: "dev", "optional", or "peer" (can be set multiple times)
+* Default: false
+* Type: Boolean
 
-Dependency types to omit from the installation tree on disk.
+Run all build scripts (ie, `preinstall`, `install`, and `postinstall`)
+scripts for installed packages in the foreground process, sharing standard
+input, output, and error with the main npm process.
 
-Note that these dependencies _are_ still resolved and added to the
-`package-lock.json` or `npm-shrinkwrap.json` file. They are just not
-physically installed on disk.
-
-If a package type appears in both the `--include` and `--omit` lists, then
-it will be included.
-
-If the resulting omit list includes `'dev'`, then the `NODE_ENV` environment
-variable will be set to `'production'` for all lifecycle scripts.
+Note that this will generally make installs run slower, and be much noisier,
+but can be useful for debugging.
 
 <!-- automatically generated, do not edit manually -->
 <!-- see lib/utils/config/definitions.js -->
@@ -700,6 +714,8 @@ Include the workspace root when workspaces are enabled for a command.
 When false, specifying individual workspaces via the `workspace` config, or
 all workspaces via the `workspaces` flag, will cause npm to operate only on
 the specified workspaces, and not on the root project.
+
+This value is not exported to the environment for child processes.
 
 <!-- automatically generated, do not edit manually -->
 <!-- see lib/utils/config/definitions.js -->

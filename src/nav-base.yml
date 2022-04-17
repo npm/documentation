@@ -249,6 +249,10 @@
   children:
   - title: Terms of Use
     url: /policies/terms
+  - title: Open Source Terms
+    url: /policies/open-source-terms
+  - title: Private Terms
+    url: /policies/private-terms
   - title: Code of Conduct
     url: /policies/conduct
   - title: Package Name Disputes
