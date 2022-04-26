@@ -79,7 +79,11 @@ docker build --build-arg NPM_TOKEN=${NPM_TOKEN} .
 
 This will build the Docker image with the current `NPM_TOKEN` environment variable, so you can run `npm install` inside your container as the current logged-in user.
 
+To set your `NPM_TOKEN` environment varible run `export NPM_TOKEN="00000000-0000-0000-0000-000000000000"` and pass your npm access token instead of `0`s.
+
 <Note>
+  
+**Note:** After setting your `NPM_TOKEN` environment variable remember to clean your terminal history. You can do it with `history -c` command for `bash` and `history -p` for `zsh`.
 
 **Note:** Even if you delete the `.npmrc` file, it will be kept in the commit history. To clean your secrets entirely, make sure to squash them.
 
