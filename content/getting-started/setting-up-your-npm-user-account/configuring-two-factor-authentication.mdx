@@ -3,17 +3,24 @@ title: Configuring two-factor authentication
 ---
 import shared from '../../../src/shared.js'
 
-You can enable two-factor authentication (2FA) on your npm user account to protect against unauthorized access to your account and packages, either by using a [security key][webauthn] or [time-based one-time password (TOTP)][totp] mobile app.
+You can enable two-factor authentication (2FA) on your npm user account to protect against unauthorized access to your account and packages, either by using a [security-key][webauthn] or [time-based one-time password (TOTP)][totp] from a mobile app.
+
+<Note>
+
+**Note**: The security-key flow using [WebAuthn][webauthn] is currently in beta.
+
+</Note>
 
 ## Prerequisites
 
 Before you enable 2FA on your npm user account, you must:
 
 * Update your npm client to version 5.5.1 or higher.
-* To configure a security key requires a modern browser that support [WebAuthn][can-i-use]. This will allow you to configure a biometric devices such as Apple [Touch ID][touch-id], [Face ID][face-id], or [Windows Hello][windows-hello] as well as physical keys such as [Yubikey][yubikey], [Thetis][thetis], or [Feitian][feitian].
+* To configure a security-key requires a modern browser that support [WebAuthn][can-i-use]. This will allow you to configure a biometric devices such as Apple [Touch ID][touch-id], [Face ID][face-id], or [Windows Hello][windows-hello] as well as physical keys such as [Yubikey][yubikey], [Thetis][thetis], or [Feitian][feitian].
 * To configure TOTP you will need to install an authenticator application that can generate OTPs such as [Authy][authy], [Google Authenticator][google-authenticator], or [Microsoft Authenticator][microsoft-authenticator] on your mobile device.
 
 For more information on supported 2FA methods, see "[About two-factor authentication][about-two-factor-authentication]".
+
 
 <Note>
 
@@ -45,7 +52,7 @@ For more information on supported 2FA methods, see "[About two-factor authentica
 
 6. Configure the 2FA method of your choice:
 
-  * When using a **security key**, provide a name for it and click **Add security key**. Follow the browser specific steps to add your security key.
+  * When using a **security-key**, provide a name for it and click **Add security key**. Follow the browser specific steps to add your security-key.
 
    <Screenshot src="/getting-started/setting-up-your-npm-user-account/2fa-add-security-key.png" alt="Screenshot showing security key setup" />
 
@@ -62,7 +69,7 @@ For more information on supported 2FA methods, see "[About two-factor authentica
    <Screenshot src="/getting-started/setting-up-your-npm-user-account/recovery-code.png" alt="Screenshot showing the Recovery Code page" />
 
 
-   _Recovery codes are the only way to recover your account if you lose access to your second factor device. There are 5 codes presented and each code can be used only once. You can [view and regenerate your recovery code][viewing-and-regenerating-recovery-code] from your 2FA settings page._
+   _Recovery codes are the only way to recover your account if you lose access to your second factor device. Each code can be used only once. You can [view and regenerate your recovery code][viewing-and-regenerating-recovery-code] from your 2FA settings page._
 
 8. Click **Go back to settings** after confirming that you have saved your codes.
 
@@ -125,7 +132,7 @@ If you have 2FA enabled, you can remove it from your account settings page.
 
 ### Enabling 2FA from the command line
 
-Although WebAuthn can be used for authentication from both the web and the command line, it can only be configured from the web. When enabling 2FA from the command line, currently the only available option is to use an TOTP mobile app.
+Although security-key with WebAuthn can be used for authentication from both the web and the command line, it can only be configured from the web. When enabling 2FA from the command line, currently the only available option is to use an TOTP mobile app.
 
 <Note>
 

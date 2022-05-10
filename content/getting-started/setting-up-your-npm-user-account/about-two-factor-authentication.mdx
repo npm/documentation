@@ -3,16 +3,23 @@ title: About two-factor authentication
 redirect_from: [ /getting-started/using-two-factor-authentication ]
 ---
 
-Two-factor authentication (2FA) protects against unauthorized access to your account by confirming your identity using:
+[Two-factor authentication (2FA)][2fa] protects against unauthorized access to your account by confirming your identity using:
 
 * Something you know (e.g., a password).
 * Something you have (e.g., an ID badge or a cryptographic key).
 * Something you are (e.g., a fingerprint or other biometric data).
 
-When you enable 2FA, you will be prompted for a second form of authentication before performing certain actions on your account or packages to which you have write access. Depending on your 2FA configuration you will be either prompted to authenticate with a security-key or a [time-based one-time password (TOTP)][totp]. 
+<Note>
+
+**Note**: The security-key flow using [WebAuthn][webauthn] is currently in beta.
+
+</Note>
+
+When you enable 2FA, you will be prompted for a second form of authentication before performing certain actions on your account or packages to which you have write access. Depending on your 2FA configuration you will be either prompted to authenticate with a [security-key][webauthn] or a [time-based one-time password (TOTP)][totp]. 
 
 * The security-key flow allows you to use biometric devices such as Apple [Touch ID][touch-id], [Face ID][face-id] or [Windows Hello][windows-hello] as well as physical keys such as [Yubikey][yubikey], [Thetis][thetis] or [Feitian][feitian] as your 2FA.
 * To configure TOTP you will need to install an authenticator application that can generate OTPs such as [Authy][authy], [Google Authenticator][google-authenticator], or [Microsoft Authenticator][microsoft-authenticator] on your mobile device.
+
 
 <Note>
 
@@ -79,3 +86,4 @@ If you enable 2FA for authorization only. We will request a second form of authe
 [thetis]: https://thetis.io/
 [feitian]: https://www.ftsafe.com/
 [totp]: https://en.wikipedia.org/wiki/Time-based_one-time_password
+[2fa]: https://en.wikipedia.org/wiki/Multi-factor_authentication
