@@ -1,9 +1,6 @@
 name: REUSE Compliance Check
 
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
+on: [pull_request]
 
 jobs:
   test:
