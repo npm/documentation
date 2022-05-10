@@ -14,20 +14,20 @@ jobs:
     # workflow run that runs on: push.  (Using the GitHub token would
     # not run the workflow to prevent infinite recursion.)
     - name: Check out source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         ssh-key: ${{ secrets.CLI_DEPLOY_KEY }}
 
     # Make sure that the new content didn't break the build.  We don't
     # want to promote anything that would breaks.
     - name: Use Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: 16.x
 
     # Add the CLI documentation to the content directory.
     - name: Install npm packages
-      run: npm install
+      run: npm ci
     - name: Fetch latest documentation
       run: node cli/cli_fetch.js
     - name: Clean up old documentation
