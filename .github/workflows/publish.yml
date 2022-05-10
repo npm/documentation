@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -50,8 +53,8 @@ jobs:
     - name: Publish documentation
       run: |
         git add --verbose .
-        git config user.name 'CI User'
-        git config user.email 'noreply@npmjs.com'
+        git config user.name 'npm CLI robot'
+        git config user.email 'npm-cli+bot@github.com'
         git commit -m 'Update from CI'
         git push origin dist
       if: steps.status.outputs.has_changes == '1'

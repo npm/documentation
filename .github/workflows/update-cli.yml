@@ -5,27 +5,24 @@ on:
   - cron: "14 2 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    # Check out the content (source branch).  Use a deploy key so that
-    # when we push changes, it will trigger the documentation update
-    # workflow run that runs on: push.  (Using the GitHub token would
-    # not run the workflow to prevent infinite recursion.)
     - name: Check out source
       uses: actions/checkout@v3
+    - name: Check out documentation branch
+      uses: actions/checkout@v3
       with:
-        ssh-key: ${{ secrets.CLI_DEPLOY_KEY }}
-
-    # Make sure that the new content didn't break the build.  We don't
-    # want to promote anything that would breaks.
+        ref: 'dist'
+        path: 'public'
     - name: Use Node.js
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
-
-    # Add the CLI documentation to the content directory.
     - name: Install npm packages
       run: npm ci
     - name: Fetch latest documentation
@@ -34,37 +31,39 @@ jobs:
       run: rm -rf content/cli
     - name: Import documentation
       run: node cli/cli_import.js
-
-    # Check for changes; this avoids publishing a new change to the
-    # dist branch when we made a change to (for example) a unit test.
-    # If there were changes made in the publish step above, then this
-    # will set the variable `has_changes` to `1` for subsequent steps.
     - name: Check for changes
       id: status
       run: |
         if [ -n "$(git status --porcelain)" ]; then
           echo "::set-output name=has_changes::1"
         fi
-
-    # Commit the changes to the dist branch and push the changes up to
-    # GitHub.  (Replace the name and email address with your own.)
-    # This step only runs if the previous step set `has_changes` to `1`.
-    - name: Check in documentation
+    - name: Check in source updates
+      if: steps.status.outputs.has_changes == '1'
       run: |
         git add --verbose .
-        git config user.name 'CI User'
-        git config user.email 'noreply@npmjs.com'
+        git config user.name 'npm CLI robot'
+        git config user.email 'npm-cli+bot@github.com'
         git commit -m 'CLI documentation update from CI'
-      if: steps.status.outputs.has_changes == '1'
-
-    # Before we publish the changes, ensure the site builds so that we
-    # don't break the main branch.
     - name: Build documentation
       run: npm run build
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    # Publish the documentation updates.
-    - name: Publish documentation
-      run: git push origin main
+    - name: Push source changes
       if: steps.status.outputs.has_changes == '1'
+      run: git push origin main
+    - name: Check for changes to docs
+      id: docs-status
+      working-directory: public
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "::set-output name=has_changes::1"
+        fi
+    - name: Publish documentation
+      if: steps.docs-status.outputs.has_changes == '1'
+      working-directory: public
+      run: |
+        git add --verbose .
+        git config user.name 'npm CLI robot'
+        git config user.email 'npm-cli+bot@github.com'
+        git commit -m 'CLI documentation update from CI'
+        git push origin dist
