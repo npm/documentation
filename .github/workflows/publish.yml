@@ -10,23 +10,23 @@ jobs:
     steps:
     # Check out the content (source branch)
     - name: Check out source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     # Check out the `dist` branch into the `public` directory.
     - name: Check out documentation branch
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         ref: 'dist'
         path: 'public'
 
     - name: Use Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: 16.x
 
     # Build the site
     - name: Install npm packages
-      run: npm install
+      run: npm ci
     - name: Build documentation
       run: npm run build
       env:
