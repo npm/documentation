@@ -42,7 +42,7 @@ jobs:
 
         echo "Building pull request ${PR_NUMBER}"
 
-        curl -f -X POST -u ":${{ secrets.NPM_DOCS_TOKEN }}" \
+        curl -f -X POST -u ":${{ secrets.DOCS_STAGING_DISPATCH_TOKEN }}" \
           -H "Accept: application/vnd.github.everest-preview+json" \
           -H "Content-Type: application/json" \
           --data "{ \"event_type\": \"publish_pr\", \"client_payload\": { \"pr_number\":\"$PR_NUMBER\", \"notify\":\"$NOTIFY\" } }" \
