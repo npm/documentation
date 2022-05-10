@@ -5,10 +5,14 @@ redirect_from: [ /getting-started/using-two-factor-authentication ]
 
 Two-factor authentication (2FA) protects against unauthorized access to your account by confirming your identity using:
 
-* something you know (such as your username and password)
-* something you have (such as a phone or tablet)
+* Something you know (e.g., a password).
+* Something you have (e.g., an ID badge or a cryptographic key).
+* Something you are (e.g., a fingerprint or other biometric data).
 
-When you enable 2FA, we will prompt you for a unique one-time password when you perform certain actions on your account or on packages to which you have write access, depending on your 2FA configuration.
+When you enable 2FA, you will be prompted for a second form of authentication before performing certain actions on your account or packages to which you have write access. Depending on your 2FA configuration you will be either prompted to authenticate with a security-key or a [time-based one-time password (TOTP)][totp]. 
+
+* The security-key flow allows you to use biometric devices such as Apple [Touch ID][touch-id], [Face ID][face-id] or [Windows Hello][windows-hello] as well as physical keys such as [Yubikey][yubikey], [Thetis][thetis] or [Feitian][feitian] as your 2FA.
+* To configure TOTP you will need to install an authenticator application that can generate OTPs such as [Authy][authy], [Google Authenticator][google-authenticator], or [Microsoft Authenticator][microsoft-authenticator] on your mobile device.
 
 <Note>
 
@@ -16,24 +20,13 @@ When you enable 2FA, we will prompt you for a unique one-time password when you 
 
 </Note>
 
-## Two-factor authentication modes on npm
+## Two-factor authentication on npm
 
-Two-factor authentication on npm can be enabled for authorization only, or authorization and writes.
-
-### Authorization only
-
-If you enable 2FA for authorization only, we will request a one-time password for certain authorized actions.
-
-| Action                                            | CLI command                        |
-| :------------------------------------------------ | :--------------------------------- |
-| Log in to npm                                     | `npm login`                        |
-| Change profile settings (including your password) | `npm profile set`                  |
-| Change 2FA modes for your user account            | `npm profile enable-2fa auth-only` |
-| Disable 2FA for your user account                 | `npm profile disable-2fa`          |
+Two-factor authentication on npm can be enabled for authorization and writes, or authorization only.
 
 ### Authorization and writes
 
-If you enable 2FA for authorization and writes, we will request a one-time password for certain authorized actions, as well as write actions.
+By default, 2FA is enabled for authorization and writes. We will request a second form of authentication for certain authorized actions, as well as write actions.
 
 | Action                                            | CLI command                                            |
 | :------------------------------------------------ | :----------------------------------------------------- |
@@ -50,6 +43,17 @@ If you enable 2FA for authorization and writes, we will request a one-time passw
 | Change user and team package access               | [`npm access grant/revoke`][access]                    |
 | [Change package 2FA requirements][pkg-2fa]        | [`npm access 2fa-required/2fa-not-required`][access]   |
 
+### Authorization only
+
+If you enable 2FA for authorization only. We will request a second form of authentication only for certain authorized actions.
+
+| Action                                            | CLI command                        |
+| :------------------------------------------------ | :--------------------------------- |
+| Log in to npm                                     | `npm login`                        |
+| Change profile settings (including your password) | `npm profile set`                  |
+| Change 2FA modes for your user account            | `npm profile enable-2fa auth-only` |
+| Disable 2FA for your user account                 | `npm profile disable-2fa`          |
+
 
 [login]: https://docs.npmjs.com/cli/adduser
 [profile-set]: https://docs.npmjs.com/cli/profile
@@ -61,4 +65,17 @@ If you enable 2FA for authorization and writes, we will request a one-time passw
 [unpublish]: https://docs.npmjs.com/cli/unpublish
 [deprecate]: https://docs.npmjs.com/cli/deprecate
 [access]: https://docs.npmjs.com/cli/access
-[pkg-2fa]: requiring-2fa-for-package-publishing-and-settings-modification
+[pkg-2fa]: /requiring-2fa-for-package-publishing-and-settings-modification
+[authy]: https://authy.com/download/
+[google-authenticator]: https://support.google.com/accounts/answer/1066447
+[microsoft-authenticator]: https://www.microsoft.com/security/mobile-authenticator-app
+[webauthn]: https://webauthn.guide/
+[can-i-use]: https://caniuse.com/#search=webauthn
+[u2f]: https://en.wikipedia.org/wiki/Universal_2nd_Factor
+[windows-hello]: https://support.microsoft.com/en-us/windows/learn-about-windows-hello-and-set-it-up-dae28983-8242-bb2a-d3d1-87c9d265a5f0
+[touch-id]: https://support.apple.com/en-gb/HT204587
+[face-id]: https://support.apple.com/en-us/HT208108
+[yubikey]: https://www.yubico.com/
+[thetis]: https://thetis.io/
+[feitian]: https://www.ftsafe.com/
+[totp]: https://en.wikipedia.org/wiki/Time-based_one-time_password

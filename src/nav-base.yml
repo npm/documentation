@@ -18,6 +18,8 @@
       url: /about-two-factor-authentication
     - title: Configuring two-factor authentication
       url: /configuring-two-factor-authentication
+    - title: Accessing npm using two-factor authentication
+      url: /accessing-npm-using-2fa
     - title: Recovering your 2FA-enabled account
       url: /recovering-your-2fa-enabled-account
   - title: Managing your npm user account
