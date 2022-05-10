@@ -89,3 +89,4 @@ typings/
 
 # Gatsby
 public/
+.DS_Store
