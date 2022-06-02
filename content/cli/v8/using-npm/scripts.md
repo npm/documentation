@@ -211,6 +211,12 @@ will default the `start` command to `node server.js`.  `prestart` and
 * `test`
 * `posttest`
 
+#### [`npm version`](/cli/v8/commands/npm-version)
+
+* `preversion`
+* `version`
+* `postversion`
+
 #### A Note on a lack of [`npm uninstall`](/cli/v8/commands/npm-uninstall) scripts
 
 While npm v6 had `uninstall` lifecycle scripts, npm v7 does not. Removal of a package can happen for a wide variety of reasons, and there's no clear way to currently give the script enough context to be useful. 
