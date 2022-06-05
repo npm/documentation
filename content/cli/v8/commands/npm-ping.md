@@ -66,6 +66,6 @@ The base URL of the npm registry.
 
 ### See Also
 
-* [npm doctor](/cli/v8/commands/npm-doctor)
-* [npm config](/cli/v8/commands/npm-config)
-* [npmrc](/cli/v8/configuring-npm/npmrc)
+* [npm doctor](/documentation/content/cli/v8/commands/npm-doctor.md)
+* [npm config](documentation/content/cli/v8/commands/npm-config.md)
+* [npmrc](documentation/content/cli/v8/commands/npmrc.md)
