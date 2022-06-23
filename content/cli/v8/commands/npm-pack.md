@@ -21,7 +21,7 @@ github_path: docs/content/commands/npm-pack.md
 <!-- see lib/commands/pack.js -->
 
 ```bash
-npm pack [[<@scope>/]<pkg>...]
+npm pack <package-spec>
 ```
 
 <!-- automatically generated, do not edit manually -->
@@ -154,6 +154,7 @@ If no arguments are supplied, then npm packs the current package folder.
 
 ### See Also
 
+* [package spec](/cli/v8/using-npm/package-spec)
 * [npm-packlist package](http://npm.im/npm-packlist)
 * [npm cache](/cli/v8/commands/npm-cache)
 * [npm publish](/cli/v8/commands/npm-publish)

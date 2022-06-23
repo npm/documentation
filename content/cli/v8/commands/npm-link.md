@@ -21,8 +21,7 @@ github_path: docs/content/commands/npm-link.md
 <!-- see lib/commands/link.js -->
 
 ```bash
-npm link (in package dir)
-npm link [<@scope>/]<pkg>[@<version>]
+npm link [<package-spec>]
 
 alias: ln
 ```
@@ -39,11 +38,11 @@ test iteratively without having to continually rebuild.
 
 Package linking is a two-step process.
 
-First, `npm link` in a package folder will create a symlink in the global
-folder `{prefix}/lib/node_modules/<package>` that links to the package
-where the `npm link` command was executed. It will also link any bins in
-the package to `{prefix}/bin/{name}`.  Note that `npm link` uses the global
-prefix (see `npm prefix -g` for its value).
+First, `npm link` in a package folder with no arguments will create a
+symlink in the global folder `{prefix}/lib/node_modules/<package>` that
+links to the package where the `npm link` command was executed. It will
+also link any bins in the package to `{prefix}/bin/{name}`.  Note that
+`npm link` uses the global prefix (see `npm prefix -g` for its value).
 
 Next, in some other location, `npm link package-name` will create a
 symbolic link from globally-installed `package-name` to `node_modules/` of
@@ -409,6 +408,7 @@ symlink. This option has no effect on workspaces.
 
 ### See Also
 
+* [package spec](/cli/v8/using-npm/package-spec)
 * [npm developers](/cli/v8/using-npm/developers)
 * [package.json](/cli/v8/configuring-npm/package-json)
 * [npm install](/cli/v8/commands/npm-install)

@@ -21,16 +21,7 @@ github_path: docs/content/commands/npm-install-test.md
 <!-- see lib/commands/install-test.js -->
 
 ```bash
-npm install-test [<@scope>/]<pkg>
-npm install-test [<@scope>/]<pkg>@<tag>
-npm install-test [<@scope>/]<pkg>@<version>
-npm install-test [<@scope>/]<pkg>@<version range>
-npm install-test <alias>@npm:<name>
-npm install-test <folder>
-npm install-test <tarball file>
-npm install-test <tarball url>
-npm install-test <git:// url>
-npm install-test <github username>/<github project>
+npm install-test [<package-spec> ...]
 
 alias: it
 ```

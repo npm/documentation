@@ -21,7 +21,7 @@ github_path: docs/content/commands/npm-unpublish.md
 <!-- see lib/commands/unpublish.js -->
 
 ```bash
-npm unpublish [<@scope>/]<pkg>[@<version>]
+npm unpublish [<package-spec>]
 ```
 
 <!-- automatically generated, do not edit manually -->
@@ -156,6 +156,7 @@ This value is not exported to the environment for child processes.
 
 ### See Also
 
+* [package spec](/cli/v8/using-npm/package-spec)
 * [npm deprecate](/cli/v8/commands/npm-deprecate)
 * [npm publish](/cli/v8/commands/npm-publish)
 * [npm registry](/cli/v8/using-npm/registry)

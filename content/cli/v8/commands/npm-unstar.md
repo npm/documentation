@@ -21,7 +21,7 @@ github_path: docs/content/commands/npm-unstar.md
 <!-- see lib/commands/unstar.js -->
 
 ```bash
-npm unstar [<pkg>...]
+npm unstar [<package-spec>...]
 ```
 
 <!-- automatically generated, do not edit manually -->

@@ -1007,6 +1007,9 @@
             - title: Registry
               url: /cli/v8/using-npm/registry
               description: The JavaScript Package Registry
+            - title: Package spec
+              url: /cli/v8/using-npm/package-spec
+              description: Package name specifier
             - title: Config
               url: /cli/v8/using-npm/config
               description: About npm configuration

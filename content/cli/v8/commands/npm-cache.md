@@ -21,11 +21,7 @@ github_path: docs/content/commands/npm-cache.md
 <!-- see lib/commands/cache.js -->
 
 ```bash
-npm cache add <tarball file>
-npm cache add <folder>
-npm cache add <tarball url>
-npm cache add <git url>
-npm cache add <name>@<version>
+npm cache add <package-spec>
 npm cache clean [<key>]
 npm cache ls [<name>@<version>]
 npm cache verify
@@ -111,6 +107,7 @@ cache`](/cli/v8/commands/npm-cache)
 
 ### See Also
 
+* [package spec](/cli/v8/using-npm/package-spec)
 * [npm folders](/cli/v8/configuring-npm/folders)
 * [npm config](/cli/v8/commands/npm-config)
 * [npmrc](/cli/v8/configuring-npm/npmrc)

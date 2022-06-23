@@ -21,7 +21,7 @@ github_path: docs/content/commands/npm-fund.md
 <!-- see lib/commands/fund.js -->
 
 ```bash
-npm fund [[<@scope>/]<pkg>]
+npm fund [<package-spec>]
 ```
 
 <!-- automatically generated, do not edit manually -->
@@ -33,22 +33,22 @@ npm fund [[<@scope>/]<pkg>]
 
 This command retrieves information on how to fund the dependencies of a
 given project. If no package name is provided, it will list all
-dependencies that are looking for funding in a tree structure, listing the
-type of funding and the url to visit. If a package name is provided then it
-tries to open its funding url using the `--browser` config param; if there
-are multiple funding sources for the package, the user will be instructed
-to pass the `--which` option to disambiguate.
+dependencies that are looking for funding in a tree structure, listing
+the type of funding and the url to visit. If a package name is provided
+then it tries to open its funding url using the `--browser` config
+param; if there are multiple funding sources for the package, the user
+will be instructed to pass the `--which` option to disambiguate.
 
 The list will avoid duplicated entries and will stack all packages that
-share the same url as a single entry. Thus, the list does not have the same
-shape of the output from `npm ls`.
+share the same url as a single entry. Thus, the list does not have the
+same shape of the output from `npm ls`.
 
 #### Example
 
 ### Workspaces support
 
-It's possible to filter the results to only include a single workspace and its
-dependencies using the `workspace` config option.
+It's possible to filter the results to only include a single workspace
+and its dependencies using the `workspace` config option.
 
 #### Example:
 
@@ -68,8 +68,8 @@ test-workspaces-fund@1.0.0
     `-- bar@2.0.0
 ```
 
-And here is an example of the expected result when filtering only by
-a specific workspace `a` in the same project:
+And here is an example of the expected result when filtering only by a
+specific workspace `a` in the same project:
 
 ```bash
 $ npm fund -w a
@@ -166,6 +166,7 @@ If there are multiple funding sources, which 1-indexed source URL to open.
 
 ## See Also
 
+* [package spec](/cli/v8/using-npm/package-spec)
 * [npm install](/cli/v8/commands/npm-install)
 * [npm docs](/cli/v8/commands/npm-docs)
 * [npm ls](/cli/v8/commands/npm-ls)

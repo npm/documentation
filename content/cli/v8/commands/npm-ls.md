@@ -21,7 +21,7 @@ github_path: docs/content/commands/npm-ls.md
 <!-- see lib/commands/ls.js -->
 
 ```bash
-npm ls [[<@scope>/]<pkg> ...]
+npm ls <package-spec>
 
 alias: list
 ```
@@ -311,6 +311,7 @@ symlink. This option has no effect on workspaces.
 
 ### See Also
 
+* [package spec](/cli/v8/using-npm/package-spec)
 * [npm explain](/cli/v8/commands/npm-explain)
 * [npm config](/cli/v8/commands/npm-config)
 * [npmrc](/cli/v8/configuring-npm/npmrc)

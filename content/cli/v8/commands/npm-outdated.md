@@ -21,7 +21,7 @@ github_path: docs/content/commands/npm-outdated.md
 <!-- see lib/commands/outdated.js -->
 
 ```bash
-npm outdated [[<@scope>/]<pkg> ...]
+npm outdated [<package-spec> ...]
 ```
 
 <!-- automatically generated, do not edit manually -->
@@ -202,6 +202,7 @@ This value is not exported to the environment for child processes.
 
 ### See Also
 
+* [package spec](/cli/v8/using-npm/package-spec)
 * [npm update](/cli/v8/commands/npm-update)
 * [npm dist-tag](/cli/v8/commands/npm-dist-tag)
 * [npm registry](/cli/v8/using-npm/registry)
