@@ -47,7 +47,7 @@ WORKDIR ${APP_HOME}
 
 COPY package*.json ${APP_HOME}/
 
-RUN --mount=type=secret,id=npm,target=.npmrc npm install
+RUN --mount=type=secret,id=npmrc,target=.npmrc npm install
 
 COPY . ${APP_HOME}/
 
