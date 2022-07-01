@@ -62,7 +62,7 @@ This will configure your Dockerfile to receive `.npmrc` file via build secrets, 
 To build the image using the above Dockerfile and the npm authentication token, you can run the following command. Note the `.` at the end to give `docker build` the current directory as an argument.
 
 ```shell
-docker build . -t secure-app-secrets:1.0 --secret id=npm,src=$HOME/.npmrc
+docker build . -t secure-app-secrets:1.0 --secret id=npmrc,src=$HOME/.npmrc
 ```
 
 This will build the Docker image with the access token coming from your global `.npmrc` file received via build secrets, so you can run `npm install` inside your container as the current logged-in user.
