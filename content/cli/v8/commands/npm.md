@@ -111,7 +111,7 @@ following help topics:
   done via [`npm install`](/cli/v8/commands/npm-install)
 * adduser:
   Create an account or log in.  When you do this, npm will store
-  credentials in the user config file config file.
+  credentials in the user config file.
 * publish:
   Use the [`npm publish`](/cli/v8/commands/npm-publish) command to upload your
   code to the registry.
