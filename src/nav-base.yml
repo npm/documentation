@@ -150,9 +150,13 @@
       url: /about-audit-reports
     - title: Auditing package dependencies for security vulnerabilities
       url: /auditing-package-dependencies-for-security-vulnerabilities
-    - title: About package PGP signatures
+    - title: About ECDSA registry signatures
+      url: /about-registry-signatures
+    - title: Verifying ECDSA registry signatures
+      url: /verifying-registry-signatures
+    - title: About PGP registry signatures (deprecated)
       url: /about-pgp-signatures-for-packages-in-the-public-registry
-    - title: Verifying the PGP signature of a package from the npm public registry
+    - title: Verifying PGP registry signatures (deprecated)
       url: /verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry
     - title: Requiring 2FA for package publishing and settings modification
       url: /requiring-2fa-for-package-publishing-and-settings-modification
