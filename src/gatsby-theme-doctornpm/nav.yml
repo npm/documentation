@@ -914,6 +914,9 @@
             - title: npm publish
               url: /cli/v8/commands/npm-publish
               description: Publish a package
+            - title: npm query
+              url: /cli/v8/commands/npm-query
+              description: Retrieve a filtered list of packages
             - title: npm rebuild
               url: /cli/v8/commands/npm-rebuild
               description: Rebuild a package
@@ -1033,6 +1036,9 @@
             - title: Organizations
               url: /cli/v8/using-npm/orgs
               description: Working with teams & organizations
+            - title: Dependency Selectors
+              url: /cli/v8/using-npm/dependency-selectors
+              description: Dependency Selector Syntax & Querying
             - title: Developers
               url: /cli/v8/using-npm/developers
               description: Developer guide
