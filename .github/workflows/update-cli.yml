@@ -40,10 +40,6 @@ jobs:
         git config user.email 'npm-cli+bot@github.com'
         git commit -m 'CLI documentation update from CI'
         git push origin main
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: update-cli
-    steps:
-      - name: Call publish workflow
-        uses: ./.github/workflows/publish.yml
+    - name: Call publish workflow
+      if: steps.status.outputs.has_changes == '1'
+      uses: ./.github/workflows/publish.yml
