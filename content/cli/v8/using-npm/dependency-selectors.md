@@ -173,4 +173,4 @@ arb.loadActual((tree) => {
 ## See Also
 
 * [npm query](/cli/v8/commands/npm-query)
-* [@npmcli/arborist](https://npm.im/@npmcli/arborist]
+* [@npmcli/arborist](https://npm.im/@npmcli/arborist)
