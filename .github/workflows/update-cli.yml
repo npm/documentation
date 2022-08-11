@@ -11,6 +11,8 @@ permissions:
 jobs:
   update-cli:
     runs-on: ubuntu-latest
+    outputs:
+      has_changes: ${{ steps.status.outputs.has_changes }}
     steps:
     - name: Check out source
       uses: actions/checkout@v3
@@ -40,6 +42,8 @@ jobs:
         git config user.email 'npm-cli+bot@github.com'
         git commit -m 'CLI documentation update from CI'
         git push origin main
-    - name: Call publish workflow
-      if: steps.status.outputs.has_changes == '1'
-      uses: ./.github/workflows/publish.yml
+
+  publish:
+    needs: update-cli
+    if: needs.update-cli.outputs.has_changes == '1'
+    uses: ./.github/workflows/publish.yml
