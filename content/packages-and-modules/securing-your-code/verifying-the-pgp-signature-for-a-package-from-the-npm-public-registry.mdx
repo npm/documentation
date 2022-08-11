@@ -1,12 +1,18 @@
 ---
-title: Verifying the PGP signature of a package from the npm public registry
+title: Verifying the PGP registry signature of a package from the npm public registry (deprecated)
 ---
+
+<Note>
+
+**Note:** PGP signatures will be deprecated early 2023, in favour of ECDSA registry signatures that can be verified using the npm CLI. More information will soon be provided.
+
+</Note>
 
 To ensure the integrity of a package version you download from the npm public registry, you can manually verify the [PGP signature][about-pgp-sig] of the package.
 
 <Note>
 
-**Note:** Since fully verifying signatures on Keybase requires rechecking proofs (which requires network activity) and is therefore expensive, we recommend only verifying signatures if it is absolutely necessary -- for example, when verifying a deploy artifact, or when initially storing a package in your cache.
+**Note:** Since fully verifying signatures on Keybase requires rechecking proofs (which requires network activity) and is therefore expensive, we recommend only verifying signatures if it is necessary -- for example, when verifying a deploy artifact, or when initially storing a package in your cache.
 
 </Note>
 

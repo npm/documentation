@@ -21,9 +21,8 @@ github_path: docs/content/commands/npm-init.md
 <!-- see lib/commands/init.js -->
 
 ```bash
-npm init [--force|-f|--yes|-y|--scope]
+npm init <package-spec> (same as `npx <package-spec>)
 npm init <@scope> (same as `npx <@scope>/create`)
-npm init [<@scope>/]<name> (same as `npx [<@scope>/]create-<name>`)
 
 aliases: create, innit
 ```
@@ -49,6 +48,8 @@ follows:
 * `npm init foo` -> `npm exec create-foo`
 * `npm init @usr/foo` -> `npm exec @usr/create-foo`
 * `npm init @usr` -> `npm exec @usr/create`
+* `npm init @usr@2.0.0` -> `npm exec @usr/create@2.0.0`
+* `npm init @usr/foo@2.0.0` -> `npm exec @usr/create-foo@2.0.0`
 
 If the initializer is omitted (by just calling `npm init`), init will fall
 back to legacy init behavior. It will ask you a bunch of questions, and
@@ -217,6 +218,39 @@ recommended that you do not use this option!
 <!-- automatically generated, do not edit manually -->
 <!-- see lib/utils/config/definitions.js -->
 
+#### `scope`
+
+* Default: the scope of the current project, if any, or ""
+* Type: String
+
+Associate an operation with a scope for a scoped registry.
+
+Useful when logging in to or out of a private registry:
+
+```
+# log in, linking the scope to the custom registry
+npm login --scope=@mycorp --registry=https://registry.mycorp.com
+
+# log out, removing the link and the auth token
+npm logout --scope=@mycorp
+```
+
+This will cause `@mycorp` to be mapped to the registry for future
+installation of packages specified according to the pattern
+`@mycorp/package`.
+
+This will also cause `npm init` to create a scoped package.
+
+```
+# accept all defaults, and create a package named "@foo/whatever",
+# instead of just named "whatever"
+npm init --scope=@foo --yes
+```
+
+
+<!-- automatically generated, do not edit manually -->
+<!-- see lib/utils/config/definitions.js -->
+
 #### `workspace`
 
 * Default:
@@ -263,6 +297,17 @@ This value is not exported to the environment for child processes.
 <!-- automatically generated, do not edit manually -->
 <!-- see lib/utils/config/definitions.js -->
 
+#### `workspaces-update`
+
+* Default: true
+* Type: Boolean
+
+If set to true, the npm cli will run an update after operations that may
+possibly change the workspaces installed to the `node_modules` folder.
+
+<!-- automatically generated, do not edit manually -->
+<!-- see lib/utils/config/definitions.js -->
+
 #### `include-workspace-root`
 
 * Default: false
@@ -283,6 +328,7 @@ This value is not exported to the environment for child processes.
 
 ### See Also
 
+* [package spec](/cli/v8/using-npm/package-spec)
 * [init-package-json module](http://npm.im/init-package-json)
 * [package.json](/cli/v8/configuring-npm/package-json)
 * [npm version](/cli/v8/commands/npm-version)

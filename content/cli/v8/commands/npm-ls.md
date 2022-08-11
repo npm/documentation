@@ -21,7 +21,7 @@ github_path: docs/content/commands/npm-ls.md
 <!-- see lib/commands/ls.js -->
 
 ```bash
-npm ls [[<@scope>/]<pkg> ...]
+npm ls <package-spec>
 
 alias: list
 ```
@@ -54,7 +54,7 @@ npm@8.0.0 /path/to/npm
 It will print out extraneous, missing, and invalid packages.
 
 If a project specifies git urls for dependencies these are shown
-in parentheses after the name@version to make it easier for users to
+in parentheses after the `name@version` to make it easier for users to
 recognize potential forks of a project.
 
 The tree shown is the logical dependency tree, based on package
@@ -72,7 +72,7 @@ disk would be roughly identical.
 With the advent of automatic install-time deduplication of dependencies in
 npm v3, the `ls` output was modified to display the logical dependency
 graph as a tree structure, since this was more useful to most users.
-However, without using `npm ls -l`, it became impossible show _where_ a
+However, without using `npm ls -l`, it became impossible to show _where_ a
 package was actually installed much of the time!
 
 With the advent of automatic installation of `peerDependencies` in npm v7,
@@ -147,8 +147,6 @@ Output parseable results from commands that write to standard output. For
 
 * Default: false
 * Type: Boolean
-* DEPRECATED: `--global`, `--local` are deprecated. Use `--location=global`
-  instead.
 
 Operates in "global" mode, so that packages are installed into the `prefix`
 folder instead of the current working directory. See
@@ -313,6 +311,7 @@ symlink. This option has no effect on workspaces.
 
 ### See Also
 
+* [package spec](/cli/v8/using-npm/package-spec)
 * [npm explain](/cli/v8/commands/npm-explain)
 * [npm config](/cli/v8/commands/npm-config)
 * [npmrc](/cli/v8/configuring-npm/npmrc)

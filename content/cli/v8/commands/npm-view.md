@@ -21,7 +21,7 @@ github_path: docs/content/commands/npm-view.md
 <!-- see lib/commands/view.js -->
 
 ```bash
-npm view [<@scope>/]<pkg>[@<version>] [<field>[.subfield]...]
+npm view [<package-spec>] [<field>[.subfield]...]
 
 aliases: info, show, v
 ```
@@ -213,6 +213,7 @@ the field name.
 
 ### See Also
 
+* [package spec](/cli/v8/using-npm/package-spec)
 * [npm search](/cli/v8/commands/npm-search)
 * [npm registry](/cli/v8/using-npm/registry)
 * [npm config](/cli/v8/commands/npm-config)

@@ -9,16 +9,11 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  update-cli:
     runs-on: ubuntu-latest
     steps:
     - name: Check out source
       uses: actions/checkout@v3
-    - name: Check out documentation branch
-      uses: actions/checkout@v3
-      with:
-        ref: 'dist'
-        path: 'public'
     - name: Use Node.js
       uses: actions/setup-node@v3
       with:
@@ -44,26 +39,7 @@ jobs:
         git config user.name 'npm CLI robot'
         git config user.email 'npm-cli+bot@github.com'
         git commit -m 'CLI documentation update from CI'
-    - name: Build documentation
-      run: npm run build
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Push source changes
+        git push origin main
+    - name: Call publish workflow
       if: steps.status.outputs.has_changes == '1'
-      run: git push origin main
-    - name: Check for changes to docs
-      id: docs-status
-      working-directory: public
-      run: |
-        if [ -n "$(git status --porcelain)" ]; then
-          echo "::set-output name=has_changes::1"
-        fi
-    - name: Publish documentation
-      if: steps.docs-status.outputs.has_changes == '1'
-      working-directory: public
-      run: |
-        git add --verbose .
-        git config user.name 'npm CLI robot'
-        git config user.email 'npm-cli+bot@github.com'
-        git commit -m 'CLI documentation update from CI'
-        git push origin dist
+      uses: ./.github/workflows/publish.yml

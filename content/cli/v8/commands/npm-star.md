@@ -21,7 +21,7 @@ github_path: docs/content/commands/npm-star.md
 <!-- see lib/commands/star.js -->
 
 ```bash
-npm star [<pkg>...]
+npm star [<package-spec>...]
 ```
 
 <!-- automatically generated, do not edit manually -->
@@ -97,6 +97,7 @@ password, npm will prompt on the command line for one.
 
 ### See Also
 
+* [package spec](/cli/v8/using-npm/package-spec)
 * [npm unstar](/cli/v8/commands/npm-unstar)
 * [npm stars](/cli/v8/commands/npm-stars)
 * [npm view](/cli/v8/commands/npm-view)

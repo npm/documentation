@@ -22,16 +22,7 @@ github_path: docs/content/commands/npm-install.md
 <!-- see lib/commands/install.js -->
 
 ```bash
-npm install [<@scope>/]<pkg>
-npm install [<@scope>/]<pkg>@<tag>
-npm install [<@scope>/]<pkg>@<version>
-npm install [<@scope>/]<pkg>@<version range>
-npm install <alias>@npm:<name>
-npm install <folder>
-npm install <tarball file>
-npm install <tarball url>
-npm install <git:// url>
-npm install <github username>/<github project>
+npm install [<package-spec> ...]
 
 aliases: add, i, in, ins, inst, insta, instal, isnt, isnta, isntal, isntall
 ```
@@ -331,7 +322,7 @@ into a tarball (b).
     can be any valid semver range or exact version, and npm will look for
     any tags or refs matching that range in the remote repository, much as
     it would for a registry dependency. If neither `#<commit-ish>` or
-    `#semver:<semver>` is specified, then `master` is used.
+    `#semver:<semver>` is specified, then the default branch is used.
 
     As with regular git dependencies, `dependencies` and `devDependencies`
     will be installed if the package has a `prepare` script before the
@@ -471,8 +462,6 @@ rather than using npm's default semver range operator.
 
 * Default: false
 * Type: Boolean
-* DEPRECATED: `--global`, `--local` are deprecated. Use `--location=global`
-  instead.
 
 Operates in "global" mode, so that packages are installed into the `prefix`
 folder instead of the current working directory. See

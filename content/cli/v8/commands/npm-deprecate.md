@@ -21,7 +21,7 @@ github_path: docs/content/commands/npm-deprecate.md
 <!-- see lib/commands/deprecate.js -->
 
 ```bash
-npm deprecate <pkg>[@<version>] <message>
+npm deprecate <package-spec> <message>
 ```
 
 <!-- automatically generated, do not edit manually -->
@@ -55,8 +55,8 @@ In this case, a version `my-thing@1.0.0-beta.0` will also be deprecated.
 You must be the package owner to deprecate something.  See the `owner` and
 `adduser` help topics.
 
-To un-deprecate a package, specify an empty string (`""`) for the `message` 
-argument. Note that you must use double quotes with no space between them to 
+To un-deprecate a package, specify an empty string (`""`) for the `message`
+argument. Note that you must use double quotes with no space between them to
 format an empty string.
 
 ### Configuration
@@ -92,6 +92,7 @@ password, npm will prompt on the command line for one.
 
 ### See Also
 
+* [package spec](/cli/v8/using-npm/package-spec)
 * [npm publish](/cli/v8/commands/npm-publish)
 * [npm registry](/cli/v8/using-npm/registry)
 * [npm owner](/cli/v8/commands/npm-owner)

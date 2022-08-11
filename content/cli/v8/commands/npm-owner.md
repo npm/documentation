@@ -21,9 +21,9 @@ github_path: docs/content/commands/npm-owner.md
 <!-- see lib/commands/owner.js -->
 
 ```bash
-npm owner add <user> [<@scope>/]<pkg>
-npm owner rm <user> [<@scope>/]<pkg>
-npm owner ls [<@scope>/]<pkg>
+npm owner add <user> <package-spec>
+npm owner rm <user> <package-spec>
+npm owner ls <package-spec>
 
 alias: author
 ```
@@ -133,6 +133,7 @@ This value is not exported to the environment for child processes.
 
 ### See Also
 
+* [package spec](/cli/v8/using-npm/package-spec)
 * [npm profile](/cli/v8/commands/npm-profile)
 * [npm publish](/cli/v8/commands/npm-publish)
 * [npm registry](/cli/v8/using-npm/registry)

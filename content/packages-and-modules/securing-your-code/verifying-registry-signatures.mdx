@@ -1,0 +1,46 @@
+---
+title: Verifying ECDSA registry signatures
+---
+
+To ensure the integrity of packages you download from the public npm registry, or any registry that supports signatures, you can verify the registry signatures of downloaded packages using the npm CLI.
+
+## Prerequisites
+
+1. Install npm CLI version v8.15.0 or later
+2. Install dependencies using `npm install` or `npm ci`
+
+## Verifying registry signatures
+
+Registry signatures can be verified using the following `audit` command:
+
+   ```
+   npm audit signatures
+   ```
+
+Example response if all installed versions have valid registry signatures:
+
+  ```
+  audited 1640 packages in 2s
+
+  1640 have verified registry signatures
+  ```
+
+## Troubleshooting
+
+### Some packages are missing registry signatures
+
+The CLI will error if packages don't have signatures *and* if the package registry supports signatures. This could mean an attacker might be trying to circumvent signature verification.
+You can check if the registry supports signatures by requesting the public signing keys from `registry-host.tld/-/npm/v1/keys`.
+
+Example response if some versions have missing registry signatures:
+
+   ```
+   audited 1640 packages in 2s
+
+   1405 packages have verified registry signatures
+
+   235 packages have missing registry signatures but the registry is providing signing keys:
+
+   missing-dep@1.0.0 (https://registry.npmjs.org/)
+   ...
+   ```
