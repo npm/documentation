@@ -1,12 +1,9 @@
 name: Update CLI
 
 on:
+  workflow_dispatch:
   schedule:
   - cron: "14 2 * * *"
-  workflow_dispatch:
-
-permissions:
-  contents: write
 
 jobs:
   update-cli:
@@ -16,6 +13,10 @@ jobs:
     steps:
     - name: Check out source
       uses: actions/checkout@v3
+    - name: Setup git user
+      run: |
+        git config --global user.email "npm-cli+bot@github.com"
+        git config --global user.name "npm CLI robot"
     - name: Use Node.js
       uses: actions/setup-node@v3
       with:
@@ -38,8 +39,6 @@ jobs:
       if: steps.status.outputs.has_changes == '1'
       run: |
         git add --verbose .
-        git config user.name 'npm CLI robot'
-        git config user.email 'npm-cli+bot@github.com'
         git commit -m 'CLI documentation update from CI'
         git push origin main
 

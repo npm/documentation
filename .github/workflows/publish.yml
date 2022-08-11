@@ -1,25 +1,16 @@
 name: Publish
 
-
 on:
   push:
     branches:
     - main
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-  # This gets called from the update-cli workflow
   workflow_call:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 
 jobs:
   build-and-upload:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     steps:
     # Check out the content (source branch)
@@ -46,6 +37,9 @@ jobs:
         path: './public'
 
   deploy:
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
