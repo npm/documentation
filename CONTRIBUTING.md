@@ -24,9 +24,8 @@ contribute a change?  Great!
    filesystem and will reload your content changes immediately.)
 5. Once you're happy, commit it and open a pull request at
    https://github.com/npm/documentation.
-6. A CI workflow run will publish your PR to the staging documentation
-   site at https://docs-staging.npmjs.com/.
-8. Once the content is reviewed, merge the pull request.  That will
+6. A CI workflow run will publish your PR to a GitHub Preview Page.
+7. Once the content is reviewed, merge the pull request.  That will
    [deploy the site](https://github.com/npm/documentation/actions/workflows/publish.yml).
 
 ## Running locally
@@ -205,15 +204,11 @@ adding a new major version to the site.
 
 ## Reviewing changes
 
-The staging docs site (https://docs-staging.npmjs.com/) is published
-from a set of GitHub actions workflows.  Since it is a separate site
-(with a separate GitHub Pages instance), the staging site lives in a
-[separate GitHub repository](https://github.com/npm/docs-staging).
-As a result when a pull request is opened in _this_ repository, we
-send a repository dispatch event to the `docs-staging` repository.
-
-A GitHub Actions workflow run in that repository will then build the
-pull request and publish the staging site for review.
+When a pull request is opened or updated the
+[GitHub Actions workflow](https://github.com/npm/documentation/actions/workflows/publish.yml)
+will deploy a preview to the [`github-pages` environment](https://github.com/npm/documentation/deployments/activity_log?environment=github-pages).
+The URL will be reported to the pull request and the status can be checked by looking at the
+workflows for the [`pull_request_target` event](https://github.com/npm/documentation/actions/workflows/publish.yml?query=event%3Apull_request_target).
 
 ## Deploying changes
 

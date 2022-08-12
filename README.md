@@ -19,9 +19,8 @@ that generate the site itself.
    filesystem and will reload your content changes immediately.)
 5. Once you're happy, commit it and open a pull request at
    https://github.com/npm/documentation.
-6. A CI workflow run will publish your PR to the staging documentation
-   site at https://docs-staging.npmjs.com/.
-8. Once the content is reviewed, merge the pull request.  That will
+6. A CI workflow run will publish your PR to a GitHub Preview Page.
+7. Once the content is reviewed, merge the pull request.  That will
    [deploy the site](https://github.com/npm/documentation/actions/workflows/publish.yml).
 
 Do you want to know more? Check out our [contributing guide](CONTRIBUTING.md).
