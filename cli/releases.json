@@ -1,21 +1,29 @@
 [
-    {
-        "id": "v6",
-        "version": "6.14.17",
-        "title": "Version 6.x (Legacy release)",
-        "branch": "v6"
-    },
-    {
-        "id": "v7",
-        "version": "7.24.2",
-        "title": "Version 7.x (Legacy release)",
-        "branch": "v7"
-    },
-    {
-        "id": "v8",
-        "version": "8.19.2",
-        "title": "Version 8.x (Current release)",
-        "branch": "v8",
-        "default": true
-    }
+  {
+    "id": "v6",
+    "branch": "v6",
+    "spec": "^6",
+    "useBranch": true,
+    "resolved": "898c0496406e29865b5ae736ed541ca41895e484"
+  },
+  {
+    "id": "v7",
+    "branch": "v7",
+    "spec": "^7",
+    "resolved": "https://registry.npmjs.org/npm/-/npm-7.24.2.tgz"
+  },
+  {
+    "id": "v8",
+    "branch": "v8",
+    "spec": "latest",
+    "default": true,
+    "resolved": "https://registry.npmjs.org/npm/-/npm-8.19.2.tgz"
+  },
+  {
+    "id": "v9",
+    "branch": "latest",
+    "spec": "next-9",
+    "src": "docs/lib/content",
+    "resolved": "https://registry.npmjs.org/npm/-/npm-9.0.0-pre.4.tgz"
+  }
 ]
