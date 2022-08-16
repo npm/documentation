@@ -32,6 +32,8 @@
       url: /changing-your-npm-username
     - title: Deleting your npm user account
       url: /deleting-your-npm-user-account
+    - title: Requesting an export of your personal data
+      url: /requesting-your-data
   - title: Paying for your npm user account
     shortName: Paying for your account
     url: /getting-started/paying-for-your-npm-user-account
