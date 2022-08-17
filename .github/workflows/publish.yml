@@ -12,6 +12,7 @@ jobs:
   build-and-upload:
     permissions:
       contents: read
+      pages: read
     runs-on: ubuntu-latest
 
     steps:
