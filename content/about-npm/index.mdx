@@ -1,60 +1,370 @@
----
-title: About npm
-redirect_from: [ /getting-started/what-is-npm ]
----
+npm i koa
+npm i koa-router
+npm i koa-json
+npm i koa-bodyparser
+npm i @koa/cors
+npm i mongoose
+npm i dotenv
+npm i nodemon
+npm i bcrypt
 
-npm is the world's largest software registry. Open source developers from every continent use npm to share and borrow packages, and many organizations use npm to manage private development as well.
+npm i react-router-dom
+npm i axios
 
-npm consists of three distinct components:
+===========================
 
-*  the website
-*  the Command Line Interface (CLI)
-*  the registry
+const mongoose = require("mongoose");
 
-Use the [*website*](https://npmjs.com) to discover packages, set up profiles, and manage other aspects of your npm experience. For example, you can set up [organizations](https://www.npmjs.com/features) to manage access to public or private packages.
+const bcrypt = require("bcrypt");
 
-The [*CLI*](https://docs.npmjs.com/cli/npm) runs from a terminal, and is how most developers interact with npm.
+ 
 
-The [*registry*](https://docs.npmjs.com/misc/registry) is a large public database of JavaScript software and the meta-information surrounding it.
+const userSchema = new mongoose.Schema({
 
+  password: {
 
-## Use npm to . . .
+    type: String,
 
-* Adapt packages of code for your apps, or incorporate packages as they are.
-* Download standalone tools you can use right away.
-* Run packages without downloading using [npx](https://www.npmjs.com/package/npx).
-* Share code with any npm user, anywhere.
-* Restrict code to specific developers.
-* Create organizations to coordinate package maintenance, coding, and developers.
-* Form virtual teams by using organizations.
-* Manage multiple versions of code and code dependencies.
-* Update applications easily when underlying code is updated.
-* Discover multiple ways to solve the same puzzle.
-* Find other developers who are working on similar problems and projects.  
+    required: true,
 
-## Getting started
+  },
 
-To get started with npm, you can [create an account](https://www.npmjs.com/signup), which will be available at http://www.npmjs.com/~*yourusername*.
+ 
 
-After you set up an npm account, the next step is to use the command line interface (CLI) to [install npm][install-npm]. We look forward to seeing what you create!
+  userType: {
 
-## Sharing packages and collaborating with others
+    type: String,
 
-If you choose to share your packages publicly, there is no cost. To use and share private packages, you need to upgrade your account. To share with others, create organizations, called **[npm organizations][orgs-docs]**,  and invite others to work with you, privately (for a fee) or publicly (for free).
+    enum: ["Admin", "Lecturer", "Student"],
 
-You can also use a private npm package registry like [GitHub Packages](https://github.com/features/packages) or the open source [Verdaccio](https://verdaccio.org) project.  This lets you develop packages internally that are not shared publicly.
+    default: "Admin",
 
-## Learn more
+  },
 
-To learn more about npm as a product, upcoming new features, and interesting uses of npm be sure to follow [@npmjs](https://twitter.com/npmjs) on Twitter.
+});
 
-For mentoring, tutorials, and learning, visit [node school](https://nodeschool.io). Consider attending or hosting a nodeschool event (usually free!) at a site near you, or use the self-help tools you can find on the site.
+ 
 
-### CLI reference documentation
+userSchema.pre("save", async function () {
 
-While relevant CLI commands are covered throughout this user documentation, the CLI includes command line help, its own [documentation section, and instant help (man pages)][cli-docs].
+  if (!this.isModified("password")) return;
 
+  const salt = await bcrypt.genSalt(10);
 
-[orgs-docs]: /organizations
-[install-npm]: /downloading-and-installing-node-js-and-npm
-[cli-docs]: /cli-documentation
+  this.password = await bcrypt.hash(this.password, salt);
+
+});
+
+ 
+
+userSchema.methods.comparePassword = async function (candidatePassword) {
+
+  const isMatch = await bcrypt.compare(candidatePassword, this.password);
+
+  return isMatch;
+
+};
+
+ 
+
+const User = mongoose.model("users", userSchema);
+
+ 
+
+module.exports = User;
+
+ 
+
+================================
+
+const login = async (ctx) => {
+
+  try {
+
+    const { email, password, userType } = ctx.request.body;
+
+ 
+
+    if (userType != "Admin") {
+
+      const user = await User.findOne({ email }).select("+password");
+
+ 
+
+      if (!user) {
+
+        ctx.throw(401, "Invalid credentials");
+
+      }
+
+ 
+
+      if (user.userType != userType) {
+
+        ctx.throw(400, "Invalid user type");
+
+      }
+
+ 
+
+      const isPasswordCorrect = await user.comparePassword(password);
+
+      if (!isPasswordCorrect) {
+
+        ctx.throw(400, "Invalid password");
+
+      }
+
+      ctx.status = 200;
+
+      ctx.body = user;
+
+    } else {
+
+      const tempEmail = "admin@gmail.com";
+
+      const tempPass = "admin";
+
+ 
+
+      if (email != tempEmail && password != tempPass) {
+
+        ctx.throw(401, "Invalid credentials");
+
+      }
+
+ 
+
+      const user = new User({
+
+        userName: "admin",
+
+        email: tempEmail,
+
+        password: tempPass,
+
+        userType: "Admin",
+
+        others: "",
+
+      });
+
+ 
+
+      ctx.status = 200;
+
+      ctx.body = user;
+
+    }
+
+  } catch (error) {
+
+    ctx.status = error.status || 500;
+
+    ctx.body = error.message;
+
+  }
+
+};
+
+===========================
+
+const addStudent = async (ctx) => {
+
+  try {
+
+    const { name, nic, age, courseId } = ctx.request.body;
+
+ 
+
+    if (!name || !age || !nic) {
+
+      ctx.throw(400, "Pleas provide all values");
+
+    }
+
+ 
+
+    const studentDetails = new Student({
+
+      name,
+
+      age,
+
+      nic,
+
+      courseId,
+
+    });
+
+ 
+
+    const student = await studentDetails.save();
+
+ 
+
+    await Course.findByIdAndUpdate(courseId, {
+
+      $push: { students: student._id },
+
+    });
+
+ 
+
+    ctx.status = 201;
+
+    ctx.body = student;
+
+  } catch (error) {
+
+    ctx.status = error.status || 500;
+
+    ctx.body = error.message;
+
+  }
+
+};
+
+=============================
+
+const updateStudent = async (ctx) => {
+
+  try {
+
+    const { id: studentId } = ctx.request.params;
+
+    const { name, nic, age, courseId } = ctx.request.body;
+
+ 
+
+    if (!name || !age || !nic) {
+
+      ctx.throw(400, "Please provide all values");
+
+    }
+
+ 
+
+    const isFound = await Student.findOne({ _id: studentId });
+
+ 
+
+    if (!isFound) {
+
+      ctx.throw(404, `student not found with id ${studentId}`);
+
+    }
+
+ 
+
+    const student = await Student.findByIdAndUpdate(
+
+      { _id: studentId },
+
+      ctx.request.body,
+
+      { new: true, runValidators: true }
+
+    );
+
+ 
+
+    ctx.status = 200;
+
+    ctx.body = student;
+
+  } catch (error) {
+
+    ctx.status = error.status || 500;
+
+    ctx.body = error.message;
+
+  }
+
+};
+
+==============================
+
+const deleteStudent = async (ctx) => {
+
+  try {
+
+    const { id: studentId } = ctx.request.params;
+
+ 
+
+    const student = await Student.findOne({ _id: studentId });
+
+ 
+
+    if (!student) {
+
+      ctx.throw(404, `student not found with id ${studentId}`);
+
+    }
+
+ 
+
+    await Course.findByIdAndUpdate(student.courseId, {
+
+      $pull: { students: studentId },
+
+    });
+
+ 
+
+    await Student.remove({ _id: studentId });
+
+ 
+
+    ctx.response.status = 200;
+
+    ctx.body = { message: "student delete successfully" };
+
+  } catch (error) {
+
+    ctx.status = error.status || 500;
+
+    ctx.body = error.message;
+
+  }
+
+};
+
+================
+
+courseId: {
+
+      type: mongoose.Schema.Types.ObjectId,
+
+      ref: "courses",
+
+      require: false,
+
+    },
+
+  },
+
+  { timestamps: true }
+
+ 
+
+==================
+
+const onEditClick = (e) => {
+
+    e.preventDefault();
+
+    setEditId(e.target.id);
+
+    setIsEdit(!isEdit);
+
+ 
+
+    const course = courses.find((course) => course._id === e.target.id);
+
+    setEditCourseName(course.courseName);
+
+    setEditCourseFee(course.courseFee);
+
+  };
