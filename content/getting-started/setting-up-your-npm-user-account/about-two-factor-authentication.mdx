@@ -54,13 +54,14 @@ By default, 2FA is enabled for authorization and writes. We will request a secon
 
 If you enable 2FA for authorization only. We will request a second form of authentication only for certain authorized actions.
 
-| Action                                            | CLI command                        |
-| :------------------------------------------------ | :--------------------------------- |
-| Log in to npm                                     | `npm login`                        |
-| Change profile settings (including your password) | `npm profile set`                  |
-| Change 2FA modes for your user account            | `npm profile enable-2fa auth-only` |
-| Disable 2FA for your user account                 | `npm profile disable-2fa`          |
-
+| Action                                            | CLI command                                       |
+| :------------------------------------------------ | :------------------------------------------------ |
+| Log in to npm                                     | [`npm login`][login]                              |
+| Change profile settings (including your password) | [`npm profile set`][profile-set]                  |
+| Change 2FA modes for your user account            | [`npm profile enable-2fa auth-only`][2fa-enable]  |
+| Disable 2FA for your user account                 | [`npm profile disable-2fa`][2fa-disable]          |
+| Create tokens                                     | [`npm token create`][token-create]                |
+| Revoke tokens                                     | [`npm token revoke`][token-revoke]                |
 
 [login]: https://docs.npmjs.com/cli/adduser
 [profile-set]: https://docs.npmjs.com/cli/profile
