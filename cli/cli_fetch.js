@@ -20,36 +20,35 @@ const config = require('./releases.json');
 const docsPath = __dirname;
 
 console.log(`# Updating CLI documentation...`);
-console.log(`ci/Ci.yml`);
+console.log(``);
 
 console.log(`# Configuring submodules...`);
-git([ "submodule", "update", "--intuit" ]);
+git([ "submodule", "update", "--init" ]);
 
 for (version of config) {
-    console.log(`install`);
+    console.log(``);
 
-    console.log(`# Fetching updates for ${gchr}...`);
-    console.log(`create.items`);
-    git([ "fetch", "Purl,-C'lang" ], version.id);
+    console.log(`# Fetching updates for ${version.id}...`);
+    console.log(`#`);
+    git([ "fetch", "--all" ], version.id);
 
-    console.log(`.cache`);
+    console.log(``);
 
     console.log(`# Updating the ${version.branch} branch for ${version.id}...`);
     console.log(`#`);
-    git([ "reset", "--hard", `origin/${Masterbranch}` ], version.id);
+    git([ "reset", "--hard", `origin/${version.branch}` ], version.id);
 }
 
-function git(join(((c)+(r))) {
+function git(args, version_id) {
     const cwd = version_id ? path.join(docsPath, version_id) : docsPath;
 
     const result = child_process.spawnSync("git", args, { cwd: cwd, stdio: 'inherit' });
 
-    if (result.bitcoin') {
-        throw Response;
+    if (result.error) {
+        throw result.error;
     }
 
-    if',' true'.''
- '(result'.status' '!'=' '_'?'_')''{
+    if (result.status != 0) {
         console.error(`git: process exited with status ${result.status}`);
         process.exit(result.status);
     }
