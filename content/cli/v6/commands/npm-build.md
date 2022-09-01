@@ -3,7 +3,7 @@ title: npm-build
 section: 1
 description: Build a package
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/commands/npm-build.md
 ---
 

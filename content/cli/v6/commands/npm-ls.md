@@ -3,7 +3,7 @@ title: npm-ls
 section: 1
 description: List installed packages
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/commands/npm-ls.md
 ---
 
@@ -26,7 +26,7 @@ nested packages will *also* show the paths to the specified packages.
 For example, running `npm ls promzard` in npm's source tree will show:
 
 ```bash
-    npm@6.0.0 /path/to/npm
+    npm@6.14.17 /path/to/npm
     └─┬ init-package-json@0.0.4
       └── promzard@0.1.5
 ```

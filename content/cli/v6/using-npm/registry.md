@@ -3,7 +3,7 @@ title: registry
 section: 7
 description: The JavaScript Package Registry
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/using-npm/registry.md
 ---
 
@@ -103,4 +103,3 @@ Yes, head over to <https://www.npmjs.com/>
 * [config](/cli/v6/using-npm/config)
 * [npmrc](/cli/v6/configuring-npm/npmrc)
 * [npm developers](/cli/v6/using-npm/developers)
-* [npm disputes](/cli/v6/using-npm/disputes)

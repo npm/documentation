@@ -518,9 +518,6 @@
             - title: Organizations
               url: /cli/v6/using-npm/orgs
               description: Working with teams & organizations
-            - title: Disputes
-              url: /cli/v6/using-npm/disputes
-              description: Handling module name disputes
             - title: Developers
               url: /cli/v6/using-npm/developers
               description: Developer guide

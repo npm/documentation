@@ -3,7 +3,7 @@ title: npm-help-search
 section: 1
 description: Search npm help documentation
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/commands/npm-help-search.md
 ---
 

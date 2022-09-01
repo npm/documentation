@@ -1,19 +1,19 @@
 [
     {
         "id": "v6",
-        "version": "6.0.0",
+        "version": "6.14.17",
         "title": "Version 6.x (Legacy release)",
-        "branch": "v6-docs"
+        "branch": "v6"
     },
     {
         "id": "v7",
-        "version": "7.0.0",
+        "version": "7.24.2",
         "title": "Version 7.x (Legacy release)",
         "branch": "v7"
     },
     {
         "id": "v8",
-        "version": "8.0.0",
+        "version": "8.19.1",
         "title": "Version 8.x (Current release)",
         "branch": "latest",
         "default": true
