@@ -3,7 +3,7 @@ title: npm-owner
 section: 1
 description: Manage package owners
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/commands/npm-owner.md
 ---
 
@@ -44,4 +44,3 @@ with `--otp`.
 * [npm publish](/cli/v6/commands/npm-publish)
 * [npm registry](/cli/v6/using-npm/registry)
 * [npm adduser](/cli/v6/commands/npm-adduser)
-* [npm disputes](/cli/v6/using-npm/disputes)

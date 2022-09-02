@@ -3,7 +3,7 @@ title: npm-unpublish
 section: 1
 description: Remove a package from the registry
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/commands/npm-unpublish.md
 ---
 

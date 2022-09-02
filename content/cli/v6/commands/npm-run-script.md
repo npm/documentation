@@ -3,7 +3,7 @@ title: npm-run-script
 section: 1
 description: Run arbitrary package scripts
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/commands/npm-run-script.md
 ---
 

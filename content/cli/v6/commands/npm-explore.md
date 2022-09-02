@@ -3,7 +3,7 @@ title: npm-explore
 section: 1
 description: Browse an installed package
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/commands/npm-explore.md
 ---
 

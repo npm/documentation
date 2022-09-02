@@ -3,7 +3,7 @@ title: npm-install-ci-test
 section: 1
 description: Install a project with a clean slate and run tests
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/commands/npm-install-ci-test.md
 ---
 

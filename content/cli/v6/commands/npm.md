@@ -3,7 +3,7 @@ title: npm
 section: 1
 description: javascript package manager
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/commands/npm.md
 ---
 
@@ -15,7 +15,7 @@ npm <command> [args]
 
 ### Version
 
-6.0.0
+6.14.17
 
 ### Description
 

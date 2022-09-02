@@ -3,7 +3,7 @@ title: npm-config
 section: 1
 description: Manage the npm configuration files
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/commands/npm-config.md
 ---
 
