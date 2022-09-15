@@ -90,3 +90,4 @@ typings/
 # Gatsby
 public/
 .DS_Store
+cli/v8
