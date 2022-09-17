@@ -61,6 +61,6 @@ jobs:
     steps:
     - name: Deploy to GitHub Pages
       id: deployment
-      uses: paper-spa/deploy-pages@main
+      uses: actions/deploy-pages@v1
       with:
         preview: ${{ github.event_name == 'pull_request_target' }}
