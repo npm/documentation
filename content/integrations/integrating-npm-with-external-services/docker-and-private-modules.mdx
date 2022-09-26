@@ -81,6 +81,8 @@ This will build the Docker image with the current `NPM_TOKEN` environment variab
 
 <Note>
 
+**Note:** The value of the --build-arg will be available to anyone with access to your built image in plain text via `docker history`. Care should be taken to ensure you are not leaking this value by distributing your built image. Take a look at the `--secret` option available in docker buildkit for a more secure alternative. 
+
 **Note:** Even if you delete the `.npmrc` file, it will be kept in the commit history. To clean your secrets entirely, make sure to squash them.
 
 **Note:** You may commit the `.npmrc` file under a different name, e.g. `.npmrc.docker` to prevent local build from using it.
