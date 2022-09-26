@@ -20,7 +20,7 @@ github_path: docs/content/commands/npm.md
 
 ### Version
 
-8.0.0
+8.19.1
 
 ### Description
 

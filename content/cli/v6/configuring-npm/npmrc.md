@@ -3,7 +3,7 @@ title: npmrc
 section: 5
 description: The npm config files
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/configuring-npm/npmrc.md
 ---
 

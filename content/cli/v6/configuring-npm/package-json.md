@@ -3,7 +3,7 @@ title: package.json
 section: 5
 description: Specifics of npm's package.json handling
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/configuring-npm/package-json.md
 ---
 

@@ -3,7 +3,7 @@ title: npm-link
 section: 1
 description: Symlink a package folder
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/commands/npm-link.md
 ---
 
@@ -44,10 +44,10 @@ test it iteratively without having to continually rebuild.
 For example:
 
 ```bash
-cd ~/projects/node-redis    # go into the package directory
-npm link                    # creates global link
-cd ~/projects/node-bloggy   # go into some other package directory.
-npm link redis              # link-install the package
+    cd ~/projects/node-redis    # go into the package directory
+    npm link                    # creates global link
+    cd ~/projects/node-bloggy   # go into some other package directory.
+    npm link redis              # link-install the package
 ```
 
 Now, any changes to ~/projects/node-redis will be reflected in

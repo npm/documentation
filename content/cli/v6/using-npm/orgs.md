@@ -3,7 +3,7 @@ title: orgs
 section: 7
 description: Working with Teams & Orgs
 github_repo: npm/cli
-github_branch: v6-docs
+github_branch: v6
 github_path: docs/content/using-npm/orgs.md
 ---
 
