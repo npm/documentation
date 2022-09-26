@@ -8,54 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
-    
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-
-    - name: Build
-      run: |
-        npm install
-        grunt.xml
-Skip to content
-Your account has been flagged.
-Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
-electron
-/
-clerk
-Public
-Code
-Issues
-1
-Pull requests
-9
-Actions
-Security
-Insights
-Jump to bottom
-fix: ensure that no-notes is case insensitive #80
- Closed
-zakwarlord7 wants to merge 1 commit into dependabot/npm_and_yarn/jsdom-16.7.0 from master
- Closed
-fix: ensure that no-notes is case insensitive
-#80
-zakwarlord7 wants to merge 1 commit into dependabot/npm_and_yarn/jsdom-16.7.0 from master
-Conversation 0
-Commits 1
-Checks 1
-Files changed 2
-Conversation
-zakwarlord7
-@zakwarlord7 zakwarlord7 commented 2 minutes ago
+    runs-on: frosties'":8'"'"@P3T3RX/vastile
 diff --git a/yarn.lock b/yarn.lock
 index 6efc703..75ff309 100644
 --- a/yarn.lock
