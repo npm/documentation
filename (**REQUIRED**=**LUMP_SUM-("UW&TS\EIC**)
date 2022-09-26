@@ -1,349 +1,1245 @@
-federal 
-941 
-Deposit 
+
+federal 941 :deposit ::
+
+deposit-on :Acct....47-20541-6547:; PNCBANK :- [branches] = ank:--[brancghes]routing_transit_number_string_codified_contents:encoded=numerical_strine_value :
+
 Report
-ADP
+
+ZACHRY WOOD S.R.O.
+
 Report Range5/4/2022 - 6/4/202 2"					Local ID: 00037305581			
+
 EIN:	88-1303491	State ID: 633441725						
-	"Employee Number: 3
-Description"	Amount						5/4/2022 - 6/4/2022
-	Payment Amount (Total)	$9,246,754,678,763						Display All
-	1. Social Security (Employee + Employer)			26661.8				
-	2. Medicare (Employee + Employer)			861193422444				Hourly
-	3. Federal Income Tax			8385561229657				2.2663E+15
+
+"Employee Number: 3
+
+Description"	Amount
+
+5/4/2022 - 6/4/2022
+
+Payment Amount (Total)	$9,246,754,678,763						D
+
+
+	
+
+
+
+Display All
+
+1. Social Security (Employee + Employer)			
+
+26661.8				
+
+
+2. Medicare (Employee + Employer)			
+
+861193422444				Hourly
+
+3. Federal Income Tax			
+
+8385561229657				2.2663E+15
+
 "Note: This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous overpayment, penalty and others.
+
 Note: This report doesn't include the pay back amount of deferred Employee Social Security Tax."								Commission
+
+
 "Employer Customized Report
 ADP
 Report Range5/4/2022 - 6/4/2022"	88-1656496	state ID: 633441725		State: 	All	Local ID: 00037305581		2267700
+
 EIN:								
+
 Customized Report		Amount						"Employee Payment Report
+
 ADP"
+
+
 "Employee Number: 3
+
 Description"								
+
 Wages, Tips and Other Compensation		22662983361014		Report Range:				Tips
+
 Taxable SS Wages		215014.49		"Name:
+
 SSN:"				0
+
 Taxable SS Tips		0		Payment Summary				
+
 Taxable Medicare Wages		22662983361014		Salary		Vacation hourly		OT
+
+
 Advanced EIC Payment		0		3361013.7				
+
 Federal Income Tax Withheld		8385561229657		Bonus		0		0
+
 Employee SS Tax Withheld		13330.9		0		Other Wages 1		Other Wages 2
 Employee Medicare Tax Withheld		1888138Total		0		0
+
 State Income Tax Withheld		0		22662983361014				
+
 "Local Income Tax Withheld
+
 Customized Employer Tax Report"		0		Deduction Summary				
+
+
 Description		Amount		Health Insurance				
+
 "Employer SS Tax
+
 Employer Medicare Tax"		13330.9		0				
+
 Federal Unemployment Tax		328613309009		Tax Summary				
+
 State Unemployment Tax		441.7		Federal Tax	7			Total Tax
+
 Customized Deduction Report		840				Local Tax		
+
 Health Insurance						0		
+
 401K		0		Advanced EIC Payment			8918141356423	
-		0		0				Total
-						401K		
-						0		0Exports all TO FORMS
+
+0		0				Total
+
+401K		
+
+0		
+
+
+
+
+
+
+Exports all TO FORMS
+
 As a filer, you will first need to determine whether you must meet your filing obligation via
+
 EDGAR. The SEC Rules, particularly Regulation S-T, General Rules and Regulations for
+
 Electronic Filings, outline which filings are mandated as electronic. This means that they must be
 filed on EDGAR unless there is a case for Temporary or Continuing Hardship. (The rules for
+
+
 each form and hardship exemptions may differ, so please see the regulation for specific
+
 information.) Once you determine the form you need to file is electronic, then you need to
+
 identify the submission type to use. For each submission type, there are specific tools that you
+
 can use.
+
 As the EDGAR system has evolved using new technologies, tools have been added, changed,
 and sometimes updated. There is no longer a single tool for preparing an EDGAR submission.
+
 Your guide to the tools is this index. The first index allows you to lookup EDGAR electronic
+
 submission types easily if all you know is the submission form type. Included in the last two
+
 columns is detailed information about the tools that are used to create and/or assemble the filing.
 The second index is easiest to use if you are more comfortable looking up your submission type
+
 by Act.
+
+
 Before using the indexes, it is important to understand the difference between the Code of
+
 Federal Regulations (CFR) Form/Schedule/Rule column reference and the EDGAR Submission
+
 Type column. The index entries under the CFR Form/Schedule/Rule column refer to the titles of
+
 the actual Form, Schedule or Rule named in the CFR. The Submission Type refers to Form
+
 variations filers use on the electronic filing system to fulfill their filing obligation. For example,
+
 the paper Form 15 is implemented on EDGAR as a number of different submission types
+
 including: 15-12B, 15-12G, and 15-15D. The last three digits represent the section of the 34 Act
 under which the filer is obligated to file periodic reports.
+
 Using either Index, find the submission type, check that the description of the form matches your
+
 understanding of the purpose of the form, and identify the tool that should be used to create the
+
 form. The options in this column are EDGARLink Online, and Online Forms. There is a section
+
 in this manual describing in detail each of these tools. Chapter 7, “Preparing and Transmitting
+
 EDGARLink Online Submissions,” describes EDGARLink Online. Chapter 8, “Preparing and
+
 Transmitting Online Submissions,” describes online submissions using the EDGAR Online
+
 Forms Website and EDGAR Filing Website. The column entitled Filer-Constructed Technical
+
 Specifications should only be used by filers who want to create their submissions without the use
+
+
 of EDGAR tools. These Technical Specifications are available on the SEC’s Public Website. The
 Technical Specifications are delivered separately and are not part of the Filer Manual.
+
 Note: In Section 3.1, “Alpha/Numeric” for simplicity we include both the initial form and the
+
 associated amendment in the Submission Type column.
+
 EDGAR Filer Manual (Volume II) 3-2 December 2020
+
 3.1 Alpha/Numeric
+
 Submission Type Description
+
 Tool/
+
 Template
+
 Number
+
+
 FilerConstructed
+
 Form Spec.
+
 1-A, 1-A/A Offering statement under Regulation A EDGAR
+
 Filing
+
 Website
+
 EDGAR
+
 REG A XML
+
 Technical
+
 Specification
+
+
 1-A POS Post-qualification amendment to a 1-A offering
+
 statement
+
 EDGAR
+
 Filing
+
 Website
+
 EDGAR
+
+
 REG A XML
+
 Technical
 Specification
+
 1-A-W, 1-A-W/A Withdrawal of offering statement under Regulation A EDGARLink
 >Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification
+
+
 1-E, 1-E/A Notification under Regulation E by small business
+
 investment companies and business development
+
 companies.
+
 EDGARLink
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification
+
 1-E AD, 1-E AD/A Sales material filed pursuant to Rule 607 under
+
+
 Regulation E.
+
 EDGARLink
+
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification
+
+
 1-K, 1-K/A Annual Report Pursuant to Regulation A EDGAR
+
 Filing
 Website
+
+
 EDGAR
+
 REG A XML
+
 Technical
+
 Specification
+
+
 1-SA, 1-SA/A Semiannual Report Pursuant to Regulation A EDGARLink
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification
+
 1-U, 1-U/A Current Report pursuant to Regulation A EDGARLink
+
 Online
+
 EDGARLink
+
+
 Online XML
+
 Technical
+
+
 Specification
 1-Z, 1-Z/A Exit Report under Regulation A EDGAR
+
 Filing
+
 Website
+
 EDGAR REG
+
 A XML
+
 Technical
+
 Specification
+
 1-Z-W, 1-Z-W/A Withdrawal of Exit Report under Regulation A EDGARLink
+
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification /:
+
 December 2020 3-1 EDGAR Filer Manual (Volume II)
+
 3. INDEX TO FORMS
+
 As a filer, you will first need to determine whether you must meet your filing obligation via
+
 EDGAR. The SEC Rules, particularly Regulation S-T, General Rules and Regulations for
+
 Electronic Filings, outline which filings are mandated as electronic. This means that they must be
+
 filed on EDGAR unless there is a case for Temporary or Continuing Hardship. (The rules for
+
 each form and hardship exemptions may differ, so please see the regulation for specific
+
 information.) Once you determine the form you need to file is electronic, then you need to
+
 identify the submission type to use. For each submission type, there are specific tools that you
+
 can use.
+
 As the EDGAR system has evolved using new technologies, tools have been added, changed,
+
 and sometimes updated. There is no longer a single tool for preparing an EDGAR submission.
+
 Your guide to the tools is this index. The first index allows you to lookup EDGAR electronic
+
 submission types easily if all you know is the submission form type. Included in the last two
+
 columns is detailed information about the tools that are used to create and/or assemble the filing.
+
 The second index is easiest to use if you are more comfortable looking up your submission type
+
 by Act.
+
 Before using the indexes, it is important to understand the difference between the Code of
+
 Federal Regulations (CFR) Form/Schedule/Rule column reference and the EDGAR Submission
+
 Type column. The index entries under the CFR Form/Schedule/Rule column refer to the titles of
+
 the actual Form, Schedule or Rule named in the CFR. The Submission Type refers to Form
+
 variations filers use on the electronic filing system to fulfill their filing obligation. For example,
+
 the paper Form 15 is implemented on EDGAR as a number of different submission types
+
 including: 15-12B, 15-12G, and 15-15D. The last three digits represent the section of the 34 Act
+
 under which the filer is obligated to file periodic reports.
+
 Using either Index, find the submission type, check that the description of the form matches your
+
 understanding of the purpose of the form, and identify the tool that should be used to create the
+
 form. The options in this column are EDGARLink Online, and Online Forms. There is a section
+
 in this manual describing in detail each of these tools. Chapter 7, “Preparing and Transmitting
+
 EDGARLink Online Submissions,” describes EDGARLink Online. Chapter 8, “Preparing and
+
 Transmitting Online Submissions,” describes online submissions using the EDGAR Online
+
 Forms Website and EDGAR Filing Website. The column entitled Filer-Constructed Technical
+
 Specifications should only be used by filers who want to create their submissions without the use
+
 of EDGAR tools. These Technical Specifications are available on the SEC’s Public Website. The
+
 Technical Specifications are delivered separately and are not part of the Filer Manual.
+
 Note: In Section 3.1, “Alpha/Numeric” for simplicity we include both the initial form and the
+
 associated amendment in the Submission Type column.
+
 EDGAR Filer Manual (Volume II) 3-2 December 2020
 3.1 Alpha/Numeric
+
 Submission Type Description
+
 Tool/
+
 Template
+
 Number
+
 FilerConstructed
+
 Form Spec.
+
 1-A, 1-A/A Offering statement under Regulation A EDGAR
+
 Filing
+
 Website
+
 EDGAR
+
 REG A XML
+
 Technical
+
 Specification
+
 1-A POS Post-qualification amendment to a 1-A offering
+
 statement
+
 EDGAR
+
 Filing
+
 Website
+
 EDGAR
+
 REG A XML
+
 Technical
+
 Specification
+
 1-A-W, 1-A-W/A Withdrawal of offering statement under Regulation A EDGARLink
+
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
+
 Specification
+
 1-E, 1-E/A Notification under Regulation E by small business
+
 investment companies and business development
+
 companies.
 EDGARLink
+
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification
+
 1-E AD, 1-E AD/A Sales material filed pursuant to Rule 607 under
+
 Regulation E.
+
 EDGARLink
+
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
 Specification
+
 1-K, 1-K/A Annual Report Pursuant to Regulation A EDGAR
+
 Filing
+
 Website
+
 EDGAR
+
 REG A XML
+
 Technical
+
 Specification
+
 1-SA, 1-SA/A Semiannual Report Pursuant to Regulation A EDGARLink
+
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification
+
 1-U, 1-U/A Current Report pursuant to Regulation A EDGARLink
+
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification
+
 1-Z, 1-Z/A Exit Report under Regulation A EDGAR
+
 Filing
+
 Website
+
 EDGAR REG
+
 A XML
+
 Technical
+
 Specification
+
 1-Z-W, 1-Z-W/A Withdrawal of Exit Report under Regulation A EDGARLink
+
 Online
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification
+
 December 2020 3-3 EDGAR Filer Manual (Volume II)
+
 Submission Type Description
+
 Tool/
+
 Template
 Number
+
 FilerConstructed
+
 Form Spec.
+
 253G1 Reflects information previously omitted from the
+
 offering circular in reliance on Rule 253(b)
+
 EDGARLink
+
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification
+
 253G2 Reflects information that constitutes a substantive
+
 change from or addition to the information set forth in
+
 the last offering circular
+
 EDGARLink
+
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification
+
 253G3 Reflects information covered in both 253G1 and
+
 253G2
+
 EDGARLink
+
 Online
+
 EDGARLink
+
+
 Online XML
+
 Technical
+
 Specification
+
 253G4 Reflects information covered in 253G1, 253G2 or
+
 253G3 that is not being timely filed
+
 EDGARLink
+
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification
+
 2-E, 2-E/A Report of sales of securities pursuant to Rule 609
+
 under Regulation E.
+
 EDGARLink
+
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification
+
 10-12B, 10-12B/A Initial general form for registration of a class of
+
 securities pursuant to Section 12(b)
+
 EDGARLink
+
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification
+
 10-12G, 10-12G/A Initial general form for registration of a class of
+
 securities pursuant to Section 12(g)
+
 EDGARLink
+
 Online
+
 EDGARLink
+
 Online XML
+
 Technical
+
 Specification
+
 10-D, 10-D/A Periodic distribution reports by asset-backed issuers
+
 pursuant to Rule 13a-17 or 15d-17
+
 EDGARLink
+
 Online
+
 EDGARLink
+
 Online XML
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Technical
 Specification
 10-K, 10-K/A Annual report pursuant to Section 13 and 15(d) EDGARLink
@@ -10448,986 +11344,23 @@ Use of Proceeds
 
 The Sponsor will cause the Fund to transfer the proceeds of the sale of Creation Baskets to the Custodian or another custodian for use in trading activities. The Sponsor will invest the Fund’s assets in Portfolio Cryptocurrencies. The Sponsor may also invest in Futures Contracts and Cryptocurrency Swaps. When the Fund purchases Futures Contracts, the Fund will be required to deposit typically a percentage of the contract value with the FCM on behalf of the exchange a portion of the value of the contract or other interest as security to ensure payment for the obligation under the Futures Contracts at maturity. This deposit is known as initial margin. Counterparties in transactions in OTC contracts will generally impose similar collateral requirements on the Fund.
 
- 
-
-Ownership or Beneficial Interest in the Fund
-
- 
-
-[To be provided by subsequent amendment.]
-
- 
-
-Conflicts of Interest
-
- 
-
-There are present and potential future conflicts of interest in the Fund’s structure and operation you should consider before you purchase shares. The Sponsor and the Index Provider will use this notice of conflicts as a defense against any claim or other proceeding made. If the Sponsor or the Index Provider are not able to resolve these conflicts of interest adequately, it may impact the Fund’s ability to achieve its investment objectives.
-
- 
-
-The officers, directors and employees of the Sponsor and the Index Provider do not devote their time exclusively to the Fund. These persons are directors, officers or employees of other entities which may compete with the Fund for their services. They could have a conflict between their responsibilities to the Fund and to those other entities.
-
- 
-
-The Sponsor and the Index Provider have adopted policies that prohibit these companies and their principals, officers, directors and employees from trading futures and related contracts in which the Fund invests. These policies are intended to prevent conflicts of interest occurring where the Sponsor and the Index Provider or their principals, officers, directors or employees could give preferential treatment to their own accounts or trade their own accounts ahead of or against the Fund.
-
- 
-
-The Sponsor has sole current authority to manage the investments and operations of the Fund, and this may allow it to act in a way that furthers its own interests which may create a conflict with your best interests. Shareholders have very limited voting rights, which will limit their ability to influence matters such as amendment of the Trust Agreement, change in the Fund’s basic investment policy, dissolution of the Trust, or the sale or distribution of the Fund’s assets.
-
- 
-
-The Sponsor serves as the sponsor to the Fund. The Sponsor may have a conflict to the extent that its trading decisions for the Fund may be influenced by the effect they would have on the other funds it manages, including the Bitwise Hold Private Index Fund, LLC. In addition, the Sponsor may be required to indemnify the officers and directors of the other funds, if the need for indemnification arises. This potential indemnification will cause the Sponsor’s assets to decrease. If the Sponsor’s other sources of income are not sufficient to compensate for the indemnification, it could cease operations, which could in turn result in Fund losses and/or termination of the Fund.
-
- 
-
-If the Sponsor acquires knowledge of a potential transaction or arrangement that may be an opportunity for the Fund, it shall have no duty to offer such opportunity to the Fund. The Sponsor will not be liable to the Fund or the shareholders for breach of any fiduciary or other duty if Sponsor pursues such opportunity or directs it to another person or does not communicate such opportunity to the Fund. Neither the Fund nor any shareholder has any rights or obligations by virtue of the Trust Agreement, the trust relationship created thereby, or this prospectus in such business ventures or the income or profits derived from such business ventures. The pursuit of such business ventures, even if competitive with the activities of the Fund, will not be deemed wrongful or improper.
-
- 
-
-39
- 
- 
-
-Resolution of Conflicts Procedures
-
- 
-
-The Trust Agreement provides that whenever a conflict of interest exists between the Sponsor or any of its affiliates, on the one hand, and the Trust, the Fund, or any shareholders or any other person, on the other hand, the Sponsor shall resolve such conflict of interest considering the relative interest of each party (including its own interest) and the benefits and burdens relating to such interests, any customary or accepted industry practices, and any applicable accepted accounting practices or principles.
-
- 
-
-Fiduciary and Regulatory Duties of the Sponsor
-
- 
-
-The general fiduciary duties which would otherwise be imposed on the Sponsor (which would make its operation of the Trust as described herein impracticable due to the strict prohibition imposed by such duties on, for example, conflicts of interest on behalf of a fiduciary in its dealings with its beneficiaries), are replaced by the terms of the Trust Agreement (to which terms all shareholders, by subscribing to the shares, are deemed to consent).
-
- 
-
-Additionally, under the Trust Agreement, the Sponsor has the following obligations as a sponsor of the Trust:
-
- 
-
- 	●	Devote to the business and affairs of the Trust such of its time as it determines in its discretion (exercised in good faith) to be necessary to conduct the business and affairs of the Trust for the benefit of the Trust and the shareholders;
- 	 	 
- 	●	Execute, file, record and/or publish all certificates, statements and other documents and do any and all other things as may be appropriate for the formation, qualification and operation of the Trust and for the conduct of its business in all appropriate jurisdictions;
- 	 	 
- 	●	Appoint and remove independent public accountants to audit the accounts of the Trust and employ attorneys to represent the Trust;
- 	 	 
- 	●	Use its best efforts to maintain the status of the Trust as a statutory trust for state law purposes and as a partnership for U.S. federal income tax purposes;
- 	 	 
- 	●	Invest, reinvest, hold uninvested, sell, exchange, write options on, lease, lend and, to the extent permitted by the Trust Agreement, pledge, mortgage and hypothecate the assets of the Fund in accordance with the purposes of the Trust and this Prospectus;
- 	 	 
- 	●	Have fiduciary responsibility for the safekeeping and use of the Trust’s assets, whether or not in the Sponsor ‘s immediate possession or control;
- 	 	 
- 	●	Enter into and perform agreements with each Authorized Participant, receive from Authorized Participants and process properly submitted purchase orders, receive Creation Basket Deposits, deliver or cause the delivery of Creation Baskets to for the account of the Authorized Participant submitting a purchase order;
- 	 	 
- 	●	Receive from Authorized Participants and process, or cause the Marketing Agent to process, properly submitted redemption orders, receive from the redeeming Authorized Participants through the Depository, and thereupon cancel or cause to be cancelled, shares corresponding to the Redemption Baskets to be redeemed;
- 
-
-40
- 
- 
-
- 	●	Interact with the Depository as required;
- 	 	 
- 	●	Delegate duties to one or more administrators, as the Sponsor determines; and
- 	 	 
- 	●	Delegate duties to one or more commodity trading or other advisors, as the Sponsor determines.
- 
-
-To the extent that a law (common or statutory) or in equity, the Sponsor has duties (including fiduciary duties) and liabilities relating thereto to the Trust, the Fund, the shareholders or to any other person, the Sponsor will not be liable to the Trust, the Fund, the shareholders or to any other person for its good faith reliance on the provisions of the Trust Agreement or this Prospectus unless such reliance constitutes gross negligence or willful misconduct on the part of The Sponsor .
-
- 
-
-Liability and Indemnification
-
- 
-
-Under the Trust Agreement, the Sponsor, the Trustee and their respective affiliates (collectively, “Covered Persons”) (i) shall have no liability to the Trust, to the Fund, or to any shareholder for any loss suffered by the Trust or the Fund which arises out of any action or inaction of such Covered Person and (ii) shall not be personally liable for the return or repayment of all or any portion of the capital or profits of any shareholder or assignee thereof, in both cases, provided that such Covered Person, in good faith, determined that such course of conduct was in the best interest of the Trust or the Fund and such course of conduct did not constitute gross negligence or willful misconduct of such Covered Person. A Covered Person shall not be liable for the conduct or willful misconduct of any Administrator or other delegatee selected by the Sponsor with reasonable care, provided, however, that the Trustee and its affiliates shall not, under any circumstances be liable for the conduct or willful misconduct of any Administrator or other delegatee or any other person selected by The Sponsor to provide services to the Trust.
-
- 
-
-The Trust Agreement also provides that the Sponsor shall be indemnified by the Trust (or by a series separately to the extent the matter in question relates to a single series or disproportionately affects a specific series in relation to other series) against any losses, judgments, liabilities, expenses and amounts paid in settlement of any claims sustained by it in connection with its activities for the Trust, provided that (i) the Sponsor was acting on behalf of or performing services for the Trust and has determined, in good faith, that such course of conduct was in the best interests of the Trust and such liability or loss was not the result of gross negligence, willful misconduct, or a breach of the Trust Agreement on the part of the Sponsor and (ii) any such indemnification will only be recoverable from the assets of the applicable series. The Sponsor’s rights to indemnification permitted under the Trust Agreement shall not be affected by the dissolution or other cessation to exist of the Sponsor, or the withdrawal, adjudication of bankruptcy or insolvency of the Sponsor, or the filing of a voluntary or involuntary petition in bankruptcy under Title 11 of the Bankruptcy Code by or against the Sponsor.
-
- 
-
-The Sponsor shall not be indemnified for any losses, liabilities or expenses arising from or out of an alleged violation of federal or state securities laws unless (i) there has been a successful adjudication on the merits of each count involving alleged securities law violations as to the particular indemnitee and the court approves the indemnification of such expenses (including, without limitation, litigation costs), (ii) such claims have been dismissed with prejudice on the merits by a court of competent jurisdiction as to the particular indemnitee and the court approves the indemnification of such expenses (including, without limitation, litigation cost) or (iii) a court of competent jurisdiction approves a settlement of the claims against a particular indemnitee and finds that indemnification of the settlement and related costs should be made.
-
- 
-
-41
- 
- 
-
-The payment of any indemnification shall be allocated, as appropriate, among the series funds in the Trust, including the Fund. The Trust and its series shall not incur the cost of that portion of any insurance which insures any party against any liability, the indemnification of which is prohibited under the Trust Agreement.
-
- 
-
-Expenses incurred in defending a threatened or pending civil, administrative or criminal action, suit or proceeding against the Sponsor shall be paid by the Trust in advance of the final disposition of such action, suit or proceeding, if (i) the legal action relates to the performance of duties or services by the Sponsor on behalf of the Trust or any fund, as applicable; (ii) the legal action is initiated by a party other than the Trust or any fund; and (iii) the Sponsor undertakes to repay the advanced funds with interest to the Trust or any fund, as applicable, in cases in which it is not entitled to indemnification under the Trust Agreement.
-
- 
-
-The Trust Agreement provides that the Sponsor and the Trust shall indemnify the Trustee and its successors, assigns, legal representatives, officers, directors, shareholders, employees, agents and servants (the “Trustee Indemnified Parties”) against any liabilities, obligations, losses, damages, penalties, taxes, claims, actions, suits, costs, expenses or disbursements which may be imposed on a Trustee Indemnified Party relating to or arising out of the formation, operation or termination of the Trust, the execution, delivery and performance of any other agreements to which the Trust is a party, or the action or inaction of the Trustee under the Trust Agreement or any other agreement, except for expenses resulting from the gross negligence or willful misconduct of a Trustee Indemnified Party. Further, certain officers of the Sponsor are insured against liability for certain errors or omissions which an officer may incur or that may arise out of his or her capacity as such.
-
- 
-
-In the event the Trust or any Fund, as applicable, is made a party to any claim, dispute, demand or litigation or otherwise incurs any loss, liability, damage, cost or expense as a result of or in connection with any shareholder’s (or assignee’s) obligations or liabilities unrelated to the business of the Trust or any Fund, as applicable, such shareholder (or assignees cumulatively) is required under the Trust Agreement to indemnify, defend, hold harmless and reimburse or such fund, as applicable, for all such loss, liability, damage, cost and expense incurred, including attorneys’ and accountants’ fees.
-
- 
-
-Provisions of Law
-
- 
-
-According to applicable law, indemnification of the Sponsor is payable only if the Sponsor determined, in good faith, that the act, omission or conduct that gave rise to the claim for indemnification was in the best interest of the Trust and the Fund and the act, omission or activity that was the basis for such loss, liability, damage, cost or expense was not the result of negligence or misconduct and such liability or loss was not the result of negligence or misconduct by the Sponsor, and such indemnification or agreement to hold harmless is recoverable only out of the assets of the Fund.
-
- 
-
-Provisions of Federal and State Securities Laws
-
- 
-
-This offering is made pursuant to federal and state securities laws. The SEC and state securities agencies take the position that indemnification of the Sponsor that arises out of an alleged violation of such laws is prohibited unless certain conditions are met.
-
- 
-
-These conditions require that no indemnification of the Sponsor or any underwriter for the Fund may be made in respect of any losses, liabilities or expenses arising from or out of an alleged violation of federal or state securities laws unless: (i) there has been a successful adjudication on the merits of each count involving alleged securities law violations as to the party seeking indemnification and the court approves the indemnification; (ii) such claim has been dismissed with prejudice on the merits by a court of competent jurisdiction as to the party seeking indemnification; or (iii) a court of competent jurisdiction approves a settlement of the claims against the party seeking indemnification and finds that indemnification of the settlement and related costs should be made, provided that, before seeking such approval, The Sponsor or other indemnitee must apprise the court of the position held by regulatory agencies against such indemnification. These agencies are the SEC and the securities administrator of the State or States in which the plaintiffs claim they were offered or sold interests.
-
- 
-
-42
- 
- 
-
-Provisions of the 1933 Act and NASAA Guidelines
-
- 
-
-Insofar as indemnification for liabilities arising under the 1933 Act may be permitted to the Sponsor or its directors, officers, or persons controlling the Trust and the Fund, the Fund has been informed that SEC and the various State administrators believe that such indemnification is against public policy as expressed in the 1933 Act and the North American Securities Administrators Association, Inc. (“NASAA”) commodity pool guidelines and is therefore unenforceable.
-
- 
-
-Management; Voting by Shareholders
-
- 
-
-The shareholders of the Fund take no part in the management or control, and have no voice in the Trust’s operations or business.
-
- 
-
-The Sponsor generally has the right to amend the Trust Agreement as it applies to the Trust provided that the shareholders have the right to vote only if expressly required under Delaware or federal law or rules or regulations of the Exchange, or if submitted to the shareholders by the Sponsor in its sole discretion. No amendment affecting the Trustee shall be binding upon or effective against the Trustee unless consented to by the Trustee in the form of an instruction letter.
-
- 
-
-Meetings
-
- 
-
-Meetings of the Trust’s shareholders may be called by the Sponsor and will be called by it upon the written request of Shareholders holding at least 25% of the outstanding shares of the Trust or the Fund, as applicable (not including Shares acquired by the Sponsor through its initial capital contribution. The Sponsor shall deposit in the United States mail or electronically transmit written notice to all Shareholders of the Fund of the meeting and the purpose of the meeting, which shall be held on a date not less than 30 nor more than 60 days after the date of mailing of such notice, at a reasonable time and place. Where the meeting is called upon the written request of the shareholders, such written notice shall be mailed or transmitted not more than 45 days after such written request for a meeting was received by the Sponsor. Any notice of meeting shall be accompanied by a description of the action to be taken at the meeting and, if applicable, an opinion of independent counsel as to the effect of such proposed action on the liability of shareholders of the Fund, for the debts of the Fund. Shareholders may vote in person or by proxy at any such meeting. The Sponsor shall be entitled to establish voting and quorum requirements and other reasonable procedures for shareholder voting. Any action required or permitted to be taken by shareholders by vote may be taken without a meeting by written consent setting forth the actions so taken. Such written consents shall be treated for all purposes as votes at a meeting. If the vote or consent of any shareholder to any action of the Trust, the Fund or any shareholder, as contemplated by the Trust Agreement, is solicited by the Sponsor, the solicitation shall be effected by notice to each Shareholder given in the manner provided in accordance with the Trust Agreement.
-
- 
-
-Books and Records
-
- 
-
-The Trust and the Fund keep their books of record and account at the office of the Sponsor located at 300 Brannan Street, Suite 201, San Francisco, CA 94107, or at the offices of the Administrator, or such office, including of an administrative agent, as it may subsequently designate upon notice. The books and records are open to inspection by any person who establishes to the Trust’s satisfaction that such person is a shareholder upon reasonable advance notice at all reasonable times during usual business hours of the Trust and the Fund.
-
- 
-
-43
- 
- 
-
-The Trust keeps a copy of the Trust Agreement on file in the Sponsor ‘s office which will be available for inspection by any shareholder at all times during its usual business hours upon reasonable advance notice.
-
- 
-
-Statements, Filings, and Reports to Shareholders
-
- 
-
-The Trust will furnish to banks, broker dealers and trust companies (“DTC Participants”) for distribution to each Fund’s shareholders monthly and annual (as of the end of each fiscal year) reports (in such detail) as are required to be provided to shareholders by the CFTC and the NFA. Monthly reports will contain certain unaudited financial information regarding a Fund, including the Fund’s NAV, and annual reports will contain financial statements prepared by the Sponsor and audited by an independent registered public accounting firm designated by the Sponsor. The Sponsor will furnish to Fund shareholders any other reports or information which the Sponsor, in its discretion, determines to be necessary or appropriate. In addition, it is expected that the Trust will be required under SEC rules to file quarterly and annual reports with the SEC, which need not be sent to Fund shareholders directly but will be publicly available through the SEC. The Trust will post the same information that would otherwise be provided in the Trust’s CFTC, NFA and SEC reports on the Trust’s website.
-
- 
-
-Fiscal Year
-
- 
-
-The fiscal year of the Fund is the calendar year. The Sponsor may select an alternate fiscal year.
-
- 
-
-Governing Law; Consent to Delaware Jurisdiction
-
- 
-
-The rights of The Sponsor, the Trust, the Fund, DTC (as registered owner of the Fund’s global certificate for shares) and the shareholders are governed by the laws of the State of Delaware. The Sponsor, the Trust, the Fund and DTC and, by accepting shares, each DTC Participant and each shareholder, consent to the exclusive jurisdiction of the courts of the State of Delaware and any federal courts located in Delaware. Such consent is not required for any person to assert a claim of Delaware jurisdiction over The Sponsor, the Trust or the Fund.
-
- 
-
-Legal Matters
-
- 
-
-Litigation and Claims
-
- 
-
-Within the past 5 years of the date of this prospectus, there have been no material administrative, civil or criminal actions against the Sponsor, the Trust or the Fund, or any principal or affiliate of any of them. This includes any actions pending, on appeal, concluded, threatened, or otherwise known to them.
-
- 
-
-Legal Opinion
-
- 
-
-Vedder Price P.C. has advised the Sponsor in connection with the Shares being offered. Vedder Price P.C. also advises the Sponsor with respect to its responsibilities as sponsor of, and with respect to matters relating to, the Trust and the Fund. Certain opinions of counsel will be filed with the SEC as exhibits to the Registration Statement of which this Prospectus is a part.
-
- 
-
-44
- 
- 
-
-Experts
-
- 
-
-The combined financial statements of Bitwise ETF Trust, the individual financial statement of the Fund, will be included herein in reliance on the report of an independent registered public accounting firm, given on the authority of said firm as experts in auditing and accounting.
-
- 
-
-MATERIAL CONTRACTS
-
- 
-
-Administrative Agency Agreement
-
- 
-
-[To be provided by subsequent amendment.]
-
- 
-
-Custodian Agreement
-
- 
-
-[To be provided by subsequent amendment.]
-
- 
-
-Distribution Agreement
-
- 
-
-[To be provided by subsequent amendment.]
-
- 
-
-Futures Account Agreement
-
- 
-
-[To be provided by subsequent amendment.]
-
- 
-
-PURCHASES BY EMPLOYEE BENEFIT PLANS
-
- 
-
-[To be added by subsequent amendment.]
-
- 
-
-Additional Information About the Index and the Fund’s Trading Program
-
- 
-
-[To be added by subsequent amendment.]
-
- 
-
-INFORMATION YOU SHOULD KNOW
-
- 
-
-This prospectus contains information you should consider when making an investment decision about the shares. You should rely only on the information contained in this prospectus or any applicable prospectus supplement. None of the Trust, the Fund or the Sponsor has authorized any person to provide you with different information and, if anyone provides you with different or inconsistent information, you should not rely on it. This prospectus is not an offer to sell the shares in any jurisdiction where the offer or sale of the shares is not permitted.
-
- 
-
-The information contained in this prospectus was obtained from us and other sources we believe to be reliable.
-
- 
-
-You should disregard anything we said in an earlier document that is inconsistent with what is included in this prospectus or any applicable prospectus supplement. Where the context requires, when we refer to this “prospectus,” we are referring to this prospectus and (if applicable) the relevant prospectus supplement.
-
- 
-
-45
- 
- 
-
-You should not assume that the information in this prospectus or any applicable prospectus supplement is current as of any date other than the date on the front page of this prospectus or the date on the front page of any applicable prospectus supplement.
-
- 
-
-We include cross references in this prospectus to captions in these materials where you can find further related discussions. The table of contents tells you where to find these captions.
-
- 
-
-SUMMARY OF PROMOTIONAL AND SALES MATERIAL
-
- 
-
-The Fund expects to use the following sales material it has prepared:
-
- 
-
- 	●	the Fund’s website, www.bitwiseinvestments.com;and
- 	 	 
- 	●	the Fund Fact Sheet found on the Fund’s website.
- 
-
-The materials described above are not a part of this prospectus or the registration statement of which this prospectus is a part.
-
- 
-
-FUTURES CONTRACTS AND CRYPTOCURRENCY SWAPS
-
-REGULATORY CONSIDERATIONS
-
- 
-
-U.S. Derivatives Exchanges
-
- 
-
-Derivatives exchanges, including swap execution facilities that are required under the Dodd-Frank Act, provide centralized market facilities for trading derivatives in which multiple persons have the ability to execute or trade contracts by accepting bids and offers from multiple participants. Members of, and trades executed on, a particular exchange are subject to the rules of that exchange. Among the principal exchanges in the United States are the Chicago Board Options Exchange (“CBOE”) (which includes the CFE), the Chicago Mercantile Exchange (“CME”) (which includes, among others, the Chicago Board of Trade (“CBOT”) and the NYMEX) and the Intercontinental Exchange (“ICE”)).
-
- 
-
-Each derivatives exchange in the United States has an associated “clearing house.” Clearing houses provide services designed to transfer credit risk and ensure the integrity of trades. Once trades between members of an exchange have been confirmed and/or cleared, the clearing house becomes substituted for each buyer and each seller of contracts traded on the exchange and, in effect, becomes the other party to each trader’s open position in the market. Thereafter, each party to a trade looks only to the clearing house for performance. The clearing house generally establishes some sort of security or guarantee fund to which all clearing members of the exchange must contribute. This fund acts as an emergency buffer which is intended to enable the clearing house to meet its obligations with regard to the other side of an insolvent clearing member’s contracts. Furthermore, clearing houses require margin deposits and continuously mark positions to market to provide some assurance that their members will be able to fulfill their contractual obligations. Thus, members effecting derivatives transactions on an organized exchange or clearing an OTC derivatives transaction through a clearing house do not bear the risk of the insolvency of the party on the opposite side of the trade; their credit risk is limited to the respective solvencies of their commodity broker and the clearing house. The clearing house “guarantee” of performance on open positions does not run to customers. If a member firm goes bankrupt, customers could lose money.
-
- 
-
-If the Fund decides to execute derivatives transactions through such derivatives exchanges—and especially if it decides to become a direct member of one or more exchanges or swap execution facilities—the Fund would be subject to the rules of the exchange or swap executive facility, which would bring additional risks and liabilities, and potential additional regulatory requirements.
-
- 
-
-46
- 
- 
-
-Regulations
-
- 
-
-Derivatives exchanges in the United States are subject to regulation under the CEA, by the CFTC, the governmental agency having responsibility for regulation of derivatives exchanges and trading on those exchanges. Following the adoption of the Dodd-Frank Act, the CFTC also has authority to regulate OTC derivatives markets, including certain OTC foreign exchange markets.
-
- 
-
-The CFTC has exclusive authority to designate exchanges for the trading of specific futures contracts, and options on futures contracts and to prescribe rules and regulations of the marketing of each. The CFTC also regulates the activities of “commodity pool operators” and the CFTC has adopted regulations with respect to certain of such persons’ activities. Pursuant to its authority, the CFTC requires a commodity pool operator, such as the Sponsor, to keep accurate, current and orderly records with respect to each pool it operates. The CFTC may suspend, modify or terminate the registration of any registrant for failure to comply with CFTC rules or regulations. Suspension, restriction or termination of the Sponsor’s registration as a commodity pool operator would prevent it, until such time (if any) as such registration were to be reinstated, from managing, and might result in the termination of, the Funds. If the Sponsor were unable to provide services and/or advice to the Funds, the Funds would be unable to pursue their investment objectives unless and until the Sponsor’s ability to provide services and advice to the Funds was reinstated or a replacement for the Sponsor as commodity pool operator could be found. Such an event could result in termination of the Funds.
-
- 
-
-The CEA requires all FCMs to meet and maintain specified fitness and financial requirements, segregate customer funds from proprietary funds and account separately for all customers’ funds and positions, and to maintain specified books and records open to inspection by the staff of the CFTC.
-
- 
-
-The CEA also gives the states certain powers to enforce its provisions and the regulations of the CFTC. Under certain circumstances, the CEA grants shareholders the right to institute a reparation proceeding before the CFTC against the Sponsor (as a registered commodity pool operator), an FCM, as well as those of their respective employees who are required to be registered under the CEA. Shareholders may also be able to maintain a private right of action for certain violations of the CEA.
-
- 
-
-Pursuant to authority in the CEA, the NFA has been formed and registered with the CFTC as a registered futures association. At the present time, the NFA is the only self-regulatory organization for commodities professionals other than exchanges. As such, the NFA promulgates rules governing the conduct of commodity professionals and disciplines those professionals that do not comply with such standards. The CFTC has delegated to the NFA responsibility for the registration of commodity pool operators, FCMs, swap dealers, commodity trading advisors, introducing brokers and their respective associated persons and floor brokers. The Sponsor intends to be a member of the NFA (the Fund itself is not required to become a member of the NFA). As an NFA member, the Sponsor is subject to NFA standards relating to fair trade practices, financial condition, and consumer protection. The CFTC is prohibited by statute from regulating trading on foreign commodity exchanges and markets.
-
- 
-
-The CEA and CFTC regulations prohibit market abuse and generally require that all futures exchange-based trading be conducted in compliance with rules designed to ensure the integrity of market prices and without any intent to manipulate prices. CFTC regulations and futures exchange rules also impose limits on the size of the positions that a person may hold or control as well as standards for aggregating certain positions. The rules of the CFTC and the futures exchanges also authorize special emergency actions to halt, suspend or limit trading overall or to restrict, halt, suspend or limit the trading of an individual trader or to otherwise impose special reporting or margin requirements.
-
- 
-
-47
- 
- 
-
-The Fund’s investments in Futures Contracts and Cryptocurrency Swaps will be subject to regulation under the CEA and traded pursuant to CFTC and applicable exchange regulations.
-
- 
-
-Daily Limits
-
- 
-
-Most U.S. futures exchanges (but generally not foreign exchanges or banks or dealers in the cases of swap agreements) limit the amount of fluctuation in some futures contract or options on futures contract prices during a single day by regulations. These regulations specify what are referred to as “daily price fluctuation limits” or more commonly “daily limits.” Once the daily limit has been reached in a particular futures contract, no trades may be made at a price beyond that limit.
-
- 
-
-Margin
-
- 
-
-“Initial” or “original” margin is the minimum amount of funds that a counterparty to a cleared derivatives contract must deposit with their commodity broker in order to establish an open position. Maintenance margin is the amount (generally less than initial margin) to which a trader’s account may decline before he must deliver additional margin so as to maintain open positions. A margin deposit is like a cash performance bond. It helps assure the futures trader’s performance of the futures contracts he purchases or sells. The minimum amount of margin required in connection with a particular futures contract is set by the exchange on which such contract is traded and is subject to change at any time during the term of the contract. Brokerage firms carrying accounts for traders in futures contracts may not accept lower, and may require higher, amounts of margin as a matter of policy in order to afford further protection for themselves.
-
- 
-
-Margin requirements are computed each day by a commodity broker and the relevant exchange. At the close of each trading day, each open futures contract is marked to market, that is, the gain or loss on the position is calculated from the prior day’s close. When the market value of a particular open futures contract position changes to a point where the margin on deposit does not satisfy maintenance margin requirements, a margin call is made by the commodity broker. If the margin call is not met within a reasonable time, the broker may close out the customer’s position.
-
- 
-
-INTELLECTUAL PROPERTY
-
- 
-
-The Sponsor owns trademark registrations for the Fund. The Sponsor relies upon these trademarks through which it markets its services and strives to build and maintain brand recognition in the market and among current and potential investors. So long as the Sponsor continues to use these trademarks to identify its services, without challenge from any third party, and properly maintains and renews the trademark registrations under applicable laws, rules and regulations, it will continue to have indefinite protection for these trademarks under current laws, rules and regulations.
-
- 
-
-The Sponsor also owns trademark registrations for the Sponsor. The Sponsor relies upon these trademarks through which it markets its services and strives to build and maintain brand recognition in the market and among current and potential investors. So long as the Sponsor continues to use these trademarks to identify its services, without challenge from any third party, and properly maintains and renews the trademark registrations under applicable laws, rules and regulations; it will continue to have indefinite protection for these trademarks under current laws, rules and regulations.
-
- 
-
-48
- 
- 
-
-WHERE YOU CAN FIND MORE INFORMATION
-
- 
-
-The Trust has filed on behalf of the Fund a registration statement on Form S-1 with the SEC under the 1933 Act. This prospectus does not contain all of the information set forth in the registration statement (including the exhibits to the registration statement), parts of which have been omitted in accordance with the rules and regulations of the SEC. For further information about the Trust, the Fund or the shares, please refer to the registration statement, which you may inspect, without charge, at the public reference facilities of the SEC at the below address or online at www.sec.gov, or obtain at prescribed rates from the public reference facilities of the SEC at the below address.
-
- 
-
-Information about the Trust, the Fund and the shares can also be obtained from the Fund’s website, which is [                          ]. The Fund’s website address is only provided here as a convenience to you and the information contained on or connected to the website is not part of this prospectus or the registration statement of which this prospectus is part. The Trust is subject to the informational requirements of the Exchange Act and will file certain reports and other information with the SEC under the Exchange Act. The Sponsor will file an updated prospectus annually on behalf of the Trust and the Fund pursuant to the requirements of the 1933 Act.
-
- 
-
-The reports and other information can be inspected at the public reference facilities of the SEC located at 100 F Street, N.E., Washington, DC 20549 and online at www.sec.gov. You may also obtain copies of such material from the public reference facilities of the SEC at 100 F Street, NE, Washington, D.C. 20549, at prescribed rates. You may obtain more information concerning the operation of the public reference facilities of the SEC by calling the SEC at 1-800-SEC-0330 or visiting online at www.sec.gov.
-
- 
-
-STATEMENT REGARDING FORWARD-LOOKING STATEMENTS
-
- 
-
-This prospectus includes “forward-looking statements” which generally relate to future events or future performance. In some cases, you can identify forward-looking statements by terminology such as “may,” “will,” “should,” “expect,” “plan,” “anticipate,” “believe,” “estimate,” “predict,” “potential” or the negative of these terms or other comparable terminology. All statements (other than statements of historical fact) included in this prospectus that address activities, events or developments that will or may occur in the future, including such matters as movements in the cryptocurrencies markets and indexes that track such movements, the Fund’s operations, the Sponsor ‘s plans and references to the Fund’s future success and other similar matters, are forward-looking statements. These statements are only predictions. Actual events or results may differ materially. These statements are based upon certain assumptions and analyses the Sponsor has made based on its perception of historical trends, current conditions and expected future developments, as well as other factors appropriate in the circumstances. Whether or not actual results and developments will conform to the Sponsor’s expectations and predictions, however, is subject to a number of risks and uncertainties, including the special considerations discussed in this prospectus, general economic, market and business conditions, changes in laws or regulations, including those concerning taxes, made by governmental authorities or regulatory bodies, and other world economic and political developments. Consequently, all the forward-looking statements made in this prospectus are qualified by these cautionary statements, and there can be no assurance that actual results or developments the Sponsor anticipates will be realized or, even if substantially realized, that they will result in the expected consequences to, or have the expected effects on, the Fund’s operations or the value of its shares.
-
- 
-
-Privacy Policy
-
- 
-
-The Fund and the Sponsor may collect or have access to certain nonpublic personal information about current and former investors. Nonpublic personal information may include information received from investors, such as an investor’s name, social security number and address, as well as information received from brokerage firms about investor holdings and transactions in shares of the Fund.
-
- 
-
-49
- 
- 
-
-The Fund and the Sponsor do not disclose nonpublic personal information except as required by law or as described in their Privacy Policy. In general, the Fund and the Sponsor restrict access to the nonpublic personal information they collect about investors to those of their and their affiliates’ employees and service providers who need access to such information to provide products and services to investors.
-
- 
-
-The Fund and the Sponsor maintain safeguards that comply with federal law to protect investors’ nonpublic personal information. These safeguards are reasonably designed to (1) ensure the security and confidentiality of investors’ records and information, (2) protect against any anticipated threats or hazards to the security or integrity of investors’ records and information, and (3) protect against unauthorized access to or use of investors’ records or information that could result in substantial harm or inconvenience to any investor.
-
- 
-
-Third-party service providers with whom the Fund and the Sponsor share nonpublic personal information about investors must agree to follow appropriate standards of security and confidentiality, which includes safeguarding such nonpublic personal information physically, electronically and procedurally.
-
- 
-
-A copy of the Sponsor ‘s current Privacy Policy, which is applicable to the Fund, is provided to investors annually and is also available at [                               ].
-
- 
-
-50
- 
- 
-
-APPENDIX A
-
- 
-
-Glossary of Defined Terms
-
- 
-
-[To be updated as necessary]
-
- 
-
-In this prospectus, each of the following terms have the meanings set forth after such term:
-
- 
-
-1933 Act: The Securities Act of 1933.
-
- 
-
-1940 Act: Investment Company Act of 1940.
-
- 
-
-Administrator: [To be provided by subsequent amendment]
-
- 
-
-Authorized Participant: One that purchases or redeems Creation Baskets or Redemption Baskets, respectively, from or to the Fund.
-
- 
-
-Futures Contracts: The futures contracts that at any given time make up the Index.
-
- 
-
-Business Day: Any day other than a day when the Exchange, the NYMEX, the New York Stock Exchange, or any of the Futures Exchanges upon which a Futures Contract is traded is closed for regular trading.
-
- 
-
-CBOT: Chicago Board of Trade.
-
- 
-
-CEA: Commodity Exchange Act.
-
- 
-
-CFTC: Commodity Futures Trading Commission, an independent agency with the mandate to regulate commodity futures and options in the United States.
-
- 
-
-CME: Chicago Mercantile Exchange.
-
- 
-
-Code: Internal Revenue Code.
-
- 
-
-COMEX: Commodity Exchange, Inc.
-
- 
-
-Commodity Pool: An enterprise in which several individuals contribute funds in order to trade futures contracts or options on futures contracts collectively.
-
- 
-
-Commodity Pool Operator or CPO: Any person engaged in a business which is of the nature of an investment trust, syndicate, or similar enterprise, and who, in connection therewith, solicits, accepts, or receives from others, funds, securities, or property, either directly or through capital contributions, the sale of stock or other forms of securities, or otherwise, for the purpose of trading in any commodity for future delivery or commodity option on or subject to the rules of any contract market.
-
- 
-
-Commodity Trading Advisor or CTA: Subject to certain exceptions set forth in the Commodity Exchange Act, any person who for compensation or profit, (i) engages in the business of advising others, either directly or through publications, writings, or electronic media, as to the value of or the advisability of trading in any commodity for future delivery or commodity option on or subject to the rules of any contract market, or (ii) as part of a regular business, issues or promulgates analyses or reports concerning any of the activities referred to in (i).
-
- 
-
-Creation Basket: A block of 10,000 shares used by the Fund to issue shares.
-
- 
-
-1
- 
- 
-
-Creation Basket Deposit: the total deposit required to create each basket.
-
- 
-
-Custodian: [To be provided by subsequent amendment]
-
- 
-
-DCM: designated contract market.
-
- 
-
-DTC: The Depository Trust Company. DTC will act as the securities depository for the shares.
-
- 
-
-ECI: income that is effectively connected with the conduct of a U.S. trade or business.
-
- 
-
-ERISA: Employee Retirement Income Security Act of 1974.
-
- 
-
-DTC Participant: An entity that has an account with DTC.
-
- 
-
-Exchange: [To be provided by subsequent amendment]
-
- 
-
-Exchange Act: The Securities Exchange Act of 1934.
-
- 
-
-FCM: Futures Commission Merchant.
-
- 
-
-FINRA: Financial Industry Regulatory Authority, formerly the National Association of Securities Dealers.
-
- 
-
-Futures Contracts: Futures contracts for cryptocurrencies that are traded on the Chicago Board of Trade and Chicago Mercantile Exchange or on other foreign exchanges.
-
- 
-
-Futures Exchanges: Chicago Board of Trade and Chicago Mercantile Exchange or on other foreign exchanges.
-
- 
-
-Indirect Participants: Banks, brokers, dealers and trust companies that clear through or maintain a custodial relationship with a DTC Participant, either directly or indirectly.
-
- 
-
-IRA: individual retirement account.
-
- 
-
-IRS: U.S. Internal Revenue Service.
-
- 
-
-Margin: The amount of equity required for an investment in futures contracts.
-
- 
-
-Marketing Agent: [To be provided by subsequent amendment]
-
- 
-
-NAV: Net asset value of the Fund.
-
- 
-
-NFA: National Futures Association.
-
- 
-
-NYMEX: New York Mercantile Exchange.
-
- 
-
-Option: The right, but not the obligation, to buy or sell a futures contract or forward contract at a specified price on or before a specified date.
-
- 
-
-Cryptocurrency Swaps: Cryptocurrency Swaps such as cash-settled options on futures contracts, forward contracts relating to cryptocurrencies, cleared swap contracts and OTC transactions that are based on the price of cryptocurrencies, futures contracts and indices based on the foregoing.
-
- 
-
-2
- 
- 
-
-OTC Derivative: A financial contract, whose value is designed to track the return on stocks, bonds, currencies, cryptocurrencies, or some other benchmark, that is traded OTC or off organized exchanges.
-
- 
-
-Position Limit Rules: CFTC’s proposed limits on speculative positions in certain physical commodity futures and option contracts and swaps that are economically equivalent to such contracts in the agriculture, energy and metals markets and rules addressing the circumstances under which market participants would be required to aggregate their positions with other persons under common ownership or control.
-
- 
-
-Redemption Basket: A block of 10,000 shares used by the Fund to redeem shares.
-
- 
-
-Redemption Order Date: the date a redemption order is received in satisfactory form and approved by the Marketing Agent.
-
- 
-
-Register: the record of all Shareholders and holders of the shares in certificated form kept by the Administrator.
-
- 
-
-The Index: The HOLD 10 Index, owned and maintained by Bitwise Index Services, LLC.
-
- 
-
-SEC: Securities and Exchange Commission.
-
- 
-
-Secondary Market: The stock exchanges and the OTC market. Securities are first issued as a primary offering to the public. When the securities are traded from that first holder to another, the issues trade in these secondary markets.
-
- 
-
-Shares: Common shares representing fractional undivided beneficial interests in the Fund.
-
- 
-
-SEF: A swap execution facility.
-
- 
-
-Shareholders: Holders of shares.
-
- 
-
-Swap Contract: Swap transactions generally involve contracts between two parties to exchange a stream of payments computed by reference to a notional amount and the price of the asset that is the subject of the swap. Swap transactions that are not cleared through central counterparties are called “uncleared” or OTC swaps.
-
- 
-
-Tracking Error: Possibility that the daily NAV of the Fund will not track the Index.
-
- 
-
-Treasuries: Obligations of the U.S. government with remaining maturities of 2 years or less.
-
- 
-
-Trust: Bitwise ETF Trust
-
- 
-
-Trust Agreement: Declaration of Trust and Trust Agreement of Bitwise ETF Trust
-
- 
-
-The Sponsor: Bitwise Investment Advisers, LLC, a Delaware limited liability company, which is registered as a Commodity Pool Operator, who controls the investments and other decisions of the Fund.
-
- 
-
-The Fund: The Bitwise HOLD 10 Cryptocurrency Index Fund.
-
- 
-
-Valuation Day: Any day as of which the Fund calculates its per share NAV.
-
- 
-
-You: The owner or holder of shares.
-
- 
-
-3
- 
- 
-
-PART II
-
- 
-
-INFORMATION NOT REQUIRED IN PROSPECTUS
-
- 
-
-Item 13. Other Expenses of Issuance and Distribution.
-
- 
-
-Set forth below is an estimate (except as indicated) of the amount of fees and expenses (other than underwriting commissions and discounts) payable by the registrant in connection with the issuance and distribution of the Shares pursuant to the prospectus contained in this registration statement.
-
- 
-
-SEC registration fee (actual)	 	$	[  ]	*
-Listing fee (actual)	 	$	[  ]	*
-Auditor’s fees and expenses	 	$	[  ]	*
-Legal fees and expenses	 	$	[  ]	*
-Printing expenses	 	$	[  ]	*
-Miscellaneous expenses	 	$	[  ]	*
-Total	 	$	[  ]	*
- 
-
-* To be provided by amendment.
-
- 
-
-Item 14. Indemnification of Directors and Officers.
-
- 
-
-The Trust Agreement provides that the Sponsor, its members, managers, directors, officers, employees, affiliates and subsidiaries (each, a “Sponsor Indemnified Party”) shall be indemnified from the Trust and held harmless against any loss, liability or expense (including, but not limited to, the reasonable fees and expenses of counsel) arising out of or in connection with the performance of its obligations under the Trust Agreement and each other agreement entered into by the Sponsor, in furtherance of the administration of the Trust or any actions taken in accordance with the provisions of the Trust Agreement incurred without (i) gross negligence, bad faith, willful misconduct or willful malfeasance on the part of such Sponsor Indemnified Party in connection with the performance of its obligations under the Trust Agreement or any such other agreement or any actions taken in accordance with the provisions of the Trust Agreement or any such other agreement or (ii) reckless disregard on the part of such Sponsor Indemnified Party of its obligations and duties under the Trust Agreement. Such indemnity shall include payment from the Trust of the costs and expenses incurred by such Sponsor Indemnified Party in defending itself against any claim or liability in its capacity as Sponsor.
-
- 
-
-Item 15. Recent Sales of Unregistered Securities.
-
- 
-
-None.
-
- 
-
-II-1
- 
- 
-
-
-Item 16. Exhibits and Financial Statement Schedules.
-
- 
-
-(a)	Exhibit.
+		 
+Zachry Tyler Wood Chief Executive Officer	Date  :Sep 24, 2018
+ ______________________________________________________________
  	 
- 	The exhibits to this registration statement are listed in the Exhibit Index to this registration statement, which is incorporated herein by reference.
- 	 
-(b)	Financial Statement Schedules. Not applicable.
- 
-
-Item 17. Undertakings.
-
- 
-
-The undersigned registrant hereby undertakes:
-
- 
-
- 	(1)	To file, during any period in which offers or sales are being made, a post-effective amendment to this registration statement:
- 
-
-(i) To include any prospectus required by section 10(a)(3) of the Securities Act of 1933;
-
- 
-
-(ii) To reflect in the prospectus any facts or events arising after the effective date of the registration statement (or the most recent post-effective amendment thereof) which, individually or in the aggregate, represent a fundamental change in the information set forth in the registration statement. Notwithstanding the foregoing, any increase or decrease in volume of securities offered (if the total dollar value of securities offered would not exceed that which was registered) and any deviation from the low or high end of the estimated maximum offering range may be reflected in the form of prospectus filed with the Commission pursuant to Rule 424(b) if, in the aggregate, the changes in volume and price represent no more than 20% change in the maximum aggregate offering price set forth in the “Calculation of Registration Fee” table in the effective registration statement; and
-
- 
-
-(iii) To include any material information with respect to the plan of distribution not previously disclosed in the registration statement or any material change to such information in the registration statement;
-
- 
-
-Provided, however, that: (1)(i), (ii), and (iii) of this section do not apply if the registration statement is on Form S-1, Form S-3, Form SF-3 or Form F-3 and the information required to be included in a post-effective amendment by those paragraphs is contained in reports filed with or furnished to the Commission by the registrant pursuant to section 13 or section 15(d) of the Securities Exchange Act of 1934 that are incorporated by reference in the registration statement, or, as to a registration statement on Form S-3, Form SF-3 or Form F-3, is contained in a form of prospectus filed pursuant to Rule 424(b) that is part of the registration statement.
-
- 
-
- 	(2)	That, for the purpose of determining any liability under the Securities Act of 1933, each such post-effective amendment shall be deemed to be a new registration statement relating to the securities offered therein, and the offering of such securities at that time shall be deemed to be the initial bona fide offering thereof.
- 
-
-II-2
- 
- 
-
- 	(3)	To remove from registration by means of a post-effective amendment any of the securities being registered which remain unsold at the termination of the offering.
- 	 	 
- 	(4)	That, for the purpose of determining liability under the Securities Act of 1933 to any purchaser:
- 
-
-(i) If the registrant is relying on Rule 430B:
-
- 
-
-(A) Each prospectus filed by the registrant pursuant to Rule 424(b)(3) shall be deemed to be part of the registration statement as of the date the filed prospectus was deemed part of and included in the registration statement; and
-
- 
-
-(B) Each prospectus required to be filed pursuant to Rule 424(b)(2), (b)(5), or (b)(7) as part of a registration statement in reliance on Rule 430B relating to an offering made pursuant to Rule 415(a)(1)(i), (vii), or (x) for the purpose of providing the information required by section 10(a) of the Securities Act of 1933 shall be deemed to be part of and included in the registration statement as of the earlier of the date such form of prospectus is first used after effectiveness or the date of the first contract of sale of securities in the offering described in the prospectus. As provided in Rule 430B, for liability purposes of the issuer and any person that is at that date an underwriter, such date shall be deemed to be a new effective date of the registration statement relating to the securities in the registration statement to which that prospectus relates, and the offering of such securities at that time shall be deemed to be the initial bona fide offering thereof. Provided, however, that no statement made in a registration statement or prospectus that is part of the registration statement or made in a document incorporated or deemed incorporated by reference into the registration statement or prospectus that is part of the registration statement will, as to a purchaser with a time of contract of sale prior to such effective date, supersede or modify any statement that was made in the registration statement or prospectus that was part of the registration statement or made in any such document immediately prior to such effective date; or
-
- 
-
-(ii) If the registrant is subject to Rule 430C, each prospectus filed pursuant to Rule 424(b) as part of a registration statement relating to an offering, other than registration statements relying on Rule 430B or other than prospectuses filed in reliance on Rule 430A, shall be deemed to be part of and included in the registration statement as of the date it is first used after effectiveness. Provided, however, that no statement made in a registration statement or prospectus that is part of the registration statement or made in a document incorporated or deemed incorporated by reference into the registration statement or prospectus that is part of the registration statement will, as to a purchaser with a time of contract of sale prior to such first use, supersede or modify any statement that was made in the registration statement or prospectus that was part of the registration statement or made in any such document immediately prior to such date of first use.
-
- 
-
-II-3
- 
- 
-
- 
-
- 	(5)	That, for the purpose of determining liability of the registrant under the Securities Act of 1933 to any purchaser in the initial distribution of the securities:
- 
-
-The undersigned registrant undertakes that in a primary offering of securities of the undersigned registrant pursuant to this registration statement, regardless of the underwriting method used to sell the securities to the purchaser, if the securities are offered or sold to such purchaser by means of any of the following communications, the undersigned registrant will be a seller to the purchaser and will be considered to offer or sell such securities to such purchaser:
-
- 
-
-(i) Any preliminary prospectus or prospectus of the undersigned registrant relating to the offering required to be filed pursuant to Rule 424;
-
- 
-
-(ii) Any free writing prospectus relating to the offering prepared by or on behalf of the undersigned registrant or used or referred to by the undersigned registrant;
-
- 
-
-(iii) The portion of any other free writing prospectus relating to the offering containing material information about the undersigned registrant or its securities provided by or on behalf of the undersigned registrant; and
-
- 
-
-(iv) Any other communication that is an offer in the offering made by the undersigned registrant to the purchaser.
-
- 
-
- 	(6)	Insofar as indemnification for liabilities arising under the Securities Act of 1933 may be permitted to directors, officers and controlling persons of the registrant pursuant to the foregoing provisions, or otherwise, the registrant has been advised that in the opinion of the Securities and Exchange Commission such indemnification is against public policy as expressed in the Act and is, therefore, unenforceable. In the event that a claim for indemnification against such liabilities (other than the payment by the registrant of expenses incurred or paid by a director, officer or controlling person of the registrant in the successful defense of any action, suit or proceeding) is asserted by such director, officer or controlling person in connection with the securities being registered, the registrant will, unless in the opinion of its counsel the matter has been settled by controlling precedent, submit to a court of appropriate jurisdiction the question whether such indemnification by it is against public policy as expressed in the Act and will be governed by the final adjudication of such issue.
- 
-
-II-4
- 
- 
-
-SIGNATURES
-
- 
-
-Pursuant to the requirements of the Securities Act of 1933, the registrant has duly caused this registration statement to be signed on its behalf by the undersigned, thereunto duly authorized in the City of San Francisco, State of California, on July 24, 2018.
-
- 
-
- 	Bitwise Investment Advisers, LLC
- 	Sponsor of the Bitwise ETF Trust
- 	 	 
- 	By:	/s/ Hunter Horsley
- 	Name:	Hunter Horsley
- 	Title:	Chief Executive Officer
+ 	By:	/s/ Zachry Tyler Wood
+ 	Name:	BTC-USD
+ 	Title:	Founder/Chief Executive Officer
+	
  
 
 Pursuant to the requirements of the Securities Act of 1933, this registration statement has been signed by the following persons in the capacities* and on the dates indicated.
 
- 
-ZAKWOOD     MOrgan Stanley  Sept-26th., 2022 :
-
-Signature	 	Title	 	        Date
-
-
- 	
- 
-
-
-
- 	
- 
-
-
-
-/s/ Hunter Horsley	 	 	 	 
-Hunter Horsley	 	Chief Executive Officer	 	July 24, 2018
- 	 	(Principal Executive Officer)	 	 
- 	 	 	 	 
-/s/ Paul (“Teddy”) Fusaro
-
-
- 	
- 
-
-
-
- 	
- 
-
-
-
-Paul (“Teddy”) Fusaro	 	Chief Operating Officer (Principal Financial Officer and Principal Accounting Officer)	 	July 24, 2018
- 
-
-* The registrant will be a trust and the persons are signing in their capacities as officers of Bitwise Investment Advisers, LLC, the Sponsor of the registrant.
+ * The registrant will be a trust and the persons are signing in their capacities as officers of Bitwise Investment Advisers, LLC, the Sponsor of the registrant.
 
  
 
-II-5
+I-8
  
  
 
@@ -11435,11 +11368,14 @@ EXHIBIT INDEX
 
  
 
+
 Exhibit No.	 	Exhibit Description
+
 3.1	 	Form of Declaration of Trust and Trust Agreement
+
 3.2	 	Form of Certificate of Trust
 5.1	 	Opinion of Vedder Price P.C. as to legality*
-8.1	 	Opinion of Vedder Price P.C. as to tax matters*
+8.1	 	Opinion of Vedder  as to tax matters*
 10.1	 	Form of Initial Authorized Purchaser Agreement*
 10.2	 	Form of Marketing Agreement*
 10.3	 	Form of Custodian Agreement*
@@ -11454,3 +11390,9 @@ Exhibit No.	 	Exhibit Description
 
 II-6
  
+       
+_______________________________________________________________________
+Signature	 	\s\Wood  Zachry.,  S.R.O.                                                                                                                                                                   Sept-26th., 2022 :
+Sole Propritor
+* The registrant will be a trust and the persons are signing in their capacities as officers of Bitwise Investment Advisers, LLC, the Sponsor of the registrant.
+
