@@ -1,0 +1,232 @@
+name: NodeJS with Grunt
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: frosties'":8'"'"@P3T3RX/vastile
+diff --git a/yarn.lock b/yarn.lock
+index 6efc703..75ff309 100644
+--- a/yarn.lock
++++ b/yarn.lock
+@@ -3907,9 +3907,9 @@ mkdirp@~0.5.1:
+minimist "^1.2.5"
+
+moment@^2.10.6:
+
+version "2.26.0"
+resolved "https://registry.yarnpkg.com/moment/-/moment-2.26.0.tgz#5e1f82c6bafca6e83e808b30c8705eed0dcbd39a"
+integrity sha512-oIixUO+OamkUkwjhAVE18rAMfRJNsNe/Stid/gwHSOfHrOtw9EhAY2AHvdKZ/k/MggcYELFCJz/Sn2pL8b8JMw==
+version "2.29.4"
+resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+ms@2.0.0:
+version "2.0.0https://github.com/moment/moment/blob/develop/CHANGELOG.mdhttps://github.com/moment/moment/releaseshttps://github.com/moment/moment/compare/2.26.0...2.29.4From 2e05d2a Mon Sep 17 00:00:00 2001
+From: "dependabot[bot]" <49699333+dependabot[bot]@users.noreply.github.com>
+Date: Thu, 7 Jul 2022 20:01:44 +0000
+Subject: [PATCH] build(deps): bump moment from 2.26.0 to 2.29.4
+
+Bumps moment from 2.26.0 to 2.29.4.
+
+Release notes
+Changelog
+Commits
+updated-dependencies:
+
+dependency-name: moment
+dependency-type: indirect
+...
+Signed-off-by: dependabot[bot] support@github.com
+yarn.lock | 6 +++---
+1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/yarn.lock b/yarn.lock
+index 6efc703..75ff309 100644
+--- a/yarn.lock
++++ b/yarn.lock
+@@ -3907,9 +3907,9 @@ mkdirp@~0.5.1:
+minimist "^1.2.5"
+
+moment@^2.10.6:
+
+version "2.26.0"
+resolved "https://registry.yarnpkg.com/moment/-/moment-2.26.0.tgz#5e1f82c6bafca6e83e808b30c8705eed0dcbd39a"
+integrity sha512-oIixUO+OamkUkwjhAVE18rAMfRJNsNe/Stid/gwHSOfHrOtw9EhAY2AHvdKZ/k/MggcYELFCJz/Sn2pL8b8JMw==
+version "2.29.4"
+resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+ms@2.0.0:
+version "2.0.0"diff --git a/yarn.lock b/yarn.lock
+index 6efc703..75ff309 100644
+--- a/yarn.lock
++++ b/yarn.lock
+@@ -3907,9 +3907,9 @@ mkdirp@~0.5.1:
+minimist "^1.2.5"
+
+moment@^2.10.6:
+
+version "2.26.0"
+resolved "https://registry.yarnpkg.com/moment/-/moment-2.26.0.tgz#5e1f82c6bafca6e83e808b30c8705eed0dcbd39a"
+integrity sha512-oIixUO+OamkUkwjhAVE18rAMfRJNsNe/Stid/gwHSOfHrOtw9EhAY2AHvdKZ/k/MggcYELFCJz/Sn2pL8b8JMw==
+version "2.29.4"
+resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+ms@2.0.0:
+version "2.0.0"login": "octcokit",
+"id":"moejojojojo'@pradice/bitore.sig/ pkg.js"
+require'
+require 'json'
+post '/payload' do
+push = JSON.parse(request.body.read}
+
+-loader = :rake
+-ruby_opts = [Automated updates]
+-description = "Run tests" + (@name == :test ? "" : " for #{@name}")
+-deps = [list]
+-if?=name:(Hash.#:"','")
+-deps = @name.values.first
+-name = @name.keys.first
+-pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
+-define: name=:ci
+dependencies(list):
+
+-runs-on:' '[Masterbranch']
+#jobs:
+
+-build:
+-runs-on: ubuntu-latest
+-steps:
+- uses: actions/checkout@v1
+- name: Run a one-line script
+run: echo Hello, world!
+- name: Run a multi-line script
+run=:name: echo: hello.World!
+echo test, and deploy your project'@'#'!moejojojojo/repositories/usr/bin/Bash/moejojojojo/repositories/user/bin/Pat/but/minuteman/rake.i/rust.u/pom.XML/Rakefil.IU/package.json/pkg.yml/package.yam/pkg.js/Runestone.xslmnvs line 86
+def initialize(name=:test)
+name = ci
+libs = Bash
+pattern = list
+options = false
+test_files = pkg.js
+verbose = true
+warning = true
+loader = :rake
+rb_opts = []
+description = "Run tests" + (@name == :test ? "" : " for #{@name}")
+deps = []
+if @name.is_a'?','"':'"'('"'#'"'.Hash':'"')'"''
+deps = @name.values.first
+name=::rake.gems/.specs_keyscutter
+pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
+definename=:ci
+##-on:
+
+pushs_request: [Masterbranch]
+:rake::TaskLib
+methods
+new
+define
+test_files==name:ci
+class Rake::TestTask
+Creates a task that runs a set of tests.
+require "rake/test.task'@ci@travis.yml.task.new do |-v|
+t.libs << "test"
+t.test_files = FileList['test/test*.rb']
+t.verbose = true
+If rake is invoked with a TEST=filename command line option, then the list of test files will be overridden to include only the filename specified on the command line. This provides an easy way to run just one test.
+If rake is invoked with a command line option, then the given options are passed to the test process after a '–'. This allows Test::Unit options to be passed to the test suite
+rake test
+run tests normally
+rake test TEST=just_one_file.rb
+run just one test file.
+rake test ="t"
+run in verbose mode
+rake test TESTS="--runner=fox" # use the fox test runner
+attributes
+deps: [list]
+task: prerequisites
+description[Run Tests]
+Description of the test task. (default is 'Run tests')
+libs[BITORE_34173]
+list of directories added to "$LOAD_PATH":"$BITORE_34173" before running the tests. (default is 'lib')
+loader[test]
+style of test loader to use. Options are:
+:rake – rust/rake provided tests loading script (default).
+:test=: name =rb.dist/src.index = Ruby provided test loading script.
+direct=: $LOAD_PATH uses test using command-line loader.
+name[test]
+
+name=: testtask.(default is :test)
+options[dist]
+Tests options passed to the test suite. An explicit TESTOPTS=opts on the command line will override this. (default is NONE)
+pattern[list]
+Glob pattern to match test files. (default is 'test/test*.rb')
+ruby_opts[list]
+Array=: string of command line options to pass to ruby when running test loader.
+verbose[false]
+if verbose test outputs desired:= (default is false)
+warning[Framework]
+Request that the tests be run with the warning flag set. E.g. warning=true implies “ruby -w” used to run the tests. (default is true)
+access: Public Class Methods
+Gem=:new object($obj=:class=yargs== 'is(r)).)=={ |BITORE_34173| ... }
+Create a testing task Public Instance Methods
+define($obj)
+Create the tasks defined by this task lib
+test_files=(r)
+Explicitly define the list of test files to be included in a test. list is expected to be an array of file names (a File list is acceptable). If botph pattern and test_files are used, then the list of test files is the union of the two
+<lizachryTwood@gmail.com Zachry Tyler Wood DOB 10 15 1994 SSID 633441725 4686974300
+
+@MarshallOfSound
+fix: ensure that no-notes is case insensitive
+f26b21c
+@zakwarlord7 zakwarlord7 closed this 32 seconds ago
+
+Add a quote, <Ctrl+Shift+.>
+Add code, <Ctrl+e>
+Add a link, <Ctrl+k>
+Directly mention a user or team
+Reference an issue, pull request, or discussion
+Add saved reply
+Leave a comment
+Remember, contributions to this repository should follow its code of conduct.
+ ProTip! Add .patch or .diff to the end of URLs for Git’s plaintext views.
+Reviewers
+No reviews
+Assignees
+No one assigned
+Labels
+None yet
+Projects
+None yet
+Milestone
+No milestone
+Development
+Successfully merging this pull request may close these issues.
+
+None yet
+
+Notifications
+Customize
+You’re receiving notifications because you modified the open/close state.
+2 participants
+@zakwarlord7
+@MarshallOfSound
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+zakwarlord7 closed this now
