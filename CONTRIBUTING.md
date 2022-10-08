@@ -142,16 +142,8 @@ The content pages should include
 ## Navigation
 
 The site's navigation (on the left-hand sidebar of the site) is controlled
-by `src/nav-base.yml`.  If you add or remove a page from the site, you'll
+by `src/gatsby-theme-doctornpm/nav.yml`.  If you add or remove a page from the site, you'll
 also want to add or remove it from the navigation configuration.
-
-Since the main documentation's navigation is combined with the CLI
-documentation's navigation to produce the overall navigation, you'll
-need to run the CLI update script (`cli/cli_import.js`) to combine
-the navigation.  (More on that below.)
-
-**Todo:** we should isolate the navigational elements into their own
-script that runs as part of gatsby's `onPreBuild` phase.
 
 ## CLI
 
@@ -183,24 +175,29 @@ adding a new major version to the site.
      `v6` or `v7`.  This corresponds to a directory containing a
      version of the CLI repository (using a submodule).  This will also
      be used as the output folder in the content.
-   * `version`: The full semantic version number (eg `6.0.0`).
-   * `title`: A long description of the version information.  This will
-     be used in the version picker,.
    * `branch`: The branch name for the version.  This will be used to
      fetch the latest version of the documentation from GitHub.
+   * `spec`: The registry spec for the version. This will be used
+     to fetch the latest version in that range from the registry.
+   * `useBranch`: A boolean that controls whether the content for this
+     version will be fetched from GitHub. The default is false, which
+     means the content will be fetched directly from the registry tarball.
+     It is preferred to use the registry but for some legacy versions,
+     the content was only updated on GitHub and never published.
+   * `resolved`: This should not be edited manually. This is a reference
+     to the last fetched version of the content for this release. If
+     a future fetch is done and this field matches what is returned
+     from the registry, then no updates will be made. To force an update
+     (which can be useful when making changes to the `bin/build.js` script)
+     it can be run with the argument `--force`.
 
-2. Fetch the latest content from the CLI repository  
-   Run `cli/cli_fetch.js` to download the submodules.  This will
-   initialize the submodules, fetch each one, and update them to
-   the latest branch commit on the remote.
-
-3. Import the CLI's content into the main repository
-   Run `cli/cli_import.js` to import the CLI's documentation from each
-   directory.  This will take the content in each submodule's
-   `docs/content` directory, perform any necessary translations (like
-   adding historical redirects) and putting it in this repository's
-   `content` directory.  In addition, it will take the `docs/nav.yml`
-   and include it in this repository's navigation.
+2. Fetch and import the latest content for each CLI release  
+   Run `npm run build -w cli` to download the latest version for each release
+   and import its content into the `content` directory. This will take the
+   content in each submodule's `docs/content` directory, perform any necessary
+   translations (like adding historical redirects) and putting it in this repository's
+   `content` directory.  In addition, it will take the `docs/nav.yml` and include it
+   in this repository's navigation.
 
 ## Reviewing changes
 

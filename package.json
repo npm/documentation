@@ -8,11 +8,19 @@
     "build": "gatsby build",
     "serve": "gatsby serve"
   },
+  "workspaces": [
+    "cli/"
+  ],
   "dependencies": {
     "gatsby": "^2.32.7",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-theme-doctornpm": "^1.9.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
+  },
+  "templateOSS": {
+    "rootRepo": false,
+    "rootModule": false,
+    "version": "4.5.1"
   }
 }

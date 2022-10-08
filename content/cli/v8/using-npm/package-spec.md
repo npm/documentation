@@ -12,7 +12,6 @@ redirect_from:
   - /using-npm/package-spec.html
 ---
 
-
 ### Description
 
 Commands like `npm install` and the dependency sections in the
