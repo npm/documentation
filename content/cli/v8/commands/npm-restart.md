@@ -2,16 +2,16 @@
 title: npm-restart
 section: 1
 description: Restart a package
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-restart.md
 redirect_from:
-  - /cli/restart
-  - /cli/restart.html
-  - /cli/commands/restart
+  - /cli-commands/npm-restart
   - /cli-commands/restart
   - /cli-commands/restart.html
-  - /cli-commands/npm-restart
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-restart.md
+  - /cli/commands/restart
+  - /cli/restart
+  - /cli/restart.html
 ---
 
 ### Synopsis

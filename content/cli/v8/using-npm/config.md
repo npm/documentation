@@ -2,14 +2,14 @@
 title: config
 section: 7
 description: More than you probably want to know about npm configuration
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/using-npm/config.md
 redirect_from:
-  - /using-npm/config
-  - /using-npm/config.html
   - /misc/config
   - /misc/config.html
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/using-npm/config.md
+  - /using-npm/config
+  - /using-npm/config.html
 ---
 
 ### Description

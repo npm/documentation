@@ -2,16 +2,16 @@
 title: npm-query
 section: 1
 description: Dependency selector query
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-query.md
 redirect_from:
-  - /cli/query
-  - /cli/query.html
-  - /cli/commands/query
+  - /cli-commands/npm-query
   - /cli-commands/query
   - /cli-commands/query.html
-  - /cli-commands/npm-query
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-query.md
+  - /cli/commands/query
+  - /cli/query
+  - /cli/query.html
 ---
 
 ### Synopsis

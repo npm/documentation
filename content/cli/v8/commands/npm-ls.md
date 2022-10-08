@@ -2,16 +2,16 @@
 title: npm-ls
 section: 1
 description: List installed packages
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-ls.md
 redirect_from:
-  - /cli/ls
-  - /cli/ls.html
-  - /cli/commands/ls
   - /cli-commands/ls
   - /cli-commands/ls.html
   - /cli-commands/npm-ls
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-ls.md
+  - /cli/commands/ls
+  - /cli/ls
+  - /cli/ls.html
 ---
 
 ### Synopsis
@@ -46,7 +46,7 @@ packages will *also* show the paths to the specified packages.  For
 example, running `npm ls promzard` in npm's source tree will show:
 
 ```bash
-npm@8.19.1 /path/to/npm
+npm@8.19.2 /path/to/npm
 └─┬ init-package-json@0.0.4
   └── promzard@0.1.5
 ```

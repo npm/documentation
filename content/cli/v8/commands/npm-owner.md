@@ -2,16 +2,16 @@
 title: npm-owner
 section: 1
 description: Manage package owners
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-owner.md
 redirect_from:
-  - /cli/owner
-  - /cli/owner.html
-  - /cli/commands/owner
+  - /cli-commands/npm-owner
   - /cli-commands/owner
   - /cli-commands/owner.html
-  - /cli-commands/npm-owner
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-owner.md
+  - /cli/commands/owner
+  - /cli/owner
+  - /cli/owner.html
 ---
 
 ### Synopsis

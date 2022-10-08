@@ -2,16 +2,16 @@
 title: npm-stop
 section: 1
 description: Stop a package
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-stop.md
 redirect_from:
-  - /cli/stop
-  - /cli/stop.html
-  - /cli/commands/stop
+  - /cli-commands/npm-stop
   - /cli-commands/stop
   - /cli-commands/stop.html
-  - /cli-commands/npm-stop
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-stop.md
+  - /cli/commands/stop
+  - /cli/stop
+  - /cli/stop.html
 ---
 
 ### Synopsis

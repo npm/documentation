@@ -13,9 +13,9 @@
     },
     {
         "id": "v8",
-        "version": "8.19.1",
+        "version": "8.19.2",
         "title": "Version 8.x (Current release)",
-        "branch": "latest",
+        "branch": "v8",
         "default": true
     }
 ]

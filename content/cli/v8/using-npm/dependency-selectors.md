@@ -2,14 +2,14 @@
 title: Dependency Selector Syntax & Querying
 section: 7
 description: Dependency Selector Syntax & Querying
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/using-npm/dependency-selectors.md
 redirect_from:
-  - /using-npm/dependency-selectors
-  - /using-npm/dependency-selectors.html
   - /misc/dependency-selectors
   - /misc/dependency-selectors.html
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/using-npm/dependency-selectors.md
+  - /using-npm/dependency-selectors
+  - /using-npm/dependency-selectors.html
 ---
 
 ### Description

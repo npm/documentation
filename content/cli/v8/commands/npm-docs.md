@@ -2,16 +2,16 @@
 title: npm-docs
 section: 1
 description: Open documentation for a package in a web browser
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-docs.md
 redirect_from:
-  - /cli/docs
-  - /cli/docs.html
-  - /cli/commands/docs
   - /cli-commands/docs
   - /cli-commands/docs.html
   - /cli-commands/npm-docs
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-docs.md
+  - /cli/commands/docs
+  - /cli/docs
+  - /cli/docs.html
 ---
 
 ### Synopsis

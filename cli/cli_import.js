@@ -183,7 +183,7 @@ function translate(version, data) {
             const [, section] = matches;
 
             data.frontmatter.redirect_from = section ? [
-                `${section}`,
+                `/${section}`,
                 `/cli/${section}`,
             ] : [
                 `/cli`,
@@ -327,6 +327,32 @@ function walkNavigation(nodes, fn) {
     })
 }
 
+function sortFrontmatter (fm) {
+    const order = [
+        'title',
+        'shortName',
+        'section',
+        'description',
+        'github_repo',
+        'github_branch',
+        'github_path',
+        'redirect_from',
+    ]
+
+    const sort = (a, b) => a.localeCompare(b, 'en')
+
+    const sorted = Object.entries(fm)
+        .filter(([, v]) => (Array.isArray(v) ? v.length : true))
+        .map(([k, v]) => Array.isArray(v) ? [k, v.sort(sort)] : [k, v])
+        .sort(([a], [b]) => {
+            const aIndex = order.includes(a) ? order.indexOf(a) : order.length
+            const bIndex = order.includes(b) ? order.indexOf(b) : order.length
+            return aIndex - bIndex
+        })
+
+  return Object.fromEntries(sorted)
+}
+
 function copyDocs(version, relativedir) {
     const contentRoot = path.join(inputPath, version.id, cliContentPath);
     const dirPath = relativedir ? path.join(contentRoot, relativedir) : contentRoot;
@@ -363,7 +389,7 @@ function copyDocs(version, relativedir) {
             filedata = translate(version, filedata);
 
             if (filedata) {
-                output = "---\n" + yaml.stringify(filedata.frontmatter) + "---\n" + filedata.mdx;
+                output = "---\n" + yaml.stringify(sortFrontmatter(filedata.frontmatter)) + "---\n" + filedata.mdx;
             } else {
                 output = contents;
             }

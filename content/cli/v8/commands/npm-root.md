@@ -2,16 +2,16 @@
 title: npm-root
 section: 1
 description: Display npm root
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-root.md
 redirect_from:
-  - /cli/root
-  - /cli/root.html
-  - /cli/commands/root
+  - /cli-commands/npm-root
   - /cli-commands/root
   - /cli-commands/root.html
-  - /cli-commands/npm-root
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-root.md
+  - /cli/commands/root
+  - /cli/root
+  - /cli/root.html
 ---
 
 ### Synopsis
