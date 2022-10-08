@@ -2,15 +2,15 @@
 title: npm
 section: 1
 description: javascript package manager
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm.md
 redirect_from:
-  - /cli/npm
-  - /cli/npm.html
-  - /cli/commands/npm
   - /cli-commands/npm
   - /cli-commands/npm.html
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm.md
+  - /cli/commands/npm
+  - /cli/npm
+  - /cli/npm.html
 ---
 
 ### Synopsis
@@ -20,7 +20,7 @@ github_path: docs/content/commands/npm.md
 
 ### Version
 
-8.19.1
+8.19.2
 
 ### Description
 

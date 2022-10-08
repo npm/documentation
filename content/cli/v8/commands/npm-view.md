@@ -2,16 +2,16 @@
 title: npm-view
 section: 1
 description: View registry info
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-view.md
 redirect_from:
-  - /cli/view
-  - /cli/view.html
-  - /cli/commands/view
+  - /cli-commands/npm-view
   - /cli-commands/view
   - /cli-commands/view.html
-  - /cli-commands/npm-view
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-view.md
+  - /cli/commands/view
+  - /cli/view
+  - /cli/view.html
 ---
 
 ### Synopsis

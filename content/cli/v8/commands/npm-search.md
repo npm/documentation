@@ -2,16 +2,16 @@
 title: npm-search
 section: 1
 description: Search for packages
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-search.md
 redirect_from:
-  - /cli/search
-  - /cli/search.html
-  - /cli/commands/search
+  - /cli-commands/npm-search
   - /cli-commands/search
   - /cli-commands/search.html
-  - /cli-commands/npm-search
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-search.md
+  - /cli/commands/search
+  - /cli/search
+  - /cli/search.html
 ---
 
 ### Synopsis

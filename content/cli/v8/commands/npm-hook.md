@@ -2,16 +2,16 @@
 title: npm-hook
 section: 1
 description: Manage registry hooks
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-hook.md
 redirect_from:
-  - /cli/hook
-  - /cli/hook.html
-  - /cli/commands/hook
   - /cli-commands/hook
   - /cli-commands/hook.html
   - /cli-commands/npm-hook
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-hook.md
+  - /cli/commands/hook
+  - /cli/hook
+  - /cli/hook.html
 ---
 
 ### Synopsis

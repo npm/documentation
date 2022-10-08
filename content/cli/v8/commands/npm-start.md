@@ -2,16 +2,16 @@
 title: npm-start
 section: 1
 description: Start a package
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-start.md
 redirect_from:
-  - /cli/start
-  - /cli/start.html
-  - /cli/commands/start
+  - /cli-commands/npm-start
   - /cli-commands/start
   - /cli-commands/start.html
-  - /cli-commands/npm-start
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-start.md
+  - /cli/commands/start
+  - /cli/start
+  - /cli/start.html
 ---
 
 ### Synopsis

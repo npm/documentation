@@ -2,16 +2,16 @@
 title: npm-init
 section: 1
 description: Create a package.json file
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-init.md
 redirect_from:
-  - /cli/init
-  - /cli/init.html
-  - /cli/commands/init
   - /cli-commands/init
   - /cli-commands/init.html
   - /cli-commands/npm-init
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-init.md
+  - /cli/commands/init
+  - /cli/init
+  - /cli/init.html
 ---
 
 ### Synopsis

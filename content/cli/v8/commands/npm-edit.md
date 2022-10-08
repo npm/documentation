@@ -2,16 +2,16 @@
 title: npm-edit
 section: 1
 description: Edit an installed package
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-edit.md
 redirect_from:
-  - /cli/edit
-  - /cli/edit.html
-  - /cli/commands/edit
   - /cli-commands/edit
   - /cli-commands/edit.html
   - /cli-commands/npm-edit
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-edit.md
+  - /cli/commands/edit
+  - /cli/edit
+  - /cli/edit.html
 ---
 
 ### Synopsis

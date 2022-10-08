@@ -2,16 +2,16 @@
 title: npm-diff
 section: 1
 description: The registry diff command
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-diff.md
 redirect_from:
-  - /cli/diff
-  - /cli/diff.html
-  - /cli/commands/diff
   - /cli-commands/diff
   - /cli-commands/diff.html
   - /cli-commands/npm-diff
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-diff.md
+  - /cli/commands/diff
+  - /cli/diff
+  - /cli/diff.html
 ---
 
 ### Synopsis

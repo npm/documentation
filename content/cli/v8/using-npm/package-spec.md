@@ -2,14 +2,14 @@
 title: package-spec
 section: 7
 description: Package name specifier
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/using-npm/package-spec.md
 redirect_from:
-  - /using-npm/package-spec
-  - /using-npm/package-spec.html
   - /misc/package-spec
   - /misc/package-spec.html
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/using-npm/package-spec.md
+  - /using-npm/package-spec
+  - /using-npm/package-spec.html
 ---
 
 

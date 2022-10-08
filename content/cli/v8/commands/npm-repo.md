@@ -2,16 +2,16 @@
 title: npm-repo
 section: 1
 description: Open package repository page in the browser
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-repo.md
 redirect_from:
-  - /cli/repo
-  - /cli/repo.html
-  - /cli/commands/repo
+  - /cli-commands/npm-repo
   - /cli-commands/repo
   - /cli-commands/repo.html
-  - /cli-commands/npm-repo
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-repo.md
+  - /cli/commands/repo
+  - /cli/repo
+  - /cli/repo.html
 ---
 
 ### Synopsis

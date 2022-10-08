@@ -2,16 +2,16 @@
 title: npm-install-test
 section: 1
 description: Install package(s) and run tests
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-install-test.md
 redirect_from:
-  - /cli/install-test
-  - /cli/install-test.html
-  - /cli/commands/install-test
   - /cli-commands/install-test
   - /cli-commands/install-test.html
   - /cli-commands/npm-install-test
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-install-test.md
+  - /cli/commands/install-test
+  - /cli/install-test
+  - /cli/install-test.html
 ---
 
 ### Synopsis

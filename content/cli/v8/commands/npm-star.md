@@ -2,16 +2,16 @@
 title: npm-star
 section: 1
 description: Mark your favorite packages
+github_repo: npm/cli
+github_branch: v8
+github_path: docs/content/commands/npm-star.md
 redirect_from:
-  - /cli/star
-  - /cli/star.html
-  - /cli/commands/star
+  - /cli-commands/npm-star
   - /cli-commands/star
   - /cli-commands/star.html
-  - /cli-commands/npm-star
-github_repo: npm/cli
-github_branch: latest
-github_path: docs/content/commands/npm-star.md
+  - /cli/commands/star
+  - /cli/star
+  - /cli/star.html
 ---
 
 ### Synopsis
