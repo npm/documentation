@@ -1,17 +1,12 @@
-const React = require("react")
-
-exports.wrapPageElement = ({ element, props }) => {
-  // props provide same data to Layout as Page element will get
-  // including location, data, etc - you don't need to pass it
-  return <div {...props} onKeyDown={onKeyDown}>{element}</div>
-}
-
 function onKeyDown(event) {
   if(!document.activeElement) {
     return
   }
   const { activeElement } = document
   const allLinks = getFocusableElements()
+  if(activeElement.tagName !== 'A') {
+    return
+  }
   if(event.key === 'ArrowDown' || event.key === 'ArrowUp' ) {
     const activeIndex = getIndex(allLinks, activeElement)
     if (activeIndex === -1) {
@@ -44,3 +39,5 @@ function getFocusableElements() {
     'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)'
   );
 }
+
+document.addEventListener('keydown', onKeyDown)
