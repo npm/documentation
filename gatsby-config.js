@@ -1,4 +1,5 @@
 module.exports = {
+  trailingSlash: "never",
   siteMetadata: {
     title: 'npm Docs',
     shortName: 'npm',
@@ -8,7 +9,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-theme-doctornpm',
+      resolve: './theme',
       options: {
         icon: './src/images/npm-favicon.png',
         editOnGitHub: true,
@@ -17,10 +18,9 @@ module.exports = {
         repo: {
           url: 'https://github.com/npm/documentation',
           defaultBranch: 'main',
-        }
+        },
       },
     },
     'gatsby-plugin-meta-redirect'
   ],
-  pathPrefix: process.env.PATH_PREFIX || '',
 }

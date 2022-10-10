@@ -5,22 +5,27 @@
   "private": true,
   "scripts": {
     "develop": "gatsby develop",
-    "build": "gatsby build",
+    "build": "NODE_OPTIONS=--max-old-space-size=5376 gatsby build",
     "serve": "gatsby serve"
   },
   "workspaces": [
-    "cli/"
+    "cli/",
+    "theme/"
   ],
   "dependencies": {
-    "gatsby": "^2.32.7",
+    "gatsby": "^4.24.4",
     "gatsby-plugin-meta-redirect": "^1.1.1",
-    "gatsby-theme-doctornpm": "^1.9.0",
+    "theme": "*",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
+  },
+  "overrides": {
+    "react": "$react"
   },
   "templateOSS": {
     "rootRepo": false,
     "rootModule": false,
+    "workspaces": ["cli"],
     "version": "4.5.1"
   }
 }

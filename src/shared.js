@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from '@primer/components';
-import {Note, Screenshot} from 'gatsby-theme-doctornpm';
+import {Note, Screenshot} from 'theme';
 
 const shared = {
     /* User login */
