@@ -12,7 +12,7 @@ build({
     '..',
     '..',
     'src',
-    'gatsby-theme-doctornpm',
+    'theme',
     'nav.yml'
   ),
 })

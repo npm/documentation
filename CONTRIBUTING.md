@@ -142,7 +142,7 @@ The content pages should include
 ## Navigation
 
 The site's navigation (on the left-hand sidebar of the site) is controlled
-by `src/gatsby-theme-doctornpm/nav.yml`.  If you add or remove a page from the site, you'll
+by `src/theme/nav.yml`.  If you add or remove a page from the site, you'll
 also want to add or remove it from the navigation configuration.
 
 ## CLI
@@ -222,9 +222,7 @@ On step three, your changes will be published live!  🎉
 
 ## Theme
 
-Much of the documentation's theme is separate.
-
-The gatsby theme used here is "doctornpm" - a variation of
+The gatsby theme used here is located in the [`theme/`](./theme) directory. It is a variation of
 [doctocat](https://github.com/primer/doctocat) with some theme changes
 for npm's design language and additional components to support multiple
 versions of the CLI documentation.
