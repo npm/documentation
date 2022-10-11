@@ -5,6 +5,18 @@ description: View packages marked as favorites
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-stars.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-stars
+  - /cli-documentation/v6/cli-commands/stars
+  - /cli-documentation/v6/commands/npm-stars
+  - /cli-documentation/v6/commands/stars
+  - /cli-documentation/v6/npm-stars
+  - /cli-documentation/v6/stars
+  - /cli/v6/cli-commands/npm-stars
+  - /cli/v6/cli-commands/stars
+  - /cli/v6/commands/stars
+  - /cli/v6/npm-stars
+  - /cli/v6/stars
 ---
 
 ### Synopsis

@@ -8,10 +8,31 @@ github_path: docs/content/commands/npm-uninstall.md
 redirect_from:
   - /cli-commands/npm-uninstall
   - /cli-commands/uninstall
-  - /cli-commands/uninstall.html
+  - /cli-documentation/cli-commands/npm-uninstall
+  - /cli-documentation/cli-commands/uninstall
+  - /cli-documentation/commands/npm-uninstall
+  - /cli-documentation/commands/uninstall
+  - /cli-documentation/npm-uninstall
+  - /cli-documentation/uninstall
+  - /cli-documentation/v8/cli-commands/npm-uninstall
+  - /cli-documentation/v8/cli-commands/uninstall
+  - /cli-documentation/v8/commands/npm-uninstall
+  - /cli-documentation/v8/commands/uninstall
+  - /cli-documentation/v8/npm-uninstall
+  - /cli-documentation/v8/uninstall
+  - /cli/cli-commands/npm-uninstall
+  - /cli/cli-commands/uninstall
+  - /cli/commands/npm-uninstall
   - /cli/commands/uninstall
+  - /cli/npm-uninstall
   - /cli/uninstall
-  - /cli/uninstall.html
+  - /cli/v8/cli-commands/npm-uninstall
+  - /cli/v8/cli-commands/uninstall
+  - /cli/v8/commands/uninstall
+  - /cli/v8/npm-uninstall
+  - /cli/v8/uninstall
+  - /commands/npm-uninstall
+  - /commands/uninstall
 ---
 
 ### Synopsis

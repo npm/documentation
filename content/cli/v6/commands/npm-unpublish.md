@@ -5,6 +5,18 @@ description: Remove a package from the registry
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-unpublish.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-unpublish
+  - /cli-documentation/v6/cli-commands/unpublish
+  - /cli-documentation/v6/commands/npm-unpublish
+  - /cli-documentation/v6/commands/unpublish
+  - /cli-documentation/v6/npm-unpublish
+  - /cli-documentation/v6/unpublish
+  - /cli/v6/cli-commands/npm-unpublish
+  - /cli/v6/cli-commands/unpublish
+  - /cli/v6/commands/unpublish
+  - /cli/v6/npm-unpublish
+  - /cli/v6/unpublish
 ---
 
 ### Synopsis

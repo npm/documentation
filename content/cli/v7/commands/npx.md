@@ -5,6 +5,12 @@ description: Run a command from a local or remote npm package
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npx.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npx
+  - /cli-documentation/v7/commands/npx
+  - /cli-documentation/v7/npx
+  - /cli/v7/cli-commands/npx
+  - /cli/v7/npx
 ---
 
 ### Synopsis

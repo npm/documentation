@@ -5,6 +5,18 @@ description: Stop a package
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-stop.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npm-stop
+  - /cli-documentation/v7/cli-commands/stop
+  - /cli-documentation/v7/commands/npm-stop
+  - /cli-documentation/v7/commands/stop
+  - /cli-documentation/v7/npm-stop
+  - /cli-documentation/v7/stop
+  - /cli/v7/cli-commands/npm-stop
+  - /cli/v7/cli-commands/stop
+  - /cli/v7/commands/stop
+  - /cli/v7/npm-stop
+  - /cli/v7/stop
 ---
 
 ### Synopsis

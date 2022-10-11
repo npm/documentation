@@ -5,6 +5,18 @@ description: Lock down dependency versions for publication
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-shrinkwrap.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-shrinkwrap
+  - /cli-documentation/v6/cli-commands/shrinkwrap
+  - /cli-documentation/v6/commands/npm-shrinkwrap
+  - /cli-documentation/v6/commands/shrinkwrap
+  - /cli-documentation/v6/npm-shrinkwrap
+  - /cli-documentation/v6/shrinkwrap
+  - /cli/v6/cli-commands/npm-shrinkwrap
+  - /cli/v6/cli-commands/shrinkwrap
+  - /cli/v6/commands/shrinkwrap
+  - /cli/v6/npm-shrinkwrap
+  - /cli/v6/shrinkwrap
 ---
 
 ### Synopsis

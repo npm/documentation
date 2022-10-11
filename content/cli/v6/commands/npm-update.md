@@ -5,6 +5,18 @@ description: Update a package
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-update.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-update
+  - /cli-documentation/v6/cli-commands/update
+  - /cli-documentation/v6/commands/npm-update
+  - /cli-documentation/v6/commands/update
+  - /cli-documentation/v6/npm-update
+  - /cli-documentation/v6/update
+  - /cli/v6/cli-commands/npm-update
+  - /cli/v6/cli-commands/update
+  - /cli/v6/commands/update
+  - /cli/v6/npm-update
+  - /cli/v6/update
 ---
 
 ### Synopsis

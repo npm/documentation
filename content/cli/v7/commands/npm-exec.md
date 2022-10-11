@@ -5,6 +5,18 @@ description: Run a command from a local or remote npm package
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-exec.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/exec
+  - /cli-documentation/v7/cli-commands/npm-exec
+  - /cli-documentation/v7/commands/exec
+  - /cli-documentation/v7/commands/npm-exec
+  - /cli-documentation/v7/exec
+  - /cli-documentation/v7/npm-exec
+  - /cli/v7/cli-commands/exec
+  - /cli/v7/cli-commands/npm-exec
+  - /cli/v7/commands/exec
+  - /cli/v7/exec
+  - /cli/v7/npm-exec
 ---
 
 ### Synopsis

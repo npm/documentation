@@ -5,6 +5,18 @@ description: Change settings on your registry profile
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-profile.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npm-profile
+  - /cli-documentation/v7/cli-commands/profile
+  - /cli-documentation/v7/commands/npm-profile
+  - /cli-documentation/v7/commands/profile
+  - /cli-documentation/v7/npm-profile
+  - /cli-documentation/v7/profile
+  - /cli/v7/cli-commands/npm-profile
+  - /cli/v7/cli-commands/profile
+  - /cli/v7/commands/profile
+  - /cli/v7/npm-profile
+  - /cli/v7/profile
 ---
 
 ### Synopsis

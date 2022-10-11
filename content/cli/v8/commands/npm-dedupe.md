@@ -7,11 +7,32 @@ github_branch: v8
 github_path: docs/content/commands/npm-dedupe.md
 redirect_from:
   - /cli-commands/dedupe
-  - /cli-commands/dedupe.html
   - /cli-commands/npm-dedupe
+  - /cli-documentation/cli-commands/dedupe
+  - /cli-documentation/cli-commands/npm-dedupe
+  - /cli-documentation/commands/dedupe
+  - /cli-documentation/commands/npm-dedupe
+  - /cli-documentation/dedupe
+  - /cli-documentation/npm-dedupe
+  - /cli-documentation/v8/cli-commands/dedupe
+  - /cli-documentation/v8/cli-commands/npm-dedupe
+  - /cli-documentation/v8/commands/dedupe
+  - /cli-documentation/v8/commands/npm-dedupe
+  - /cli-documentation/v8/dedupe
+  - /cli-documentation/v8/npm-dedupe
+  - /cli/cli-commands/dedupe
+  - /cli/cli-commands/npm-dedupe
   - /cli/commands/dedupe
+  - /cli/commands/npm-dedupe
   - /cli/dedupe
-  - /cli/dedupe.html
+  - /cli/npm-dedupe
+  - /cli/v8/cli-commands/dedupe
+  - /cli/v8/cli-commands/npm-dedupe
+  - /cli/v8/commands/dedupe
+  - /cli/v8/dedupe
+  - /cli/v8/npm-dedupe
+  - /commands/dedupe
+  - /commands/npm-dedupe
 ---
 
 ### Synopsis

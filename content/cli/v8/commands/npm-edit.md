@@ -7,11 +7,32 @@ github_branch: v8
 github_path: docs/content/commands/npm-edit.md
 redirect_from:
   - /cli-commands/edit
-  - /cli-commands/edit.html
   - /cli-commands/npm-edit
+  - /cli-documentation/cli-commands/edit
+  - /cli-documentation/cli-commands/npm-edit
+  - /cli-documentation/commands/edit
+  - /cli-documentation/commands/npm-edit
+  - /cli-documentation/edit
+  - /cli-documentation/npm-edit
+  - /cli-documentation/v8/cli-commands/edit
+  - /cli-documentation/v8/cli-commands/npm-edit
+  - /cli-documentation/v8/commands/edit
+  - /cli-documentation/v8/commands/npm-edit
+  - /cli-documentation/v8/edit
+  - /cli-documentation/v8/npm-edit
+  - /cli/cli-commands/edit
+  - /cli/cli-commands/npm-edit
   - /cli/commands/edit
+  - /cli/commands/npm-edit
   - /cli/edit
-  - /cli/edit.html
+  - /cli/npm-edit
+  - /cli/v8/cli-commands/edit
+  - /cli/v8/cli-commands/npm-edit
+  - /cli/v8/commands/edit
+  - /cli/v8/edit
+  - /cli/v8/npm-edit
+  - /commands/edit
+  - /commands/npm-edit
 ---
 
 ### Synopsis

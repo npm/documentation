@@ -5,6 +5,18 @@ description: Manipulates packages cache
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-cache.md
+redirect_from:
+  - /cli-documentation/v6/cache
+  - /cli-documentation/v6/cli-commands/cache
+  - /cli-documentation/v6/cli-commands/npm-cache
+  - /cli-documentation/v6/commands/cache
+  - /cli-documentation/v6/commands/npm-cache
+  - /cli-documentation/v6/npm-cache
+  - /cli/v6/cache
+  - /cli/v6/cli-commands/cache
+  - /cli/v6/cli-commands/npm-cache
+  - /cli/v6/commands/cache
+  - /cli/v6/npm-cache
 ---
 
 ### Synopsis

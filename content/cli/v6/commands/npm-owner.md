@@ -5,6 +5,18 @@ description: Manage package owners
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-owner.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-owner
+  - /cli-documentation/v6/cli-commands/owner
+  - /cli-documentation/v6/commands/npm-owner
+  - /cli-documentation/v6/commands/owner
+  - /cli-documentation/v6/npm-owner
+  - /cli-documentation/v6/owner
+  - /cli/v6/cli-commands/npm-owner
+  - /cli/v6/cli-commands/owner
+  - /cli/v6/commands/owner
+  - /cli/v6/npm-owner
+  - /cli/v6/owner
 ---
 
 ### Synopsis

@@ -7,11 +7,32 @@ github_branch: v8
 github_path: docs/content/commands/npm-ls.md
 redirect_from:
   - /cli-commands/ls
-  - /cli-commands/ls.html
   - /cli-commands/npm-ls
+  - /cli-documentation/cli-commands/ls
+  - /cli-documentation/cli-commands/npm-ls
+  - /cli-documentation/commands/ls
+  - /cli-documentation/commands/npm-ls
+  - /cli-documentation/ls
+  - /cli-documentation/npm-ls
+  - /cli-documentation/v8/cli-commands/ls
+  - /cli-documentation/v8/cli-commands/npm-ls
+  - /cli-documentation/v8/commands/ls
+  - /cli-documentation/v8/commands/npm-ls
+  - /cli-documentation/v8/ls
+  - /cli-documentation/v8/npm-ls
+  - /cli/cli-commands/ls
+  - /cli/cli-commands/npm-ls
   - /cli/commands/ls
+  - /cli/commands/npm-ls
   - /cli/ls
-  - /cli/ls.html
+  - /cli/npm-ls
+  - /cli/v8/cli-commands/ls
+  - /cli/v8/cli-commands/npm-ls
+  - /cli/v8/commands/ls
+  - /cli/v8/ls
+  - /cli/v8/npm-ls
+  - /commands/ls
+  - /commands/npm-ls
 ---
 
 ### Synopsis

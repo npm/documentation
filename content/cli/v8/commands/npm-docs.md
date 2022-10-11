@@ -7,11 +7,32 @@ github_branch: v8
 github_path: docs/content/commands/npm-docs.md
 redirect_from:
   - /cli-commands/docs
-  - /cli-commands/docs.html
   - /cli-commands/npm-docs
+  - /cli-documentation/cli-commands/docs
+  - /cli-documentation/cli-commands/npm-docs
+  - /cli-documentation/commands/docs
+  - /cli-documentation/commands/npm-docs
+  - /cli-documentation/docs
+  - /cli-documentation/npm-docs
+  - /cli-documentation/v8/cli-commands/docs
+  - /cli-documentation/v8/cli-commands/npm-docs
+  - /cli-documentation/v8/commands/docs
+  - /cli-documentation/v8/commands/npm-docs
+  - /cli-documentation/v8/docs
+  - /cli-documentation/v8/npm-docs
+  - /cli/cli-commands/docs
+  - /cli/cli-commands/npm-docs
   - /cli/commands/docs
+  - /cli/commands/npm-docs
   - /cli/docs
-  - /cli/docs.html
+  - /cli/npm-docs
+  - /cli/v8/cli-commands/docs
+  - /cli/v8/cli-commands/npm-docs
+  - /cli/v8/commands/docs
+  - /cli/v8/docs
+  - /cli/v8/npm-docs
+  - /commands/docs
+  - /commands/npm-docs
 ---
 
 ### Synopsis

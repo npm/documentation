@@ -5,6 +5,10 @@ description: Working with workspaces
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/using-npm/workspaces.md
+redirect_from:
+  - /cli-documentation/v7/misc/workspaces
+  - /cli-documentation/v7/using-npm/workspaces
+  - /cli/v7/misc/workspaces
 ---
 
 ### Description

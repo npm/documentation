@@ -7,11 +7,32 @@ github_branch: v8
 github_path: docs/content/commands/npm-hook.md
 redirect_from:
   - /cli-commands/hook
-  - /cli-commands/hook.html
   - /cli-commands/npm-hook
+  - /cli-documentation/cli-commands/hook
+  - /cli-documentation/cli-commands/npm-hook
+  - /cli-documentation/commands/hook
+  - /cli-documentation/commands/npm-hook
+  - /cli-documentation/hook
+  - /cli-documentation/npm-hook
+  - /cli-documentation/v8/cli-commands/hook
+  - /cli-documentation/v8/cli-commands/npm-hook
+  - /cli-documentation/v8/commands/hook
+  - /cli-documentation/v8/commands/npm-hook
+  - /cli-documentation/v8/hook
+  - /cli-documentation/v8/npm-hook
+  - /cli/cli-commands/hook
+  - /cli/cli-commands/npm-hook
   - /cli/commands/hook
+  - /cli/commands/npm-hook
   - /cli/hook
-  - /cli/hook.html
+  - /cli/npm-hook
+  - /cli/v8/cli-commands/hook
+  - /cli/v8/cli-commands/npm-hook
+  - /cli/v8/commands/hook
+  - /cli/v8/hook
+  - /cli/v8/npm-hook
+  - /commands/hook
+  - /commands/npm-hook
 ---
 
 ### Synopsis

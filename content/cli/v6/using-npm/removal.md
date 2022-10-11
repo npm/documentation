@@ -5,6 +5,14 @@ description: Cleaning the Slate
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/using-npm/removal.md
+redirect_from:
+  - /cli-documentation/v6/misc/removal
+  - /cli-documentation/v6/misc/removing-npm
+  - /cli-documentation/v6/using-npm/removal
+  - /cli-documentation/v6/using-npm/removing-npm
+  - /cli/v6/misc/removal
+  - /cli/v6/misc/removing-npm
+  - /cli/v6/using-npm/removing-npm
 ---
 
 ### Synopsis

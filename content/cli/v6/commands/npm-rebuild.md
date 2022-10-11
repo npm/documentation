@@ -5,6 +5,18 @@ description: Rebuild a package
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-rebuild.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-rebuild
+  - /cli-documentation/v6/cli-commands/rebuild
+  - /cli-documentation/v6/commands/npm-rebuild
+  - /cli-documentation/v6/commands/rebuild
+  - /cli-documentation/v6/npm-rebuild
+  - /cli-documentation/v6/rebuild
+  - /cli/v6/cli-commands/npm-rebuild
+  - /cli/v6/cli-commands/rebuild
+  - /cli/v6/commands/rebuild
+  - /cli/v6/npm-rebuild
+  - /cli/v6/rebuild
 ---
 
 ### Synopsis

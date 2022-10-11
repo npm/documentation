@@ -2,31 +2,63 @@ const parseFm = require('front-matter')
 const Minipass = require('minipass')
 const yaml = require('yaml')
 const minimatch = require('minimatch')
-const { sep, extname, join, posix } = require('path')
+const { sep, join, posix, isAbsolute } = require('path')
 const gh = require('./gh')
-const redirectsMap = require('./redirects')
+const rawRedirects = require('./redirects')
 
-const getRedirects = ({ path: _path, release }) => {
-  if (!release.default) {
-    return []
+const getPathParts = (path) => {
+  const abs = isAbsolute(path)
+  const paths = path.replace(/\.mdx?$/, '').split(sep)
+
+  const pathId = posix.join(abs ? '/' : '', ...paths)
+  const page = posix.basename(pathId)
+  const section = posix.dirname(pathId)
+
+  return {
+    path: pathId,
+    page,
+    section: section === '.' ? '' : section,
+  }
+}
+
+const getRedirects = ({ path, release }) => {
+  const redirects = [getPathParts(path)]
+  const [pagePath] = redirects
+  const canonical = posix.join(
+    release.url,
+    pagePath.section,
+    pagePath.page === 'index' ? '' : pagePath.page
+  )
+
+  for (const [k, v] of Object.entries(rawRedirects).reverse()) {
+    const pageRedirects = redirects.flatMap(redirect => {
+      if (minimatch(redirect.path, k)) {
+        return v({ ...getPathParts(redirect.path), release }).map(p => ({
+          ...redirect,
+          ...typeof p === 'object' ? p : { path: p },
+        }))
+      }
+    })
+    redirects.push(...pageRedirects.filter(Boolean))
   }
 
-  const paths = _path.replace(new RegExp(`\\${extname(_path)}$`), '').split(sep)
-  const path = posix.join(...paths)
-  const section = paths.length === 1 ? '' : posix.dirname(path)
-  const page = paths.length === 1 ? 'index' : posix.basename(path)
-
-  const redirects = redirectsMap
-    .filter(([k]) => minimatch(path, k))
-    .flatMap(([, pageRedirects]) => {
-      return [].concat(
-        typeof pageRedirects === 'function'
-          ? pageRedirects({ section, page })
-          : pageRedirects
-      )
+  const prefixRedirects = redirects
+    .flatMap(redirect => {
+      const useDefault = redirect.default || release.default
+      if (isAbsolute(redirect.path)) {
+        return useDefault ? redirect.path : null
+      } else {
+        return release.urlPrefixes.flatMap(p => [
+          posix.join('/', p, release.id, redirect.path),
+          useDefault ? posix.join('/', p, redirect.path) : null,
+        ])
+      }
     })
+    .filter(Boolean)
+    .filter(r => r !== canonical)
 
-  return [...new Set(redirects)].sort((a, b) => a.localeCompare(b, 'en'))
+  return [...new Set(prefixRedirects)]
+    .sort((a, b) => a.localeCompare(b, 'en'))
 }
 
 const transform = (data, { release, path, frontmatter }) => {

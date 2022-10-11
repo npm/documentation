@@ -8,10 +8,31 @@ github_path: docs/content/commands/npm-restart.md
 redirect_from:
   - /cli-commands/npm-restart
   - /cli-commands/restart
-  - /cli-commands/restart.html
+  - /cli-documentation/cli-commands/npm-restart
+  - /cli-documentation/cli-commands/restart
+  - /cli-documentation/commands/npm-restart
+  - /cli-documentation/commands/restart
+  - /cli-documentation/npm-restart
+  - /cli-documentation/restart
+  - /cli-documentation/v8/cli-commands/npm-restart
+  - /cli-documentation/v8/cli-commands/restart
+  - /cli-documentation/v8/commands/npm-restart
+  - /cli-documentation/v8/commands/restart
+  - /cli-documentation/v8/npm-restart
+  - /cli-documentation/v8/restart
+  - /cli/cli-commands/npm-restart
+  - /cli/cli-commands/restart
+  - /cli/commands/npm-restart
   - /cli/commands/restart
+  - /cli/npm-restart
   - /cli/restart
-  - /cli/restart.html
+  - /cli/v8/cli-commands/npm-restart
+  - /cli/v8/cli-commands/restart
+  - /cli/v8/commands/restart
+  - /cli/v8/npm-restart
+  - /cli/v8/restart
+  - /commands/npm-restart
+  - /commands/restart
 ---
 
 ### Synopsis

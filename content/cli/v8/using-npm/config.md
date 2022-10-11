@@ -6,10 +6,15 @@ github_repo: npm/cli
 github_branch: v8
 github_path: docs/content/using-npm/config.md
 redirect_from:
+  - /cli-documentation/misc/config
+  - /cli-documentation/using-npm/config
+  - /cli-documentation/v8/misc/config
+  - /cli-documentation/v8/using-npm/config
+  - /cli/misc/config
+  - /cli/using-npm/config
+  - /cli/v8/misc/config
   - /misc/config
-  - /misc/config.html
   - /using-npm/config
-  - /using-npm/config.html
 ---
 
 ### Description

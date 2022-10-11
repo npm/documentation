@@ -5,6 +5,18 @@ description: Install a package
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-install.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/install
+  - /cli-documentation/v7/cli-commands/npm-install
+  - /cli-documentation/v7/commands/install
+  - /cli-documentation/v7/commands/npm-install
+  - /cli-documentation/v7/install
+  - /cli-documentation/v7/npm-install
+  - /cli/v7/cli-commands/install
+  - /cli/v7/cli-commands/npm-install
+  - /cli/v7/commands/install
+  - /cli/v7/install
+  - /cli/v7/npm-install
 ---
 
 ### Synopsis

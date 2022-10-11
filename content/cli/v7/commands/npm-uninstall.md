@@ -5,6 +5,18 @@ description: Remove a package
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-uninstall.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npm-uninstall
+  - /cli-documentation/v7/cli-commands/uninstall
+  - /cli-documentation/v7/commands/npm-uninstall
+  - /cli-documentation/v7/commands/uninstall
+  - /cli-documentation/v7/npm-uninstall
+  - /cli-documentation/v7/uninstall
+  - /cli/v7/cli-commands/npm-uninstall
+  - /cli/v7/cli-commands/uninstall
+  - /cli/v7/commands/uninstall
+  - /cli/v7/npm-uninstall
+  - /cli/v7/uninstall
 ---
 
 ### Synopsis

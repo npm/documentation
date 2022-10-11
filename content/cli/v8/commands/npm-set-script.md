@@ -8,10 +8,31 @@ github_path: docs/content/commands/npm-set-script.md
 redirect_from:
   - /cli-commands/npm-set-script
   - /cli-commands/set-script
-  - /cli-commands/set-script.html
+  - /cli-documentation/cli-commands/npm-set-script
+  - /cli-documentation/cli-commands/set-script
+  - /cli-documentation/commands/npm-set-script
+  - /cli-documentation/commands/set-script
+  - /cli-documentation/npm-set-script
+  - /cli-documentation/set-script
+  - /cli-documentation/v8/cli-commands/npm-set-script
+  - /cli-documentation/v8/cli-commands/set-script
+  - /cli-documentation/v8/commands/npm-set-script
+  - /cli-documentation/v8/commands/set-script
+  - /cli-documentation/v8/npm-set-script
+  - /cli-documentation/v8/set-script
+  - /cli/cli-commands/npm-set-script
+  - /cli/cli-commands/set-script
+  - /cli/commands/npm-set-script
   - /cli/commands/set-script
+  - /cli/npm-set-script
   - /cli/set-script
-  - /cli/set-script.html
+  - /cli/v8/cli-commands/npm-set-script
+  - /cli/v8/cli-commands/set-script
+  - /cli/v8/commands/set-script
+  - /cli/v8/npm-set-script
+  - /cli/v8/set-script
+  - /commands/npm-set-script
+  - /commands/set-script
 ---
 
 ### Synopsis

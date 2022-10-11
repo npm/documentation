@@ -73,6 +73,7 @@ const main = async ({
     src: release.src?.split(posix.sep).join(sep) || defaultBuiltDir,
     url: `/${DOCS_PATH}/${release.id}`,
     urlPrefix: DOCS_PATH,
+    urlPrefixes: [DOCS_PATH, `${DOCS_PATH}-documentation`],
   }))
 
   const baseNav = await fs.readFile(navPath, 'utf-8')

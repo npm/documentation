@@ -5,6 +5,10 @@ description: The npm config files
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/configuring-npm/npmrc.md
+redirect_from:
+  - /cli-documentation/v6/configuring-npm/npmrc
+  - /cli-documentation/v6/files/npmrc
+  - /cli/v6/files/npmrc
 ---
 
 ### Description

@@ -5,6 +5,18 @@ description: Report bugs for a package in a web browser
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-bugs.md
+redirect_from:
+  - /cli-documentation/v7/bugs
+  - /cli-documentation/v7/cli-commands/bugs
+  - /cli-documentation/v7/cli-commands/npm-bugs
+  - /cli-documentation/v7/commands/bugs
+  - /cli-documentation/v7/commands/npm-bugs
+  - /cli-documentation/v7/npm-bugs
+  - /cli/v7/bugs
+  - /cli/v7/cli-commands/bugs
+  - /cli/v7/cli-commands/npm-bugs
+  - /cli/v7/commands/bugs
+  - /cli/v7/npm-bugs
 ---
 
 ### Synopsis

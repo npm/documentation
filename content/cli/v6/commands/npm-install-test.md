@@ -5,6 +5,18 @@ description: Install package(s) and run tests
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-install-test.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/install-test
+  - /cli-documentation/v6/cli-commands/npm-install-test
+  - /cli-documentation/v6/commands/install-test
+  - /cli-documentation/v6/commands/npm-install-test
+  - /cli-documentation/v6/install-test
+  - /cli-documentation/v6/npm-install-test
+  - /cli/v6/cli-commands/install-test
+  - /cli/v6/cli-commands/npm-install-test
+  - /cli/v6/commands/install-test
+  - /cli/v6/install-test
+  - /cli/v6/npm-install-test
 ---
 
 ### Synopsis

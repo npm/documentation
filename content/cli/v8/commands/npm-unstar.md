@@ -8,10 +8,31 @@ github_path: docs/content/commands/npm-unstar.md
 redirect_from:
   - /cli-commands/npm-unstar
   - /cli-commands/unstar
-  - /cli-commands/unstar.html
+  - /cli-documentation/cli-commands/npm-unstar
+  - /cli-documentation/cli-commands/unstar
+  - /cli-documentation/commands/npm-unstar
+  - /cli-documentation/commands/unstar
+  - /cli-documentation/npm-unstar
+  - /cli-documentation/unstar
+  - /cli-documentation/v8/cli-commands/npm-unstar
+  - /cli-documentation/v8/cli-commands/unstar
+  - /cli-documentation/v8/commands/npm-unstar
+  - /cli-documentation/v8/commands/unstar
+  - /cli-documentation/v8/npm-unstar
+  - /cli-documentation/v8/unstar
+  - /cli/cli-commands/npm-unstar
+  - /cli/cli-commands/unstar
+  - /cli/commands/npm-unstar
   - /cli/commands/unstar
+  - /cli/npm-unstar
   - /cli/unstar
-  - /cli/unstar.html
+  - /cli/v8/cli-commands/npm-unstar
+  - /cli/v8/cli-commands/unstar
+  - /cli/v8/commands/unstar
+  - /cli/v8/npm-unstar
+  - /cli/v8/unstar
+  - /commands/npm-unstar
+  - /commands/unstar
 ---
 
 ### Synopsis

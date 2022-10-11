@@ -7,11 +7,32 @@ github_branch: v8
 github_path: docs/content/commands/npm-fund.md
 redirect_from:
   - /cli-commands/fund
-  - /cli-commands/fund.html
   - /cli-commands/npm-fund
+  - /cli-documentation/cli-commands/fund
+  - /cli-documentation/cli-commands/npm-fund
+  - /cli-documentation/commands/fund
+  - /cli-documentation/commands/npm-fund
+  - /cli-documentation/fund
+  - /cli-documentation/npm-fund
+  - /cli-documentation/v8/cli-commands/fund
+  - /cli-documentation/v8/cli-commands/npm-fund
+  - /cli-documentation/v8/commands/fund
+  - /cli-documentation/v8/commands/npm-fund
+  - /cli-documentation/v8/fund
+  - /cli-documentation/v8/npm-fund
+  - /cli/cli-commands/fund
+  - /cli/cli-commands/npm-fund
   - /cli/commands/fund
+  - /cli/commands/npm-fund
   - /cli/fund
-  - /cli/fund.html
+  - /cli/npm-fund
+  - /cli/v8/cli-commands/fund
+  - /cli/v8/cli-commands/npm-fund
+  - /cli/v8/commands/fund
+  - /cli/v8/fund
+  - /cli/v8/npm-fund
+  - /commands/fund
+  - /commands/npm-fund
 ---
 
 ### Synopsis

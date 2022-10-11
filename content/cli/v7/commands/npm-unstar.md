@@ -5,6 +5,18 @@ description: Remove an item from your favorite packages
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-unstar.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npm-unstar
+  - /cli-documentation/v7/cli-commands/unstar
+  - /cli-documentation/v7/commands/npm-unstar
+  - /cli-documentation/v7/commands/unstar
+  - /cli-documentation/v7/npm-unstar
+  - /cli-documentation/v7/unstar
+  - /cli/v7/cli-commands/npm-unstar
+  - /cli/v7/cli-commands/unstar
+  - /cli/v7/commands/unstar
+  - /cli/v7/npm-unstar
+  - /cli/v7/unstar
 ---
 
 ### Synopsis

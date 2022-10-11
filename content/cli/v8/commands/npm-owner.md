@@ -8,10 +8,31 @@ github_path: docs/content/commands/npm-owner.md
 redirect_from:
   - /cli-commands/npm-owner
   - /cli-commands/owner
-  - /cli-commands/owner.html
+  - /cli-documentation/cli-commands/npm-owner
+  - /cli-documentation/cli-commands/owner
+  - /cli-documentation/commands/npm-owner
+  - /cli-documentation/commands/owner
+  - /cli-documentation/npm-owner
+  - /cli-documentation/owner
+  - /cli-documentation/v8/cli-commands/npm-owner
+  - /cli-documentation/v8/cli-commands/owner
+  - /cli-documentation/v8/commands/npm-owner
+  - /cli-documentation/v8/commands/owner
+  - /cli-documentation/v8/npm-owner
+  - /cli-documentation/v8/owner
+  - /cli/cli-commands/npm-owner
+  - /cli/cli-commands/owner
+  - /cli/commands/npm-owner
   - /cli/commands/owner
+  - /cli/npm-owner
   - /cli/owner
-  - /cli/owner.html
+  - /cli/v8/cli-commands/npm-owner
+  - /cli/v8/cli-commands/owner
+  - /cli/v8/commands/owner
+  - /cli/v8/npm-owner
+  - /cli/v8/owner
+  - /commands/npm-owner
+  - /commands/owner
 ---
 
 ### Synopsis

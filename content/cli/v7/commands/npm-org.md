@@ -5,6 +5,18 @@ description: Manage orgs
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-org.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npm-org
+  - /cli-documentation/v7/cli-commands/org
+  - /cli-documentation/v7/commands/npm-org
+  - /cli-documentation/v7/commands/org
+  - /cli-documentation/v7/npm-org
+  - /cli-documentation/v7/org
+  - /cli/v7/cli-commands/npm-org
+  - /cli/v7/cli-commands/org
+  - /cli/v7/commands/org
+  - /cli/v7/npm-org
+  - /cli/v7/org
 ---
 
 ### Synopsis

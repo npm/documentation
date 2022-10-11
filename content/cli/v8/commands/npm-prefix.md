@@ -8,10 +8,31 @@ github_path: docs/content/commands/npm-prefix.md
 redirect_from:
   - /cli-commands/npm-prefix
   - /cli-commands/prefix
-  - /cli-commands/prefix.html
+  - /cli-documentation/cli-commands/npm-prefix
+  - /cli-documentation/cli-commands/prefix
+  - /cli-documentation/commands/npm-prefix
+  - /cli-documentation/commands/prefix
+  - /cli-documentation/npm-prefix
+  - /cli-documentation/prefix
+  - /cli-documentation/v8/cli-commands/npm-prefix
+  - /cli-documentation/v8/cli-commands/prefix
+  - /cli-documentation/v8/commands/npm-prefix
+  - /cli-documentation/v8/commands/prefix
+  - /cli-documentation/v8/npm-prefix
+  - /cli-documentation/v8/prefix
+  - /cli/cli-commands/npm-prefix
+  - /cli/cli-commands/prefix
+  - /cli/commands/npm-prefix
   - /cli/commands/prefix
+  - /cli/npm-prefix
   - /cli/prefix
-  - /cli/prefix.html
+  - /cli/v8/cli-commands/npm-prefix
+  - /cli/v8/cli-commands/prefix
+  - /cli/v8/commands/prefix
+  - /cli/v8/npm-prefix
+  - /cli/v8/prefix
+  - /commands/npm-prefix
+  - /commands/prefix
 ---
 
 ### Synopsis

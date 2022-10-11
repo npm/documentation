@@ -5,6 +5,18 @@ description: View registry info
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-view.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-view
+  - /cli-documentation/v6/cli-commands/view
+  - /cli-documentation/v6/commands/npm-view
+  - /cli-documentation/v6/commands/view
+  - /cli-documentation/v6/npm-view
+  - /cli-documentation/v6/view
+  - /cli/v6/cli-commands/npm-view
+  - /cli/v6/cli-commands/view
+  - /cli/v6/commands/view
+  - /cli/v6/npm-view
+  - /cli/v6/view
 ---
 
 ### Synopsis

@@ -5,6 +5,18 @@ description: Open documentation for a package in a web browser
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-docs.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/docs
+  - /cli-documentation/v7/cli-commands/npm-docs
+  - /cli-documentation/v7/commands/docs
+  - /cli-documentation/v7/commands/npm-docs
+  - /cli-documentation/v7/docs
+  - /cli-documentation/v7/npm-docs
+  - /cli/v7/cli-commands/docs
+  - /cli/v7/cli-commands/npm-docs
+  - /cli/v7/commands/docs
+  - /cli/v7/docs
+  - /cli/v7/npm-docs
 ---
 
 ### Synopsis

@@ -5,6 +5,18 @@ description: Check your npm environment
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-doctor.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/doctor
+  - /cli-documentation/v7/cli-commands/npm-doctor
+  - /cli-documentation/v7/commands/doctor
+  - /cli-documentation/v7/commands/npm-doctor
+  - /cli-documentation/v7/doctor
+  - /cli-documentation/v7/npm-doctor
+  - /cli/v7/cli-commands/doctor
+  - /cli/v7/cli-commands/npm-doctor
+  - /cli/v7/commands/doctor
+  - /cli/v7/doctor
+  - /cli/v7/npm-doctor
 ---
 
 ### Synopsis

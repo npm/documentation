@@ -7,11 +7,32 @@ github_branch: v8
 github_path: docs/content/commands/npm-audit.md
 redirect_from:
   - /cli-commands/audit
-  - /cli-commands/audit.html
   - /cli-commands/npm-audit
+  - /cli-documentation/audit
+  - /cli-documentation/cli-commands/audit
+  - /cli-documentation/cli-commands/npm-audit
+  - /cli-documentation/commands/audit
+  - /cli-documentation/commands/npm-audit
+  - /cli-documentation/npm-audit
+  - /cli-documentation/v8/audit
+  - /cli-documentation/v8/cli-commands/audit
+  - /cli-documentation/v8/cli-commands/npm-audit
+  - /cli-documentation/v8/commands/audit
+  - /cli-documentation/v8/commands/npm-audit
+  - /cli-documentation/v8/npm-audit
   - /cli/audit
-  - /cli/audit.html
+  - /cli/cli-commands/audit
+  - /cli/cli-commands/npm-audit
   - /cli/commands/audit
+  - /cli/commands/npm-audit
+  - /cli/npm-audit
+  - /cli/v8/audit
+  - /cli/v8/cli-commands/audit
+  - /cli/v8/cli-commands/npm-audit
+  - /cli/v8/commands/audit
+  - /cli/v8/npm-audit
+  - /commands/audit
+  - /commands/npm-audit
 ---
 
 ### Synopsis

@@ -5,6 +5,18 @@ description: Deprecate a version of a package
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-deprecate.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/deprecate
+  - /cli-documentation/v6/cli-commands/npm-deprecate
+  - /cli-documentation/v6/commands/deprecate
+  - /cli-documentation/v6/commands/npm-deprecate
+  - /cli-documentation/v6/deprecate
+  - /cli-documentation/v6/npm-deprecate
+  - /cli/v6/cli-commands/deprecate
+  - /cli/v6/cli-commands/npm-deprecate
+  - /cli/v6/commands/deprecate
+  - /cli/v6/deprecate
+  - /cli/v6/npm-deprecate
 ---
 
 ### Synopsis

@@ -8,10 +8,31 @@ github_path: docs/content/commands/npm-root.md
 redirect_from:
   - /cli-commands/npm-root
   - /cli-commands/root
-  - /cli-commands/root.html
+  - /cli-documentation/cli-commands/npm-root
+  - /cli-documentation/cli-commands/root
+  - /cli-documentation/commands/npm-root
+  - /cli-documentation/commands/root
+  - /cli-documentation/npm-root
+  - /cli-documentation/root
+  - /cli-documentation/v8/cli-commands/npm-root
+  - /cli-documentation/v8/cli-commands/root
+  - /cli-documentation/v8/commands/npm-root
+  - /cli-documentation/v8/commands/root
+  - /cli-documentation/v8/npm-root
+  - /cli-documentation/v8/root
+  - /cli/cli-commands/npm-root
+  - /cli/cli-commands/root
+  - /cli/commands/npm-root
   - /cli/commands/root
+  - /cli/npm-root
   - /cli/root
-  - /cli/root.html
+  - /cli/v8/cli-commands/npm-root
+  - /cli/v8/cli-commands/root
+  - /cli/v8/commands/root
+  - /cli/v8/npm-root
+  - /cli/v8/root
+  - /commands/npm-root
+  - /commands/root
 ---
 
 ### Synopsis

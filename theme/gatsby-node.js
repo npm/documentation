@@ -29,7 +29,6 @@ exports.createSchemaCustomization = ({actions: {createTypes}}) => {
 exports.createPages = async ({graphql, actions}, themeOptions) => {
   const repo = themeOptions.repo ? themeOptions.repo : { url: getPkgRepo(readPkgUp.sync().package).browse() };
 
-
   const {data} = await graphql(`
     {
       allMdx {
@@ -106,6 +105,15 @@ exports.createPages = async ({graphql, actions}, themeOptions) => {
             isPermanent: true,
             redirectInBrowser: true
           })
+
+          if (pagePath.startsWith('cli/') && !from.endsWith('index')) {
+            actions.createRedirect({
+              fromPath: `${from}.html`,
+              toPath: '/' + pagePath,
+              isPermanent: true,
+              redirectInBrowser: true
+            })
+          }
         })
       }
     }),

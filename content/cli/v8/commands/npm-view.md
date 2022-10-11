@@ -8,10 +8,31 @@ github_path: docs/content/commands/npm-view.md
 redirect_from:
   - /cli-commands/npm-view
   - /cli-commands/view
-  - /cli-commands/view.html
+  - /cli-documentation/cli-commands/npm-view
+  - /cli-documentation/cli-commands/view
+  - /cli-documentation/commands/npm-view
+  - /cli-documentation/commands/view
+  - /cli-documentation/npm-view
+  - /cli-documentation/v8/cli-commands/npm-view
+  - /cli-documentation/v8/cli-commands/view
+  - /cli-documentation/v8/commands/npm-view
+  - /cli-documentation/v8/commands/view
+  - /cli-documentation/v8/npm-view
+  - /cli-documentation/v8/view
+  - /cli-documentation/view
+  - /cli/cli-commands/npm-view
+  - /cli/cli-commands/view
+  - /cli/commands/npm-view
   - /cli/commands/view
+  - /cli/npm-view
+  - /cli/v8/cli-commands/npm-view
+  - /cli/v8/cli-commands/view
+  - /cli/v8/commands/view
+  - /cli/v8/npm-view
+  - /cli/v8/view
   - /cli/view
-  - /cli/view.html
+  - /commands/npm-view
+  - /commands/view
 ---
 
 ### Synopsis

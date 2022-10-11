@@ -5,6 +5,10 @@ description: Working with Teams & Orgs
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/using-npm/orgs.md
+redirect_from:
+  - /cli-documentation/v7/misc/orgs
+  - /cli-documentation/v7/using-npm/orgs
+  - /cli/v7/misc/orgs
 ---
 
 ### Description

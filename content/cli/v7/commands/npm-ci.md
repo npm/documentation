@@ -5,6 +5,18 @@ description: Install a project with a clean slate
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-ci.md
+redirect_from:
+  - /cli-documentation/v7/ci
+  - /cli-documentation/v7/cli-commands/ci
+  - /cli-documentation/v7/cli-commands/npm-ci
+  - /cli-documentation/v7/commands/ci
+  - /cli-documentation/v7/commands/npm-ci
+  - /cli-documentation/v7/npm-ci
+  - /cli/v7/ci
+  - /cli/v7/cli-commands/ci
+  - /cli/v7/cli-commands/npm-ci
+  - /cli/v7/commands/ci
+  - /cli/v7/npm-ci
 ---
 
 ### Synopsis
