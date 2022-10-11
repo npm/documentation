@@ -3,8 +3,16 @@ import React from 'react'
 import navItems from '../nav.yml'
 import {HEADER_HEIGHT} from './header'
 import NavItems from './nav-items'
+import { activateArrowKeyNavigation } from '../utils/accessibility'
 
 function Sidebar({location, editOnGitHub}) {
+  const sidebarRef = React.createRef()
+
+  React.useEffect(() => {
+    const arrowKeyNavigation = activateArrowKeyNavigation(sidebarRef.current, 'div > a')
+    return arrowKeyNavigation.deactivate
+  }, [sidebarRef.current])
+
   return (
     <Position
       position="sticky"
@@ -13,6 +21,7 @@ function Sidebar({location, editOnGitHub}) {
       minWidth={260}
       color="gray.8"
       bg="gray.0"
+      ref={sidebarRef}
     >
       <BorderBox
         borderWidth={0}
