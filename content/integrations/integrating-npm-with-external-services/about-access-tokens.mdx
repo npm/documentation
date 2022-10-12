@@ -1,4 +1,12 @@
----
+
+ only
+A read-only token can download public or private packages from the npm registry.
+
+Automation
+An automation token will bypass two-factor authentication when publishing. If you have two-factor authentication enabled, you will not be prompted when using an automation token, making it suitable for CI/CD workflows.
+
+Publish
+A publish token can read and publish packages to the npm registry. If you have two-factor authentication (2FA) enabled, it will be required when using this token.        ---
 title: About access tokens
 redirect_from:
   - /getting-started/working_with_tokens
