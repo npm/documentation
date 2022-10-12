@@ -37,8 +37,19 @@ function VariantSelect(props) {
       items.push(<Dropdown.Item onClick={() => { window.location.href = match.page.url; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
   });
 
+  /** 
+   *  We should use '@primer/react' package as '@primer/components' package depricated and moved to '@primer/react'.
+   *  We have no closing/opening control with current '@primer/components' package, so document.body click event used for closing purpose.
+   */
+  // TODO: We should use 'setOpen' function returned by the useDetails hook when we move to '@primer/react' package. https://primer.style/react/deprecated/Dropdown
+  function onDropDownKeyDown (event) {
+    if (event.key === 'Escape') {
+        document.body.click()
+    }
+  }
+
   return (
-      <Dropdown overlay={props.overlay}>
+      <Dropdown onKeyDown={onDropDownKeyDown} overlay={props.overlay}>
           <Dropdown.Button>{selectedItem.variant.title}</Dropdown.Button>
           <VariantSelect.Menu direction={props.direction} width={props.menuWidth}>
               {items}
