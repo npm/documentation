@@ -34,7 +34,7 @@ function VariantSelect(props) {
           selectedItem = match;
       }
 
-      items.push(<Dropdown.Item onClick={() => { window.location.href = match.page.url; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
+      items.push(<Dropdown.Item tabIndex={match.variant.tabIndex} onClick={() => { window.location.href = match.page.url; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
   });
 
   return (
