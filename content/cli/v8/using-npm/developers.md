@@ -6,10 +6,15 @@ github_repo: npm/cli
 github_branch: v8
 github_path: docs/content/using-npm/developers.md
 redirect_from:
+  - /cli-documentation/misc/developers
+  - /cli-documentation/using-npm/developers
+  - /cli-documentation/v8/misc/developers
+  - /cli-documentation/v8/using-npm/developers
+  - /cli/misc/developers
+  - /cli/using-npm/developers
+  - /cli/v8/misc/developers
   - /misc/developers
-  - /misc/developers.html
   - /using-npm/developers
-  - /using-npm/developers.html
 ---
 
 ### Description

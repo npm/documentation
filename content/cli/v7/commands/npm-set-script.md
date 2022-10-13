@@ -5,6 +5,18 @@ description: Set tasks in the scripts section of package.json
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-set-script.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npm-set-script
+  - /cli-documentation/v7/cli-commands/set-script
+  - /cli-documentation/v7/commands/npm-set-script
+  - /cli-documentation/v7/commands/set-script
+  - /cli-documentation/v7/npm-set-script
+  - /cli-documentation/v7/set-script
+  - /cli/v7/cli-commands/npm-set-script
+  - /cli/v7/cli-commands/set-script
+  - /cli/v7/commands/set-script
+  - /cli/v7/npm-set-script
+  - /cli/v7/set-script
 ---
 
 ### Synopsis

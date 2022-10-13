@@ -5,6 +5,14 @@ description: Specifics of npm's package.json handling
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/configuring-npm/package-json.md
+redirect_from:
+  - /cli-documentation/v7/configuring-npm/package-json
+  - /cli-documentation/v7/configuring-npm/package.json
+  - /cli-documentation/v7/files/package-json
+  - /cli-documentation/v7/files/package.json
+  - /cli/v7/configuring-npm/package.json
+  - /cli/v7/files/package-json
+  - /cli/v7/files/package.json
 ---
 
 ### Description

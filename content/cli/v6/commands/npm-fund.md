@@ -5,6 +5,18 @@ description: Retrieve funding information
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-fund.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/fund
+  - /cli-documentation/v6/cli-commands/npm-fund
+  - /cli-documentation/v6/commands/fund
+  - /cli-documentation/v6/commands/npm-fund
+  - /cli-documentation/v6/fund
+  - /cli-documentation/v6/npm-fund
+  - /cli/v6/cli-commands/fund
+  - /cli/v6/cli-commands/npm-fund
+  - /cli/v6/commands/fund
+  - /cli/v6/fund
+  - /cli/v6/npm-fund
 ---
 
 ### Synopsis

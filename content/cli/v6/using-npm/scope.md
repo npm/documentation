@@ -5,6 +5,14 @@ description: Scoped packages
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/using-npm/scope.md
+redirect_from:
+  - /cli-documentation/v6/misc/npm-scope
+  - /cli-documentation/v6/misc/scope
+  - /cli-documentation/v6/using-npm/npm-scope
+  - /cli-documentation/v6/using-npm/scope
+  - /cli/v6/misc/npm-scope
+  - /cli/v6/misc/scope
+  - /cli/v6/using-npm/npm-scope
 ---
 
 ### Description

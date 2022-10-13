@@ -7,11 +7,32 @@ github_branch: v8
 github_path: docs/content/commands/npm-install-ci-test.md
 redirect_from:
   - /cli-commands/install-ci-test
-  - /cli-commands/install-ci-test.html
   - /cli-commands/npm-install-ci-test
+  - /cli-documentation/cli-commands/install-ci-test
+  - /cli-documentation/cli-commands/npm-install-ci-test
+  - /cli-documentation/commands/install-ci-test
+  - /cli-documentation/commands/npm-install-ci-test
+  - /cli-documentation/install-ci-test
+  - /cli-documentation/npm-install-ci-test
+  - /cli-documentation/v8/cli-commands/install-ci-test
+  - /cli-documentation/v8/cli-commands/npm-install-ci-test
+  - /cli-documentation/v8/commands/install-ci-test
+  - /cli-documentation/v8/commands/npm-install-ci-test
+  - /cli-documentation/v8/install-ci-test
+  - /cli-documentation/v8/npm-install-ci-test
+  - /cli/cli-commands/install-ci-test
+  - /cli/cli-commands/npm-install-ci-test
   - /cli/commands/install-ci-test
+  - /cli/commands/npm-install-ci-test
   - /cli/install-ci-test
-  - /cli/install-ci-test.html
+  - /cli/npm-install-ci-test
+  - /cli/v8/cli-commands/install-ci-test
+  - /cli/v8/cli-commands/npm-install-ci-test
+  - /cli/v8/commands/install-ci-test
+  - /cli/v8/install-ci-test
+  - /cli/v8/npm-install-ci-test
+  - /commands/install-ci-test
+  - /commands/npm-install-ci-test
 ---
 
 ### Synopsis

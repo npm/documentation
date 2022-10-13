@@ -5,6 +5,18 @@ description: create a package.json file
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-init.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/init
+  - /cli-documentation/v6/cli-commands/npm-init
+  - /cli-documentation/v6/commands/init
+  - /cli-documentation/v6/commands/npm-init
+  - /cli-documentation/v6/init
+  - /cli-documentation/v6/npm-init
+  - /cli/v6/cli-commands/init
+  - /cli/v6/cli-commands/npm-init
+  - /cli/v6/commands/init
+  - /cli/v6/init
+  - /cli/v6/npm-init
 ---
 
 ### Synopsis

@@ -5,6 +5,18 @@ description: Manage your authentication tokens
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-token.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-token
+  - /cli-documentation/v6/cli-commands/token
+  - /cli-documentation/v6/commands/npm-token
+  - /cli-documentation/v6/commands/token
+  - /cli-documentation/v6/npm-token
+  - /cli-documentation/v6/token
+  - /cli/v6/cli-commands/npm-token
+  - /cli/v6/cli-commands/token
+  - /cli/v6/commands/token
+  - /cli/v6/npm-token
+  - /cli/v6/token
 ---
 
 ### Synopsis

@@ -8,10 +8,31 @@ github_path: docs/content/commands/npm-profile.md
 redirect_from:
   - /cli-commands/npm-profile
   - /cli-commands/profile
-  - /cli-commands/profile.html
+  - /cli-documentation/cli-commands/npm-profile
+  - /cli-documentation/cli-commands/profile
+  - /cli-documentation/commands/npm-profile
+  - /cli-documentation/commands/profile
+  - /cli-documentation/npm-profile
+  - /cli-documentation/profile
+  - /cli-documentation/v8/cli-commands/npm-profile
+  - /cli-documentation/v8/cli-commands/profile
+  - /cli-documentation/v8/commands/npm-profile
+  - /cli-documentation/v8/commands/profile
+  - /cli-documentation/v8/npm-profile
+  - /cli-documentation/v8/profile
+  - /cli/cli-commands/npm-profile
+  - /cli/cli-commands/profile
+  - /cli/commands/npm-profile
   - /cli/commands/profile
+  - /cli/npm-profile
   - /cli/profile
-  - /cli/profile.html
+  - /cli/v8/cli-commands/npm-profile
+  - /cli/v8/cli-commands/profile
+  - /cli/v8/commands/profile
+  - /cli/v8/npm-profile
+  - /cli/v8/profile
+  - /commands/npm-profile
+  - /commands/profile
 ---
 
 ### Synopsis

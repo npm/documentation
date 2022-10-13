@@ -5,6 +5,18 @@ description: Display npm username
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-whoami.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npm-whoami
+  - /cli-documentation/v7/cli-commands/whoami
+  - /cli-documentation/v7/commands/npm-whoami
+  - /cli-documentation/v7/commands/whoami
+  - /cli-documentation/v7/npm-whoami
+  - /cli-documentation/v7/whoami
+  - /cli/v7/cli-commands/npm-whoami
+  - /cli/v7/cli-commands/whoami
+  - /cli/v7/commands/whoami
+  - /cli/v7/npm-whoami
+  - /cli/v7/whoami
 ---
 
 ### Synopsis

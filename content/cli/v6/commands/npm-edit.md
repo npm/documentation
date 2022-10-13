@@ -5,6 +5,18 @@ description: Edit an installed package
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-edit.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/edit
+  - /cli-documentation/v6/cli-commands/npm-edit
+  - /cli-documentation/v6/commands/edit
+  - /cli-documentation/v6/commands/npm-edit
+  - /cli-documentation/v6/edit
+  - /cli-documentation/v6/npm-edit
+  - /cli/v6/cli-commands/edit
+  - /cli/v6/cli-commands/npm-edit
+  - /cli/v6/commands/edit
+  - /cli/v6/edit
+  - /cli/v6/npm-edit
 ---
 
 ### Synopsis

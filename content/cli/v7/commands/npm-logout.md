@@ -5,6 +5,18 @@ description: Log out of the registry
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-logout.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/logout
+  - /cli-documentation/v7/cli-commands/npm-logout
+  - /cli-documentation/v7/commands/logout
+  - /cli-documentation/v7/commands/npm-logout
+  - /cli-documentation/v7/logout
+  - /cli-documentation/v7/npm-logout
+  - /cli/v7/cli-commands/logout
+  - /cli/v7/cli-commands/npm-logout
+  - /cli/v7/commands/logout
+  - /cli/v7/logout
+  - /cli/v7/npm-logout
 ---
 
 ### Synopsis

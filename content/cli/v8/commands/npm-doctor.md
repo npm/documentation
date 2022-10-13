@@ -7,11 +7,32 @@ github_branch: v8
 github_path: docs/content/commands/npm-doctor.md
 redirect_from:
   - /cli-commands/doctor
-  - /cli-commands/doctor.html
   - /cli-commands/npm-doctor
+  - /cli-documentation/cli-commands/doctor
+  - /cli-documentation/cli-commands/npm-doctor
+  - /cli-documentation/commands/doctor
+  - /cli-documentation/commands/npm-doctor
+  - /cli-documentation/doctor
+  - /cli-documentation/npm-doctor
+  - /cli-documentation/v8/cli-commands/doctor
+  - /cli-documentation/v8/cli-commands/npm-doctor
+  - /cli-documentation/v8/commands/doctor
+  - /cli-documentation/v8/commands/npm-doctor
+  - /cli-documentation/v8/doctor
+  - /cli-documentation/v8/npm-doctor
+  - /cli/cli-commands/doctor
+  - /cli/cli-commands/npm-doctor
   - /cli/commands/doctor
+  - /cli/commands/npm-doctor
   - /cli/doctor
-  - /cli/doctor.html
+  - /cli/npm-doctor
+  - /cli/v8/cli-commands/doctor
+  - /cli/v8/cli-commands/npm-doctor
+  - /cli/v8/commands/doctor
+  - /cli/v8/doctor
+  - /cli/v8/npm-doctor
+  - /commands/doctor
+  - /commands/npm-doctor
 ---
 
 ### Synopsis

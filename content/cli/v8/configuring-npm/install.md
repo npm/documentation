@@ -6,8 +6,15 @@ github_repo: npm/cli
 github_branch: v8
 github_path: docs/content/configuring-npm/install.md
 redirect_from:
+  - /cli-documentation/configuring-npm/install
+  - /cli-documentation/files/install
+  - /cli-documentation/v8/configuring-npm/install
+  - /cli-documentation/v8/files/install
+  - /cli/configuring-npm/install
+  - /cli/files/install
+  - /cli/v8/files/install
   - /configuring-npm/install
-  - /configuring-npm/install.html
+  - /files/install
 ---
 
 ### Description

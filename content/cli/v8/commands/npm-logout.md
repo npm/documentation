@@ -7,11 +7,32 @@ github_branch: v8
 github_path: docs/content/commands/npm-logout.md
 redirect_from:
   - /cli-commands/logout
-  - /cli-commands/logout.html
   - /cli-commands/npm-logout
+  - /cli-documentation/cli-commands/logout
+  - /cli-documentation/cli-commands/npm-logout
+  - /cli-documentation/commands/logout
+  - /cli-documentation/commands/npm-logout
+  - /cli-documentation/logout
+  - /cli-documentation/npm-logout
+  - /cli-documentation/v8/cli-commands/logout
+  - /cli-documentation/v8/cli-commands/npm-logout
+  - /cli-documentation/v8/commands/logout
+  - /cli-documentation/v8/commands/npm-logout
+  - /cli-documentation/v8/logout
+  - /cli-documentation/v8/npm-logout
+  - /cli/cli-commands/logout
+  - /cli/cli-commands/npm-logout
   - /cli/commands/logout
+  - /cli/commands/npm-logout
   - /cli/logout
-  - /cli/logout.html
+  - /cli/npm-logout
+  - /cli/v8/cli-commands/logout
+  - /cli/v8/cli-commands/npm-logout
+  - /cli/v8/commands/logout
+  - /cli/v8/logout
+  - /cli/v8/npm-logout
+  - /commands/logout
+  - /commands/npm-logout
 ---
 
 ### Synopsis

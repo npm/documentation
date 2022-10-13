@@ -5,6 +5,18 @@ description: Test a package
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-test.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-test
+  - /cli-documentation/v6/cli-commands/test
+  - /cli-documentation/v6/commands/npm-test
+  - /cli-documentation/v6/commands/test
+  - /cli-documentation/v6/npm-test
+  - /cli-documentation/v6/test
+  - /cli/v6/cli-commands/npm-test
+  - /cli/v6/cli-commands/test
+  - /cli/v6/commands/test
+  - /cli/v6/npm-test
+  - /cli/v6/test
 ---
 
 ### Synopsis

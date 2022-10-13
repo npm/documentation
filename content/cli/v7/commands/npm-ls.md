@@ -5,6 +5,18 @@ description: List installed packages
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-ls.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/ls
+  - /cli-documentation/v7/cli-commands/npm-ls
+  - /cli-documentation/v7/commands/ls
+  - /cli-documentation/v7/commands/npm-ls
+  - /cli-documentation/v7/ls
+  - /cli-documentation/v7/npm-ls
+  - /cli/v7/cli-commands/ls
+  - /cli/v7/cli-commands/npm-ls
+  - /cli/v7/commands/ls
+  - /cli/v7/ls
+  - /cli/v7/npm-ls
 ---
 
 ### Synopsis

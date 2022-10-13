@@ -5,6 +5,12 @@ description: javascript package manager
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npm
+  - /cli-documentation/v7/commands/npm
+  - /cli-documentation/v7/npm
+  - /cli/v7/cli-commands/npm
+  - /cli/v7/npm
 ---
 
 ### Synopsis

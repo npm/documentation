@@ -8,10 +8,31 @@ github_path: docs/content/commands/npm-pkg.md
 redirect_from:
   - /cli-commands/npm-pkg
   - /cli-commands/pkg
-  - /cli-commands/pkg.html
+  - /cli-documentation/cli-commands/npm-pkg
+  - /cli-documentation/cli-commands/pkg
+  - /cli-documentation/commands/npm-pkg
+  - /cli-documentation/commands/pkg
+  - /cli-documentation/npm-pkg
+  - /cli-documentation/pkg
+  - /cli-documentation/v8/cli-commands/npm-pkg
+  - /cli-documentation/v8/cli-commands/pkg
+  - /cli-documentation/v8/commands/npm-pkg
+  - /cli-documentation/v8/commands/pkg
+  - /cli-documentation/v8/npm-pkg
+  - /cli-documentation/v8/pkg
+  - /cli/cli-commands/npm-pkg
+  - /cli/cli-commands/pkg
+  - /cli/commands/npm-pkg
   - /cli/commands/pkg
+  - /cli/npm-pkg
   - /cli/pkg
-  - /cli/pkg.html
+  - /cli/v8/cli-commands/npm-pkg
+  - /cli/v8/cli-commands/pkg
+  - /cli/v8/commands/pkg
+  - /cli/v8/npm-pkg
+  - /cli/v8/pkg
+  - /commands/npm-pkg
+  - /commands/pkg
 ---
 
 ### Synopsis

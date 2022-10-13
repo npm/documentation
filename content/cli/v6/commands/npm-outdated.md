@@ -5,6 +5,18 @@ description: Check for outdated packages
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-outdated.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-outdated
+  - /cli-documentation/v6/cli-commands/outdated
+  - /cli-documentation/v6/commands/npm-outdated
+  - /cli-documentation/v6/commands/outdated
+  - /cli-documentation/v6/npm-outdated
+  - /cli-documentation/v6/outdated
+  - /cli/v6/cli-commands/npm-outdated
+  - /cli/v6/cli-commands/outdated
+  - /cli/v6/commands/outdated
+  - /cli/v6/npm-outdated
+  - /cli/v6/outdated
 ---
 
 ### Synopsis

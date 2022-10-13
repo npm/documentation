@@ -5,6 +5,11 @@ description: An explanation of npm lockfiles
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/configuring-npm/package-locks.md
+redirect_from:
+  - /cli-documentation/v6/configuring-npm/package-locks
+  - /cli-documentation/v6/files/package-locks
+  - /cli/v6/files/package-locks
+  - /configuring-npm/package-locks
 ---
 
 ### Description

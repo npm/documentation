@@ -5,6 +5,14 @@ description: A manifestation of the manifest
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/configuring-npm/package-lock-json.md
+redirect_from:
+  - /cli-documentation/v7/configuring-npm/package-lock-json
+  - /cli-documentation/v7/configuring-npm/package-lock.json
+  - /cli-documentation/v7/files/package-lock-json
+  - /cli-documentation/v7/files/package-lock.json
+  - /cli/v7/configuring-npm/package-lock.json
+  - /cli/v7/files/package-lock-json
+  - /cli/v7/files/package-lock.json
 ---
 
 ### Description

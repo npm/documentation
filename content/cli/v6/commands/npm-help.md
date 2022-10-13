@@ -5,6 +5,18 @@ description: Get help on npm
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-help.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/help
+  - /cli-documentation/v6/cli-commands/npm-help
+  - /cli-documentation/v6/commands/help
+  - /cli-documentation/v6/commands/npm-help
+  - /cli-documentation/v6/help
+  - /cli-documentation/v6/npm-help
+  - /cli/v6/cli-commands/help
+  - /cli/v6/cli-commands/npm-help
+  - /cli/v6/commands/help
+  - /cli/v6/help
+  - /cli/v6/npm-help
 ---
 
 ### Synopsis

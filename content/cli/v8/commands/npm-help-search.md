@@ -7,11 +7,32 @@ github_branch: v8
 github_path: docs/content/commands/npm-help-search.md
 redirect_from:
   - /cli-commands/help-search
-  - /cli-commands/help-search.html
   - /cli-commands/npm-help-search
+  - /cli-documentation/cli-commands/help-search
+  - /cli-documentation/cli-commands/npm-help-search
+  - /cli-documentation/commands/help-search
+  - /cli-documentation/commands/npm-help-search
+  - /cli-documentation/help-search
+  - /cli-documentation/npm-help-search
+  - /cli-documentation/v8/cli-commands/help-search
+  - /cli-documentation/v8/cli-commands/npm-help-search
+  - /cli-documentation/v8/commands/help-search
+  - /cli-documentation/v8/commands/npm-help-search
+  - /cli-documentation/v8/help-search
+  - /cli-documentation/v8/npm-help-search
+  - /cli/cli-commands/help-search
+  - /cli/cli-commands/npm-help-search
   - /cli/commands/help-search
+  - /cli/commands/npm-help-search
   - /cli/help-search
-  - /cli/help-search.html
+  - /cli/npm-help-search
+  - /cli/v8/cli-commands/help-search
+  - /cli/v8/cli-commands/npm-help-search
+  - /cli/v8/commands/help-search
+  - /cli/v8/help-search
+  - /cli/v8/npm-help-search
+  - /commands/help-search
+  - /commands/npm-help-search
 ---
 
 ### Synopsis

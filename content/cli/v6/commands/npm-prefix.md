@@ -5,6 +5,18 @@ description: Display prefix
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-prefix.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-prefix
+  - /cli-documentation/v6/cli-commands/prefix
+  - /cli-documentation/v6/commands/npm-prefix
+  - /cli-documentation/v6/commands/prefix
+  - /cli-documentation/v6/npm-prefix
+  - /cli-documentation/v6/prefix
+  - /cli/v6/cli-commands/npm-prefix
+  - /cli/v6/cli-commands/prefix
+  - /cli/v6/commands/prefix
+  - /cli/v6/npm-prefix
+  - /cli/v6/prefix
 ---
 
 ### Synopsis

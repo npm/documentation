@@ -5,6 +5,18 @@ description: Add a registry user account
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-adduser.md
+redirect_from:
+  - /cli-documentation/v7/adduser
+  - /cli-documentation/v7/cli-commands/adduser
+  - /cli-documentation/v7/cli-commands/npm-adduser
+  - /cli-documentation/v7/commands/adduser
+  - /cli-documentation/v7/commands/npm-adduser
+  - /cli-documentation/v7/npm-adduser
+  - /cli/v7/adduser
+  - /cli/v7/cli-commands/adduser
+  - /cli/v7/cli-commands/npm-adduser
+  - /cli/v7/commands/adduser
+  - /cli/v7/npm-adduser
 ---
 
 ### Synopsis

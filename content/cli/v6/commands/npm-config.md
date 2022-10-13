@@ -5,6 +5,18 @@ description: Manage the npm configuration files
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-config.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/config
+  - /cli-documentation/v6/cli-commands/npm-config
+  - /cli-documentation/v6/commands/config
+  - /cli-documentation/v6/commands/npm-config
+  - /cli-documentation/v6/config
+  - /cli-documentation/v6/npm-config
+  - /cli/v6/cli-commands/config
+  - /cli/v6/cli-commands/npm-config
+  - /cli/v6/commands/config
+  - /cli/v6/config
+  - /cli/v6/npm-config
 ---
 
 ### Synopsis

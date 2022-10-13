@@ -5,6 +5,18 @@ description: Search for packages
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-search.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npm-search
+  - /cli-documentation/v7/cli-commands/search
+  - /cli-documentation/v7/commands/npm-search
+  - /cli-documentation/v7/commands/search
+  - /cli-documentation/v7/npm-search
+  - /cli-documentation/v7/search
+  - /cli/v7/cli-commands/npm-search
+  - /cli/v7/cli-commands/search
+  - /cli/v7/commands/search
+  - /cli/v7/npm-search
+  - /cli/v7/search
 ---
 
 ### Synopsis

@@ -5,6 +5,18 @@ description: Open package repository page in the browser
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-repo.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-repo
+  - /cli-documentation/v6/cli-commands/repo
+  - /cli-documentation/v6/commands/npm-repo
+  - /cli-documentation/v6/commands/repo
+  - /cli-documentation/v6/npm-repo
+  - /cli-documentation/v6/repo
+  - /cli/v6/cli-commands/npm-repo
+  - /cli/v6/cli-commands/repo
+  - /cli/v6/commands/repo
+  - /cli/v6/npm-repo
+  - /cli/v6/repo
 ---
 
 ### Synopsis

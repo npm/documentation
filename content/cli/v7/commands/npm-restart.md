@@ -5,6 +5,18 @@ description: Restart a package
 github_repo: npm/cli
 github_branch: v7
 github_path: docs/content/commands/npm-restart.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npm-restart
+  - /cli-documentation/v7/cli-commands/restart
+  - /cli-documentation/v7/commands/npm-restart
+  - /cli-documentation/v7/commands/restart
+  - /cli-documentation/v7/npm-restart
+  - /cli-documentation/v7/restart
+  - /cli/v7/cli-commands/npm-restart
+  - /cli/v7/cli-commands/restart
+  - /cli/v7/commands/restart
+  - /cli/v7/npm-restart
+  - /cli/v7/restart
 ---
 
 ### Synopsis

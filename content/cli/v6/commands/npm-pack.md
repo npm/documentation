@@ -5,6 +5,18 @@ description: Create a tarball from a package
 github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/commands/npm-pack.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-pack
+  - /cli-documentation/v6/cli-commands/pack
+  - /cli-documentation/v6/commands/npm-pack
+  - /cli-documentation/v6/commands/pack
+  - /cli-documentation/v6/npm-pack
+  - /cli-documentation/v6/pack
+  - /cli/v6/cli-commands/npm-pack
+  - /cli/v6/cli-commands/pack
+  - /cli/v6/commands/pack
+  - /cli/v6/npm-pack
+  - /cli/v6/pack
 ---
 
 ### Synopsis
