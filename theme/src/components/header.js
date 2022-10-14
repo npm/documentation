@@ -45,7 +45,7 @@ function Header({location, isSearchEnabled = true}) {
         bg="#333333"
       >
         <Flex alignItems="center">
-          <Link as={GatsbyLink} to="/" style={logoStyle} mr={3}>
+          <Link as={GatsbyLink} to="/" style={logoStyle} mr={3} title='NPM home'>
             <NpmLogo size="32" />
           </Link>
           <Link as={GatsbyLink} to="/" style={titleStyle} mr={4}>
