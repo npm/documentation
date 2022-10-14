@@ -22,7 +22,7 @@
     "front-matter": "^4.0.2",
     "minimatch": "^5.1.0",
     "minipass": "^3.3.4",
-    "pacote": "^14.0.0",
+    "pacote": "^15.0.0",
     "proc-log": "^2.0.1",
     "semver": "^7.3.8",
     "tar": "^6.1.11",
