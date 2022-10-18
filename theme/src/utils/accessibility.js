@@ -24,6 +24,7 @@ function activateArrowKeyNavigation (container, targetSelector) {
 
   targets.forEach(target => target.addEventListener('keydown', navigationHandler))
   return {
+    targets,
     deactivate: () => targets.forEach(target => target.removeEventListener('keydown', navigationHandler))
   }
 }

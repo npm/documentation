@@ -10,8 +10,17 @@ function Sidebar({location, editOnGitHub}) {
 
   React.useEffect(() => {
     const arrowKeyNavigation = activateArrowKeyNavigation(sidebarRef.current, 'div > a')
+    setFocusOnActiveItem(arrowKeyNavigation)
     return arrowKeyNavigation.deactivate
-  }, [sidebarRef.current])
+  }, [location])
+
+  function setFocusOnActiveItem(arrowKeyNavigation) {
+    const activeMenuItem = arrowKeyNavigation.targets.find(element => element.href === location.href)
+    if (!activeMenuItem) {
+      return
+    }
+    activeMenuItem.focus()
+  }
 
   return (
     <Position
@@ -31,7 +40,7 @@ function Sidebar({location, editOnGitHub}) {
         style={{overflow: 'auto'}}
       >
         <Flex flexDirection="column">
-          <NavItems location={location} items={navItems} editOnGitHub={editOnGitHub} />
+          <NavItems location={location} items={navItems} editOnGitHub={editOnGitHub}/>
         </Flex>
       </BorderBox>
     </Position>
