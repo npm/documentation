@@ -71,6 +71,7 @@ module.exports = {
     // A special case for a path that was deleted in v7, but we still
     // want the old v6 default url to resolve.
     { path: join('/', section, page), default: release.id === 'v6' },
+    { path: join(section, page), default: release.id === 'v6' },
   ],
 
   // using npm
