@@ -6,10 +6,15 @@ github_repo: npm/cli
 github_branch: v6
 github_path: docs/content/configuring-npm/package-locks.md
 redirect_from:
+  - /cli-documentation/configuring-npm/package-locks
+  - /cli-documentation/files/package-locks
   - /cli-documentation/v6/configuring-npm/package-locks
   - /cli-documentation/v6/files/package-locks
+  - /cli/configuring-npm/package-locks
+  - /cli/files/package-locks
   - /cli/v6/files/package-locks
   - /configuring-npm/package-locks
+  - /files/package-locks
 ---
 
 ### Description
