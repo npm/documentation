@@ -5,7 +5,7 @@ import Contributors from './contributors'
 
 function PageFooter({ editOnGitHub, editUrl, contributors }) {
   return editUrl || contributors.length > 0 ? (
-    <BorderBox borderWidth={0} borderTopWidth={1} mt={8} py={5} role="contentinfo">
+    <BorderBox borderWidth={0} borderTopWidth={1} mt={8} py={5}>
       <Grid gridGap={4}>
         {editOnGitHub !== false && editUrl != null ? (
           <Link href={editUrl}>

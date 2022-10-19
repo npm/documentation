@@ -50,7 +50,7 @@ function Layout({children, pageContext, location}) {
       <Flex flexDirection="column" minHeight="100vh">
         <Head title={title} description={description} />
         <Header location={location} isSearchEnabled={pageContext.isSearchEnabled} />
-        <Flex flex="1 1 auto" flexDirection="row" css={{zIndex: 0}}>
+        <Flex flex="1 1 auto" flexDirection="row" css={{zIndex: 0}} role="main">
           <Box display={['none', null, null, 'block']}>
             <Sidebar
               editOnGitHub={  
@@ -76,7 +76,7 @@ function Layout({children, pageContext, location}) {
             css={{alignItems: 'start', alignSelf: 'start'}}
             role="region"
           >
-            <Box css={{gridArea: 'heading'}} role="banner">
+            <Box css={{gridArea: 'heading'}}>
               <BorderBox
                 borderWidth={0}
                 borderBottomWidth={1}
@@ -104,7 +104,6 @@ function Layout({children, pageContext, location}) {
                 top={HEADER_HEIGHT + 24}
                 mt="6px"
                 maxHeight={`calc(100vh - ${HEADER_HEIGHT}px - 24px)`}
-                role="complementary"
               >
                 <Text display="inline-block" fontWeight="bold" mb={1}>
                   Table of contents
@@ -112,7 +111,7 @@ function Layout({children, pageContext, location}) {
                 <TableOfContents items={pageContext.tableOfContents.items} />
               </Position>
             ) : null}
-            <Box css={{gridArea: 'content'}} role="main">
+            <Box css={{gridArea: 'content'}}>
               {status || source ? (
                 <Flex mb={3} alignItems="center">
                   {status ? <StatusLabel status={status} /> : null}
