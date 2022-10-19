@@ -2,7 +2,6 @@ const pacote = require('pacote')
 const tar = require('tar')
 const { join, sep, dirname, posix } = require('path')
 const fs = require('fs/promises')
-const semver = require('semver')
 const yaml = require('yaml')
 const Transform = require('./transform')
 const gh = require('./gh')
@@ -99,24 +98,10 @@ const resolveRelease = async (
   { resolved: current, ...release },
   { force, prerelease }
 ) => {
-  const manifest = await pacote.manifest(`${gh.owner}@${release.spec}`, {
-    preferOnline: true,
-  })
-
-  release.version = manifest.version
-  const isPre = semver.parse(release.version).prerelease.length > 0
-
-  if (isPre && !prerelease) {
+  if (release.prerelease && !prerelease) {
     log.info(`Skipping ${release.id} due to prerelease ${release.version}`)
     return null
   }
-
-  const versionType = release.default
-    ? 'Current Release'
-    : isPre
-      ? 'Prerelease'
-      : 'Legacy Release'
-  release.title = `Version ${release.version} (${versionType})`
 
   // The legacy v6 release has updated docs in GitHub that were never
   // published. So in this case we skip cloning the repo with pacote
@@ -126,8 +111,8 @@ const resolveRelease = async (
   if (release.useBranch) {
     release.resolved = await gh.getLatestSha(release.branch)
   } else {
-    release.resolved = manifest._resolved
-    release.spec = manifest._from
+    release.resolved = release.manifest._resolved
+    release.spec = release.manifest._from
   }
 
   log.info(release.id, release.version, release.resolved)

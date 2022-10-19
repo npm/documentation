@@ -16,7 +16,6 @@
     "id": "v8",
     "branch": "v8",
     "spec": "latest",
-    "default": true,
     "resolved": "https://registry.npmjs.org/npm/-/npm-8.19.2.tgz"
   },
   {
@@ -24,6 +23,6 @@
     "branch": "latest",
     "spec": "next-9",
     "src": "docs/lib/content",
-    "resolved": "https://registry.npmjs.org/npm/-/npm-9.0.0-pre.4.tgz"
+    "resolved": "https://registry.npmjs.org/npm/-/npm-9.0.0-pre.5.tgz"
   }
 ]
