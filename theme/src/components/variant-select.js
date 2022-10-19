@@ -38,7 +38,7 @@ function VariantSelect(props) {
   });
 
   return (
-      <Dropdown overlay={props.overlay}>
+      <Dropdown aria-label='Version release' overlay={props.overlay}>
           <Dropdown.Button>{selectedItem.variant.title}</Dropdown.Button>
           <VariantSelect.Menu direction={props.direction} width={props.menuWidth}>
               {items}
