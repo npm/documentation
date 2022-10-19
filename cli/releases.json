@@ -23,6 +23,6 @@
     "branch": "latest",
     "spec": "next-9",
     "src": "docs/lib/content",
-    "resolved": "https://registry.npmjs.org/npm/-/npm-9.0.0-pre.5.tgz"
+    "resolved": "https://registry.npmjs.org/npm/-/npm-9.0.0.tgz"
   }
 ]
