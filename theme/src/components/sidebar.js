@@ -15,7 +15,8 @@ function Sidebar({location, editOnGitHub}) {
   }, [location])
 
   function setFocusOnActiveItem(menuItems) {
-    const activeMenuItem = menuItems.find(element => element.href === location.href)
+    const prepareHref = (str) => str.replace(/\/$/, '')
+    const activeMenuItem = menuItems.find(element => prepareHref(element.href) === prepareHref(location.href))
     if (!activeMenuItem) {
       return
     }
