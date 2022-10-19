@@ -10,12 +10,12 @@ function Sidebar({location, editOnGitHub}) {
 
   React.useEffect(() => {
     const arrowKeyNavigation = activateArrowKeyNavigation(sidebarRef.current, 'div > a')
-    setFocusOnActiveItem(arrowKeyNavigation)
+    setFocusOnActiveItem(arrowKeyNavigation.targets)
     return arrowKeyNavigation.deactivate
   }, [location])
 
-  function setFocusOnActiveItem(arrowKeyNavigation) {
-    const activeMenuItem = arrowKeyNavigation.targets.find(element => element.href === location.href)
+  function setFocusOnActiveItem(menuItems) {
+    const activeMenuItem = menuItems.find(element => element.href === location.href)
     if (!activeMenuItem) {
       return
     }
