@@ -31,8 +31,8 @@ function Header({location, isSearchEnabled = true}) {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = React.useState(false)
   const siteMetadata = useSiteMetadata()
 
-  const logoStyle = { 'color': '#cb0000' };
-  const titleStyle = { 'color': '#dddddd', 'fontWeight': '600' };
+  const logoStyle = { 'color': '#cb0000', 'marginRight': '16px' };
+  const titleStyle = { 'color': '#dddddd', 'fontWeight': '600', 'display': 'flex', 'alignItems': 'center' };
 
   return (
     <Sticky>
@@ -45,10 +45,8 @@ function Header({location, isSearchEnabled = true}) {
         bg="#333333"
       >
         <Flex alignItems="center">
-          <Link as={GatsbyLink} to="/" style={logoStyle} mr={3}>
-            <NpmLogo size="32" />
-          </Link>
           <Link as={GatsbyLink} to="/" style={titleStyle} mr={4}>
+            <NpmLogo size="32" style={logoStyle} />
             {siteMetadata.title}
           </Link>
 
