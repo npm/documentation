@@ -6,6 +6,7 @@ import useSearch from '../use-search'
 import useSiteMetadata from '../use-site-metadata'
 import DarkTextInput from './dark-text-input'
 import SearchResults from './search-results'
+import styled from 'styled-components';
 
 Search.DarkTextInput = styled(DarkTextInput)`
   white-space: $(props => props.white-space ? props.white-space : 'break-spaces');
