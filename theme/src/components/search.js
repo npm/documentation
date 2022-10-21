@@ -56,12 +56,12 @@ function Search() {
         highlightedIndex,
       }) => (
         <Position {...getRootProps({position: 'relative'})}>
-          <Search.DarkTextInput
+          <Search.DarkTextInput>
             {...getInputProps({
               placeholder: `Search ${siteMetadata.title}`,
               width: 240,
             })}
-          />
+          </Search.DarkTextInput>
           {isOpen ? (
             <Position
               {...getMenuProps({
