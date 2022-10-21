@@ -7,6 +7,10 @@ import useSiteMetadata from '../use-site-metadata'
 import DarkTextInput from './dark-text-input'
 import SearchResults from './search-results'
 
+Search.DarkTextInput = styled(DarkTextInput)`
+  white-space: $(props => props.white-space ? props.white-space : 'break-spaces');
+`
+
 function stateReducer(state, changes) {
   switch (changes.type) {
     case Downshift.stateChangeTypes.changeInput:
@@ -52,7 +56,7 @@ function Search() {
         highlightedIndex,
       }) => (
         <Position {...getRootProps({position: 'relative'})}>
-          <DarkTextInput
+          <Search.DarkTextInput
             {...getInputProps({
               placeholder: `Search ${siteMetadata.title}`,
               width: 240,
