@@ -287,6 +287,7 @@
   variants:
     - title: Version 6.14.17 (Legacy Release)
       shortName: v6
+      tabIndex: 1
       url: /cli/v6
       default: false
       children:
@@ -527,6 +528,7 @@
     - title: Version 7.24.2 (Legacy Release)
       shortName: v7
       url: /cli/v7
+      tabIndex: 2
       default: false
       children:
         - title: CLI Commands
@@ -781,6 +783,7 @@
     - title: Version 8.19.2 (Latest Release)
       shortName: v8
       url: /cli/v8
+      tabIndex: 3
       default: true
       children:
         - title: CLI Commands
@@ -1048,6 +1051,7 @@
       shortName: v9
       url: /cli/v9
       default: false
+      tabIndex: 4
       children:
         - title: CLI Commands
           shortName: Commands
