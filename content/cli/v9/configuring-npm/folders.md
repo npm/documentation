@@ -31,7 +31,7 @@ This document will tell you what it puts where.
 
 The [`prefix` config](/cli/v9/using-npm/config#prefix) defaults to the location where
 node is installed. On most systems, this is `/usr/local`. On Windows, it's
-`%AppData%\npm`. On Unix systems, it's one level up, since node is typically
+`%ProgramFiles%\nodejs`. On Unix systems, it's one level up, since node is typically
 installed at `{prefix}/bin/node` rather than `{prefix}/node.exe`.
 
 When the `global` flag is set, npm installs things into this prefix.

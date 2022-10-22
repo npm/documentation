@@ -30,7 +30,7 @@ This document will tell you what it puts where.
 #### prefix Configuration
 
 The `prefix` config defaults to the location where node is installed.
-On most systems, this is `/usr/local`. On Windows, it's `%AppData%\npm`.
+On most systems, this is `/usr/local`. On Windows, it's `%ProgramFiles%\nodejs`.
 On Unix systems, it's one level up, since node is typically installed at
 `{prefix}/bin/node` rather than `{prefix}/node.exe`.
 
