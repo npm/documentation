@@ -16,6 +16,18 @@ VariantSelect.Menu = styled(Dropdown.Menu)`
 function VariantSelect(props) {
   const path = NavHierarchy.getPath(props.location.pathname);
   const vp = NavHierarchy.getVariantAndPage(props.root, path);
+  const wrapper = React.createRef(null)
+
+  React.useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search)
+    if (queryParams.get('v') === 'true') {
+      wrapper?.current?.querySelector('summary')?.focus()
+
+      const url = new URL(window.location);
+      url.searchParams.delete('v')
+      window.history.replaceState(null, '', url.toString());
+    }
+  }, [])
 
   if (!vp) {
       return null;
@@ -34,16 +46,18 @@ function VariantSelect(props) {
           selectedItem = match;
       }
 
-      items.push(<Dropdown.Item onClick={() => { window.location.href = match.page.url; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
+      items.push(<Dropdown.Item onClick={() => { window.location.href = match.page.url + "?v=true"; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
   });
 
   return (
+    <div ref={wrapper}>
       <Dropdown overlay={props.overlay}>
           <Dropdown.Button>{selectedItem.variant.title}</Dropdown.Button>
           <VariantSelect.Menu direction={props.direction} width={props.menuWidth}>
               {items}
           </VariantSelect.Menu>
       </Dropdown>
+    </div>
   );
 }
 
