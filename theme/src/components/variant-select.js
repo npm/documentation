@@ -29,12 +29,12 @@ function VariantSelect(props) {
       return null;
   }
 
-  variantPages.forEach((match) => {
+  variantPages.forEach((match, index) => {
       if (match.page.url === path) {
           selectedItem = match;
       }
 
-      items.push(<Dropdown.Item onClick={() => { window.location.href = match.page.url; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
+      items.push(<Dropdown.Item aria-label={`List items ${index + 1} of ${variantPages.length}`} onClick={() => { window.location.href = match.page.url; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
   });
 
   return (
