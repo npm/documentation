@@ -35,7 +35,7 @@ function Header({location, isSearchEnabled = true}) {
   const titleStyle = { 'color': '#dddddd', 'fontWeight': '600', 'display': 'flex', 'alignItems': 'center' };
 
   return (
-    <Sticky>
+    <Sticky role="banner">
       <NpmHeaderBar />
       <Flex
         height={HEADER_HEIGHT}
