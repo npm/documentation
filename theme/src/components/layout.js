@@ -53,7 +53,7 @@ function Layout({children, pageContext, location}) {
         <Flex flex="1 1 auto" flexDirection="row" css={{zIndex: 0}} role="main">
           <Box display={['none', null, null, 'block']}>
             <Sidebar
-              editOnGitHub={  
+              editOnGitHub={
                 pageContext.themeOptions.showSidebarEditLink &&
                 pageContext.themeOptions.editOnGitHub
               }
