@@ -3,7 +3,7 @@ title: npm-edit
 section: 1
 description: Edit an installed package
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-edit.md
 redirect_from:
   - /cli-commands/edit

@@ -104,3 +104,18 @@ t.test('earlier release is latest', async (t) => {
 
   await build()
 })
+
+t.test('add variant to nav', async (t) => {
+  const releases = getReleases()
+  releases[1].spec = 'latest'
+  releases[2].spec = '^8'
+
+  const build = await mockBuild({
+    releases,
+    testdir: {
+      'nav.yml': '- title: cli\n  url: /cli\n  variants:\n    - url: /cli/v0',
+    },
+  })
+
+  await build({ force: true })
+})

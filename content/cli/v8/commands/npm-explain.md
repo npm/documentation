@@ -3,7 +3,7 @@ title: npm-explain
 section: 1
 description: Explain installed packages
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-explain.md
 redirect_from:
   - /cli-commands/explain

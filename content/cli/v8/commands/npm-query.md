@@ -3,7 +3,7 @@ title: npm-query
 section: 1
 description: Dependency selector query
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-query.md
 redirect_from:
   - /cli-commands/npm-query
