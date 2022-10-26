@@ -3,7 +3,7 @@ title: scripts
 section: 7
 description: How npm handles the "scripts" field
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/using-npm/scripts.md
 redirect_from:
   - /cli-documentation/v7/misc/scripts

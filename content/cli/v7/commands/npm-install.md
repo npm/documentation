@@ -3,7 +3,7 @@ title: npm-install
 section: 1
 description: Install a package
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-install.md
 redirect_from:
   - /cli-documentation/v7/cli-commands/install

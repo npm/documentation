@@ -1,4 +1,4 @@
-const { posix, join, sep } = require('path')
+const { posix } = require('path')
 const fs = require('fs').promises
 const yaml = require('yaml')
 const semver = require('semver')
@@ -63,10 +63,6 @@ const main = async ({
     log.on(loglevel)
   }
 
-  // convert paths to whatever platform we are on so they
-  // can be used to write files later
-  const defaultBuiltDir = join('docs', 'content')
-
   const rawReleases = require(releasesPath)
 
   const releaseManifests = await Promise.all(rawReleases.map(async release => {
@@ -98,11 +94,6 @@ const main = async ({
     return {
       ...release,
       title: `Version ${release.version} (${type})`,
-      // dir of the built docs that should be copied
-      built: defaultBuiltDir,
-      // dir of the source for the docs that should
-      // be linked to for editing on github
-      src: release.src?.split(posix.sep).join(sep) || defaultBuiltDir,
       url: `/${DOCS_PATH}/${release.id}`,
       urlPrefix: DOCS_PATH,
       urlPrefixes: [DOCS_PATH, `${DOCS_PATH}-documentation`],

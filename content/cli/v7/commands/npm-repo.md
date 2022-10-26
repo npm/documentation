@@ -3,7 +3,7 @@ title: npm-repo
 section: 1
 description: Open package repository page in the browser
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-repo.md
 redirect_from:
   - /cli-documentation/v7/cli-commands/npm-repo

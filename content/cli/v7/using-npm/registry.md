@@ -3,7 +3,7 @@ title: registry
 section: 7
 description: The JavaScript Package Registry
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/using-npm/registry.md
 redirect_from:
   - /cli-documentation/v7/misc/registry
