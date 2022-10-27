@@ -3,13 +3,18 @@ title: scripts
 section: 7
 description: How npm handles the "scripts" field
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/using-npm/scripts.md
 redirect_from:
+  - /cli-documentation/misc/scripts
+  - /cli-documentation/using-npm/scripts
+  - /cli-documentation/v8/misc/scripts
+  - /cli-documentation/v8/using-npm/scripts
+  - /cli/misc/scripts
+  - /cli/using-npm/scripts
+  - /cli/v8/misc/scripts
   - /misc/scripts
-  - /misc/scripts.html
   - /using-npm/scripts
-  - /using-npm/scripts.html
 ---
 
 ### Description

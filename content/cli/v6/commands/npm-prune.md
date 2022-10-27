@@ -3,8 +3,20 @@ title: npm-prune
 section: 1
 description: Remove extraneous packages
 github_repo: npm/cli
-github_branch: v6
+github_branch: release/v6
 github_path: docs/content/commands/npm-prune.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-prune
+  - /cli-documentation/v6/cli-commands/prune
+  - /cli-documentation/v6/commands/npm-prune
+  - /cli-documentation/v6/commands/prune
+  - /cli-documentation/v6/npm-prune
+  - /cli-documentation/v6/prune
+  - /cli/v6/cli-commands/npm-prune
+  - /cli/v6/cli-commands/prune
+  - /cli/v6/commands/prune
+  - /cli/v6/npm-prune
+  - /cli/v6/prune
 ---
 
 ### Synopsis

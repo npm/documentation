@@ -3,14 +3,18 @@ title: npmrc
 section: 5
 description: The npm config files
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/configuring-npm/npmrc.md
 redirect_from:
+  - /cli-documentation/configuring-npm/npmrc
   - /cli-documentation/files/npmrc
+  - /cli-documentation/v8/configuring-npm/npmrc
+  - /cli-documentation/v8/files/npmrc
+  - /cli/configuring-npm/npmrc
+  - /cli/files/npmrc
+  - /cli/v8/files/npmrc
   - /configuring-npm/npmrc
-  - /configuring-npm/npmrc.html
   - /files/npmrc
-  - /files/npmrc.html
 ---
 
 ### Description

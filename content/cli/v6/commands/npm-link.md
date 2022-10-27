@@ -3,8 +3,20 @@ title: npm-link
 section: 1
 description: Symlink a package folder
 github_repo: npm/cli
-github_branch: v6
+github_branch: release/v6
 github_path: docs/content/commands/npm-link.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/link
+  - /cli-documentation/v6/cli-commands/npm-link
+  - /cli-documentation/v6/commands/link
+  - /cli-documentation/v6/commands/npm-link
+  - /cli-documentation/v6/link
+  - /cli-documentation/v6/npm-link
+  - /cli/v6/cli-commands/link
+  - /cli/v6/cli-commands/npm-link
+  - /cli/v6/commands/link
+  - /cli/v6/link
+  - /cli/v6/npm-link
 ---
 
 ### Synopsis

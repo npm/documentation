@@ -3,8 +3,20 @@ title: npm-audit
 section: 1
 description: Run a security audit
 github_repo: npm/cli
-github_branch: v6
+github_branch: release/v6
 github_path: docs/content/commands/npm-audit.md
+redirect_from:
+  - /cli-documentation/v6/audit
+  - /cli-documentation/v6/cli-commands/audit
+  - /cli-documentation/v6/cli-commands/npm-audit
+  - /cli-documentation/v6/commands/audit
+  - /cli-documentation/v6/commands/npm-audit
+  - /cli-documentation/v6/npm-audit
+  - /cli/v6/audit
+  - /cli/v6/cli-commands/audit
+  - /cli/v6/cli-commands/npm-audit
+  - /cli/v6/commands/audit
+  - /cli/v6/npm-audit
 ---
 
 ### Synopsis

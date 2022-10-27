@@ -3,13 +3,18 @@ title: Logging
 section: 7
 description: Why, What & How We Log
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/using-npm/logging.md
 redirect_from:
+  - /cli-documentation/misc/logging
+  - /cli-documentation/using-npm/logging
+  - /cli-documentation/v8/misc/logging
+  - /cli-documentation/v8/using-npm/logging
+  - /cli/misc/logging
+  - /cli/using-npm/logging
+  - /cli/v8/misc/logging
   - /misc/logging
-  - /misc/logging.html
   - /using-npm/logging
-  - /using-npm/logging.html
 ---
 
 ### Description

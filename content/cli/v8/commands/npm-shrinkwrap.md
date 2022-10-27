@@ -3,15 +3,36 @@ title: npm-shrinkwrap
 section: 1
 description: Lock down dependency versions for publication
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-shrinkwrap.md
 redirect_from:
   - /cli-commands/npm-shrinkwrap
   - /cli-commands/shrinkwrap
-  - /cli-commands/shrinkwrap.html
+  - /cli-documentation/cli-commands/npm-shrinkwrap
+  - /cli-documentation/cli-commands/shrinkwrap
+  - /cli-documentation/commands/npm-shrinkwrap
+  - /cli-documentation/commands/shrinkwrap
+  - /cli-documentation/npm-shrinkwrap
+  - /cli-documentation/shrinkwrap
+  - /cli-documentation/v8/cli-commands/npm-shrinkwrap
+  - /cli-documentation/v8/cli-commands/shrinkwrap
+  - /cli-documentation/v8/commands/npm-shrinkwrap
+  - /cli-documentation/v8/commands/shrinkwrap
+  - /cli-documentation/v8/npm-shrinkwrap
+  - /cli-documentation/v8/shrinkwrap
+  - /cli/cli-commands/npm-shrinkwrap
+  - /cli/cli-commands/shrinkwrap
+  - /cli/commands/npm-shrinkwrap
   - /cli/commands/shrinkwrap
+  - /cli/npm-shrinkwrap
   - /cli/shrinkwrap
-  - /cli/shrinkwrap.html
+  - /cli/v8/cli-commands/npm-shrinkwrap
+  - /cli/v8/cli-commands/shrinkwrap
+  - /cli/v8/commands/shrinkwrap
+  - /cli/v8/npm-shrinkwrap
+  - /cli/v8/shrinkwrap
+  - /commands/npm-shrinkwrap
+  - /commands/shrinkwrap
 ---
 
 ### Synopsis

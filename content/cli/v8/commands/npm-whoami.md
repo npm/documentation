@@ -3,15 +3,36 @@ title: npm-whoami
 section: 1
 description: Display npm username
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-whoami.md
 redirect_from:
   - /cli-commands/npm-whoami
   - /cli-commands/whoami
-  - /cli-commands/whoami.html
+  - /cli-documentation/cli-commands/npm-whoami
+  - /cli-documentation/cli-commands/whoami
+  - /cli-documentation/commands/npm-whoami
+  - /cli-documentation/commands/whoami
+  - /cli-documentation/npm-whoami
+  - /cli-documentation/v8/cli-commands/npm-whoami
+  - /cli-documentation/v8/cli-commands/whoami
+  - /cli-documentation/v8/commands/npm-whoami
+  - /cli-documentation/v8/commands/whoami
+  - /cli-documentation/v8/npm-whoami
+  - /cli-documentation/v8/whoami
+  - /cli-documentation/whoami
+  - /cli/cli-commands/npm-whoami
+  - /cli/cli-commands/whoami
+  - /cli/commands/npm-whoami
   - /cli/commands/whoami
+  - /cli/npm-whoami
+  - /cli/v8/cli-commands/npm-whoami
+  - /cli/v8/cli-commands/whoami
+  - /cli/v8/commands/whoami
+  - /cli/v8/npm-whoami
+  - /cli/v8/whoami
   - /cli/whoami
-  - /cli/whoami.html
+  - /commands/npm-whoami
+  - /commands/whoami
 ---
 
 ### Synopsis

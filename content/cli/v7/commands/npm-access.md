@@ -3,8 +3,20 @@ title: npm-access
 section: 1
 description: Set access level on published packages
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-access.md
+redirect_from:
+  - /cli-documentation/v7/access
+  - /cli-documentation/v7/cli-commands/access
+  - /cli-documentation/v7/cli-commands/npm-access
+  - /cli-documentation/v7/commands/access
+  - /cli-documentation/v7/commands/npm-access
+  - /cli-documentation/v7/npm-access
+  - /cli/v7/access
+  - /cli/v7/cli-commands/access
+  - /cli/v7/cli-commands/npm-access
+  - /cli/v7/commands/access
+  - /cli/v7/npm-access
 ---
 
 ### Synopsis

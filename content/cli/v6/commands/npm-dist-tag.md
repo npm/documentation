@@ -3,8 +3,20 @@ title: npm-dist-tag
 section: 1
 description: Modify package distribution tags
 github_repo: npm/cli
-github_branch: v6
+github_branch: release/v6
 github_path: docs/content/commands/npm-dist-tag.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/dist-tag
+  - /cli-documentation/v6/cli-commands/npm-dist-tag
+  - /cli-documentation/v6/commands/dist-tag
+  - /cli-documentation/v6/commands/npm-dist-tag
+  - /cli-documentation/v6/dist-tag
+  - /cli-documentation/v6/npm-dist-tag
+  - /cli/v6/cli-commands/dist-tag
+  - /cli/v6/cli-commands/npm-dist-tag
+  - /cli/v6/commands/dist-tag
+  - /cli/v6/dist-tag
+  - /cli/v6/npm-dist-tag
 ---
 
 ### Synopsis

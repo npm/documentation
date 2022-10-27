@@ -3,8 +3,20 @@ title: npm-org
 section: 1
 description: Manage orgs
 github_repo: npm/cli
-github_branch: v6
+github_branch: release/v6
 github_path: docs/content/commands/npm-org.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-org
+  - /cli-documentation/v6/cli-commands/org
+  - /cli-documentation/v6/commands/npm-org
+  - /cli-documentation/v6/commands/org
+  - /cli-documentation/v6/npm-org
+  - /cli-documentation/v6/org
+  - /cli/v6/cli-commands/npm-org
+  - /cli/v6/cli-commands/org
+  - /cli/v6/commands/org
+  - /cli/v6/npm-org
+  - /cli/v6/org
 ---
 
 ### Synopsis

@@ -13,6 +13,7 @@ function Sidebar({location, editOnGitHub}) {
       minWidth={260}
       color="gray.8"
       bg="gray.0"
+      role="navigation"
     >
       <BorderBox
         borderWidth={0}

@@ -3,8 +3,20 @@ title: npm-version
 section: 1
 description: Bump a package version
 github_repo: npm/cli
-github_branch: v6
+github_branch: release/v6
 github_path: docs/content/commands/npm-version.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-version
+  - /cli-documentation/v6/cli-commands/version
+  - /cli-documentation/v6/commands/npm-version
+  - /cli-documentation/v6/commands/version
+  - /cli-documentation/v6/npm-version
+  - /cli-documentation/v6/version
+  - /cli/v6/cli-commands/npm-version
+  - /cli/v6/cli-commands/version
+  - /cli/v6/commands/version
+  - /cli/v6/npm-version
+  - /cli/v6/version
 ---
 
 ### Synopsis

@@ -3,15 +3,36 @@ title: npm-adduser
 section: 1
 description: Add a registry user account
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-adduser.md
 redirect_from:
   - /cli-commands/adduser
-  - /cli-commands/adduser.html
   - /cli-commands/npm-adduser
+  - /cli-documentation/adduser
+  - /cli-documentation/cli-commands/adduser
+  - /cli-documentation/cli-commands/npm-adduser
+  - /cli-documentation/commands/adduser
+  - /cli-documentation/commands/npm-adduser
+  - /cli-documentation/npm-adduser
+  - /cli-documentation/v8/adduser
+  - /cli-documentation/v8/cli-commands/adduser
+  - /cli-documentation/v8/cli-commands/npm-adduser
+  - /cli-documentation/v8/commands/adduser
+  - /cli-documentation/v8/commands/npm-adduser
+  - /cli-documentation/v8/npm-adduser
   - /cli/adduser
-  - /cli/adduser.html
+  - /cli/cli-commands/adduser
+  - /cli/cli-commands/npm-adduser
   - /cli/commands/adduser
+  - /cli/commands/npm-adduser
+  - /cli/npm-adduser
+  - /cli/v8/adduser
+  - /cli/v8/cli-commands/adduser
+  - /cli/v8/cli-commands/npm-adduser
+  - /cli/v8/commands/adduser
+  - /cli/v8/npm-adduser
+  - /commands/adduser
+  - /commands/npm-adduser
 ---
 
 ### Synopsis

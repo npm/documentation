@@ -3,8 +3,12 @@ title: semver
 section: 7
 description: The semantic versioner for npm
 github_repo: npm/cli
-github_branch: v6
+github_branch: release/v6
 github_path: docs/content/using-npm/semver.md
+redirect_from:
+  - /cli-documentation/v6/misc/semver
+  - /cli-documentation/v6/using-npm/semver
+  - /cli/v6/misc/semver
 ---
 
 ## Install

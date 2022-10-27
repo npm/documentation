@@ -3,8 +3,20 @@ title: npm-init
 section: 1
 description: Create a package.json file
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-init.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/init
+  - /cli-documentation/v7/cli-commands/npm-init
+  - /cli-documentation/v7/commands/init
+  - /cli-documentation/v7/commands/npm-init
+  - /cli-documentation/v7/init
+  - /cli-documentation/v7/npm-init
+  - /cli/v7/cli-commands/init
+  - /cli/v7/cli-commands/npm-init
+  - /cli/v7/commands/init
+  - /cli/v7/init
+  - /cli/v7/npm-init
 ---
 
 ### Synopsis

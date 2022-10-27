@@ -3,8 +3,20 @@ title: npm-publish
 section: 1
 description: Publish a package
 github_repo: npm/cli
-github_branch: v6
+github_branch: release/v6
 github_path: docs/content/commands/npm-publish.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-publish
+  - /cli-documentation/v6/cli-commands/publish
+  - /cli-documentation/v6/commands/npm-publish
+  - /cli-documentation/v6/commands/publish
+  - /cli-documentation/v6/npm-publish
+  - /cli-documentation/v6/publish
+  - /cli/v6/cli-commands/npm-publish
+  - /cli/v6/cli-commands/publish
+  - /cli/v6/commands/publish
+  - /cli/v6/npm-publish
+  - /cli/v6/publish
 ---
 
 ### Synopsis

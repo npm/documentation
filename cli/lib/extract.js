@@ -2,16 +2,15 @@ const pacote = require('pacote')
 const tar = require('tar')
 const { join, sep, dirname, posix } = require('path')
 const fs = require('fs/promises')
-const semver = require('semver')
 const yaml = require('yaml')
 const Transform = require('./transform')
 const gh = require('./gh')
 const log = require('./log')
 
-const unpackTarball = async ({ release, cwd, dir: dirParts }) => {
+const unpackTarball = async ({ release, cwd, dir }) => {
   const strip = 1
   const result = []
-  const dir = join(...dirParts)
+  const dirParts = dir.split(sep)
 
   log.verbose('tarball', release.resolved, { cwd, dir })
 
@@ -48,7 +47,16 @@ const unpackTarball = async ({ release, cwd, dir: dirParts }) => {
   return result
 }
 
-const unpackTree = async ({ sha, cwd, release }) => {
+const unpackTree = async ({ release, cwd, dir }) => {
+  const dirParts = dir.split(sep)
+  const child = dirParts.pop()
+  const parent = join(...dirParts)
+
+  // to get the sha of the dir, we have to get the parent
+  // and find the child as an entry and get its sha
+  const sha = await gh.getDirectory(release.branch, parent)
+    .then(paths => paths.find((p) => p.name === child).sha)
+
   const files = await gh.getAllFiles(sha)
 
   // tar makes the directories for us when unpacking but we
@@ -73,14 +81,8 @@ const unpackTree = async ({ sha, cwd, release }) => {
   return files.map((f) => f.path)
 }
 
-const getNav = async ({ contents, release }) => {
-  // The nav file can be in two different places. We already grabbed the
-  // the docs tree so first we check if there is a nav in there. If
-  // there is not then we know it has to be in the content dir
-  const navFile = contents.find((f) => f.name === 'nav.yml')
-  /* istanbul ignore next */
-  const navPath = navFile?.path || join(release.src, 'nav.yml')
-  const nav = await gh.getFile({ ref: release.branch, path: navPath })
+const getNav = async ({ path, release }) => {
+  const nav = await gh.getFile({ ref: release.branch, path })
 
   const rewriteUrls = (nodes) =>
     nodes?.map((n) => {
@@ -90,7 +92,7 @@ const getNav = async ({ contents, release }) => {
     })
 
   return {
-    path: navPath,
+    path,
     children: rewriteUrls(yaml.parse(nav.toString())),
   }
 }
@@ -99,24 +101,10 @@ const resolveRelease = async (
   { resolved: current, ...release },
   { force, prerelease }
 ) => {
-  const manifest = await pacote.manifest(`${gh.owner}@${release.spec}`, {
-    preferOnline: true,
-  })
-
-  release.version = manifest.version
-  const isPre = semver.parse(release.version).prerelease.length > 0
-
-  if (isPre && !prerelease) {
+  if (release.prerelease && !prerelease) {
     log.info(`Skipping ${release.id} due to prerelease ${release.version}`)
     return null
   }
-
-  const versionType = release.default
-    ? 'Current Release'
-    : isPre
-      ? 'Prerelease'
-      : 'Legacy Release'
-  release.title = `Version ${release.version} (${versionType})`
 
   // The legacy v6 release has updated docs in GitHub that were never
   // published. So in this case we skip cloning the repo with pacote
@@ -126,8 +114,8 @@ const resolveRelease = async (
   if (release.useBranch) {
     release.resolved = await gh.getLatestSha(release.branch)
   } else {
-    release.resolved = manifest._resolved
-    release.spec = manifest._from
+    release.resolved = release.manifest._resolved
+    release.spec = release.manifest._from
   }
 
   log.info(release.id, release.version, release.resolved)
@@ -152,32 +140,43 @@ const unpackRelease = async (
   log.verbose(release)
 
   const cwd = join(contentPath, release.id)
-  const builtDir = release.built.split(sep)
+  await fs
+    .rm(cwd, { force: true, recursive: true })
+    .then(() => fs.mkdir(cwd, { recursive: true }))
 
-  const [docsRepo] = await Promise.all([
-    gh.getDirectory(release.branch, builtDir[0]),
-    fs
-      .rm(cwd, { force: true, recursive: true })
-      .then(() => fs.mkdir(cwd, { recursive: true })),
-  ])
+  const builtPath = join('docs', 'content')
+  const srcPath = join('docs', 'lib', 'content')
+
+  // this is the src dir for the docs that we link to for the edit links
+  release.src = await gh.pathExists(release.branch, srcPath)
+    ?? await gh.pathExists(release.branch, builtPath)
+
+  /* istanbul ignore next */
+  if (!release.src) {
+    throw new Error(`Could not find source dir for ${release.id}`)
+  }
+
+  const nav = await getNav({
+    release,
+    // the nav file can also be in a few different places
+    path: await gh.pathExists(release.branch, join(srcPath, 'nav.yml'))
+      ?? await gh.pathExists(release.branch, join('docs', 'nav.yml')),
+  })
 
   // If we are using the release's GitHub ref, then we fetch
   // the tree of the doc directory's sha which has all the docs
   // we need in it. Note that this requires the docs to all be
   // built in source, which is true for v6 but not for v9 and later.
-  const files = await (release.useBranch
-    ? unpackTree({
-      release,
-      sha: docsRepo.find((f) => f.name === builtDir[1]).sha,
-      cwd,
-    })
-    : unpackTarball({
-      release,
-      cwd,
-      dir: builtDir,
-    }))
+  const files = release.useBranch ? await unpackTree({
+    release,
+    cwd,
+    dir: release.src,
+  }) : await unpackTarball({
+    release,
+    cwd,
+    dir: builtPath,
+  })
 
-  const nav = await getNav({ contents: docsRepo, release })
   const dirs = ['', ...new Set(files.map((f) => dirname(f)))]
 
   // The docs in the cli contains all the content pagess and the nav
@@ -199,8 +198,7 @@ const unpackRelease = async (
           frontmatter: {
             github_path: nav.path,
             title: navSection.title,
-            // TODO: leave off for now while reviewing diffs
-            // shortName: navSection.shortName,
+            shortName: navSection.shortName,
           },
         }),
         'utf-8'

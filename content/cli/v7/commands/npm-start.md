@@ -3,8 +3,20 @@ title: npm-start
 section: 1
 description: Start a package
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-start.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npm-start
+  - /cli-documentation/v7/cli-commands/start
+  - /cli-documentation/v7/commands/npm-start
+  - /cli-documentation/v7/commands/start
+  - /cli-documentation/v7/npm-start
+  - /cli-documentation/v7/start
+  - /cli/v7/cli-commands/npm-start
+  - /cli/v7/cli-commands/start
+  - /cli/v7/commands/start
+  - /cli/v7/npm-start
+  - /cli/v7/start
 ---
 
 ### Synopsis

@@ -3,15 +3,36 @@ title: npm-ci
 section: 1
 description: Clean install a project
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-ci.md
 redirect_from:
   - /cli-commands/ci
-  - /cli-commands/ci.html
   - /cli-commands/npm-ci
+  - /cli-documentation/ci
+  - /cli-documentation/cli-commands/ci
+  - /cli-documentation/cli-commands/npm-ci
+  - /cli-documentation/commands/ci
+  - /cli-documentation/commands/npm-ci
+  - /cli-documentation/npm-ci
+  - /cli-documentation/v8/ci
+  - /cli-documentation/v8/cli-commands/ci
+  - /cli-documentation/v8/cli-commands/npm-ci
+  - /cli-documentation/v8/commands/ci
+  - /cli-documentation/v8/commands/npm-ci
+  - /cli-documentation/v8/npm-ci
   - /cli/ci
-  - /cli/ci.html
+  - /cli/cli-commands/ci
+  - /cli/cli-commands/npm-ci
   - /cli/commands/ci
+  - /cli/commands/npm-ci
+  - /cli/npm-ci
+  - /cli/v8/ci
+  - /cli/v8/cli-commands/ci
+  - /cli/v8/cli-commands/npm-ci
+  - /cli/v8/commands/ci
+  - /cli/v8/npm-ci
+  - /commands/ci
+  - /commands/npm-ci
 ---
 
 ### Synopsis

@@ -3,8 +3,20 @@ title: npm-team
 section: 1
 description: Manage organization teams and team memberships
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-team.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npm-team
+  - /cli-documentation/v7/cli-commands/team
+  - /cli-documentation/v7/commands/npm-team
+  - /cli-documentation/v7/commands/team
+  - /cli-documentation/v7/npm-team
+  - /cli-documentation/v7/team
+  - /cli/v7/cli-commands/npm-team
+  - /cli/v7/cli-commands/team
+  - /cli/v7/commands/team
+  - /cli/v7/npm-team
+  - /cli/v7/team
 ---
 
 ### Synopsis

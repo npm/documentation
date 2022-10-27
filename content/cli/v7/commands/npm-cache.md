@@ -3,8 +3,20 @@ title: npm-cache
 section: 1
 description: Manipulates packages cache
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-cache.md
+redirect_from:
+  - /cli-documentation/v7/cache
+  - /cli-documentation/v7/cli-commands/cache
+  - /cli-documentation/v7/cli-commands/npm-cache
+  - /cli-documentation/v7/commands/cache
+  - /cli-documentation/v7/commands/npm-cache
+  - /cli-documentation/v7/npm-cache
+  - /cli/v7/cache
+  - /cli/v7/cli-commands/cache
+  - /cli/v7/cli-commands/npm-cache
+  - /cli/v7/commands/cache
+  - /cli/v7/npm-cache
 ---
 
 ### Synopsis

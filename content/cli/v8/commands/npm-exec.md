@@ -3,15 +3,36 @@ title: npm-exec
 section: 1
 description: Run a command from a local or remote npm package
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-exec.md
 redirect_from:
   - /cli-commands/exec
-  - /cli-commands/exec.html
   - /cli-commands/npm-exec
+  - /cli-documentation/cli-commands/exec
+  - /cli-documentation/cli-commands/npm-exec
+  - /cli-documentation/commands/exec
+  - /cli-documentation/commands/npm-exec
+  - /cli-documentation/exec
+  - /cli-documentation/npm-exec
+  - /cli-documentation/v8/cli-commands/exec
+  - /cli-documentation/v8/cli-commands/npm-exec
+  - /cli-documentation/v8/commands/exec
+  - /cli-documentation/v8/commands/npm-exec
+  - /cli-documentation/v8/exec
+  - /cli-documentation/v8/npm-exec
+  - /cli/cli-commands/exec
+  - /cli/cli-commands/npm-exec
   - /cli/commands/exec
+  - /cli/commands/npm-exec
   - /cli/exec
-  - /cli/exec.html
+  - /cli/npm-exec
+  - /cli/v8/cli-commands/exec
+  - /cli/v8/cli-commands/npm-exec
+  - /cli/v8/commands/exec
+  - /cli/v8/exec
+  - /cli/v8/npm-exec
+  - /commands/exec
+  - /commands/npm-exec
 ---
 
 ### Synopsis
