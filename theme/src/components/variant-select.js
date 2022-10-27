@@ -42,8 +42,13 @@ function VariantSelect(props) {
       if (match.page.url === path) {
           selectedItem = match;
       }
+      function onItemEnterKey(event) {
+        if (event.key === 'Enter') {
+            window.location.href = match.page.url;
+        }
+      }
 
-      items.push(<Dropdown.Item onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined} tabIndex={match.variant.tabIndex} onClick={() => { window.location.href = match.page.url; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
+      items.push(<Dropdown.Item onKeyDown={onItemEnterKey} onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined} tabIndex={match.variant.tabIndex} onClick={() => { window.location.href = match.page.url; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
   });
 
   return (
