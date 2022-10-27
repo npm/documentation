@@ -54,11 +54,17 @@ function VariantSelect(props) {
       if (match.page.url === path) {
           selectedItem = match;
       }
+      function onItemEnterKey(event) {
+        if (event.key === 'Enter') {
+            window.location.href = match.page.url;
+        }
+      }
 
       items.push(
         <Dropdown.Item
           onClick={() => { window.location.href = match.page.url + "?v=true"; }}
           onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined}
+          onKeyDown={onItemEnterKey}
           tabIndex={match.variant.tabIndex}
           key={match.variant.title}
         >
