@@ -56,7 +56,7 @@ function VariantSelect(props) {
       }
       function onItemEnterKey(event) {
         if (event.key === 'Enter') {
-            window.location.href = match.page.url;
+            window.location.href = match.page.url + "?v=true";
         }
       }
 
