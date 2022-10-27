@@ -41,12 +41,30 @@ function VariantSelect(props) {
       return null;
   }
 
-  variantPages.forEach((match) => {
+  /** 
+   *  We should use '@primer/react' package, as '@primer/components' package depricated and moved to '@primer/react'.
+   *  We have no closing/opening control with current '@primer/components' package, so document.body click event used for closing purpose.
+   */
+  // TODO: We should use 'setOpen' function returned by the useDetails hook when we move to '@primer/react' package. https://primer.style/react/deprecated/Dropdown
+  function collapseDropdown () {
+    document.body.click()
+  }
+
+  variantPages.forEach((match, index) => {
       if (match.page.url === path) {
           selectedItem = match;
       }
 
-      items.push(<Dropdown.Item onClick={() => { window.location.href = match.page.url + "?v=true"; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
+      items.push(
+        <Dropdown.Item
+          onClick={() => { window.location.href = match.page.url + "?v=true"; }}
+          onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined}
+          tabIndex={match.variant.tabIndex}
+          key={match.variant.title}
+        >
+            {match.variant.title}
+        </Dropdown.Item>
+      );
   });
 
   return (

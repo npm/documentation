@@ -59,12 +59,30 @@ const getDirectory = async (ref, dir) => {
   return data
 }
 
+const pathExists = async (ref, path) => {
+  try {
+    await octokit.repos.getContent({
+      ...opts,
+      ref,
+      path: path.split(sep).join(posix.sep),
+    })
+    return path
+  } catch (err) {
+    /* istanbul ignore next */
+    if (!err.status === 404) {
+      throw err
+    }
+  }
+  return null
+}
+
 module.exports = {
   octokit,
   getFile,
   getLatestSha,
   getAllFiles,
   getDirectory,
+  pathExists,
   owner,
   repo,
   nwo: `${owner}/${repo}`,

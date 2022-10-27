@@ -5,7 +5,7 @@ import {Note, Screenshot} from 'theme';
 const shared = {
     /* User login */
     'user-login': {
-        'text': (<><Link href="https://www.npmjs.com/login">Log in</Link> to npm with your user account.</>),
+        'text': (<>On the npm "<Link href="https://www.npmjs.com/login">Sign In</Link>" page, enter your account details and click <strong>Sign In</strong>.</>),
         'image': (<Screenshot src="/shared/user-login.png" alt="Screenshot of npm login dialog" />)
     },
     'contact-support': {
@@ -21,6 +21,35 @@ const shared = {
     'account-settings': {
         'text': (<>In the upper right corner of the page, click your profile picture, then click <strong>Account</strong>.</>),
         'image': (<Screenshot src="/shared/account-settings.png" alt="Screenshot of account settings selection in user menu" />)
+    },
+    'start-account-recovery': {
+        'text': (<>On the "Request an Account Recovery" page, click <strong>Start Account Recovery</strong>.</>),
+        'image': (<Screenshot src="/getting-started/setting-up-your-npm-user-account/request-account-recovery.png" alt="Screenshot showing account recovery page" />)
+    },
+    'use-recovery-code': {
+        'text': (<>On the "Two-Factor Authentication" page, click <strong>Use a recovery code or request a reset</strong>.</>),
+        'image': (<Screenshot src="/getting-started/setting-up-your-npm-user-account/recovery-code-link.png" alt="Screenshot showing Security Key prompt with a link to navigate to the recovery code input screen" />)
+    },
+    'support-ticket-form': {
+        'text': (<>In the "Open a Support Ticket" form, enter the following information:</>),
+    },
+    'enter-email-address': {
+        'text': (<>In the <strong>Email</strong> field, enter an email address where our support team can contact you.</>),
+    },
+    'support-ticket-other': {
+        'text': (<>If you need help with anything else, in the <strong>How can we help?</strong> section, select <strong>Other</strong> and enter more information in the <strong>Additional Details</strong> field.</>),
+    },
+    'connect-to-accounts': {
+        'text': (<>
+            <ul>
+                <li>If you have previously linked a GitHub account to your npm account, select <strong>Connect to GitHub</strong>. This will help our support team verify your account.</li>
+                <li>If you have previously linked a Twitter account to your npm account, select <strong>Connect to Twitter</strong>. This will help our support team verify your account.</li>
+            </ul>
+          </>
+        ),
+    },
+    'submit-support-ticket': {
+        'text': (<>At the bottom of the form, click <strong>Submit Support Ticket</strong>.</>),
     },
 
     /* Billing */

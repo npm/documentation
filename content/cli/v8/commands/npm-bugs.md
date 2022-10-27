@@ -3,7 +3,7 @@ title: npm-bugs
 section: 1
 description: Report bugs for a package in a web browser
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-bugs.md
 redirect_from:
   - /cli-commands/bugs

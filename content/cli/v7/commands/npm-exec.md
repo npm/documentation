@@ -3,7 +3,7 @@ title: npm-exec
 section: 1
 description: Run a command from a local or remote npm package
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-exec.md
 redirect_from:
   - /cli-documentation/v7/cli-commands/exec

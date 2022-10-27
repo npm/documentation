@@ -21,9 +21,12 @@ t.test('v6 default page', async t => {
   const v7 = transform({ id: 'v7', path: 'configuring-npm/package-locks' })
 
   t.strictSame(v6.redirect_from, [
+    '/cli/configuring-npm/package-locks',
+    '/cli/files/package-locks',
     '/cli/v6/configuring-npm/package-locks',
     '/cli/v6/files/package-locks',
     '/configuring-npm/package-locks',
+    '/files/package-locks',
   ])
   t.strictSame(v7.redirect_from, [
     '/cli/v7/configuring-npm/package-locks',
