@@ -42,7 +42,13 @@ function VariantSelect(props) {
       if (match.page.url === path) {
           selectedItem = match;
       }
-      items.push(<Dropdown.Item aria-label={`List items ${index + 1} of ${variantPages.length}`} onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined} tabIndex={match.variant.tabIndex} onClick={() => { window.location.href = match.page.url; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
+      function onItemEnterKey(event) {
+        if (event.key === 'Enter') {
+            window.location.href = match.page.url;
+        }
+      }
+
+      items.push(<Dropdown.Item aria-label={`List items ${index + 1} of ${variantPages.length}`} onKeyDown={onItemEnterKey} onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined} tabIndex={match.variant.tabIndex} onClick={() => { window.location.href = match.page.url; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
   });
 
   return (

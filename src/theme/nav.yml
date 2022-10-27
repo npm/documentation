@@ -1050,6 +1050,7 @@
     - title: Version 9.0.1 (Current Release)
       shortName: v9
       url: /cli/v9
+      tabIndex: 4
       default: false
       children:
         - title: CLI Commands
