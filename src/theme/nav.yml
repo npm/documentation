@@ -287,6 +287,7 @@
   variants:
     - title: Version 6.14.17 (Legacy Release)
       shortName: v6
+      tabIndex: 1
       url: /cli/v6
       default: false
       children:
@@ -526,6 +527,7 @@
               description: Cleaning the slate
     - title: Version 7.24.2 (Legacy Release)
       shortName: v7
+      tabIndex: 2
       url: /cli/v7
       default: false
       children:
@@ -781,6 +783,7 @@
     - title: Version 8.19.2 (Latest Release)
       shortName: v8
       url: /cli/v8
+      tabIndex: 3
       default: true
       children:
         - title: CLI Commands
@@ -1044,7 +1047,7 @@
             - title: Removal
               url: /cli/v8/using-npm/removal
               description: Cleaning the slate
-    - title: Version 9.0.0 (Current Release)
+    - title: Version 9.0.1 (Current Release)
       shortName: v9
       url: /cli/v9
       default: false

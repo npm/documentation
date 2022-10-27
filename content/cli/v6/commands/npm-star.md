@@ -3,7 +3,7 @@ title: npm-star
 section: 1
 description: Mark your favorite packages
 github_repo: npm/cli
-github_branch: v6
+github_branch: release/v6
 github_path: docs/content/commands/npm-star.md
 redirect_from:
   - /cli-documentation/v6/cli-commands/npm-star

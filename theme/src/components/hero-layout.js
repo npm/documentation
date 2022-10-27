@@ -14,7 +14,7 @@ function HeroLayout({children, pageContext, location}) {
     <Flex flexDirection="column" minHeight="100vh">
       <Head />
       <Header location={location} isSearchEnabled={pageContext.isSearchEnabled} />
-      <Flex flex="1 1 auto" flexDirection="row">
+      <Flex flex="1 1 auto" flexDirection="row" role="main">
         <Box display={['none', null, null, 'block']}>
           <Sidebar
             editOnGitHub={

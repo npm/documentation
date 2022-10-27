@@ -3,7 +3,7 @@ title: npm-pkg
 section: 1
 description: Manages your package.json
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-pkg.md
 redirect_from:
   - /cli-commands/npm-pkg

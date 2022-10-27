@@ -3,7 +3,7 @@ title: npm
 section: 1
 description: javascript package manager
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm.md
 redirect_from:
   - /cli-commands/npm
