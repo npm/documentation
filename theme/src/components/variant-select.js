@@ -47,8 +47,11 @@ function VariantSelect(props) {
             window.location.href = match.page.url;
         }
       }
-
-      items.push(<Dropdown.Item aria-label={`${match.variant.title}. List items ${index + 1} of ${variantPages.length}`} onKeyDown={onItemEnterKey} onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined} tabIndex={0} onClick={() => { window.location.href = match.page.url; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
+      items.push(
+        <a style={{ textDecoration: 'none' }} aria-label={`${match.variant.title}. List items ${index + 1} of ${variantPages.length}`} href={match.page.url} onKeyDown={onItemEnterKey} onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined} tabIndex={0} key={match.variant.title}>
+          <Dropdown.Item>{match.variant.title}</Dropdown.Item>
+        </a>
+      );
   });
 
   return (
