@@ -48,7 +48,11 @@ function VariantSelect(props) {
         }
       }
 
-      items.push(<Dropdown.Item onKeyDown={onItemEnterKey} onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined} tabIndex={match.variant.tabIndex} onClick={() => { window.location.href = match.page.url; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
+      items.push(
+        <a style={{ textDecoration: 'none' }} href={match.page.url} onKeyDown={onItemEnterKey} onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined} tabIndex={0} key={match.variant.title}>
+          <Dropdown.Item>{match.variant.title}</Dropdown.Item>
+        </a>
+      );
   });
 
   return (
