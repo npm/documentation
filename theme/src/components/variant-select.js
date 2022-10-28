@@ -50,32 +50,51 @@ function VariantSelect(props) {
     document.body.click()
   }
 
+  function anchorClickHandler(event, url) {
+    event.preventDefault()
+    window.location.href = url + "?v=true";
+  }
+
+  function onItemEnterKey(event, url) {
+    if (event.key === 'Enter') {
+        window.location.href = url + "?v=true";
+    }
+  }
+
   variantPages.forEach((match, index) => {
       if (match.page.url === path) {
           selectedItem = match;
       }
-      function onItemEnterKey(event) {
-        if (event.key === 'Enter') {
-            window.location.href = match.page.url + "?v=true";
-        }
-      }
-
       items.push(
-        <Dropdown.Item
-          onClick={() => { window.location.href = match.page.url + "?v=true"; }}
-          onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined}
-          onKeyDown={onItemEnterKey}
-          tabIndex={match.variant.tabIndex}
+        <a
+          style={{ textDecoration: 'none' }}
+          tabIndex={0}
           key={match.variant.title}
+          href={match.page.url}
+          onClick={e => anchorClickHandler(e, match.page.url)}
+          onKeyDown={e => onItemEnterKey(e, match.page.url)}
+          onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined}
+          aria-label={`${match.variant.title}. List items ${index + 1} of ${variantPages.length}`}
         >
-            {match.variant.title}
-        </Dropdown.Item>
+          <Dropdown.Item>{match.variant.title}</Dropdown.Item>
+        </a>
       );
   });
 
+  /** 
+   *  We should use '@primer/react' package as '@primer/components' package depricated and moved to '@primer/react'.
+   *  We have no closing/opening control with current '@primer/components' package, so document.body click event used for closing purpose.
+   */
+  // TODO: We should use 'setOpen' function returned by the useDetails hook when we move to '@primer/react' package. https://primer.style/react/deprecated/Dropdown
+  function onDropDownKeyDown (event) {
+    if (event.key === 'Escape') {
+        document.body.click()
+    }
+  }
+
   return (
     <div ref={wrapper}>
-      <Dropdown overlay={props.overlay}>
+      <Dropdown onKeyDown={onDropDownKeyDown} overlay={props.overlay}>
           <Dropdown.Button>{selectedItem.variant.title}</Dropdown.Button>
           <VariantSelect.Menu direction={props.direction} width={props.menuWidth}>
               {items}
