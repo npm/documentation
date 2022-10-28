@@ -6,11 +6,17 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Dropdown } from '@primer/components';
+import { Dropdown, themeGet } from '@primer/components';
 import NavHierarchy from '../nav-hierarchy'
 
 VariantSelect.Menu = styled(Dropdown.Menu)`
   width: ${props => props.width ? props.width : '160px'};
+`
+
+VariantSelect.Button = styled(Dropdown.Button)`
+  &:focus {
+    box-shadow: 0 0 0 3px ${themeGet('colors.blue.5')};
+  }
 `
 
 function VariantSelect(props) {
@@ -95,7 +101,7 @@ function VariantSelect(props) {
   return (
     <div ref={wrapper}>
       <Dropdown onKeyDown={onDropDownKeyDown} overlay={props.overlay}>
-          <Dropdown.Button>{selectedItem.variant.title}</Dropdown.Button>
+          <VariantSelect.Button>{selectedItem.variant.title}</VariantSelect.Button>
           <VariantSelect.Menu direction={props.direction} width={props.menuWidth}>
               {items}
           </VariantSelect.Menu>
