@@ -1,6 +1,9 @@
-const { posix, join, sep } = require('path')
+const { posix } = require('path')
 const fs = require('fs').promises
 const yaml = require('yaml')
+const semver = require('semver')
+const pacote = require('pacote')
+const gh = require('./gh')
 const extractRelease = require('./extract')
 const log = require('./log')
 
@@ -60,21 +63,42 @@ const main = async ({
     log.on(loglevel)
   }
 
-  // convert paths to whatever platform we are on so they
-  // can be used to write files later
-  const defaultBuiltDir = join('docs', 'content')
+  const rawReleases = require(releasesPath)
 
-  const releases = require(releasesPath).map((release) => ({
-    ...release,
-    // dir of the built docs that should be copied
-    built: defaultBuiltDir,
-    // dir of the source for the docs that should
-    // be linked to for editing on github
-    src: release.src?.split(posix.sep).join(sep) || defaultBuiltDir,
-    url: `/${DOCS_PATH}/${release.id}`,
-    urlPrefix: DOCS_PATH,
-    urlPrefixes: [DOCS_PATH, `${DOCS_PATH}-documentation`],
+  const releaseManifests = await Promise.all(rawReleases.map(async release => {
+    const manifest = await pacote.manifest(`${gh.owner}@${release.spec}`, {
+      preferOnline: true,
+    })
+    // the default release is always controlled by the latest dist-tag
+    release.default = release.spec === 'latest'
+    release.manifest = manifest
+    release.version = manifest.version
+    const sVersion = semver.parse(release.version)
+    release.semver = sVersion
+    release.prerelease = sVersion.prerelease.length > 0
+    return release
   }))
+
+  const latestRelease = releaseManifests.find(r => r.spec === 'latest')
+
+  if (!latestRelease) {
+    throw new Error(`One of the CLI releases must have \`spec: 'latest'\``)
+  }
+
+  const releases = releaseManifests.map((release) => {
+    const type = release.default ? 'Latest Release'
+      : release.prerelease ? 'Prerelease'
+      : semver.gt(release.version, latestRelease.version) ? 'Current Release'
+      : 'Legacy Release'
+
+    return {
+      ...release,
+      title: `Version ${release.version} (${type})`,
+      url: `/${DOCS_PATH}/${release.id}`,
+      urlPrefix: DOCS_PATH,
+      urlPrefixes: [DOCS_PATH, `${DOCS_PATH}-documentation`],
+    }
+  })
 
   const baseNav = await fs.readFile(navPath, 'utf-8')
 

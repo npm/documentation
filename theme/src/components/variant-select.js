@@ -29,16 +29,44 @@ function VariantSelect(props) {
       return null;
   }
 
-  variantPages.forEach((match) => {
+  /** 
+   *  We should use '@primer/react' package, as '@primer/components' package depricated and moved to '@primer/react'.
+   *  We have no closing/opening control with current '@primer/components' package, so document.body click event used for closing purpose.
+   */
+  // TODO: We should use 'setOpen' function returned by the useDetails hook when we move to '@primer/react' package. https://primer.style/react/deprecated/Dropdown
+  function collapseDropdown () {
+    document.body.click()
+  }
+
+  variantPages.forEach((match, index) => {
       if (match.page.url === path) {
           selectedItem = match;
       }
-
-      items.push(<Dropdown.Item onClick={() => { window.location.href = match.page.url; }} key={match.variant.title}>{match.variant.title}</Dropdown.Item>);
+      function onItemEnterKey(event) {
+        if (event.key === 'Enter') {
+            window.location.href = match.page.url;
+        }
+      }
+      items.push(
+        <a style={{ textDecoration: 'none' }} aria-label={`${match.variant.title}. List items ${index + 1} of ${variantPages.length}`} href={match.page.url} onKeyDown={onItemEnterKey} onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined} tabIndex={0} key={match.variant.title}>
+          <Dropdown.Item>{match.variant.title}</Dropdown.Item>
+        </a>
+      );
   });
 
+  /** 
+   *  We should use '@primer/react' package as '@primer/components' package depricated and moved to '@primer/react'.
+   *  We have no closing/opening control with current '@primer/components' package, so document.body click event used for closing purpose.
+   */
+  // TODO: We should use 'setOpen' function returned by the useDetails hook when we move to '@primer/react' package. https://primer.style/react/deprecated/Dropdown
+  function onDropDownKeyDown (event) {
+    if (event.key === 'Escape') {
+        document.body.click()
+    }
+  }
+
   return (
-      <Dropdown aria-label='Version release' overlay={props.overlay}>
+      <Dropdown aria-label='Version release' onKeyDown={onDropDownKeyDown} overlay={props.overlay}>
           <Dropdown.Button>{selectedItem.variant.title}</Dropdown.Button>
           <VariantSelect.Menu direction={props.direction} width={props.menuWidth}>
               {items}

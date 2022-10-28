@@ -3,7 +3,7 @@ title: npm-unstar
 section: 1
 description: Remove an item from your favorite packages
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-unstar.md
 redirect_from:
   - /cli-commands/npm-unstar

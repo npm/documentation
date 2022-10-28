@@ -5,12 +5,6 @@ import shared from '../../../src/shared.js'
 
 You can enable two-factor authentication (2FA) on your npm user account to protect against unauthorized access to your account and packages, either by using a [security-key][webauthn] or [time-based one-time password (TOTP)][totp] from a mobile app.
 
-<Note>
-
-**Note**: The security-key flow using [WebAuthn][webauthn] is currently in beta.
-
-</Note>
-
 ## Prerequisites
 
 Before you enable 2FA on your npm user account, you must:
@@ -69,7 +63,7 @@ For more information on supported 2FA methods, see "[About two-factor authentica
    <Screenshot src="/getting-started/setting-up-your-npm-user-account/recovery-code.png" alt="Screenshot showing the Recovery Code page" />
 
 
-   _Recovery codes are the only way to recover your account if you lose access to your second factor device. Each code can be used only once. You can [view and regenerate your recovery code][viewing-and-regenerating-recovery-code] from your 2FA settings page._
+   _Recovery codes are the only way to ensure you can recover your account if you lose access to your second factor device. Each code can be used only once. You can [view and regenerate your recovery code][viewing-and-regenerating-recovery-code] from your 2FA settings page. For secondary account recovery options, see "[Configuring account recovery options][configuring-account-recovery-options]."_
 
 8. Click **Go back to settings** after confirming that you have saved your codes.
 
@@ -191,6 +185,32 @@ npm unpublish [<@scope>/]<pkg>[@<version>] --otp=123456
 
    <Prompt>Enter one-time password from your authenticator: <PromptReply>123456</PromptReply></Prompt>
 
+## Configuring account recovery options
+
+When you enable 2FA on your npm user account, we strongly recommend you link your GitHub and/or Twitter accounts to your npm user account. In the event you lose access to your 2FA device and recovery codes, these linked accounts can be used to verify your identity and expedite the recovery of your npm account.
+
+1. <>{shared['user-login'].text}</>
+
+   <>{shared['user-login'].image}</>
+
+2. <>{shared['account-settings'].text}</>
+
+   <>{shared['account-settings'].image}</>
+
+3. To [link your GitHub][advanced-github-setup] account, on the account settings page, under "Linked Accounts & Recovery Option", click **Link with GitHub**.
+
+   <Screenshot src="/getting-started/setting-up-your-npm-user-account/link-github-account.png" alt="Screenshot showing Link GitHub account button" />
+   
+4. On the authorization page, verify all information looks correct. Then click **Authorize npm account link**.
+   
+5. To [link your Twitter][advanced-twitter-setup] account, on the account settings page, under "Linked Accounts & Recovery Option", click **Link with Twitter**.
+
+   <Screenshot src="/getting-started/setting-up-your-npm-user-account/link-twitter-account.png" alt="Screenshot showing Link Twitter account button" />
+
+6. On the authorization page, verify all information looks correct. Then click **Authorize app**.
+
+The Twitter or GitHub account is now linked to your npm account. To remove the link to either account, you can click the **Remove** button next to the account you want to remove from your npm account.
+
 ## Resolving TOTP errors
 
 If you are entering what seems to be a valid [TOTP][totp] but you see an error, be sure that you are using the correct authenticator account. If you have multiple authenticator accounts, using an TOTP from the wrong account will cause an error.
@@ -199,7 +219,7 @@ Also, when you reset two-factor authentication after it has been disabled, the a
 
 [about-two-factor-authentication]: /about-two-factor-authentication
 [authorization-and-writes]: /about-two-factor-authentication#authorization-and-writes
-[login]: https://docs.npmjs.com/cli/adduser
+[login]: /cli/adduser
 [recovering-your-2fa-enabled-account]: /recovering-your-2fa-enabled-account
 [can-i-use]: https://caniuse.com/#search=webauthn
 [viewing-and-regenerating-recovery-code]: /recovering-your-2fa-enabled-account#viewing-and-regenerating-recovery-code
@@ -215,3 +235,6 @@ Also, when you reset two-factor authentication after it has been disabled, the a
 [yubikey]: https://www.yubico.com/
 [thetis]: https://thetis.io/
 [feitian]: https://www.ftsafe.com/
+[configuring-account-recovery-options]: /configuring-two-factor-authentication#configuring-account-recovery-options
+[advanced-github-setup]:managing-your-profile-settings#linking-your-npm-and-github-accounts
+[advanced-twitter-setup]: /managing-your-profile-settings#linking-your-npm-and-twitter-accounts

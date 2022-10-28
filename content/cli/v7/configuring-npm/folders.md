@@ -3,7 +3,7 @@ title: folders
 section: 5
 description: Folder Structures Used by npm
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/configuring-npm/folders.md
 redirect_from:
   - /cli-documentation/v7/configuring-npm/folders

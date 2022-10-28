@@ -3,7 +3,7 @@ title: npm-whoami
 section: 1
 description: Display npm username
 github_repo: npm/cli
-github_branch: v6
+github_branch: release/v6
 github_path: docs/content/commands/npm-whoami.md
 redirect_from:
   - /cli-documentation/v6/cli-commands/npm-whoami

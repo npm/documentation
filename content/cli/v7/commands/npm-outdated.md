@@ -3,7 +3,7 @@ title: npm-outdated
 section: 1
 description: Check for outdated packages
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-outdated.md
 redirect_from:
   - /cli-documentation/v7/cli-commands/npm-outdated

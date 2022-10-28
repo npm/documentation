@@ -3,7 +3,7 @@ title: npm-prefix
 section: 1
 description: Display prefix
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-prefix.md
 redirect_from:
   - /cli-documentation/v7/cli-commands/npm-prefix

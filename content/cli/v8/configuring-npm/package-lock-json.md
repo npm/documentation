@@ -3,7 +3,7 @@ title: package-lock.json
 section: 5
 description: A manifestation of the manifest
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/configuring-npm/package-lock-json.md
 redirect_from:
   - /cli-documentation/configuring-npm/package-lock-json

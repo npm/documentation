@@ -3,7 +3,7 @@ title: npm-ls
 section: 1
 description: List installed packages
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-ls.md
 redirect_from:
   - /cli-commands/ls
