@@ -16,6 +16,18 @@ VariantSelect.Menu = styled(Dropdown.Menu)`
 function VariantSelect(props) {
   const path = NavHierarchy.getPath(props.location.pathname);
   const vp = NavHierarchy.getVariantAndPage(props.root, path);
+  const wrapper = React.createRef(null)
+
+  React.useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search)
+    if (queryParams.get('v') === 'true') {
+      wrapper?.current?.querySelector('summary')?.focus()
+
+      const url = new URL(window.location);
+      url.searchParams.delete('v')
+      window.history.replaceState(null, '', url.toString());
+    }
+  }, [])
 
   if (!vp) {
       return null;
@@ -38,17 +50,32 @@ function VariantSelect(props) {
     document.body.click()
   }
 
+  function anchorClickHandler(event, url) {
+    event.preventDefault()
+    window.location.href = url + "?v=true";
+  }
+
+  function onItemEnterKey(event, url) {
+    if (event.key === 'Enter') {
+        window.location.href = url + "?v=true";
+    }
+  }
+
   variantPages.forEach((match, index) => {
       if (match.page.url === path) {
           selectedItem = match;
       }
-      function onItemEnterKey(event) {
-        if (event.key === 'Enter') {
-            window.location.href = match.page.url;
-        }
-      }
       items.push(
-        <a style={{ textDecoration: 'none' }} aria-label={`${match.variant.title}. List items ${index + 1} of ${variantPages.length}`} href={match.page.url} onKeyDown={onItemEnterKey} onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined} tabIndex={0} key={match.variant.title}>
+        <a
+          style={{ textDecoration: 'none' }}
+          tabIndex={0}
+          key={match.variant.title}
+          href={match.page.url}
+          onClick={e => anchorClickHandler(e, match.page.url)}
+          onKeyDown={e => onItemEnterKey(e, match.page.url)}
+          onBlur={index === (variantPages.length - 1) ? collapseDropdown : undefined}
+          aria-label={`${match.variant.title}. List items ${index + 1} of ${variantPages.length}`}
+        >
           <Dropdown.Item>{match.variant.title}</Dropdown.Item>
         </a>
       );
@@ -66,12 +93,14 @@ function VariantSelect(props) {
   }
 
   return (
+    <div ref={wrapper}>
       <Dropdown onKeyDown={onDropDownKeyDown} overlay={props.overlay}>
           <Dropdown.Button>{selectedItem.variant.title}</Dropdown.Button>
           <VariantSelect.Menu direction={props.direction} width={props.menuWidth}>
               {items}
           </VariantSelect.Menu>
       </Dropdown>
+    </div>
   );
 }
 
