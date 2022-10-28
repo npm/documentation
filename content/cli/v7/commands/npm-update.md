@@ -3,8 +3,20 @@ title: npm-update
 section: 1
 description: Update packages
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-update.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npm-update
+  - /cli-documentation/v7/cli-commands/update
+  - /cli-documentation/v7/commands/npm-update
+  - /cli-documentation/v7/commands/update
+  - /cli-documentation/v7/npm-update
+  - /cli-documentation/v7/update
+  - /cli/v7/cli-commands/npm-update
+  - /cli/v7/cli-commands/update
+  - /cli/v7/commands/update
+  - /cli/v7/npm-update
+  - /cli/v7/update
 ---
 
 ### Synopsis

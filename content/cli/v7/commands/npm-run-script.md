@@ -3,8 +3,20 @@ title: npm-run-script
 section: 1
 description: Run arbitrary package scripts
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-run-script.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/npm-run-script
+  - /cli-documentation/v7/cli-commands/run-script
+  - /cli-documentation/v7/commands/npm-run-script
+  - /cli-documentation/v7/commands/run-script
+  - /cli-documentation/v7/npm-run-script
+  - /cli-documentation/v7/run-script
+  - /cli/v7/cli-commands/npm-run-script
+  - /cli/v7/cli-commands/run-script
+  - /cli/v7/commands/run-script
+  - /cli/v7/npm-run-script
+  - /cli/v7/run-script
 ---
 
 ### Synopsis

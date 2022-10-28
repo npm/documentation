@@ -3,15 +3,36 @@ title: npm-pack
 section: 1
 description: Create a tarball from a package
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-pack.md
 redirect_from:
   - /cli-commands/npm-pack
   - /cli-commands/pack
-  - /cli-commands/pack.html
+  - /cli-documentation/cli-commands/npm-pack
+  - /cli-documentation/cli-commands/pack
+  - /cli-documentation/commands/npm-pack
+  - /cli-documentation/commands/pack
+  - /cli-documentation/npm-pack
+  - /cli-documentation/pack
+  - /cli-documentation/v8/cli-commands/npm-pack
+  - /cli-documentation/v8/cli-commands/pack
+  - /cli-documentation/v8/commands/npm-pack
+  - /cli-documentation/v8/commands/pack
+  - /cli-documentation/v8/npm-pack
+  - /cli-documentation/v8/pack
+  - /cli/cli-commands/npm-pack
+  - /cli/cli-commands/pack
+  - /cli/commands/npm-pack
   - /cli/commands/pack
+  - /cli/npm-pack
   - /cli/pack
-  - /cli/pack.html
+  - /cli/v8/cli-commands/npm-pack
+  - /cli/v8/cli-commands/pack
+  - /cli/v8/commands/pack
+  - /cli/v8/npm-pack
+  - /cli/v8/pack
+  - /commands/npm-pack
+  - /commands/pack
 ---
 
 ### Synopsis

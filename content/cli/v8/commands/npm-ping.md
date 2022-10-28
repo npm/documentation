@@ -3,15 +3,36 @@ title: npm-ping
 section: 1
 description: Ping npm registry
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-ping.md
 redirect_from:
   - /cli-commands/npm-ping
   - /cli-commands/ping
-  - /cli-commands/ping.html
+  - /cli-documentation/cli-commands/npm-ping
+  - /cli-documentation/cli-commands/ping
+  - /cli-documentation/commands/npm-ping
+  - /cli-documentation/commands/ping
+  - /cli-documentation/npm-ping
+  - /cli-documentation/ping
+  - /cli-documentation/v8/cli-commands/npm-ping
+  - /cli-documentation/v8/cli-commands/ping
+  - /cli-documentation/v8/commands/npm-ping
+  - /cli-documentation/v8/commands/ping
+  - /cli-documentation/v8/npm-ping
+  - /cli-documentation/v8/ping
+  - /cli/cli-commands/npm-ping
+  - /cli/cli-commands/ping
+  - /cli/commands/npm-ping
   - /cli/commands/ping
+  - /cli/npm-ping
   - /cli/ping
-  - /cli/ping.html
+  - /cli/v8/cli-commands/npm-ping
+  - /cli/v8/cli-commands/ping
+  - /cli/v8/commands/ping
+  - /cli/v8/npm-ping
+  - /cli/v8/ping
+  - /commands/npm-ping
+  - /commands/ping
 ---
 
 ### Synopsis

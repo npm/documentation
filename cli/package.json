@@ -18,19 +18,19 @@
     "posttest": "npm run lint"
   },
   "dependencies": {
-    "@octokit/rest": "^19.0.3",
+    "@octokit/rest": "^19.0.5",
     "front-matter": "^4.0.2",
     "minimatch": "^5.1.0",
     "minipass": "^3.3.4",
-    "pacote": "^14.0.0",
-    "proc-log": "^2.0.1",
+    "pacote": "^15.0.2",
+    "proc-log": "^3.0.0",
     "semver": "^7.3.8",
     "tar": "^6.1.11",
     "yaml": "^2.1.3"
   },
   "devDependencies": {
-    "@npmcli/eslint-config": "^3.1.0",
-    "@npmcli/template-oss": "4.5.1",
+    "@npmcli/eslint-config": "^4.0.0",
+    "@npmcli/template-oss": "4.6.2",
     "tap": "^16.3.0"
   },
   "author": "GitHub Inc.",
@@ -43,7 +43,7 @@
   },
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
-    "version": "4.5.1",
+    "version": "4.6.2",
     "content": "./scripts/template-oss",
     "macCI": false,
     "ciVersions": "latest",

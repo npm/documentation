@@ -3,15 +3,36 @@ title: npm-outdated
 section: 1
 description: Check for outdated packages
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-outdated.md
 redirect_from:
   - /cli-commands/npm-outdated
   - /cli-commands/outdated
-  - /cli-commands/outdated.html
+  - /cli-documentation/cli-commands/npm-outdated
+  - /cli-documentation/cli-commands/outdated
+  - /cli-documentation/commands/npm-outdated
+  - /cli-documentation/commands/outdated
+  - /cli-documentation/npm-outdated
+  - /cli-documentation/outdated
+  - /cli-documentation/v8/cli-commands/npm-outdated
+  - /cli-documentation/v8/cli-commands/outdated
+  - /cli-documentation/v8/commands/npm-outdated
+  - /cli-documentation/v8/commands/outdated
+  - /cli-documentation/v8/npm-outdated
+  - /cli-documentation/v8/outdated
+  - /cli/cli-commands/npm-outdated
+  - /cli/cli-commands/outdated
+  - /cli/commands/npm-outdated
   - /cli/commands/outdated
+  - /cli/npm-outdated
   - /cli/outdated
-  - /cli/outdated.html
+  - /cli/v8/cli-commands/npm-outdated
+  - /cli/v8/cli-commands/outdated
+  - /cli/v8/commands/outdated
+  - /cli/v8/npm-outdated
+  - /cli/v8/outdated
+  - /commands/npm-outdated
+  - /commands/outdated
 ---
 
 ### Synopsis

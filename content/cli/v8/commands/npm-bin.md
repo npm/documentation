@@ -3,15 +3,36 @@ title: npm-bin
 section: 1
 description: Display npm bin folder
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-bin.md
 redirect_from:
   - /cli-commands/bin
-  - /cli-commands/bin.html
   - /cli-commands/npm-bin
+  - /cli-documentation/bin
+  - /cli-documentation/cli-commands/bin
+  - /cli-documentation/cli-commands/npm-bin
+  - /cli-documentation/commands/bin
+  - /cli-documentation/commands/npm-bin
+  - /cli-documentation/npm-bin
+  - /cli-documentation/v8/bin
+  - /cli-documentation/v8/cli-commands/bin
+  - /cli-documentation/v8/cli-commands/npm-bin
+  - /cli-documentation/v8/commands/bin
+  - /cli-documentation/v8/commands/npm-bin
+  - /cli-documentation/v8/npm-bin
   - /cli/bin
-  - /cli/bin.html
+  - /cli/cli-commands/bin
+  - /cli/cli-commands/npm-bin
   - /cli/commands/bin
+  - /cli/commands/npm-bin
+  - /cli/npm-bin
+  - /cli/v8/bin
+  - /cli/v8/cli-commands/bin
+  - /cli/v8/cli-commands/npm-bin
+  - /cli/v8/commands/bin
+  - /cli/v8/npm-bin
+  - /commands/bin
+  - /commands/npm-bin
 ---
 
 ### Synopsis

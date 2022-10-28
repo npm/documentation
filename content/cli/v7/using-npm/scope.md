@@ -3,8 +3,16 @@ title: scope
 section: 7
 description: Scoped packages
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/using-npm/scope.md
+redirect_from:
+  - /cli-documentation/v7/misc/npm-scope
+  - /cli-documentation/v7/misc/scope
+  - /cli-documentation/v7/using-npm/npm-scope
+  - /cli-documentation/v7/using-npm/scope
+  - /cli/v7/misc/npm-scope
+  - /cli/v7/misc/scope
+  - /cli/v7/using-npm/npm-scope
 ---
 
 ### Description

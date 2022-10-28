@@ -3,8 +3,20 @@ title: npm-help-search
 section: 1
 description: Search npm help documentation
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-help-search.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/help-search
+  - /cli-documentation/v7/cli-commands/npm-help-search
+  - /cli-documentation/v7/commands/help-search
+  - /cli-documentation/v7/commands/npm-help-search
+  - /cli-documentation/v7/help-search
+  - /cli-documentation/v7/npm-help-search
+  - /cli/v7/cli-commands/help-search
+  - /cli/v7/cli-commands/npm-help-search
+  - /cli/v7/commands/help-search
+  - /cli/v7/help-search
+  - /cli/v7/npm-help-search
 ---
 
 ### Synopsis

@@ -3,15 +3,28 @@ title: package.json
 section: 5
 description: Specifics of npm's package.json handling
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/configuring-npm/package-json.md
 redirect_from:
+  - /cli-documentation/configuring-npm/package-json
+  - /cli-documentation/configuring-npm/package.json
+  - /cli-documentation/files/package-json
+  - /cli-documentation/files/package.json
+  - /cli-documentation/v8/configuring-npm/package-json
+  - /cli-documentation/v8/configuring-npm/package.json
+  - /cli-documentation/v8/files/package-json
+  - /cli-documentation/v8/files/package.json
+  - /cli/configuring-npm/package-json
+  - /cli/configuring-npm/package.json
+  - /cli/files/package-json
+  - /cli/files/package.json
+  - /cli/v8/configuring-npm/package.json
+  - /cli/v8/files/package-json
+  - /cli/v8/files/package.json
   - /configuring-npm/package-json
-  - /configuring-npm/package-json.html
   - /configuring-npm/package.json
-  - /creating-a-packge-json-file
+  - /files/package-json
   - /files/package.json
-  - /files/package.json.html
 ---
 
 ### Description

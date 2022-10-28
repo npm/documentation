@@ -50,7 +50,7 @@ function Layout({children, pageContext, location}) {
       <Flex flexDirection="column" minHeight="100vh">
         <Head title={title} description={description} />
         <Header location={location} isSearchEnabled={pageContext.isSearchEnabled} />
-        <Flex flex="1 1 auto" flexDirection="row" css={{zIndex: 0}}>
+        <Flex flex="1 1 auto" flexDirection="row" css={{zIndex: 0}} role="main">
           <Box display={['none', null, null, 'block']}>
             <Sidebar
               editOnGitHub={
@@ -74,6 +74,7 @@ function Layout({children, pageContext, location}) {
             mx="auto"
             p={[5, 6, null, 7]}
             css={{alignItems: 'start', alignSelf: 'start'}}
+            role="region"
           >
             <Box css={{gridArea: 'heading'}}>
               <BorderBox

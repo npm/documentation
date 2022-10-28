@@ -25,7 +25,9 @@
   "templateOSS": {
     "rootRepo": false,
     "rootModule": false,
-    "workspaces": ["cli"],
-    "version": "4.5.1"
+    "workspaces": [
+      "cli"
+    ],
+    "version": "4.6.2"
   }
 }

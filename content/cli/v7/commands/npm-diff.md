@@ -3,8 +3,20 @@ title: npm-diff
 section: 1
 description: The registry diff command
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-diff.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/diff
+  - /cli-documentation/v7/cli-commands/npm-diff
+  - /cli-documentation/v7/commands/diff
+  - /cli-documentation/v7/commands/npm-diff
+  - /cli-documentation/v7/diff
+  - /cli-documentation/v7/npm-diff
+  - /cli/v7/cli-commands/diff
+  - /cli/v7/cli-commands/npm-diff
+  - /cli/v7/commands/diff
+  - /cli/v7/diff
+  - /cli/v7/npm-diff
 ---
 
 ### Synopsis

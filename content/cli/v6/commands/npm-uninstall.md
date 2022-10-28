@@ -3,8 +3,20 @@ title: npm-uninstall
 section: 1
 description: Remove a package
 github_repo: npm/cli
-github_branch: v6
+github_branch: release/v6
 github_path: docs/content/commands/npm-uninstall.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/npm-uninstall
+  - /cli-documentation/v6/cli-commands/uninstall
+  - /cli-documentation/v6/commands/npm-uninstall
+  - /cli-documentation/v6/commands/uninstall
+  - /cli-documentation/v6/npm-uninstall
+  - /cli-documentation/v6/uninstall
+  - /cli/v6/cli-commands/npm-uninstall
+  - /cli/v6/cli-commands/uninstall
+  - /cli/v6/commands/uninstall
+  - /cli/v6/npm-uninstall
+  - /cli/v6/uninstall
 ---
 
 ### Synopsis

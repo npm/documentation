@@ -3,8 +3,20 @@ title: npm-help
 section: 1
 description: Get help on npm
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-help.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/help
+  - /cli-documentation/v7/cli-commands/npm-help
+  - /cli-documentation/v7/commands/help
+  - /cli-documentation/v7/commands/npm-help
+  - /cli-documentation/v7/help
+  - /cli-documentation/v7/npm-help
+  - /cli/v7/cli-commands/help
+  - /cli/v7/cli-commands/npm-help
+  - /cli/v7/commands/help
+  - /cli/v7/help
+  - /cli/v7/npm-help
 ---
 
 ### Synopsis

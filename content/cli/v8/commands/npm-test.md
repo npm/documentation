@@ -3,15 +3,36 @@ title: npm-test
 section: 1
 description: Test a package
 github_repo: npm/cli
-github_branch: v8
+github_branch: release/v8
 github_path: docs/content/commands/npm-test.md
 redirect_from:
   - /cli-commands/npm-test
   - /cli-commands/test
-  - /cli-commands/test.html
+  - /cli-documentation/cli-commands/npm-test
+  - /cli-documentation/cli-commands/test
+  - /cli-documentation/commands/npm-test
+  - /cli-documentation/commands/test
+  - /cli-documentation/npm-test
+  - /cli-documentation/test
+  - /cli-documentation/v8/cli-commands/npm-test
+  - /cli-documentation/v8/cli-commands/test
+  - /cli-documentation/v8/commands/npm-test
+  - /cli-documentation/v8/commands/test
+  - /cli-documentation/v8/npm-test
+  - /cli-documentation/v8/test
+  - /cli/cli-commands/npm-test
+  - /cli/cli-commands/test
+  - /cli/commands/npm-test
   - /cli/commands/test
+  - /cli/npm-test
   - /cli/test
-  - /cli/test.html
+  - /cli/v8/cli-commands/npm-test
+  - /cli/v8/cli-commands/test
+  - /cli/v8/commands/test
+  - /cli/v8/npm-test
+  - /cli/v8/test
+  - /commands/npm-test
+  - /commands/test
 ---
 
 ### Synopsis

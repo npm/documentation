@@ -3,8 +3,20 @@ title: npm-config
 section: 1
 description: Manage the npm configuration files
 github_repo: npm/cli
-github_branch: v7
+github_branch: release/v7
 github_path: docs/content/commands/npm-config.md
+redirect_from:
+  - /cli-documentation/v7/cli-commands/config
+  - /cli-documentation/v7/cli-commands/npm-config
+  - /cli-documentation/v7/commands/config
+  - /cli-documentation/v7/commands/npm-config
+  - /cli-documentation/v7/config
+  - /cli-documentation/v7/npm-config
+  - /cli/v7/cli-commands/config
+  - /cli/v7/cli-commands/npm-config
+  - /cli/v7/commands/config
+  - /cli/v7/config
+  - /cli/v7/npm-config
 ---
 
 ### Synopsis

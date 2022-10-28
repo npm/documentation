@@ -3,8 +3,20 @@ title: npm-docs
 section: 1
 description: Docs for a package in a web browser maybe
 github_repo: npm/cli
-github_branch: v6
+github_branch: release/v6
 github_path: docs/content/commands/npm-docs.md
+redirect_from:
+  - /cli-documentation/v6/cli-commands/docs
+  - /cli-documentation/v6/cli-commands/npm-docs
+  - /cli-documentation/v6/commands/docs
+  - /cli-documentation/v6/commands/npm-docs
+  - /cli-documentation/v6/docs
+  - /cli-documentation/v6/npm-docs
+  - /cli/v6/cli-commands/docs
+  - /cli/v6/cli-commands/npm-docs
+  - /cli/v6/commands/docs
+  - /cli/v6/docs
+  - /cli/v6/npm-docs
 ---
 
 ### Synopsis
