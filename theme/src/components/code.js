@@ -41,6 +41,7 @@ function Code({className, children, live, noinline}) {
                     key={key}
                     fontFamily="mono"
                     fontSize={1}
+                    tabIndex={0}
                     {...getTokenProps({token, key})}
                   />
                 ))}
