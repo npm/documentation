@@ -42,7 +42,7 @@ function VariantSelect(props) {
   const variantPages = NavHierarchy.getVariantsForPage(props.root, vp.page);
   const items = [];
   let selectedItem = variantPages[0];
-
+  
   if (variantPages.length === 0) {
       return null;
   }
@@ -73,6 +73,7 @@ function VariantSelect(props) {
       }
       items.push(
         <a
+          id={match.variant.shortName}
           style={{ textDecoration: 'none' }}
           tabIndex={0}
           key={match.variant.title}
@@ -99,8 +100,9 @@ function VariantSelect(props) {
   }
 
   return (
-    <div ref={wrapper}>
-      <Dropdown onKeyDown={onDropDownKeyDown} overlay={props.overlay}>
+    <div style={{ display: 'flex', flexDirection: 'column' }} ref={wrapper}>
+      <label id="label-versions-list-item" htmlFor='variant-select'>Select CLI Version:</label>
+      <Dropdown id="versions-list-item" aria-labelledby={selectedItem?.variant?.shortName} onKeyDown={onDropDownKeyDown} overlay={props.overlay}>
           <VariantSelect.Button aria-label='Version release'>{selectedItem.variant.title}</VariantSelect.Button>
           <VariantSelect.Menu direction={props.direction} width={props.menuWidth}>
               {items}
