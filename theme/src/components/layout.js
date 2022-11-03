@@ -108,10 +108,10 @@ function Layout({children, pageContext, location}) {
                 pl={1}
                 pb={1}
               >
-                <Text display="inline-block" fontWeight="bold" mb={1}>
+                <Text display="inline-block" fontWeight="bold" mb={1} id='table-of-content-label'>
                   Table of contents
                 </Text>
-                <TableOfContents items={pageContext.tableOfContents.items} />
+                <TableOfContents items={pageContext.tableOfContents.items} labelId='table-of-content-label'/>
               </Position>
             ) : null}
             <Box css={{gridArea: 'content'}}>
