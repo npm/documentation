@@ -137,8 +137,8 @@ folder instead of the current working directory. See
 
 #### `editor`
 
-* Default: The EDITOR or VISUAL environment variables, or 'notepad.exe' on
-  Windows, or 'vim' on Unix systems
+* Default: The EDITOR or VISUAL environment variables, or
+  '%SYSTEMROOT%\notepad.exe' on Windows, or 'vi' on Unix systems
 * Type: String
 
 The command to run for `npm edit` and `npm config edit`.

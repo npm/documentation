@@ -21,7 +21,7 @@ npm
 
 ### Version
 
-9.0.1
+9.1.0
 
 ### Description
 
