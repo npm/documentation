@@ -9,6 +9,7 @@ import useSearch from '../use-search'
 import DarkButton from './dark-button'
 import DarkTextInput from './dark-text-input'
 import SearchResults from './search-results'
+import useSiteMetadata from '../use-site-metadata'
 
 function stateReducer(state, changes) {
   switch (changes.type) {
@@ -29,6 +30,7 @@ function stateReducer(state, changes) {
 function MobileSearch({isOpen, onDismiss}) {
   const [query, setQuery] = React.useState('')
   const results = useSearch(query)
+  const siteMetadata = useSiteMetadata()
 
   function handleDismiss() {
     setQuery('')
@@ -90,7 +92,7 @@ function MobileSearch({isOpen, onDismiss}) {
                     >
                       <DarkTextInput
                         {...getInputProps({
-                          placeholder: `Search`,
+                          placeholder: `Search ${siteMetadata.title}`,
                           width: '100%',
                         })}
                       />
