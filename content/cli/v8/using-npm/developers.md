@@ -4,7 +4,7 @@ section: 7
 description: Developer Guide
 github_repo: npm/cli
 github_branch: release/v8
-github_path: docs/content/using-npm/developers.md
+github_path: docs/lib/content/using-npm/developers.md
 redirect_from:
   - /cli-documentation/misc/developers
   - /cli-documentation/using-npm/developers

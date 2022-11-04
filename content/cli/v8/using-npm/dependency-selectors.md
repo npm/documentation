@@ -4,7 +4,7 @@ section: 7
 description: Dependency Selector Syntax & Querying
 github_repo: npm/cli
 github_branch: release/v8
-github_path: docs/content/using-npm/dependency-selectors.md
+github_path: docs/lib/content/using-npm/dependency-selectors.md
 redirect_from:
   - /cli-documentation/misc/dependency-selectors
   - /cli-documentation/using-npm/dependency-selectors
