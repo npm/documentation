@@ -4,7 +4,7 @@ section: 7
 description: Cleaning the Slate
 github_repo: npm/cli
 github_branch: release/v8
-github_path: docs/content/using-npm/removal.md
+github_path: docs/lib/content/using-npm/removal.md
 redirect_from:
   - /cli-documentation/misc/removal
   - /cli-documentation/misc/removing-npm

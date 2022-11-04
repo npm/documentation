@@ -104,11 +104,14 @@ function Layout({children, pageContext, location}) {
                 top={HEADER_HEIGHT + 24}
                 mt="6px"
                 maxHeight={`calc(100vh - ${HEADER_HEIGHT}px - 24px)`}
+                pr={1}
+                pl={1}
+                pb={1}
               >
-                <Text display="inline-block" fontWeight="bold" mb={1}>
+                <Text display="inline-block" fontWeight="bold" mb={1} id='table-of-content-label'>
                   Table of contents
                 </Text>
-                <TableOfContents items={pageContext.tableOfContents.items} />
+                <TableOfContents items={pageContext.tableOfContents.items} labelId='table-of-content-label'/>
               </Position>
             ) : null}
             <Box css={{gridArea: 'content'}}>

@@ -784,7 +784,7 @@
             - title: Changelog
               url: /cli/v7/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 8.19.2 (Latest Release)
+    - title: Version 8.19.3 (Latest Release)
       shortName: v8
       url: /cli/v8
       default: true
@@ -1053,7 +1053,7 @@
             - title: Changelog
               url: /cli/v8/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 9.0.1 (Current Release)
+    - title: Version 9.1.0 (Current Release)
       shortName: v9
       url: /cli/v9
       default: false

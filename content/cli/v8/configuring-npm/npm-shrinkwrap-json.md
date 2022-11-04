@@ -4,7 +4,7 @@ section: 5
 description: A publishable lockfile
 github_repo: npm/cli
 github_branch: release/v8
-github_path: docs/content/configuring-npm/npm-shrinkwrap-json.md
+github_path: docs/lib/content/configuring-npm/npm-shrinkwrap-json.md
 redirect_from:
   - /cli-documentation/configuring-npm/npm-shrinkwrap-json
   - /cli-documentation/configuring-npm/npm-shrinkwrap.json
