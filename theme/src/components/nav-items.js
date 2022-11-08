@@ -153,9 +153,11 @@ function thirdLevelItems(items, path) {
     return (
       <Flex flexDirection="column" mt={2} role="list">
         {items.map((item) => (
-          <ThirdLevelLink key={item.url} to={item.url} role="listitem">
-            {item.title}
-          </ThirdLevelLink>
+          <Box key={item.title} role="listitem">
+            <ThirdLevelLink key={item.url} to={item.url}>
+              {item.title}
+            </ThirdLevelLink>
+          </Box>
         ))}
       </Flex>
     )
