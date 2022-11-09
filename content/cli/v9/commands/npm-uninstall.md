@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-uninstall.md
 redirect_from:
+  - /cli-commands/npm-uninstall
+  - /cli-commands/uninstall
+  - /cli-documentation/cli-commands/npm-uninstall
+  - /cli-documentation/cli-commands/uninstall
+  - /cli-documentation/commands/npm-uninstall
+  - /cli-documentation/commands/uninstall
+  - /cli-documentation/npm-uninstall
+  - /cli-documentation/uninstall
   - /cli-documentation/v9/cli-commands/npm-uninstall
   - /cli-documentation/v9/cli-commands/uninstall
   - /cli-documentation/v9/commands/npm-uninstall
   - /cli-documentation/v9/commands/uninstall
   - /cli-documentation/v9/npm-uninstall
   - /cli-documentation/v9/uninstall
+  - /cli/cli-commands/npm-uninstall
+  - /cli/cli-commands/uninstall
+  - /cli/commands/npm-uninstall
+  - /cli/commands/uninstall
+  - /cli/npm-uninstall
+  - /cli/uninstall
   - /cli/v9/cli-commands/npm-uninstall
   - /cli/v9/cli-commands/uninstall
   - /cli/v9/commands/uninstall
   - /cli/v9/npm-uninstall
   - /cli/v9/uninstall
+  - /commands/npm-uninstall
+  - /commands/uninstall
 ---
 
 ### Synopsis

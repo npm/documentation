@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-search.md
 redirect_from:
+  - /cli-commands/npm-search
+  - /cli-commands/search
+  - /cli-documentation/cli-commands/npm-search
+  - /cli-documentation/cli-commands/search
+  - /cli-documentation/commands/npm-search
+  - /cli-documentation/commands/search
+  - /cli-documentation/npm-search
+  - /cli-documentation/search
   - /cli-documentation/v9/cli-commands/npm-search
   - /cli-documentation/v9/cli-commands/search
   - /cli-documentation/v9/commands/npm-search
   - /cli-documentation/v9/commands/search
   - /cli-documentation/v9/npm-search
   - /cli-documentation/v9/search
+  - /cli/cli-commands/npm-search
+  - /cli/cli-commands/search
+  - /cli/commands/npm-search
+  - /cli/commands/search
+  - /cli/npm-search
+  - /cli/search
   - /cli/v9/cli-commands/npm-search
   - /cli/v9/cli-commands/search
   - /cli/v9/commands/search
   - /cli/v9/npm-search
   - /cli/v9/search
+  - /commands/npm-search
+  - /commands/search
 ---
 
 ### Synopsis

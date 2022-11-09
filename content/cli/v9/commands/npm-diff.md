@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-diff.md
 redirect_from:
+  - /cli-commands/diff
+  - /cli-commands/npm-diff
+  - /cli-documentation/cli-commands/diff
+  - /cli-documentation/cli-commands/npm-diff
+  - /cli-documentation/commands/diff
+  - /cli-documentation/commands/npm-diff
+  - /cli-documentation/diff
+  - /cli-documentation/npm-diff
   - /cli-documentation/v9/cli-commands/diff
   - /cli-documentation/v9/cli-commands/npm-diff
   - /cli-documentation/v9/commands/diff
   - /cli-documentation/v9/commands/npm-diff
   - /cli-documentation/v9/diff
   - /cli-documentation/v9/npm-diff
+  - /cli/cli-commands/diff
+  - /cli/cli-commands/npm-diff
+  - /cli/commands/diff
+  - /cli/commands/npm-diff
+  - /cli/diff
+  - /cli/npm-diff
   - /cli/v9/cli-commands/diff
   - /cli/v9/cli-commands/npm-diff
   - /cli/v9/commands/diff
   - /cli/v9/diff
   - /cli/v9/npm-diff
+  - /commands/diff
+  - /commands/npm-diff
 ---
 
 ### Synopsis

@@ -6,13 +6,25 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/using-npm/scope.md
 redirect_from:
+  - /cli-documentation/misc/npm-scope
+  - /cli-documentation/misc/scope
+  - /cli-documentation/using-npm/npm-scope
+  - /cli-documentation/using-npm/scope
   - /cli-documentation/v9/misc/npm-scope
   - /cli-documentation/v9/misc/scope
   - /cli-documentation/v9/using-npm/npm-scope
   - /cli-documentation/v9/using-npm/scope
+  - /cli/misc/npm-scope
+  - /cli/misc/scope
+  - /cli/using-npm/npm-scope
+  - /cli/using-npm/scope
   - /cli/v9/misc/npm-scope
   - /cli/v9/misc/scope
   - /cli/v9/using-npm/npm-scope
+  - /misc/npm-scope
+  - /misc/scope
+  - /using-npm/npm-scope
+  - /using-npm/scope
 ---
 
 ### Description

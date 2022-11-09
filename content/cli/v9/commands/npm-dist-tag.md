@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-dist-tag.md
 redirect_from:
+  - /cli-commands/dist-tag
+  - /cli-commands/npm-dist-tag
+  - /cli-documentation/cli-commands/dist-tag
+  - /cli-documentation/cli-commands/npm-dist-tag
+  - /cli-documentation/commands/dist-tag
+  - /cli-documentation/commands/npm-dist-tag
+  - /cli-documentation/dist-tag
+  - /cli-documentation/npm-dist-tag
   - /cli-documentation/v9/cli-commands/dist-tag
   - /cli-documentation/v9/cli-commands/npm-dist-tag
   - /cli-documentation/v9/commands/dist-tag
   - /cli-documentation/v9/commands/npm-dist-tag
   - /cli-documentation/v9/dist-tag
   - /cli-documentation/v9/npm-dist-tag
+  - /cli/cli-commands/dist-tag
+  - /cli/cli-commands/npm-dist-tag
+  - /cli/commands/dist-tag
+  - /cli/commands/npm-dist-tag
+  - /cli/dist-tag
+  - /cli/npm-dist-tag
   - /cli/v9/cli-commands/dist-tag
   - /cli/v9/cli-commands/npm-dist-tag
   - /cli/v9/commands/dist-tag
   - /cli/v9/dist-tag
   - /cli/v9/npm-dist-tag
+  - /commands/dist-tag
+  - /commands/npm-dist-tag
 ---
 
 ### Synopsis

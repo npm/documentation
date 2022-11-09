@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-ci.md
 redirect_from:
+  - /cli-commands/ci
+  - /cli-commands/npm-ci
+  - /cli-documentation/ci
+  - /cli-documentation/cli-commands/ci
+  - /cli-documentation/cli-commands/npm-ci
+  - /cli-documentation/commands/ci
+  - /cli-documentation/commands/npm-ci
+  - /cli-documentation/npm-ci
   - /cli-documentation/v9/ci
   - /cli-documentation/v9/cli-commands/ci
   - /cli-documentation/v9/cli-commands/npm-ci
   - /cli-documentation/v9/commands/ci
   - /cli-documentation/v9/commands/npm-ci
   - /cli-documentation/v9/npm-ci
+  - /cli/ci
+  - /cli/cli-commands/ci
+  - /cli/cli-commands/npm-ci
+  - /cli/commands/ci
+  - /cli/commands/npm-ci
+  - /cli/npm-ci
   - /cli/v9/ci
   - /cli/v9/cli-commands/ci
   - /cli/v9/cli-commands/npm-ci
   - /cli/v9/commands/ci
   - /cli/v9/npm-ci
+  - /commands/ci
+  - /commands/npm-ci
 ---
 
 ### Synopsis

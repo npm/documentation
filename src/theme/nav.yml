@@ -1053,10 +1053,10 @@
             - title: Changelog
               url: /cli/v8/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 9.1.0 (Current Release)
+    - title: Version 9.1.1 (Latest Release)
       shortName: v9
       url: /cli/v9
-      default: false
+      default: true
       children:
         - title: CLI Commands
           shortName: Commands

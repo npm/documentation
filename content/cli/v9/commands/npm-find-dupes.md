@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-find-dupes.md
 redirect_from:
+  - /cli-commands/find-dupes
+  - /cli-commands/npm-find-dupes
+  - /cli-documentation/cli-commands/find-dupes
+  - /cli-documentation/cli-commands/npm-find-dupes
+  - /cli-documentation/commands/find-dupes
+  - /cli-documentation/commands/npm-find-dupes
+  - /cli-documentation/find-dupes
+  - /cli-documentation/npm-find-dupes
   - /cli-documentation/v9/cli-commands/find-dupes
   - /cli-documentation/v9/cli-commands/npm-find-dupes
   - /cli-documentation/v9/commands/find-dupes
   - /cli-documentation/v9/commands/npm-find-dupes
   - /cli-documentation/v9/find-dupes
   - /cli-documentation/v9/npm-find-dupes
+  - /cli/cli-commands/find-dupes
+  - /cli/cli-commands/npm-find-dupes
+  - /cli/commands/find-dupes
+  - /cli/commands/npm-find-dupes
+  - /cli/find-dupes
+  - /cli/npm-find-dupes
   - /cli/v9/cli-commands/find-dupes
   - /cli/v9/cli-commands/npm-find-dupes
   - /cli/v9/commands/find-dupes
   - /cli/v9/find-dupes
   - /cli/v9/npm-find-dupes
+  - /commands/find-dupes
+  - /commands/npm-find-dupes
 ---
 
 ### Synopsis

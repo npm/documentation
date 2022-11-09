@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-shrinkwrap.md
 redirect_from:
+  - /cli-commands/npm-shrinkwrap
+  - /cli-commands/shrinkwrap
+  - /cli-documentation/cli-commands/npm-shrinkwrap
+  - /cli-documentation/cli-commands/shrinkwrap
+  - /cli-documentation/commands/npm-shrinkwrap
+  - /cli-documentation/commands/shrinkwrap
+  - /cli-documentation/npm-shrinkwrap
+  - /cli-documentation/shrinkwrap
   - /cli-documentation/v9/cli-commands/npm-shrinkwrap
   - /cli-documentation/v9/cli-commands/shrinkwrap
   - /cli-documentation/v9/commands/npm-shrinkwrap
   - /cli-documentation/v9/commands/shrinkwrap
   - /cli-documentation/v9/npm-shrinkwrap
   - /cli-documentation/v9/shrinkwrap
+  - /cli/cli-commands/npm-shrinkwrap
+  - /cli/cli-commands/shrinkwrap
+  - /cli/commands/npm-shrinkwrap
+  - /cli/commands/shrinkwrap
+  - /cli/npm-shrinkwrap
+  - /cli/shrinkwrap
   - /cli/v9/cli-commands/npm-shrinkwrap
   - /cli/v9/cli-commands/shrinkwrap
   - /cli/v9/commands/shrinkwrap
   - /cli/v9/npm-shrinkwrap
   - /cli/v9/shrinkwrap
+  - /commands/npm-shrinkwrap
+  - /commands/shrinkwrap
 ---
 
 ### Synopsis

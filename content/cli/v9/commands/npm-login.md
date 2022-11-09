@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-login.md
 redirect_from:
+  - /cli-commands/login
+  - /cli-commands/npm-login
+  - /cli-documentation/cli-commands/login
+  - /cli-documentation/cli-commands/npm-login
+  - /cli-documentation/commands/login
+  - /cli-documentation/commands/npm-login
+  - /cli-documentation/login
+  - /cli-documentation/npm-login
   - /cli-documentation/v9/cli-commands/login
   - /cli-documentation/v9/cli-commands/npm-login
   - /cli-documentation/v9/commands/login
   - /cli-documentation/v9/commands/npm-login
   - /cli-documentation/v9/login
   - /cli-documentation/v9/npm-login
+  - /cli/cli-commands/login
+  - /cli/cli-commands/npm-login
+  - /cli/commands/login
+  - /cli/commands/npm-login
+  - /cli/login
+  - /cli/npm-login
   - /cli/v9/cli-commands/login
   - /cli/v9/cli-commands/npm-login
   - /cli/v9/commands/login
   - /cli/v9/login
   - /cli/v9/npm-login
+  - /commands/login
+  - /commands/npm-login
 ---
 
 ### Synopsis

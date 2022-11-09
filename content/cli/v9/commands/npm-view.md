@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-view.md
 redirect_from:
+  - /cli-commands/npm-view
+  - /cli-commands/view
+  - /cli-documentation/cli-commands/npm-view
+  - /cli-documentation/cli-commands/view
+  - /cli-documentation/commands/npm-view
+  - /cli-documentation/commands/view
+  - /cli-documentation/npm-view
   - /cli-documentation/v9/cli-commands/npm-view
   - /cli-documentation/v9/cli-commands/view
   - /cli-documentation/v9/commands/npm-view
   - /cli-documentation/v9/commands/view
   - /cli-documentation/v9/npm-view
   - /cli-documentation/v9/view
+  - /cli-documentation/view
+  - /cli/cli-commands/npm-view
+  - /cli/cli-commands/view
+  - /cli/commands/npm-view
+  - /cli/commands/view
+  - /cli/npm-view
   - /cli/v9/cli-commands/npm-view
   - /cli/v9/cli-commands/view
   - /cli/v9/commands/view
   - /cli/v9/npm-view
   - /cli/v9/view
+  - /cli/view
+  - /commands/npm-view
+  - /commands/view
 ---
 
 ### Synopsis

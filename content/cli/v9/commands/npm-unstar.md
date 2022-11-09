@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-unstar.md
 redirect_from:
+  - /cli-commands/npm-unstar
+  - /cli-commands/unstar
+  - /cli-documentation/cli-commands/npm-unstar
+  - /cli-documentation/cli-commands/unstar
+  - /cli-documentation/commands/npm-unstar
+  - /cli-documentation/commands/unstar
+  - /cli-documentation/npm-unstar
+  - /cli-documentation/unstar
   - /cli-documentation/v9/cli-commands/npm-unstar
   - /cli-documentation/v9/cli-commands/unstar
   - /cli-documentation/v9/commands/npm-unstar
   - /cli-documentation/v9/commands/unstar
   - /cli-documentation/v9/npm-unstar
   - /cli-documentation/v9/unstar
+  - /cli/cli-commands/npm-unstar
+  - /cli/cli-commands/unstar
+  - /cli/commands/npm-unstar
+  - /cli/commands/unstar
+  - /cli/npm-unstar
+  - /cli/unstar
   - /cli/v9/cli-commands/npm-unstar
   - /cli/v9/cli-commands/unstar
   - /cli/v9/commands/unstar
   - /cli/v9/npm-unstar
   - /cli/v9/unstar
+  - /commands/npm-unstar
+  - /commands/unstar
 ---
 
 ### Synopsis

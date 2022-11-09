@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-completion.md
 redirect_from:
+  - /cli-commands/completion
+  - /cli-commands/npm-completion
+  - /cli-documentation/cli-commands/completion
+  - /cli-documentation/cli-commands/npm-completion
+  - /cli-documentation/commands/completion
+  - /cli-documentation/commands/npm-completion
+  - /cli-documentation/completion
+  - /cli-documentation/npm-completion
   - /cli-documentation/v9/cli-commands/completion
   - /cli-documentation/v9/cli-commands/npm-completion
   - /cli-documentation/v9/commands/completion
   - /cli-documentation/v9/commands/npm-completion
   - /cli-documentation/v9/completion
   - /cli-documentation/v9/npm-completion
+  - /cli/cli-commands/completion
+  - /cli/cli-commands/npm-completion
+  - /cli/commands/completion
+  - /cli/commands/npm-completion
+  - /cli/completion
+  - /cli/npm-completion
   - /cli/v9/cli-commands/completion
   - /cli/v9/cli-commands/npm-completion
   - /cli/v9/commands/completion
   - /cli/v9/completion
   - /cli/v9/npm-completion
+  - /commands/completion
+  - /commands/npm-completion
 ---
 
 ### Synopsis

@@ -6,13 +6,25 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/using-npm/removal.md
 redirect_from:
+  - /cli-documentation/misc/removal
+  - /cli-documentation/misc/removing-npm
+  - /cli-documentation/using-npm/removal
+  - /cli-documentation/using-npm/removing-npm
   - /cli-documentation/v9/misc/removal
   - /cli-documentation/v9/misc/removing-npm
   - /cli-documentation/v9/using-npm/removal
   - /cli-documentation/v9/using-npm/removing-npm
+  - /cli/misc/removal
+  - /cli/misc/removing-npm
+  - /cli/using-npm/removal
+  - /cli/using-npm/removing-npm
   - /cli/v9/misc/removal
   - /cli/v9/misc/removing-npm
   - /cli/v9/using-npm/removing-npm
+  - /misc/removal
+  - /misc/removing-npm
+  - /using-npm/removal
+  - /using-npm/removing-npm
 ---
 
 ### Synopsis
