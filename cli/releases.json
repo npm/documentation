@@ -15,13 +15,13 @@
   {
     "id": "v8",
     "branch": "release/v8",
-    "spec": "latest",
+    "spec": "^8",
     "resolved": "https://registry.npmjs.org/npm/-/npm-8.19.3.tgz"
   },
   {
     "id": "v9",
     "branch": "latest",
-    "spec": "next-9",
+    "spec": "latest",
     "resolved": "https://registry.npmjs.org/npm/-/npm-9.1.0.tgz"
   }
 ]
