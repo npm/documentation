@@ -37,10 +37,12 @@ function VariantSelect(props) {
   }
 
   variantPages.forEach((match, index) => {
+      let active = false;
       if (match.page.url === path) {
           selectedItem = match;
+          active = true;
       }
-      items.push(<ActionList.Item onKeyDown={(e) => onItemEnterKey(e, match.page.url)} onClick={e => anchorClickHandler(e, match.page.url)} id={match.variant.shortName} key={index}>
+      items.push(<ActionList.Item onKeyDown={(e) => onItemEnterKey(e, match.page.url)} onClick={e => anchorClickHandler(e, match.page.url)} id={match.variant.shortName} key={index} active={active}>
         <span aria-label={`${match.variant.title}. List items ${index + 1} of ${variantPages.length}`}>
           {match.variant.title}
         </span>
