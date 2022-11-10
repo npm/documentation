@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/commands/npm-stop.md
 redirect_from:
-  - /cli-commands/npm-stop
-  - /cli-commands/stop
-  - /cli-documentation/cli-commands/npm-stop
-  - /cli-documentation/cli-commands/stop
-  - /cli-documentation/commands/npm-stop
-  - /cli-documentation/commands/stop
-  - /cli-documentation/npm-stop
-  - /cli-documentation/stop
   - /cli-documentation/v8/cli-commands/npm-stop
   - /cli-documentation/v8/cli-commands/stop
   - /cli-documentation/v8/commands/npm-stop
   - /cli-documentation/v8/commands/stop
   - /cli-documentation/v8/npm-stop
   - /cli-documentation/v8/stop
-  - /cli/cli-commands/npm-stop
-  - /cli/cli-commands/stop
-  - /cli/commands/npm-stop
-  - /cli/commands/stop
-  - /cli/npm-stop
-  - /cli/stop
   - /cli/v8/cli-commands/npm-stop
   - /cli/v8/cli-commands/stop
   - /cli/v8/commands/stop
   - /cli/v8/npm-stop
   - /cli/v8/stop
-  - /commands/npm-stop
-  - /commands/stop
 ---
 
 ### Synopsis

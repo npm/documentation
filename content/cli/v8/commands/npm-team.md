@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/commands/npm-team.md
 redirect_from:
-  - /cli-commands/npm-team
-  - /cli-commands/team
-  - /cli-documentation/cli-commands/npm-team
-  - /cli-documentation/cli-commands/team
-  - /cli-documentation/commands/npm-team
-  - /cli-documentation/commands/team
-  - /cli-documentation/npm-team
-  - /cli-documentation/team
   - /cli-documentation/v8/cli-commands/npm-team
   - /cli-documentation/v8/cli-commands/team
   - /cli-documentation/v8/commands/npm-team
   - /cli-documentation/v8/commands/team
   - /cli-documentation/v8/npm-team
   - /cli-documentation/v8/team
-  - /cli/cli-commands/npm-team
-  - /cli/cli-commands/team
-  - /cli/commands/npm-team
-  - /cli/commands/team
-  - /cli/npm-team
-  - /cli/team
   - /cli/v8/cli-commands/npm-team
   - /cli/v8/cli-commands/team
   - /cli/v8/commands/team
   - /cli/v8/npm-team
   - /cli/v8/team
-  - /commands/npm-team
-  - /commands/team
 ---
 
 ### Synopsis

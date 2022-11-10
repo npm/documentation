@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/commands/npm-install-test.md
 redirect_from:
-  - /cli-commands/install-test
-  - /cli-commands/npm-install-test
-  - /cli-documentation/cli-commands/install-test
-  - /cli-documentation/cli-commands/npm-install-test
-  - /cli-documentation/commands/install-test
-  - /cli-documentation/commands/npm-install-test
-  - /cli-documentation/install-test
-  - /cli-documentation/npm-install-test
   - /cli-documentation/v8/cli-commands/install-test
   - /cli-documentation/v8/cli-commands/npm-install-test
   - /cli-documentation/v8/commands/install-test
   - /cli-documentation/v8/commands/npm-install-test
   - /cli-documentation/v8/install-test
   - /cli-documentation/v8/npm-install-test
-  - /cli/cli-commands/install-test
-  - /cli/cli-commands/npm-install-test
-  - /cli/commands/install-test
-  - /cli/commands/npm-install-test
-  - /cli/install-test
-  - /cli/npm-install-test
   - /cli/v8/cli-commands/install-test
   - /cli/v8/cli-commands/npm-install-test
   - /cli/v8/commands/install-test
   - /cli/v8/install-test
   - /cli/v8/npm-install-test
-  - /commands/install-test
-  - /commands/npm-install-test
 ---
 
 ### Synopsis

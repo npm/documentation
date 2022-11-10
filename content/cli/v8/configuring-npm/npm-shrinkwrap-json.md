@@ -6,25 +6,13 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/configuring-npm/npm-shrinkwrap-json.md
 redirect_from:
-  - /cli-documentation/configuring-npm/npm-shrinkwrap-json
-  - /cli-documentation/configuring-npm/npm-shrinkwrap.json
-  - /cli-documentation/files/npm-shrinkwrap-json
-  - /cli-documentation/files/npm-shrinkwrap.json
   - /cli-documentation/v8/configuring-npm/npm-shrinkwrap-json
   - /cli-documentation/v8/configuring-npm/npm-shrinkwrap.json
   - /cli-documentation/v8/files/npm-shrinkwrap-json
   - /cli-documentation/v8/files/npm-shrinkwrap.json
-  - /cli/configuring-npm/npm-shrinkwrap-json
-  - /cli/configuring-npm/npm-shrinkwrap.json
-  - /cli/files/npm-shrinkwrap-json
-  - /cli/files/npm-shrinkwrap.json
   - /cli/v8/configuring-npm/npm-shrinkwrap.json
   - /cli/v8/files/npm-shrinkwrap-json
   - /cli/v8/files/npm-shrinkwrap.json
-  - /configuring-npm/npm-shrinkwrap-json
-  - /configuring-npm/npm-shrinkwrap.json
-  - /files/npm-shrinkwrap-json
-  - /files/npm-shrinkwrap.json
 ---
 
 ### Description

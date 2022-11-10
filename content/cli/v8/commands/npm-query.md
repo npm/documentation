@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/commands/npm-query.md
 redirect_from:
-  - /cli-commands/npm-query
-  - /cli-commands/query
-  - /cli-documentation/cli-commands/npm-query
-  - /cli-documentation/cli-commands/query
-  - /cli-documentation/commands/npm-query
-  - /cli-documentation/commands/query
-  - /cli-documentation/npm-query
-  - /cli-documentation/query
   - /cli-documentation/v8/cli-commands/npm-query
   - /cli-documentation/v8/cli-commands/query
   - /cli-documentation/v8/commands/npm-query
   - /cli-documentation/v8/commands/query
   - /cli-documentation/v8/npm-query
   - /cli-documentation/v8/query
-  - /cli/cli-commands/npm-query
-  - /cli/cli-commands/query
-  - /cli/commands/npm-query
-  - /cli/commands/query
-  - /cli/npm-query
-  - /cli/query
   - /cli/v8/cli-commands/npm-query
   - /cli/v8/cli-commands/query
   - /cli/v8/commands/query
   - /cli/v8/npm-query
   - /cli/v8/query
-  - /commands/npm-query
-  - /commands/query
 ---
 
 ### Synopsis

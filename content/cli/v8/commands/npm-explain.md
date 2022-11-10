@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/commands/npm-explain.md
 redirect_from:
-  - /cli-commands/explain
-  - /cli-commands/npm-explain
-  - /cli-documentation/cli-commands/explain
-  - /cli-documentation/cli-commands/npm-explain
-  - /cli-documentation/commands/explain
-  - /cli-documentation/commands/npm-explain
-  - /cli-documentation/explain
-  - /cli-documentation/npm-explain
   - /cli-documentation/v8/cli-commands/explain
   - /cli-documentation/v8/cli-commands/npm-explain
   - /cli-documentation/v8/commands/explain
   - /cli-documentation/v8/commands/npm-explain
   - /cli-documentation/v8/explain
   - /cli-documentation/v8/npm-explain
-  - /cli/cli-commands/explain
-  - /cli/cli-commands/npm-explain
-  - /cli/commands/explain
-  - /cli/commands/npm-explain
-  - /cli/explain
-  - /cli/npm-explain
   - /cli/v8/cli-commands/explain
   - /cli/v8/cli-commands/npm-explain
   - /cli/v8/commands/explain
   - /cli/v8/explain
   - /cli/v8/npm-explain
-  - /commands/explain
-  - /commands/npm-explain
 ---
 
 ### Synopsis

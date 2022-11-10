@@ -6,15 +6,9 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/using-npm/orgs.md
 redirect_from:
-  - /cli-documentation/misc/orgs
-  - /cli-documentation/using-npm/orgs
   - /cli-documentation/v8/misc/orgs
   - /cli-documentation/v8/using-npm/orgs
-  - /cli/misc/orgs
-  - /cli/using-npm/orgs
   - /cli/v8/misc/orgs
-  - /misc/orgs
-  - /using-npm/orgs
 ---
 
 ### Description

@@ -6,25 +6,13 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/configuring-npm/package-lock-json.md
 redirect_from:
-  - /cli-documentation/configuring-npm/package-lock-json
-  - /cli-documentation/configuring-npm/package-lock.json
-  - /cli-documentation/files/package-lock-json
-  - /cli-documentation/files/package-lock.json
   - /cli-documentation/v8/configuring-npm/package-lock-json
   - /cli-documentation/v8/configuring-npm/package-lock.json
   - /cli-documentation/v8/files/package-lock-json
   - /cli-documentation/v8/files/package-lock.json
-  - /cli/configuring-npm/package-lock-json
-  - /cli/configuring-npm/package-lock.json
-  - /cli/files/package-lock-json
-  - /cli/files/package-lock.json
   - /cli/v8/configuring-npm/package-lock.json
   - /cli/v8/files/package-lock-json
   - /cli/v8/files/package-lock.json
-  - /configuring-npm/package-lock-json
-  - /configuring-npm/package-lock.json
-  - /files/package-lock-json
-  - /files/package-lock.json
 ---
 
 ### Description

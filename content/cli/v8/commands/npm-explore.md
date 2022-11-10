@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/commands/npm-explore.md
 redirect_from:
-  - /cli-commands/explore
-  - /cli-commands/npm-explore
-  - /cli-documentation/cli-commands/explore
-  - /cli-documentation/cli-commands/npm-explore
-  - /cli-documentation/commands/explore
-  - /cli-documentation/commands/npm-explore
-  - /cli-documentation/explore
-  - /cli-documentation/npm-explore
   - /cli-documentation/v8/cli-commands/explore
   - /cli-documentation/v8/cli-commands/npm-explore
   - /cli-documentation/v8/commands/explore
   - /cli-documentation/v8/commands/npm-explore
   - /cli-documentation/v8/explore
   - /cli-documentation/v8/npm-explore
-  - /cli/cli-commands/explore
-  - /cli/cli-commands/npm-explore
-  - /cli/commands/explore
-  - /cli/commands/npm-explore
-  - /cli/explore
-  - /cli/npm-explore
   - /cli/v8/cli-commands/explore
   - /cli/v8/cli-commands/npm-explore
   - /cli/v8/commands/explore
   - /cli/v8/explore
   - /cli/v8/npm-explore
-  - /commands/explore
-  - /commands/npm-explore
 ---
 
 ### Synopsis

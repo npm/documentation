@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/commands/npm-cache.md
 redirect_from:
-  - /cli-commands/cache
-  - /cli-commands/npm-cache
-  - /cli-documentation/cache
-  - /cli-documentation/cli-commands/cache
-  - /cli-documentation/cli-commands/npm-cache
-  - /cli-documentation/commands/cache
-  - /cli-documentation/commands/npm-cache
-  - /cli-documentation/npm-cache
   - /cli-documentation/v8/cache
   - /cli-documentation/v8/cli-commands/cache
   - /cli-documentation/v8/cli-commands/npm-cache
   - /cli-documentation/v8/commands/cache
   - /cli-documentation/v8/commands/npm-cache
   - /cli-documentation/v8/npm-cache
-  - /cli/cache
-  - /cli/cli-commands/cache
-  - /cli/cli-commands/npm-cache
-  - /cli/commands/cache
-  - /cli/commands/npm-cache
-  - /cli/npm-cache
   - /cli/v8/cache
   - /cli/v8/cli-commands/cache
   - /cli/v8/cli-commands/npm-cache
   - /cli/v8/commands/cache
   - /cli/v8/npm-cache
-  - /commands/cache
-  - /commands/npm-cache
 ---
 
 ### Synopsis
