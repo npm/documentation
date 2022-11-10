@@ -12,11 +12,27 @@ const navPath = resolve(
   'nav.yml'
 )
 
-const getReleases = () => {
-  return JSON.parse(JSON.stringify(require('../releases.json')))
-}
+const getReleases = () => [
+  {
+    id: 'v6',
+    branch: 'release/v6',
+    useBranch: true,
+  },
+  {
+    id: 'v7',
+    branch: 'release/v7',
+  },
+  {
+    id: 'v8',
+    branch: 'release/v8',
+  },
+  {
+    id: 'v9',
+    branch: 'latest',
+  },
+]
 
-const mockBuild = async ({ releases, testdir: testdirOpts }) => {
+const mockBuild = async ({ releases, packument = {}, testdir: testdirOpts }) => {
   const testdir = t.testdir({
     'releases.json': JSON.stringify(releases),
     'nav.yml': await fs.readFile(navPath, 'utf-8'),
@@ -24,51 +40,58 @@ const mockBuild = async ({ releases, testdir: testdirOpts }) => {
     ...testdirOpts,
   })
 
+  if (!packument.versions) {
+    packument.versions = releases.map(r => {
+      // real tarball requests are made for these verions
+      // so by default they all need to exist
+      switch (r.id.slice(1)) {
+        case '6':
+          return '6.14.17'
+        case '7':
+          return '7.24.2'
+        case '8':
+          return '8.19.3'
+        case '9':
+          return '9.0.0'
+      }
+    })
+  }
+
+  if (!packument.latest) {
+    packument.latest = packument.versions[packument.versions.length - 1]
+  }
+
   const build = t.mock('../lib/build', {
     pacote: {
       ...pacote,
-      manifest: async (spec) => {
-        let version = spec.split('@')[1]
-        const release = releases.find(r => r.spec === version)
-
-        if (version.match(/^\^\d+$/)) {
-          version = version.slice(1) + '.0.0'
-        } else if (version === 'latest') {
-          version = release.id.slice(1) + '.0.0'
-        } else if (version.startsWith('next-')) {
-          version = version.replace('next-', '') + '.0.0-pre.4'
-        }
-
+      packument: async () => {
         return {
-          version,
-          _resolved: release.resolved,
-          _from: spec,
+          'dist-tags': {
+            latest: packument.latest,
+          },
+          versions: packument.versions.reduce((acc, v) => {
+            acc[v] = null
+            return acc
+          }, {}),
         }
       },
     },
   })
 
-  return (opts) => build({
-    contentPath: join(testdir, 'content'),
-    releasesPath: join(testdir, 'releases.json'),
-    navPath: join(testdir, 'nav.yml'),
-    ...opts,
-  })
+  return {
+    testdir,
+    build: (opts) => build({
+      contentPath: join(testdir, 'content'),
+      releasesPath: join(testdir, 'releases.json'),
+      navPath: join(testdir, 'nav.yml'),
+      ...opts,
+    }),
+  }
 }
 
-t.test('builds successfully', async (t) => {
+t.test('basic', async (t) => {
   const releases = getReleases()
-  const build = await mockBuild({ releases })
-
-  await build({
-    force: true,
-    prerelease: true,
-  })
-})
-
-t.test('no force', async (t) => {
-  const releases = getReleases()
-  const build = await mockBuild({
+  const { build, testdir } = await mockBuild({
     releases,
     testdir: {
       'nav.yml': '- title: cli\n  url: /cli',
@@ -76,45 +99,39 @@ t.test('no force', async (t) => {
   })
 
   await build()
+  t.strictSame(await fs.readdir(join(testdir, 'content')), releases.map(r => r.id))
 })
 
 t.test('no default release', async (t) => {
-  const releases = getReleases().filter(r => r.spec !== 'latest')
-  const build = await mockBuild({
+  const releases = getReleases()
+  const { build } = await mockBuild({
     releases,
-    testdir: {
-      'nav.yml': '- title: cli\n  url: /cli',
-    },
+    packument: { latest: '9999.99999.99999' },
   })
 
   await t.rejects(() => build())
 })
 
-t.test('prerelease', async (t) => {
+t.test('prereleases', async (t) => {
   const releases = getReleases()
-  releases[1].spec = 'next-8'
-  releases[2].spec = '^8'
-
-  const build = await mockBuild({
+  const { build, testdir } = await mockBuild({
     releases,
-    testdir: {
-      'nav.yml': '- title: cli\n  url: /cli',
-    },
+    packument: { versions: ['6.14.17', '7.24.2', '8.19.3', '9.0.0-pre.2'], latest: '8.19.3' },
   })
 
-  await build()
+  await build({ prerelease: false })
+  const expectedReleases = releases.map(r => r.id).filter(r => r !== 'v9')
+  t.strictSame(await fs.readdir(join(testdir, 'content')), expectedReleases)
+
+  await build({ prerelease: true })
+  t.strictSame(await fs.readdir(join(testdir, 'content')), releases.map(r => r.id))
 })
 
 t.test('earlier release is latest', async (t) => {
   const releases = getReleases()
-  releases[1].spec = 'latest'
-  releases[2].spec = '^8'
-
-  const build = await mockBuild({
+  const { build } = await mockBuild({
     releases,
-    testdir: {
-      'nav.yml': '- title: cli\n  url: /cli',
-    },
+    packument: { latest: '8.19.3' },
   })
 
   await build()
@@ -122,15 +139,12 @@ t.test('earlier release is latest', async (t) => {
 
 t.test('add variant to nav', async (t) => {
   const releases = getReleases()
-  releases[1].spec = 'latest'
-  releases[2].spec = '^8'
-
-  const build = await mockBuild({
+  const { build } = await mockBuild({
     releases,
     testdir: {
       'nav.yml': '- title: cli\n  url: /cli\n  variants:\n    - url: /cli/v0',
     },
   })
 
-  await build({ force: true })
+  await build()
 })
