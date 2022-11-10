@@ -3,6 +3,7 @@ import {CheckIcon, CopyIcon} from '@primer/octicons-react'
 import styled from 'styled-components'
 import copy from 'copy-to-clipboard'
 import React from 'react'
+import {announce} from '../aria-live'
 
 const CopyToClipboard = styled(Button)`
   &:focus {
@@ -27,6 +28,7 @@ function ClipboardCopy({value}) {
       onClick={() => {
         copy(value)
         setCopied(true)
+        announce(`copied to clipboard`)
       }}
     >
       {copied ? <StyledOcticon icon={CheckIcon} color="green.5" /> : <StyledOcticon icon={CopyIcon} color="gray.7" />}
