@@ -90,6 +90,21 @@ t.test('no default release', async (t) => {
   await t.rejects(() => build())
 })
 
+t.test('prerelease', async (t) => {
+  const releases = getReleases()
+  releases[1].spec = 'next-8'
+  releases[2].spec = '^8'
+
+  const build = await mockBuild({
+    releases,
+    testdir: {
+      'nav.yml': '- title: cli\n  url: /cli',
+    },
+  })
+
+  await build()
+})
+
 t.test('earlier release is latest', async (t) => {
   const releases = getReleases()
   releases[1].spec = 'latest'
