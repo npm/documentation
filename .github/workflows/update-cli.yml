@@ -5,6 +5,7 @@ name: Update CLI
 on:
   workflow_dispatch:
 
+
 jobs:
   update-cli:
     outputs:
