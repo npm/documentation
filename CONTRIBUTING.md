@@ -18,7 +18,7 @@ contribute a change?  Great!
 
 1. `npm install` to download Gatsby, our theme, and the dependencies
 2. `npm run develop`: starts the test server at `http://localhost:8000`.
-3. Update the content - it's MDX, which is like markdown - in the `content`
+3. Update the content - it's MDX, which is like Markdown - in the `content`
    directory.
 4. Review your content at `http://localhost:8000`.  (Gatsby watches the
    filesystem and will reload your content changes immediately.)
@@ -46,8 +46,8 @@ changes you make should be reflected in the site immediately.
 ### Documentation content
 
 The documentation content lives in the `content` directory, and is
-markdown.  (Actually, [MDX](https://mdxjs.com/), a sort of reactive
-markdown.)
+Markdown.  (Actually, [MDX](https://mdxjs.com/), a sort of reactive
+Markdown.)
 
 ### Static content (images)
 
