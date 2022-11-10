@@ -52,7 +52,14 @@
  function createNoticeContainer() {
    container = document.createElement('div')
    container.setAttribute('aria-live', 'polite')
-   container.classList.add('sr-only')
+   container.style.position = 'absolute'
+   container.style.width = '1px'
+   container.style.height = '1px'
+   container.style.padding = '0'
+   container.style.overflow = 'hidden'
+   container.style.clip = 'rect(0, 0, 0, 0)'
+   container.style.wordWrap = 'normal'
+   container.style.border = '0'
    document.body.append(container)
  }
  
