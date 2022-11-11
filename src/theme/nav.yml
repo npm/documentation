@@ -524,6 +524,9 @@
             - title: Removal
               url: /cli/v6/using-npm/removal
               description: Cleaning the slate
+            - title: Changelog
+              url: /cli/v6/using-npm/changelog
+              description: Changelog notes for each version
     - title: Version 7.24.2 (Legacy Release)
       shortName: v7
       url: /cli/v7
@@ -778,6 +781,9 @@
             - title: Removal
               url: /cli/v7/using-npm/removal
               description: Cleaning the slate
+            - title: Changelog
+              url: /cli/v7/using-npm/changelog
+              description: Changelog notes for each version
     - title: Version 8.19.2 (Latest Release)
       shortName: v8
       url: /cli/v8
@@ -1044,7 +1050,10 @@
             - title: Removal
               url: /cli/v8/using-npm/removal
               description: Cleaning the slate
-    - title: Version 9.0.0 (Current Release)
+            - title: Changelog
+              url: /cli/v8/using-npm/changelog
+              description: Changelog notes for each version
+    - title: Version 9.0.1 (Current Release)
       shortName: v9
       url: /cli/v9
       default: false
@@ -1307,3 +1316,6 @@
             - title: Removal
               url: /cli/v9/using-npm/removal
               description: Cleaning the slate
+            - title: Changelog
+              url: /cli/v9/using-npm/changelog
+              description: Changelog notes for each version
