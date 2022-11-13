@@ -28,6 +28,6 @@
     "workspaces": [
       "cli"
     ],
-    "version": "4.6.2"
+    "version": "4.10.0"
   }
 }
