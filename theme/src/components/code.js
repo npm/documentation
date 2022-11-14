@@ -34,6 +34,7 @@ function Code({className, children, live, noinline}) {
             border={0}
             style={{...style, overflow: 'auto'}}
           >
+            <div aria-hidden="true" tabIndex={0} style={{height: 0}}>&nbsp;</div>
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({line, key: i})}>
                 {line.map((token, key) => (
@@ -41,7 +42,6 @@ function Code({className, children, live, noinline}) {
                     key={key}
                     fontFamily="mono"
                     fontSize={1}
-                    tabIndex={0}
                     {...getTokenProps({token, key})}
                   />
                 ))}
