@@ -6,16 +6,16 @@
  * The code is heavily borrowed from https://github.com/github/github/blob/master/app/assets/modules/github/aria-live.ts
  */
 
- let container
+let container
 
- if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined') {
   document.addEventListener("DOMContentLoaded", function(event) { 
     createNoticeContainer()
   });
  }
  
  // Announce message update to screen reader.
- function announce(message) {
+function announce(message) {
    if (!container || !container.isConnected) {
      /* This condition is for when the aria-live container no longer exists due to nav methods like turbo drive
      which replace the body getting rid of the region. We add the container if it's missing. We then add a delay
@@ -33,7 +33,7 @@
  }
  
  // Set aria-live container to message.
- function setContainerContent(message) {
+function setContainerContent(message) {
    if (!container) return
    if (container.textContent === message) {
      /* This is a hack due to the way the aria live API works.
@@ -42,14 +42,13 @@
      the browser that the live region has updated,
      which will cause it to read again, but with no audible difference. */
      container.textContent = `${message}\u00A0`
- 
    } else {
      container.textContent = message
    }
  }
  
  // Get the global screen reader notice container.
- function createNoticeContainer() {
+function createNoticeContainer() {
    container = document.createElement('div')
    container.setAttribute('aria-live', 'polite')
    container.style.position = 'absolute'
@@ -63,7 +62,7 @@
    document.body.append(container)
  }
  
- module.exports = {
+module.exports = {
    announce
  }
  

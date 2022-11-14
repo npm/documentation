@@ -28,7 +28,7 @@ function ClipboardCopy({value}) {
       onClick={() => {
         copy(value)
         setCopied(true)
-        announce(`copied to clipboard`)
+        announce(`Copied to clipboard`)
       }}
     >
       {copied ? <StyledOcticon icon={CheckIcon} color="green.5" /> : <StyledOcticon icon={CopyIcon} color="gray.7" />}
