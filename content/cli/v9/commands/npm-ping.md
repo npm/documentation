@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-ping.md
 redirect_from:
+  - /cli-commands/npm-ping
+  - /cli-commands/ping
+  - /cli-documentation/cli-commands/npm-ping
+  - /cli-documentation/cli-commands/ping
+  - /cli-documentation/commands/npm-ping
+  - /cli-documentation/commands/ping
+  - /cli-documentation/npm-ping
+  - /cli-documentation/ping
   - /cli-documentation/v9/cli-commands/npm-ping
   - /cli-documentation/v9/cli-commands/ping
   - /cli-documentation/v9/commands/npm-ping
   - /cli-documentation/v9/commands/ping
   - /cli-documentation/v9/npm-ping
   - /cli-documentation/v9/ping
+  - /cli/cli-commands/npm-ping
+  - /cli/cli-commands/ping
+  - /cli/commands/npm-ping
+  - /cli/commands/ping
+  - /cli/npm-ping
+  - /cli/ping
   - /cli/v9/cli-commands/npm-ping
   - /cli/v9/cli-commands/ping
   - /cli/v9/commands/ping
   - /cli/v9/npm-ping
   - /cli/v9/ping
+  - /commands/npm-ping
+  - /commands/ping
 ---
 
 ### Synopsis

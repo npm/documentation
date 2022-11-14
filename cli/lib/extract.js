@@ -33,16 +33,12 @@ const unpackTarball = async ({ release, cwd, dir }) => {
       },
     })
 
-  await pacote.tarball.stream(
-    release.spec,
-    (stream) =>
-      new Promise((res, rej) => {
-        stream.on('end', res)
-        stream.on('error', rej)
-        stream.pipe(extract())
-      }),
-    { resolved: release.resolved }
-  )
+  await pacote.tarball.stream(`npm@${release.version}`, (stream) =>
+    new Promise((res, rej) => {
+      stream.on('end', res)
+      stream.on('error', rej)
+      stream.pipe(extract())
+    }))
 
   return result
 }
@@ -122,47 +118,16 @@ const writeChangelog = async ({ release, nav, cwd, srcPath, contentPath }) => {
   })
 }
 
-const resolveRelease = async (
-  { resolved: current, ...release },
-  { force, prerelease }
+const unpackRelease = async (
+  release,
+  { contentPath, baseNav, prerelease = false }
 ) => {
   if (release.prerelease && !prerelease) {
     log.info(`Skipping ${release.id} due to prerelease ${release.version}`)
-    return null
-  }
-
-  // The legacy v6 release has updated docs in GitHub that were never
-  // published. So in this case we skip cloning the repo with pacote
-  // and get the latest commit on the branch. Later we will use the
-  // GitHub api to fetch just the docs files we need since that is
-  // much faster than cloning and preparing with pacote
-  if (release.useBranch) {
-    release.resolved = await gh.getLatestSha(release.branch)
-  } else {
-    release.resolved = release.manifest._resolved
-    release.spec = release.manifest._from
-  }
-
-  log.info(release.id, release.version, release.resolved)
-
-  if (release.resolved === current && !force) {
-    log.info(`Skipping ${release.id} due to resolved fields matching`)
-    return null
-  }
-
-  return release
-}
-
-const unpackRelease = async (
-  _release,
-  { contentPath, baseNav, force = false, prerelease = false }
-) => {
-  const release = await resolveRelease(_release, { force, prerelease })
-  if (!release) {
     return
   }
 
-  log.verbose(release)
+  log.info(release.id, release)
 
   const cwd = join(contentPath, release.id)
   await fs

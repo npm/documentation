@@ -22,7 +22,7 @@ function Sidebar({location, editOnGitHub}) {
         height="100%"
         style={{overflow: 'auto'}}
       >
-        <Flex flexDirection="column">
+        <Flex flexDirection="column" role="list">
           <NavItems location={location} items={navItems} editOnGitHub={editOnGitHub} />
         </Flex>
       </BorderBox>

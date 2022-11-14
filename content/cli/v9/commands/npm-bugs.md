@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-bugs.md
 redirect_from:
+  - /cli-commands/bugs
+  - /cli-commands/npm-bugs
+  - /cli-documentation/bugs
+  - /cli-documentation/cli-commands/bugs
+  - /cli-documentation/cli-commands/npm-bugs
+  - /cli-documentation/commands/bugs
+  - /cli-documentation/commands/npm-bugs
+  - /cli-documentation/npm-bugs
   - /cli-documentation/v9/bugs
   - /cli-documentation/v9/cli-commands/bugs
   - /cli-documentation/v9/cli-commands/npm-bugs
   - /cli-documentation/v9/commands/bugs
   - /cli-documentation/v9/commands/npm-bugs
   - /cli-documentation/v9/npm-bugs
+  - /cli/bugs
+  - /cli/cli-commands/bugs
+  - /cli/cli-commands/npm-bugs
+  - /cli/commands/bugs
+  - /cli/commands/npm-bugs
+  - /cli/npm-bugs
   - /cli/v9/bugs
   - /cli/v9/cli-commands/bugs
   - /cli/v9/cli-commands/npm-bugs
   - /cli/v9/commands/bugs
   - /cli/v9/npm-bugs
+  - /commands/bugs
+  - /commands/npm-bugs
 ---
 
 ### Synopsis

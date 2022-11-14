@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/commands/npm-stars.md
 redirect_from:
-  - /cli-commands/npm-stars
-  - /cli-commands/stars
-  - /cli-documentation/cli-commands/npm-stars
-  - /cli-documentation/cli-commands/stars
-  - /cli-documentation/commands/npm-stars
-  - /cli-documentation/commands/stars
-  - /cli-documentation/npm-stars
-  - /cli-documentation/stars
   - /cli-documentation/v8/cli-commands/npm-stars
   - /cli-documentation/v8/cli-commands/stars
   - /cli-documentation/v8/commands/npm-stars
   - /cli-documentation/v8/commands/stars
   - /cli-documentation/v8/npm-stars
   - /cli-documentation/v8/stars
-  - /cli/cli-commands/npm-stars
-  - /cli/cli-commands/stars
-  - /cli/commands/npm-stars
-  - /cli/commands/stars
-  - /cli/npm-stars
-  - /cli/stars
   - /cli/v8/cli-commands/npm-stars
   - /cli/v8/cli-commands/stars
   - /cli/v8/commands/stars
   - /cli/v8/npm-stars
   - /cli/v8/stars
-  - /commands/npm-stars
-  - /commands/stars
 ---
 
 ### Synopsis

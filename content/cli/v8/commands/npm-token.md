@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/commands/npm-token.md
 redirect_from:
-  - /cli-commands/npm-token
-  - /cli-commands/token
-  - /cli-documentation/cli-commands/npm-token
-  - /cli-documentation/cli-commands/token
-  - /cli-documentation/commands/npm-token
-  - /cli-documentation/commands/token
-  - /cli-documentation/npm-token
-  - /cli-documentation/token
   - /cli-documentation/v8/cli-commands/npm-token
   - /cli-documentation/v8/cli-commands/token
   - /cli-documentation/v8/commands/npm-token
   - /cli-documentation/v8/commands/token
   - /cli-documentation/v8/npm-token
   - /cli-documentation/v8/token
-  - /cli/cli-commands/npm-token
-  - /cli/cli-commands/token
-  - /cli/commands/npm-token
-  - /cli/commands/token
-  - /cli/npm-token
-  - /cli/token
   - /cli/v8/cli-commands/npm-token
   - /cli/v8/cli-commands/token
   - /cli/v8/commands/token
   - /cli/v8/npm-token
   - /cli/v8/token
-  - /commands/npm-token
-  - /commands/token
 ---
 
 ### Synopsis

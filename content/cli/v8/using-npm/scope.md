@@ -6,25 +6,13 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/using-npm/scope.md
 redirect_from:
-  - /cli-documentation/misc/npm-scope
-  - /cli-documentation/misc/scope
-  - /cli-documentation/using-npm/npm-scope
-  - /cli-documentation/using-npm/scope
   - /cli-documentation/v8/misc/npm-scope
   - /cli-documentation/v8/misc/scope
   - /cli-documentation/v8/using-npm/npm-scope
   - /cli-documentation/v8/using-npm/scope
-  - /cli/misc/npm-scope
-  - /cli/misc/scope
-  - /cli/using-npm/npm-scope
-  - /cli/using-npm/scope
   - /cli/v8/misc/npm-scope
   - /cli/v8/misc/scope
   - /cli/v8/using-npm/npm-scope
-  - /misc/npm-scope
-  - /misc/scope
-  - /using-npm/npm-scope
-  - /using-npm/scope
 ---
 
 ### Description

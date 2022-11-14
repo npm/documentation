@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/commands/npm-exec.md
 redirect_from:
-  - /cli-commands/exec
-  - /cli-commands/npm-exec
-  - /cli-documentation/cli-commands/exec
-  - /cli-documentation/cli-commands/npm-exec
-  - /cli-documentation/commands/exec
-  - /cli-documentation/commands/npm-exec
-  - /cli-documentation/exec
-  - /cli-documentation/npm-exec
   - /cli-documentation/v8/cli-commands/exec
   - /cli-documentation/v8/cli-commands/npm-exec
   - /cli-documentation/v8/commands/exec
   - /cli-documentation/v8/commands/npm-exec
   - /cli-documentation/v8/exec
   - /cli-documentation/v8/npm-exec
-  - /cli/cli-commands/exec
-  - /cli/cli-commands/npm-exec
-  - /cli/commands/exec
-  - /cli/commands/npm-exec
-  - /cli/exec
-  - /cli/npm-exec
   - /cli/v8/cli-commands/exec
   - /cli/v8/cli-commands/npm-exec
   - /cli/v8/commands/exec
   - /cli/v8/exec
   - /cli/v8/npm-exec
-  - /commands/exec
-  - /commands/npm-exec
 ---
 
 ### Synopsis

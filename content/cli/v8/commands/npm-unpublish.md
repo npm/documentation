@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/commands/npm-unpublish.md
 redirect_from:
-  - /cli-commands/npm-unpublish
-  - /cli-commands/unpublish
-  - /cli-documentation/cli-commands/npm-unpublish
-  - /cli-documentation/cli-commands/unpublish
-  - /cli-documentation/commands/npm-unpublish
-  - /cli-documentation/commands/unpublish
-  - /cli-documentation/npm-unpublish
-  - /cli-documentation/unpublish
   - /cli-documentation/v8/cli-commands/npm-unpublish
   - /cli-documentation/v8/cli-commands/unpublish
   - /cli-documentation/v8/commands/npm-unpublish
   - /cli-documentation/v8/commands/unpublish
   - /cli-documentation/v8/npm-unpublish
   - /cli-documentation/v8/unpublish
-  - /cli/cli-commands/npm-unpublish
-  - /cli/cli-commands/unpublish
-  - /cli/commands/npm-unpublish
-  - /cli/commands/unpublish
-  - /cli/npm-unpublish
-  - /cli/unpublish
   - /cli/v8/cli-commands/npm-unpublish
   - /cli/v8/cli-commands/unpublish
   - /cli/v8/commands/unpublish
   - /cli/v8/npm-unpublish
   - /cli/v8/unpublish
-  - /commands/npm-unpublish
-  - /commands/unpublish
 ---
 
 ### Synopsis

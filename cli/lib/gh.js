@@ -20,17 +20,6 @@ const getFile = async ({ sha, ref, path }) => {
   return Buffer.from(data.content, data.encoding)
 }
 
-const getLatestSha = async (ref) => {
-  const {
-    data: [commit],
-  } = await octokit.repos.listCommits({
-    ...opts,
-    sha: ref,
-    per_page: 1,
-  })
-  return commit.sha
-}
-
 const getAllFiles = async (sha) => {
   const {
     data: { tree },
@@ -79,7 +68,6 @@ const pathExists = async (ref, path) => {
 module.exports = {
   octokit,
   getFile,
-  getLatestSha,
   getAllFiles,
   getDirectory,
   pathExists,

@@ -16,9 +16,9 @@ contribute a change?  Great!
 
 ## Quick start
 
-1. `npm install` to download gatsby, our theme, and the dependencies
+1. `npm install` to download Gatsby, our theme, and the dependencies
 2. `npm run develop`: starts the test server at `http://localhost:8000`.
-3. Update the content - it's Mdx, which is like markdown - in the `content`
+3. Update the content - it's MDX, which is like Markdown - in the `content`
    directory.
 4. Review your content at `http://localhost:8000`.  (Gatsby watches the
    filesystem and will reload your content changes immediately.)
@@ -30,10 +30,10 @@ contribute a change?  Great!
 
 ## Running locally
 
-First, `npm install` the dependencies.  This will install gatsby, et al.
+First, `npm install` the dependencies.  This will install Gatsby, et al.
 
 Next, `npm run develop` to start the test server to view your changes.
-The gatsby server will be started on port 8000.  You can navigate to
+The Gatsby server will be started on port 8000.  You can navigate to
 `http://localhost:8000` to view the site live.
 
 **For best results use npm 8**
@@ -46,8 +46,8 @@ changes you make should be reflected in the site immediately.
 ### Documentation content
 
 The documentation content lives in the `content` directory, and is
-markdown.  (Actually, [Mdx](https://mdxjs.com/), a sort of reactive
-markdown.)
+Markdown.  (Actually, [MDX](https://mdxjs.com/), a sort of reactive
+Markdown.)
 
 ### Static content (images)
 
@@ -55,7 +55,7 @@ Static content lives in the `static` directory.  Since most of the
 static content is screenshots, you can use the `Screenshot` component
 to reference them, which is an extension of the `Img` component that
 is configured for the docs site.  For example, an image living as
-`static/organizations/managing-temas/team-members.png` would be
+`static/organizations/managing-teams/team-members.png` would be
 referenced as:
 
 ```
@@ -69,7 +69,7 @@ referenced as:
 There are various places where we want to share content between
 pages, to prevent copy-pasta.  For example, we display a screenshot
 of the user login dialog repeatedly.  Therefore this shared content
-is defined in `src/shared.js`, and includes a literal Mdx snippet.
+is defined in `src/shared.js`, and includes a literal MDX snippet.
 
 For example, `user-login` is defined with `text` and `image`
 properties:
@@ -83,7 +83,7 @@ m login dialog" />)
 },
 ```
 
-Since Mdx is reactive, you can import the shared data at the top of the
+Since MDX is reactive, you can import the shared data at the top of the
 file, just beneath your frontmatter:
 
 ```
@@ -222,7 +222,7 @@ On step three, your changes will be published live!  🎉
 
 ## Theme
 
-The gatsby theme used here is located in the [`theme/`](./theme) directory. It is a variation of
+The Gatsby theme used here is located in the [`theme/`](./theme) directory. It is a variation of
 [doctocat](https://github.com/primer/doctocat) with some theme changes
 for npm's design language and additional components to support multiple
 versions of the CLI documentation.

@@ -3,7 +3,6 @@ const fs = require('fs').promises
 const yaml = require('yaml')
 const semver = require('semver')
 const pacote = require('pacote')
-const gh = require('./gh')
 const extractRelease = require('./extract')
 const log = require('./log')
 
@@ -39,20 +38,8 @@ const updateNav = async (updates, { nav, path }) => {
   return fs.writeFile(path, nav.toString(), 'utf-8')
 }
 
-const updateReleases = async (updates, path) => {
-  const data = JSON.parse(await fs.readFile(path, 'utf-8'))
-
-  for (const release of updates) {
-    const index = data.findIndex((item) => item.id === release.id)
-    data[index].resolved = release.resolved
-  }
-
-  return fs.writeFile(path, JSON.stringify(data, null, 2) + '\n', 'utf-8')
-}
-
 const main = async ({
   loglevel,
-  force,
   releasesPath,
   navPath,
   contentPath,
@@ -63,29 +50,28 @@ const main = async ({
     log.on(loglevel)
   }
 
-  const rawReleases = require(releasesPath)
-
-  const releaseManifests = await Promise.all(rawReleases.map(async release => {
-    const manifest = await pacote.manifest(`${gh.owner}@${release.spec}`, {
-      preferOnline: true,
-    })
-    // the default release is always controlled by the latest dist-tag
-    release.default = release.spec === 'latest'
-    release.manifest = manifest
-    release.version = manifest.version
-    const sVersion = semver.parse(release.version)
-    release.semver = sVersion
-    release.prerelease = sVersion.prerelease.length > 0
-    return release
+  const pack = await pacote.packument('npm', { preferOnline: true }).then(p => ({
+    versions: Object.keys(p.versions),
+    latest: p['dist-tags'].latest,
   }))
 
-  const latestRelease = releaseManifests.find(r => r.spec === 'latest')
+  const releaseVersions = require(releasesPath).map(release => {
+    const major = Number(release.id.replace(/^v/, ''))
+    const range = `>=${major}.0.0-a <${major + 1}.0.0` // include all prereleases
+    const version = semver.parse(semver.maxSatisfying(pack.versions, range))
 
-  if (!latestRelease) {
-    throw new Error(`One of the CLI releases must have \`spec: 'latest'\``)
-  }
+    return {
+      ...release,
+      version: version.toString(),
+      // the default release is always controlled by the latest dist-tag
+      default: semver.eq(version, pack.latest),
+      prerelease: version.prerelease.length > 0,
+    }
+  })
 
-  const releases = releaseManifests.map((release) => {
+  const latestRelease = releaseVersions.find(r => r.default)
+
+  const releases = releaseVersions.map((release) => {
     const type = release.default ? 'Latest Release'
       : release.prerelease ? 'Prerelease'
       : semver.gt(release.version, latestRelease.version) ? 'Current Release'
@@ -104,14 +90,11 @@ const main = async ({
 
   const updates = await Promise.all(
     releases.map((r) =>
-      extractRelease(r, { contentPath, baseNav: yaml.parse(baseNav), force, prerelease })
+      extractRelease(r, { contentPath, baseNav: yaml.parse(baseNav), prerelease })
     )
   ).then((r) => r.filter(Boolean))
 
-  await Promise.all([
-    updateNav(updates, { nav: yaml.parseDocument(baseNav), path: navPath }),
-    updateReleases(updates, releasesPath),
-  ])
+  await updateNav(updates, { nav: yaml.parseDocument(baseNav), path: navPath })
 }
 
 module.exports = main

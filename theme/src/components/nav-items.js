@@ -105,6 +105,7 @@ function topLevelItems(items, path) {
               borderTopWidth={1}
               py={3}
               px={4}
+              role="listitem"
             >
               <Flex flexDirection="column">
                 <TopLevelLink to={item.url} key={item.title}>{item.title}</TopLevelLink>
@@ -123,11 +124,11 @@ function secondLevelItems(items, path) {
     }
 
     return (
-      <Flex flexDirection="column" mt={2}>
+      <Flex flexDirection="column" mt={2} role="list">
         {items.map((item) => {
           const children = NavHierarchy.isActiveUrl(path, item.url) ? NavHierarchy.getHierarchy(item, { path: path, hideVariants: true }) : null;
           return(
-            <Box key={item.title}>
+            <Box key={item.title} role="listitem">
               <SecondLevelLink key={item.url} to={item.url}>
                 {item.title}
                 {item.description != null ? (
@@ -150,11 +151,13 @@ function thirdLevelItems(items, path) {
     }
 
     return (
-      <Flex flexDirection="column" mt={2}>
+      <Flex flexDirection="column" mt={2} role="list">
         {items.map((item) => (
-          <ThirdLevelLink key={item.url} to={item.url}>
-            {item.title}
-          </ThirdLevelLink>
+          <Box key={item.title} role="listitem">
+            <ThirdLevelLink key={item.url} to={item.url}>
+              {item.title}
+            </ThirdLevelLink>
+          </Box>
         ))}
       </Flex>
     )

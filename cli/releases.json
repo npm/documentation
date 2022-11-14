@@ -2,26 +2,18 @@
   {
     "id": "v6",
     "branch": "release/v6",
-    "spec": "^6",
-    "useBranch": true,
-    "resolved": "898c0496406e29865b5ae736ed541ca41895e484"
+    "useBranch": true
   },
   {
     "id": "v7",
-    "branch": "release/v7",
-    "spec": "^7",
-    "resolved": "https://registry.npmjs.org/npm/-/npm-7.24.2.tgz"
+    "branch": "release/v7"
   },
   {
     "id": "v8",
-    "branch": "release/v8",
-    "spec": "latest",
-    "resolved": "https://registry.npmjs.org/npm/-/npm-8.19.3.tgz"
+    "branch": "release/v8"
   },
   {
     "id": "v9",
-    "branch": "latest",
-    "spec": "next-9",
-    "resolved": "https://registry.npmjs.org/npm/-/npm-9.1.0.tgz"
+    "branch": "latest"
   }
 ]

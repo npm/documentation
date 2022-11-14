@@ -6,15 +6,9 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/using-npm/registry.md
 redirect_from:
-  - /cli-documentation/misc/registry
-  - /cli-documentation/using-npm/registry
   - /cli-documentation/v8/misc/registry
   - /cli-documentation/v8/using-npm/registry
-  - /cli/misc/registry
-  - /cli/using-npm/registry
   - /cli/v8/misc/registry
-  - /misc/registry
-  - /using-npm/registry
 ---
 
 ### Description

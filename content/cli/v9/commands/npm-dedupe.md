@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-dedupe.md
 redirect_from:
+  - /cli-commands/dedupe
+  - /cli-commands/npm-dedupe
+  - /cli-documentation/cli-commands/dedupe
+  - /cli-documentation/cli-commands/npm-dedupe
+  - /cli-documentation/commands/dedupe
+  - /cli-documentation/commands/npm-dedupe
+  - /cli-documentation/dedupe
+  - /cli-documentation/npm-dedupe
   - /cli-documentation/v9/cli-commands/dedupe
   - /cli-documentation/v9/cli-commands/npm-dedupe
   - /cli-documentation/v9/commands/dedupe
   - /cli-documentation/v9/commands/npm-dedupe
   - /cli-documentation/v9/dedupe
   - /cli-documentation/v9/npm-dedupe
+  - /cli/cli-commands/dedupe
+  - /cli/cli-commands/npm-dedupe
+  - /cli/commands/dedupe
+  - /cli/commands/npm-dedupe
+  - /cli/dedupe
+  - /cli/npm-dedupe
   - /cli/v9/cli-commands/dedupe
   - /cli/v9/cli-commands/npm-dedupe
   - /cli/v9/commands/dedupe
   - /cli/v9/dedupe
   - /cli/v9/npm-dedupe
+  - /commands/dedupe
+  - /commands/npm-dedupe
 ---
 
 ### Synopsis

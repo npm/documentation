@@ -4,15 +4,9 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: CHANGELOG.md
 redirect_from:
-  - /cli-documentation/misc/changelog
-  - /cli-documentation/using-npm/changelog
   - /cli-documentation/v8/misc/changelog
   - /cli-documentation/v8/using-npm/changelog
-  - /cli/misc/changelog
-  - /cli/using-npm/changelog
   - /cli/v8/misc/changelog
-  - /misc/changelog
-  - /using-npm/changelog
 ---
 
 # Changelog

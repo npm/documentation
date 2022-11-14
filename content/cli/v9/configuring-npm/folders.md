@@ -6,9 +6,15 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/configuring-npm/folders.md
 redirect_from:
+  - /cli-documentation/configuring-npm/folders
+  - /cli-documentation/files/folders
   - /cli-documentation/v9/configuring-npm/folders
   - /cli-documentation/v9/files/folders
+  - /cli/configuring-npm/folders
+  - /cli/files/folders
   - /cli/v9/files/folders
+  - /configuring-npm/folders
+  - /files/folders
 ---
 
 ### Description

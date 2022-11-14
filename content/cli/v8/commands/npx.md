@@ -6,19 +6,11 @@ github_repo: npm/cli
 github_branch: release/v8
 github_path: docs/lib/content/commands/npx.md
 redirect_from:
-  - /cli-commands/npx
-  - /cli-documentation/cli-commands/npx
-  - /cli-documentation/commands/npx
-  - /cli-documentation/npx
   - /cli-documentation/v8/cli-commands/npx
   - /cli-documentation/v8/commands/npx
   - /cli-documentation/v8/npx
-  - /cli/cli-commands/npx
-  - /cli/commands/npx
-  - /cli/npx
   - /cli/v8/cli-commands/npx
   - /cli/v8/npx
-  - /commands/npx
 ---
 
 ### Synopsis
