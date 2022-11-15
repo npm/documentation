@@ -49,12 +49,13 @@ function VariantSelect(props) {
       </ActionList.Item>);
   });
 
+  const ariaLabelMenuButton=open ? 'Version release' : selectedItem.variant.title
 
   return (
     <ThemeProvider>
       <label id="label-versions-list-item" htmlFor='variant-select'>Select CLI Version:</label>
       <ActionMenu id="versions-list-item" aria-labelledby="label-versions-list-item" open={open} onOpenChange={setOpen}>
-        <ActionMenu.Button aria-label={`Version release: ${selectedItem.variant.title}`} autofocus="true">{selectedItem.variant.title}</ActionMenu.Button>
+        <ActionMenu.Button autofocus="true" aria-label={ariaLabelMenuButton}>{selectedItem.variant.title}</ActionMenu.Button>
         <ActionMenu.Overlay width="medium" onEscape={() => setOpen(false)}>
           <ActionList>
             {items}
