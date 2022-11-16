@@ -42,7 +42,12 @@ function VariantSelect(props) {
           selectedItem = match;
           active = true;
       }
-      items.push(<ActionList.Item onKeyDown={(e) => onItemEnterKey(e, match.page.url)} onClick={e => anchorClickHandler(e, match.page.url)} id={match.variant.shortName} key={index} active={active}>
+      items.push(<ActionList.Item
+        onKeyDown={e => onItemEnterKey(e, match.page.url)}
+        onClick={e => anchorClickHandler(e, match.page.url)}
+        id={match.variant.shortName}
+        key={index}
+        active={active}>
         <span aria-label={`${match.variant.title}. List items ${index + 1} of ${variantPages.length}`}>
           {match.variant.title}
         </span>
