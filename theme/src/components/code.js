@@ -42,7 +42,7 @@ function Code({className, children, live, noinline}) {
             style={{...style, overflow: 'auto'}}
           >
             {/* This is the scroll handle, it is supposed to be focused with keyboard and scroll a wide codebox horizontally */}
-            <div aria-hidden="true" tabIndex={0} style={scrollHandleStyle} ref={scrollHandleRef}>&nbsp;</div>
+            <div aria-hidden="true" tabIndex={0} style={scrollHandleStyle} ref={scrollHandleRef} aria-label={code}>&nbsp;</div>
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({line, key: i})}>
                 {line.map((token, key) => (
