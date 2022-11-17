@@ -48,9 +48,7 @@ function VariantSelect(props) {
         id={match.variant.shortName}
         key={index}
         active={active}>
-        <span aria-label={`${match.variant.title}. List items ${index + 1} of ${variantPages.length}`}>
-          {match.variant.title}
-        </span>
+        {match.variant.title}
       </ActionList.Item>);
   });
 
@@ -58,11 +56,11 @@ function VariantSelect(props) {
 
   return (
     <ThemeProvider>
-      <label id="label-versions-list-item" htmlFor='variant-select'>Select CLI Version:</label>
-      <ActionMenu id="versions-list-item" aria-labelledby="label-versions-list-item" open={open} onOpenChange={setOpen}>
+      <label id="label-versions-list-item" htmlFor='versions-list-item'>Select CLI Version:</label>
+      <ActionMenu open={open} onOpenChange={setOpen}>
         <ActionMenu.Button autofocus="true" aria-label={ariaLabelMenuButton}>{selectedItem.variant.title}</ActionMenu.Button>
         <ActionMenu.Overlay width="medium" onEscape={() => setOpen(false)}>
-          <ActionList>
+          <ActionList id="versions-list-item" aria-labelledby="label-versions-list-item">
             {items}
           </ActionList>
         </ActionMenu.Overlay>
