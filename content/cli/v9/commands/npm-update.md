@@ -40,7 +40,7 @@ redirect_from:
 ```bash
 npm update [<pkg>...]
 
-aliases: up, upgrade, udpate
+aliases: up, upgrade, update
 ```
 
 ### Description
@@ -246,7 +246,7 @@ de-duplicating. Sets `--install-strategy=nested`.
   `--install-strategy=shallow`
 
 Only install direct dependencies in the top level `node_modules`, but hoist
-on deeper dependendencies. Sets `--install-strategy=shallow`.
+on deeper dependencies. Sets `--install-strategy=shallow`.
 
 #### `omit`
 
