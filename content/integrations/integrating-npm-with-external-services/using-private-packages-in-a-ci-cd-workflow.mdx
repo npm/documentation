@@ -12,7 +12,9 @@ Create a new access token that will be used only to access npm packages from a C
 
 ### Continuous integration
 
-By default, `npm token create` will generate a token with both read and write permissions. When generating a token for use in a continuous integration environment, we recommend creating a read-only token:
+When generating an access token for use in a continuous integration environment, we recommend using a granular access token with limited access to provide greater security.
+
+If you use a legacy token instead, by default, `npm token create` will generate a token with both read and write permissions. We recommend creating a read-only token:
 
 ```
 npm token create --read-only
@@ -87,4 +89,7 @@ Your token may have permission to read private packages, publish new packages on
 
 Do not add your token to version control or store it insecurely. Store it in a password manager, your cloud provider's secure storage, or your CI/CD provider's secure storage.
 
+When possible, use granular access tokens with the minimum permissions necessary, and set short expiration dates for your tokens. For more information, see "[About access tokens][about-tokens]."
+
 [create-token]: creating-and-viewing-access-tokens
+[about-tokens]: about-access-tokens
