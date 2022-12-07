@@ -29,7 +29,7 @@ npm
 
 ### Version
 
-9.1.3
+9.2.0
 
 ### Description
 
