@@ -63,5 +63,8 @@
       "tap-snapshots/**"
     ]
   },
-  "eslintIgnore": [".cache/", "public/"]
+  "eslintIgnore": [
+    ".cache/",
+    "public/"
+  ]
 }

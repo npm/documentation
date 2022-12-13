@@ -7,6 +7,11 @@ module.exports = {
       '.github/ISSUE_TEMPLATE/bug.yml': false,
     },
   },
+  rootModule: {
+    add: {
+      'CODE_OF_CONDUCT.md': false,
+    }
+  },
   ciVersions: 'latest',
   macCI: false,
   windowsCI: false,
