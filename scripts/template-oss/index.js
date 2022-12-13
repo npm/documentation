@@ -5,6 +5,7 @@ module.exports = {
       '.github/workflows/publish.yml': 'publish.yml',
       '.github/CODEOWNERS': 'CODEOWNERS',
       '.github/ISSUE_TEMPLATE/bug.yml': false,
+      '.commitlintrc.js': false,
     },
   },
   rootModule: {
