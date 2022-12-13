@@ -10,7 +10,7 @@ module.exports = {
   rootModule: {
     add: {
       'CODE_OF_CONDUCT.md': false,
-    }
+    },
   },
   ciVersions: 'latest',
   macCI: false,
