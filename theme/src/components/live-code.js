@@ -1,10 +1,10 @@
-import {Absolute, BorderBox, Relative, Text} from '@primer/components'
+import { Absolute, BorderBox, Relative, Text } from '@primer/components'
 import htmlReactParser from 'html-react-parser'
 import githubTheme from 'prism-react-renderer/themes/github'
 import React, { useState } from 'react'
 import reactElementToJsxString from 'react-element-to-jsx-string'
-import {LiveEditor, LiveError, LivePreview, LiveProvider} from 'react-live'
-import {ThemeContext} from 'styled-components'
+import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
+import { ThemeContext } from 'styled-components'
 import scope from '../live-code-scope'
 import ClipboardCopy from './clipboard-copy'
 import LivePreviewWrapper from './live-preview-wrapper'
@@ -14,7 +14,7 @@ const languageTransformers = {
   jsx: jsx => wrapWithFragment(jsx),
 }
 
-function htmlToJsx(html) {
+function htmlToJsx (html) {
   try {
     const reactElement = htmlReactParser(removeNewlines(html))
     // The output of htmlReactParser could be a single React element
@@ -26,15 +26,15 @@ function htmlToJsx(html) {
   }
 }
 
-function removeNewlines(string) {
+function removeNewlines (string) {
   return string.replace(/(\r\n|\n|\r)/gm, '')
 }
 
-function wrapWithFragment(jsx) {
+function wrapWithFragment (jsx) {
   return `<React.Fragment>${jsx}</React.Fragment>`
 }
 
-function LiveCode({code, language, noinline}) {
+function LiveCode ({ code, language, noinline }) {
   const theme = React.useContext(ThemeContext)
   const [liveCode, setLiveCode] = useState(code)
   const handleChange = (updatedLiveCode) => setLiveCode(updatedLiveCode)
