@@ -37,7 +37,7 @@ function Index (props) {
       {({ location }) => {
         const path = NavHierarchy.getLocation(location.pathname)
         let root = props.root ? props.root : path
-        root = root.replace(/\/+$/g, '')
+        root = root.replace(/(?<!\/)\/+$/g, '')
 
         const rootItem = NavHierarchy.getItem(root)
         const hierarchy = NavHierarchy.getHierarchy(rootItem, props)
