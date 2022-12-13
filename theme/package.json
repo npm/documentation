@@ -48,7 +48,7 @@
     "gatsby-plugin-styled-components": "^5.19.0",
     "gatsby-source-filesystem": "^4.19.0",
     "gatsby-transformer-yaml": "^4.19.0",
-    "get-pkg-repo": "^4.1.0",
+    "get-pkg-repo": "^5.0.0",
     "github-slugger": "^1.2.1",
     "html-react-parser": "^1.0.0",
     "lodash.debounce": "4.0.8",
