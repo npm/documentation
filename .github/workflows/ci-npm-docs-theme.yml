@@ -1,18 +1,18 @@
 # This file is automatically added by @npmcli/template-oss. Do not edit.
 
-name: CI - cli
+name: CI - @npm/docs-theme
 
 on:
   workflow_dispatch:
   pull_request:
     paths:
-      - cli/**
+      - theme/**
   push:
     branches:
       - main
       - latest
     paths:
-      - cli/**
+      - theme/**
   schedule:
     # "At 09:00 UTC (02:00 PT) on Monday" https://crontab.guru/#0_9_*_*_1
     - cron: "0 9 * * 1"
@@ -36,6 +36,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
+          cache: npm
       - name: Install npm@latest
         run: npm i --prefer-online --no-fund --no-audit -g npm@latest
       - name: npm Version
@@ -43,9 +44,9 @@ jobs:
       - name: Install Dependencies
         run: npm i --ignore-scripts --no-audit --no-fund
       - name: Lint
-        run: npm run lint --ignore-scripts -w cli
+        run: npm run lint --ignore-scripts -w @npm/docs-theme
       - name: Post Lint
-        run: npm run postlint --ignore-scripts -w cli
+        run: npm run postlint --ignore-scripts -w @npm/docs-theme
 
   test:
     name: Test - ${{ matrix.platform.name }} - ${{ matrix.node-version }}
@@ -57,9 +58,6 @@ jobs:
           - name: Linux
             os: ubuntu-latest
             shell: bash
-          - name: Windows
-            os: windows-latest
-            shell: cmd
         node-version:
           - 18.x
     runs-on: ${{ matrix.platform.os }}
@@ -77,6 +75,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: npm
       - name: Update Windows npm
         # node 12 and 14 ship with npm@6, which is known to fail when updating itself in windows
         if: matrix.platform.os == 'windows-latest' && (startsWith(matrix.node-version, '12.') || startsWith(matrix.node-version, '14.'))
@@ -100,6 +99,4 @@ jobs:
       - name: Add Problem Matcher
         run: echo "::add-matcher::.github/matchers/tap.json"
       - name: Test
-        run: npm test --ignore-scripts -w cli
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm test --ignore-scripts -w @npm/docs-theme

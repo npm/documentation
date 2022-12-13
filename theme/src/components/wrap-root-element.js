@@ -1,11 +1,11 @@
-import {MDXProvider} from '@mdx-js/react'
-import {Link, theme} from '@primer/components'
+import { MDXProvider } from '@mdx-js/react'
+import { Link, theme } from '@primer/components'
 import React from 'react'
-import {ThemeProvider} from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import Blockquote from './blockquote'
 import Code from './code'
 import DescriptionList from './description-list'
-import {H1, H2, H3, H4, H5, H6} from './heading'
+import { H1, H2, H3, H4, H5, H6 } from './heading'
 import HorizontalRule from './horizontal-rule'
 import Image from './image'
 import InlineCode from './inline-code'
@@ -34,7 +34,7 @@ const components = {
   dl: DescriptionList,
 }
 
-function wrapRootElement({element}) {
+function wrapRootElement ({ element }) {
   return (
     <MDXProvider components={components}>
       <ThemeProvider theme={theme}>{element}</ThemeProvider>

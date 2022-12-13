@@ -1,23 +1,23 @@
 {
-  "name": "theme",
+  "name": "@npm/docs-theme",
+  "version": "2.0.0",
   "repository": {
     "url": "https://github.com/npm/documentation.git",
     "directory": "theme",
     "type": "git"
   },
   "private": true,
-  "version": "1.9.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "snap": "tap",
+    "posttest": "npm run lint"
   },
-  "files": [
-    "src",
-    "!src/**/__tests__/",
-    "gatsby-*.js",
-    "index.js"
-  ],
   "peerDependencies": {
     "gatsby": "^4.19.0",
     "react": "^17.0.2",
@@ -70,9 +70,29 @@
     "styled-system": "^5.0.18"
   },
   "devDependencies": {
+    "@npmcli/template-oss": "4.11.0",
     "@testing-library/jest-dom": "^5.16.5",
     "babel-jest": "^29.1.2",
+    "eslint": "^8.21.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-primer-react": "1.0.0",
+    "eslint-plugin-react": "^7.30.1",
     "jest": "^29.1.2",
     "jest-environment-jsdom": "^29.1.2"
+  },
+  "author": "GitHub Inc.",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.11.0",
+    "content": "./scripts/template-oss"
+  },
+  "tap": {
+    "nyc-arg": [
+      "--exclude",
+      "tap-snapshots/**"
+    ]
   }
 }

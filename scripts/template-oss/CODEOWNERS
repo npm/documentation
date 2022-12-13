@@ -1,0 +1,16 @@
+{{> CODEOWNERS}}
+
+# Documentation content
+/content/          @MylesBorins @monishcm
+/src/              @MylesBorins @monishcm
+/static/           @MylesBorins @monishcm
+/.reuse/           @MylesBorins @monishcm
+/CONTENT-MODEL.md  @MylesBorins @monishcm
+
+# Licensing
+/LICENSES/         @MylesBorins @monishcm
+/LICENSE           @MylesBorins @monishcm
+/LICENSE-CODE      @MylesBorins @monishcm
+
+# CLI content
+/content/cli/      @npm/cli-team

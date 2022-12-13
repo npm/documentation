@@ -1,7 +1,7 @@
-import {graphql, useStaticQuery} from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 
-function useSearch(query) {
+function useSearch (query) {
   const latestQuery = React.useRef(query)
   const workerRef = React.useRef()
 
@@ -26,41 +26,40 @@ function useSearch(query) {
   `)
 
   const mdxNodes = data.allMdx.nodes.reduce((map, obj) => {
-    map[obj.id] = obj;
-    return map;
-  }, { });
+    map[obj.id] = obj
+    return map
+  }, { })
 
-  
   const list = React.useMemo(
     () =>
-    data.allSitePage.nodes.filter(node => {
-        return (node.pageContext && node.pageContext.mdxId && mdxNodes[node.pageContext.mdxId] != null);
+      data.allSitePage.nodes.filter(node => {
+        return (node.pageContext && node.pageContext.mdxId && mdxNodes[node.pageContext.mdxId] != null)
       }).map(node => {
-        const mdxNode = mdxNodes[node.pageContext.mdxId];
+        const mdxNode = mdxNodes[node.pageContext.mdxId]
 
         const obj =
         {
           path: node.path,
           title: mdxNode.frontmatter.title,
-          rawBody: mdxNode.rawBody
-        };
-        return obj;
+          rawBody: mdxNode.rawBody,
+        }
+        return obj
       }),
-    [data],
+    [data]
   )
 
   const [results, setResults] = React.useState(list)
 
-  const handleSearchResults = React.useCallback(({data}) => {
+  const handleSearchResults = React.useCallback(({ data }) => {
     if (data.query && data.results && data.query === latestQuery.current) {
       setResults(data.results)
     }
   }, [])
 
   React.useEffect(() => {
-    const worker = new Worker(new URL('./search.worker.js', import.meta.url));
+    const worker = new Worker(new URL('./search.worker.js', import.meta.url))
     worker.addEventListener('message', handleSearchResults)
-    worker.postMessage({list})
+    worker.postMessage({ list })
     workerRef.current = worker
 
     return () => {
@@ -71,7 +70,7 @@ function useSearch(query) {
   React.useEffect(() => {
     latestQuery.current = query
     if (query && workerRef.current) {
-      workerRef.current.postMessage({query: query})
+      workerRef.current.postMessage({ query: query })
     } else {
       setResults(list)
     }

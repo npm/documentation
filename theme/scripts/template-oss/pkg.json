@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "{{ localNpmPath }} run lint -- --fix",
+    "test": "jest",
+    "posttest": "{{ localNpmPath }} run lint"
+  },
+  "engines": {
+    {{#if engines}}
+    "node": {{{ json engines }}}
+    {{/if}}
+  },
+  {{{ json __CONFIG_KEY__ }}}: {
+    "version": {{{ json __VERSION__ }}}
+  }
+}
