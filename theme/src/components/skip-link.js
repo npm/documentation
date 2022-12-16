@@ -1,8 +1,8 @@
-import {Link} from '@primer/components'
+import { Link } from '@primer/components'
 import styled from 'styled-components'
 import React from 'react'
 
-function SkipLinkBase(props) {
+function SkipLinkBase (props) {
   return (
     <Link
       {...props}

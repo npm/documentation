@@ -1,10 +1,10 @@
-import {BorderBox, Flex, Position} from '@primer/components'
+import { BorderBox, Flex, Position } from '@primer/components'
 import React from 'react'
 import navItems from '../nav.yml'
-import {HEADER_HEIGHT} from './header'
+import { HEADER_HEIGHT } from './header'
 import NavItems from './nav-items'
 
-function Sidebar({location, editOnGitHub}) {
+function Sidebar ({ location, editOnGitHub }) {
   return (
     <Position
       position="sticky"
@@ -20,7 +20,7 @@ function Sidebar({location, editOnGitHub}) {
         borderRightWidth={1}
         borderRadius={0}
         height="100%"
-        style={{overflow: 'auto'}}
+        style={{ overflow: 'auto' }}
       >
         <Flex flexDirection="column" role="list">
           <NavItems location={location} items={navItems} editOnGitHub={editOnGitHub} />

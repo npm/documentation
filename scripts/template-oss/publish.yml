@@ -1,0 +1,55 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - {{ defaultBranch }}
+  pull_request_target:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  build-and-upload:
+    permissions:
+      contents: read
+      pages: read
+    {{> job jobName="Build and Upload" jobSkipSetup=true }}
+      - name: Checkout PR
+        if: $\{{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v3
+        with:
+          ref: $\{{ github.event.pull_request.head.ref }}
+          repository: $\{{ github.event.pull_request.head.repo.full_name }}
+      - name: Checkout
+        if: $\{{ github.event_name != 'pull_request_target' }}
+        uses: actions/checkout@v3
+        with:
+          ref: {{ defaultBranch }}
+      - name: Setup Pages
+        uses: actions/configure-pages@v1
+      {{> stepNode }}
+      {{> stepDeps }}
+      - name: Build documentation
+        run: npm run build
+        env:
+          GITHUB_TOKEN: $\{{ secrets.GITHUB_TOKEN }}
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './public'
+
+  deploy:
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: $\{{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build-and-upload
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+        with:
+          preview: $\{{ github.event_name == 'pull_request_target' }}

@@ -1,6 +1,5 @@
 {
   "name": "cli",
-  "version": "0.1.0",
   "private": true,
   "repository": {
     "url": "https://github.com/npm/documentation.git",
@@ -43,13 +42,8 @@
   },
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
-    "version": "4.10.0",
-    "content": "./scripts/template-oss",
-    "macCI": false,
-    "ciVersions": "latest",
-    "allowPaths": [
-      "/releases.json"
-    ]
+    "version": "4.11.0",
+    "content": "./scripts/template-oss"
   },
   "tap": {
     "nyc-arg": [

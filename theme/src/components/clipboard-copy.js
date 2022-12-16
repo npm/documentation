@@ -1,9 +1,9 @@
-import {Button, StyledOcticon, themeGet} from '@primer/components'
-import {CheckIcon, CopyIcon} from '@primer/octicons-react'
+import { Button, StyledOcticon, themeGet } from '@primer/components'
+import { CheckIcon, CopyIcon } from '@primer/octicons-react'
 import styled from 'styled-components'
 import copy from 'copy-to-clipboard'
 import React from 'react'
-import {announce} from '../aria-live'
+import { announce } from '../aria-live'
 
 const CopyToClipboard = styled(Button)`
   &:focus {
@@ -11,12 +11,14 @@ const CopyToClipboard = styled(Button)`
   }
 `
 
-function ClipboardCopy({value}) {
+function ClipboardCopy ({ value }) {
   const [copied, setCopied] = React.useState(false)
 
   React.useEffect(() => {
     const timeout = setTimeout(() => {
-      if (copied) setCopied(false)
+      if (copied) {
+        setCopied(false)
+      }
     }, 1000)
 
     return () => clearTimeout(timeout)

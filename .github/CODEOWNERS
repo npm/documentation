@@ -1,8 +1,18 @@
-# Assign Product Management to all open PRs
-*    @MylesBorins @monishcm
+# This file is automatically added by @npmcli/template-oss. Do not edit.
 
-# Assign cli team to cli related PRs
-# In general these should be closed and pointed towards the CLI
-# repo... we should automate this
-/cli    @npm/cli-team
-/content/cli    @npm/cli-team
+* @npm/cli-team
+
+# Documentation content
+/content/          @MylesBorins @monishcm
+/src/              @MylesBorins @monishcm
+/static/           @MylesBorins @monishcm
+/.reuse/           @MylesBorins @monishcm
+/CONTENT-MODEL.md  @MylesBorins @monishcm
+
+# Licensing
+/LICENSES/         @MylesBorins @monishcm
+/LICENSE           @MylesBorins @monishcm
+/LICENSE-CODE      @MylesBorins @monishcm
+
+# CLI content
+/content/cli/      @npm/cli-team

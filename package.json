@@ -1,12 +1,24 @@
 {
   "name": "npm-documentation",
-  "repository": "npm/documentation",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/documentation.git"
+  },
   "private": true,
   "scripts": {
     "develop": "gatsby develop",
     "build": "NODE_OPTIONS=--max-old-space-size=5376 gatsby build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "snap": "tap",
+    "test": "tap",
+    "posttest": "npm run lint",
+    "test-all": "npm run test -ws -iwr --if-present",
+    "lint-all": "npm run lint -ws -iwr --if-present"
   },
   "workspaces": [
     "cli/",
@@ -15,19 +27,44 @@
   "dependencies": {
     "gatsby": "^4.24.4",
     "gatsby-plugin-meta-redirect": "^1.1.1",
-    "theme": "*",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "theme": "*"
   },
   "overrides": {
     "react": "$react"
   },
+  "devDependencies": {
+    "@npmcli/eslint-config": "^4.0.0",
+    "@npmcli/template-oss": "4.11.0",
+    "tap": "^16.3.0"
+  },
+  "author": "GitHub Inc.",
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "templateOSS": {
-    "rootRepo": false,
-    "rootModule": false,
-    "workspaces": [
-      "cli"
-    ],
-    "version": "4.10.0"
-  }
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.11.0",
+    "content": "./scripts/template-oss"
+  },
+  "tap": {
+    "test-ignore": "^(cli|theme)/",
+    "nyc-arg": [
+      "--exclude",
+      "cli/**",
+      "--exclude",
+      "theme/**",
+      "--exclude",
+      "tap-snapshots/**"
+    ]
+  },
+  "eslintIgnore": [
+    ".cache/",
+    "public/"
+  ]
 }

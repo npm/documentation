@@ -1,12 +1,12 @@
-import {Avatar, Flex, Link, Text, Tooltip} from '@primer/components'
-import {format} from 'date-fns'
+import { Avatar, Flex, Link, Text, Tooltip } from '@primer/components'
+import { format } from 'date-fns'
 import uniqBy from 'lodash.uniqby'
 import pluralize from 'pluralize'
 import React from 'react'
 
 // The `contributors` array is fetched in gatsby-node.js at build-time.
 
-function Contributors({contributors}) {
+function Contributors ({ contributors }) {
   const uniqueContributors = uniqBy(contributors, 'login')
   const latestContributor = uniqueContributors[0] || {}
 
