@@ -7,6 +7,6 @@ Files: content/* static/*
 Copyright: 2020 GitHub
 License: CC-BY-4.0
 
-Files: cli/* theme/* src/* .github/* *.md *.js *.json .gitignore
+Files: scripts/* cli/* theme/* src/* .github/* *.md *.js *.json .npmrc .gitignore
 Copyright: 2020 GitHub
 License: MIT

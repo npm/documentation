@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import useSiteMetdata from '../use-site-metadata'
 
-function Head(props) {
+function Head (props) {
   const siteMetadata = useSiteMetdata()
   const title = props.title
     ? `${props.title} | ${siteMetadata.title}`

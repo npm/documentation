@@ -1,6 +1,6 @@
-import {BorderBox, Flex, Link, Text} from '@primer/components'
-import {ChevronDownIcon, ChevronUpIcon, XIcon} from '@primer/octicons-react'
-import {Link as GatsbyLink} from 'gatsby'
+import { BorderBox, Flex, Link, Text } from '@primer/components'
+import { ChevronDownIcon, ChevronUpIcon, XIcon } from '@primer/octicons-react'
+import { Link as GatsbyLink } from 'gatsby'
 import debounce from 'lodash.debounce'
 import React from 'react'
 import navItems from '../nav.yml'
@@ -11,7 +11,7 @@ import Details from './details'
 import Drawer from './drawer'
 import NavItems from './nav-items'
 
-export function useNavDrawerState(breakpoint) {
+export function useNavDrawerState (breakpoint) {
   // Handle string values from themes with units at the end
   if (typeof breakpoint === 'string') {
     breakpoint = parseInt(breakpoint, 10)
@@ -42,7 +42,7 @@ export function useNavDrawerState(breakpoint) {
   return [isOpen, setOpen]
 }
 
-function NavDrawer({location, isOpen, onDismiss}) {
+function NavDrawer ({ location, isOpen, onDismiss }) {
   const siteMetadata = useSiteMetadata()
   return (
     <Drawer isOpen={isOpen} onDismiss={onDismiss}>
@@ -50,7 +50,7 @@ function NavDrawer({location, isOpen, onDismiss}) {
         flexDirection="column"
         height="100%"
         bg="gray.0"
-        style={{overflow: 'auto', WebkitOverflowScrolling: 'touch'}}
+        style={{ overflow: 'auto', WebkitOverflowScrolling: 'touch' }}
       >
         <Flex flexDirection="column" flex="1 0 auto" color="gray.7" bg="gray.0">
           <BorderBox
@@ -102,7 +102,7 @@ function NavDrawer({location, isOpen, onDismiss}) {
   )
 }
 
-function HeaderNavItems({items}) {
+function HeaderNavItems ({ items }) {
   return items.map((item, index) => {
     return (
       <BorderBox
@@ -115,9 +115,9 @@ function HeaderNavItems({items}) {
       >
         {item.children ? (
           <Details key={index}>
-            {({open, toggle}) => (
+            {({ open, toggle }) => (
               <>
-                <summary onClick={toggle} style={{cursor: 'pointer'}}>
+                <summary onClick={toggle} style={{ cursor: 'pointer' }}>
                   <Flex alignItems="center" justifyContent="space-between">
                     <Text>{item.title}</Text>
                     {open ? <ChevronUpIcon /> : <ChevronDownIcon />}

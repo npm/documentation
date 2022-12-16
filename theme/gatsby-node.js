@@ -6,7 +6,7 @@ const uniqBy = require('lodash.uniqby')
 
 const CONTRIBUTOR_CACHE = new Map()
 
-exports.createSchemaCustomization = ({actions: {createTypes}}) => {
+exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
   createTypes(`
     type Mdx implements Node {
       frontmatter: MdxFrontmatter
@@ -23,13 +23,13 @@ exports.createSchemaCustomization = ({actions: {createTypes}}) => {
     type MdxFields {
       slug: String
     }
-  `);
+  `)
 }
 
-exports.createPages = async ({graphql, actions}, themeOptions) => {
-  const repo = themeOptions.repo ? themeOptions.repo : { url: getPkgRepo(readPkgUp.sync().package).browse() };
+exports.createPages = async ({ graphql, actions }, themeOptions) => {
+  const repo = themeOptions.repo ? themeOptions.repo : { url: getPkgRepo(readPkgUp.sync().package).browse() }
 
-  const {data} = await graphql(`
+  const { data } = await graphql(`
     {
       allMdx {
         nodes {
@@ -66,19 +66,19 @@ exports.createPages = async ({graphql, actions}, themeOptions) => {
   // Turn every MDX file into a page.
   return Promise.all(
     data.allMdx.nodes.map(async node => {
-      const pagePath = getPath(node);
+      const pagePath = getPath(node)
 
       const rootAbsolutePath = path.resolve(
         process.cwd(),
-        themeOptions.repoRootPath || '.',
+        themeOptions.repoRootPath || '.'
       )
 
       const fileRelativePath = path.relative(
         rootAbsolutePath,
-        node.fileAbsolutePath,
+        node.fileAbsolutePath
       )
 
-      const editUrl = getEditUrl(themeOptions, repo, fileRelativePath, node.frontmatter);
+      const editUrl = getEditUrl(themeOptions, repo, fileRelativePath, node.frontmatter)
 
       let contributors = []
       if (themeOptions.showContributors !== false && (process.env.GITHUB_TOKEN || process.env.NOW_GITHUB_DEPLOYMENT)) {
@@ -103,7 +103,7 @@ exports.createPages = async ({graphql, actions}, themeOptions) => {
             fromPath: from,
             toPath: '/' + pagePath,
             isPermanent: true,
-            redirectInBrowser: true
+            redirectInBrowser: true,
           })
 
           if (pagePath.startsWith('cli/') && !from.endsWith('index')) {
@@ -111,83 +111,82 @@ exports.createPages = async ({graphql, actions}, themeOptions) => {
               fromPath: `${from}.html`,
               toPath: '/' + pagePath,
               isPermanent: true,
-              redirectInBrowser: true
+              redirectInBrowser: true,
             })
           }
         })
       }
-    }),
+    })
   )
 }
 
-function getPath(node) {
+function getPath (node) {
   // sites can programmatically override slug, that takes priority
   if (node.fields && node.fields.slug) {
-    return node.fields.slug;
+    return node.fields.slug
   }
 
   // then a slug specified in frontmatter
   if (node.frontmatter && node.frontmatter.slug) {
-    return node.frontmatter.slug;
+    return node.frontmatter.slug
   }
 
   // finally, we'll just use the path on disk
   return path.join(
     node.parent.relativeDirectory,
-    node.parent.name === 'index' ? '/' : node.parent.name,
+    node.parent.name === 'index' ? '/' : node.parent.name
   )
-  .replace(/\\/g, '/'); // Windows paths to forward slashes
+    .replace(/\\/g, '/') // Windows paths to forward slashes
 }
 
-function getNameWithOwner(url) {
-    if ((nwo = url.match(/^http(?:s)?:\/\/(?:www\.)?github\.com\/([^/]+\/[^/]+)(?:\/)?$/i))) {
-        return nwo[1];
-    }
+function getNameWithOwner (url) {
+  const nwo = url.match(/^http(?:s)?:\/\/(?:www\.)?github\.com\/([^/]+\/[^/]+)(?:\/)?$/i)
 
-    return null;
+  if (nwo) {
+    return nwo[1]
+  }
+
+  return null
 }
 
-function getGitHubData(repo, overrideData, filePath) {
+function getGitHubData (repo, overrideData, filePath) {
   const gh = {
     nwo: getNameWithOwner(repo.url),
     branch: 'master',
-  };
+  }
 
   if (overrideData.github_repo) {
-    gh.nwo = overrideData.github_repo;
+    gh.nwo = overrideData.github_repo
   }
 
   if (overrideData.github_branch) {
-    gh.branch = overrideData.github_branch;
-  }
-  else if (repo.defaultBranch) {
-    gh.branch = repo.defaultBranch;
+    gh.branch = overrideData.github_branch
+  } else if (repo.defaultBranch) {
+    gh.branch = repo.defaultBranch
   }
 
   if (overrideData.github_path) {
-    gh.path = overrideData.github_path;
-  }
-  else if(repo.path) {
-    gh.path = repo.path + '/' + filePath;
-  }
-  else {
-    gh.path = filePath;
+    gh.path = overrideData.github_path
+  } else if (repo.path) {
+    gh.path = repo.path + '/' + filePath
+  } else {
+    gh.path = filePath
   }
 
-  return gh;
+  return gh
 }
 
-function getEditUrl(themeOptions, repo, filePath, overrideData = { }) {
+function getEditUrl (themeOptions, repo, filePath, overrideData = { }) {
   if (themeOptions.editOnGitHub === false || overrideData.edit_on_github === false) {
     return null
   }
 
-  const gh = getGitHubData(repo, overrideData, filePath);
+  const gh = getGitHubData(repo, overrideData, filePath)
   return `https://github.com/${gh.nwo}/edit/${gh.branch}/${gh.path}`
 }
 
-async function fetchContributors(repo, filePath, overrideData = { }, accessToken = "") {
-  const gh = getGitHubData(repo, overrideData, filePath);
+async function fetchContributors (repo, filePath, overrideData = { }, accessToken = '') {
+  const gh = getGitHubData(repo, overrideData, filePath)
 
   const cached = CONTRIBUTOR_CACHE.get(gh)
   if (cached) {
@@ -198,16 +197,16 @@ async function fetchContributors(repo, filePath, overrideData = { }, accessToken
     const req = {
       method: 'get',
       baseURL: 'https://api.github.com/',
-      url: `/repos/${gh.nwo}/commits?path=${gh.path}&sha=${gh.branch}&per_page=100`
+      url: `/repos/${gh.nwo}/commits?path=${gh.path}&sha=${gh.branch}&per_page=100`,
     }
 
     if (accessToken && accessToken.length) {
       req.headers = {
-        'Authorization': `token ${accessToken}`
+        Authorization: `token ${accessToken}`,
       }
     }
 
-    const {data} = await axios.request(req)
+    const { data } = await axios.request(req)
 
     const commits = data
       .map(commit => ({
@@ -224,7 +223,7 @@ async function fetchContributors(repo, filePath, overrideData = { }, accessToken
     return result
   } catch (error) {
     console.error(
-      `[ERROR] Unable to fetch contributors for ${filePath}. ${error.message}`,
+      `[ERROR] Unable to fetch contributors for ${filePath}. ${error.message}`
     )
     return []
   }
