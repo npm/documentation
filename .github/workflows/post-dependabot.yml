@@ -34,7 +34,7 @@ jobs:
       - name: npm Version
         run: npm -v
       - name: Install Dependencies
-        run: npm i --ignore-scripts --no-audit --no-fund
+        run: npm i --no-audit --no-fund
       - name: Fetch Dependabot Metadata
         id: metadata
         uses: dependabot/fetch-metadata@v1
