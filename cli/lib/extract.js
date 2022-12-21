@@ -43,40 +43,6 @@ const unpackTarball = async ({ release, cwd, dir }) => {
   return result
 }
 
-const unpackTree = async ({ release, cwd, dir }) => {
-  const dirParts = dir.split(sep)
-  const child = dirParts.pop()
-  const parent = join(...dirParts)
-
-  // to get the sha of the dir, we have to get the parent
-  // and find the child as an entry and get its sha
-  const sha = await gh.getDirectory(release.branch, parent)
-    .then(paths => paths.find((p) => p.name === child).sha)
-
-  const files = await gh.getAllFiles(sha)
-
-  // tar makes the directories for us when unpacking but we
-  // need to to that manually here
-  const dirs = [...new Set(files.map((f) => join(cwd, dirname(f.path))))]
-  await Promise.all(dirs.map((d) => fs.mkdir(d, { recursive: true })))
-
-  await Promise.all(
-    files.map(async (file) => {
-      const buffer = await gh.getFile({ sha: file.sha })
-      return fs.writeFile(
-        join(cwd, file.path),
-        Transform.sync(buffer, {
-          path: file.path,
-          release,
-        }),
-        'utf-8'
-      )
-    })
-  )
-
-  return files.map((f) => f.path)
-}
-
 const getNav = async ({ path, release }) => {
   const nav = await gh.getFile({ ref: release.branch, path })
 
@@ -157,11 +123,7 @@ const unpackRelease = async (
   // the tree of the doc directory's sha which has all the docs
   // we need in it. Note that this requires the docs to all be
   // built in source, which is true for v6 but not for v9 and later.
-  const files = release.useBranch ? await unpackTree({
-    release,
-    cwd,
-    dir: release.src,
-  }) : await unpackTarball({
+  const files = await unpackTarball({
     release,
     cwd,
     dir: builtPath,

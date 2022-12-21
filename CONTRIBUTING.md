@@ -179,11 +179,6 @@ adding a new major version to the site.
      fetch the latest version of the documentation from GitHub.
    * `spec`: The registry spec for the version. This will be used
      to fetch the latest version in that range from the registry.
-   * `useBranch`: A boolean that controls whether the content for this
-     version will be fetched from GitHub. The default is false, which
-     means the content will be fetched directly from the registry tarball.
-     It is preferred to use the registry but for some legacy versions,
-     the content was only updated on GitHub and never published.
    * `resolved`: This should not be edited manually. This is a reference
      to the last fetched version of the content for this release. If
      a future fetch is done and this field matches what is returned

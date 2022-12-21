@@ -1,8 +1,10 @@
 const t = require('tap')
 const fm = require('front-matter')
-const Transform = require('../lib/transform')
 
 const transform = ({ id, path }) => {
+  const Transform = t.mock('../lib/transform', {
+    '../lib/gh.js': { nwo: 'npm/cli' },
+  })
   const transformed = Transform.sync('---\n---\n', {
     release: {
       id: id,

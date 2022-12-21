@@ -20,34 +20,6 @@ const getFile = async ({ sha, ref, path }) => {
   return Buffer.from(data.content, data.encoding)
 }
 
-const getAllFiles = async (sha) => {
-  const {
-    data: { tree },
-  } = await octokit.git.getTree({
-    ...opts,
-    tree_sha: sha,
-    recursive: true,
-  })
-
-  return tree
-    .filter((f) => f.type === 'blob')
-    .map((f) => ({
-      ...f,
-      // return file paths that can be used on the
-      // system to write files
-      path: f.path.split(posix.sep).join(sep),
-    }))
-}
-
-const getDirectory = async (ref, dir) => {
-  const { data } = await octokit.repos.getContent({
-    ...opts,
-    ref,
-    path: dir.split(sep).join(posix.sep),
-  })
-  return data
-}
-
 const pathExists = async (ref, path) => {
   try {
     await octokit.repos.getContent({
@@ -66,12 +38,7 @@ const pathExists = async (ref, path) => {
 }
 
 module.exports = {
-  octokit,
   getFile,
-  getAllFiles,
-  getDirectory,
   pathExists,
-  owner,
-  repo,
   nwo: `${owner}/${repo}`,
 }
