@@ -100,5 +100,3 @@ jobs:
         run: echo "::add-matcher::.github/matchers/tap.json"
       - name: Test
         run: npm test --ignore-scripts -w cli
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
