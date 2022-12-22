@@ -285,7 +285,7 @@
   shortName: CLI
   url: /cli
   variants:
-    - title: Version 6.14.17 (Legacy Release)
+    - title: Version 6.14.18 (Legacy Release)
       shortName: v6
       url: /cli/v6
       default: false
