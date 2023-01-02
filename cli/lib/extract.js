@@ -96,9 +96,6 @@ const unpackRelease = async (
   log.info(release.id, release)
 
   const cwd = join(contentPath, release.id)
-  await fs
-    .rm(cwd, { force: true, recursive: true })
-    .then(() => fs.mkdir(cwd, { recursive: true }))
 
   const builtPath = join('docs', 'content')
   const srcPath = join('docs', 'lib', 'content')
@@ -119,10 +116,10 @@ const unpackRelease = async (
       ?? await gh.pathExists(release.branch, join('docs', 'nav.yml')),
   })
 
-  // If we are using the release's GitHub ref, then we fetch
-  // the tree of the doc directory's sha which has all the docs
-  // we need in it. Note that this requires the docs to all be
-  // built in source, which is true for v6 but not for v9 and later.
+  await fs
+    .rm(cwd, { force: true, recursive: true })
+    .then(() => fs.mkdir(cwd, { recursive: true }))
+
   const files = await unpackTarball({
     release,
     cwd,

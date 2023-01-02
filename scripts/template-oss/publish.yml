@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - {{ defaultBranch }}
-  pull_request_target:
+  pull_request:
   workflow_dispatch:
   workflow_call:
 
@@ -13,22 +13,9 @@ jobs:
     permissions:
       contents: read
       pages: read
-    {{> job jobName="Build and Upload" jobSkipSetup=true }}
-      - name: Checkout PR
-        if: $\{{ github.event_name == 'pull_request_target' }}
-        uses: actions/checkout@v3
-        with:
-          ref: $\{{ github.event.pull_request.head.ref }}
-          repository: $\{{ github.event.pull_request.head.repo.full_name }}
-      - name: Checkout
-        if: $\{{ github.event_name != 'pull_request_target' }}
-        uses: actions/checkout@v3
-        with:
-          ref: {{ defaultBranch }}
+    {{> job jobName="Build and Upload" }}
       - name: Setup Pages
         uses: actions/configure-pages@v1
-      {{> stepNode }}
-      {{> stepDeps }}
       - name: Build documentation
         run: npm run build
         env:
@@ -52,4 +39,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
         with:
-          preview: $\{{ github.event_name == 'pull_request_target' }}
+          preview: $\{{ github.event_name == 'pull_request' }}
