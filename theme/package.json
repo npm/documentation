@@ -39,7 +39,7 @@
     "details-element-polyfill": "^2.4.0",
     "downshift": "^3.4.8",
     "find-up": "^4.1.0",
-    "framer-motion": "^3.10.6",
+    "framer-motion": "^6.5.1",
     "fuse.js": "^3.6.1",
     "gatsby-plugin-catch-links": "^4.25.0",
     "gatsby-plugin-manifest": "^4.25.0",
