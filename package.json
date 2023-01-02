@@ -29,10 +29,7 @@
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "theme": "*"
-  },
-  "overrides": {
-    "react": "$react"
+    "theme": "^1.0.0"
   },
   "devDependencies": {
     "@npmcli/eslint-config": "^4.0.1",
