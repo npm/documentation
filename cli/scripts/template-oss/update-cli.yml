@@ -13,6 +13,8 @@ jobs:
       - name: Build documentation
         run: npm run build -w cli
         env:
+          # token is used to get files from `npm/cli` that
+          # are not present in the published tarball
           GITHUB_TOKEN: $\{{ secrets.GITHUB_TOKEN }}
       - name: Check for changes
         id: status

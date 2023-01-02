@@ -1,5 +1,12 @@
 {{> ci }}
 
+  test-cli-content:
+    {{> jobMatrix jobName="Test CLI Content" }}
+      - name: Check CLI Documentation
+        run: npm run build -w cli -- --check-only
+        env:
+          GITHUB_TOKEN: $\{{ secrets.GITHUB_TOKEN }}
+
   licenses:
     name: REUSE Compliance Check
     runs-on: ubuntu-latest

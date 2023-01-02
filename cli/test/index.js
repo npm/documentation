@@ -38,7 +38,6 @@ const mockBuild = async ({ releases, packument = {}, testdir: testdirOpts }) => 
   const nav = yaml.parse(rawNav)
 
   const testdir = t.testdir({
-    'releases.json': JSON.stringify(releases),
     'nav.yml': rawNav,
     content: {},
     ...testdirOpts,
@@ -102,8 +101,8 @@ const mockBuild = async ({ releases, packument = {}, testdir: testdirOpts }) => 
   return {
     testdir,
     build: (opts) => build({
+      releases,
       contentPath: join(testdir, 'content'),
-      releasesPath: join(testdir, 'releases.json'),
       navPath: join(testdir, 'nav.yml'),
       ...opts,
     }),
@@ -156,6 +155,15 @@ t.test('earlier release is latest', async (t) => {
   })
 
   await build()
+})
+
+t.test('can skip fetching latest', async (t) => {
+  const releases = getReleases()
+  const { build } = await mockBuild({
+    releases,
+  })
+
+  await build({ useCurrent: true })
 })
 
 t.test('add variant to nav', async (t) => {

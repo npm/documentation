@@ -1,6 +1,10 @@
 const { Octokit } = require('@octokit/rest')
 const { posix, sep } = require('path')
 
+if (!process.env.GITHUB_TOKEN) {
+  throw new Error('GITHUB_TOKEN env var is required to build CLI docs')
+}
+
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
 const owner = 'npm'
 const repo = 'cli'

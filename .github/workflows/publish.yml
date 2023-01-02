@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - main
-  pull_request_target:
+  pull_request:
   workflow_dispatch:
   workflow_call:
 
@@ -23,19 +23,12 @@ jobs:
       run:
         shell: bash
     steps:
-      - name: Checkout PR
-        if: ${{ github.event_name == 'pull_request_target' }}
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
       - name: Checkout
-        if: ${{ github.event_name != 'pull_request_target' }}
         uses: actions/checkout@v3
-        with:
-          ref: main
-      - name: Setup Pages
-        uses: actions/configure-pages@v1
+      - name: Setup Git User
+        run: |
+          git config --global user.email "npm-cli+bot@github.com"
+          git config --global user.name "npm CLI robot"
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -47,6 +40,8 @@ jobs:
         run: npm -v
       - name: Install Dependencies
         run: npm i --no-audit --no-fund
+      - name: Setup Pages
+        uses: actions/configure-pages@v1
       - name: Build documentation
         run: npm run build
         env:
@@ -70,4 +65,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
         with:
-          preview: ${{ github.event_name == 'pull_request_target' }}
+          preview: ${{ github.event_name == 'pull_request' }}
