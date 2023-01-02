@@ -58,7 +58,7 @@
     "preval.macro": "^3.0.0",
     "prism-react-renderer": "^0.2.0",
     "react-addons-text-content": "^0.0.4",
-    "react-element-to-jsx-string": "^14.3.4",
+    "react-element-to-jsx-string": "^15.0.0",
     "react-focus-on": "^3.7.0",
     "react-frame-component": "^4.1.3",
     "react-helmet": "^5.2.1",
