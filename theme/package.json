@@ -53,7 +53,7 @@
     "html-react-parser": "^1.4.14",
     "lodash.debounce": "4.0.8",
     "lodash.uniqby": "^4.7.0",
-    "pkg-up": "^3.1.0",
+    "pkg-up": "^4.0.0",
     "pluralize": "^8.0.0",
     "preval.macro": "^3.0.0",
     "prism-react-renderer": "^0.2.0",
