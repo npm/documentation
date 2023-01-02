@@ -40,7 +40,7 @@
     "downshift": "^3.4.8",
     "find-up": "^4.1.0",
     "framer-motion": "^3.10.6",
-    "fuse.js": "^3.6.1",
+    "fuse.js": "^6.6.2",
     "gatsby-plugin-catch-links": "^4.25.0",
     "gatsby-plugin-manifest": "^4.25.0",
     "gatsby-plugin-mdx": "^3.20.0",
