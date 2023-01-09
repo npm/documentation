@@ -37,7 +37,7 @@
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^2.29.3",
     "details-element-polyfill": "^2.4.0",
-    "downshift": "^3.4.8",
+    "downshift": "^7.1.2",
     "find-up": "^4.1.0",
     "framer-motion": "^3.10.6",
     "fuse.js": "^3.6.1",
