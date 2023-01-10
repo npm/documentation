@@ -55,7 +55,7 @@
     "lodash.uniqby": "^4.7.0",
     "pkg-up": "^3.1.0",
     "pluralize": "^8.0.0",
-    "preval.macro": "^3.0.0",
+    "preval.macro": "^5.0.0",
     "prism-react-renderer": "^0.2.0",
     "react-addons-text-content": "^0.0.4",
     "react-element-to-jsx-string": "^14.3.4",
