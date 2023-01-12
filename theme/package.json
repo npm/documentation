@@ -65,7 +65,7 @@
     "react-live": "^2.4.1",
     "react-measure": "^2.5.2",
     "read-pkg-up": "^6.0.0",
-    "sentence-case": "^2.1.1",
+    "sentence-case": "^3.0.4",
     "styled-components": "^5.3.6",
     "styled-system": "^5.1.5"
   },
