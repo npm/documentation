@@ -41,6 +41,8 @@ redirect_from:
 npm root
 ```
 
+Note: This command is unaware of workspaces.
+
 ### Description
 
 Print the effective `node_modules` folder to standard out.

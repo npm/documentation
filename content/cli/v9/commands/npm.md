@@ -27,9 +27,11 @@ redirect_from:
 npm
 ```
 
+Note: This command is unaware of workspaces.
+
 ### Version
 
-9.2.0
+9.3.0
 
 ### Description
 
@@ -149,7 +151,7 @@ npm is extremely configurable.  It reads its configuration options from
   in the cli, env, or user config, then that file is parsed instead.
 * Defaults:
   npm's default configuration options are defined in
-  lib/utils/config-defs.js.  These must not be changed.
+  `lib/utils/config/definitions.js`.  These must not be changed.
 
 See [`config`](/cli/v9/using-npm/config) for much much more information.
 
