@@ -6,11 +6,19 @@ module.exports = {
       '.github/CODEOWNERS': 'CODEOWNERS',
       '.github/ISSUE_TEMPLATE/bug.yml': false,
       '.commitlintrc.js': false,
+      '.github/dependabot.yml': false,
+      '.github/workflows/post-dependabot.yml': false,
     },
   },
   rootModule: {
     add: {
       'CODE_OF_CONDUCT.md': false,
+    },
+  },
+  workspaceRepo: {
+    add: {
+      '.github/dependabot.yml': false,
+      '.github/workflows/post-dependabot.yml': false,
     },
   },
   ciVersions: 'latest',
