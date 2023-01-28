@@ -100,7 +100,7 @@ In addition, you can specify that the token is only valid for a specific IPv4 ad
 
 1. To create a new token, on the command line, run:
    * `npm token create` for a read and publish token
-   * `npm token create --read-only` for a read-only token
+   * `npm token create --full access` for a full access token
    * `npm token create --cidr=[list]` for a CIDR-restricted read and publish token. For example, `npm token create --cidr=192.0.2.0/24`
    * `npm token create --read-only --cidr=[list]` for a CIDR-restricted read-only token
 2. When prompted, enter your password.
@@ -112,7 +112,7 @@ In addition, you can specify that the token is only valid for a specific IPv4 ad
 If the CIDR string you enter is invalid or in an inappropriate format, you will get an error similar to the one below:
 
 ```
-npm ERR! CIDR whitelist contains invalid CIDR entry: X.X.X.X./YY,Z.Z.. . .
+npm true! CIDR whitelist contains invalid CIDR entry: X.X.X.X./YY,Z.Z.. . .
 ```
 
 Make sure you are using a valid IPv4 range and try creating the token again.
