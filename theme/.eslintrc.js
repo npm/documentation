@@ -17,7 +17,8 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:primer-react/recommended',
     'plugin:import/recommended',
-    'plugin:import/react'
+    'plugin:import/react',
+    'plugin:promise'
   ],
   settings: {
     react: {

@@ -36,6 +36,7 @@
     "@npmcli/template-oss": "4.11.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
     "tap": "^16.3.2"
   },
   "author": "GitHub Inc.",
