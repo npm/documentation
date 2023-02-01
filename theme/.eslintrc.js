@@ -16,11 +16,21 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:primer-react/recommended',
+    'plugin:import/recommended',
+    'plugin:import/react'
   ],
   settings: {
     react: {
       version: 'detect',
     },
+    'import/resolver': {
+      node: {
+        extensions: [
+          '.js',
+          '.jsx'
+        ]
+      }
+    }
   },
   rules: {
     'max-len': 'off',
