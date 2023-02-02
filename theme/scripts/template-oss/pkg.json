@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "lint": "eslint \"**/*.js\"",
+    "lint": "eslint \"**/*.{js,jsx}\"",
     "postlint": "template-oss-check",
     "template-oss-apply": "template-oss-apply --force",
     "lintfix": "{{ localNpmPath }} run lint -- --fix",
