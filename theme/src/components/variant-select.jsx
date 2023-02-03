@@ -18,6 +18,7 @@ function VariantSelect(props) {
   }
 
   const variantPages = NavHierarchy.getVariantsForPage(props.root, vp.page)
+  console.log(variantPages)
   const items = []
   let selectedItem = variantPages[0]
 
