@@ -206,12 +206,12 @@ export default {
     return {variant: match[1], page: match[2]}
   },
 
-  getVariantsForPage(root, page) {
+  getVariantsForPage (root, page) {
     const pages = []
-    const rootItem = this.findItem(item => (this.getPath(item.url) === this.getPath(root) ? item : null))
+    const rootItem = this.findItem((item) => this.getPath(item.url) === this.getPath(root) ? item : null)
 
     if (rootItem && rootItem.variants) {
-      for (const variant of rootItem.variants) {
+      rootItem.variants.forEach((variant) => {
         if (!variant.children) {
           return
         }
@@ -222,9 +222,9 @@ export default {
         if (vp.page === page) {
           variantPage = variant
         } else {
-          variantPage = this.findItem(item => {
+          variantPage = this.findItem((item) => {
             const vp = this.getVariantAndPage(root, item.url)
-            return vp && vp.page === page ? item : null
+            return (vp && vp.page === page) ? item : null
           }, variant.children)
         }
 
@@ -232,8 +232,8 @@ export default {
           return
         }
 
-        pages.push({variant, page: variantPage})
-      }
+        pages.push({ variant: variant, page: variantPage })
+      })
     }
 
     return pages
