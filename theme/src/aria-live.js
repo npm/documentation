@@ -15,7 +15,7 @@ if (typeof window !== 'undefined') {
 }
 
 // Announce message update to screen reader.
-function announce (message) {
+function announce(message) {
   if (!container || !container.isConnected) {
     /* This condition is for when the aria-live container no longer exists due to nav methods like turbo drive
      which replace the body getting rid of the region. We add the container if it's missing. We then add a delay
@@ -33,7 +33,7 @@ function announce (message) {
 }
 
 // Set aria-live container to message.
-function setContainerContent (message) {
+function setContainerContent(message) {
   if (!container) {
     return
   }
@@ -50,7 +50,7 @@ function setContainerContent (message) {
 }
 
 // Get the global screen reader notice container.
-function createNoticeContainer () {
+function createNoticeContainer() {
   container = document.createElement('div')
   container.setAttribute('aria-live', 'polite')
   container.style.position = 'absolute'

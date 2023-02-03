@@ -6,7 +6,7 @@ const uniqBy = require('lodash.uniqby')
 
 const CONTRIBUTOR_CACHE = new Map()
 
-exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
+exports.createSchemaCustomization = ({actions: {createTypes}}) => {
   createTypes(`
     type Mdx implements Node {
       frontmatter: MdxFrontmatter
@@ -26,10 +26,10 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
   `)
 }
 
-exports.createPages = async ({ graphql, actions }, themeOptions) => {
-  const repo = themeOptions.repo ? themeOptions.repo : { url: getPkgRepo(readPkgUp.sync().package).browse() }
+exports.createPages = async ({graphql, actions}, themeOptions) => {
+  const repo = themeOptions.repo ? themeOptions.repo : {url: getPkgRepo(readPkgUp.sync().package).browse()}
 
-  const { data } = await graphql(`
+  const {data} = await graphql(`
     {
       allMdx {
         nodes {
@@ -68,15 +68,9 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     data.allMdx.nodes.map(async node => {
       const pagePath = getPath(node)
 
-      const rootAbsolutePath = path.resolve(
-        process.cwd(),
-        themeOptions.repoRootPath || '.'
-      )
+      const rootAbsolutePath = path.resolve(process.cwd(), themeOptions.repoRootPath || '.')
 
-      const fileRelativePath = path.relative(
-        rootAbsolutePath,
-        node.fileAbsolutePath
-      )
+      const fileRelativePath = path.relative(rootAbsolutePath, node.fileAbsolutePath)
 
       const editUrl = getEditUrl(themeOptions, repo, fileRelativePath, node.frontmatter)
 
@@ -98,10 +92,10 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
       })
 
       if (node.frontmatter.redirect_from) {
-        node.frontmatter.redirect_from.forEach((from) => {
+        node.frontmatter.redirect_from.forEach(from => {
           actions.createRedirect({
             fromPath: from,
-            toPath: '/' + pagePath,
+            toPath: `/${pagePath}`,
             isPermanent: true,
             redirectInBrowser: true,
           })
@@ -109,18 +103,18 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
           if (pagePath.startsWith('cli/') && !from.endsWith('index')) {
             actions.createRedirect({
               fromPath: `${from}.html`,
-              toPath: '/' + pagePath,
+              toPath: `/${pagePath}`,
               isPermanent: true,
               redirectInBrowser: true,
             })
           }
         })
       }
-    })
+    }),
   )
 }
 
-function getPath (node) {
+function getPath(node) {
   // sites can programmatically override slug, that takes priority
   if (node.fields && node.fields.slug) {
     return node.fields.slug
@@ -132,14 +126,12 @@ function getPath (node) {
   }
 
   // finally, we'll just use the path on disk
-  return path.join(
-    node.parent.relativeDirectory,
-    node.parent.name === 'index' ? '/' : node.parent.name
-  )
+  return path
+    .join(node.parent.relativeDirectory, node.parent.name === 'index' ? '/' : node.parent.name)
     .replace(/\\/g, '/') // Windows paths to forward slashes
 }
 
-function getNameWithOwner (url) {
+function getNameWithOwner(url) {
   const nwo = url.match(/^http(?:s)?:\/\/(?:www\.)?github\.com\/([^/]+\/[^/]+)(?:\/)?$/i)
 
   if (nwo) {
@@ -149,7 +141,7 @@ function getNameWithOwner (url) {
   return null
 }
 
-function getGitHubData (repo, overrideData, filePath) {
+function getGitHubData(repo, overrideData, filePath) {
   const gh = {
     nwo: getNameWithOwner(repo.url),
     branch: 'master',
@@ -168,7 +160,7 @@ function getGitHubData (repo, overrideData, filePath) {
   if (overrideData.github_path) {
     gh.path = overrideData.github_path
   } else if (repo.path) {
-    gh.path = repo.path + '/' + filePath
+    gh.path = `${repo.path}/${filePath}`
   } else {
     gh.path = filePath
   }
@@ -176,7 +168,7 @@ function getGitHubData (repo, overrideData, filePath) {
   return gh
 }
 
-function getEditUrl (themeOptions, repo, filePath, overrideData = { }) {
+function getEditUrl(themeOptions, repo, filePath, overrideData = {}) {
   if (themeOptions.editOnGitHub === false || overrideData.edit_on_github === false) {
     return null
   }
@@ -185,7 +177,7 @@ function getEditUrl (themeOptions, repo, filePath, overrideData = { }) {
   return `https://github.com/${gh.nwo}/edit/${gh.branch}/${gh.path}`
 }
 
-async function fetchContributors (repo, filePath, overrideData = { }, accessToken = '') {
+async function fetchContributors(repo, filePath, overrideData = {}, accessToken = '') {
   const gh = getGitHubData(repo, overrideData, filePath)
 
   const cached = CONTRIBUTOR_CACHE.get(gh)
@@ -206,7 +198,7 @@ async function fetchContributors (repo, filePath, overrideData = { }, accessToke
       }
     }
 
-    const { data } = await axios.request(req)
+    const {data} = await axios.request(req)
 
     const commits = data
       .map(commit => ({
@@ -222,9 +214,7 @@ async function fetchContributors (repo, filePath, overrideData = { }, accessToke
     CONTRIBUTOR_CACHE.set(gh, result)
     return result
   } catch (error) {
-    console.error(
-      `[ERROR] Unable to fetch contributors for ${filePath}. ${error.message}`
-    )
+    console.error(`[ERROR] Unable to fetch contributors for ${filePath}. ${error.message}`)
     return []
   }
 }

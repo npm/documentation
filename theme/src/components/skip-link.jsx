@@ -1,17 +1,10 @@
-import { Link } from '@primer/components'
+import {Link} from '@primer/components'
 import styled from 'styled-components'
 import React from 'react'
 
-function SkipLinkBase (props) {
+function SkipLinkBase(props) {
   return (
-    <Link
-      {...props}
-      backgroundColor="blue.6"
-      color="white"
-      p={3}
-      href="#skip-nav"
-      fontSize={1}
-    >
+    <Link {...props} backgroundColor="blue.6" color="white" p={3} href="#skip-nav" fontSize={1}>
       Skip to content
     </Link>
   )

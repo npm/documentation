@@ -1,7 +1,7 @@
 import React from 'react'
-import { BorderBox, Text } from '@primer/components'
+import {BorderBox, Text} from '@primer/components'
 
-function Prompt ({ children }) {
+function Prompt({children}) {
   return (
     <BorderBox
       as="pre"
@@ -9,9 +9,11 @@ function Prompt ({ children }) {
       mb={3}
       p={3}
       border={0}
-      style={{ color: 'rgb(57, 58, 52)', backgroundColor: 'rgb(246, 248, 250)', overflow: 'auto' }}
+      style={{color: 'rgb(57, 58, 52)', backgroundColor: 'rgb(246, 248, 250)', overflow: 'auto'}}
     >
-      <Text fontFamily="mono" fontSize={1}>{children}</Text>
+      <Text fontFamily="mono" fontSize={1}>
+        {children}
+      </Text>
     </BorderBox>
   )
 }
