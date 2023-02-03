@@ -1,10 +1,10 @@
-import { Box, Heading, Text } from '@primer/components'
+import {Box, Heading, Text} from '@primer/components'
 import React from 'react'
 import useSiteMetadata from '../use-site-metadata'
 import Container from './container'
 
-function Hero () {
-  const { title, description } = useSiteMetadata()
+function Hero() {
+  const {title, description} = useSiteMetadata()
 
   return (
     <Box bg="black" py={6}>

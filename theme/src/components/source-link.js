@@ -1,8 +1,8 @@
-import { Link, StyledOcticon } from '@primer/components'
-import { CodeIcon } from '@primer/octicons-react'
+import {Link, StyledOcticon} from '@primer/components'
+import {CodeIcon} from '@primer/octicons-react'
 import React from 'react'
 
-function SourceLink ({ href }) {
+function SourceLink({href}) {
   return (
     <Link href={href} lineHeight="condensedUltra" fontSize={1}>
       <StyledOcticon icon={CodeIcon} mr={2} />

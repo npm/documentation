@@ -1,4 +1,4 @@
-import { Box, Flex } from '@primer/components'
+import {Box, Flex} from '@primer/components'
 import React from 'react'
 import Container from './container'
 import PageFooter from './page-footer'
@@ -7,8 +7,8 @@ import Header from './header'
 import Hero from './hero'
 import Sidebar from './sidebar'
 
-function HeroLayout ({ children, pageContext, location }) {
-  const { additionalContributors = [] } = pageContext.frontmatter
+function HeroLayout({children, pageContext, location}) {
+  const {additionalContributors = []} = pageContext.frontmatter
 
   return (
     <Flex flexDirection="column" minHeight="100vh">
@@ -17,10 +17,7 @@ function HeroLayout ({ children, pageContext, location }) {
       <Flex flex="1 1 auto" flexDirection="row" role="main">
         <Box display={['none', null, null, 'block']}>
           <Sidebar
-            editOnGitHub={
-              pageContext.themeOptions.showSidebarEditLink &&
-              pageContext.themeOptions.editOnGitHub
-            }
+            editOnGitHub={pageContext.themeOptions.showSidebarEditLink && pageContext.themeOptions.editOnGitHub}
             location={location}
           />
         </Box>
@@ -31,9 +28,7 @@ function HeroLayout ({ children, pageContext, location }) {
             <PageFooter
               editOnGitHub={pageContext.themeOptions.editOnGitHub}
               editUrl={pageContext.themeOptions.editUrl}
-              contributors={pageContext.contributors.concat(
-                additionalContributors.map(login => ({ login }))
-              )}
+              contributors={pageContext.contributors.concat(additionalContributors.map(login => ({login})))}
             />
           </Container>
         </Box>

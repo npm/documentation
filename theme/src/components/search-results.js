@@ -1,9 +1,9 @@
-import { Flex, Text } from '@primer/components'
+import {Flex, Text} from '@primer/components'
 import React from 'react'
 import useSiteMetadata from '../use-site-metadata'
 import NavHierarchy from '../nav-hierarchy'
 
-function SearchResults ({ results, getItemProps, highlightedIndex }) {
+function SearchResults({results, getItemProps, highlightedIndex}) {
   const siteMetadata = useSiteMetadata()
 
   if (results.length === 0) {
@@ -25,13 +25,10 @@ function SearchResults ({ results, getItemProps, highlightedIndex }) {
         py: 2,
         color: highlightedIndex === index ? 'white' : 'gray.8',
         bg: highlightedIndex === index ? 'blue.5' : 'transparent',
-        style: { cursor: 'pointer' },
+        style: {cursor: 'pointer'},
       })}
     >
-      <Text
-        fontSize={0}
-        color={highlightedIndex === index ? 'blue.2' : 'gray.7'}
-      >
+      <Text fontSize={0} color={highlightedIndex === index ? 'blue.2' : 'gray.7'}>
         {getBreadcrumbs(siteMetadata.shortName, item.path).join(' / ')}
       </Text>
       {item.title}
@@ -39,12 +36,12 @@ function SearchResults ({ results, getItemProps, highlightedIndex }) {
   ))
 }
 
-function getBreadcrumbs (siteTitle, path) {
+function getBreadcrumbs(siteTitle, path) {
   const hierarchy = NavHierarchy.getItemHierarchy(path)
 
   if (hierarchy) {
     hierarchy.pop()
-    return hierarchy.map(item => item.shortName ? item.shortName : item.title)
+    return hierarchy.map(item => (item.shortName ? item.shortName : item.title))
   } else {
     return [siteTitle]
   }

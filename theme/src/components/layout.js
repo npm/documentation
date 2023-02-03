@@ -1,19 +1,9 @@
-import {
-  BorderBox,
-  Box,
-  Details,
-  Flex,
-  Grid,
-  Heading,
-  Position,
-  StyledOcticon,
-  Text,
-} from '@primer/components'
-import { ChevronDownIcon, ChevronRightIcon } from '@primer/octicons-react'
+import {BorderBox, Box, Details, Flex, Grid, Heading, Position, StyledOcticon, Text} from '@primer/components'
+import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
 import React from 'react'
-import { MDXProvider } from '@mdx-js/react'
+import {MDXProvider} from '@mdx-js/react'
 import Head from './head'
-import Header, { HEADER_HEIGHT } from './header'
+import Header, {HEADER_HEIGHT} from './header'
 import Index from './index'
 import Note from './note'
 import PageFooter from './page-footer'
@@ -27,36 +17,28 @@ import TableOfContents from './table-of-contents'
 import VariantSelect from './variant-select'
 import NavHierarchy from '../nav-hierarchy'
 
-function Layout ({ children, pageContext, location }) {
-  const {
-    title,
-    description,
-    status,
-    source,
-    additionalContributors = [],
-  } = pageContext.frontmatter
+function Layout({children, pageContext, location}) {
+  const {title, description, status, source, additionalContributors = []} = pageContext.frontmatter
 
   const variantRoot = NavHierarchy.getVariantRoot(location.pathname)
 
   return (
-    <MDXProvider components={{
-      Index,
-      Note,
-      Prompt,
-      PromptReply,
-      Screenshot,
-    }}>
-
+    <MDXProvider
+      components={{
+        Index,
+        Note,
+        Prompt,
+        PromptReply,
+        Screenshot,
+      }}
+    >
       <Flex flexDirection="column" minHeight="100vh">
         <Head title={title} description={description} />
         <Header location={location} isSearchEnabled={pageContext.isSearchEnabled} />
-        <Flex flex="1 1 auto" flexDirection="row" css={{ zIndex: 0 }} role="main">
+        <Flex flex="1 1 auto" flexDirection="row" css={{zIndex: 0}} role="main">
           <Box display={['none', null, null, 'block']}>
             <Sidebar
-              editOnGitHub={
-                pageContext.themeOptions.showSidebarEditLink &&
-                pageContext.themeOptions.editOnGitHub
-              }
+              editOnGitHub={pageContext.themeOptions.showSidebarEditLink && pageContext.themeOptions.editOnGitHub}
               location={location}
             />
           </Box>
@@ -64,25 +46,16 @@ function Layout ({ children, pageContext, location }) {
             id="skip-nav"
             maxWidth="100%"
             gridTemplateColumns={['100%', null, 'minmax(0, 65ch) 220px']}
-            gridTemplateAreas={[
-              '"heading" "content"',
-              null,
-              '"heading table-of-contents" "content table-of-contents"',
-            ]}
+            gridTemplateAreas={['"heading" "content"', null, '"heading table-of-contents" "content table-of-contents"']}
             gridColumnGap={[null, null, 6, 7]}
             gridRowGap={3}
             mx="auto"
             p={[5, 6, null, 7]}
-            css={{ alignItems: 'start', alignSelf: 'start' }}
+            css={{alignItems: 'start', alignSelf: 'start'}}
             role="region"
           >
-            <Box css={{ gridArea: 'heading' }}>
-              <BorderBox
-                borderWidth={0}
-                borderBottomWidth={1}
-                borderRadius={0}
-                pb={2}
-              >
+            <Box css={{gridArea: 'heading'}}>
+              <BorderBox borderWidth={0} borderBottomWidth={1} borderRadius={0} pb={2}>
                 <Box>
                   <Box>
                     <Heading as="h1">{title}</Heading>
@@ -91,15 +64,21 @@ function Layout ({ children, pageContext, location }) {
                 </Box>
               </BorderBox>
               {variantRoot != null ? (
-                <Box css={{ 'margin-top': '25px' }}>
-                  <VariantSelect overlay={true} direction="se" menuWidth="min(30ch, 500px)" root={variantRoot} location={location} />
+                <Box css={{'margin-top': '25px'}}>
+                  <VariantSelect
+                    overlay={true}
+                    direction="se"
+                    menuWidth="min(30ch, 500px)"
+                    root={variantRoot}
+                    location={location}
+                  />
                 </Box>
               ) : null}
             </Box>
             {pageContext.tableOfContents.items ? (
               <Position
                 display={['none', null, 'block']}
-                css={{ gridArea: 'table-of-contents', overflow: 'auto' }}
+                css={{gridArea: 'table-of-contents', overflow: 'auto'}}
                 position="sticky"
                 top={HEADER_HEIGHT + 24}
                 mt="6px"
@@ -108,13 +87,13 @@ function Layout ({ children, pageContext, location }) {
                 pl={1}
                 pb={1}
               >
-                <Text display="inline-block" fontWeight="bold" mb={1} id='table-of-content-label'>
+                <Text display="inline-block" fontWeight="bold" mb={1} id="table-of-content-label">
                   Table of contents
                 </Text>
-                <TableOfContents items={pageContext.tableOfContents.items} labelId='table-of-content-label'/>
+                <TableOfContents items={pageContext.tableOfContents.items} labelId="table-of-content-label" />
               </Position>
             ) : null}
-            <Box css={{ gridArea: 'content' }}>
+            <Box css={{gridArea: 'content'}}>
               {status || source ? (
                 <Flex mb={3} alignItems="center">
                   {status ? <StatusLabel status={status} /> : null}
@@ -125,7 +104,7 @@ function Layout ({ children, pageContext, location }) {
               {pageContext.tableOfContents.items ? (
                 <Box display={['block', null, 'none']} mb={3}>
                   <Details>
-                    {({ open }) => (
+                    {({open}) => (
                       <>
                         <Text as="summary" fontWeight="bold">
                           {open ? (
@@ -136,9 +115,7 @@ function Layout ({ children, pageContext, location }) {
                           Table of contents
                         </Text>
                         <Box pt={1}>
-                          <TableOfContents
-                            items={pageContext.tableOfContents.items}
-                          />
+                          <TableOfContents items={pageContext.tableOfContents.items} />
                         </Box>
                       </>
                     )}
@@ -149,9 +126,7 @@ function Layout ({ children, pageContext, location }) {
               <PageFooter
                 editOnGitHub={pageContext.themeOptions.editOnGitHub}
                 editUrl={pageContext.editUrl}
-                contributors={pageContext.contributors.concat(
-                  additionalContributors.map((login) => ({ login }))
-                )}
+                contributors={pageContext.contributors.concat(additionalContributors.map(login => ({login})))}
               />
             </Box>
           </Grid>
