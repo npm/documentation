@@ -211,7 +211,7 @@ export default {
     const rootItem = this.findItem(item => (this.getPath(item.url) === this.getPath(root) ? item : null))
 
     if (rootItem && rootItem.variants) {
-      rootItem.variants.forEach(variant => {
+      for (const variant of rootItem.variants) {
         if (!variant.children) {
           return
         }
@@ -233,7 +233,7 @@ export default {
         }
 
         pages.push({variant, page: variantPage})
-      })
+      }
     }
 
     return pages
