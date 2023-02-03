@@ -20,12 +20,11 @@ function VariantSelect(props) {
   const variantPages = NavHierarchy.getVariantsForPage(props.root, vp.page)
   console.log(`SHIVANGI Variantpages : ${variantPages}`)
   const items = []
+  let selectedItem = variantPages[0]
 
   if (variantPages.length === 0) {
     return null
   }
-
-  let selectedItem = variantPages[0]
 
   function anchorClickHandler(event, url) {
     event.preventDefault()

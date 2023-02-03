@@ -213,7 +213,7 @@ export default {
     if (rootItem && rootItem.variants) {
       for (const variant of rootItem.variants) {
         if (!variant.children) {
-          return
+          continue
         }
 
         const vp = this.getVariantAndPage(root, variant.url)
@@ -229,7 +229,7 @@ export default {
         }
 
         if (!variantPage) {
-          return
+          continue
         }
 
         pages.push({variant, page: variantPage})
