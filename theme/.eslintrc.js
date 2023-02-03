@@ -16,6 +16,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:primer-react/recommended',
+    'plugin:github/recommended',
+    'prettier',
   ],
   settings: {
     react: {
@@ -28,16 +30,16 @@ module.exports = {
     'react/display-name': 'off',
     'eslint-comments/no-use': 'off',
     'no-shadow': 'off',
-    'primer-react/no-system-props': ['warn', { includeUtilityComponents: true }],
+    'primer-react/no-system-props': ['warn', {includeUtilityComponents: true}],
   },
   overrides: [
     {
       files: ['gatsby-node.js', 'gatsby-config.js'],
-      env: { node: true, browser: false },
+      env: {node: true, browser: false},
     },
     {
       files: ['test/*', './src/**/__tests__/*'],
-      env: { jest: true },
+      env: {jest: true},
     },
   ],
 }
