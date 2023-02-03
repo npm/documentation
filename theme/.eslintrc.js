@@ -1,3 +1,4 @@
+// eslint-disable-next-line filenames/match-regex
 module.exports = {
   root: true,
   parserOptions: {
@@ -31,6 +32,8 @@ module.exports = {
     'eslint-comments/no-use': 'off',
     'no-shadow': 'off',
     'primer-react/no-system-props': ['warn', {includeUtilityComponents: true}],
+    'import/no-commonjs': 'off',
+    'no-console': 'off',
   },
   overrides: [
     {
