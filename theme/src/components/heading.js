@@ -1,6 +1,6 @@
 import {Heading, Link} from '@primer/components'
 import {LinkIcon} from '@primer/octicons-react'
-import themeGet from '@styled-system/theme-get'
+import {themeGet} from '@styled-system/theme-get'
 import GithubSlugger from 'github-slugger'
 import React from 'react'
 import textContent from 'react-addons-text-content'

@@ -36,7 +36,7 @@ function VariantSelect(props) {
     }
   }
 
-  variantPages.forEach((match, index) => {
+  for (const [index, match] of variantPages.entries()) {
     let active = false
     if (match.page.url === path) {
       selectedItem = match
@@ -53,7 +53,7 @@ function VariantSelect(props) {
         {match.variant.title}
       </ActionList.Item>,
     )
-  })
+  }
 
   const ariaLabelMenuButton = open ? 'Version release' : selectedItem.variant.title
 

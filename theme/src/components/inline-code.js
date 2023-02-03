@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import themeGet from '@styled-system/theme-get'
+import {themeGet} from '@styled-system/theme-get'
 
 const InlineCode = styled.code`
   padding: 0.2em 0.4em;

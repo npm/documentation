@@ -92,7 +92,7 @@ exports.createPages = async ({graphql, actions}, themeOptions) => {
       })
 
       if (node.frontmatter.redirect_from) {
-        node.frontmatter.redirect_from.forEach(from => {
+        for (const from of node.frontmatter.redirect_from) {
           actions.createRedirect({
             fromPath: from,
             toPath: `/${pagePath}`,
@@ -108,7 +108,7 @@ exports.createPages = async ({graphql, actions}, themeOptions) => {
               redirectInBrowser: true,
             })
           }
-        })
+        }
       }
     }),
   )
