@@ -211,7 +211,7 @@ export default {
     const rootItem = this.findItem(item => (this.getPath(item.url) === this.getPath(root) ? item : null))
 
     if (rootItem && rootItem.variants) {
-      for (let variant of rootItem.variants) {
+      for (const variant of rootItem.variants) {
         if (!variant.children) {
           return
         }
