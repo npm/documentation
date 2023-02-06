@@ -30,7 +30,7 @@ function ClipboardCopy({value}) {
       onClick={() => {
         copy(value)
         setCopied(true)
-        announce(`Copied to clipboard`) // eslint-disable-line i18n-text/no-en
+        announce(`Copied to clipboard`)
       }}
     >
       {copied ? <StyledOcticon icon={CheckIcon} color="green.5" /> : <StyledOcticon icon={CopyIcon} color="gray.7" />}

@@ -1,4 +1,3 @@
-// eslint-disable-next-line filenames/match-regex
 module.exports = {
   root: true,
   parserOptions: {
@@ -15,9 +14,8 @@ module.exports = {
     '@npmcli',
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:jsx-a11y/recommended',
+    'plugin:github/react',
     'plugin:primer-react/recommended',
-    'plugin:github/recommended',
     'prettier',
   ],
   settings: {
