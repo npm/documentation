@@ -31,7 +31,7 @@ Note: This command is unaware of workspaces.
 
 ### Version
 
-9.4.1
+9.4.2
 
 ### Description
 
