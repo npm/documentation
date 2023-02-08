@@ -1,6 +1,6 @@
 const path = require('path')
 
-module.exports = (themeOptions) => {
+module.exports = themeOptions => {
   return {
     plugins: [
       'gatsby-plugin-styled-components',
@@ -26,9 +26,7 @@ module.exports = (themeOptions) => {
       {
         resolve: 'gatsby-plugin-manifest',
         options: {
-          icon: themeOptions.icon
-            ? path.resolve(themeOptions.icon)
-            : require.resolve('./src/images/favicon.png'),
+          icon: themeOptions.icon ? path.resolve(themeOptions.icon) : require.resolve('./src/images/favicon.png'),
         },
       },
     ],

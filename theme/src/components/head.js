@@ -1,12 +1,10 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import {Helmet} from 'react-helmet'
 import useSiteMetdata from '../use-site-metadata'
 
-function Head (props) {
+function Head(props) {
   const siteMetadata = useSiteMetdata()
-  const title = props.title
-    ? `${props.title} | ${siteMetadata.title}`
-    : siteMetadata.title
+  const title = props.title ? `${props.title} | ${siteMetadata.title}` : siteMetadata.title
   const description = props.description || siteMetadata.description
   const lang = props.lang || siteMetadata.lang
 

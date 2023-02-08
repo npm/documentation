@@ -1,9 +1,9 @@
-import { render } from '@testing-library/react'
+import {render} from '@testing-library/react'
 import React from 'react'
 import Contributors from '../contributors'
 
 test('renders contributors', () => {
-  const { queryByText } = render(
+  const {queryByText} = render(
     <Contributors
       contributors={[
         {
@@ -21,7 +21,7 @@ test('renders contributors', () => {
           },
         },
       ]}
-    />
+    />,
   )
 
   expect(queryByText(/2 contributors/)).toBeInTheDocument()
@@ -31,9 +31,7 @@ test('renders contributors', () => {
 })
 
 test('does not render "last edited by" if latest contributor does not have a latest commit', () => {
-  const { queryByText } = render(
-    <Contributors contributors={[{ login: 'ashygee' }]} />
-  )
+  const {queryByText} = render(<Contributors contributors={[{login: 'ashygee'}]} />)
 
   expect(queryByText(/1 contributor/)).toBeInTheDocument()
   expect(queryByText(/Last edited by/)).toBeNull()
@@ -42,13 +40,13 @@ test('does not render "last edited by" if latest contributor does not have a lat
 // The `Contributors` component is unlikely to be passed an empty array
 // but it should be able to handle an empty array gracefully just in case.
 test('handles no contributors', () => {
-  const { queryByText } = render(<Contributors contributors={[]} />)
+  const {queryByText} = render(<Contributors contributors={[]} />)
 
   expect(queryByText(/0 contributors/)).toBeInTheDocument()
 })
 
 test('does not render duplicate contributors', () => {
-  const { queryByText } = render(
+  const {queryByText} = render(
     <Contributors
       contributors={[
         {
@@ -66,7 +64,7 @@ test('does not render duplicate contributors', () => {
           },
         },
       ]}
-    />
+    />,
   )
 
   expect(queryByText(/1 contributor/)).toBeInTheDocument()

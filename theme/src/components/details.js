@@ -25,14 +25,14 @@ const DetailsReset = styled.details`
   }
 `
 
-function getRenderer (children) {
+function getRenderer(children) {
   return typeof children === 'function' ? children : () => children
 }
 
-function Details ({ children, overlay, render = getRenderer(children), ...rest }) {
+function Details({children, overlay, render = getRenderer(children), ...rest}) {
   const [open, setOpen] = React.useState(Boolean(rest.open))
 
-  function toggle (event) {
+  function toggle(event) {
     if (event) {
       event.preventDefault()
     }
@@ -43,21 +43,21 @@ function Details ({ children, overlay, render = getRenderer(children), ...rest }
     }
   }
 
-  function openMenu () {
+  function openMenu() {
     if (!open) {
       setOpen(true)
       document.addEventListener('click', closeMenu)
     }
   }
 
-  function closeMenu () {
+  function closeMenu() {
     setOpen(false)
     document.removeEventListener('click', closeMenu)
   }
 
   return (
     <DetailsReset {...rest} open={open}>
-      {render({ open, toggle })}
+      {render({open, toggle})}
     </DetailsReset>
   )
 }

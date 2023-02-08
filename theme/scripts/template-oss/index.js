@@ -6,16 +6,9 @@ module.exports = {
       '.eslintrc.js': false,
     },
   },
-  allowPaths: [
-    '/src',
-    '/gatsby-*.js',
-    '/jest*.js',
-    '/index.js',
-  ],
+  allowPaths: ['/src', '/gatsby-*.js', '/jest*.js', '/index.js'],
   requiredPackages: {
     devDependencies: [],
   },
-  allowedPackages: [
-    'eslint',
-  ],
+  allowedPackages: ['eslint'],
 }

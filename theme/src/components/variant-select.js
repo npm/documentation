@@ -5,10 +5,10 @@
 // then you'll get a selection for the different variants (v1.0, v2.0).
 
 import React from 'react'
-import { ActionList, ActionMenu, ThemeProvider } from '@primer/react'
+import {ActionList, ActionMenu, ThemeProvider} from '@primer/react'
 import NavHierarchy from '../nav-hierarchy'
 
-function VariantSelect (props) {
+function VariantSelect(props) {
   const [open, setOpen] = React.useState(false)
   const path = NavHierarchy.getPath(props.location.pathname)
   const vp = NavHierarchy.getVariantAndPage(props.root, path)
@@ -25,40 +25,47 @@ function VariantSelect (props) {
     return null
   }
 
-  function anchorClickHandler (event, url) {
+  function anchorClickHandler(event, url) {
     event.preventDefault()
-    window.location.href = url + '?v=true'
+    window.location.href = `${url}?v=true`
   }
 
-  function onItemEnterKey (event, url) {
+  function onItemEnterKey(event, url) {
     if (event.key === 'Enter') {
-      window.location.href = url + '?v=true'
+      window.location.href = `${url}?v=true`
     }
   }
 
-  variantPages.forEach((match, index) => {
+  for (const [index, match] of variantPages.entries()) {
     let active = false
     if (match.page.url === path) {
       selectedItem = match
       active = true
     }
-    items.push(<ActionList.Item
-      onKeyDown={e => onItemEnterKey(e, match.page.url)}
-      onClick={e => anchorClickHandler(e, match.page.url)}
-      id={match.variant.shortName}
-      key={index}
-      active={active}>
-      {match.variant.title}
-    </ActionList.Item>)
-  })
+    items.push(
+      <ActionList.Item
+        onKeyDown={e => onItemEnterKey(e, match.page.url)}
+        onClick={e => anchorClickHandler(e, match.page.url)}
+        id={match.variant.shortName}
+        key={index}
+        active={active}
+      >
+        {match.variant.title}
+      </ActionList.Item>,
+    )
+  }
 
   const ariaLabelMenuButton = open ? 'Version release' : selectedItem.variant.title
 
   return (
     <ThemeProvider>
-      <label id="label-versions-list-item" htmlFor='versions-list-item'>Select CLI Version:</label>
+      <label id="label-versions-list-item" htmlFor="versions-list-item">
+        Select CLI Version:
+      </label>
       <ActionMenu open={open} onOpenChange={setOpen}>
-        <ActionMenu.Button autofocus="true" aria-label={ariaLabelMenuButton}>{selectedItem.variant.title}</ActionMenu.Button>
+        <ActionMenu.Button autofocus="true" aria-label={ariaLabelMenuButton}>
+          {selectedItem.variant.title}
+        </ActionMenu.Button>
         <ActionMenu.Overlay width="medium" onEscape={() => setOpen(false)}>
           <ActionList id="versions-list-item" aria-labelledby="label-versions-list-item">
             {items}

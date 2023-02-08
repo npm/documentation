@@ -1,18 +1,18 @@
-import { BorderBox, Position } from '@primer/components'
+import {BorderBox, Position} from '@primer/components'
 import Downshift from 'downshift'
-import { navigate } from 'gatsby'
+import {navigate} from 'gatsby'
 import React from 'react'
 import useSearch from '../use-search'
 import useSiteMetadata from '../use-site-metadata'
 import DarkTextInput from './dark-text-input'
 import SearchResults from './search-results'
 
-function stateReducer (state, changes) {
+function stateReducer(state, changes) {
   switch (changes.type) {
     case Downshift.stateChangeTypes.changeInput:
       if (!changes.inputValue) {
         // Close the menu if the input is empty.
-        return { ...changes, isOpen: false }
+        return {...changes, isOpen: false}
       }
       return changes
     default:
@@ -20,7 +20,7 @@ function stateReducer (state, changes) {
   }
 }
 
-function Search () {
+function Search() {
   const [query, setQuery] = React.useState('')
   const results = useSearch(query)
   const siteMetadata = useSiteMetadata()
@@ -43,15 +43,8 @@ function Search () {
       itemToString={item => (item ? item.title : '')}
       stateReducer={stateReducer}
     >
-      {({
-        getInputProps,
-        getItemProps,
-        getMenuProps,
-        getRootProps,
-        isOpen,
-        highlightedIndex,
-      }) => (
-        <Position {...getRootProps({ position: 'relative' })}>
+      {({getInputProps, getItemProps, getMenuProps, getRootProps, isOpen, highlightedIndex}) => (
+        <Position {...getRootProps({position: 'relative'})}>
           <DarkTextInput
             {...getInputProps({
               placeholder: `Search ${siteMetadata.title}`,
@@ -73,13 +66,9 @@ function Search () {
                 py={1}
                 boxShadow="medium"
                 bg="white"
-                style={{ overflow: 'auto' }}
+                style={{overflow: 'auto'}}
               >
-                <SearchResults
-                  results={results}
-                  getItemProps={getItemProps}
-                  highlightedIndex={highlightedIndex}
-                />
+                <SearchResults results={results} getItemProps={getItemProps} highlightedIndex={highlightedIndex} />
               </BorderBox>
             </Position>
           ) : null}
