@@ -784,7 +784,7 @@
             - title: Changelog
               url: /cli/v7/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 8.19.3 (Legacy Release)
+    - title: Version 8.19.4 (Legacy Release)
       shortName: v8
       url: /cli/v8
       default: false

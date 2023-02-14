@@ -169,7 +169,6 @@ Show extended information in `ls`, `search`, and `help-search`.
 ### See Also
 
 * [npm folders](/cli/v8/configuring-npm/folders)
-* [npm config](/cli/v8/commands/npm-config)
 * [package.json](/cli/v8/configuring-npm/package-json)
 * [npmrc](/cli/v8/configuring-npm/npmrc)
 * [npm](/cli/v8/commands/npm)
