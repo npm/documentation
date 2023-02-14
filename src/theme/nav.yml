@@ -154,6 +154,8 @@
           url: /about-audit-reports
         - title: Auditing package dependencies for security vulnerabilities
           url: /auditing-package-dependencies-for-security-vulnerabilities
+        - title: Generating provenance statements
+          url: /generating-provenance-statements
         - title: About ECDSA registry signatures
           url: /about-registry-signatures
         - title: Verifying ECDSA registry signatures
