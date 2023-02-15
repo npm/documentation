@@ -225,6 +225,13 @@ the specified workspaces, and not on the root project.
 
 This value is not exported to the environment for child processes.
 
+#### `provenance`
+
+* Default: false
+* Type: Boolean
+
+Indicates that a provenance statement should be generated.
+
 ### See Also
 
 * [package spec](/cli/v9/using-npm/package-spec)

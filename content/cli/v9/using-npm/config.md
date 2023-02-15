@@ -1018,6 +1018,13 @@ operations, if `process.stderr` is a TTY.
 
 Set to `false` to suppress the progress bar.
 
+#### `provenance`
+
+* Default: false
+* Type: Boolean
+
+Indicates that a provenance statement should be generated.
+
 #### `proxy`
 
 * Default: null
