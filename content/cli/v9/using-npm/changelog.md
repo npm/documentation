@@ -207,7 +207,7 @@ redirect_from:
 
 * [`ea948dc`](https://github.com/npm/cli/commit/ea948dceac5cfeef437c97874ab26c3275e75766) [#5881](https://github.com/npm/cli/pull/5881) update description of npm exec (#5881) (@styfle, @wraithgar)
 * [`40f2c21`](https://github.com/npm/cli/commit/40f2c213d75a252665311b4f8775d297390aeb70) [#5865](https://github.com/npm/cli/pull/5865) ci-info url (#5865) (@wraithgar)
-* [`681a45b`](https://github.com/npm/cli/commit/681a45bb48acd57aa64cb3241ea4915f5a12e029) [#5875](https://github.com/npm/cli/pull/5875) run the comand for directory workspaces (#5875) (@1aron)
+* [`681a45b`](https://github.com/npm/cli/commit/681a45bb48acd57aa64cb3241ea4915f5a12e029) [#5875](https://github.com/npm/cli/pull/5875) run the command for directory workspaces (#5875) (@1aron)
 * [`681a45b`](https://github.com/npm/cli/commit/681a45bb48acd57aa64cb3241ea4915f5a12e029) [#5875](https://github.com/npm/cli/pull/5875) add workspace directory example (#5875) (@1aron)
 
 ### Dependencies

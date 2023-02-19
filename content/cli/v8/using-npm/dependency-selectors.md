@@ -13,7 +13,7 @@ redirect_from:
 
 ### Description
 
-The [`npm query`](/cli/v8/commands/npm-query) commmand exposes a new dependency selector syntax (informed by & respecting many aspects of the [CSS Selectors 4 Spec](https://dev.w3.org/csswg/selectors4/#relational)) which:
+The [`npm query`](/cli/v8/commands/npm-query) command exposes a new dependency selector syntax (informed by & respecting many aspects of the [CSS Selectors 4 Spec](https://dev.w3.org/csswg/selectors4/#relational)) which:
 
 - Standardizes the shape of, & querying of, dependency graphs with a robust object model, metadata & selector syntax
 - Leverages existing, known language syntax & operators from CSS to make disparate package information broadly accessible
@@ -74,7 +74,7 @@ The [`npm query`](/cli/v8/commands/npm-query) commmand exposes a new dependency 
 The attribute selector evaluates the key/value pairs in `package.json` if they are `String`s.
 
 - `[]` attribute selector (ie. existence of attribute)
-- `[attribute=value]` attribute value is equivalant...
+- `[attribute=value]` attribute value is equivalent...
 - `[attribute~=value]` attribute value contains word...
 - `[attribute*=value]` attribute value contains string...
 - `[attribute|=value]` attribute value is equal to or starts with...

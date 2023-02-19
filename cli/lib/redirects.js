@@ -25,9 +25,9 @@ const { posix: { join } } = require('path')
 // and files/package-lock.json will also be created.
 //
 // Note that all redirects are deduped later so it is safe
-// if a path creates multiple idential redirects. Gatsby
+// if a path creates multiple identical redirects. Gatsby
 // will also warn (but not create them) if multiple pages
-// redirect to the same or already exsiting paths.
+// redirect to the same or already existing paths.
 
 module.exports = {
   index: () => ['.'],

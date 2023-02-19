@@ -730,7 +730,7 @@ redirect_from:
   ([@fritzy](https://github.com/fritzy))
 * [`45fc297f1`](https://github.com/npm/cli/commit/45fc297f12e63c026715945a186ba0ec4efbdedb)
   [#4479](https://github.com/npm/cli/pull/4479)
-  fix: ignore implict workspace for some commands
+  fix: ignore implicit workspace for some commands
   ([@fritzy](https://github.com/fritzy))
 * [`a0900bdf1`](https://github.com/npm/cli/commit/a0900bdf1ab7a68988984735f1f3885d02ffb67f)
   [#4481](https://github.com/npm/cli/pull/4481)
