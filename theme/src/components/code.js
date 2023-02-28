@@ -28,8 +28,7 @@ function Code({className, children, live, noinline}) {
         {({className, style, tokens, getLineProps, getTokenProps}) => (
           <BorderBox as="pre" className={className} mt={0} mb={3} p={3} border={0} style={{...style, overflow: 'auto'}}>
             {/* This is the scroll handle, it is supposed to be focused with keyboard and scroll a wide codebox horizontally */}
-            {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-            <div aria-hidden="true" tabIndex={0} style={scrollHandleStyle} ref={scrollHandleRef} aria-label={code}>
+            <div aria-hidden="true" style={scrollHandleStyle} ref={scrollHandleRef} aria-label={code}>
               &nbsp;
             </div>
             {tokens.map((line, i) => (
