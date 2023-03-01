@@ -11,7 +11,7 @@ function Drawer({isOpen, onDismiss, children}) {
           // These event handlers fix a bug that caused links below the fold
           // to be unclickable in macOS Safari.
           // Reference: https://github.com/theKashey/react-focus-lock/issues/79
-          style={{ textAlign: 'start' }}
+          style={{ textAlign: 'start', fontSize: '1rem', lineHeight: '1.5rem' }}
           onMouseDown={event => event.preventDefault()}
           onClick={event => event.target.focus()}
         >
