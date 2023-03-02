@@ -40,7 +40,7 @@ redirect_from:
 ```bash
 npm install-ci-test
 
-alias: cit
+aliases: cit, clean-install-test, sit
 ```
 
 ### Description
