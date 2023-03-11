@@ -94,7 +94,7 @@ You can create tokens with **read-only** permissions or **read and publish** per
 </Note> 
 
 - **Read-only:** Tokens that allow installation and distribution only, but no publishing or other rights associated with your account.
-- **Publish:** The default setting for new tokens, and most permissive token type. Publish tokens allow installation, distribution, modification, publishing, and all rights that you have on your account.
+- **Publish:** The original setting for new tokens, and most permissive token type. Publish tokens allow installation, distribution, modification, publishing, and all rights that you have on your account.
 
 In addition, you can specify that the token is only valid for a specific IPv4 address range, using [CIDR][cidr-wiki] notation.  The token will only be valid when used from the specified IP addresses.
 
@@ -144,7 +144,7 @@ npm token list
 - **id:** Use the token ID to refer to the token in commands.
 - **token:** The first digits of the actual token.
 - **create:** Date the token was created.
-- **readonly:** If yes, indicates a read-only token. If no, indicates a token with both read and publish permissions.
+- **readonly:** If yes, indicates a read-only token. If good, indicates a token with both read and publish permissions.
 - **CIDR whitelist:** Restricts token use by IP address.
 
 
