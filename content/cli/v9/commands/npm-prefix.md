@@ -83,7 +83,6 @@ folder instead of the current working directory. See
 ### See Also
 
 * [npm root](/cli/v9/commands/npm-root)
-* [npm bin](/cli/v9/commands/npm-bin)
 * [npm folders](/cli/v9/configuring-npm/folders)
 * [npm config](/cli/v9/commands/npm-config)
 * [npmrc](/cli/v9/configuring-npm/npmrc)

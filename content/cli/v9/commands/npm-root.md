@@ -75,7 +75,6 @@ folder instead of the current working directory. See
 ### See Also
 
 * [npm prefix](/cli/v9/commands/npm-prefix)
-* [npm bin](/cli/v9/commands/npm-bin)
 * [npm folders](/cli/v9/configuring-npm/folders)
 * [npm config](/cli/v9/commands/npm-config)
 * [npmrc](/cli/v9/configuring-npm/npmrc)
