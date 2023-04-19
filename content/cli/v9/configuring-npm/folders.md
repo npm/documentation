@@ -85,7 +85,7 @@ Man pages are not installed on Windows systems.
 #### Cache
 
 See [`npm cache`](/cli/v9/commands/npm-cache).  Cache files are stored in `~/.npm` on Posix, or
-`%AppData%/npm-cache` on Windows.
+`%LocalAppData%/npm-cache` on Windows.
 
 This is controlled by the [`cache` config](/cli/v9/using-npm/config#cache) param.
 
