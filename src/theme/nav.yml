@@ -1055,7 +1055,7 @@
             - title: Changelog
               url: /cli/v8/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 9.6.5 (Latest Release)
+    - title: Version 9.6.6 (Latest Release)
       shortName: v9
       url: /cli/v9
       default: true
