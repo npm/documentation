@@ -71,6 +71,8 @@ Consult your CI/CD server's documentation for more details.
 
 ## Create and check in a project-specific .npmrc file
 
+**NOTICE:** This **DO NOT** work if you use `setup-node` action in Github Actions because it creates the `.npmrc` file automatically. Instead, see https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs#example-using-a-private-registry-and-creating-the-npmrc-file to configure it correctly.
+
 Use a project-specific `.npmrc` file with a variable for your token to securely authenticate your CI/CD server with npm.
 
 1. In the root directory of your project, create a custom `.npmrc` file with the following contents:
