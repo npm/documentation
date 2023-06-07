@@ -70,6 +70,8 @@ sure to use `npm rebuild <pkg>` if you make any changes.
 
 The shell to run for the `npm explore` command.
 
+
+
 ### See Also
 
 * [npm folders](/cli/v9/configuring-npm/folders)

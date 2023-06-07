@@ -232,6 +232,8 @@ mistakes, unnecessary performance degradation, and malicious input.
 If you don't have a clear idea of what you want to do, it is strongly
 recommended that you do not use this option!
 
+
+
 #### `json`
 
 * Default: false
@@ -243,6 +245,8 @@ Whether or not to output JSON data, rather than the normal output.
   saving them to your `package.json`.
 
 Not supported by all npm commands.
+
+
 
 #### `workspace`
 

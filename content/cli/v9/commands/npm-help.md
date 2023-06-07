@@ -65,6 +65,8 @@ The program to use to view help content.
 
 Set to `"browser"` to view html help content in the default web browser.
 
+
+
 ### See Also
 
 * [npm](/cli/v9/commands/npm)

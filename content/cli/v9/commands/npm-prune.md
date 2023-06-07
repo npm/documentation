@@ -84,6 +84,8 @@ it will be included.
 If the resulting omit list includes `'dev'`, then the `NODE_ENV` environment
 variable will be set to `'production'` for all lifecycle scripts.
 
+
+
 #### `dry-run`
 
 * Default: false
@@ -97,6 +99,8 @@ commands that modify your local installation, eg, `install`, `update`,
 Note: This is NOT honored by other network related commands, eg `dist-tags`,
 `owner`, etc.
 
+
+
 #### `json`
 
 * Default: false
@@ -108,6 +112,8 @@ Whether or not to output JSON data, rather than the normal output.
   saving them to your `package.json`.
 
 Not supported by all npm commands.
+
+
 
 #### `foreground-scripts`
 
@@ -121,6 +127,8 @@ input, output, and error with the main npm process.
 Note that this will generally make installs run slower, and be much noisier,
 but can be useful for debugging.
 
+
+
 #### `ignore-scripts`
 
 * Default: false
@@ -132,6 +140,8 @@ Note that commands explicitly intended to run a particular script, such as
 `npm start`, `npm stop`, `npm restart`, `npm test`, and `npm run-script`
 will still run their intended script if `ignore-scripts` is set, but they
 will *not* run any pre- or post-scripts.
+
+
 
 #### `workspace`
 
@@ -194,6 +204,8 @@ This value is not exported to the environment for child processes.
 When set file: protocol dependencies will be packed and installed as regular
 dependencies instead of creating a symlink. This option has no effect on
 workspaces.
+
+
 
 ### See Also
 

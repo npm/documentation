@@ -63,6 +63,8 @@ directly.
 
 Show extended information in `ls`, `search`, and `help-search`.
 
+
+
 ### See Also
 
 * [npm](/cli/v9/commands/npm)

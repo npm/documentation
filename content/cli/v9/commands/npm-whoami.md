@@ -63,6 +63,8 @@ If logged into a registry that uses Basic Auth, then simply print the
 
 The base URL of the npm registry.
 
+
+
 ### See Also
 
 * [npm config](/cli/v9/commands/npm-config)
