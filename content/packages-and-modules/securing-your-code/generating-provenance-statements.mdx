@@ -26,7 +26,7 @@ The transparency log service provides a public, verifiable, tamper-evident ledge
 
 ## Provenance limitations
 
-- In order to publish a package with provenance, you must build your package with a supported cloud CI/CD provider using a cloud-hosted runner from a public source repository. Today this includes GitHub Actions and GitLab CI, and we are collaborating with additional providers to expand support. For more information on how to establish provenance using GitHub Actions, see "[Publishing packages with provenance via GitHub Actions][publishing-with-provenance]."
+- To publish a package with provenance, you must build your package with a supported cloud CI/CD provider using a cloud-hosted runner. Today this includes GitHub Actions and GitLab CI/CD.
 - When a package in the npm registry has established provenance, it does not guarantee the package has no malicious code. Instead, npm provenance provides a verifiable link to the package's source code and build instructions, which developers can then audit and determine whether to trust it or not. For more information, see "[Searching for and choosing packages to download][provenance-info]."
 
 ## Prerequisites
@@ -39,7 +39,9 @@ Before you can publish your packages with provenance, you must:
 
 - Ensure your `package.json` is configured with a public `repository` that matches where you are publishing with provenance from.
 
-- Set up a GitHub Actions workflow to publish your packages to the npm registry. For more information, see [Understanding GitHub Actions][understand-actions] in the GitHub documentation.
+- Set up automation with a supported CI/CD provider to publish your packages to the npm registry. The following providers are supported:
+  - GitHub Actions. For more information, see "[Publishing packages with provenance via GitHub Actions][github-provenance]."
+  - GitLab CI/CD. For more information, see "[Publishing packages with provenance via GitLab CI/CD][gitlab-provenance]."
 
 ## Publishing packages with provenance via GitHub Actions
 
@@ -140,8 +142,14 @@ If you publish your packages with tools that do not directly invoke the `npm pub
 </Note>
 
 
+## Publishing packages with provenance via GitLab CI/CD
+
+In order to establish provenance, you must use a supported cloud CI/CD provider and a cloud-hosted runner to publish your packages. GitLab CI/CD is a supported CI/CD platform that allows you to automate software development tasks. For more information, see [Generating provenance in GitLab CI/CD][gitlab-ci-cd-docs] in the GitLab documentation.
+
 [provenance-info]: /searching-for-and-choosing-packages-to-download#package-provenance
-[publishing-with-provenance]: #publishing-packages-with-provenance
 [update-npm]: /try-the-latest-stable-version-of-npm
+[github-provenance]: #publishing-packages-with-provenance-via-github-actions
+[gitlab-provenance]: #publishing-packages-with-provenance-via-gitlab-cicd
 [github-actions]: https://docs.github.com/en/actions
 [understand-actions]: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions
+[gitlab-ci-cd-docs]: https://docs.gitlab.com/ee/ci/yaml/signing_examples.html#use-sigstore-and-npm-to-generate-keyless-provenance
