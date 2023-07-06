@@ -1,0 +1,49 @@
+---
+title: Receiving a one-time password over email
+---
+import shared from '../../../src/shared.js'
+
+For your security, npm may require additional verification to allow you to log in to your account.  If you do not have [two-factor authentication](configuring-two-factor-authentication) enabled, you may be asked to verify yourself with a one-time password sent to the email address configured for your account.
+
+## Logging in with a one-time password
+
+1. <>{shared['user-login'].text}</>
+
+   <>{shared['user-login'].image}</>
+
+2. You'll be prompted for a one-time password that was sent to your email.
+
+   <Screenshot src="/getting-started/setting-up-your-npm-user-account/one-time-password-email.png" alt="Screenshot showing one-time password request" />
+
+3. Check your email account for an email from npm containing your one-time password (the subject will begin "OTP for logging in to your account").
+
+   <Screenshot src="/getting-started/setting-up-your-npm-user-account/email-otp-code.png" alt="Screenshot showing OTP code in email" />
+
+4. Enter the digits from your email in your one-time password field.
+
+## Enabling two-factor authentication
+
+To avoid this additional login step, with a one-time password sent to you via e-mail, you can configure [two-factor authentication with a device](/configuring-two-factor-authentication) (2FA) instead.
+
+## Unable to access email
+
+If you are unable to access the email linked to your npm account, you can submit a support ticket to reset this email address.
+
+1. <>{shared['user-login'].text}</>
+
+   <>{shared['user-login'].image}</>
+
+2. Under the "Login Verification" form, click **Try recovering your account**.
+
+3. <>{shared['start-account-recovery'].text}</>
+   
+   <>{shared['start-account-recovery'].image}</>
+
+4. <>{shared['support-ticket-form'].text}</>
+
+    * <>{shared['enter-email-address'].text}</>
+    * In the **How can we help?** section, select **Reset my email**.
+    * <>{shared['support-ticket-other'].text}</>
+    <>{shared['connect-to-accounts'].text}</> 
+
+5. <>{shared['submit-support-ticket'].text}</>
