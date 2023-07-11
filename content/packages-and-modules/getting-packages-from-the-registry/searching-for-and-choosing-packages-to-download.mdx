@@ -48,7 +48,7 @@ You can use this information to audit packages and determine whether or not you 
 
 To view provenance information for a package in the npm registry:
 
-1. In the npm registry, navigate to a package. 
+1. In the npm registry, navigate to a package.
 
 2. On the package's page, in the **Version** field to the right of the README, look for a green check mark. If there is a green check mark, this means the package was published with provenance.
 
@@ -65,6 +65,14 @@ To view provenance information for a package in the npm registry:
     - **Public Ledger**: A link to a transparency log entry attesting an authorized user published the package.
 
     <Screenshot src="packages-and-modules/getting-packages-from-the-registry/npm-provenance.png" alt="Screenshot showing npm provenance information for a published package" />
+
+<Note>
+
+**Note:** Whenever you access a package's provenance information on npmjs.com, the linked source commit and repository are checked by npm. If the linked source commit or repository cannot be found, an error message will appear at the top of the page and alongside the provenance information. This is to inform you that the provenance for this package can no longer be established, which may occur when a repository is deleted or made private.
+
+</Note>
+
+<Screenshot src="packages-and-modules/getting-packages-from-the-registry/npm-provenance-unreachable-source-commit@2x.png" alt="Screenshot showing a warning when the provenance source commit or repository cannot be found." />
 
 ### Verifying provenance attestations
 
