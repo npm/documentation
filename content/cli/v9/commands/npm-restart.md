@@ -3,7 +3,7 @@ title: npm-restart
 section: 1
 description: Restart a package
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-restart.md
 redirect_from:
   - /cli-commands/npm-restart

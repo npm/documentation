@@ -3,7 +3,7 @@ title: npm-dedupe
 section: 1
 description: Reduce duplication in the package tree
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-dedupe.md
 redirect_from:
   - /cli-commands/dedupe

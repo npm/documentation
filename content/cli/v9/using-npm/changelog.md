@@ -1,7 +1,7 @@
 ---
 title: Changelog
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: CHANGELOG.md
 redirect_from:
   - /cli-documentation/misc/changelog
