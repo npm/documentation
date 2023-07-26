@@ -3,7 +3,7 @@ title: install
 section: 5
 description: Download and install node and npm
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/configuring-npm/install.md
 redirect_from:
   - /cli-documentation/configuring-npm/install

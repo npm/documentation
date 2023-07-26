@@ -3,7 +3,7 @@ title: npm-stop
 section: 1
 description: Stop a package
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-stop.md
 redirect_from:
   - /cli-commands/npm-stop

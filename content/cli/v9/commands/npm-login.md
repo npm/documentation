@@ -3,7 +3,7 @@ title: npm-login
 section: 1
 description: Login to a registry user account
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-login.md
 redirect_from:
   - /cli-commands/login

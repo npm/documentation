@@ -3,7 +3,7 @@ title: npm-search
 section: 1
 description: Search for packages
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-search.md
 redirect_from:
   - /cli-commands/npm-search

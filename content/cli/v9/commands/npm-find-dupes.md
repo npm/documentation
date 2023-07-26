@@ -3,7 +3,7 @@ title: npm-find-dupes
 section: 1
 description: Find duplication in the package tree
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-find-dupes.md
 redirect_from:
   - /cli-commands/find-dupes

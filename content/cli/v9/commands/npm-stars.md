@@ -3,7 +3,7 @@ title: npm-stars
 section: 1
 description: View packages marked as favorites
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-stars.md
 redirect_from:
   - /cli-commands/npm-stars

@@ -3,7 +3,7 @@ title: npm-test
 section: 1
 description: Test a package
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-test.md
 redirect_from:
   - /cli-commands/npm-test

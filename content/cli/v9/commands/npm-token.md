@@ -3,7 +3,7 @@ title: npm-token
 section: 1
 description: Manage your authentication tokens
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-token.md
 redirect_from:
   - /cli-commands/npm-token
