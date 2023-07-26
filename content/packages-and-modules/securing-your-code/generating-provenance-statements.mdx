@@ -26,7 +26,7 @@ The transparency log service provides a public, verifiable, tamper-evident ledge
 
 ## Provenance limitations
 
-- In order to publish a package with provenance, you must build your package with a supported cloud CI/CD provider using a cloud-hosted runner. Today this includes GitHub Actions, and we are collaborating with additional providers to expand support. For more information on how to establish provenance using GitHub Actions, see "[Publishing packages with provenance via GitHub Actions][publishing-with-provenance]."
+- In order to publish a package with provenance, you must build your package with a supported cloud CI/CD provider using a cloud-hosted runner from a public source repository. Today this includes GitHub Actions, and we are collaborating with additional providers to expand support. For more information on how to establish provenance using GitHub Actions, see "[Publishing packages with provenance via GitHub Actions][publishing-with-provenance]."
 - When a package in the npm registry has established provenance, it does not guarantee the package has no malicious code. Instead, npm provenance provides a verifiable link to the package's source code and build instructions, which developers can then audit and determine whether to trust it or not. For more information, see "[Searching for and choosing packages to download][provenance-info]."
 
 ## Prerequisites
@@ -35,9 +35,9 @@ Before you can publish your packages with provenance, you must:
 
 - Review the [Linux Foundation Immutable Record notice](https://lfprojects.org/policies/hosted-project-tools-immutable-records/), which applies to the public transparency log.
 
-- Install the latest version of the npm CLI. For more information, see "[Try the latest stable version of npm][update-npm]."
+- Install the latest version of the npm CLI (ensure you are on `9.5.0+` as older versions don't support npm provenance). For more information, see "[Try the latest stable version of npm][update-npm]."
 
-- Ensure your `package.json` is configured with a `repository` that matches where you are publishing with provenance from.
+- Ensure your `package.json` is configured with a public `repository` that matches where you are publishing with provenance from.
 
 - Set up a GitHub Actions workflow to publish your packages to the npm registry. For more information, see [Understanding GitHub Actions][understand-actions] in the GitHub documentation.
 
@@ -64,6 +64,12 @@ To update your GitHub Actions workflow to publish your packages with provenance,
 
   ```
   npm publish --provenance
+  ```
+
+- If you are publishing a package for the first time you will also need to explicitly set access to public:
+
+  ```
+  npm publish --provenance --access public
   ```
 
 ### Example GitHub Actions workflow
