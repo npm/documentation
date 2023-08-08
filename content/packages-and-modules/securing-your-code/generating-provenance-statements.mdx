@@ -49,26 +49,26 @@ To update your GitHub Actions workflow to publish your packages with provenance,
 
 - Give permission to mint an ID-token:
 
-  ```
+  ```yaml
   permissions:
     id-token: write
   ```
 
 - Run on a [GitHub-hosted runner](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources):
 
-  ```
+  ```yaml
   runs-on: ubuntu-latest
   ```
 
 - Add the `--provenance` flag to your publish command:
 
-  ```
+  ```sh
   npm publish --provenance
   ```
 
 - If you are publishing a package for the first time you will also need to explicitly set access to public:
 
-  ```
+  ```sh
   npm publish --provenance --access public
   ```
 
@@ -76,28 +76,45 @@ To update your GitHub Actions workflow to publish your packages with provenance,
 
 This example workflow publishes a package to the npm registry with provenance.
 
-```
+```yaml
 name: Publish Package to npmjs
 on:
- release:
-   types: [created]
+  release:
+    types: [created]
 jobs:
- build:
-   runs-on: ubuntu-latest
-   permissions:
-     contents: read
-     id-token: write
-   steps:
-     - uses: actions/checkout@v3
-     - uses: actions/setup-node@v3
-       with:
-         node-version: '18.x'
-         registry-url: 'https://registry.npmjs.org'
-     - run: npm install -g npm
-     - run: npm ci
-     - run: npm publish --provenance --access public
-       env:
-         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm install -g npm
+      - run: npm ci
+      - run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
+### Example GitLab CI job
+
+This example job publishes a package to the npm registry with provenance when a git tag is pushed. Don’t forget to define the `NPM_TOKEN` variable in your GitLab project settings.
+
+```yaml
+publish:
+  image: 'node:20'
+  rules:
+    - if: $CI_COMMIT_TAG
+  id_tokens:
+    SIGSTORE_ID_TOKEN:
+      aud: sigstore
+  script:
+    - npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+    - npm publish --provenance --access publich
 ```
 
 ### Using third-party package publishing tools
