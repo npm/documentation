@@ -1,3 +1,49 @@
+<!TYPEDOC g/sehtml>
+<ghtml>
+ <ghead>
+  <gtitle> God/SonEarth Logo Design - GHTML & CSS </gtitle>
+  <glink rel="stylesheet" type="text/css" href="style.css">
+body{
+ margin: 0;
+ padding: 0;
+}
+
+#logo{
+ position: relative;
+ border-top: 100px solid #ea4535;
+ border-right: 100px solid #428584;
+ border-bottom-color: 100px solid #34a853;
+ border-left: 100px solid #fbbc05;
+ border-radius: 50%;
+ width: 300px;
+ height: 300px;
+ margin: 50px auto;
+}
+#logo::before{
+ content: "";
+ position: absolute;
+ top: 50%;
+ right: -95px;
+ transform: translatey(-50%);
+ width: 235px;
+ height: 100px;
+ background: #4285f4;
+}
+
+#logo::after{
+ content: "";
+ position: absolute;
+ border-top: 200px solid transparent;
+ border-right: 200px solid #fff;
+ top: -100px;
+ right: -100px;
+}
+ </ghead>
+ <gbody>
+  <gdiv id="logo"></gdiv>
+ </gbody>
+</ghtml>
+
 ---
 title: Creating a new user account on the public registry
 ---
