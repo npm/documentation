@@ -1321,3 +1321,269 @@
             - title: Changelog
               url: /cli/v9/using-npm/changelog
               description: Changelog notes for each version
+    - title: Version 10.0.0 (Current Release)
+      shortName: v10
+      url: /cli/v10
+      default: false
+      children:
+        - title: CLI Commands
+          shortName: Commands
+          url: /cli/v10/commands
+          children:
+            - title: npm
+              url: /cli/v10/commands/npm
+              description: JavaScript package manager
+            - title: npm access
+              url: /cli/v10/commands/npm-access
+              description: Set access level on published packages
+            - title: npm adduser
+              url: /cli/v10/commands/npm-adduser
+              description: Add a registry user account
+            - title: npm audit
+              url: /cli/v10/commands/npm-audit
+              description: Run a security audit
+            - title: npm bugs
+              url: /cli/v10/commands/npm-bugs
+              description: Bugs for a package in a web browser maybe
+            - title: npm cache
+              url: /cli/v10/commands/npm-cache
+              description: Manipulates packages cache
+            - title: npm ci
+              url: /cli/v10/commands/npm-ci
+              description: Install a project with a clean slate
+            - title: npm completion
+              url: /cli/v10/commands/npm-completion
+              description: Tab completion for npm
+            - title: npm config
+              url: /cli/v10/commands/npm-config
+              description: Manage the npm configuration files
+            - title: npm dedupe
+              url: /cli/v10/commands/npm-dedupe
+              description: Reduce duplication
+            - title: npm deprecate
+              url: /cli/v10/commands/npm-deprecate
+              description: Deprecate a version of a package
+            - title: npm diff
+              url: /cli/v10/commands/npm-diff
+              description: The registry diff command
+            - title: npm dist-tag
+              url: /cli/v10/commands/npm-dist-tag
+              description: Modify package distribution tags
+            - title: npm docs
+              url: /cli/v10/commands/npm-docs
+              description: Docs for a package in a web browser maybe
+            - title: npm doctor
+              url: /cli/v10/commands/npm-doctor
+              description: Check your environments
+            - title: npm edit
+              url: /cli/v10/commands/npm-edit
+              description: Edit an installed package
+            - title: npm exec
+              url: /cli/v10/commands/npm-exec
+              description: Run a command from an npm package
+            - title: npm explain
+              url: /cli/v10/commands/npm-explain
+              description: Explain installed packages
+            - title: npm explore
+              url: /cli/v10/commands/npm-explore
+              description: Browse an installed package
+            - title: npm find-dupes
+              url: /cli/v10/commands/npm-find-dupes
+              description: Find duplication in the package tree
+            - title: npm fund
+              url: /cli/v10/commands/npm-fund
+              description: Retrieve funding information
+            - title: npm help
+              url: /cli/v10/commands/npm-help
+              description: Search npm help documentation
+            - title: npm help-search
+              url: /cli/v10/commands/npm-help-search
+              description: Get help on npm
+            - title: npm hook
+              url: /cli/v10/commands/npm-hook
+              description: Manage registry hooks
+            - title: npm init
+              url: /cli/v10/commands/npm-init
+              description: Create a package.json file
+            - title: npm install
+              url: /cli/v10/commands/npm-install
+              description: Install a package
+            - title: npm install-ci-test
+              url: /cli/v10/commands/npm-install-ci-test
+              description: Install a project with a clean slate and run tests
+            - title: npm install-test
+              url: /cli/v10/commands/npm-install-test
+              description: Install package(s) and run tests
+            - title: npm link
+              url: /cli/v10/commands/npm-link
+              description: Symlink a package folder
+            - title: npm login
+              url: /cli/v10/commands/npm-login
+              description: Login to a registry user account
+            - title: npm logout
+              url: /cli/v10/commands/npm-logout
+              description: Log out of the registry
+            - title: npm ls
+              url: /cli/v10/commands/npm-ls
+              description: List installed packages
+            - title: npm org
+              url: /cli/v10/commands/npm-org
+              description: Manage orgs
+            - title: npm outdated
+              url: /cli/v10/commands/npm-outdated
+              description: Check for outdated packages
+            - title: npm owner
+              url: /cli/v10/commands/npm-owner
+              description: Manage package owners
+            - title: npm pack
+              url: /cli/v10/commands/npm-pack
+              description: Create a tarball from a package
+            - title: npm ping
+              url: /cli/v10/commands/npm-ping
+              description: Ping npm registry
+            - title: npm pkg
+              url: /cli/v10/commands/npm-pkg
+              description: Manages your package.json
+            - title: npm prefix
+              url: /cli/v10/commands/npm-prefix
+              description: Display prefix
+            - title: npm profile
+              url: /cli/v10/commands/npm-profile
+              description: Change settings on your registry profile
+            - title: npm prune
+              url: /cli/v10/commands/npm-prune
+              description: Remove extraneous packages
+            - title: npm publish
+              url: /cli/v10/commands/npm-publish
+              description: Publish a package
+            - title: npm query
+              url: /cli/v10/commands/npm-query
+              description: Retrieve a filtered list of packages
+            - title: npm rebuild
+              url: /cli/v10/commands/npm-rebuild
+              description: Rebuild a package
+            - title: npm repo
+              url: /cli/v10/commands/npm-repo
+              description: Open package repository page in the browser
+            - title: npm restart
+              url: /cli/v10/commands/npm-restart
+              description: Restart a package
+            - title: npm root
+              url: /cli/v10/commands/npm-root
+              description: Display npm root
+            - title: npm run-script
+              url: /cli/v10/commands/npm-run-script
+              description: Run arbitrary package scripts
+            - title: npm search
+              url: /cli/v10/commands/npm-search
+              description: Search for packages
+            - title: npm shrinkwrap
+              url: /cli/v10/commands/npm-shrinkwrap
+              description: Lock down dependency versions for publication
+            - title: npm star
+              url: /cli/v10/commands/npm-star
+              description: Mark your favorite packages
+            - title: npm stars
+              url: /cli/v10/commands/npm-stars
+              description: View packages marked as favorites
+            - title: npm start
+              url: /cli/v10/commands/npm-start
+              description: Start a package
+            - title: npm stop
+              url: /cli/v10/commands/npm-stop
+              description: Stop a package
+            - title: npm team
+              url: /cli/v10/commands/npm-team
+              description: Manage organization teams and team memberships
+            - title: npm test
+              url: /cli/v10/commands/npm-test
+              description: Test a package
+            - title: npm token
+              url: /cli/v10/commands/npm-token
+              description: Manage your authentication tokens
+            - title: npm uninstall
+              url: /cli/v10/commands/npm-uninstall
+              description: Remove a package
+            - title: npm unpublish
+              url: /cli/v10/commands/npm-unpublish
+              description: Remove a package from the registry
+            - title: npm unstar
+              url: /cli/v10/commands/npm-unstar
+              description: Remove an item from your favorite packages
+            - title: npm update
+              url: /cli/v10/commands/npm-update
+              description: Update a package
+            - title: npm version
+              url: /cli/v10/commands/npm-version
+              description: Bump a package version
+            - title: npm view
+              url: /cli/v10/commands/npm-view
+              description: View registry info
+            - title: npm whoami
+              url: /cli/v10/commands/npm-whoami
+              description: Display npm username
+            - title: npx
+              url: /cli/v10/commands/npx
+              description: Run a command from an npm package
+        - title: Configuring npm
+          shortName: Configuring
+          url: /cli/v10/configuring-npm
+          children:
+            - title: Install
+              url: /cli/v10/configuring-npm/install
+              description: Download and install node and npm
+            - title: Folders
+              url: /cli/v10/configuring-npm/folders
+              description: Folder structures used by npm
+            - title: .npmrc
+              url: /cli/v10/configuring-npm/npmrc
+              description: The npm config files
+            - title: npm-shrinkwrap.json
+              url: /cli/v10/configuring-npm/npm-shrinkwrap-json
+              description: A publishable lockfile
+            - title: package.json
+              url: /cli/v10/configuring-npm/package-json
+              description: Specifics of npm's package.json handling
+            - title: package-lock.json
+              url: /cli/v10/configuring-npm/package-lock-json
+              description: A manifestation of the manifest
+        - title: Using npm
+          shortName: Using
+          url: /cli/v10/using-npm
+          children:
+            - title: Registry
+              url: /cli/v10/using-npm/registry
+              description: The JavaScript Package Registry
+            - title: Package spec
+              url: /cli/v10/using-npm/package-spec
+              description: Package name specifier
+            - title: Config
+              url: /cli/v10/using-npm/config
+              description: About npm configuration
+            - title: Logging
+              url: /cli/v10/using-npm/logging
+              description: Why, What & How we Log
+            - title: Scope
+              url: /cli/v10/using-npm/scope
+              description: Scoped packages
+            - title: Scripts
+              url: /cli/v10/using-npm/scripts
+              description: How npm handles the "scripts" field
+            - title: Workspaces
+              url: /cli/v10/using-npm/workspaces
+              description: Working with workspaces
+            - title: Organizations
+              url: /cli/v10/using-npm/orgs
+              description: Working with teams & organizations
+            - title: Dependency Selectors
+              url: /cli/v10/using-npm/dependency-selectors
+              description: Dependency Selector Syntax & Querying
+            - title: Developers
+              url: /cli/v10/using-npm/developers
+              description: Developer guide
+            - title: Removal
+              url: /cli/v10/using-npm/removal
+              description: Cleaning the slate
+            - title: Changelog
+              url: /cli/v10/using-npm/changelog
+              description: Changelog notes for each version
