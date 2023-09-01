@@ -91,7 +91,8 @@ const main = async ({
     }
   }).filter(Boolean)
 
-  const latestRelease = releaseVersions.find(r => r.default)
+  const latestRelease = releaseVersions.find(r => r.default) ??
+    releaseVersions.slice(0).sort((a, b) => semver.compare(b.version, a.version))[0]
 
   const releases = releaseVersions.map((release) => {
     const type = release.default ? 'Latest Release'
