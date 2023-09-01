@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-pkg.md
 redirect_from:
+  - /cli-commands/npm-pkg
+  - /cli-commands/pkg
+  - /cli-documentation/cli-commands/npm-pkg
+  - /cli-documentation/cli-commands/pkg
+  - /cli-documentation/commands/npm-pkg
+  - /cli-documentation/commands/pkg
+  - /cli-documentation/npm-pkg
+  - /cli-documentation/pkg
   - /cli-documentation/v10/cli-commands/npm-pkg
   - /cli-documentation/v10/cli-commands/pkg
   - /cli-documentation/v10/commands/npm-pkg
   - /cli-documentation/v10/commands/pkg
   - /cli-documentation/v10/npm-pkg
   - /cli-documentation/v10/pkg
+  - /cli/cli-commands/npm-pkg
+  - /cli/cli-commands/pkg
+  - /cli/commands/npm-pkg
+  - /cli/commands/pkg
+  - /cli/npm-pkg
+  - /cli/pkg
   - /cli/v10/cli-commands/npm-pkg
   - /cli/v10/cli-commands/pkg
   - /cli/v10/commands/pkg
   - /cli/v10/npm-pkg
   - /cli/v10/pkg
+  - /commands/npm-pkg
+  - /commands/pkg
 ---
 
 ### Synopsis

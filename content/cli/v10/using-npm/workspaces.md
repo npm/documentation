@@ -6,9 +6,15 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/using-npm/workspaces.md
 redirect_from:
+  - /cli-documentation/misc/workspaces
+  - /cli-documentation/using-npm/workspaces
   - /cli-documentation/v10/misc/workspaces
   - /cli-documentation/v10/using-npm/workspaces
+  - /cli/misc/workspaces
+  - /cli/using-npm/workspaces
   - /cli/v10/misc/workspaces
+  - /misc/workspaces
+  - /using-npm/workspaces
 ---
 
 ### Description

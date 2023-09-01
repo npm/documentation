@@ -6,15 +6,9 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/using-npm/dependency-selectors.md
 redirect_from:
-  - /cli-documentation/misc/dependency-selectors
-  - /cli-documentation/using-npm/dependency-selectors
   - /cli-documentation/v9/misc/dependency-selectors
   - /cli-documentation/v9/using-npm/dependency-selectors
-  - /cli/misc/dependency-selectors
-  - /cli/using-npm/dependency-selectors
   - /cli/v9/misc/dependency-selectors
-  - /misc/dependency-selectors
-  - /using-npm/dependency-selectors
 ---
 
 ### Description

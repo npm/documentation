@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-outdated.md
 redirect_from:
-  - /cli-commands/npm-outdated
-  - /cli-commands/outdated
-  - /cli-documentation/cli-commands/npm-outdated
-  - /cli-documentation/cli-commands/outdated
-  - /cli-documentation/commands/npm-outdated
-  - /cli-documentation/commands/outdated
-  - /cli-documentation/npm-outdated
-  - /cli-documentation/outdated
   - /cli-documentation/v9/cli-commands/npm-outdated
   - /cli-documentation/v9/cli-commands/outdated
   - /cli-documentation/v9/commands/npm-outdated
   - /cli-documentation/v9/commands/outdated
   - /cli-documentation/v9/npm-outdated
   - /cli-documentation/v9/outdated
-  - /cli/cli-commands/npm-outdated
-  - /cli/cli-commands/outdated
-  - /cli/commands/npm-outdated
-  - /cli/commands/outdated
-  - /cli/npm-outdated
-  - /cli/outdated
   - /cli/v9/cli-commands/npm-outdated
   - /cli/v9/cli-commands/outdated
   - /cli/v9/commands/outdated
   - /cli/v9/npm-outdated
   - /cli/v9/outdated
-  - /commands/npm-outdated
-  - /commands/outdated
 ---
 
 ### Synopsis

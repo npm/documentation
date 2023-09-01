@@ -6,15 +6,9 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/using-npm/config.md
 redirect_from:
-  - /cli-documentation/misc/config
-  - /cli-documentation/using-npm/config
   - /cli-documentation/v9/misc/config
   - /cli-documentation/v9/using-npm/config
-  - /cli/misc/config
-  - /cli/using-npm/config
   - /cli/v9/misc/config
-  - /misc/config
-  - /using-npm/config
 ---
 
 ### Description

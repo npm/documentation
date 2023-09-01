@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-start.md
 redirect_from:
-  - /cli-commands/npm-start
-  - /cli-commands/start
-  - /cli-documentation/cli-commands/npm-start
-  - /cli-documentation/cli-commands/start
-  - /cli-documentation/commands/npm-start
-  - /cli-documentation/commands/start
-  - /cli-documentation/npm-start
-  - /cli-documentation/start
   - /cli-documentation/v9/cli-commands/npm-start
   - /cli-documentation/v9/cli-commands/start
   - /cli-documentation/v9/commands/npm-start
   - /cli-documentation/v9/commands/start
   - /cli-documentation/v9/npm-start
   - /cli-documentation/v9/start
-  - /cli/cli-commands/npm-start
-  - /cli/cli-commands/start
-  - /cli/commands/npm-start
-  - /cli/commands/start
-  - /cli/npm-start
-  - /cli/start
   - /cli/v9/cli-commands/npm-start
   - /cli/v9/cli-commands/start
   - /cli/v9/commands/start
   - /cli/v9/npm-start
   - /cli/v9/start
-  - /commands/npm-start
-  - /commands/start
 ---
 
 ### Synopsis

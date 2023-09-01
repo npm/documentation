@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-init.md
 redirect_from:
+  - /cli-commands/init
+  - /cli-commands/npm-init
+  - /cli-documentation/cli-commands/init
+  - /cli-documentation/cli-commands/npm-init
+  - /cli-documentation/commands/init
+  - /cli-documentation/commands/npm-init
+  - /cli-documentation/init
+  - /cli-documentation/npm-init
   - /cli-documentation/v10/cli-commands/init
   - /cli-documentation/v10/cli-commands/npm-init
   - /cli-documentation/v10/commands/init
   - /cli-documentation/v10/commands/npm-init
   - /cli-documentation/v10/init
   - /cli-documentation/v10/npm-init
+  - /cli/cli-commands/init
+  - /cli/cli-commands/npm-init
+  - /cli/commands/init
+  - /cli/commands/npm-init
+  - /cli/init
+  - /cli/npm-init
   - /cli/v10/cli-commands/init
   - /cli/v10/cli-commands/npm-init
   - /cli/v10/commands/init
   - /cli/v10/init
   - /cli/v10/npm-init
+  - /commands/init
+  - /commands/npm-init
 ---
 
 ### Synopsis

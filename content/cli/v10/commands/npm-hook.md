@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-hook.md
 redirect_from:
+  - /cli-commands/hook
+  - /cli-commands/npm-hook
+  - /cli-documentation/cli-commands/hook
+  - /cli-documentation/cli-commands/npm-hook
+  - /cli-documentation/commands/hook
+  - /cli-documentation/commands/npm-hook
+  - /cli-documentation/hook
+  - /cli-documentation/npm-hook
   - /cli-documentation/v10/cli-commands/hook
   - /cli-documentation/v10/cli-commands/npm-hook
   - /cli-documentation/v10/commands/hook
   - /cli-documentation/v10/commands/npm-hook
   - /cli-documentation/v10/hook
   - /cli-documentation/v10/npm-hook
+  - /cli/cli-commands/hook
+  - /cli/cli-commands/npm-hook
+  - /cli/commands/hook
+  - /cli/commands/npm-hook
+  - /cli/hook
+  - /cli/npm-hook
   - /cli/v10/cli-commands/hook
   - /cli/v10/cli-commands/npm-hook
   - /cli/v10/commands/hook
   - /cli/v10/hook
   - /cli/v10/npm-hook
+  - /commands/hook
+  - /commands/npm-hook
 ---
 
 ### Synopsis

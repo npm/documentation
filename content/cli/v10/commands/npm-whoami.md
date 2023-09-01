@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-whoami.md
 redirect_from:
+  - /cli-commands/npm-whoami
+  - /cli-commands/whoami
+  - /cli-documentation/cli-commands/npm-whoami
+  - /cli-documentation/cli-commands/whoami
+  - /cli-documentation/commands/npm-whoami
+  - /cli-documentation/commands/whoami
+  - /cli-documentation/npm-whoami
   - /cli-documentation/v10/cli-commands/npm-whoami
   - /cli-documentation/v10/cli-commands/whoami
   - /cli-documentation/v10/commands/npm-whoami
   - /cli-documentation/v10/commands/whoami
   - /cli-documentation/v10/npm-whoami
   - /cli-documentation/v10/whoami
+  - /cli-documentation/whoami
+  - /cli/cli-commands/npm-whoami
+  - /cli/cli-commands/whoami
+  - /cli/commands/npm-whoami
+  - /cli/commands/whoami
+  - /cli/npm-whoami
   - /cli/v10/cli-commands/npm-whoami
   - /cli/v10/cli-commands/whoami
   - /cli/v10/commands/whoami
   - /cli/v10/npm-whoami
   - /cli/v10/whoami
+  - /cli/whoami
+  - /commands/npm-whoami
+  - /commands/whoami
 ---
 
 ### Synopsis

@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-adduser.md
 redirect_from:
+  - /cli-commands/adduser
+  - /cli-commands/npm-adduser
+  - /cli-documentation/adduser
+  - /cli-documentation/cli-commands/adduser
+  - /cli-documentation/cli-commands/npm-adduser
+  - /cli-documentation/commands/adduser
+  - /cli-documentation/commands/npm-adduser
+  - /cli-documentation/npm-adduser
   - /cli-documentation/v10/adduser
   - /cli-documentation/v10/cli-commands/adduser
   - /cli-documentation/v10/cli-commands/npm-adduser
   - /cli-documentation/v10/commands/adduser
   - /cli-documentation/v10/commands/npm-adduser
   - /cli-documentation/v10/npm-adduser
+  - /cli/adduser
+  - /cli/cli-commands/adduser
+  - /cli/cli-commands/npm-adduser
+  - /cli/commands/adduser
+  - /cli/commands/npm-adduser
+  - /cli/npm-adduser
   - /cli/v10/adduser
   - /cli/v10/cli-commands/adduser
   - /cli/v10/cli-commands/npm-adduser
   - /cli/v10/commands/adduser
   - /cli/v10/npm-adduser
+  - /commands/adduser
+  - /commands/npm-adduser
 ---
 
 ### Synopsis

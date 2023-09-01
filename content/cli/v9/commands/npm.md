@@ -6,19 +6,11 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm.md
 redirect_from:
-  - /cli-commands/npm
-  - /cli-documentation/cli-commands/npm
-  - /cli-documentation/commands/npm
-  - /cli-documentation/npm
   - /cli-documentation/v9/cli-commands/npm
   - /cli-documentation/v9/commands/npm
   - /cli-documentation/v9/npm
-  - /cli/cli-commands/npm
-  - /cli/commands/npm
-  - /cli/npm
   - /cli/v9/cli-commands/npm
   - /cli/v9/npm
-  - /commands/npm
 ---
 
 ### Synopsis

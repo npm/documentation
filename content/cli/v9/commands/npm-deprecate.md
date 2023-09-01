@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-deprecate.md
 redirect_from:
-  - /cli-commands/deprecate
-  - /cli-commands/npm-deprecate
-  - /cli-documentation/cli-commands/deprecate
-  - /cli-documentation/cli-commands/npm-deprecate
-  - /cli-documentation/commands/deprecate
-  - /cli-documentation/commands/npm-deprecate
-  - /cli-documentation/deprecate
-  - /cli-documentation/npm-deprecate
   - /cli-documentation/v9/cli-commands/deprecate
   - /cli-documentation/v9/cli-commands/npm-deprecate
   - /cli-documentation/v9/commands/deprecate
   - /cli-documentation/v9/commands/npm-deprecate
   - /cli-documentation/v9/deprecate
   - /cli-documentation/v9/npm-deprecate
-  - /cli/cli-commands/deprecate
-  - /cli/cli-commands/npm-deprecate
-  - /cli/commands/deprecate
-  - /cli/commands/npm-deprecate
-  - /cli/deprecate
-  - /cli/npm-deprecate
   - /cli/v9/cli-commands/deprecate
   - /cli/v9/cli-commands/npm-deprecate
   - /cli/v9/commands/deprecate
   - /cli/v9/deprecate
   - /cli/v9/npm-deprecate
-  - /commands/deprecate
-  - /commands/npm-deprecate
 ---
 
 ### Synopsis

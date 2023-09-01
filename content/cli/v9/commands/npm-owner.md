@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-owner.md
 redirect_from:
-  - /cli-commands/npm-owner
-  - /cli-commands/owner
-  - /cli-documentation/cli-commands/npm-owner
-  - /cli-documentation/cli-commands/owner
-  - /cli-documentation/commands/npm-owner
-  - /cli-documentation/commands/owner
-  - /cli-documentation/npm-owner
-  - /cli-documentation/owner
   - /cli-documentation/v9/cli-commands/npm-owner
   - /cli-documentation/v9/cli-commands/owner
   - /cli-documentation/v9/commands/npm-owner
   - /cli-documentation/v9/commands/owner
   - /cli-documentation/v9/npm-owner
   - /cli-documentation/v9/owner
-  - /cli/cli-commands/npm-owner
-  - /cli/cli-commands/owner
-  - /cli/commands/npm-owner
-  - /cli/commands/owner
-  - /cli/npm-owner
-  - /cli/owner
   - /cli/v9/cli-commands/npm-owner
   - /cli/v9/cli-commands/owner
   - /cli/v9/commands/owner
   - /cli/v9/npm-owner
   - /cli/v9/owner
-  - /commands/npm-owner
-  - /commands/owner
 ---
 
 ### Synopsis

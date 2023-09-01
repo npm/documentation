@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-audit.md
 redirect_from:
-  - /cli-commands/audit
-  - /cli-commands/npm-audit
-  - /cli-documentation/audit
-  - /cli-documentation/cli-commands/audit
-  - /cli-documentation/cli-commands/npm-audit
-  - /cli-documentation/commands/audit
-  - /cli-documentation/commands/npm-audit
-  - /cli-documentation/npm-audit
   - /cli-documentation/v9/audit
   - /cli-documentation/v9/cli-commands/audit
   - /cli-documentation/v9/cli-commands/npm-audit
   - /cli-documentation/v9/commands/audit
   - /cli-documentation/v9/commands/npm-audit
   - /cli-documentation/v9/npm-audit
-  - /cli/audit
-  - /cli/cli-commands/audit
-  - /cli/cli-commands/npm-audit
-  - /cli/commands/audit
-  - /cli/commands/npm-audit
-  - /cli/npm-audit
   - /cli/v9/audit
   - /cli/v9/cli-commands/audit
   - /cli/v9/cli-commands/npm-audit
   - /cli/v9/commands/audit
   - /cli/v9/npm-audit
-  - /commands/audit
-  - /commands/npm-audit
 ---
 
 ### Synopsis

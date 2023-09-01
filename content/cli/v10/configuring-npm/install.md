@@ -6,9 +6,15 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/configuring-npm/install.md
 redirect_from:
+  - /cli-documentation/configuring-npm/install
+  - /cli-documentation/files/install
   - /cli-documentation/v10/configuring-npm/install
   - /cli-documentation/v10/files/install
+  - /cli/configuring-npm/install
+  - /cli/files/install
   - /cli/v10/files/install
+  - /configuring-npm/install
+  - /files/install
 ---
 
 ### Description

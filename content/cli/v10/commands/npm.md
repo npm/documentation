@@ -6,11 +6,19 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm.md
 redirect_from:
+  - /cli-commands/npm
+  - /cli-documentation/cli-commands/npm
+  - /cli-documentation/commands/npm
+  - /cli-documentation/npm
   - /cli-documentation/v10/cli-commands/npm
   - /cli-documentation/v10/commands/npm
   - /cli-documentation/v10/npm
+  - /cli/cli-commands/npm
+  - /cli/commands/npm
+  - /cli/npm
   - /cli/v10/cli-commands/npm
   - /cli/v10/npm
+  - /commands/npm
 ---
 
 ### Synopsis

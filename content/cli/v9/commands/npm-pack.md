@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-pack.md
 redirect_from:
-  - /cli-commands/npm-pack
-  - /cli-commands/pack
-  - /cli-documentation/cli-commands/npm-pack
-  - /cli-documentation/cli-commands/pack
-  - /cli-documentation/commands/npm-pack
-  - /cli-documentation/commands/pack
-  - /cli-documentation/npm-pack
-  - /cli-documentation/pack
   - /cli-documentation/v9/cli-commands/npm-pack
   - /cli-documentation/v9/cli-commands/pack
   - /cli-documentation/v9/commands/npm-pack
   - /cli-documentation/v9/commands/pack
   - /cli-documentation/v9/npm-pack
   - /cli-documentation/v9/pack
-  - /cli/cli-commands/npm-pack
-  - /cli/cli-commands/pack
-  - /cli/commands/npm-pack
-  - /cli/commands/pack
-  - /cli/npm-pack
-  - /cli/pack
   - /cli/v9/cli-commands/npm-pack
   - /cli/v9/cli-commands/pack
   - /cli/v9/commands/pack
   - /cli/v9/npm-pack
   - /cli/v9/pack
-  - /commands/npm-pack
-  - /commands/pack
 ---
 
 ### Synopsis

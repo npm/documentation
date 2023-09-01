@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-fund.md
 redirect_from:
-  - /cli-commands/fund
-  - /cli-commands/npm-fund
-  - /cli-documentation/cli-commands/fund
-  - /cli-documentation/cli-commands/npm-fund
-  - /cli-documentation/commands/fund
-  - /cli-documentation/commands/npm-fund
-  - /cli-documentation/fund
-  - /cli-documentation/npm-fund
   - /cli-documentation/v9/cli-commands/fund
   - /cli-documentation/v9/cli-commands/npm-fund
   - /cli-documentation/v9/commands/fund
   - /cli-documentation/v9/commands/npm-fund
   - /cli-documentation/v9/fund
   - /cli-documentation/v9/npm-fund
-  - /cli/cli-commands/fund
-  - /cli/cli-commands/npm-fund
-  - /cli/commands/fund
-  - /cli/commands/npm-fund
-  - /cli/fund
-  - /cli/npm-fund
   - /cli/v9/cli-commands/fund
   - /cli/v9/cli-commands/npm-fund
   - /cli/v9/commands/fund
   - /cli/v9/fund
   - /cli/v9/npm-fund
-  - /commands/fund
-  - /commands/npm-fund
 ---
 
 ### Synopsis

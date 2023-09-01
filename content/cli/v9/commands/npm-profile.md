@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-profile.md
 redirect_from:
-  - /cli-commands/npm-profile
-  - /cli-commands/profile
-  - /cli-documentation/cli-commands/npm-profile
-  - /cli-documentation/cli-commands/profile
-  - /cli-documentation/commands/npm-profile
-  - /cli-documentation/commands/profile
-  - /cli-documentation/npm-profile
-  - /cli-documentation/profile
   - /cli-documentation/v9/cli-commands/npm-profile
   - /cli-documentation/v9/cli-commands/profile
   - /cli-documentation/v9/commands/npm-profile
   - /cli-documentation/v9/commands/profile
   - /cli-documentation/v9/npm-profile
   - /cli-documentation/v9/profile
-  - /cli/cli-commands/npm-profile
-  - /cli/cli-commands/profile
-  - /cli/commands/npm-profile
-  - /cli/commands/profile
-  - /cli/npm-profile
-  - /cli/profile
   - /cli/v9/cli-commands/npm-profile
   - /cli/v9/cli-commands/profile
   - /cli/v9/commands/profile
   - /cli/v9/npm-profile
   - /cli/v9/profile
-  - /commands/npm-profile
-  - /commands/profile
 ---
 
 ### Synopsis

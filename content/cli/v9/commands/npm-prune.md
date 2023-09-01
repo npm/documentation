@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-prune.md
 redirect_from:
-  - /cli-commands/npm-prune
-  - /cli-commands/prune
-  - /cli-documentation/cli-commands/npm-prune
-  - /cli-documentation/cli-commands/prune
-  - /cli-documentation/commands/npm-prune
-  - /cli-documentation/commands/prune
-  - /cli-documentation/npm-prune
-  - /cli-documentation/prune
   - /cli-documentation/v9/cli-commands/npm-prune
   - /cli-documentation/v9/cli-commands/prune
   - /cli-documentation/v9/commands/npm-prune
   - /cli-documentation/v9/commands/prune
   - /cli-documentation/v9/npm-prune
   - /cli-documentation/v9/prune
-  - /cli/cli-commands/npm-prune
-  - /cli/cli-commands/prune
-  - /cli/commands/npm-prune
-  - /cli/commands/prune
-  - /cli/npm-prune
-  - /cli/prune
   - /cli/v9/cli-commands/npm-prune
   - /cli/v9/cli-commands/prune
   - /cli/v9/commands/prune
   - /cli/v9/npm-prune
   - /cli/v9/prune
-  - /commands/npm-prune
-  - /commands/prune
 ---
 
 ### Synopsis

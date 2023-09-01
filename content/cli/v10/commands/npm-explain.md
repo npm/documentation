@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-explain.md
 redirect_from:
+  - /cli-commands/explain
+  - /cli-commands/npm-explain
+  - /cli-documentation/cli-commands/explain
+  - /cli-documentation/cli-commands/npm-explain
+  - /cli-documentation/commands/explain
+  - /cli-documentation/commands/npm-explain
+  - /cli-documentation/explain
+  - /cli-documentation/npm-explain
   - /cli-documentation/v10/cli-commands/explain
   - /cli-documentation/v10/cli-commands/npm-explain
   - /cli-documentation/v10/commands/explain
   - /cli-documentation/v10/commands/npm-explain
   - /cli-documentation/v10/explain
   - /cli-documentation/v10/npm-explain
+  - /cli/cli-commands/explain
+  - /cli/cli-commands/npm-explain
+  - /cli/commands/explain
+  - /cli/commands/npm-explain
+  - /cli/explain
+  - /cli/npm-explain
   - /cli/v10/cli-commands/explain
   - /cli/v10/cli-commands/npm-explain
   - /cli/v10/commands/explain
   - /cli/v10/explain
   - /cli/v10/npm-explain
+  - /commands/explain
+  - /commands/npm-explain
 ---
 
 ### Synopsis

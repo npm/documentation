@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-config.md
 redirect_from:
-  - /cli-commands/config
-  - /cli-commands/npm-config
-  - /cli-documentation/cli-commands/config
-  - /cli-documentation/cli-commands/npm-config
-  - /cli-documentation/commands/config
-  - /cli-documentation/commands/npm-config
-  - /cli-documentation/config
-  - /cli-documentation/npm-config
   - /cli-documentation/v9/cli-commands/config
   - /cli-documentation/v9/cli-commands/npm-config
   - /cli-documentation/v9/commands/config
   - /cli-documentation/v9/commands/npm-config
   - /cli-documentation/v9/config
   - /cli-documentation/v9/npm-config
-  - /cli/cli-commands/config
-  - /cli/cli-commands/npm-config
-  - /cli/commands/config
-  - /cli/commands/npm-config
-  - /cli/config
-  - /cli/npm-config
   - /cli/v9/cli-commands/config
   - /cli/v9/cli-commands/npm-config
   - /cli/v9/commands/config
   - /cli/v9/config
   - /cli/v9/npm-config
-  - /commands/config
-  - /commands/npm-config
 ---
 
 ### Synopsis

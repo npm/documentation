@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-link.md
 redirect_from:
-  - /cli-commands/link
-  - /cli-commands/npm-link
-  - /cli-documentation/cli-commands/link
-  - /cli-documentation/cli-commands/npm-link
-  - /cli-documentation/commands/link
-  - /cli-documentation/commands/npm-link
-  - /cli-documentation/link
-  - /cli-documentation/npm-link
   - /cli-documentation/v9/cli-commands/link
   - /cli-documentation/v9/cli-commands/npm-link
   - /cli-documentation/v9/commands/link
   - /cli-documentation/v9/commands/npm-link
   - /cli-documentation/v9/link
   - /cli-documentation/v9/npm-link
-  - /cli/cli-commands/link
-  - /cli/cli-commands/npm-link
-  - /cli/commands/link
-  - /cli/commands/npm-link
-  - /cli/link
-  - /cli/npm-link
   - /cli/v9/cli-commands/link
   - /cli/v9/cli-commands/npm-link
   - /cli/v9/commands/link
   - /cli/v9/link
   - /cli/v9/npm-link
-  - /commands/link
-  - /commands/npm-link
 ---
 
 ### Synopsis

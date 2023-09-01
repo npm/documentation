@@ -6,17 +6,33 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-install.md
 redirect_from:
+  - /cli-commands/install
+  - /cli-commands/npm-install
+  - /cli-documentation/cli-commands/install
+  - /cli-documentation/cli-commands/npm-install
+  - /cli-documentation/commands/install
+  - /cli-documentation/commands/npm-install
+  - /cli-documentation/install
+  - /cli-documentation/npm-install
   - /cli-documentation/v10/cli-commands/install
   - /cli-documentation/v10/cli-commands/npm-install
   - /cli-documentation/v10/commands/install
   - /cli-documentation/v10/commands/npm-install
   - /cli-documentation/v10/install
   - /cli-documentation/v10/npm-install
+  - /cli/cli-commands/install
+  - /cli/cli-commands/npm-install
+  - /cli/commands/install
+  - /cli/commands/npm-install
+  - /cli/install
+  - /cli/npm-install
   - /cli/v10/cli-commands/install
   - /cli/v10/cli-commands/npm-install
   - /cli/v10/commands/install
   - /cli/v10/install
   - /cli/v10/npm-install
+  - /commands/install
+  - /commands/npm-install
 ---
 
 ### Synopsis

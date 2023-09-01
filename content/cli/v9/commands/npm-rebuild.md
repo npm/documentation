@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-rebuild.md
 redirect_from:
-  - /cli-commands/npm-rebuild
-  - /cli-commands/rebuild
-  - /cli-documentation/cli-commands/npm-rebuild
-  - /cli-documentation/cli-commands/rebuild
-  - /cli-documentation/commands/npm-rebuild
-  - /cli-documentation/commands/rebuild
-  - /cli-documentation/npm-rebuild
-  - /cli-documentation/rebuild
   - /cli-documentation/v9/cli-commands/npm-rebuild
   - /cli-documentation/v9/cli-commands/rebuild
   - /cli-documentation/v9/commands/npm-rebuild
   - /cli-documentation/v9/commands/rebuild
   - /cli-documentation/v9/npm-rebuild
   - /cli-documentation/v9/rebuild
-  - /cli/cli-commands/npm-rebuild
-  - /cli/cli-commands/rebuild
-  - /cli/commands/npm-rebuild
-  - /cli/commands/rebuild
-  - /cli/npm-rebuild
-  - /cli/rebuild
   - /cli/v9/cli-commands/npm-rebuild
   - /cli/v9/cli-commands/rebuild
   - /cli/v9/commands/rebuild
   - /cli/v9/npm-rebuild
   - /cli/v9/rebuild
-  - /commands/npm-rebuild
-  - /commands/rebuild
 ---
 
 ### Synopsis

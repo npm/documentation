@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-restart.md
 redirect_from:
-  - /cli-commands/npm-restart
-  - /cli-commands/restart
-  - /cli-documentation/cli-commands/npm-restart
-  - /cli-documentation/cli-commands/restart
-  - /cli-documentation/commands/npm-restart
-  - /cli-documentation/commands/restart
-  - /cli-documentation/npm-restart
-  - /cli-documentation/restart
   - /cli-documentation/v9/cli-commands/npm-restart
   - /cli-documentation/v9/cli-commands/restart
   - /cli-documentation/v9/commands/npm-restart
   - /cli-documentation/v9/commands/restart
   - /cli-documentation/v9/npm-restart
   - /cli-documentation/v9/restart
-  - /cli/cli-commands/npm-restart
-  - /cli/cli-commands/restart
-  - /cli/commands/npm-restart
-  - /cli/commands/restart
-  - /cli/npm-restart
-  - /cli/restart
   - /cli/v9/cli-commands/npm-restart
   - /cli/v9/cli-commands/restart
   - /cli/v9/commands/restart
   - /cli/v9/npm-restart
   - /cli/v9/restart
-  - /commands/npm-restart
-  - /commands/restart
 ---
 
 ### Synopsis

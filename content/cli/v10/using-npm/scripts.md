@@ -6,9 +6,15 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/using-npm/scripts.md
 redirect_from:
+  - /cli-documentation/misc/scripts
+  - /cli-documentation/using-npm/scripts
   - /cli-documentation/v10/misc/scripts
   - /cli-documentation/v10/using-npm/scripts
+  - /cli/misc/scripts
+  - /cli/using-npm/scripts
   - /cli/v10/misc/scripts
+  - /misc/scripts
+  - /using-npm/scripts
 ---
 
 ### Description

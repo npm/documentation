@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-test.md
 redirect_from:
-  - /cli-commands/npm-test
-  - /cli-commands/test
-  - /cli-documentation/cli-commands/npm-test
-  - /cli-documentation/cli-commands/test
-  - /cli-documentation/commands/npm-test
-  - /cli-documentation/commands/test
-  - /cli-documentation/npm-test
-  - /cli-documentation/test
   - /cli-documentation/v9/cli-commands/npm-test
   - /cli-documentation/v9/cli-commands/test
   - /cli-documentation/v9/commands/npm-test
   - /cli-documentation/v9/commands/test
   - /cli-documentation/v9/npm-test
   - /cli-documentation/v9/test
-  - /cli/cli-commands/npm-test
-  - /cli/cli-commands/test
-  - /cli/commands/npm-test
-  - /cli/commands/test
-  - /cli/npm-test
-  - /cli/test
   - /cli/v9/cli-commands/npm-test
   - /cli/v9/cli-commands/test
   - /cli/v9/commands/test
   - /cli/v9/npm-test
   - /cli/v9/test
-  - /commands/npm-test
-  - /commands/test
 ---
 
 ### Synopsis

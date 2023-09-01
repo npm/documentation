@@ -4,9 +4,15 @@ github_repo: npm/cli
 github_branch: latest
 github_path: CHANGELOG.md
 redirect_from:
+  - /cli-documentation/misc/changelog
+  - /cli-documentation/using-npm/changelog
   - /cli-documentation/v10/misc/changelog
   - /cli-documentation/v10/using-npm/changelog
+  - /cli/misc/changelog
+  - /cli/using-npm/changelog
   - /cli/v10/misc/changelog
+  - /misc/changelog
+  - /using-npm/changelog
 ---
 
 # Changelog

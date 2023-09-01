@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-run-script.md
 redirect_from:
-  - /cli-commands/npm-run-script
-  - /cli-commands/run-script
-  - /cli-documentation/cli-commands/npm-run-script
-  - /cli-documentation/cli-commands/run-script
-  - /cli-documentation/commands/npm-run-script
-  - /cli-documentation/commands/run-script
-  - /cli-documentation/npm-run-script
-  - /cli-documentation/run-script
   - /cli-documentation/v9/cli-commands/npm-run-script
   - /cli-documentation/v9/cli-commands/run-script
   - /cli-documentation/v9/commands/npm-run-script
   - /cli-documentation/v9/commands/run-script
   - /cli-documentation/v9/npm-run-script
   - /cli-documentation/v9/run-script
-  - /cli/cli-commands/npm-run-script
-  - /cli/cli-commands/run-script
-  - /cli/commands/npm-run-script
-  - /cli/commands/run-script
-  - /cli/npm-run-script
-  - /cli/run-script
   - /cli/v9/cli-commands/npm-run-script
   - /cli/v9/cli-commands/run-script
   - /cli/v9/commands/run-script
   - /cli/v9/npm-run-script
   - /cli/v9/run-script
-  - /commands/npm-run-script
-  - /commands/run-script
 ---
 
 ### Synopsis

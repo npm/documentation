@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: release/v9
 github_path: docs/lib/content/commands/npm-access.md
 redirect_from:
-  - /cli-commands/access
-  - /cli-commands/npm-access
-  - /cli-documentation/access
-  - /cli-documentation/cli-commands/access
-  - /cli-documentation/cli-commands/npm-access
-  - /cli-documentation/commands/access
-  - /cli-documentation/commands/npm-access
-  - /cli-documentation/npm-access
   - /cli-documentation/v9/access
   - /cli-documentation/v9/cli-commands/access
   - /cli-documentation/v9/cli-commands/npm-access
   - /cli-documentation/v9/commands/access
   - /cli-documentation/v9/commands/npm-access
   - /cli-documentation/v9/npm-access
-  - /cli/access
-  - /cli/cli-commands/access
-  - /cli/cli-commands/npm-access
-  - /cli/commands/access
-  - /cli/commands/npm-access
-  - /cli/npm-access
   - /cli/v9/access
   - /cli/v9/cli-commands/access
   - /cli/v9/cli-commands/npm-access
   - /cli/v9/commands/access
   - /cli/v9/npm-access
-  - /commands/access
-  - /commands/npm-access
 ---
 
 ### Synopsis
