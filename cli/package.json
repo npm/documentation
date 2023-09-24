@@ -1,6 +1,5 @@
 {
   "name": "cli",
-  "version": "1.0.0",
   "private": true,
   "repository": {
     "url": "https://github.com/npm/documentation.git",
