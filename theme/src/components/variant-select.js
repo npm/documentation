@@ -63,7 +63,10 @@ function VariantSelect(props) {
         Select CLI Version:
       </label>
       <ActionMenu open={open} onOpenChange={setOpen}>
-        <ActionMenu.Button autofocus="true" aria-label={ariaLabelMenuButton}>
+        {/* Disabling to remove lint warnings. This property was added as "autofocus"
+        in a previous accessibility audit which did not trigger the lint warning. */
+        /* eslint-disable-next-line jsx-a11y/no-autofocus */}
+        <ActionMenu.Button autoFocus aria-label={ariaLabelMenuButton}>
           {selectedItem.variant.title}
         </ActionMenu.Button>
         <ActionMenu.Overlay width="medium" onEscape={() => setOpen(false)}>
