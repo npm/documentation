@@ -1,4 +1,4 @@
-import {BorderBox, Box, Details, Flex, Grid, Heading, Position, StyledOcticon, Text} from '@primer/components'
+import {BorderBox, Box, Flex, Grid, Heading, Position, StyledOcticon, Text} from '@primer/components'
 import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
 import React from 'react'
 import {MDXProvider} from '@mdx-js/react'
@@ -16,6 +16,7 @@ import StatusLabel from './status-label'
 import TableOfContents from './table-of-contents'
 import VariantSelect from './variant-select'
 import NavHierarchy from '../nav-hierarchy'
+import Details from './details'
 
 function Layout({children, pageContext, location}) {
   const {title, description, status, source, additionalContributors = []} = pageContext.frontmatter
