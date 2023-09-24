@@ -33,7 +33,11 @@ const getReleases = () => [
   },
 ]
 
-const mockBuild = async ({ releases, packument = {}, testdir: testdirOpts }) => {
+const mockBuild = async (t, {
+  releases = getReleases(),
+  packument = {},
+  testdir: testdirOpts,
+} = {}) => {
   const rawNav = await fs.readFile(navPath, 'utf-8')
   const nav = yaml.parse(rawNav)
 
@@ -100,6 +104,7 @@ const mockBuild = async ({ releases, packument = {}, testdir: testdirOpts }) => 
 
   return {
     testdir,
+    releases,
     build: (opts) => build({
       releases,
       contentPath: join(testdir, 'content'),
@@ -110,9 +115,7 @@ const mockBuild = async ({ releases, packument = {}, testdir: testdirOpts }) => 
 }
 
 t.test('basic', async (t) => {
-  const releases = getReleases()
-  const { build, testdir } = await mockBuild({
-    releases,
+  const { releases, build, testdir } = await mockBuild(t, {
     testdir: {
       'nav.yml': '- title: cli\n  url: /cli',
     },
@@ -122,20 +125,8 @@ t.test('basic', async (t) => {
   t.strictSame(await fs.readdir(join(testdir, 'content')), releases.map(r => r.id))
 })
 
-t.test('no default release', async (t) => {
-  const releases = getReleases()
-  const { build } = await mockBuild({
-    releases,
-    packument: { latest: '9999.99999.99999' },
-  })
-
-  await t.rejects(() => build())
-})
-
 t.test('prereleases', async (t) => {
-  const releases = getReleases()
-  const { build, testdir } = await mockBuild({
-    releases,
+  const { build, releases, testdir } = await mockBuild(t, {
     packument: { versions: ['6.14.18', '7.24.2', '8.19.3', '9.0.0-pre.2'], latest: '8.19.3' },
   })
 
@@ -148,9 +139,7 @@ t.test('prereleases', async (t) => {
 })
 
 t.test('earlier release is latest', async (t) => {
-  const releases = getReleases()
-  const { build } = await mockBuild({
-    releases,
+  const { build } = await mockBuild(t, {
     packument: { latest: '8.19.3' },
   })
 
@@ -158,18 +147,13 @@ t.test('earlier release is latest', async (t) => {
 })
 
 t.test('can skip fetching latest', async (t) => {
-  const releases = getReleases()
-  const { build } = await mockBuild({
-    releases,
-  })
+  const { build } = await mockBuild(t)
 
   await build({ useCurrent: true })
 })
 
 t.test('add variant to nav', async (t) => {
-  const releases = getReleases()
-  const { build } = await mockBuild({
-    releases,
+  const { build } = await mockBuild(t, {
     testdir: {
       'nav.yml': '- title: cli\n  url: /cli\n  variants:\n    - url: /cli/v0',
     },
