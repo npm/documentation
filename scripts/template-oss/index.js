@@ -6,22 +6,22 @@ module.exports = {
       '.github/CODEOWNERS': 'CODEOWNERS',
       '.github/ISSUE_TEMPLATE/bug.yml': false,
       '.commitlintrc.js': false,
-      '.github/dependabot.yml': false,
-      '.github/workflows/post-dependabot.yml': false,
+      '.github/settings.yml': false,
     },
   },
   rootModule: {
     add: {
       'CODE_OF_CONDUCT.md': false,
+      'CONTRIBUTING.md': false,
     },
   },
   workspaceRepo: {
     add: {
-      '.github/dependabot.yml': false,
-      '.github/workflows/post-dependabot.yml': false,
+      '.github/settings.yml': false,
     },
   },
   ciVersions: 'latest',
+  latestCiVersion: 18,
   macCI: false,
   windowsCI: false,
   lockfile: true,
@@ -33,5 +33,7 @@ module.exports = {
     '/LICENSE*',
     '/*.md',
     '/gatsby-*.js',
+    '/CONTRIBUTING.md',
+    '/CONTENT-MODEL.md',
   ],
 }
