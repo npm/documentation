@@ -27,13 +27,12 @@ module.exports = {
 
 ```
 
-
 ## Theme Options
 
-| Option                 | Required | Default | Type      | Description                                                                    |
-| ---------------------- | -------- |---------| --------- | ------------------------------------------------------------------------------ |
-| icon                   | yes      | n/a     | string    | The favicon to display                                                         |
-| editOnGitHub           | yes      | n/a     | boolean   | Determines if the "Edit this page on GitHub" link is displayed on the page     |
-| showContributors       | yes      | n/a     | boolean   | Determines if the repository contributors are displayed                        |
-| showSidebarEditLink    | yes      | n/a     | boolean   | Determines if the "Edit this page on GitHub" link is displayed in the SideBar  |
-| repo                   | yes      | n/a     | object    | `url`, `defaultBranch` and `path` to repository                                |
+| Option              | Required | Default | Type    | Description                                                                   |
+| ------------------- | -------- | ------- | ------- | ----------------------------------------------------------------------------- |
+| icon                | yes      | n/a     | string  | The favicon to display                                                        |
+| editOnGitHub        | yes      | n/a     | boolean | Determines if the "Edit this page on GitHub" link is displayed on the page    |
+| showContributors    | yes      | n/a     | boolean | Determines if the repository contributors are displayed                       |
+| showSidebarEditLink | yes      | n/a     | boolean | Determines if the "Edit this page on GitHub" link is displayed in the SideBar |
+| repo                | yes      | n/a     | object  | `url`, `defaultBranch` and `path` to repository                               |
