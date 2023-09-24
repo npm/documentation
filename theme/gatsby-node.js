@@ -59,10 +59,6 @@ exports.createPages = async ({graphql, actions}, themeOptions) => {
     }
   `)
 
-  if (!process.env.GITHUB_TOKEN && !process.env.NOW_GITHUB_DEPLOYMENT) {
-    console.error(`Non-deploy build and no GITHUB_TOKEN environment variable set; skipping GitHub API calls`)
-  }
-
   // Turn every MDX file into a page.
   return Promise.all(
     data.allMdx.nodes.map(async node => {
@@ -74,10 +70,8 @@ exports.createPages = async ({graphql, actions}, themeOptions) => {
 
       const editUrl = getEditUrl(themeOptions, repo, fileRelativePath, node.frontmatter)
 
-      let contributors = []
-      if (themeOptions.showContributors !== false && (process.env.GITHUB_TOKEN || process.env.NOW_GITHUB_DEPLOYMENT)) {
-        contributors = await fetchContributors(repo, fileRelativePath, node.frontmatter, process.env.GITHUB_TOKEN)
-      }
+      const contributors =
+        themeOptions.showContributors !== false ? await fetchContributors(repo, fileRelativePath, node.frontmatte) : []
 
       actions.createPage({
         path: pagePath,
@@ -177,7 +171,12 @@ function getEditUrl(themeOptions, repo, filePath, overrideData = {}) {
   return `https://github.com/${gh.nwo}/edit/${gh.branch}/${gh.path}`
 }
 
-async function fetchContributors(repo, filePath, overrideData = {}, accessToken = '') {
+async function fetchContributors(repo, filePath, overrideData = {}) {
+  if (!process.env.GITHUB_TOKEN) {
+    console.warn('Skipping fetching contributors because no github token was set')
+    return
+  }
+
   const gh = getGitHubData(repo, overrideData, filePath)
 
   const cached = CONTRIBUTOR_CACHE.get(gh)
@@ -190,12 +189,9 @@ async function fetchContributors(repo, filePath, overrideData = {}, accessToken 
       method: 'get',
       baseURL: 'https://api.github.com/',
       url: `/repos/${gh.nwo}/commits?path=${gh.path}&sha=${gh.branch}&per_page=100`,
-    }
-
-    if (accessToken && accessToken.length) {
-      req.headers = {
-        Authorization: `token ${accessToken}`,
-      }
+      headers: {
+        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+      },
     }
 
     const {data} = await axios.request(req)
