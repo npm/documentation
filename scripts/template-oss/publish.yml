@@ -3,7 +3,9 @@ name: Publish
 on:
   push:
     branches:
-      - {{ defaultBranch }}
+      {{#each branchPatterns}}
+      - {{ . }}
+      {{/each}}
   pull_request:
   workflow_dispatch:
   workflow_call:

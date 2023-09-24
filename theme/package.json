@@ -17,7 +17,8 @@
     "template-oss-apply": "template-oss-apply --force",
     "lintfix": "npm run lint -- --fix",
     "snap": "tap",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "format": "prettier --write ."
   },
   "peerDependencies": {
     "gatsby": "^4.19.0",
@@ -72,7 +73,7 @@
   },
   "devDependencies": {
     "@github/prettier-config": "^0.0.6",
-    "@npmcli/template-oss": "4.11.0",
+    "@npmcli/template-oss": "4.19.0",
     "@testing-library/jest-dom": "^5.16.5",
     "babel-jest": "^29.3.1",
     "eslint": "^8.33.0",
@@ -90,7 +91,7 @@
   },
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
-    "version": "4.11.0",
+    "version": "4.19.0",
     "content": "./scripts/template-oss"
   },
   "tap": {

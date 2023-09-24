@@ -8,6 +8,7 @@
 !/.eslintrc.js
 !/.eslintrc.local.*
 !/.gitignore
+!/.prettierIgnore
 !/bin/
 !/CHANGELOG*
 !/docs/

@@ -17,7 +17,9 @@
 !/bin/
 !/CHANGELOG*
 !/CODE_OF_CONDUCT.md
+!/CONTENT-MODEL.md
 !/content/
+!/CONTRIBUTING.md
 !/docs/
 !/gatsby-*.js
 !/lib/
