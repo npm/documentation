@@ -15,7 +15,14 @@ jobs:
     permissions:
       contents: read
       pages: read
-    {{> job jobName="Build and Upload" }}
+    name: Build and Upload
+    if: github.repository_owner == 'npm'
+    runs-on: macos-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      {{> stepsSetup }}
       - name: Setup Pages
         uses: actions/configure-pages@v1
       - name: Build documentation
