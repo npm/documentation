@@ -17,6 +17,7 @@ module.exports = {
     'plugin:github/react',
     'plugin:primer-react/recommended',
     'prettier',
+    'plugin:react-hooks/recommended',
   ],
   settings: {
     react: {
