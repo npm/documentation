@@ -1,5 +1,5 @@
 import {Box, Flex, Link, Sticky} from '@primer/components'
-import {SearchIcon, ThreeBarsIcon} from '@primer/octicons-react'
+import {ThreeBarsIcon} from '@primer/octicons-react'
 import {Link as GatsbyLink} from 'gatsby'
 import React from 'react'
 import styled, {ThemeContext} from 'styled-components'
@@ -11,6 +11,8 @@ import NavDrawer, {useNavDrawerState} from './nav-drawer'
 import NavDropdown, {NavDropdownItem} from './nav-dropdown'
 import Search from './search'
 import NpmLogo from './npm-logo'
+import useBreakpoint from '../use-breakpoint'
+import useSearch from '../use-search'
 
 export const HEADER_HEIGHT = 66
 
@@ -22,8 +24,9 @@ const NpmHeaderBar = styled(Box)`
 function Header({location, isSearchEnabled = true}) {
   const theme = React.useContext(ThemeContext)
   const [isNavDrawerOpen, setIsNavDrawerOpen] = useNavDrawerState(theme.breakpoints[2])
-  const [isMobileSearchOpen, setIsMobileSearchOpen] = React.useState(false)
   const siteMetadata = useSiteMetadata()
+  const isMobile = useBreakpoint(theme.breakpoints[2], 'max')
+  const search = useSearch({isMobile})
 
   const logoStyle = {color: '#cb0000', marginRight: '16px'}
   const titleStyle = {color: '#dddddd', fontWeight: '600', display: 'flex', alignItems: 'center'}
@@ -46,7 +49,7 @@ function Header({location, isSearchEnabled = true}) {
 
           {isSearchEnabled ? (
             <Box display={['none', null, null, 'block']} ml={4}>
-              <Search />
+              <Search {...search} />
             </Box>
           ) : null}
         </Flex>
@@ -55,18 +58,7 @@ function Header({location, isSearchEnabled = true}) {
             <HeaderNavItems items={headerNavItems} />
           </Box>
           <Flex display={['flex', null, null, 'none']}>
-            {isSearchEnabled ? (
-              <>
-                <DarkButton
-                  aria-label="Search"
-                  aria-expanded={isMobileSearchOpen}
-                  onClick={() => setIsMobileSearchOpen(true)}
-                >
-                  <SearchIcon />
-                </DarkButton>
-                <MobileSearch isOpen={isMobileSearchOpen} onDismiss={() => setIsMobileSearchOpen(false)} />
-              </>
-            ) : null}
+            {isSearchEnabled ? <MobileSearch {...search} /> : null}
             <DarkButton
               aria-label="Menu"
               aria-expanded={isNavDrawerOpen}
