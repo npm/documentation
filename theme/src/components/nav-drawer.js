@@ -18,13 +18,15 @@ export function useNavDrawerState(breakpoint) {
   }
   const [isOpen, setOpen] = React.useState(false)
 
-  const onResize = React.useCallback(() => {
-    if (window.innerWidth >= breakpoint) {
-      setOpen(false)
-    }
-  }, [setOpen])
-
-  const debouncedOnResize = React.useCallback(debounce(onResize, 250), [onResize])
+  const debouncedOnResize = React.useMemo(
+    () =>
+      debounce(() => {
+        if (window.innerWidth >= breakpoint) {
+          setOpen(false)
+        }
+      }, 250),
+    [breakpoint],
+  )
 
   React.useEffect(() => {
     if (isOpen) {
