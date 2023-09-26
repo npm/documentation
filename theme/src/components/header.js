@@ -6,7 +6,6 @@ import headerNavItems from '../header-nav.yml'
 import useSiteMetadata from '../use-site-metadata'
 import MobileSearch from './mobile-search'
 import NavDrawer from './nav-drawer'
-import NavDropdown, {NavDropdownItem} from './nav-dropdown'
 import Search from './search'
 import NpmLogo from './npm-logo'
 import useSearch from '../use-search'
@@ -63,26 +62,11 @@ function Header({location, isSearchEnabled = true}) {
 function HeaderNavItems({items}) {
   return (
     <Flex alignItems="center" color="gray.2">
-      {items.map((item, index) => {
-        if (item.children) {
-          return (
-            <Box ml={4} key={index}>
-              <NavDropdown title={item.title}>
-                {item.children.map(child => (
-                  <NavDropdownItem key={child.title} href={child.url}>
-                    {child.title}
-                  </NavDropdownItem>
-                ))}
-              </NavDropdown>
-            </Box>
-          )
-        }
-        return (
-          <Link key={index} href={item.url} display="block" color="inherit" ml={4}>
-            {item.title}
-          </Link>
-        )
-      })}
+      {items.map((item, index) => (
+        <Link key={index} href={item.url} display="block" color="inherit" ml={4}>
+          {item.title}
+        </Link>
+      ))}
     </Flex>
   )
 }
