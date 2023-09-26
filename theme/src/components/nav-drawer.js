@@ -1,7 +1,6 @@
 import {BorderBox, Flex, Link, Text} from '@primer/components'
-import {ChevronDownIcon, ChevronUpIcon, XIcon} from '@primer/octicons-react'
+import {ChevronDownIcon, ChevronUpIcon, XIcon, ThreeBarsIcon} from '@primer/octicons-react'
 import {Link as GatsbyLink} from 'gatsby'
-import debounce from 'lodash.debounce'
 import React from 'react'
 import navItems from '../nav.yml'
 import headerNavItems from '../header-nav.yml'
@@ -10,72 +9,64 @@ import DarkButton from './dark-button'
 import Details from './details'
 import Drawer from './drawer'
 import NavItems from './nav-items'
+import {useIsMobile} from '../use-breakpoint'
 
-export function useNavDrawerState(breakpoint) {
-  // Handle string values from themes with units at the end
-  if (typeof breakpoint === 'string') {
-    breakpoint = parseInt(breakpoint, 10)
-  }
-  const [isOpen, setOpen] = React.useState(false)
-
-  const debouncedOnResize = React.useMemo(
-    () =>
-      debounce(() => {
-        if (window.innerWidth >= breakpoint) {
-          setOpen(false)
-        }
-      }, 250),
-    [breakpoint],
-  )
+const useDrawerIsOpen = () => {
+  const isMobile = useIsMobile()
+  const [isOpen, setIsOpen] = React.useState(false)
+  const setOpen = React.useCallback(() => setIsOpen(true), [])
+  const setClose = React.useCallback(() => setIsOpen(false), [])
 
   React.useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('resize', debouncedOnResize)
-      return () => {
-        // cancel any debounced invocation of the resize handler
-        debouncedOnResize.cancel()
-        window.removeEventListener('resize', debouncedOnResize)
-      }
+    if (!isMobile && isOpen) {
+      setIsOpen(false)
     }
-  }, [isOpen, debouncedOnResize])
+  }, [isMobile, isOpen])
 
-  return [isOpen, setOpen]
+  return [isOpen, {setOpen, setClose}]
 }
 
-function NavDrawer({location, isOpen, onDismiss}) {
+function NavDrawer({location}) {
   const siteMetadata = useSiteMetadata()
+  const [isOpen, {setOpen, setClose}] = useDrawerIsOpen()
+
   return (
-    <Drawer isOpen={isOpen} onDismiss={onDismiss}>
-      <Flex
-        flexDirection="column"
-        height="100%"
-        bg="gray.0"
-        style={{overflow: 'auto', WebkitOverflowScrolling: 'touch'}}
-      >
-        <Flex flexDirection="column" flex="1 0 auto" color="gray.7" bg="gray.0">
-          <BorderBox borderWidth={0} borderRadius={0} borderBottomWidth={1} borderColor="gray.7">
-            <Flex py={3} pl={4} pr={3} alignItems="center" justifyContent="space-between" color="gray.1" bg="gray.9">
-              <Link as={GatsbyLink} to="/" display="inline-block" color="inherit">
-                {siteMetadata.title}
-              </Link>
-              <DarkButton aria-label="Close" onClick={onDismiss}>
-                <XIcon />
-              </DarkButton>
-            </Flex>
-          </BorderBox>
-          {navItems.length > 0 ? (
-            <Flex flexDirection="column">
-              <NavItems location={location} items={navItems} editOnGitHub={false} />
+    <>
+      <DarkButton aria-label="Menu" aria-expanded={isOpen} onClick={setOpen} ml={3}>
+        <ThreeBarsIcon />
+      </DarkButton>
+      <Drawer isOpen={isOpen} onDismiss={setClose}>
+        <Flex
+          flexDirection="column"
+          height="100%"
+          bg="gray.0"
+          style={{overflow: 'auto', WebkitOverflowScrolling: 'touch'}}
+        >
+          <Flex flexDirection="column" flex="1 0 auto" color="gray.7" bg="gray.0">
+            <BorderBox borderWidth={0} borderRadius={0} borderBottomWidth={1} borderColor="gray.7">
+              <Flex py={3} pl={4} pr={3} alignItems="center" justifyContent="space-between" color="gray.1" bg="gray.9">
+                <Link as={GatsbyLink} to="/" display="inline-block" color="inherit">
+                  {siteMetadata.title}
+                </Link>
+                <DarkButton aria-label="Close" onClick={setClose}>
+                  <XIcon />
+                </DarkButton>
+              </Flex>
+            </BorderBox>
+            {navItems.length > 0 ? (
+              <Flex flexDirection="column">
+                <NavItems location={location} items={navItems} editOnGitHub={false} />
+              </Flex>
+            ) : null}
+          </Flex>
+          {headerNavItems.length > 0 ? (
+            <Flex flexDirection="column" flex="1 0 auto" color="gray.1" bg="gray.9">
+              <HeaderNavItems items={headerNavItems} />
             </Flex>
           ) : null}
         </Flex>
-        {headerNavItems.length > 0 ? (
-          <Flex flexDirection="column" flex="1 0 auto" color="gray.1" bg="gray.9">
-            <HeaderNavItems items={headerNavItems} />
-          </Flex>
-        ) : null}
-      </Flex>
-    </Drawer>
+      </Drawer>
+    </>
   )
 }
 

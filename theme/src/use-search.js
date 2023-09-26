@@ -1,8 +1,11 @@
 import React from 'react'
 import {useCombobox} from 'downshift'
 import {navigate, graphql, useStaticQuery} from 'gatsby'
+import {useIsMobile} from './use-breakpoint'
 
-function useSearch({isMobile = false} = {}) {
+function useSearch() {
+  const isMobile = useIsMobile()
+
   const queryRef = React.useRef()
   const workerRef = React.useRef()
 

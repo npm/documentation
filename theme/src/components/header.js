@@ -1,17 +1,14 @@
 import {Box, Flex, Link, Sticky} from '@primer/components'
-import {ThreeBarsIcon} from '@primer/octicons-react'
 import {Link as GatsbyLink} from 'gatsby'
 import React from 'react'
-import styled, {ThemeContext} from 'styled-components'
+import styled from 'styled-components'
 import headerNavItems from '../header-nav.yml'
 import useSiteMetadata from '../use-site-metadata'
-import DarkButton from './dark-button'
 import MobileSearch from './mobile-search'
-import NavDrawer, {useNavDrawerState} from './nav-drawer'
+import NavDrawer from './nav-drawer'
 import NavDropdown, {NavDropdownItem} from './nav-dropdown'
 import Search from './search'
 import NpmLogo from './npm-logo'
-import useBreakpoint from '../use-breakpoint'
 import useSearch from '../use-search'
 
 export const HEADER_HEIGHT = 66
@@ -22,11 +19,8 @@ const NpmHeaderBar = styled(Box)`
 `
 
 function Header({location, isSearchEnabled = true}) {
-  const theme = React.useContext(ThemeContext)
-  const [isNavDrawerOpen, setIsNavDrawerOpen] = useNavDrawerState(theme.breakpoints[2])
   const siteMetadata = useSiteMetadata()
-  const isMobile = useBreakpoint(theme.breakpoints[2], 'max')
-  const search = useSearch({isMobile})
+  const search = useSearch()
 
   const logoStyle = {color: '#cb0000', marginRight: '16px'}
   const titleStyle = {color: '#dddddd', fontWeight: '600', display: 'flex', alignItems: 'center'}
@@ -58,15 +52,7 @@ function Header({location, isSearchEnabled = true}) {
           </Box>
           <Flex display={['flex', null, null, 'none']}>
             {isSearchEnabled ? <MobileSearch {...search} /> : null}
-            <DarkButton
-              aria-label="Menu"
-              aria-expanded={isNavDrawerOpen}
-              onClick={() => setIsNavDrawerOpen(true)}
-              ml={3}
-            >
-              <ThreeBarsIcon />
-            </DarkButton>
-            <NavDrawer location={location} isOpen={isNavDrawerOpen} onDismiss={() => setIsNavDrawerOpen(false)} />
+            <NavDrawer location={location} />
           </Flex>
         </Flex>
       </Flex>
