@@ -63,7 +63,6 @@ function Code({className, children, live, noinline}) {
                   ))}
                 </div>
               ))}
-            </code>
           </BorderBox>
         )}
       </Highlight>
