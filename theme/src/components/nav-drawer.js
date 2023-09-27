@@ -1,12 +1,11 @@
-import {BorderBox, Flex, Link, Text} from '@primer/components'
-import {ChevronDownIcon, ChevronUpIcon, XIcon, ThreeBarsIcon} from '@primer/octicons-react'
+import {BorderBox, Flex, Link} from '@primer/components'
+import {XIcon, ThreeBarsIcon} from '@primer/octicons-react'
 import {Link as GatsbyLink} from 'gatsby'
 import React from 'react'
 import navItems from '../nav.yml'
 import headerNavItems from '../header-nav.yml'
 import useSiteMetadata from '../use-site-metadata'
 import DarkButton from './dark-button'
-import Details from './details'
 import Drawer from './drawer'
 import NavItems from './nav-items'
 import {useIsMobile} from '../use-breakpoint'
@@ -71,44 +70,20 @@ function NavDrawer({location}) {
 }
 
 function HeaderNavItems({items}) {
-  return items.map((item, index) => {
-    return (
-      <BorderBox
-        key={item.title}
-        borderWidth={0}
-        borderRadius={0}
-        borderTopWidth={index !== 0 ? 1 : 0}
-        borderColor="gray.7"
-        p={4}
-      >
-        {item.children ? (
-          <Details key={index}>
-            {({open, toggle}) => (
-              <>
-                <summary onClick={toggle} style={{cursor: 'pointer'}}>
-                  <Flex alignItems="center" justifyContent="space-between">
-                    <Text>{item.title}</Text>
-                    {open ? <ChevronUpIcon /> : <ChevronDownIcon />}
-                  </Flex>
-                </summary>
-                <Flex flexDirection="column" mt={2}>
-                  {item.children.map(child => (
-                    <Link key={child.title} href={child.url} py={1} mt={2} fontSize={1} color="inherit">
-                      {child.title}
-                    </Link>
-                  ))}
-                </Flex>
-              </>
-            )}
-          </Details>
-        ) : (
-          <Link key={index} href={item.url} color="inherit" display="block">
-            {item.title}
-          </Link>
-        )}
-      </BorderBox>
-    )
-  })
+  return items.map((item, index) => (
+    <BorderBox
+      key={item.title}
+      borderWidth={0}
+      borderRadius={0}
+      borderTopWidth={index !== 0 ? 1 : 0}
+      borderColor="gray.7"
+      p={4}
+    >
+      <Link key={index} href={item.url} color="inherit" display="block">
+        {item.title}
+      </Link>
+    </BorderBox>
+  ))
 }
 
 export default NavDrawer

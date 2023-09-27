@@ -73,6 +73,17 @@ exports.createPages = async ({graphql, actions}, themeOptions) => {
       const contributors =
         themeOptions.showContributors !== false ? await fetchContributors(repo, fileRelativePath, node.frontmatte) : []
 
+      // Fix some old CLI pages which have mismatched headings at the top level.
+      // All top level headings should be the same level.
+      const tableOfContents = node.tableOfContents?.items?.reduce((acc, item) => {
+        if (!item.url && Array.isArray(item.items)) {
+          acc.push(...item.items)
+        } else {
+          acc.push(item)
+        }
+        return acc
+      }, [])
+
       actions.createPage({
         path: pagePath,
         component: node.fileAbsolutePath,
@@ -81,7 +92,7 @@ exports.createPages = async ({graphql, actions}, themeOptions) => {
           themeOptions,
           editUrl,
           contributors,
-          tableOfContents: node.tableOfContents,
+          tableOfContents,
         },
       })
 

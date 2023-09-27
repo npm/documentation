@@ -1,4 +1,7 @@
 module.exports = {
+  extends: [
+    'plugin:github/react',
+  ],
   overrides: [{
     files: ['src/**'],
     parserOptions: {
