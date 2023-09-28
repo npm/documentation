@@ -1470,6 +1470,9 @@
             - title: npm run-script
               url: /cli/v10/commands/npm-run-script
               description: Run arbitrary package scripts
+            - title: npm sbom
+              url: /cli/v10/commands/npm-sbom
+              description: Generate a Software Bill of Materials (SBOM)
             - title: npm search
               url: /cli/v10/commands/npm-search
               description: Search for packages
