@@ -54,7 +54,11 @@ function Code({className, children, live, noinline}) {
         {({className, style, tokens, getLineProps, getTokenProps}) => (
           <BorderBox as="pre" className={className} mt={0} mb={3} p={3} border={0} style={{...style, overflow: 'auto'}}>
             {/* This is the scroll handle, it is supposed to be focused with keyboard and scroll a wide codebox horizontally */}
-            <div aria-hidden="true" style={{position: 'absolute', ...scrollSize}} ref={scrollHandleRef} />
+            <div
+              aria-hidden="true"
+              style={{visibility: 'hidden', position: 'absolute', ...scrollSize}}
+              ref={scrollHandleRef}
+            />
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({line, key: i})}>
                 {line.map((token, key) => (
