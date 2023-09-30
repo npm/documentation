@@ -1,4 +1,8 @@
 module.exports = {
+  extends: [
+    'plugin:github/react',
+    'plugin:primer-react/recommended',
+  ],
   overrides: [{
     files: ['src/**'],
     parserOptions: {

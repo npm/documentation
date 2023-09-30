@@ -160,10 +160,6 @@
           url: /about-registry-signatures
         - title: Verifying ECDSA registry signatures
           url: /verifying-registry-signatures
-        - title: About PGP registry signatures (deprecated)
-          url: /about-pgp-signatures-for-packages-in-the-public-registry
-        - title: Verifying PGP registry signatures (deprecated)
-          url: /verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry
         - title: Requiring 2FA for package publishing and settings modification
           url: /requiring-2fa-for-package-publishing-and-settings-modification
         - title: Reporting malware in an npm package
@@ -1474,6 +1470,9 @@
             - title: npm run-script
               url: /cli/v10/commands/npm-run-script
               description: Run arbitrary package scripts
+            - title: npm sbom
+              url: /cli/v10/commands/npm-sbom
+              description: Generate a Software Bill of Materials (SBOM)
             - title: npm search
               url: /cli/v10/commands/npm-search
               description: Search for packages

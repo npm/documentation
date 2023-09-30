@@ -76,7 +76,7 @@ function Layout({children, pageContext, location}) {
                 </Box>
               ) : null}
             </Box>
-            {pageContext.tableOfContents.items ? (
+            {pageContext.tableOfContents ? (
               <Position
                 display={['none', null, 'block']}
                 css={{gridArea: 'table-of-contents', overflow: 'auto'}}
@@ -91,7 +91,7 @@ function Layout({children, pageContext, location}) {
                 <Text display="inline-block" fontWeight="bold" mb={1} id="table-of-content-label">
                   Table of contents
                 </Text>
-                <TableOfContents items={pageContext.tableOfContents.items} labelId="table-of-content-label" />
+                <TableOfContents items={pageContext.tableOfContents} labelId="table-of-content-label" />
               </Position>
             ) : null}
             <Box css={{gridArea: 'content'}}>
@@ -102,7 +102,7 @@ function Layout({children, pageContext, location}) {
                   {source ? <SourceLink href={source} /> : null}
                 </Flex>
               ) : null}
-              {pageContext.tableOfContents.items ? (
+              {pageContext.tableOfContents ? (
                 <Box display={['block', null, 'none']} mb={3}>
                   <Details>
                     {({open}) => (
@@ -116,7 +116,7 @@ function Layout({children, pageContext, location}) {
                           Table of contents
                         </Text>
                         <Box pt={1}>
-                          <TableOfContents items={pageContext.tableOfContents.items} />
+                          <TableOfContents items={pageContext.tableOfContents} />
                         </Box>
                       </>
                     )}
