@@ -352,6 +352,16 @@ Run git commit hooks when using the `npm version` command.
 
 
 
+#### `cpu`
+
+* Default: null
+* Type: null or String
+
+Override CPU architecture of native modules to install. Acceptable values
+are same as `cpu` field of package.json, which comes from `process.arch`.
+
+
+
 #### `depth`
 
 * Default: `Infinity` if `--all` is set, otherwise `1`
@@ -1045,6 +1055,16 @@ time.
 
 
 
+#### `os`
+
+* Default: null
+* Type: null or String
+
+Override OS of native modules to install. Acceptable values are same as `os`
+field of package.json, which comes from `process.platform`.
+
+
+
 #### `otp`
 
 * Default: null
@@ -1342,6 +1362,26 @@ you want to move it to be a non-optional production dependency.
 
 This is the default behavior if `--save` is true, and neither `--save-dev`
 or `--save-optional` are true.
+
+
+
+#### `sbom-format`
+
+* Default: null
+* Type: "cyclonedx" or "spdx"
+
+SBOM format to use when generating SBOMs.
+
+
+
+#### `sbom-type`
+
+* Default: "library"
+* Type: "library", "application", or "framework"
+
+The type of package described by the generated SBOM. For SPDX, this is the
+value for the `primaryPackagePurpose` field. For CycloneDX, this is the
+value for the `type` field.
 
 
 
