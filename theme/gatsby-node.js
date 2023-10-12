@@ -1,5 +1,4 @@
 const path = require('path')
-const axios = require('axios')
 const uniqBy = require('lodash.uniqby')
 
 const CONTRIBUTOR_CACHE = new Map()
@@ -91,7 +90,7 @@ exports.createPages = async ({graphql, actions}, themeOptions) => {
           editUrl,
           contributors,
           tableOfContents,
-          repositoryUrl: repo.url
+          repositoryUrl: repo.url,
         },
       })
 
@@ -195,16 +194,16 @@ async function fetchContributors(repo, filePath, overrideData = {}) {
   }
 
   try {
-    const req = {
-      method: 'get',
-      baseURL: 'https://api.github.com/',
-      url: `/repos/${gh.nwo}/commits?path=${gh.path}&sha=${gh.branch}&per_page=100`,
-      headers: {
-        Authorization: `token ${process.env.GITHUB_TOKEN}`,
+    const resp = await fetch(
+      `https://api.github.com/repos/${gh.nwo}/commits?path=${gh.path}&sha=${gh.branch}&per_page=100`,
+      {
+        headers: {
+          Authorization: `token ${process.env.GITHUB_TOKEN}`,
+        },
       },
-    }
+    )
 
-    const {data} = await axios.request(req)
+    const {data} = await resp.json()
 
     const commits = data
       .map(commit => ({
