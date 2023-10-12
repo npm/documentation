@@ -37,11 +37,4 @@ module.exports = {
     '/CONTENT-MODEL.md',
     '/.nvmrc',
   ],
-  allowedPackages: [
-    // these need to be allowed since this repo uses legacy-peer-deps
-    // and these need to be installed explicitly
-    'eslint-plugin-promise',
-    'eslint-plugin-node',
-    'eslint-plugin-import',
-  ],
 }
