@@ -14,6 +14,7 @@ function Search(props) {
         {...getInputProps({
           placeholder: `Search ${siteMetadata.title}`,
           width: 240,
+          'aria-label': `Search ${siteMetadata.title}`,
         })}
       />
       <Position

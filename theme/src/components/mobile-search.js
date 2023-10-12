@@ -46,6 +46,7 @@ function MobileSearch({onDismiss, ...props}) {
                 {...getInputProps({
                   placeholder: `Search ${siteMetadata.title}`,
                   width: '100%',
+                  'aria-label': `Search ${siteMetadata.title}`,
                 })}
               />
             </motion.div>
