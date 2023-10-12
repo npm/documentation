@@ -67,7 +67,7 @@
   "devDependencies": {
     "@github/prettier-config": "^0.0.6",
     "@npmcli/template-oss": "4.19.0",
-    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/jest-dom": "^6.1.4",
     "babel-jest": "^29.7.0",
     "eslint": "^8.51.0",
     "eslint-plugin-github": "^4.10.1",
