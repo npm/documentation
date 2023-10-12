@@ -25,7 +25,7 @@ const useDrawerIsOpen = () => {
   return [isOpen, {setOpen, setClose}]
 }
 
-function NavDrawer({location}) {
+function NavDrawer({location, repositoryUrl}) {
   const siteMetadata = useSiteMetadata()
   const [isOpen, {setOpen, setClose}] = useDrawerIsOpen()
 
@@ -54,7 +54,7 @@ function NavDrawer({location}) {
             </BorderBox>
             {navItems.length > 0 ? (
               <Flex flexDirection="column">
-                <NavItems location={location} items={navItems} editOnGitHub={false} />
+                <NavItems location={location} items={navItems} repositoryUrl={repositoryUrl} />
               </Flex>
             ) : null}
           </Flex>

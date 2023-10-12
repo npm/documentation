@@ -4,7 +4,7 @@ import navItems from '../nav.yml'
 import {HEADER_HEIGHT} from './header'
 import NavItems from './nav-items'
 
-function Sidebar({location, editOnGitHub}) {
+function Sidebar({location, repositoryUrl}) {
   return (
     <Position
       position="sticky"
@@ -17,7 +17,7 @@ function Sidebar({location, editOnGitHub}) {
     >
       <BorderBox borderWidth={0} borderRightWidth={1} borderRadius={0} height="100%" style={{overflow: 'auto'}}>
         <Flex flexDirection="column" role="list">
-          <NavItems location={location} items={navItems} editOnGitHub={editOnGitHub} />
+          <NavItems location={location} items={navItems} repositoryUrl={repositoryUrl} />
         </Flex>
       </BorderBox>
     </Position>
