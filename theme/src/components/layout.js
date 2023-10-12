@@ -38,10 +38,7 @@ function Layout({children, pageContext, location}) {
         <Header location={location} isSearchEnabled={pageContext.isSearchEnabled} />
         <Flex flex="1 1 auto" flexDirection="row" css={{zIndex: 0}} role="main">
           <Box display={['none', null, null, 'block']}>
-            <Sidebar
-              editOnGitHub={pageContext.themeOptions.showSidebarEditLink && pageContext.themeOptions.editOnGitHub}
-              location={location}
-            />
+            <Sidebar repositoryUrl={pageContext.repositoryUrl} location={location} />
           </Box>
           <Grid
             id="skip-nav"
@@ -125,7 +122,6 @@ function Layout({children, pageContext, location}) {
               ) : null}
               {children}
               <PageFooter
-                editOnGitHub={pageContext.themeOptions.editOnGitHub}
                 editUrl={pageContext.editUrl}
                 contributors={pageContext.contributors.concat(additionalContributors.map(login => ({login})))}
               />

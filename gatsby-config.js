@@ -13,9 +13,7 @@ module.exports = {
       resolve: './theme',
       options: {
         icon: './src/images/npm-favicon.png',
-        editOnGitHub: true,
         showContributors: false,
-        showSidebarEditLink: false,
         repo: {
           url: 'https://github.com/npm/documentation',
           defaultBranch: 'main',
