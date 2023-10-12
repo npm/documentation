@@ -36,7 +36,12 @@ Next, `npm run develop` to start the test server to view your changes.
 The Gatsby server will be started on port 8000.  You can navigate to
 `http://localhost:8000` to view the site live.
 
-**For best results use npm 8**
+In order to cut down on the time it takes `npm run develop` to complete, you can
+use the environment variable `GATSBY_PARTIAL_CONTENT` to only build some pages.
+For example, if the only pages you need to test locally are in `/cli/v10/commands`,
+then you can run the site locally with `GATSBY_PARTIAL_CONTENT=cli/v10/commands npm run develop`.
+
+**For best results use Node 18 and npm 9+**
 
 **Gatsby will watch your filesystem looking for updates.**  Any content
 changes you make should be reflected in the site immediately.

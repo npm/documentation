@@ -11,6 +11,7 @@
 !/.github/
 !/.gitignore
 !/.npmrc
+!/.nvmrc
 !/.release-please-manifest.json
 !/.reuse/
 !/*.md
