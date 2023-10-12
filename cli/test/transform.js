@@ -93,3 +93,22 @@ t.test('package-json files', async t => {
     '/files/package.json',
   ])
 })
+
+t.test('registry signatures', async t => {
+  t.strictSame(transform({
+    id: 'v8',
+    path: 'about-pgp-signatures-for-packages-in-the-public-registry',
+  }).redirect_from, [
+    '/about-registry-signatures',
+    '/cli/about-pgp-signatures-for-packages-in-the-public-registry',
+    '/cli/v8/about-pgp-signatures-for-packages-in-the-public-registry',
+  ])
+  t.strictSame(transform({
+    id: 'v8',
+    path: 'verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry',
+  }).redirect_from, [
+    '/cli/v8/verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry',
+    '/cli/verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry',
+    '/verifying-registry-signatures',
+  ])
+})
