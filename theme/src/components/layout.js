@@ -35,7 +35,11 @@ function Layout({children, pageContext, location}) {
     >
       <Flex flexDirection="column" minHeight="100vh">
         <Head title={title} description={description} />
-        <Header location={location} isSearchEnabled={pageContext.isSearchEnabled} />
+        <Header
+          repositoryUrl={pageContext.repositoryUrl}
+          location={location}
+          isSearchEnabled={pageContext.isSearchEnabled}
+        />
         <Flex flex="1 1 auto" flexDirection="row" css={{zIndex: 0}} role="main">
           <Box display={['none', null, null, 'block']}>
             <Sidebar repositoryUrl={pageContext.repositoryUrl} location={location} />
