@@ -35,5 +35,6 @@ module.exports = {
     '/gatsby-*.js',
     '/CONTRIBUTING.md',
     '/CONTENT-MODEL.md',
+    '/.nvmrc',
   ],
 }
