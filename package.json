@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "develop": "gatsby develop",
-    "build": "NODE_OPTIONS=--max-old-space-size=7168 gatsby build",
+    "build": "NODE_OPTIONS=--max-old-space-size=7168 gatsby build --verbose --log-pages",
+    "clean": "rm -rf .cache/ public/",
     "serve": "gatsby serve",
     "lint": "eslint \"**/*.js\"",
     "postlint": "template-oss-check",
