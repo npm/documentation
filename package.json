@@ -25,17 +25,17 @@
     "theme/"
   ],
   "dependencies": {
-    "gatsby": "^4.25.7",
+    "gatsby": "^5.12.6",
     "gatsby-plugin-meta-redirect": "^1.1.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "theme": "^1.0.0"
   },
   "devDependencies": {
     "@npmcli/eslint-config": "^4.0.1",
     "@npmcli/template-oss": "4.19.0",
     "eslint-plugin-github": "^4.10.1",
-    "eslint-plugin-primer-react": "^4.0.2",
+    "eslint-plugin-primer-react": "^4.0.3",
     "tap": "^16.3.9"
   },
   "author": "GitHub Inc.",
