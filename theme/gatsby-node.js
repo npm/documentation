@@ -1,6 +1,4 @@
 const path = require('path')
-const readPkgUp = require('read-pkg-up')
-const getPkgRepo = require('get-pkg-repo')
 const axios = require('axios')
 const uniqBy = require('lodash.uniqby')
 
@@ -27,7 +25,7 @@ exports.createSchemaCustomization = ({actions: {createTypes}}) => {
 }
 
 exports.createPages = async ({graphql, actions}, themeOptions) => {
-  const repo = themeOptions.repo ? themeOptions.repo : {url: getPkgRepo(readPkgUp.sync().package).browse()}
+  const repo = themeOptions.repo
 
   const {data} = await graphql(`
     {
@@ -68,7 +66,7 @@ exports.createPages = async ({graphql, actions}, themeOptions) => {
 
       const fileRelativePath = path.relative(rootAbsolutePath, node.fileAbsolutePath)
 
-      const editUrl = getEditUrl(themeOptions, repo, fileRelativePath, node.frontmatter)
+      const editUrl = getEditUrl(repo, fileRelativePath, node.frontmatter)
 
       const contributors =
         themeOptions.showContributors !== false ? await fetchContributors(repo, fileRelativePath, node.frontmatte) : []
@@ -93,6 +91,7 @@ exports.createPages = async ({graphql, actions}, themeOptions) => {
           editUrl,
           contributors,
           tableOfContents,
+          repositoryUrl: repo.url
         },
       })
 
@@ -173,8 +172,8 @@ function getGitHubData(repo, overrideData, filePath) {
   return gh
 }
 
-function getEditUrl(themeOptions, repo, filePath, overrideData = {}) {
-  if (themeOptions.editOnGitHub === false || overrideData.edit_on_github === false) {
+function getEditUrl(repo, filePath, overrideData = {}) {
+  if (overrideData.edit_on_github === false) {
     return null
   }
 

@@ -3,11 +3,11 @@ import {PencilIcon} from '@primer/octicons-react'
 import React from 'react'
 import Contributors from './contributors'
 
-function PageFooter({editOnGitHub, editUrl, contributors}) {
+function PageFooter({editUrl, contributors}) {
   return editUrl || contributors.length > 0 ? (
     <BorderBox borderWidth={0} borderTopWidth={1} mt={8} py={5}>
       <Grid gridGap={4}>
-        {editOnGitHub !== false && editUrl != null ? (
+        {editUrl != null ? (
           <Link href={editUrl}>
             <StyledOcticon icon={PencilIcon} mr={2} />
             Edit this page on GitHub

@@ -17,7 +17,7 @@ const NpmHeaderBar = styled(Box)`
   background-image: linear-gradient(139deg, #fb8817, #ff4b01, #c12127, #e02aff);
 `
 
-function Header({location, isSearchEnabled = true}) {
+function Header({location, repositoryUrl, isSearchEnabled = true}) {
   const siteMetadata = useSiteMetadata()
   const search = useSearch()
 
@@ -51,7 +51,7 @@ function Header({location, isSearchEnabled = true}) {
           </Box>
           <Flex display={['flex', null, null, 'none']}>
             {isSearchEnabled ? <MobileSearch {...search} /> : null}
-            <NavDrawer location={location} />
+            <NavDrawer location={location} repositoryUrl={repositoryUrl} />
           </Flex>
         </Flex>
       </Flex>
