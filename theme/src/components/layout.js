@@ -1,15 +1,9 @@
 import {BorderBox, Box, Flex, Grid, Heading, Position, StyledOcticon, Text} from '@primer/components'
 import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
 import React from 'react'
-import {MDXProvider} from '@mdx-js/react'
 import Head from './head'
 import Header, {HEADER_HEIGHT} from './header'
-import Index from './index'
-import Note from './note'
 import PageFooter from './page-footer'
-import Prompt from './prompt'
-import PromptReply from './prompt-reply'
-import Screenshot from './screenshot'
 import Sidebar from './sidebar'
 import SourceLink from './source-link'
 import StatusLabel from './status-label'
@@ -17,6 +11,7 @@ import TableOfContents from './table-of-contents'
 import VariantSelect from './variant-select'
 import NavHierarchy from '../nav-hierarchy'
 import Details from './details'
+import * as Slugger from '../use-slugger'
 
 function Layout({children, pageContext, location}) {
   const {title, description, status, source, additionalContributors = []} = pageContext.frontmatter
@@ -24,15 +19,7 @@ function Layout({children, pageContext, location}) {
   const variantRoot = NavHierarchy.getVariantRoot(location.pathname)
 
   return (
-    <MDXProvider
-      components={{
-        Index,
-        Note,
-        Prompt,
-        PromptReply,
-        Screenshot,
-      }}
-    >
+    <Slugger.Provider>
       <Flex flexDirection="column" minHeight="100vh">
         <Head title={title} description={description} />
         <Header
@@ -133,7 +120,7 @@ function Layout({children, pageContext, location}) {
           </Grid>
         </Flex>
       </Flex>
-    </MDXProvider>
+    </Slugger.Provider>
   )
 }
 
