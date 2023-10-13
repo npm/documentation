@@ -3,36 +3,20 @@ title: npm-unpublish
 section: 1
 description: Remove a package from the registry
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-unpublish.md
 redirect_from:
-  - /cli-commands/npm-unpublish
-  - /cli-commands/unpublish
-  - /cli-documentation/cli-commands/npm-unpublish
-  - /cli-documentation/cli-commands/unpublish
-  - /cli-documentation/commands/npm-unpublish
-  - /cli-documentation/commands/unpublish
-  - /cli-documentation/npm-unpublish
-  - /cli-documentation/unpublish
   - /cli-documentation/v9/cli-commands/npm-unpublish
   - /cli-documentation/v9/cli-commands/unpublish
   - /cli-documentation/v9/commands/npm-unpublish
   - /cli-documentation/v9/commands/unpublish
   - /cli-documentation/v9/npm-unpublish
   - /cli-documentation/v9/unpublish
-  - /cli/cli-commands/npm-unpublish
-  - /cli/cli-commands/unpublish
-  - /cli/commands/npm-unpublish
-  - /cli/commands/unpublish
-  - /cli/npm-unpublish
-  - /cli/unpublish
   - /cli/v9/cli-commands/npm-unpublish
   - /cli/v9/cli-commands/unpublish
   - /cli/v9/commands/unpublish
   - /cli/v9/npm-unpublish
   - /cli/v9/unpublish
-  - /commands/npm-unpublish
-  - /commands/unpublish
 ---
 
 ### Synopsis
@@ -83,6 +67,8 @@ commands that modify your local installation, eg, `install`, `update`,
 Note: This is NOT honored by other network related commands, eg `dist-tags`,
 `owner`, etc.
 
+
+
 #### `force`
 
 * Default: false
@@ -108,6 +94,8 @@ mistakes, unnecessary performance degradation, and malicious input.
 
 If you don't have a clear idea of what you want to do, it is strongly
 recommended that you do not use this option!
+
+
 
 #### `workspace`
 

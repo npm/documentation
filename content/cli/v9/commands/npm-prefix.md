@@ -3,36 +3,20 @@ title: npm-prefix
 section: 1
 description: Display prefix
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-prefix.md
 redirect_from:
-  - /cli-commands/npm-prefix
-  - /cli-commands/prefix
-  - /cli-documentation/cli-commands/npm-prefix
-  - /cli-documentation/cli-commands/prefix
-  - /cli-documentation/commands/npm-prefix
-  - /cli-documentation/commands/prefix
-  - /cli-documentation/npm-prefix
-  - /cli-documentation/prefix
   - /cli-documentation/v9/cli-commands/npm-prefix
   - /cli-documentation/v9/cli-commands/prefix
   - /cli-documentation/v9/commands/npm-prefix
   - /cli-documentation/v9/commands/prefix
   - /cli-documentation/v9/npm-prefix
   - /cli-documentation/v9/prefix
-  - /cli/cli-commands/npm-prefix
-  - /cli/cli-commands/prefix
-  - /cli/commands/npm-prefix
-  - /cli/commands/prefix
-  - /cli/npm-prefix
-  - /cli/prefix
   - /cli/v9/cli-commands/npm-prefix
   - /cli/v9/cli-commands/prefix
   - /cli/v9/commands/prefix
   - /cli/v9/npm-prefix
   - /cli/v9/prefix
-  - /commands/npm-prefix
-  - /commands/prefix
 ---
 
 ### Synopsis
@@ -80,10 +64,11 @@ folder instead of the current working directory. See
 * bin files are linked to `{prefix}/bin`
 * man pages are linked to `{prefix}/share/man`
 
+
+
 ### See Also
 
 * [npm root](/cli/v9/commands/npm-root)
-* [npm bin](/cli/v9/commands/npm-bin)
 * [npm folders](/cli/v9/configuring-npm/folders)
 * [npm config](/cli/v9/commands/npm-config)
 * [npmrc](/cli/v9/configuring-npm/npmrc)

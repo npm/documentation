@@ -1,6 +1,5 @@
 ---
 title: "npm: Threats and Mitigations"
-redirect_from: [ /threats-and-mitigations ]
 ---
 
 We put together this page to give an overview of the most common attacks npm faces, a high-level description of how we mitigate those attacks, and links to more information.
@@ -29,7 +28,7 @@ npm does periodically check if accounts email addresses have expired domains or 
 
 Attackers may attempt to trick others into installing a malicious package by registering a package with a similar name to a popular package, in hopes that people will mistype or otherwise confuse the two. npm is able to detect typosquat attacks and block the publishing of these packages.
 
-A variant of this attack is when a public package is registered with the same name of a private package that an organization is using. We strongly encourage using [scoped packages](https://github.blog/2021-02-12-avoiding-npm-substitution-attacks/) to ensure that a private package isn’t being substituted with one from the public registry. While npm is not able to detect dependency confusion attacks we have a zero tolerance for malicious packages on the registry. If you believe you have identified a dependency confusion packages, [please let us know][report-malware]!
+A variant of this attack is when a public package is registered with the same name of a private package that an organization is using. We strongly encourage using [scoped packages](https://github.blog/2021-02-12-avoiding-npm-substitution-attacks/) to ensure that a private package isn’t being substituted with one from the public registry. While npm is not able to detect dependency confusion attacks we have a zero tolerance for malicious packages on the registry. If you believe you have identified a dependency confusion package, [please let us know][report-malware]!
 
 ### By changing an existing package to have malicious behavior
 

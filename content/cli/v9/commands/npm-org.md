@@ -3,36 +3,20 @@ title: npm-org
 section: 1
 description: Manage orgs
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-org.md
 redirect_from:
-  - /cli-commands/npm-org
-  - /cli-commands/org
-  - /cli-documentation/cli-commands/npm-org
-  - /cli-documentation/cli-commands/org
-  - /cli-documentation/commands/npm-org
-  - /cli-documentation/commands/org
-  - /cli-documentation/npm-org
-  - /cli-documentation/org
   - /cli-documentation/v9/cli-commands/npm-org
   - /cli-documentation/v9/cli-commands/org
   - /cli-documentation/v9/commands/npm-org
   - /cli-documentation/v9/commands/org
   - /cli-documentation/v9/npm-org
   - /cli-documentation/v9/org
-  - /cli/cli-commands/npm-org
-  - /cli/cli-commands/org
-  - /cli/commands/npm-org
-  - /cli/commands/org
-  - /cli/npm-org
-  - /cli/org
   - /cli/v9/cli-commands/npm-org
   - /cli/v9/cli-commands/org
   - /cli/v9/commands/org
   - /cli/v9/npm-org
   - /cli/v9/org
-  - /commands/npm-org
-  - /commands/org
 ---
 
 ### Synopsis
@@ -100,6 +84,8 @@ listing them, and finding specific ones and their roles.
 
 The base URL of the npm registry.
 
+
+
 #### `otp`
 
 * Default: null
@@ -110,6 +96,8 @@ when publishing or changing package permissions with `npm access`.
 
 If not set, and a registry response fails with a challenge for a one-time
 password, npm will prompt on the command line for one.
+
+
 
 #### `json`
 
@@ -123,6 +111,8 @@ Whether or not to output JSON data, rather than the normal output.
 
 Not supported by all npm commands.
 
+
+
 #### `parseable`
 
 * Default: false
@@ -130,6 +120,8 @@ Not supported by all npm commands.
 
 Output parseable results from commands that write to standard output. For
 `npm search`, this will be tab-separated table format.
+
+
 
 ### See Also
 

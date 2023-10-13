@@ -3,36 +3,20 @@ title: npm-help-search
 section: 1
 description: Search npm help documentation
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-help-search.md
 redirect_from:
-  - /cli-commands/help-search
-  - /cli-commands/npm-help-search
-  - /cli-documentation/cli-commands/help-search
-  - /cli-documentation/cli-commands/npm-help-search
-  - /cli-documentation/commands/help-search
-  - /cli-documentation/commands/npm-help-search
-  - /cli-documentation/help-search
-  - /cli-documentation/npm-help-search
   - /cli-documentation/v9/cli-commands/help-search
   - /cli-documentation/v9/cli-commands/npm-help-search
   - /cli-documentation/v9/commands/help-search
   - /cli-documentation/v9/commands/npm-help-search
   - /cli-documentation/v9/help-search
   - /cli-documentation/v9/npm-help-search
-  - /cli/cli-commands/help-search
-  - /cli/cli-commands/npm-help-search
-  - /cli/commands/help-search
-  - /cli/commands/npm-help-search
-  - /cli/help-search
-  - /cli/npm-help-search
   - /cli/v9/cli-commands/help-search
   - /cli/v9/cli-commands/npm-help-search
   - /cli/v9/commands/help-search
   - /cli/v9/help-search
   - /cli/v9/npm-help-search
-  - /commands/help-search
-  - /commands/npm-help-search
 ---
 
 ### Synopsis
@@ -62,6 +46,8 @@ directly.
 * Type: Boolean
 
 Show extended information in `ls`, `search`, and `help-search`.
+
+
 
 ### See Also
 

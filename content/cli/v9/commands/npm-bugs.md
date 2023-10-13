@@ -3,36 +3,20 @@ title: npm-bugs
 section: 1
 description: Report bugs for a package in a web browser
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-bugs.md
 redirect_from:
-  - /cli-commands/bugs
-  - /cli-commands/npm-bugs
-  - /cli-documentation/bugs
-  - /cli-documentation/cli-commands/bugs
-  - /cli-documentation/cli-commands/npm-bugs
-  - /cli-documentation/commands/bugs
-  - /cli-documentation/commands/npm-bugs
-  - /cli-documentation/npm-bugs
   - /cli-documentation/v9/bugs
   - /cli-documentation/v9/cli-commands/bugs
   - /cli-documentation/v9/cli-commands/npm-bugs
   - /cli-documentation/v9/commands/bugs
   - /cli-documentation/v9/commands/npm-bugs
   - /cli-documentation/v9/npm-bugs
-  - /cli/bugs
-  - /cli/cli-commands/bugs
-  - /cli/cli-commands/npm-bugs
-  - /cli/commands/bugs
-  - /cli/commands/npm-bugs
-  - /cli/npm-bugs
   - /cli/v9/bugs
   - /cli/v9/cli-commands/bugs
   - /cli/v9/cli-commands/npm-bugs
   - /cli/v9/commands/bugs
   - /cli/v9/npm-bugs
-  - /commands/bugs
-  - /commands/npm-bugs
 ---
 
 ### Synopsis
@@ -65,12 +49,16 @@ terminal.
 
 Set to `true` to use default system URL opener.
 
+
+
 #### `registry`
 
 * Default: "https://registry.npmjs.org/"
 * Type: URL
 
 The base URL of the npm registry.
+
+
 
 #### `workspace`
 

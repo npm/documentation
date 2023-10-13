@@ -3,36 +3,20 @@ title: npm-dist-tag
 section: 1
 description: Modify package distribution tags
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-dist-tag.md
 redirect_from:
-  - /cli-commands/dist-tag
-  - /cli-commands/npm-dist-tag
-  - /cli-documentation/cli-commands/dist-tag
-  - /cli-documentation/cli-commands/npm-dist-tag
-  - /cli-documentation/commands/dist-tag
-  - /cli-documentation/commands/npm-dist-tag
-  - /cli-documentation/dist-tag
-  - /cli-documentation/npm-dist-tag
   - /cli-documentation/v9/cli-commands/dist-tag
   - /cli-documentation/v9/cli-commands/npm-dist-tag
   - /cli-documentation/v9/commands/dist-tag
   - /cli-documentation/v9/commands/npm-dist-tag
   - /cli-documentation/v9/dist-tag
   - /cli-documentation/v9/npm-dist-tag
-  - /cli/cli-commands/dist-tag
-  - /cli/cli-commands/npm-dist-tag
-  - /cli/commands/dist-tag
-  - /cli/commands/npm-dist-tag
-  - /cli/dist-tag
-  - /cli/npm-dist-tag
   - /cli/v9/cli-commands/dist-tag
   - /cli/v9/cli-commands/npm-dist-tag
   - /cli/v9/commands/dist-tag
   - /cli/v9/dist-tag
   - /cli/v9/npm-dist-tag
-  - /commands/dist-tag
-  - /commands/npm-dist-tag
 ---
 
 ### Synopsis
@@ -53,12 +37,12 @@ Add, remove, and enumerate distribution tags on a package:
   or the [`--tag` config](/cli/v9/using-npm/config#tag) if not specified. If you have
   two-factor authentication on auth-and-writes then you’ll need to include a
   one-time password on the command line with
-  `--otp <one-time password>`, or at the OTP prompt.
+  `--otp <one-time password>`, or go through a second factor flow based on your `authtype`.
 
 * rm: Clear a tag that is no longer in use from the package. If you have
   two-factor authentication on auth-and-writes then you’ll need to include
   a one-time password on the command line with `--otp <one-time password>`,
-  or at the OTP prompt.
+  or go through a second factor flow based on your `authtype`
 
 * ls: Show all of the dist-tags for a package, defaulting to the package in
   the current prefix. This is the default action if none is specified.

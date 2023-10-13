@@ -3,36 +3,20 @@ title: npm-audit
 section: 1
 description: Run a security audit
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-audit.md
 redirect_from:
-  - /cli-commands/audit
-  - /cli-commands/npm-audit
-  - /cli-documentation/audit
-  - /cli-documentation/cli-commands/audit
-  - /cli-documentation/cli-commands/npm-audit
-  - /cli-documentation/commands/audit
-  - /cli-documentation/commands/npm-audit
-  - /cli-documentation/npm-audit
   - /cli-documentation/v9/audit
   - /cli-documentation/v9/cli-commands/audit
   - /cli-documentation/v9/cli-commands/npm-audit
   - /cli-documentation/v9/commands/audit
   - /cli-documentation/v9/commands/npm-audit
   - /cli-documentation/v9/npm-audit
-  - /cli/audit
-  - /cli/cli-commands/audit
-  - /cli/cli-commands/npm-audit
-  - /cli/commands/audit
-  - /cli/commands/npm-audit
-  - /cli/npm-audit
   - /cli/v9/audit
   - /cli/v9/cli-commands/audit
   - /cli/v9/cli-commands/npm-audit
   - /cli/v9/commands/audit
   - /cli/v9/npm-audit
-  - /commands/audit
-  - /commands/npm-audit
 ---
 
 ### Synopsis
@@ -62,6 +46,13 @@ vulnerability is found. It may be useful in CI environments to include the
 `--audit-level` parameter to specify the minimum vulnerability level that
 will cause the command to fail. This option does not filter the report
 output, it simply changes the command's failure threshold.
+
+### Package lock
+
+By default npm requires a package-lock or shrinkwrap in order to run the
+audit.  You can bypass the package lock with `--no-package-lock` but be
+aware the results may be different with every run, since npm will
+re-build the dependency tree each time.
 
 ### Audit Signatures
 
@@ -277,6 +268,8 @@ $ npm audit --audit-level=moderate
 The minimum level of vulnerability for `npm audit` to exit with a non-zero
 exit code.
 
+
+
 #### `dry-run`
 
 * Default: false
@@ -289,6 +282,8 @@ commands that modify your local installation, eg, `install`, `update`,
 
 Note: This is NOT honored by other network related commands, eg `dist-tags`,
 `owner`, etc.
+
+
 
 #### `force`
 
@@ -316,6 +311,8 @@ mistakes, unnecessary performance degradation, and malicious input.
 If you don't have a clear idea of what you want to do, it is strongly
 recommended that you do not use this option!
 
+
+
 #### `json`
 
 * Default: false
@@ -327,6 +324,8 @@ Whether or not to output JSON data, rather than the normal output.
   saving them to your `package.json`.
 
 Not supported by all npm commands.
+
+
 
 #### `package-lock-only`
 
@@ -341,6 +340,18 @@ instead of checking `node_modules` and downloading dependencies.
 
 For `list` this means the output will be based on the tree described by the
 `package-lock.json`, rather than the contents of `node_modules`.
+
+
+
+#### `package-lock`
+
+* Default: true
+* Type: Boolean
+
+If set to false, then ignore `package-lock.json` files when installing. This
+will also prevent _writing_ `package-lock.json` if `save` is true.
+
+
 
 #### `omit`
 
@@ -360,6 +371,8 @@ it will be included.
 If the resulting omit list includes `'dev'`, then the `NODE_ENV` environment
 variable will be set to `'production'` for all lifecycle scripts.
 
+
+
 #### `foreground-scripts`
 
 * Default: false
@@ -372,6 +385,8 @@ input, output, and error with the main npm process.
 Note that this will generally make installs run slower, and be much noisier,
 but can be useful for debugging.
 
+
+
 #### `ignore-scripts`
 
 * Default: false
@@ -383,6 +398,8 @@ Note that commands explicitly intended to run a particular script, such as
 `npm start`, `npm stop`, `npm restart`, `npm test`, and `npm run-script`
 will still run their intended script if `ignore-scripts` is set, but they
 will *not* run any pre- or post-scripts.
+
+
 
 #### `workspace`
 
@@ -439,12 +456,14 @@ This value is not exported to the environment for child processes.
 
 #### `install-links`
 
-* Default: true
+* Default: false
 * Type: Boolean
 
 When set file: protocol dependencies will be packed and installed as regular
 dependencies instead of creating a symlink. This option has no effect on
 workspaces.
+
+
 
 ### See Also
 

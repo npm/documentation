@@ -5,11 +5,7 @@ import Caption from './caption'
 
 export function DoDontContainer({stacked, children}) {
   return (
-    <Grid
-      gridTemplateColumns={['1fr', null, stacked ? '1fr' : '1fr 1fr']}
-      gridGap={3}
-      mb={3}
-    >
+    <Grid gridTemplateColumns={['1fr', null, stacked ? '1fr' : '1fr 1fr']} gridGap={3} mb={3}>
       {children}
     </Grid>
   )

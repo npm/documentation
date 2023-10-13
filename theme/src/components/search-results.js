@@ -28,10 +28,7 @@ function SearchResults({results, getItemProps, highlightedIndex}) {
         style: {cursor: 'pointer'},
       })}
     >
-      <Text
-        fontSize={0}
-        color={highlightedIndex === index ? 'blue.2' : 'gray.7'}
-      >
+      <Text fontSize={0} color={highlightedIndex === index ? 'blue.2' : 'gray.7'}>
         {getBreadcrumbs(siteMetadata.shortName, item.path).join(' / ')}
       </Text>
       {item.title}
@@ -40,14 +37,13 @@ function SearchResults({results, getItemProps, highlightedIndex}) {
 }
 
 function getBreadcrumbs(siteTitle, path) {
-  const hierarchy = NavHierarchy.getItemHierarchy(path);
+  const hierarchy = NavHierarchy.getItemHierarchy(path)
 
   if (hierarchy) {
-    hierarchy.pop();
-    return hierarchy.map(item => item.shortName ? item.shortName : item.title);
-  }
-  else {
-    return [ siteTitle ];
+    hierarchy.pop()
+    return hierarchy.map(item => (item.shortName ? item.shortName : item.title))
+  } else {
+    return [siteTitle]
   }
 }
 

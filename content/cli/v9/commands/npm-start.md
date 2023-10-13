@@ -3,36 +3,20 @@ title: npm-start
 section: 1
 description: Start a package
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-start.md
 redirect_from:
-  - /cli-commands/npm-start
-  - /cli-commands/start
-  - /cli-documentation/cli-commands/npm-start
-  - /cli-documentation/cli-commands/start
-  - /cli-documentation/commands/npm-start
-  - /cli-documentation/commands/start
-  - /cli-documentation/npm-start
-  - /cli-documentation/start
   - /cli-documentation/v9/cli-commands/npm-start
   - /cli-documentation/v9/cli-commands/start
   - /cli-documentation/v9/commands/npm-start
   - /cli-documentation/v9/commands/start
   - /cli-documentation/v9/npm-start
   - /cli-documentation/v9/start
-  - /cli/cli-commands/npm-start
-  - /cli/cli-commands/start
-  - /cli/commands/npm-start
-  - /cli/commands/start
-  - /cli/npm-start
-  - /cli/start
   - /cli/v9/cli-commands/npm-start
   - /cli/v9/cli-commands/start
   - /cli/v9/commands/start
   - /cli/v9/npm-start
   - /cli/v9/start
-  - /commands/npm-start
-  - /commands/start
 ---
 
 ### Synopsis
@@ -90,6 +74,8 @@ Note that commands explicitly intended to run a particular script, such as
 will still run their intended script if `ignore-scripts` is set, but they
 will *not* run any pre- or post-scripts.
 
+
+
 #### `script-shell`
 
 * Default: '/bin/sh' on POSIX systems, 'cmd.exe' on Windows
@@ -97,6 +83,8 @@ will *not* run any pre- or post-scripts.
 
 The shell to use for scripts run with the `npm exec`, `npm run` and `npm
 init <package-spec>` commands.
+
+
 
 ### See Also
 

@@ -3,36 +3,20 @@ title: npm-config
 section: 1
 description: Manage the npm configuration files
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-config.md
 redirect_from:
-  - /cli-commands/config
-  - /cli-commands/npm-config
-  - /cli-documentation/cli-commands/config
-  - /cli-documentation/cli-commands/npm-config
-  - /cli-documentation/commands/config
-  - /cli-documentation/commands/npm-config
-  - /cli-documentation/config
-  - /cli-documentation/npm-config
   - /cli-documentation/v9/cli-commands/config
   - /cli-documentation/v9/cli-commands/npm-config
   - /cli-documentation/v9/commands/config
   - /cli-documentation/v9/commands/npm-config
   - /cli-documentation/v9/config
   - /cli-documentation/v9/npm-config
-  - /cli/cli-commands/config
-  - /cli/cli-commands/npm-config
-  - /cli/commands/config
-  - /cli/commands/npm-config
-  - /cli/config
-  - /cli/npm-config
   - /cli/v9/cli-commands/config
   - /cli/v9/cli-commands/npm-config
   - /cli/v9/commands/config
   - /cli/v9/config
   - /cli/v9/npm-config
-  - /commands/config
-  - /commands/npm-config
 ---
 
 ### Synopsis
@@ -77,7 +61,7 @@ npm set key=value [key=value...]
 
 Sets each of the config keys to the value provided.
 
-If value is omitted, then it sets it to an empty string.
+If value is omitted, the key will be removed from your config file entirely.
 
 Note: for backwards compatibility, `npm config set key value` is supported
 as an alias for `npm config set key=value`.
@@ -147,6 +131,8 @@ Whether or not to output JSON data, rather than the normal output.
 
 Not supported by all npm commands.
 
+
+
 #### `global`
 
 * Default: false
@@ -161,6 +147,8 @@ folder instead of the current working directory. See
 * bin files are linked to `{prefix}/bin`
 * man pages are linked to `{prefix}/share/man`
 
+
+
 #### `editor`
 
 * Default: The EDITOR or VISUAL environment variables, or
@@ -168,6 +156,8 @@ folder instead of the current working directory. See
 * Type: String
 
 The command to run for `npm edit` and `npm config edit`.
+
+
 
 #### `location`
 
@@ -186,12 +176,16 @@ instead of the current working directory. See
 * bin files are linked to `{prefix}/bin`
 * man pages are linked to `{prefix}/share/man`
 
+
+
 #### `long`
 
 * Default: false
 * Type: Boolean
 
 Show extended information in `ls`, `search`, and `help-search`.
+
+
 
 ### See Also
 

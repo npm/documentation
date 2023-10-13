@@ -3,36 +3,20 @@ title: npm-login
 section: 1
 description: Login to a registry user account
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-login.md
 redirect_from:
-  - /cli-commands/login
-  - /cli-commands/npm-login
-  - /cli-documentation/cli-commands/login
-  - /cli-documentation/cli-commands/npm-login
-  - /cli-documentation/commands/login
-  - /cli-documentation/commands/npm-login
-  - /cli-documentation/login
-  - /cli-documentation/npm-login
   - /cli-documentation/v9/cli-commands/login
   - /cli-documentation/v9/cli-commands/npm-login
   - /cli-documentation/v9/commands/login
   - /cli-documentation/v9/commands/npm-login
   - /cli-documentation/v9/login
   - /cli-documentation/v9/npm-login
-  - /cli/cli-commands/login
-  - /cli/cli-commands/npm-login
-  - /cli/commands/login
-  - /cli/commands/npm-login
-  - /cli/login
-  - /cli/npm-login
   - /cli/v9/cli-commands/login
   - /cli/v9/cli-commands/npm-login
   - /cli/v9/commands/login
   - /cli/v9/login
   - /cli/v9/npm-login
-  - /commands/login
-  - /commands/npm-login
 ---
 
 ### Synopsis
@@ -70,6 +54,8 @@ your existing record.
 
 The base URL of the npm registry.
 
+
+
 #### `scope`
 
 * Default: the scope of the current project, if any, or ""
@@ -100,12 +86,16 @@ npm init --scope=@foo --yes
 ```
 
 
+
 #### `auth-type`
 
 * Default: "web"
 * Type: "legacy" or "web"
 
-What authentication strategy to use with `login`.
+What authentication strategy to use with `login`. Note that if an `otp`
+config is given, this value will always be set to `legacy`.
+
+
 
 ### See Also
 

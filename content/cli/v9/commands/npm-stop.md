@@ -3,36 +3,20 @@ title: npm-stop
 section: 1
 description: Stop a package
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-stop.md
 redirect_from:
-  - /cli-commands/npm-stop
-  - /cli-commands/stop
-  - /cli-documentation/cli-commands/npm-stop
-  - /cli-documentation/cli-commands/stop
-  - /cli-documentation/commands/npm-stop
-  - /cli-documentation/commands/stop
-  - /cli-documentation/npm-stop
-  - /cli-documentation/stop
   - /cli-documentation/v9/cli-commands/npm-stop
   - /cli-documentation/v9/cli-commands/stop
   - /cli-documentation/v9/commands/npm-stop
   - /cli-documentation/v9/commands/stop
   - /cli-documentation/v9/npm-stop
   - /cli-documentation/v9/stop
-  - /cli/cli-commands/npm-stop
-  - /cli/cli-commands/stop
-  - /cli/commands/npm-stop
-  - /cli/commands/stop
-  - /cli/npm-stop
-  - /cli/stop
   - /cli/v9/cli-commands/npm-stop
   - /cli/v9/cli-commands/stop
   - /cli/v9/commands/stop
   - /cli/v9/npm-stop
   - /cli/v9/stop
-  - /commands/npm-stop
-  - /commands/stop
 ---
 
 ### Synopsis
@@ -83,6 +67,8 @@ Note that commands explicitly intended to run a particular script, such as
 will still run their intended script if `ignore-scripts` is set, but they
 will *not* run any pre- or post-scripts.
 
+
+
 #### `script-shell`
 
 * Default: '/bin/sh' on POSIX systems, 'cmd.exe' on Windows
@@ -90,6 +76,8 @@ will *not* run any pre- or post-scripts.
 
 The shell to use for scripts run with the `npm exec`, `npm run` and `npm
 init <package-spec>` commands.
+
+
 
 ### See Also
 

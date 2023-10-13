@@ -3,18 +3,12 @@ title: scripts
 section: 7
 description: How npm handles the "scripts" field
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/using-npm/scripts.md
 redirect_from:
-  - /cli-documentation/misc/scripts
-  - /cli-documentation/using-npm/scripts
   - /cli-documentation/v9/misc/scripts
   - /cli-documentation/v9/using-npm/scripts
-  - /cli/misc/scripts
-  - /cli/using-npm/scripts
   - /cli/v9/misc/scripts
-  - /misc/scripts
-  - /using-npm/scripts
 ---
 
 ### Description
@@ -76,7 +70,7 @@ situations. These scripts happen in addition to the `pre<event>`, `post<event>`,
 * Runs BEFORE the package is prepared and packed, ONLY on `npm publish`.
 
 **prepack**
-* Runs BEFORE a tarball is packed (on "`npm pack`", "`npm publish`", and when installing a git dependencies).
+* Runs BEFORE a tarball is packed (on "`npm pack`", "`npm publish`", and when installing a git dependency).
 * NOTE: "`npm run pack`" is NOT the same as "`npm pack`". "`npm run pack`" is an arbitrary user defined script name, where as, "`npm pack`" is a CLI defined command.
 
 **postpack**

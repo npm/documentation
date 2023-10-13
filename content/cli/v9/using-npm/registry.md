@@ -3,18 +3,12 @@ title: registry
 section: 7
 description: The JavaScript Package Registry
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/using-npm/registry.md
 redirect_from:
-  - /cli-documentation/misc/registry
-  - /cli-documentation/using-npm/registry
   - /cli-documentation/v9/misc/registry
   - /cli-documentation/v9/using-npm/registry
-  - /cli/misc/registry
-  - /cli/using-npm/registry
   - /cli/v9/misc/registry
-  - /misc/registry
-  - /using-npm/registry
 ---
 
 ### Description
@@ -48,7 +42,7 @@ Authentication configuration such as auth tokens and certificates are configured
 specifically scoped to an individual registry. See
 [Auth Related Configuration](/cli/v9/configuring-npm/npmrc#auth-related-configuration)
 
-When the default registry is used in a package-lock or shrinkwrap is has the
+When the default registry is used in a package-lock or shrinkwrap it has the
 special meaning of "the currently configured registry". If you create a lock
 file while using the default registry you can switch to another registry and
 npm will install packages from the new registry, but if you create a lock

@@ -3,36 +3,20 @@ title: npm-query
 section: 1
 description: Dependency selector query
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-query.md
 redirect_from:
-  - /cli-commands/npm-query
-  - /cli-commands/query
-  - /cli-documentation/cli-commands/npm-query
-  - /cli-documentation/cli-commands/query
-  - /cli-documentation/commands/npm-query
-  - /cli-documentation/commands/query
-  - /cli-documentation/npm-query
-  - /cli-documentation/query
   - /cli-documentation/v9/cli-commands/npm-query
   - /cli-documentation/v9/cli-commands/query
   - /cli-documentation/v9/commands/npm-query
   - /cli-documentation/v9/commands/query
   - /cli-documentation/v9/npm-query
   - /cli-documentation/v9/query
-  - /cli/cli-commands/npm-query
-  - /cli/cli-commands/query
-  - /cli/commands/npm-query
-  - /cli/commands/query
-  - /cli/npm-query
-  - /cli/query
   - /cli/v9/cli-commands/npm-query
   - /cli/v9/cli-commands/query
   - /cli/v9/commands/query
   - /cli/v9/npm-query
   - /cli/v9/query
-  - /commands/npm-query
-  - /commands/query
 ---
 
 ### Synopsis
@@ -166,6 +150,19 @@ npm query ":type(git)" | jq 'map(.name)' | xargs -I {} npm why {}
   },
   ...
 ```
+### Package lock only mode
+
+If package-lock-only is enabled, only the information in the package
+lock (or shrinkwrap) is loaded.  This means that information from the
+package.json files of your dependencies will not be included in the
+result set (e.g. description, homepage, engines).
+
+### Package lock only mode
+
+If package-lock-only is enabled, only the information in the package
+lock (or shrinkwrap) is loaded.  This means that information from the
+package.json files of your dependencies will not be included in the
+result set (e.g. description, homepage, engines).
 
 ### Configuration
 
@@ -182,6 +179,8 @@ folder instead of the current working directory. See
   of the current working directory.
 * bin files are linked to `{prefix}/bin`
 * man pages are linked to `{prefix}/share/man`
+
+
 
 #### `workspace`
 
@@ -235,6 +234,22 @@ all workspaces via the `workspaces` flag, will cause npm to operate only on
 the specified workspaces, and not on the root project.
 
 This value is not exported to the environment for child processes.
+
+#### `package-lock-only`
+
+* Default: false
+* Type: Boolean
+
+If set to true, the current operation will only use the `package-lock.json`,
+ignoring `node_modules`.
+
+For `update` this means only the `package-lock.json` will be updated,
+instead of checking `node_modules` and downloading dependencies.
+
+For `list` this means the output will be based on the tree described by the
+`package-lock.json`, rather than the contents of `node_modules`.
+
+
 ## See Also
 
 * [dependency selectors](/cli/v9/using-npm/dependency-selectors)

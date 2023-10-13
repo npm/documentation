@@ -3,28 +3,16 @@ title: removal
 section: 7
 description: Cleaning the Slate
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/using-npm/removal.md
 redirect_from:
-  - /cli-documentation/misc/removal
-  - /cli-documentation/misc/removing-npm
-  - /cli-documentation/using-npm/removal
-  - /cli-documentation/using-npm/removing-npm
   - /cli-documentation/v9/misc/removal
   - /cli-documentation/v9/misc/removing-npm
   - /cli-documentation/v9/using-npm/removal
   - /cli-documentation/v9/using-npm/removing-npm
-  - /cli/misc/removal
-  - /cli/misc/removing-npm
-  - /cli/using-npm/removal
-  - /cli/using-npm/removing-npm
   - /cli/v9/misc/removal
   - /cli/v9/misc/removing-npm
   - /cli/v9/using-npm/removing-npm
-  - /misc/removal
-  - /misc/removing-npm
-  - /using-npm/removal
-  - /using-npm/removing-npm
 ---
 
 ### Synopsis
@@ -51,8 +39,8 @@ continue reading.
 
 Note that this is only necessary for globally-installed packages.  Local
 installs are completely contained within a project's `node_modules`
-folder.  Delete that folder, and everything is gone less a package's
-install script is particularly ill-behaved).
+folder.  Delete that folder, and everything is gone unless a package's
+install script is particularly ill-behaved.
 
 This assumes that you installed node and npm in the default place.  If
 you configured node with a different `--prefix`, or installed npm with a

@@ -3,36 +3,20 @@ title: npm-fund
 section: 1
 description: Retrieve funding information
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-fund.md
 redirect_from:
-  - /cli-commands/fund
-  - /cli-commands/npm-fund
-  - /cli-documentation/cli-commands/fund
-  - /cli-documentation/cli-commands/npm-fund
-  - /cli-documentation/commands/fund
-  - /cli-documentation/commands/npm-fund
-  - /cli-documentation/fund
-  - /cli-documentation/npm-fund
   - /cli-documentation/v9/cli-commands/fund
   - /cli-documentation/v9/cli-commands/npm-fund
   - /cli-documentation/v9/commands/fund
   - /cli-documentation/v9/commands/npm-fund
   - /cli-documentation/v9/fund
   - /cli-documentation/v9/npm-fund
-  - /cli/cli-commands/fund
-  - /cli/cli-commands/npm-fund
-  - /cli/commands/fund
-  - /cli/commands/npm-fund
-  - /cli/fund
-  - /cli/npm-fund
   - /cli/v9/cli-commands/fund
   - /cli/v9/cli-commands/npm-fund
   - /cli/v9/commands/fund
   - /cli/v9/fund
   - /cli/v9/npm-fund
-  - /commands/fund
-  - /commands/npm-fund
 ---
 
 ### Synopsis
@@ -108,6 +92,8 @@ Whether or not to output JSON data, rather than the normal output.
 
 Not supported by all npm commands.
 
+
+
 #### `browser`
 
 * Default: OS X: `"open"`, Windows: `"start"`, Others: `"xdg-open"`
@@ -120,6 +106,8 @@ terminal.
 
 Set to `true` to use default system URL opener.
 
+
+
 #### `unicode`
 
 * Default: false on windows, true on mac/unix systems with a unicode locale,
@@ -128,6 +116,8 @@ Set to `true` to use default system URL opener.
 
 When set to true, npm uses unicode characters in the tree output. When
 false, it uses ascii characters instead of unicode glyphs.
+
+
 
 #### `workspace`
 
@@ -157,6 +147,8 @@ This value is not exported to the environment for child processes.
 * Type: null or Number
 
 If there are multiple funding sources, which 1-indexed source URL to open.
+
+
 
 ## See Also
 

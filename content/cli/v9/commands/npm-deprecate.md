@@ -3,36 +3,20 @@ title: npm-deprecate
 section: 1
 description: Deprecate a version of a package
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-deprecate.md
 redirect_from:
-  - /cli-commands/deprecate
-  - /cli-commands/npm-deprecate
-  - /cli-documentation/cli-commands/deprecate
-  - /cli-documentation/cli-commands/npm-deprecate
-  - /cli-documentation/commands/deprecate
-  - /cli-documentation/commands/npm-deprecate
-  - /cli-documentation/deprecate
-  - /cli-documentation/npm-deprecate
   - /cli-documentation/v9/cli-commands/deprecate
   - /cli-documentation/v9/cli-commands/npm-deprecate
   - /cli-documentation/v9/commands/deprecate
   - /cli-documentation/v9/commands/npm-deprecate
   - /cli-documentation/v9/deprecate
   - /cli-documentation/v9/npm-deprecate
-  - /cli/cli-commands/deprecate
-  - /cli/cli-commands/npm-deprecate
-  - /cli/commands/deprecate
-  - /cli/commands/npm-deprecate
-  - /cli/deprecate
-  - /cli/npm-deprecate
   - /cli/v9/cli-commands/deprecate
   - /cli/v9/cli-commands/npm-deprecate
   - /cli/v9/commands/deprecate
   - /cli/v9/deprecate
   - /cli/v9/npm-deprecate
-  - /commands/deprecate
-  - /commands/npm-deprecate
 ---
 
 ### Synopsis
@@ -80,6 +64,8 @@ format an empty string.
 
 The base URL of the npm registry.
 
+
+
 #### `otp`
 
 * Default: null
@@ -90,6 +76,8 @@ when publishing or changing package permissions with `npm access`.
 
 If not set, and a registry response fails with a challenge for a one-time
 password, npm will prompt on the command line for one.
+
+
 
 ### See Also
 

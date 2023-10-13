@@ -1,0 +1,268 @@
+# This file is automatically added by @npmcli/template-oss. Do not edit.
+
+name: CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths-ignore:
+      - cli/**
+      - theme/**
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - cli/**
+      - theme/**
+  schedule:
+    # "At 09:00 UTC (02:00 PT) on Monday" https://crontab.guru/#0_9_*_*_1
+    - cron: "0 9 * * 1"
+
+jobs:
+  lint:
+    name: Lint
+    if: github.repository_owner == 'npm'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Git User
+        run: |
+          git config --global user.email "npm-cli+bot@github.com"
+          git config --global user.name "npm CLI robot"
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        id: node
+        with:
+          node-version: 18.x
+          check-latest: contains('18.x', '.x')
+          cache: npm
+
+      # node 10/12/14 ship with npm@6, which is known to fail when updating itself in windows
+      - name: Update Windows npm
+        if: |
+          matrix.platform.os == 'windows-latest' && (
+            startsWith(steps.node.outputs.node-version, 'v10.') || startsWith(steps.node.outputs.node-version, 'v12.') || startsWith(steps.node.outputs.node-version, 'v14.')
+          )
+        run: |
+          curl -sO https://registry.npmjs.org/npm/-/npm-7.5.4.tgz
+          tar xf npm-7.5.4.tgz
+          cd package
+          node lib/npm.js install --no-fund --no-audit -g ..\npm-7.5.4.tgz
+          cd ..
+          rmdir /s /q package
+
+      # Start on Node 10 because we dont test on anything lower
+      - name: Install npm@7 on Node 10
+        shell: bash
+        if: startsWith(steps.node.outputs.node-version, 'v10.')
+        id: npm-7
+        run: |
+          npm i --prefer-online --no-fund --no-audit -g npm@7
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+
+      - name: Install npm@8 on Node 12
+        shell: bash
+        if: startsWith(steps.node.outputs.node-version, 'v12.')
+        id: npm-8
+        run: |
+          npm i --prefer-online --no-fund --no-audit -g npm@8
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+
+      - name: Install npm@9 on Node 14/16/18.0
+        shell: bash
+        if: startsWith(steps.node.outputs.node-version, 'v14.') || startsWith(steps.node.outputs.node-version, 'v16.') || startsWith(steps.node.outputs.node-version, 'v18.0.')
+        id: npm-9
+        run: |
+          npm i --prefer-online --no-fund --no-audit -g npm@9
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+
+      - name: Install npm@latest on Node
+        if: ${{ !(steps.npm-7.outputs.updated || steps.npm-8.outputs.updated || steps.npm-9.outputs.updated) }}
+        run: npm i --prefer-online --no-fund --no-audit -g npm@latest
+
+      - name: npm Version
+        run: npm -v
+      - name: Install Dependencies
+        run: npm i --no-audit --no-fund
+      - name: Lint
+        run: npm run lint --ignore-scripts
+      - name: Post Lint
+        run: npm run postlint --ignore-scripts
+
+  test:
+    name: Test - ${{ matrix.platform.name }} - ${{ matrix.node-version }}
+    if: github.repository_owner == 'npm'
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - name: Linux
+            os: ubuntu-latest
+            shell: bash
+        node-version:
+          - 18.x
+    runs-on: ${{ matrix.platform.os }}
+    defaults:
+      run:
+        shell: ${{ matrix.platform.shell }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Git User
+        run: |
+          git config --global user.email "npm-cli+bot@github.com"
+          git config --global user.name "npm CLI robot"
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        id: node
+        with:
+          node-version: ${{ matrix.node-version }}
+          check-latest: contains(matrix.node-version, '.x')
+          cache: npm
+
+      # node 10/12/14 ship with npm@6, which is known to fail when updating itself in windows
+      - name: Update Windows npm
+        if: |
+          matrix.platform.os == 'windows-latest' && (
+            startsWith(steps.node.outputs.node-version, 'v10.') || startsWith(steps.node.outputs.node-version, 'v12.') || startsWith(steps.node.outputs.node-version, 'v14.')
+          )
+        run: |
+          curl -sO https://registry.npmjs.org/npm/-/npm-7.5.4.tgz
+          tar xf npm-7.5.4.tgz
+          cd package
+          node lib/npm.js install --no-fund --no-audit -g ..\npm-7.5.4.tgz
+          cd ..
+          rmdir /s /q package
+
+      # Start on Node 10 because we dont test on anything lower
+      - name: Install npm@7 on Node 10
+        shell: bash
+        if: startsWith(steps.node.outputs.node-version, 'v10.')
+        id: npm-7
+        run: |
+          npm i --prefer-online --no-fund --no-audit -g npm@7
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+
+      - name: Install npm@8 on Node 12
+        shell: bash
+        if: startsWith(steps.node.outputs.node-version, 'v12.')
+        id: npm-8
+        run: |
+          npm i --prefer-online --no-fund --no-audit -g npm@8
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+
+      - name: Install npm@9 on Node 14/16/18.0
+        shell: bash
+        if: startsWith(steps.node.outputs.node-version, 'v14.') || startsWith(steps.node.outputs.node-version, 'v16.') || startsWith(steps.node.outputs.node-version, 'v18.0.')
+        id: npm-9
+        run: |
+          npm i --prefer-online --no-fund --no-audit -g npm@9
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+
+      - name: Install npm@latest on Node
+        if: ${{ !(steps.npm-7.outputs.updated || steps.npm-8.outputs.updated || steps.npm-9.outputs.updated) }}
+        run: npm i --prefer-online --no-fund --no-audit -g npm@latest
+
+      - name: npm Version
+        run: npm -v
+      - name: Install Dependencies
+        run: npm i --no-audit --no-fund
+      - name: Add Problem Matcher
+        run: echo "::add-matcher::.github/matchers/tap.json"
+      - name: Test
+        run: npm test --ignore-scripts
+
+  test-cli-content:
+    name: Test CLI Content - ${{ matrix.platform.name }} - ${{ matrix.node-version }}
+    if: github.repository_owner == 'npm'
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - name: Linux
+            os: ubuntu-latest
+            shell: bash
+        node-version:
+          - 18.x
+    runs-on: ${{ matrix.platform.os }}
+    defaults:
+      run:
+        shell: ${{ matrix.platform.shell }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Git User
+        run: |
+          git config --global user.email "npm-cli+bot@github.com"
+          git config --global user.name "npm CLI robot"
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        id: node
+        with:
+          node-version: ${{ matrix.node-version }}
+          check-latest: contains(matrix.node-version, '.x')
+          cache: npm
+
+      # node 10/12/14 ship with npm@6, which is known to fail when updating itself in windows
+      - name: Update Windows npm
+        if: |
+          matrix.platform.os == 'windows-latest' && (
+            startsWith(steps.node.outputs.node-version, 'v10.') || startsWith(steps.node.outputs.node-version, 'v12.') || startsWith(steps.node.outputs.node-version, 'v14.')
+          )
+        run: |
+          curl -sO https://registry.npmjs.org/npm/-/npm-7.5.4.tgz
+          tar xf npm-7.5.4.tgz
+          cd package
+          node lib/npm.js install --no-fund --no-audit -g ..\npm-7.5.4.tgz
+          cd ..
+          rmdir /s /q package
+
+      # Start on Node 10 because we dont test on anything lower
+      - name: Install npm@7 on Node 10
+        shell: bash
+        if: startsWith(steps.node.outputs.node-version, 'v10.')
+        id: npm-7
+        run: |
+          npm i --prefer-online --no-fund --no-audit -g npm@7
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+
+      - name: Install npm@8 on Node 12
+        shell: bash
+        if: startsWith(steps.node.outputs.node-version, 'v12.')
+        id: npm-8
+        run: |
+          npm i --prefer-online --no-fund --no-audit -g npm@8
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+
+      - name: Install npm@9 on Node 14/16/18.0
+        shell: bash
+        if: startsWith(steps.node.outputs.node-version, 'v14.') || startsWith(steps.node.outputs.node-version, 'v16.') || startsWith(steps.node.outputs.node-version, 'v18.0.')
+        id: npm-9
+        run: |
+          npm i --prefer-online --no-fund --no-audit -g npm@9
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+
+      - name: Install npm@latest on Node
+        if: ${{ !(steps.npm-7.outputs.updated || steps.npm-8.outputs.updated || steps.npm-9.outputs.updated) }}
+        run: npm i --prefer-online --no-fund --no-audit -g npm@latest
+
+      - name: npm Version
+        run: npm -v
+      - name: Install Dependencies
+        run: npm i --no-audit --no-fund
+      - name: Check CLI Documentation
+        run: npm run build -w cli -- --check-only
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  licenses:
+    name: REUSE Compliance Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: REUSE Compliance Check
+        uses: fsfe/reuse-action@v1

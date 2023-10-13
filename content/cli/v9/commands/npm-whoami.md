@@ -3,36 +3,20 @@ title: npm-whoami
 section: 1
 description: Display npm username
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-whoami.md
 redirect_from:
-  - /cli-commands/npm-whoami
-  - /cli-commands/whoami
-  - /cli-documentation/cli-commands/npm-whoami
-  - /cli-documentation/cli-commands/whoami
-  - /cli-documentation/commands/npm-whoami
-  - /cli-documentation/commands/whoami
-  - /cli-documentation/npm-whoami
   - /cli-documentation/v9/cli-commands/npm-whoami
   - /cli-documentation/v9/cli-commands/whoami
   - /cli-documentation/v9/commands/npm-whoami
   - /cli-documentation/v9/commands/whoami
   - /cli-documentation/v9/npm-whoami
   - /cli-documentation/v9/whoami
-  - /cli-documentation/whoami
-  - /cli/cli-commands/npm-whoami
-  - /cli/cli-commands/whoami
-  - /cli/commands/npm-whoami
-  - /cli/commands/whoami
-  - /cli/npm-whoami
   - /cli/v9/cli-commands/npm-whoami
   - /cli/v9/cli-commands/whoami
   - /cli/v9/commands/whoami
   - /cli/v9/npm-whoami
   - /cli/v9/whoami
-  - /cli/whoami
-  - /commands/npm-whoami
-  - /commands/whoami
 ---
 
 ### Synopsis
@@ -62,6 +46,8 @@ If logged into a registry that uses Basic Auth, then simply print the
 * Type: URL
 
 The base URL of the npm registry.
+
+
 
 ### See Also
 

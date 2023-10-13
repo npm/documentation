@@ -3,36 +3,20 @@ title: npm-version
 section: 1
 description: Bump a package version
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-version.md
 redirect_from:
-  - /cli-commands/npm-version
-  - /cli-commands/version
-  - /cli-documentation/cli-commands/npm-version
-  - /cli-documentation/cli-commands/version
-  - /cli-documentation/commands/npm-version
-  - /cli-documentation/commands/version
-  - /cli-documentation/npm-version
   - /cli-documentation/v9/cli-commands/npm-version
   - /cli-documentation/v9/cli-commands/version
   - /cli-documentation/v9/commands/npm-version
   - /cli-documentation/v9/commands/version
   - /cli-documentation/v9/npm-version
   - /cli-documentation/v9/version
-  - /cli-documentation/version
-  - /cli/cli-commands/npm-version
-  - /cli/cli-commands/version
-  - /cli/commands/npm-version
-  - /cli/commands/version
-  - /cli/npm-version
   - /cli/v9/cli-commands/npm-version
   - /cli/v9/cli-commands/version
   - /cli/v9/commands/version
   - /cli/v9/npm-version
   - /cli/v9/version
-  - /cli/version
-  - /commands/npm-version
-  - /commands/version
 ---
 
 ### Synopsis
@@ -53,12 +37,16 @@ alias: verison
 Prevents throwing an error when `npm version` is used to set the new version
 to the same value as the current version.
 
+
+
 #### `commit-hooks`
 
 * Default: true
 * Type: Boolean
 
 Run git commit hooks when using the `npm version` command.
+
+
 
 #### `git-tag-version`
 
@@ -67,6 +55,8 @@ Run git commit hooks when using the `npm version` command.
 
 Tag the commit when using the `npm version` command. Setting this to false
 results in no commit being made at all.
+
+
 
 #### `json`
 
@@ -80,6 +70,8 @@ Whether or not to output JSON data, rather than the normal output.
 
 Not supported by all npm commands.
 
+
+
 #### `preid`
 
 * Default: ""
@@ -87,6 +79,8 @@ Not supported by all npm commands.
 
 The "prerelease identifier" to use as a prefix for the "prerelease" part of
 a semver. Like the `rc` in `1.2.0-rc.8`.
+
+
 
 #### `sign-git-tag`
 
@@ -98,6 +92,8 @@ If set to true, then the `npm version` command will tag the version using
 
 Note that git requires you to have set up GPG keys in your git configs for
 this to work properly.
+
+
 
 #### `workspace`
 
@@ -146,6 +142,8 @@ This value is not exported to the environment for child processes.
 
 If set to true, the npm cli will run an update after operations that may
 possibly change the workspaces installed to the `node_modules` folder.
+
+
 
 #### `include-workspace-root`
 

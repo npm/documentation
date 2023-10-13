@@ -4,14 +4,7 @@ import React from 'react'
 
 function SkipLinkBase(props) {
   return (
-    <Link
-      {...props}
-      backgroundColor="blue.6"
-      color="white"
-      p={3}
-      href="#skip-nav"
-      fontSize={1}
-    >
+    <Link {...props} backgroundColor="blue.6" color="white" p={3} href="#skip-nav" fontSize={1}>
       Skip to content
     </Link>
   )

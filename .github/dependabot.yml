@@ -4,9 +4,10 @@ version: 2
 
 updates:
   - package-ecosystem: npm
-    directory: cli/
+    directory: /
     schedule:
       interval: daily
+    target-branch: "main"
     allow:
       - dependency-type: direct
     versioning-strategy: increase-if-necessary

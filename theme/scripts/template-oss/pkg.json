@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "test": "jest",
+    "format": "prettier --write ."
+  },
+  "files": {{{ del }}}
+}

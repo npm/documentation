@@ -1,6 +1,6 @@
 import {Heading, Link} from '@primer/components'
 import {LinkIcon} from '@primer/octicons-react'
-import themeGet from '@styled-system/theme-get'
+import {themeGet} from '@styled-system/theme-get'
 import GithubSlugger from 'github-slugger'
 import React from 'react'
 import textContent from 'react-addons-text-content'
@@ -29,13 +29,7 @@ function MarkdownHeading({children, ...props}) {
 
   return (
     <StyledHeading id={id} {...props}>
-      <Link
-        href={`#${id}`}
-        p={2}
-        ml={-32}
-        color="gray.8"
-        aria-label={`${text} permalink`}
-      >
+      <Link href={`#${id}`} p={2} ml={-32} color="gray.8" aria-label={`${text} permalink`}>
         <LinkIcon className="octicon-link" verticalAlign="middle" />
       </Link>
       {children}
@@ -72,9 +66,9 @@ const StyledH6 = styled(StyledHeading).attrs({as: 'h6'})`
   color: ${themeGet('colors.gray.5')};
 `
 
-export const H1 = (props) => <MarkdownHeading as={StyledH1} {...props} />
-export const H2 = (props) => <MarkdownHeading as={StyledH2} {...props} />
-export const H3 = (props) => <MarkdownHeading as={StyledH3} {...props} />
-export const H4 = (props) => <MarkdownHeading as={StyledH4} {...props} />
-export const H5 = (props) => <MarkdownHeading as={StyledH5} {...props} />
-export const H6 = (props) => <MarkdownHeading as={StyledH6} {...props} />
+export const H1 = props => <MarkdownHeading as={StyledH1} {...props} />
+export const H2 = props => <MarkdownHeading as={StyledH2} {...props} />
+export const H3 = props => <MarkdownHeading as={StyledH3} {...props} />
+export const H4 = props => <MarkdownHeading as={StyledH4} {...props} />
+export const H5 = props => <MarkdownHeading as={StyledH5} {...props} />
+export const H6 = props => <MarkdownHeading as={StyledH6} {...props} />

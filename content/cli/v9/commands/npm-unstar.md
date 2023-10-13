@@ -3,36 +3,20 @@ title: npm-unstar
 section: 1
 description: Remove an item from your favorite packages
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-unstar.md
 redirect_from:
-  - /cli-commands/npm-unstar
-  - /cli-commands/unstar
-  - /cli-documentation/cli-commands/npm-unstar
-  - /cli-documentation/cli-commands/unstar
-  - /cli-documentation/commands/npm-unstar
-  - /cli-documentation/commands/unstar
-  - /cli-documentation/npm-unstar
-  - /cli-documentation/unstar
   - /cli-documentation/v9/cli-commands/npm-unstar
   - /cli-documentation/v9/cli-commands/unstar
   - /cli-documentation/v9/commands/npm-unstar
   - /cli-documentation/v9/commands/unstar
   - /cli-documentation/v9/npm-unstar
   - /cli-documentation/v9/unstar
-  - /cli/cli-commands/npm-unstar
-  - /cli/cli-commands/unstar
-  - /cli/commands/npm-unstar
-  - /cli/commands/unstar
-  - /cli/npm-unstar
-  - /cli/unstar
   - /cli/v9/cli-commands/npm-unstar
   - /cli/v9/cli-commands/unstar
   - /cli/v9/commands/unstar
   - /cli/v9/npm-unstar
   - /cli/v9/unstar
-  - /commands/npm-unstar
-  - /commands/unstar
 ---
 
 ### Synopsis
@@ -69,6 +53,8 @@ You can see all your starred packages using [`npm stars`](/cli/v9/commands/npm-s
 
 The base URL of the npm registry.
 
+
+
 #### `unicode`
 
 * Default: false on windows, true on mac/unix systems with a unicode locale,
@@ -77,6 +63,8 @@ The base URL of the npm registry.
 
 When set to true, npm uses unicode characters in the tree output. When
 false, it uses ascii characters instead of unicode glyphs.
+
+
 
 #### `otp`
 
@@ -88,6 +76,8 @@ when publishing or changing package permissions with `npm access`.
 
 If not set, and a registry response fails with a challenge for a one-time
 password, npm will prompt on the command line for one.
+
+
 
 ### See Also
 

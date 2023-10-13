@@ -3,18 +3,12 @@ title: folders
 section: 5
 description: Folder Structures Used by npm
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/configuring-npm/folders.md
 redirect_from:
-  - /cli-documentation/configuring-npm/folders
-  - /cli-documentation/files/folders
   - /cli-documentation/v9/configuring-npm/folders
   - /cli-documentation/v9/files/folders
-  - /cli/configuring-npm/folders
-  - /cli/files/folders
   - /cli/v9/files/folders
-  - /configuring-npm/folders
-  - /files/folders
 ---
 
 ### Description
@@ -85,7 +79,7 @@ Man pages are not installed on Windows systems.
 #### Cache
 
 See [`npm cache`](/cli/v9/commands/npm-cache).  Cache files are stored in `~/.npm` on Posix, or
-`%AppData%/npm-cache` on Windows.
+`%LocalAppData%/npm-cache` on Windows.
 
 This is controlled by the [`cache` config](/cli/v9/using-npm/config#cache) param.
 

@@ -3,22 +3,14 @@ title: npx
 section: 1
 description: Run a command from a local or remote npm package
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npx.md
 redirect_from:
-  - /cli-commands/npx
-  - /cli-documentation/cli-commands/npx
-  - /cli-documentation/commands/npx
-  - /cli-documentation/npx
   - /cli-documentation/v9/cli-commands/npx
   - /cli-documentation/v9/commands/npx
   - /cli-documentation/v9/npx
-  - /cli/cli-commands/npx
-  - /cli/commands/npx
-  - /cli/npx
   - /cli/v9/cli-commands/npx
   - /cli/v9/npx
-  - /commands/npx
 ---
 
 ### Synopsis

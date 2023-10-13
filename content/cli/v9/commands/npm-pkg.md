@@ -3,36 +3,20 @@ title: npm-pkg
 section: 1
 description: Manages your package.json
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-pkg.md
 redirect_from:
-  - /cli-commands/npm-pkg
-  - /cli-commands/pkg
-  - /cli-documentation/cli-commands/npm-pkg
-  - /cli-documentation/cli-commands/pkg
-  - /cli-documentation/commands/npm-pkg
-  - /cli-documentation/commands/pkg
-  - /cli-documentation/npm-pkg
-  - /cli-documentation/pkg
   - /cli-documentation/v9/cli-commands/npm-pkg
   - /cli-documentation/v9/cli-commands/pkg
   - /cli-documentation/v9/commands/npm-pkg
   - /cli-documentation/v9/commands/pkg
   - /cli-documentation/v9/npm-pkg
   - /cli-documentation/v9/pkg
-  - /cli/cli-commands/npm-pkg
-  - /cli/cli-commands/pkg
-  - /cli/commands/npm-pkg
-  - /cli/commands/pkg
-  - /cli/npm-pkg
-  - /cli/pkg
   - /cli/v9/cli-commands/npm-pkg
   - /cli/v9/cli-commands/pkg
   - /cli/v9/commands/pkg
   - /cli/v9/npm-pkg
   - /cli/v9/pkg
-  - /commands/npm-pkg
-  - /commands/pkg
 ---
 
 ### Synopsis
@@ -43,6 +27,7 @@ npm pkg get [<key> [<key> ...]]
 npm pkg delete <key> [<key> ...]
 npm pkg set [<array>[<index>].<key>=<value> ...]
 npm pkg set [<array>[].<key>=<value> ...]
+npm pkg fix
 ```
 
 ### Description
@@ -172,6 +157,13 @@ Returned values are always in **json** format.
     npm pkg delete scripts.build
     ```
 
+* `npm pkg fix`
+
+    Auto corrects common errors in your `package.json`.  npm already
+    does this during `publish`, which leads to subtle (mostly harmless)
+    differences between the contents of your `package.json` file and the
+    manifest that npm uses during installation.
+
 ### Workspaces support
 
 You can set/get/delete items across your configured workspaces by using the
@@ -232,6 +224,8 @@ mistakes, unnecessary performance degradation, and malicious input.
 If you don't have a clear idea of what you want to do, it is strongly
 recommended that you do not use this option!
 
+
+
 #### `json`
 
 * Default: false
@@ -243,6 +237,8 @@ Whether or not to output JSON data, rather than the normal output.
   saving them to your `package.json`.
 
 Not supported by all npm commands.
+
+
 
 #### `workspace`
 

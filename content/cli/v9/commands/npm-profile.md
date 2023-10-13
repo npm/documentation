@@ -3,36 +3,20 @@ title: npm-profile
 section: 1
 description: Change settings on your registry profile
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-profile.md
 redirect_from:
-  - /cli-commands/npm-profile
-  - /cli-commands/profile
-  - /cli-documentation/cli-commands/npm-profile
-  - /cli-documentation/cli-commands/profile
-  - /cli-documentation/commands/npm-profile
-  - /cli-documentation/commands/profile
-  - /cli-documentation/npm-profile
-  - /cli-documentation/profile
   - /cli-documentation/v9/cli-commands/npm-profile
   - /cli-documentation/v9/cli-commands/profile
   - /cli-documentation/v9/commands/npm-profile
   - /cli-documentation/v9/commands/profile
   - /cli-documentation/v9/npm-profile
   - /cli-documentation/v9/profile
-  - /cli/cli-commands/npm-profile
-  - /cli/cli-commands/profile
-  - /cli/commands/npm-profile
-  - /cli/commands/profile
-  - /cli/npm-profile
-  - /cli/profile
   - /cli/v9/cli-commands/npm-profile
   - /cli/v9/cli-commands/profile
   - /cli/v9/commands/profile
   - /cli/v9/npm-profile
   - /cli/v9/profile
-  - /commands/npm-profile
-  - /commands/profile
 ---
 
 ### Synopsis
@@ -112,6 +96,8 @@ Some of these commands may not be available on non npmjs.com registries.
 
 The base URL of the npm registry.
 
+
+
 #### `json`
 
 * Default: false
@@ -124,6 +110,8 @@ Whether or not to output JSON data, rather than the normal output.
 
 Not supported by all npm commands.
 
+
+
 #### `parseable`
 
 * Default: false
@@ -131,6 +119,8 @@ Not supported by all npm commands.
 
 Output parseable results from commands that write to standard output. For
 `npm search`, this will be tab-separated table format.
+
+
 
 #### `otp`
 
@@ -142,6 +132,8 @@ when publishing or changing package permissions with `npm access`.
 
 If not set, and a registry response fails with a challenge for a one-time
 password, npm will prompt on the command line for one.
+
+
 
 ### See Also
 

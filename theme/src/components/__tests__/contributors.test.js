@@ -31,9 +31,7 @@ test('renders contributors', () => {
 })
 
 test('does not render "last edited by" if latest contributor does not have a latest commit', () => {
-  const {queryByText} = render(
-    <Contributors contributors={[{login: 'ashygee'}]} />,
-  )
+  const {queryByText} = render(<Contributors contributors={[{login: 'ashygee'}]} />)
 
   expect(queryByText(/1 contributor/)).toBeInTheDocument()
   expect(queryByText(/Last edited by/)).toBeNull()

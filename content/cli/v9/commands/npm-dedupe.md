@@ -3,36 +3,20 @@ title: npm-dedupe
 section: 1
 description: Reduce duplication in the package tree
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-dedupe.md
 redirect_from:
-  - /cli-commands/dedupe
-  - /cli-commands/npm-dedupe
-  - /cli-documentation/cli-commands/dedupe
-  - /cli-documentation/cli-commands/npm-dedupe
-  - /cli-documentation/commands/dedupe
-  - /cli-documentation/commands/npm-dedupe
-  - /cli-documentation/dedupe
-  - /cli-documentation/npm-dedupe
   - /cli-documentation/v9/cli-commands/dedupe
   - /cli-documentation/v9/cli-commands/npm-dedupe
   - /cli-documentation/v9/commands/dedupe
   - /cli-documentation/v9/commands/npm-dedupe
   - /cli-documentation/v9/dedupe
   - /cli-documentation/v9/npm-dedupe
-  - /cli/cli-commands/dedupe
-  - /cli/cli-commands/npm-dedupe
-  - /cli/commands/dedupe
-  - /cli/commands/npm-dedupe
-  - /cli/dedupe
-  - /cli/npm-dedupe
   - /cli/v9/cli-commands/dedupe
   - /cli/v9/cli-commands/npm-dedupe
   - /cli/v9/commands/dedupe
   - /cli/v9/dedupe
   - /cli/v9/npm-dedupe
-  - /commands/dedupe
-  - /commands/npm-dedupe
 ---
 
 ### Synopsis
@@ -111,14 +95,16 @@ values in `package.json` you can run: `npm update --save` instead.
 #### `install-strategy`
 
 * Default: "hoisted"
-* Type: "hoisted", "nested", or "shallow"
+* Type: "hoisted", "nested", "shallow", or "linked"
 
 Sets the strategy for installing packages in node_modules. hoisted
 (default): Install non-duplicated in top-level, and duplicated as necessary
 within directory structure. nested: (formerly --legacy-bundling) install in
 place, no hoisting. shallow (formerly --global-style) only install direct
-deps at top-level. linked: (coming soon) install in node_modules/.store,
+deps at top-level. linked: (experimental) install in node_modules/.store,
 link in place, unhoisted.
+
+
 
 #### `legacy-bundling`
 
@@ -132,6 +118,8 @@ the same manner that they are depended on. This may cause very deep
 directory structures and duplicate package installs as there is no
 de-duplicating. Sets `--install-strategy=nested`.
 
+
+
 #### `global-style`
 
 * Default: false
@@ -140,7 +128,9 @@ de-duplicating. Sets `--install-strategy=nested`.
   `--install-strategy=shallow`
 
 Only install direct dependencies in the top level `node_modules`, but hoist
-on deeper dependendencies. Sets `--install-strategy=shallow`.
+on deeper dependencies. Sets `--install-strategy=shallow`.
+
+
 
 #### `strict-peer-deps`
 
@@ -157,9 +147,11 @@ be resolved using the nearest non-peer dependency specification, even if
 doing so will result in some packages receiving a peer dependency outside
 the range set in their package's `peerDependencies` object.
 
-When such and override is performed, a warning is printed, explaining the
+When such an override is performed, a warning is printed, explaining the
 conflict and the packages involved. If `--strict-peer-deps` is set, then
 this warning is treated as a failure.
+
+
 
 #### `package-lock`
 
@@ -169,7 +161,7 @@ this warning is treated as a failure.
 If set to false, then ignore `package-lock.json` files when installing. This
 will also prevent _writing_ `package-lock.json` if `save` is true.
 
-This configuration does not affect `npm ci`.
+
 
 #### `omit`
 
@@ -189,6 +181,8 @@ it will be included.
 If the resulting omit list includes `'dev'`, then the `NODE_ENV` environment
 variable will be set to `'production'` for all lifecycle scripts.
 
+
+
 #### `ignore-scripts`
 
 * Default: false
@@ -201,6 +195,8 @@ Note that commands explicitly intended to run a particular script, such as
 will still run their intended script if `ignore-scripts` is set, but they
 will *not* run any pre- or post-scripts.
 
+
+
 #### `audit`
 
 * Default: true
@@ -210,6 +206,8 @@ When "true" submit audit reports alongside the current npm command to the
 default registry and all registries configured for scopes. See the
 documentation for [`npm audit`](/cli/v9/commands/npm-audit) for details on what is
 submitted.
+
+
 
 #### `bin-links`
 
@@ -223,6 +221,8 @@ Set to false to have it not do this. This can be used to work around the
 fact that some file systems don't support symlinks, even on ostensibly Unix
 systems.
 
+
+
 #### `fund`
 
 * Default: true
@@ -231,6 +231,8 @@ systems.
 When "true" displays the message at the end of each `npm install`
 acknowledging the number of dependencies looking for funding. See [`npm
 fund`](/cli/v9/commands/npm-fund) for details.
+
+
 
 #### `dry-run`
 
@@ -244,6 +246,8 @@ commands that modify your local installation, eg, `install`, `update`,
 
 Note: This is NOT honored by other network related commands, eg `dist-tags`,
 `owner`, etc.
+
+
 
 #### `workspace`
 
@@ -300,12 +304,14 @@ This value is not exported to the environment for child processes.
 
 #### `install-links`
 
-* Default: true
+* Default: false
 * Type: Boolean
 
 When set file: protocol dependencies will be packed and installed as regular
 dependencies instead of creating a symlink. This option has no effect on
 workspaces.
+
+
 
 ### See Also
 

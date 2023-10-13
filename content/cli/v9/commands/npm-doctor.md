@@ -3,36 +3,20 @@ title: npm-doctor
 section: 1
 description: Check your npm environment
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-doctor.md
 redirect_from:
-  - /cli-commands/doctor
-  - /cli-commands/npm-doctor
-  - /cli-documentation/cli-commands/doctor
-  - /cli-documentation/cli-commands/npm-doctor
-  - /cli-documentation/commands/doctor
-  - /cli-documentation/commands/npm-doctor
-  - /cli-documentation/doctor
-  - /cli-documentation/npm-doctor
   - /cli-documentation/v9/cli-commands/doctor
   - /cli-documentation/v9/cli-commands/npm-doctor
   - /cli-documentation/v9/commands/doctor
   - /cli-documentation/v9/commands/npm-doctor
   - /cli-documentation/v9/doctor
   - /cli-documentation/v9/npm-doctor
-  - /cli/cli-commands/doctor
-  - /cli/cli-commands/npm-doctor
-  - /cli/commands/doctor
-  - /cli/commands/npm-doctor
-  - /cli/doctor
-  - /cli/npm-doctor
   - /cli/v9/cli-commands/doctor
   - /cli/v9/cli-commands/npm-doctor
   - /cli/v9/commands/doctor
   - /cli/v9/doctor
   - /cli/v9/npm-doctor
-  - /commands/doctor
-  - /commands/npm-doctor
 ---
 
 ### Synopsis
@@ -143,6 +127,8 @@ reset the cache.
 * Type: URL
 
 The base URL of the npm registry.
+
+
 
 ### See Also
 

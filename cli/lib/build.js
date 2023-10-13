@@ -38,9 +38,25 @@ const updateNav = async (updates, { nav, path }) => {
   return fs.writeFile(path, nav.toString(), 'utf-8')
 }
 
+const getCurrentVersions = (nav) => {
+  // the only place the current versions are stored is in the nav
+  const currentSections = nav.find(s => s.url === `/${DOCS_PATH}`).variants
+
+  const currentVersions = currentSections.map((v) => {
+    const version = v.title?.match(/^Version\s(.*?)\s/)[1]
+    return version
+  }).sort(semver.compare)
+
+  return {
+    versions: currentVersions,
+    latest: currentVersions[currentVersions.length - 1],
+  }
+}
+
 const main = async ({
   loglevel,
-  releasesPath,
+  releases: rawReleases,
+  useCurrent,
   navPath,
   contentPath,
   prerelease,
@@ -50,26 +66,33 @@ const main = async ({
     log.on(loglevel)
   }
 
-  const pack = await pacote.packument('npm', { preferOnline: true }).then(p => ({
-    versions: Object.keys(p.versions),
-    latest: p['dist-tags'].latest,
-  }))
+  const baseNav = await fs.readFile(navPath, 'utf-8')
+  const navData = yaml.parse(baseNav)
+  const navDoc = yaml.parseDocument(baseNav)
 
-  const releaseVersions = require(releasesPath).map(release => {
+  const pack = useCurrent
+    ? getCurrentVersions(navData)
+    : await pacote.packument('npm', { preferOnline: true }).then(p => ({
+      versions: Object.keys(p.versions),
+      latest: p['dist-tags'].latest,
+    }))
+
+  const releaseVersions = rawReleases.map(release => {
     const major = Number(release.id.replace(/^v/, ''))
     const range = `>=${major}.0.0-a <${major + 1}.0.0` // include all prereleases
     const version = semver.parse(semver.maxSatisfying(pack.versions, range))
 
-    return {
+    return version && {
       ...release,
       version: version.toString(),
       // the default release is always controlled by the latest dist-tag
       default: semver.eq(version, pack.latest),
       prerelease: version.prerelease.length > 0,
     }
-  })
+  }).filter(Boolean)
 
-  const latestRelease = releaseVersions.find(r => r.default)
+  const latestRelease = releaseVersions.find(r => r.default) ??
+    releaseVersions.slice(0).sort((a, b) => semver.compare(b.version, a.version))[0]
 
   const releases = releaseVersions.map((release) => {
     const type = release.default ? 'Latest Release'
@@ -86,15 +109,13 @@ const main = async ({
     }
   })
 
-  const baseNav = await fs.readFile(navPath, 'utf-8')
-
   const updates = await Promise.all(
     releases.map((r) =>
-      extractRelease(r, { contentPath, baseNav: yaml.parse(baseNav), prerelease })
+      extractRelease(r, { contentPath, baseNav: navData, prerelease })
     )
   ).then((r) => r.filter(Boolean))
 
-  await updateNav(updates, { nav: yaml.parseDocument(baseNav), path: navPath })
+  await updateNav(updates, { nav: navDoc, path: navPath })
 }
 
 module.exports = main

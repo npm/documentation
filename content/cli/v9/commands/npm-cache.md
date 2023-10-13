@@ -3,36 +3,20 @@ title: npm-cache
 section: 1
 description: Manipulates packages cache
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-cache.md
 redirect_from:
-  - /cli-commands/cache
-  - /cli-commands/npm-cache
-  - /cli-documentation/cache
-  - /cli-documentation/cli-commands/cache
-  - /cli-documentation/cli-commands/npm-cache
-  - /cli-documentation/commands/cache
-  - /cli-documentation/commands/npm-cache
-  - /cli-documentation/npm-cache
   - /cli-documentation/v9/cache
   - /cli-documentation/v9/cli-commands/cache
   - /cli-documentation/v9/cli-commands/npm-cache
   - /cli-documentation/v9/commands/cache
   - /cli-documentation/v9/commands/npm-cache
   - /cli-documentation/v9/npm-cache
-  - /cli/cache
-  - /cli/cli-commands/cache
-  - /cli/cli-commands/npm-cache
-  - /cli/commands/cache
-  - /cli/commands/npm-cache
-  - /cli/npm-cache
   - /cli/v9/cache
   - /cli/v9/cli-commands/cache
   - /cli/v9/cli-commands/npm-cache
   - /cli/v9/commands/cache
   - /cli/v9/npm-cache
-  - /commands/cache
-  - /commands/npm-cache
 ---
 
 ### Synopsis
@@ -107,6 +91,8 @@ verify`.
 * Type: Path
 
 The location of npm's cache directory.
+
+
 
 ### See Also
 

@@ -3,36 +3,20 @@ title: npm-help
 section: 1
 description: Get help on npm
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-help.md
 redirect_from:
-  - /cli-commands/help
-  - /cli-commands/npm-help
-  - /cli-documentation/cli-commands/help
-  - /cli-documentation/cli-commands/npm-help
-  - /cli-documentation/commands/help
-  - /cli-documentation/commands/npm-help
-  - /cli-documentation/help
-  - /cli-documentation/npm-help
   - /cli-documentation/v9/cli-commands/help
   - /cli-documentation/v9/cli-commands/npm-help
   - /cli-documentation/v9/commands/help
   - /cli-documentation/v9/commands/npm-help
   - /cli-documentation/v9/help
   - /cli-documentation/v9/npm-help
-  - /cli/cli-commands/help
-  - /cli/cli-commands/npm-help
-  - /cli/commands/help
-  - /cli/commands/npm-help
-  - /cli/help
-  - /cli/npm-help
   - /cli/v9/cli-commands/help
   - /cli/v9/cli-commands/npm-help
   - /cli/v9/commands/help
   - /cli/v9/help
   - /cli/v9/npm-help
-  - /commands/help
-  - /commands/npm-help
 ---
 
 ### Synopsis
@@ -64,6 +48,8 @@ topic, so unique matches are equivalent to specifying a topic name.
 The program to use to view help content.
 
 Set to `"browser"` to view html help content in the default web browser.
+
+
 
 ### See Also
 

@@ -3,36 +3,20 @@ title: npm-team
 section: 1
 description: Manage organization teams and team memberships
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-team.md
 redirect_from:
-  - /cli-commands/npm-team
-  - /cli-commands/team
-  - /cli-documentation/cli-commands/npm-team
-  - /cli-documentation/cli-commands/team
-  - /cli-documentation/commands/npm-team
-  - /cli-documentation/commands/team
-  - /cli-documentation/npm-team
-  - /cli-documentation/team
   - /cli-documentation/v9/cli-commands/npm-team
   - /cli-documentation/v9/cli-commands/team
   - /cli-documentation/v9/commands/npm-team
   - /cli-documentation/v9/commands/team
   - /cli-documentation/v9/npm-team
   - /cli-documentation/v9/team
-  - /cli/cli-commands/npm-team
-  - /cli/cli-commands/team
-  - /cli/commands/npm-team
-  - /cli/commands/team
-  - /cli/npm-team
-  - /cli/team
   - /cli/v9/cli-commands/npm-team
   - /cli/v9/cli-commands/team
   - /cli/v9/commands/team
   - /cli/v9/npm-team
   - /cli/v9/team
-  - /commands/npm-team
-  - /commands/team
 ---
 
 ### Synopsis
@@ -59,7 +43,8 @@ as `@org:newteam` in these commands.
 
 If you have two-factor authentication enabled in `auth-and-writes` mode, then
 you can provide a code from your authenticator with `[--otp <otpcode>]`.
-If you don't include this then you will be prompted.
+If you don't include this then you will be taken through a second factor flow based
+on your `authtype`.
 
 * create / destroy:
   Create a new team, or destroy an existing one. Note: You cannot remove the
@@ -139,6 +124,8 @@ use the `npm access` command to grant or revoke the appropriate permissions.
 
 The base URL of the npm registry.
 
+
+
 #### `otp`
 
 * Default: null
@@ -150,6 +137,8 @@ when publishing or changing package permissions with `npm access`.
 If not set, and a registry response fails with a challenge for a one-time
 password, npm will prompt on the command line for one.
 
+
+
 #### `parseable`
 
 * Default: false
@@ -157,6 +146,8 @@ password, npm will prompt on the command line for one.
 
 Output parseable results from commands that write to standard output. For
 `npm search`, this will be tab-separated table format.
+
+
 
 #### `json`
 
@@ -169,6 +160,8 @@ Whether or not to output JSON data, rather than the normal output.
   saving them to your `package.json`.
 
 Not supported by all npm commands.
+
+
 
 ### See Also
 

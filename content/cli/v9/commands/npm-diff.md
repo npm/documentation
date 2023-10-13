@@ -3,36 +3,20 @@ title: npm-diff
 section: 1
 description: The registry diff command
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-diff.md
 redirect_from:
-  - /cli-commands/diff
-  - /cli-commands/npm-diff
-  - /cli-documentation/cli-commands/diff
-  - /cli-documentation/cli-commands/npm-diff
-  - /cli-documentation/commands/diff
-  - /cli-documentation/commands/npm-diff
-  - /cli-documentation/diff
-  - /cli-documentation/npm-diff
   - /cli-documentation/v9/cli-commands/diff
   - /cli-documentation/v9/cli-commands/npm-diff
   - /cli-documentation/v9/commands/diff
   - /cli-documentation/v9/commands/npm-diff
   - /cli-documentation/v9/diff
   - /cli-documentation/v9/npm-diff
-  - /cli/cli-commands/diff
-  - /cli/cli-commands/npm-diff
-  - /cli/commands/diff
-  - /cli/commands/npm-diff
-  - /cli/diff
-  - /cli/npm-diff
   - /cli/v9/cli-commands/diff
   - /cli/v9/cli-commands/npm-diff
   - /cli/v9/commands/diff
   - /cli/v9/diff
   - /cli/v9/npm-diff
-  - /commands/diff
-  - /commands/npm-diff
 ---
 
 ### Synopsis
@@ -187,12 +171,16 @@ located within the folder `./lib/` and changed lines of code within the
 
 Define arguments to compare in `npm diff`.
 
+
+
 #### `diff-name-only`
 
 * Default: false
 * Type: Boolean
 
 Prints only filenames when using `npm diff`.
+
+
 
 #### `diff-unified`
 
@@ -201,12 +189,16 @@ Prints only filenames when using `npm diff`.
 
 The number of lines of context to print in `npm diff`.
 
+
+
 #### `diff-ignore-all-space`
 
 * Default: false
 * Type: Boolean
 
 Ignore whitespace when comparing lines in `npm diff`.
+
+
 
 #### `diff-no-prefix`
 
@@ -218,12 +210,16 @@ Do not show any source or destination prefix in `npm diff` output.
 Note: this causes `npm diff` to ignore the `--diff-src-prefix` and
 `--diff-dst-prefix` configs.
 
+
+
 #### `diff-src-prefix`
 
 * Default: "a/"
 * Type: String
 
 Source prefix to be used in `npm diff` output.
+
+
 
 #### `diff-dst-prefix`
 
@@ -232,12 +228,16 @@ Source prefix to be used in `npm diff` output.
 
 Destination prefix to be used in `npm diff` output.
 
+
+
 #### `diff-text`
 
 * Default: false
 * Type: Boolean
 
 Treat all files as text in `npm diff`.
+
+
 
 #### `global`
 
@@ -253,6 +253,8 @@ folder instead of the current working directory. See
 * bin files are linked to `{prefix}/bin`
 * man pages are linked to `{prefix}/share/man`
 
+
+
 #### `tag`
 
 * Default: "latest"
@@ -266,6 +268,8 @@ command, if no explicit tag is given.
 
 When used by the `npm diff` command, this is the tag used to fetch the
 tarball that will be compared with the local files by default.
+
+
 
 #### `workspace`
 

@@ -3,36 +3,20 @@ title: npm-uninstall
 section: 1
 description: Remove a package
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-uninstall.md
 redirect_from:
-  - /cli-commands/npm-uninstall
-  - /cli-commands/uninstall
-  - /cli-documentation/cli-commands/npm-uninstall
-  - /cli-documentation/cli-commands/uninstall
-  - /cli-documentation/commands/npm-uninstall
-  - /cli-documentation/commands/uninstall
-  - /cli-documentation/npm-uninstall
-  - /cli-documentation/uninstall
   - /cli-documentation/v9/cli-commands/npm-uninstall
   - /cli-documentation/v9/cli-commands/uninstall
   - /cli-documentation/v9/commands/npm-uninstall
   - /cli-documentation/v9/commands/uninstall
   - /cli-documentation/v9/npm-uninstall
   - /cli-documentation/v9/uninstall
-  - /cli/cli-commands/npm-uninstall
-  - /cli/cli-commands/uninstall
-  - /cli/commands/npm-uninstall
-  - /cli/commands/uninstall
-  - /cli/npm-uninstall
-  - /cli/uninstall
   - /cli/v9/cli-commands/npm-uninstall
   - /cli/v9/cli-commands/uninstall
   - /cli/v9/commands/uninstall
   - /cli/v9/npm-uninstall
   - /cli/v9/uninstall
-  - /commands/npm-uninstall
-  - /commands/uninstall
 ---
 
 ### Synopsis
@@ -99,6 +83,24 @@ When used with the `npm rm` command, removes the dependency from
 
 Will also prevent writing to `package-lock.json` if set to `false`.
 
+
+
+#### `global`
+
+* Default: false
+* Type: Boolean
+
+Operates in "global" mode, so that packages are installed into the `prefix`
+folder instead of the current working directory. See
+[folders](/cli/v9/configuring-npm/folders) for more on the differences in behavior.
+
+* packages are installed into the `{prefix}/lib/node_modules` folder, instead
+  of the current working directory.
+* bin files are linked to `{prefix}/bin`
+* man pages are linked to `{prefix}/share/man`
+
+
+
 #### `workspace`
 
 * Default:
@@ -154,12 +156,14 @@ This value is not exported to the environment for child processes.
 
 #### `install-links`
 
-* Default: true
+* Default: false
 * Type: Boolean
 
 When set file: protocol dependencies will be packed and installed as regular
 dependencies instead of creating a symlink. This option has no effect on
 workspaces.
+
+
 
 ### See Also
 

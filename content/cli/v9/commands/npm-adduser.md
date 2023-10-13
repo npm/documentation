@@ -3,36 +3,20 @@ title: npm-adduser
 section: 1
 description: Add a registry user account
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-adduser.md
 redirect_from:
-  - /cli-commands/adduser
-  - /cli-commands/npm-adduser
-  - /cli-documentation/adduser
-  - /cli-documentation/cli-commands/adduser
-  - /cli-documentation/cli-commands/npm-adduser
-  - /cli-documentation/commands/adduser
-  - /cli-documentation/commands/npm-adduser
-  - /cli-documentation/npm-adduser
   - /cli-documentation/v9/adduser
   - /cli-documentation/v9/cli-commands/adduser
   - /cli-documentation/v9/cli-commands/npm-adduser
   - /cli-documentation/v9/commands/adduser
   - /cli-documentation/v9/commands/npm-adduser
   - /cli-documentation/v9/npm-adduser
-  - /cli/adduser
-  - /cli/cli-commands/adduser
-  - /cli/cli-commands/npm-adduser
-  - /cli/commands/adduser
-  - /cli/commands/npm-adduser
-  - /cli/npm-adduser
   - /cli/v9/adduser
   - /cli/v9/cli-commands/adduser
   - /cli/v9/cli-commands/npm-adduser
   - /cli/v9/commands/adduser
   - /cli/v9/npm-adduser
-  - /commands/adduser
-  - /commands/npm-adduser
 ---
 
 ### Synopsis
@@ -62,6 +46,8 @@ email are read in from prompts.
 * Type: URL
 
 The base URL of the npm registry.
+
+
 
 #### `scope`
 
@@ -93,12 +79,16 @@ npm init --scope=@foo --yes
 ```
 
 
+
 #### `auth-type`
 
 * Default: "web"
 * Type: "legacy" or "web"
 
-What authentication strategy to use with `login`.
+What authentication strategy to use with `login`. Note that if an `otp`
+config is given, this value will always be set to `legacy`.
+
+
 
 ### See Also
 

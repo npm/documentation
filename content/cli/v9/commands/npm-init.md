@@ -3,42 +3,26 @@ title: npm-init
 section: 1
 description: Create a package.json file
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-init.md
 redirect_from:
-  - /cli-commands/init
-  - /cli-commands/npm-init
-  - /cli-documentation/cli-commands/init
-  - /cli-documentation/cli-commands/npm-init
-  - /cli-documentation/commands/init
-  - /cli-documentation/commands/npm-init
-  - /cli-documentation/init
-  - /cli-documentation/npm-init
   - /cli-documentation/v9/cli-commands/init
   - /cli-documentation/v9/cli-commands/npm-init
   - /cli-documentation/v9/commands/init
   - /cli-documentation/v9/commands/npm-init
   - /cli-documentation/v9/init
   - /cli-documentation/v9/npm-init
-  - /cli/cli-commands/init
-  - /cli/cli-commands/npm-init
-  - /cli/commands/init
-  - /cli/commands/npm-init
-  - /cli/init
-  - /cli/npm-init
   - /cli/v9/cli-commands/init
   - /cli/v9/cli-commands/npm-init
   - /cli/v9/commands/init
   - /cli/v9/init
   - /cli/v9/npm-init
-  - /commands/init
-  - /commands/npm-init
 ---
 
 ### Synopsis
 
 ```bash
-npm init <package-spec> (same as `npx <package-spec>)
+npm init <package-spec> (same as `npx <package-spec>`)
 npm init <@scope> (same as `npx <@scope>/create`)
 
 aliases: create, innit
@@ -195,6 +179,8 @@ dot to represent the current directory in that context, e.g: `react-app .`:
 Automatically answer "yes" to any prompts that npm might print on the
 command line.
 
+
+
 #### `force`
 
 * Default: false
@@ -220,6 +206,8 @@ mistakes, unnecessary performance degradation, and malicious input.
 
 If you don't have a clear idea of what you want to do, it is strongly
 recommended that you do not use this option!
+
+
 
 #### `scope`
 
@@ -249,6 +237,7 @@ This will also cause `npm init` to create a scoped package.
 # instead of just named "whatever"
 npm init --scope=@foo --yes
 ```
+
 
 
 #### `workspace`
@@ -298,6 +287,8 @@ This value is not exported to the environment for child processes.
 
 If set to true, the npm cli will run an update after operations that may
 possibly change the workspaces installed to the `node_modules` folder.
+
+
 
 #### `include-workspace-root`
 

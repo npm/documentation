@@ -16,7 +16,9 @@ function ClipboardCopy({value}) {
 
   React.useEffect(() => {
     const timeout = setTimeout(() => {
-      if (copied) setCopied(false)
+      if (copied) {
+        setCopied(false)
+      }
     }, 1000)
 
     return () => clearTimeout(timeout)

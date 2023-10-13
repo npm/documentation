@@ -3,36 +3,20 @@ title: npm-pack
 section: 1
 description: Create a tarball from a package
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-pack.md
 redirect_from:
-  - /cli-commands/npm-pack
-  - /cli-commands/pack
-  - /cli-documentation/cli-commands/npm-pack
-  - /cli-documentation/cli-commands/pack
-  - /cli-documentation/commands/npm-pack
-  - /cli-documentation/commands/pack
-  - /cli-documentation/npm-pack
-  - /cli-documentation/pack
   - /cli-documentation/v9/cli-commands/npm-pack
   - /cli-documentation/v9/cli-commands/pack
   - /cli-documentation/v9/commands/npm-pack
   - /cli-documentation/v9/commands/pack
   - /cli-documentation/v9/npm-pack
   - /cli-documentation/v9/pack
-  - /cli/cli-commands/npm-pack
-  - /cli/cli-commands/pack
-  - /cli/commands/npm-pack
-  - /cli/commands/pack
-  - /cli/npm-pack
-  - /cli/pack
   - /cli/v9/cli-commands/npm-pack
   - /cli/v9/cli-commands/pack
   - /cli/v9/commands/pack
   - /cli/v9/npm-pack
   - /cli/v9/pack
-  - /commands/npm-pack
-  - /commands/pack
 ---
 
 ### Synopsis
@@ -56,6 +40,8 @@ commands that modify your local installation, eg, `install`, `update`,
 Note: This is NOT honored by other network related commands, eg `dist-tags`,
 `owner`, etc.
 
+
+
 #### `json`
 
 * Default: false
@@ -68,12 +54,16 @@ Whether or not to output JSON data, rather than the normal output.
 
 Not supported by all npm commands.
 
+
+
 #### `pack-destination`
 
 * Default: "."
 * Type: String
 
 Directory in which `npm pack` will save tarballs.
+
+
 
 #### `workspace`
 

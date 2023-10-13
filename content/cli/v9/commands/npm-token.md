@@ -3,36 +3,20 @@ title: npm-token
 section: 1
 description: Manage your authentication tokens
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-token.md
 redirect_from:
-  - /cli-commands/npm-token
-  - /cli-commands/token
-  - /cli-documentation/cli-commands/npm-token
-  - /cli-documentation/cli-commands/token
-  - /cli-documentation/commands/npm-token
-  - /cli-documentation/commands/token
-  - /cli-documentation/npm-token
-  - /cli-documentation/token
   - /cli-documentation/v9/cli-commands/npm-token
   - /cli-documentation/v9/cli-commands/token
   - /cli-documentation/v9/commands/npm-token
   - /cli-documentation/v9/commands/token
   - /cli-documentation/v9/npm-token
   - /cli-documentation/v9/token
-  - /cli/cli-commands/npm-token
-  - /cli/cli-commands/token
-  - /cli/commands/npm-token
-  - /cli/commands/token
-  - /cli/npm-token
-  - /cli/token
   - /cli/v9/cli-commands/npm-token
   - /cli/v9/cli-commands/token
   - /cli/v9/commands/token
   - /cli/v9/npm-token
   - /cli/v9/token
-  - /commands/npm-token
-  - /commands/token
 ---
 
 ### Synopsis
@@ -116,6 +100,8 @@ This lets you list, create and revoke authentication tokens.
 This is used to mark a token as unable to publish when configuring limited
 access tokens with the `npm token create` command.
 
+
+
 #### `cidr`
 
 * Default: null
@@ -124,12 +110,16 @@ access tokens with the `npm token create` command.
 This is a list of CIDR address to be used when configuring limited access
 tokens with the `npm token create` command.
 
+
+
 #### `registry`
 
 * Default: "https://registry.npmjs.org/"
 * Type: URL
 
 The base URL of the npm registry.
+
+
 
 #### `otp`
 
@@ -141,6 +131,8 @@ when publishing or changing package permissions with `npm access`.
 
 If not set, and a registry response fails with a challenge for a one-time
 password, npm will prompt on the command line for one.
+
+
 
 ### See Also
 

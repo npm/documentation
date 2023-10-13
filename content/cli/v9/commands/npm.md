@@ -3,22 +3,14 @@ title: npm
 section: 1
 description: javascript package manager
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm.md
 redirect_from:
-  - /cli-commands/npm
-  - /cli-documentation/cli-commands/npm
-  - /cli-documentation/commands/npm
-  - /cli-documentation/npm
   - /cli-documentation/v9/cli-commands/npm
   - /cli-documentation/v9/commands/npm
   - /cli-documentation/v9/npm
-  - /cli/cli-commands/npm
-  - /cli/commands/npm
-  - /cli/npm
   - /cli/v9/cli-commands/npm
   - /cli/v9/npm
-  - /commands/npm
 ---
 
 ### Synopsis
@@ -27,9 +19,11 @@ redirect_from:
 npm
 ```
 
+Note: This command is unaware of workspaces.
+
 ### Version
 
-9.2.0
+9.9.0
 
 ### Description
 
@@ -149,7 +143,7 @@ npm is extremely configurable.  It reads its configuration options from
   in the cli, env, or user config, then that file is parsed instead.
 * Defaults:
   npm's default configuration options are defined in
-  lib/utils/config-defs.js.  These must not be changed.
+  `lib/utils/config/definitions.js`.  These must not be changed.
 
 See [`config`](/cli/v9/using-npm/config) for much much more information.
 

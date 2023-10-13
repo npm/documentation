@@ -3,36 +3,20 @@ title: npm-root
 section: 1
 description: Display npm root
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-root.md
 redirect_from:
-  - /cli-commands/npm-root
-  - /cli-commands/root
-  - /cli-documentation/cli-commands/npm-root
-  - /cli-documentation/cli-commands/root
-  - /cli-documentation/commands/npm-root
-  - /cli-documentation/commands/root
-  - /cli-documentation/npm-root
-  - /cli-documentation/root
   - /cli-documentation/v9/cli-commands/npm-root
   - /cli-documentation/v9/cli-commands/root
   - /cli-documentation/v9/commands/npm-root
   - /cli-documentation/v9/commands/root
   - /cli-documentation/v9/npm-root
   - /cli-documentation/v9/root
-  - /cli/cli-commands/npm-root
-  - /cli/cli-commands/root
-  - /cli/commands/npm-root
-  - /cli/commands/root
-  - /cli/npm-root
-  - /cli/root
   - /cli/v9/cli-commands/npm-root
   - /cli/v9/cli-commands/root
   - /cli/v9/commands/root
   - /cli/v9/npm-root
   - /cli/v9/root
-  - /commands/npm-root
-  - /commands/root
 ---
 
 ### Synopsis
@@ -40,6 +24,8 @@ redirect_from:
 ```bash
 npm root
 ```
+
+Note: This command is unaware of workspaces.
 
 ### Description
 
@@ -70,10 +56,11 @@ folder instead of the current working directory. See
 * bin files are linked to `{prefix}/bin`
 * man pages are linked to `{prefix}/share/man`
 
+
+
 ### See Also
 
 * [npm prefix](/cli/v9/commands/npm-prefix)
-* [npm bin](/cli/v9/commands/npm-bin)
 * [npm folders](/cli/v9/configuring-npm/folders)
 * [npm config](/cli/v9/commands/npm-config)
 * [npmrc](/cli/v9/configuring-npm/npmrc)

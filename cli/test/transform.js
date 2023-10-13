@@ -1,8 +1,10 @@
 const t = require('tap')
 const fm = require('front-matter')
-const Transform = require('../lib/transform')
 
 const transform = ({ id, path }) => {
+  const Transform = t.mock('../lib/transform', {
+    '../lib/gh.js': { nwo: 'npm/cli' },
+  })
   const transformed = Transform.sync('---\n---\n', {
     release: {
       id: id,
@@ -89,5 +91,24 @@ t.test('package-json files', async t => {
     '/configuring-npm/package.json',
     '/files/package-json',
     '/files/package.json',
+  ])
+})
+
+t.test('registry signatures', async t => {
+  t.strictSame(transform({
+    id: 'v8',
+    path: 'about-pgp-signatures-for-packages-in-the-public-registry',
+  }).redirect_from, [
+    '/about-registry-signatures',
+    '/cli/about-pgp-signatures-for-packages-in-the-public-registry',
+    '/cli/v8/about-pgp-signatures-for-packages-in-the-public-registry',
+  ])
+  t.strictSame(transform({
+    id: 'v8',
+    path: 'verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry',
+  }).redirect_from, [
+    '/cli/v8/verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry',
+    '/cli/verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry',
+    '/verifying-registry-signatures',
   ])
 })

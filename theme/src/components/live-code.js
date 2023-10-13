@@ -1,7 +1,7 @@
 import {Absolute, BorderBox, Relative, Text} from '@primer/components'
 import htmlReactParser from 'html-react-parser'
 import githubTheme from 'prism-react-renderer/themes/github'
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import reactElementToJsxString from 'react-element-to-jsx-string'
 import {LiveEditor, LiveError, LivePreview, LiveProvider} from 'react-live'
 import {ThemeContext} from 'styled-components'
@@ -37,19 +37,11 @@ function wrapWithFragment(jsx) {
 function LiveCode({code, language, noinline}) {
   const theme = React.useContext(ThemeContext)
   const [liveCode, setLiveCode] = useState(code)
-  const handleChange = (updatedLiveCode) => setLiveCode(updatedLiveCode)
+  const handleChange = updatedLiveCode => setLiveCode(updatedLiveCode)
 
   return (
-    <BorderBox
-      flexDirection="column"
-      mb={3}
-    >
-      <LiveProvider
-        scope={scope}
-        code={liveCode}
-        transformCode={languageTransformers[language]}
-        noInline={noinline}
-      >
+    <BorderBox flexDirection="column" mb={3}>
+      <LiveProvider scope={scope} code={liveCode} transformCode={languageTransformers[language]} noInline={noinline}>
         <LivePreviewWrapper>
           <LivePreview />
         </LivePreviewWrapper>
@@ -70,15 +62,7 @@ function LiveCode({code, language, noinline}) {
             <ClipboardCopy value={liveCode} />
           </Absolute>
         </Relative>
-        <Text
-          as={LiveError}
-          m={0}
-          p={3}
-          fontFamily="mono"
-          fontSize={1}
-          color="white"
-          bg="red.5"
-        />
+        <Text as={LiveError} m={0} p={3} fontFamily="mono" fontSize={1} color="white" bg="red.5" />
       </LiveProvider>
     </BorderBox>
   )

@@ -3,36 +3,20 @@ title: npm-outdated
 section: 1
 description: Check for outdated packages
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-outdated.md
 redirect_from:
-  - /cli-commands/npm-outdated
-  - /cli-commands/outdated
-  - /cli-documentation/cli-commands/npm-outdated
-  - /cli-documentation/cli-commands/outdated
-  - /cli-documentation/commands/npm-outdated
-  - /cli-documentation/commands/outdated
-  - /cli-documentation/npm-outdated
-  - /cli-documentation/outdated
   - /cli-documentation/v9/cli-commands/npm-outdated
   - /cli-documentation/v9/cli-commands/outdated
   - /cli-documentation/v9/commands/npm-outdated
   - /cli-documentation/v9/commands/outdated
   - /cli-documentation/v9/npm-outdated
   - /cli-documentation/v9/outdated
-  - /cli/cli-commands/npm-outdated
-  - /cli/cli-commands/outdated
-  - /cli/commands/npm-outdated
-  - /cli/commands/outdated
-  - /cli/npm-outdated
-  - /cli/outdated
   - /cli/v9/cli-commands/npm-outdated
   - /cli/v9/cli-commands/outdated
   - /cli/v9/commands/outdated
   - /cli/v9/npm-outdated
   - /cli/v9/outdated
-  - /commands/npm-outdated
-  - /commands/outdated
 ---
 
 ### Synopsis
@@ -126,6 +110,8 @@ When running `npm outdated` and `npm ls`, setting `--all` will show all
 outdated or installed packages, rather than only those directly depended
 upon by the current project.
 
+
+
 #### `json`
 
 * Default: false
@@ -138,12 +124,16 @@ Whether or not to output JSON data, rather than the normal output.
 
 Not supported by all npm commands.
 
+
+
 #### `long`
 
 * Default: false
 * Type: Boolean
 
 Show extended information in `ls`, `search`, and `help-search`.
+
+
 
 #### `parseable`
 
@@ -152,6 +142,8 @@ Show extended information in `ls`, `search`, and `help-search`.
 
 Output parseable results from commands that write to standard output. For
 `npm search`, this will be tab-separated table format.
+
+
 
 #### `global`
 
@@ -166,6 +158,8 @@ folder instead of the current working directory. See
   of the current working directory.
 * bin files are linked to `{prefix}/bin`
 * man pages are linked to `{prefix}/share/man`
+
+
 
 #### `workspace`
 

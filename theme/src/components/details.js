@@ -33,7 +33,9 @@ function Details({children, overlay, render = getRenderer(children), ...rest}) {
   const [open, setOpen] = React.useState(Boolean(rest.open))
 
   function toggle(event) {
-    if (event) event.preventDefault()
+    if (event) {
+      event.preventDefault()
+    }
     if (overlay) {
       openMenu()
     } else {

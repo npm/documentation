@@ -3,36 +3,20 @@ title: npm-owner
 section: 1
 description: Manage package owners
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-owner.md
 redirect_from:
-  - /cli-commands/npm-owner
-  - /cli-commands/owner
-  - /cli-documentation/cli-commands/npm-owner
-  - /cli-documentation/cli-commands/owner
-  - /cli-documentation/commands/npm-owner
-  - /cli-documentation/commands/owner
-  - /cli-documentation/npm-owner
-  - /cli-documentation/owner
   - /cli-documentation/v9/cli-commands/npm-owner
   - /cli-documentation/v9/cli-commands/owner
   - /cli-documentation/v9/commands/npm-owner
   - /cli-documentation/v9/commands/owner
   - /cli-documentation/v9/npm-owner
   - /cli-documentation/v9/owner
-  - /cli/cli-commands/npm-owner
-  - /cli/cli-commands/owner
-  - /cli/commands/npm-owner
-  - /cli/commands/owner
-  - /cli/npm-owner
-  - /cli/owner
   - /cli/v9/cli-commands/npm-owner
   - /cli/v9/cli-commands/owner
   - /cli/v9/commands/owner
   - /cli/v9/npm-owner
   - /cli/v9/owner
-  - /commands/npm-owner
-  - /commands/owner
 ---
 
 ### Synopsis
@@ -44,8 +28,6 @@ npm owner ls <package-spec>
 
 alias: author
 ```
-
-Note: This command is unaware of workspaces.
 
 ### Description
 
@@ -63,8 +45,8 @@ or you can't.  Future versions may contain more fine-grained access levels, but
 that is not implemented at this time.
 
 If you have two-factor authentication enabled with `auth-and-writes` (see
-[`npm-profile`](/cli/v9/commands/npm-profile)) then you'll need to include an otp
-on the command line when changing ownership with `--otp`.
+[`npm-profile`](/cli/v9/commands/npm-profile)) then you'll need to go through a second factor
+flow when changing ownership or include an otp on the command line with `--otp`.
 
 ### Configuration
 
@@ -74,6 +56,8 @@ on the command line when changing ownership with `--otp`.
 * Type: URL
 
 The base URL of the npm registry.
+
+
 
 #### `otp`
 
@@ -85,6 +69,8 @@ when publishing or changing package permissions with `npm access`.
 
 If not set, and a registry response fails with a challenge for a one-time
 password, npm will prompt on the command line for one.
+
+
 
 #### `workspace`
 

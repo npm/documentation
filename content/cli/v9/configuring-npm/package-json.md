@@ -3,28 +3,16 @@ title: package.json
 section: 5
 description: Specifics of npm's package.json handling
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/configuring-npm/package-json.md
 redirect_from:
-  - /cli-documentation/configuring-npm/package-json
-  - /cli-documentation/configuring-npm/package.json
-  - /cli-documentation/files/package-json
-  - /cli-documentation/files/package.json
   - /cli-documentation/v9/configuring-npm/package-json
   - /cli-documentation/v9/configuring-npm/package.json
   - /cli-documentation/v9/files/package-json
   - /cli-documentation/v9/files/package.json
-  - /cli/configuring-npm/package-json
-  - /cli/configuring-npm/package.json
-  - /cli/files/package-json
-  - /cli/files/package.json
   - /cli/v9/configuring-npm/package.json
   - /cli/v9/files/package-json
   - /cli/v9/files/package.json
-  - /configuring-npm/package-json
-  - /configuring-npm/package.json
-  - /files/package-json
-  - /files/package.json
 ---
 
 ### Description
@@ -143,7 +131,7 @@ SPDX license identifier for the license you're using, like this:
 
 You can check [the full list of SPDX license
 IDs](https://spdx.org/licenses/).  Ideally you should pick one that is
-[OSI](https://opensource.org/licenses/alphabetical) approved.
+[OSI](https://opensource.org/licenses/) approved.
 
 If your package is licensed under multiple common licenses, use an [SPDX
 license expression syntax version 2.0
@@ -302,9 +290,6 @@ it will. The `.npmignore` file works just like a `.gitignore`. If there is
 a `.gitignore` file, and `.npmignore` is missing, `.gitignore`'s contents
 will be used instead.
 
-Files included with the "package.json#files" field _cannot_ be excluded
-through `.npmignore` or `.gitignore`.
-
 Certain files are always included, regardless of settings:
 
 * `package.json`
@@ -346,7 +331,7 @@ This should be a module relative to the root of your package folder.
 For most modules, it makes the most sense to have a main script and often
 not much else.
 
-If `main` is not set it defaults to `index.js` in the package's root folder.
+If `main` is not set, it defaults to `index.js` in the package's root folder.
 
 ### browser
 

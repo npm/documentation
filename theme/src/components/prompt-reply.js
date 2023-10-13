@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 function PromptReply({children}) {
-    return (<strong>{children}</strong>);
+  return <strong>{children}</strong>
 }
 
-export default PromptReply;
+export default PromptReply

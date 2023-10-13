@@ -3,36 +3,20 @@ title: npm-restart
 section: 1
 description: Restart a package
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-restart.md
 redirect_from:
-  - /cli-commands/npm-restart
-  - /cli-commands/restart
-  - /cli-documentation/cli-commands/npm-restart
-  - /cli-documentation/cli-commands/restart
-  - /cli-documentation/commands/npm-restart
-  - /cli-documentation/commands/restart
-  - /cli-documentation/npm-restart
-  - /cli-documentation/restart
   - /cli-documentation/v9/cli-commands/npm-restart
   - /cli-documentation/v9/cli-commands/restart
   - /cli-documentation/v9/commands/npm-restart
   - /cli-documentation/v9/commands/restart
   - /cli-documentation/v9/npm-restart
   - /cli-documentation/v9/restart
-  - /cli/cli-commands/npm-restart
-  - /cli/cli-commands/restart
-  - /cli/commands/npm-restart
-  - /cli/commands/restart
-  - /cli/npm-restart
-  - /cli/restart
   - /cli/v9/cli-commands/npm-restart
   - /cli/v9/cli-commands/restart
   - /cli/v9/commands/restart
   - /cli/v9/npm-restart
   - /cli/v9/restart
-  - /commands/npm-restart
-  - /commands/restart
 ---
 
 ### Synopsis
@@ -79,6 +63,8 @@ Note that commands explicitly intended to run a particular script, such as
 will still run their intended script if `ignore-scripts` is set, but they
 will *not* run any pre- or post-scripts.
 
+
+
 #### `script-shell`
 
 * Default: '/bin/sh' on POSIX systems, 'cmd.exe' on Windows
@@ -86,6 +72,8 @@ will *not* run any pre- or post-scripts.
 
 The shell to use for scripts run with the `npm exec`, `npm run` and `npm
 init <package-spec>` commands.
+
+
 
 ### See Also
 

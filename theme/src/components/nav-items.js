@@ -1,32 +1,19 @@
 import {BorderBox, Box, Flex, StyledOcticon, Link, themeGet} from '@primer/components'
 import {LinkExternalIcon} from '@primer/octicons-react'
 import {Link as GatsbyLink} from 'gatsby'
-import preval from 'preval.macro'
 import React from 'react'
 import styled from 'styled-components'
 import NavHierarchy from '../nav-hierarchy'
 
-// This code needs to run at build-time so it can access the file system.
-const repositoryUrl = preval`
-  const readPkgUp = require('read-pkg-up')
-  const getPkgRepo = require('get-pkg-repo')
-  try {
-    const repo = getPkgRepo(readPkgUp.sync().package)
-    module.exports = \`https://github.com/\${repo.user}/\${repo.project}\`
-  } catch (error) {
-    module.exports = ''
-  }
-`
-
-const getActiveProps = (className) => (props) => {
-  const location = NavHierarchy.getLocation(props.location.pathname);
-  const href = NavHierarchy.getLocation(props.href);
+const getActiveProps = className => props => {
+  const location = NavHierarchy.getLocation(props.location.pathname)
+  const href = NavHierarchy.getLocation(props.href)
 
   if (NavHierarchy.isActiveUrl(location, href)) {
-      return { className: `${className} active` };
+    return {className: `${className} active`}
   }
 
-  return { className: `${className}` };
+  return {className: `${className}`}
 }
 
 const ActiveLink = ({className, children, ...props}) => (
@@ -88,106 +75,94 @@ const Description = styled(Box)`
 `
 
 function topLevelItems(items, path) {
-    if (items == null) {
-        return null;
-    }
+  if (items == null) {
+    return null
+  }
 
-    return (
-      <>
-        {items.map((item) => {
-          const children = NavHierarchy.isActiveUrl(path, item.url) ? NavHierarchy.getHierarchy(item, { path: path, hideVariants: true }) : null;
+  return (
+    <>
+      {items.map(item => {
+        const children = NavHierarchy.isActiveUrl(path, item.url)
+          ? NavHierarchy.getHierarchy(item, {path, hideVariants: true})
+          : null
 
-          return (
-            <BorderBox
-              key={item.title}
-              borderWidth={0}
-              borderRadius={0}
-              borderTopWidth={1}
-              py={3}
-              px={4}
-              role="listitem"
-            >
-              <Flex flexDirection="column">
-                <TopLevelLink to={item.url} key={item.title}>{item.title}</TopLevelLink>
-                {secondLevelItems(children, path)}
-              </Flex>
-            </BorderBox>
-          )
-        })}
-      </>
-    );
+        return (
+          <BorderBox key={item.title} borderWidth={0} borderRadius={0} borderTopWidth={1} py={3} px={4} role="listitem">
+            <Flex flexDirection="column">
+              <TopLevelLink to={item.url} key={item.title}>
+                {item.title}
+              </TopLevelLink>
+              {secondLevelItems(children, path)}
+            </Flex>
+          </BorderBox>
+        )
+      })}
+    </>
+  )
 }
 
 function secondLevelItems(items, path) {
-    if (items == null) {
-        return null;
-    }
+  if (items == null) {
+    return null
+  }
 
-    return (
-      <Flex flexDirection="column" mt={2} role="list">
-        {items.map((item) => {
-          const children = NavHierarchy.isActiveUrl(path, item.url) ? NavHierarchy.getHierarchy(item, { path: path, hideVariants: true }) : null;
-          return(
-            <Box key={item.title} role="listitem">
-              <SecondLevelLink key={item.url} to={item.url}>
-                {item.title}
-                {item.description != null ? (
-                  <>
-                    <Description>{item.description}</Description>
-                  </>
-                ) : null}
-              </SecondLevelLink>
-              {thirdLevelItems(children, path)}
-            </Box>
-          )
-        })}
-      </Flex>
-    );
-}
-
-function thirdLevelItems(items, path) {
-    if (items == null) {
-        return null;
-    }
-
-    return (
-      <Flex flexDirection="column" mt={2} role="list">
-        {items.map((item) => (
+  return (
+    <Flex flexDirection="column" mt={2} role="list">
+      {items.map(item => {
+        const children = NavHierarchy.isActiveUrl(path, item.url)
+          ? NavHierarchy.getHierarchy(item, {path, hideVariants: true})
+          : null
+        return (
           <Box key={item.title} role="listitem">
-            <ThirdLevelLink key={item.url} to={item.url}>
+            <SecondLevelLink key={item.url} to={item.url}>
               {item.title}
-            </ThirdLevelLink>
+              {item.description != null ? (
+                <>
+                  <Description>{item.description}</Description>
+                </>
+              ) : null}
+            </SecondLevelLink>
+            {thirdLevelItems(children, path)}
           </Box>
-        ))}
-      </Flex>
-    )
+        )
+      })}
+    </Flex>
+  )
 }
 
-function githubLink(props) {
-    if (!repositoryUrl) {
-        return null;
-    }
+function thirdLevelItems(items) {
+  if (items == null) {
+    return null
+  }
 
-    return (
-      <BorderBox borderWidth={0} borderTopWidth={1} borderRadius={0} py={5} px={4}>
-        <Link href={repositoryUrl} color="inherit">
-          <Flex justifyContent="space-between" alignItems="center" color="gray.5">
-            Edit on GitHub
-            <StyledOcticon icon={LinkExternalIcon} color="gray.5" />
-          </Flex>
-        </Link>
-      </BorderBox>
-    );
+  return (
+    <Flex flexDirection="column" mt={2} role="list">
+      {items.map(item => (
+        <Box key={item.title} role="listitem">
+          <ThirdLevelLink key={item.url} to={item.url}>
+            {item.title}
+          </ThirdLevelLink>
+        </Box>
+      ))}
+    </Flex>
+  )
 }
 
-function NavItems(props) {
-  const path = NavHierarchy.getLocation(props.location.pathname);
-  const items = NavHierarchy.getHierarchy(null, { path: path, hideVariants: true }); 
+function NavItems({location, repositoryUrl}) {
+  const path = NavHierarchy.getLocation(location.pathname)
+  const items = NavHierarchy.getHierarchy(null, {path, hideVariants: true})
 
   return (
     <>
       {topLevelItems(items, path)}
-      {props.editOnGitHub !== false ? githubLink(props) : null}
+      <BorderBox borderWidth={0} borderTopWidth={1} borderRadius={0} py={5} px={4}>
+        <Link href={repositoryUrl} color="inherit">
+          <Flex justifyContent="space-between" alignItems="center" color="gray.5">
+            GitHub
+            <StyledOcticon icon={LinkExternalIcon} color="gray.5" />
+          </Flex>
+        </Link>
+      </BorderBox>
     </>
   )
 }

@@ -3,36 +3,20 @@ title: npm-rebuild
 section: 1
 description: Rebuild a package
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-rebuild.md
 redirect_from:
-  - /cli-commands/npm-rebuild
-  - /cli-commands/rebuild
-  - /cli-documentation/cli-commands/npm-rebuild
-  - /cli-documentation/cli-commands/rebuild
-  - /cli-documentation/commands/npm-rebuild
-  - /cli-documentation/commands/rebuild
-  - /cli-documentation/npm-rebuild
-  - /cli-documentation/rebuild
   - /cli-documentation/v9/cli-commands/npm-rebuild
   - /cli-documentation/v9/cli-commands/rebuild
   - /cli-documentation/v9/commands/npm-rebuild
   - /cli-documentation/v9/commands/rebuild
   - /cli-documentation/v9/npm-rebuild
   - /cli-documentation/v9/rebuild
-  - /cli/cli-commands/npm-rebuild
-  - /cli/cli-commands/rebuild
-  - /cli/commands/npm-rebuild
-  - /cli/commands/rebuild
-  - /cli/npm-rebuild
-  - /cli/rebuild
   - /cli/v9/cli-commands/npm-rebuild
   - /cli/v9/cli-commands/rebuild
   - /cli/v9/commands/rebuild
   - /cli/v9/npm-rebuild
   - /cli/v9/rebuild
-  - /commands/npm-rebuild
-  - /commands/rebuild
 ---
 
 ### Synopsis
@@ -70,6 +54,8 @@ folder instead of the current working directory. See
 * bin files are linked to `{prefix}/bin`
 * man pages are linked to `{prefix}/share/man`
 
+
+
 #### `bin-links`
 
 * Default: true
@@ -81,6 +67,8 @@ executables.
 Set to false to have it not do this. This can be used to work around the
 fact that some file systems don't support symlinks, even on ostensibly Unix
 systems.
+
+
 
 #### `foreground-scripts`
 
@@ -94,6 +82,8 @@ input, output, and error with the main npm process.
 Note that this will generally make installs run slower, and be much noisier,
 but can be useful for debugging.
 
+
+
 #### `ignore-scripts`
 
 * Default: false
@@ -105,6 +95,8 @@ Note that commands explicitly intended to run a particular script, such as
 `npm start`, `npm stop`, `npm restart`, `npm test`, and `npm run-script`
 will still run their intended script if `ignore-scripts` is set, but they
 will *not* run any pre- or post-scripts.
+
+
 
 #### `workspace`
 
@@ -161,12 +153,14 @@ This value is not exported to the environment for child processes.
 
 #### `install-links`
 
-* Default: true
+* Default: false
 * Type: Boolean
 
 When set file: protocol dependencies will be packed and installed as regular
 dependencies instead of creating a symlink. This option has no effect on
 workspaces.
+
+
 
 ### See Also
 

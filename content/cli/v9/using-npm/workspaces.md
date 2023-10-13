@@ -3,18 +3,12 @@ title: workspaces
 section: 7
 description: Working with workspaces
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/using-npm/workspaces.md
 redirect_from:
-  - /cli-documentation/misc/workspaces
-  - /cli-documentation/using-npm/workspaces
   - /cli-documentation/v9/misc/workspaces
   - /cli-documentation/v9/using-npm/workspaces
-  - /cli/misc/workspaces
-  - /cli/using-npm/workspaces
   - /cli/v9/misc/workspaces
-  - /misc/workspaces
-  - /using-npm/workspaces
 ---
 
 ### Description
@@ -115,7 +109,7 @@ the npm installer that package should be added as a dependency of the provided
 workspace:
 
 ```
-npm install abbrev -w a
+npm install abbrev -w packages/a
 ```
 
 Note: other installing commands such as `uninstall`, `ci`, etc will also

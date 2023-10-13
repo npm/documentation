@@ -3,36 +3,20 @@ title: npm-access
 section: 1
 description: Set access level on published packages
 github_repo: npm/cli
-github_branch: latest
+github_branch: release/v9
 github_path: docs/lib/content/commands/npm-access.md
 redirect_from:
-  - /cli-commands/access
-  - /cli-commands/npm-access
-  - /cli-documentation/access
-  - /cli-documentation/cli-commands/access
-  - /cli-documentation/cli-commands/npm-access
-  - /cli-documentation/commands/access
-  - /cli-documentation/commands/npm-access
-  - /cli-documentation/npm-access
   - /cli-documentation/v9/access
   - /cli-documentation/v9/cli-commands/access
   - /cli-documentation/v9/cli-commands/npm-access
   - /cli-documentation/v9/commands/access
   - /cli-documentation/v9/commands/npm-access
   - /cli-documentation/v9/npm-access
-  - /cli/access
-  - /cli/cli-commands/access
-  - /cli/cli-commands/npm-access
-  - /cli/commands/access
-  - /cli/commands/npm-access
-  - /cli/npm-access
   - /cli/v9/access
   - /cli/v9/cli-commands/access
   - /cli/v9/cli-commands/npm-access
   - /cli/v9/commands/access
   - /cli/v9/npm-access
-  - /commands/access
-  - /commands/npm-access
 ---
 
 ### Synopsis
@@ -46,6 +30,8 @@ npm access set mfa=none|publish|automation [<package>]
 npm access grant <read-only|read-write> <scope:team> [<package>]
 npm access revoke <scope:team> [<package>]
 ```
+
+Note: This command is unaware of workspaces.
 
 ### Description
 
@@ -96,8 +82,7 @@ You must have privileges to set the access of a package:
 * You have been given read-write privileges for a package, either as a member
   of a team or directly as an owner.
 
-If you have two-factor authentication enabled then you'll be prompted to
-provide an otp token, or may use the `--otp=...` option to specify it on
+If you have two-factor authentication enabled then you'll be prompted to provide a second factor, or may use the `--otp=...` option to specify it on
 the command line.
 
 If your account is not paid, then attempts to publish scoped packages will
@@ -120,6 +105,8 @@ Whether or not to output JSON data, rather than the normal output.
 
 Not supported by all npm commands.
 
+
+
 #### `otp`
 
 * Default: null
@@ -131,12 +118,16 @@ when publishing or changing package permissions with `npm access`.
 If not set, and a registry response fails with a challenge for a one-time
 password, npm will prompt on the command line for one.
 
+
+
 #### `registry`
 
 * Default: "https://registry.npmjs.org/"
 * Type: URL
 
 The base URL of the npm registry.
+
+
 
 ### See Also
 
