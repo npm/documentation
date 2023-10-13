@@ -26,15 +26,12 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@github/combobox-nav": "^2.3.0",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@primer/components": "^23.0.0",
     "@primer/octicons-react": "^19.8.0",
     "@primer/react": "^35.31.0",
     "@styled-system/theme-get": "^5.1.2",
-    "@testing-library/react": "^9.5.0",
-    "babel-plugin-styled-components": "^2.1.4",
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^2.30.0",
     "details-element-polyfill": "^2.4.0",
@@ -68,6 +65,7 @@
     "@github/prettier-config": "^0.0.6",
     "@npmcli/template-oss": "4.19.0",
     "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^9.5.0",
     "babel-jest": "^29.7.0",
     "eslint": "^8.51.0",
     "eslint-plugin-github": "^4.10.1",
