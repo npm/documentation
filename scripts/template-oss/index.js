@@ -3,7 +3,7 @@ module.exports = {
     add: {
       '.github/workflows/ci.yml': 'ci.yml',
       '.github/workflows/publish.yml': 'publish.yml',
-      '.github/CODEOWNERS': 'CODEOWNERS',
+      '.github/CODEOWNERS': false,
       '.github/ISSUE_TEMPLATE/bug.yml': false,
       '.commitlintrc.js': false,
       '.github/settings.yml': false,
