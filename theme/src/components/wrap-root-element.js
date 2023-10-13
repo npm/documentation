@@ -13,6 +13,11 @@ import InlineCode from './inline-code'
 import List from './list'
 import Paragraph from './paragraph'
 import Table from './table'
+import Index from './index'
+import Note from './note'
+import Prompt from './prompt'
+import PromptReply from './prompt-reply'
+import Screenshot from './screenshot'
 
 const components = {
   a: Link,
@@ -33,6 +38,11 @@ const components = {
   ul: List,
   ol: List.withComponent('ol'),
   dl: DescriptionList,
+  Index,
+  Note,
+  Prompt,
+  PromptReply,
+  Screenshot,
 }
 
 function wrapRootElement({element}) {
