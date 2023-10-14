@@ -1,6 +1,6 @@
 import {Box, Heading, Text} from '@primer/components'
 import React from 'react'
-import useSiteMetadata from '../use-site-metadata'
+import useSiteMetadata from '../hooks/use-site-metadata'
 import Container from './container'
 
 function Hero() {

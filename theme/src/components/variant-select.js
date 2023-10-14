@@ -6,7 +6,7 @@
 
 import React from 'react'
 import {ActionList, ActionMenu, ThemeProvider} from '@primer/react'
-import NavHierarchy from '../nav-hierarchy'
+import NavHierarchy from '../util/nav-hierarchy'
 
 function VariantSelect(props) {
   const [open, setOpen] = React.useState(false)

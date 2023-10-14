@@ -1,20 +1,20 @@
 import {BorderBox, Box, Flex, Grid, Heading, Position, StyledOcticon, Text} from '@primer/components'
 import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
 import React from 'react'
-import Head from './head'
-import Header, {HEADER_HEIGHT} from './header'
-import PageFooter from './page-footer'
-import Sidebar from './sidebar'
-import SourceLink from './source-link'
-import StatusLabel from './status-label'
-import TableOfContents from './table-of-contents'
-import VariantSelect from './variant-select'
-import NavHierarchy from '../nav-hierarchy'
-import Details from './details'
-import * as Slugger from '../use-slugger'
+import Head from '../components/head'
+import Header, {HEADER_HEIGHT} from '../components/header'
+import PageFooter from '../components/page-footer'
+import Sidebar from '../components/sidebar'
+import SourceLink from '../components/source-link'
+import StatusLabel from '../components/status-label'
+import TableOfContents from '../components/table-of-contents'
+import VariantSelect from '../components/variant-select'
+import NavHierarchy from '../util/nav-hierarchy'
+import Details from '../components/details'
+import * as Slugger from '../hooks/use-slugger'
 
 function Layout({children, pageContext, location}) {
-  const {title, description, status, source, additionalContributors = []} = pageContext.frontmatter
+  const {title, description, status, source} = pageContext.frontmatter
 
   const variantRoot = NavHierarchy.getVariantRoot(location.pathname)
 
@@ -22,11 +22,7 @@ function Layout({children, pageContext, location}) {
     <Slugger.Provider>
       <Flex flexDirection="column" minHeight="100vh">
         <Head title={title} description={description} />
-        <Header
-          repositoryUrl={pageContext.repositoryUrl}
-          location={location}
-          isSearchEnabled={pageContext.isSearchEnabled}
-        />
+        <Header repositoryUrl={pageContext.repositoryUrl} location={location} />
         <Flex flex="1 1 auto" flexDirection="row" css={{zIndex: 0}} role="main">
           <Box display={['none', null, null, 'block']}>
             <Sidebar repositoryUrl={pageContext.repositoryUrl} location={location} />
@@ -112,10 +108,7 @@ function Layout({children, pageContext, location}) {
                 </Box>
               ) : null}
               {children}
-              <PageFooter
-                editUrl={pageContext.editUrl}
-                contributors={pageContext.contributors.concat(additionalContributors.map(login => ({login})))}
-              />
+              <PageFooter editUrl={pageContext.editUrl} contributors={pageContext.contributors} />
             </Box>
           </Grid>
         </Flex>

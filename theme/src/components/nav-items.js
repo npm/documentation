@@ -3,7 +3,7 @@ import {LinkExternalIcon} from '@primer/octicons-react'
 import {Link as GatsbyLink} from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import NavHierarchy from '../nav-hierarchy'
+import NavHierarchy from '../util/nav-hierarchy'
 
 const getActiveProps = className => props => {
   const location = NavHierarchy.getLocation(props.location.pathname)

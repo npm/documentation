@@ -1,6 +1,6 @@
 import {BorderBox, Position} from '@primer/components'
 import React from 'react'
-import useSiteMetadata from '../use-site-metadata'
+import useSiteMetadata from '../hooks/use-site-metadata'
 import DarkTextInput from './dark-text-input'
 import SearchResults from './search-results'
 

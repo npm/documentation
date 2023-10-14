@@ -5,7 +5,7 @@ import React from 'react'
 import textContent from 'react-addons-text-content'
 import styled from 'styled-components'
 import {HEADER_HEIGHT} from './header'
-import {useSlugger} from '../use-slugger'
+import {useSlugger} from '../hooks/use-slugger'
 
 const StyledHeading = styled(Heading)`
   margin-top: ${themeGet('space.4')};

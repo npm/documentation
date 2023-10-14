@@ -4,11 +4,11 @@ import {Link as GatsbyLink} from 'gatsby'
 import React from 'react'
 import navItems from '../nav.yml'
 import headerNavItems from '../header-nav.yml'
-import useSiteMetadata from '../use-site-metadata'
+import useSiteMetadata from '../hooks/use-site-metadata'
 import DarkButton from './dark-button'
 import Drawer from './drawer'
 import NavItems from './nav-items'
-import {useIsMobile} from '../use-breakpoint'
+import {useIsMobile} from '../hooks/use-breakpoint'
 
 const useDrawerIsOpen = () => {
   const isMobile = useIsMobile()

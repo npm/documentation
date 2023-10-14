@@ -1,6 +1,6 @@
 import {BaseStyles} from '@primer/components'
 import React from 'react'
-import SkipLink from './skip-link'
+import SkipLink from '../components/skip-link'
 import {createGlobalStyle} from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
