@@ -1,6 +1,6 @@
 import React from 'react'
 import {Helmet} from 'react-helmet'
-import useSiteMetdata from '../use-site-metadata'
+import useSiteMetdata from '../hooks/use-site-metadata'
 
 function Head(props) {
   const siteMetadata = useSiteMetdata()

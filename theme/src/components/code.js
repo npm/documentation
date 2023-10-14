@@ -3,7 +3,6 @@ import Highlight, {defaultProps} from 'prism-react-renderer'
 import githubTheme from 'prism-react-renderer/themes/github'
 import React, {useState, useEffect} from 'react'
 import ClipboardCopy from './clipboard-copy'
-import LiveCode from './live-code'
 
 /**
  * Resize the scroll handle to the size of the code contents, since the former has to be positioned absolutely.
@@ -39,14 +38,10 @@ const useScrollSize = () => {
   return {scrollRef, paddingRef, size}
 }
 
-function Code({className, children, live, noinline}) {
+function Code({className, children}) {
   const language = className ? className.replace(/language-/, '') : ''
   const code = children.trim()
   const {scrollRef, paddingRef, size} = useScrollSize()
-
-  if (live) {
-    return <LiveCode code={code} language={language} noinline={noinline} />
-  }
 
   return (
     <Relative>

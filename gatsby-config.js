@@ -12,7 +12,7 @@ module.exports = {
     {
       resolve: './theme',
       options: {
-        icon: './src/images/npm-favicon.png',
+        icon: './src/images/favicon.png',
         showContributors: false,
         repo: {
           url: 'https://github.com/npm/documentation',

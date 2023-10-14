@@ -5,22 +5,14 @@ import Contributors from '../contributors'
 test('renders contributors', () => {
   const {queryByText} = render(
     <Contributors
-      contributors={[
-        {
+      contributors={{
+        logins: ['colebemis', 'emplums'],
+        latestCommit: {
           login: 'colebemis',
-          latestCommit: {
-            url: '#',
-            date: '2019-08-15T23:40:19Z',
-          },
+          url: '#',
+          date: '2019-08-15T23:40:19Z',
         },
-        {
-          login: 'emplums',
-          latestCommit: {
-            url: '#',
-            date: '2019-08-14T00:19:54Z',
-          },
-        },
-      ]}
+      }}
     />,
   )
 
@@ -31,7 +23,7 @@ test('renders contributors', () => {
 })
 
 test('does not render "last edited by" if latest contributor does not have a latest commit', () => {
-  const {queryByText} = render(<Contributors contributors={[{login: 'ashygee'}]} />)
+  const {queryByText} = render(<Contributors contributors={{logins: ['ashygee']}} />)
 
   expect(queryByText(/1 contributor/)).toBeInTheDocument()
   expect(queryByText(/Last edited by/)).toBeNull()
@@ -43,29 +35,4 @@ test('handles no contributors', () => {
   const {queryByText} = render(<Contributors contributors={[]} />)
 
   expect(queryByText(/0 contributors/)).toBeInTheDocument()
-})
-
-test('does not render duplicate contributors', () => {
-  const {queryByText} = render(
-    <Contributors
-      contributors={[
-        {
-          login: 'colebemis',
-          latestCommit: {
-            url: '#',
-            date: '2019-08-15T23:40:19Z',
-          },
-        },
-        {
-          login: 'colebemis',
-          latestCommit: {
-            url: '#',
-            date: '2019-08-14T00:19:54Z',
-          },
-        },
-      ]}
-    />,
-  )
-
-  expect(queryByText(/1 contributor/)).toBeInTheDocument()
 })

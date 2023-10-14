@@ -95,7 +95,7 @@ You can use this template when starting a new article. For more information abou
 ---
 title:
 ---
-import shared form '../../../src/shared.js'
+import shared from '~/shared.js'
 
 // Conceptual content: What feature is the article about?
 // Prerequisites (if applicable): Who can use the feature?

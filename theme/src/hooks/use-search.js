@@ -59,7 +59,7 @@ function useSearch() {
   }, [])
 
   React.useEffect(() => {
-    const worker = new Worker(new URL('./search.worker.js', import.meta.url))
+    const worker = new Worker(new URL('../util/search.worker.js', import.meta.url))
     workerRef.current = worker
 
     worker.addEventListener('message', handleSearchResults)

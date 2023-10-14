@@ -89,13 +89,15 @@ m login dialog" />)
 ```
 
 Since MDX is reactive, you can import the shared data at the top of the
-file, just beneath your frontmatter:
+file, just beneath your frontmatter. It uses the special path `~/shared.js`
+so it can be imported the same way from any nested file without needing to
+figure out the appropriate relative path:
 
 ```
 ---
 title: Using shared content
 ---
-import shared form '../../../src/shared.js'
+import shared form '~/shared.js'
 ```
 
 And then reference the shared content within `<>`:
