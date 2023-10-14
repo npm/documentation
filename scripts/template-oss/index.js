@@ -11,6 +11,7 @@ module.exports = {
   },
   rootModule: {
     add: {
+      '.eslintrc.js': false,
       'CODE_OF_CONDUCT.md': false,
       'CONTRIBUTING.md': false,
     },

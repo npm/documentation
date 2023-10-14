@@ -27,12 +27,8 @@ module.exports = {
   rules: {
     'max-len': 'off',
     'react/prop-types': 'off',
-    'react/display-name': 'off',
-    'eslint-comments/no-use': 'off',
-    'no-shadow': 'off',
-    'primer-react/no-system-props': ['warn', {includeUtilityComponents: true}],
-    'import/no-commonjs': 'off',
-    'no-console': 'off',
+    // TODO: migrate primer/react components to sx instead of deprecated system props
+    'primer-react/no-system-props': ['off', {includeUtilityComponents: true}],
   },
   overrides: [
     {

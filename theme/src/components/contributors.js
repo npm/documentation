@@ -29,6 +29,7 @@ function Contributors({logins, latestCommit}) {
         </Text>
         {logins.map(login => (
           <Link key={login} href={`https://github.com/${login}`} lineHeight="condensedUltra" mr={2}>
+            {/* eslint-disable-next-line primer-react/a11y-tooltip-interactive-trigger */}
             <Tooltip key={login} aria-label={login}>
               <Avatar src={`https://github.com/${login}.png?size=40`} alt={login} />
             </Tooltip>
