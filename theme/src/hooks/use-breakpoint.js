@@ -28,7 +28,7 @@ export function useBreakpoint(breakpoint, minMax = 'min') {
 
 // a common breakpoint where things change on mobile
 export function useIsMobile() {
-  const theme = useTheme()
+  const {theme} = useTheme()
   return useBreakpoint(theme.breakpoints[2], 'max')
 }
 

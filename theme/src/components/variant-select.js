@@ -5,7 +5,7 @@
 // then you'll get a selection for the different variants (v1.0, v2.0).
 
 import React from 'react'
-import {ActionList, ActionMenu, ThemeProvider} from '@primer/react'
+import {ActionList, ActionMenu} from '@primer/react'
 import NavHierarchy from '../util/nav-hierarchy'
 
 function VariantSelect(props) {
@@ -55,13 +55,9 @@ function VariantSelect(props) {
     )
   }
 
-  // const ariaLabelMenuButton = open ? 'Version release' : selectedItem.variant.title
-
   return (
-    <ThemeProvider>
-      <p id="label-versions-list-item">
-        Select CLI Version:
-      </p>
+    <>
+      <p id="label-versions-list-item">Select CLI Version:</p>
       <ActionMenu open={open} onOpenChange={setOpen}>
         {/* Disabling to remove lint warnings. This property was added as "autofocus"
         in a previous accessibility audit which did not trigger the lint warning. */
@@ -75,7 +71,7 @@ function VariantSelect(props) {
           </ActionList>
         </ActionMenu.Overlay>
       </ActionMenu>
-    </ThemeProvider>
+    </>
   )
 }
 

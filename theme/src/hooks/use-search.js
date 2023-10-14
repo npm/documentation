@@ -25,10 +25,6 @@ const useSearchData = () => {
   `)
 
   return React.useMemo(() => {
-    if (!rawData) {
-      return [{path: '/', title: 'Dev Title', rawBody: 'Test'}]
-    }
-
     const mdxNodes = rawData.allMdx.nodes.reduce((map, obj) => {
       map[obj.id] = obj
       return map
@@ -58,7 +54,7 @@ function useSearch() {
   const [query, setQuery] = React.useState()
   const [items, setItems] = React.useState(null)
 
-  const data = useSearchData()
+  const searchData = useSearchData()
 
   const handleSearchResults = React.useCallback(({data}) => {
     if (data.query && data.results && data.query === queryRef.current) {
@@ -71,10 +67,10 @@ function useSearch() {
     workerRef.current = worker
 
     worker.addEventListener('message', handleSearchResults)
-    worker.postMessage({data})
+    worker.postMessage({data: searchData})
 
     return () => worker.terminate()
-  }, [data, handleSearchResults])
+  }, [searchData, handleSearchResults])
 
   React.useEffect(() => {
     queryRef.current = query

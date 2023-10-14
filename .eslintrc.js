@@ -1,21 +1,42 @@
-/* This file is automatically added by @npmcli/template-oss. Do not edit. */
-
-'use strict'
-
-const { readdirSync: readdir } = require('fs')
-
-const localConfigs = readdir(__dirname)
-  .filter((file) => file.startsWith('.eslintrc.local.'))
-  .map((file) => `./${file}`)
-
 module.exports = {
   root: true,
   ignorePatterns: [
-    'cli/**',
-    'theme/**',
+    'cli/',
+    'theme/',
   ],
   extends: [
     '@npmcli',
-    ...localConfigs,
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:github/react',
+    'plugin:primer-react/recommended',
+    'plugin:react-hooks/recommended',
   ],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  overrides: [{
+    files: ['src/**'],
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+    },
+    env: {
+      commonjs: true,
+      es2022: true,
+      browser: true,
+      node: false,
+    },
+    rules: {
+      'max-len': 'off',
+    },
+  }, {
+    files: ['src/shared.js'],
+    rules: {
+      'react/no-unescaped-entities': 'off',
+    },
+  }],
 }

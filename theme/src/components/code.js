@@ -39,8 +39,8 @@ const useScrollSize = () => {
   return {scrollRef, paddingRef, size}
 }
 
-function Code({className, children}) {
-  const language = className ? className.replace(/language-/, '') : ''
+function Code({className: parentClass, children}) {
+  const language = parentClass ? parentClass.replace(/language-/, '') : ''
   const code = children.trim()
   const {scrollRef, paddingRef, size} = useScrollSize()
 

@@ -223,8 +223,8 @@ export default {
           variantPage = variant
         } else {
           variantPage = this.findItem(item => {
-            const vp = this.getVariantAndPage(root, item.url)
-            return vp && vp.page === page ? item : null
+            const itemVp = this.getVariantAndPage(root, item.url)
+            return itemVp && itemVp.page === page ? item : null
           }, variant.children)
         }
 
