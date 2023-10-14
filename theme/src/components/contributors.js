@@ -19,8 +19,7 @@ const months = [
 ]
 const format = d => `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
 
-function Contributors({contributors}) {
-  const {logins = [], latestCommit} = contributors
+function Contributors({logins, latestCommit}) {
   return (
     <div>
       <Flex alignItems="center">

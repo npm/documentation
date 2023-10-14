@@ -3,8 +3,9 @@ import {PencilIcon} from '@primer/octicons-react'
 import React from 'react'
 import Contributors from './contributors'
 
-function PageFooter({editUrl, contributors}) {
-  return editUrl || contributors.length > 0 ? (
+function PageFooter({editUrl, contributors = {}}) {
+  const {logins = [], latestCommit} = contributors
+  return editUrl || logins.length ? (
     <BorderBox borderWidth={0} borderTopWidth={1} mt={8} py={5}>
       <Grid gridGap={4}>
         {editUrl != null ? (
@@ -13,15 +14,10 @@ function PageFooter({editUrl, contributors}) {
             Edit this page on GitHub
           </Link>
         ) : null}
-
-        {contributors.length ? <Contributors contributors={contributors} /> : null}
+        {logins.length ? <Contributors logins={logins} latestCommit={latestCommit} /> : null}
       </Grid>
     </BorderBox>
   ) : null
-}
-
-PageFooter.defaultProps = {
-  contributors: [],
 }
 
 export default PageFooter

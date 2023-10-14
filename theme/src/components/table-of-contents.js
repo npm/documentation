@@ -1,7 +1,7 @@
 import {Box, Link} from '@primer/components'
 import React from 'react'
 
-function TableOfContents({items, depth, labelId}) {
+function TableOfContents({items, depth = 0, labelId}) {
   return (
     <Box
       key={items}
@@ -22,10 +22,6 @@ function TableOfContents({items, depth, labelId}) {
       ))}
     </Box>
   )
-}
-
-TableOfContents.defaultProps = {
-  depth: 0,
 }
 
 export default TableOfContents
