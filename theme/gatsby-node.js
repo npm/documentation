@@ -62,7 +62,7 @@ exports.createPages = async ({graphql, actions}, {repo, showContributors}) => {
       const relativePath = path.relative(rootAbsolutePath, fileAbsolutePath)
       const editUrl = getEditUrl(repo, relativePath, frontmatter)
 
-      const contributors = showContributors ? await fetchContributors(repo, relativePath, frontmatter) : []
+      const contributors = showContributors ? await fetchContributors(repo, relativePath, frontmatter) : {}
 
       // Fix some old CLI pages which have mismatched headings at the top level.
       // All top level headings should be the same level.

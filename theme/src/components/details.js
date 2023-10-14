@@ -29,7 +29,7 @@ function getRenderer(children) {
   return typeof children === 'function' ? children : () => children
 }
 
-function Details({children, overlay, render = getRenderer(children), ...rest}) {
+function Details({children, overlay = false, render = getRenderer(children), ...rest}) {
   const [open, setOpen] = React.useState(Boolean(rest.open))
 
   function toggle(event) {
@@ -60,10 +60,6 @@ function Details({children, overlay, render = getRenderer(children), ...rest}) {
       {render({open, toggle})}
     </DetailsReset>
   )
-}
-
-Details.defaultProps = {
-  overlay: false,
 }
 
 export default Details
