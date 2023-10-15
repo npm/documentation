@@ -3,7 +3,7 @@ import {Link} from '@primer/react'
 import Screenshot from 'theme/src/mdx/screenshot'
 import Note from 'theme/src/mdx/note'
 
-export default {
+const shared = {
   /* User login */
   'user-login': {
     text: (
@@ -399,3 +399,5 @@ export default {
     ),
   },
 }
+
+export default shared
