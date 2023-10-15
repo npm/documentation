@@ -12,28 +12,17 @@ module.exports = {
     'plugin:import/recommended',
     'prettier',
   ],
+  settings: {
+    import: {
+      ignore: ['^theme$'],
+    },
+  },
   rules: {
     'react/prop-types': 'off',
+    // our theme use exports which dont work with import/no-unresolved
+    'import/no-unresolved': ['error', {ignore: ['^theme$']}],
   },
   overrides: [
-    // {
-    //   files: ['**/src/**/*.js'],
-    //   // env: {
-    //   //   commonjs: false,
-    //   //   browser: true,
-    //   // },
-    //   // parserOptions: {
-    //   //   sourceType: 'module',
-    //   // },
-    // },
-    // {
-    //   files: ['**/gatsby-*.js'],
-    //   // env: {node: true},
-    // },
-    // {
-    //   files: ['**/test/*', '**/__tests__/*'],
-    //   env: {jest: true},
-    // },
     {
       files: ['src/shared.js'],
       rules: {

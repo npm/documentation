@@ -3,7 +3,6 @@ import {Box} from '@primer/react'
 import {XIcon, SearchIcon} from '@primer/octicons-react'
 import {AnimatePresence, motion} from 'framer-motion'
 import {FocusOn} from 'react-focus-on'
-import Flex from './flex'
 import DarkButton from './dark-button'
 import DarkTextInput from './dark-text-input'
 import SearchResults from './search-results'
@@ -35,8 +34,8 @@ function MobileSearch({onDismiss, ...props}) {
           zIndex={-1}
           onClick={handleDismiss}
         />
-        <Flex flexDirection="column" height={isOpen ? '100%' : 'auto'}>
-          <Flex bg="gray.9" color="white" p={3} flex="0 0 auto">
+        <Box display="flex" flexDirection="column" height={isOpen ? '100%' : 'auto'}>
+          <Box display="flex" bg="gray.9" color="white" p={3} flex="0 0 auto">
             <motion.div
               initial={{scaleX: 0.1}}
               animate={{scaleX: 1}}
@@ -55,8 +54,9 @@ function MobileSearch({onDismiss, ...props}) {
             <DarkButton ml={3} aria-label="Cancel" onClick={handleDismiss}>
               <XIcon />
             </DarkButton>
-          </Flex>
-          <Flex
+          </Box>
+          <Box
+            display="flex"
             {...getMenuProps({
               bg: 'white',
               py: isOpen ? 1 : 0,
@@ -69,8 +69,8 @@ function MobileSearch({onDismiss, ...props}) {
             })}
           >
             {isOpen ? <SearchResults {...{results, getItemProps, highlightedIndex}} /> : null}
-          </Flex>
-        </Flex>
+          </Box>
+        </Box>
       </Box>
     </FocusOn>
   )

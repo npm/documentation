@@ -1,6 +1,5 @@
-import {Avatar, Link, Text, Tooltip} from '@primer/react'
+import {Box, Avatar, Link, Text, Tooltip} from '@primer/react'
 import React from 'react'
-import Flex from '../components/flex'
 
 const pluralize = (word, count) => `${word}${count === 1 ? '' : 's'}`
 
@@ -23,7 +22,7 @@ const format = d => `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
 function Contributors({logins, latestCommit}) {
   return (
     <div>
-      <Flex alignItems="center">
+      <Box display="flex" alignItems="center">
         <Text mr={2}>
           {logins.length} {pluralize('contributor', logins.length)}
         </Text>
@@ -35,7 +34,7 @@ function Contributors({logins, latestCommit}) {
             </Tooltip>
           </Link>
         ))}
-      </Flex>
+      </Box>
       {latestCommit ? (
         <Text fontSize={1} color="gray.7" mt={1}>
           Last edited by <Link href={`https://github.com/${latestCommit.login}`}>{latestCommit.login}</Link> on{' '}

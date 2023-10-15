@@ -6,7 +6,6 @@ import MobileSearch from './mobile-search'
 import NavDrawer from './nav-drawer'
 import Search from './search'
 import NpmLogo from './npm-logo'
-import Flex from './flex'
 import useSearch from '../hooks/use-search'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import headerNavItems from '../header-nav.yml'
@@ -33,14 +32,15 @@ function Header({location, repositoryUrl}) {
   return (
     <Box position="sticky" role="banner">
       <NpmHeaderBar />
-      <Flex
+      <Box
+        display="flex"
         height={HEADER_HEIGHT}
         px={[3, null, null, 4]}
         alignItems="center"
         justifyContent="space-between"
         bg="#333333"
       >
-        <Flex alignItems="center">
+        <Box display="flex" alignItems="center">
           <Link as={GatsbyLink} to="/" style={titleStyle} sx={{mr: 4}}>
             <NpmLogo size="32" style={logoStyle} />
             {siteMetadata.title}
@@ -48,30 +48,30 @@ function Header({location, repositoryUrl}) {
           <Box display={['none', null, null, 'block']} ml={4}>
             <Search {...search} />
           </Box>
-        </Flex>
-        <Flex>
+        </Box>
+        <Box display="flex">
           <Box display={['none', null, null, 'block']}>
             <HeaderNavItems items={headerNavItems} />
           </Box>
-          <Flex display={['flex', null, null, 'none']}>
+          <Box display={['flex', null, null, 'none']}>
             <MobileSearch {...search} />
             <NavDrawer location={location} repositoryUrl={repositoryUrl} />
-          </Flex>
-        </Flex>
-      </Flex>
+          </Box>
+        </Box>
+      </Box>
     </Box>
   )
 }
 
 function HeaderNavItems({items}) {
   return (
-    <Flex alignItems="center" color="gray.2">
+    <Box display="flex" alignItems="center" color="gray.2">
       {items.map((item, index) => (
         <Link key={index} href={item.url} sx={{display: 'block', color: 'inherit', ml: 4}}>
           {item.title}
         </Link>
       ))}
-    </Flex>
+    </Box>
   )
 }
 

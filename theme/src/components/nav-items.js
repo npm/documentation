@@ -4,7 +4,6 @@ import {Box, StyledOcticon, Link, themeGet} from '@primer/react'
 import {LinkExternalIcon} from '@primer/octicons-react'
 import styled from 'styled-components'
 import BorderBox from './border-box'
-import Flex from './flex'
 import NavHierarchy from '../util/nav-hierarchy'
 
 const getActiveProps = className => props => {
@@ -90,12 +89,12 @@ function topLevelItems(items, path) {
 
         return (
           <BorderBox key={item.title} borderWidth={0} borderRadius={0} borderTopWidth={1} py={3} px={4} role="listitem">
-            <Flex flexDirection="column">
+            <Box display="flex" flexDirection="column">
               <TopLevelLink to={item.url} key={item.title}>
                 {item.title}
               </TopLevelLink>
               {secondLevelItems(children, path)}
-            </Flex>
+            </Box>
           </BorderBox>
         )
       })}
@@ -109,7 +108,7 @@ function secondLevelItems(items, path) {
   }
 
   return (
-    <Flex flexDirection="column" mt={2} role="list">
+    <Box display="flex" flexDirection="column" mt={2} role="list">
       {items.map(item => {
         const children = NavHierarchy.isActiveUrl(path, item.url)
           ? NavHierarchy.getHierarchy(item, {path, hideVariants: true})
@@ -128,7 +127,7 @@ function secondLevelItems(items, path) {
           </Box>
         )
       })}
-    </Flex>
+    </Box>
   )
 }
 
@@ -138,7 +137,7 @@ function thirdLevelItems(items) {
   }
 
   return (
-    <Flex flexDirection="column" mt={2} role="list">
+    <Box display="flex" flexDirection="column" mt={2} role="list">
       {items.map(item => (
         <Box key={item.title} role="listitem">
           <ThirdLevelLink key={item.url} to={item.url}>
@@ -146,7 +145,7 @@ function thirdLevelItems(items) {
           </ThirdLevelLink>
         </Box>
       ))}
-    </Flex>
+    </Box>
   )
 }
 
@@ -159,10 +158,10 @@ function NavItems({location, repositoryUrl}) {
       {topLevelItems(items, path)}
       <BorderBox borderWidth={0} borderTopWidth={1} borderRadius={0} py={5} px={4}>
         <Link href={repositoryUrl} sx={{color: 'inherit'}}>
-          <Flex justifyContent="space-between" alignItems="center" color="gray.5">
+          <Box display="flex" justifyContent="space-between" alignItems="center" color="gray.5">
             GitHub
             <StyledOcticon icon={LinkExternalIcon} color="gray.5" />
-          </Flex>
+          </Box>
         </Link>
       </BorderBox>
     </>
