@@ -1,8 +1,8 @@
 const path = require('path')
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = ({node, actions, getNode}) => {
   if (node.internal.type === 'Mdx') {
-    const { name, relativeDirectory: dir } = getNode(node.parent)
+    const {name, relativeDirectory: dir} = getNode(node.parent)
 
     // These paths are unchanged:
     // - directory indexes
@@ -21,7 +21,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
+exports.onCreateWebpackConfig = ({stage, actions}) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
