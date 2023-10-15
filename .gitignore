@@ -12,6 +12,7 @@
 !/.gitignore
 !/.npmrc
 !/.nvmrc
+!/.prettierIgnore
 !/.release-please-manifest.json
 !/.reuse/
 !/*.md

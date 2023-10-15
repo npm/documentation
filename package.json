@@ -17,10 +17,11 @@
     "template-oss-apply": "template-oss-apply --force",
     "lintfix": "npm run lint -- --fix",
     "snap": "tap",
-    "test": "tap",
+    "test": "jest",
     "posttest": "npm run lint",
     "test-all": "npm run test -ws -iwr --if-present",
-    "lint-all": "npm run lint -ws -iwr --if-present"
+    "lint-all": "npm run lint -ws -iwr --if-present",
+    "format": "prettier --write ."
   },
   "workspaces": [
     "cli/",
@@ -45,10 +46,6 @@
     "tap": "^16.3.9"
   },
   "author": "GitHub Inc.",
-  "files": [
-    "bin/",
-    "lib/"
-  ],
   "engines": {
     "node": ">=18.0.0"
   },
@@ -56,17 +53,6 @@
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
     "version": "4.19.0",
     "content": "./scripts/template-oss"
-  },
-  "tap": {
-    "test-ignore": "^(cli|theme)/",
-    "nyc-arg": [
-      "--exclude",
-      "cli/**",
-      "--exclude",
-      "theme/**",
-      "--exclude",
-      "tap-snapshots/**"
-    ]
   },
   "eslintIgnore": [
     ".cache/",

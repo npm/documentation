@@ -13,8 +13,9 @@
     "template-oss-apply": "template-oss-apply --force",
     "lintfix": "npm run lint -- --fix",
     "snap": "tap",
-    "test": "tap",
-    "posttest": "npm run lint"
+    "test": "jest",
+    "posttest": "npm run lint",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@octokit/rest": "^20.0.2",
@@ -33,10 +34,6 @@
     "tap": "^16.3.9"
   },
   "author": "GitHub Inc.",
-  "files": [
-    "bin/",
-    "lib/"
-  ],
   "engines": {
     "node": ">=18.0.0"
   },
@@ -44,11 +41,5 @@
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
     "version": "4.19.0",
     "content": "./scripts/template-oss"
-  },
-  "tap": {
-    "nyc-arg": [
-      "--exclude",
-      "tap-snapshots/**"
-    ]
   }
 }
