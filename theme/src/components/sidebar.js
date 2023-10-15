@@ -1,10 +1,10 @@
 import {Box} from '@primer/react'
 import React from 'react'
-import navItems from '../nav.yml'
+import Flex from './flex'
 import {HEADER_HEIGHT} from './header'
 import NavItems from './nav-items'
 import BorderBox from './border-box'
-import Flex from '../components/flex'
+import navItems from '../nav.yml'
 
 function Sidebar({location, repositoryUrl}) {
   return (

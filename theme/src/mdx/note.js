@@ -1,5 +1,5 @@
 import React from 'react'
-import BorderBox from './border-box'
+import BorderBox from '../components/border-box'
 
 function Note({children}) {
   return (

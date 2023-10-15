@@ -1,5 +1,5 @@
-import {Box, Link} from '@primer/react'
 import React from 'react'
+import {Box, Link} from '@primer/react'
 
 function TableOfContents({items, depth = 0, labelId}) {
   return (

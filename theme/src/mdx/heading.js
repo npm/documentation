@@ -3,7 +3,7 @@ import {LinkIcon} from '@primer/octicons-react'
 import React from 'react'
 import textContent from 'react-addons-text-content'
 import styled from 'styled-components'
-import {HEADER_HEIGHT} from './header'
+import {HEADER_HEIGHT} from '../components/header'
 import {useSlugger} from '../hooks/use-slugger'
 
 const StyledHeading = styled(Heading)`

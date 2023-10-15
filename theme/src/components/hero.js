@@ -1,5 +1,5 @@
-import {Box, Heading, Text} from '@primer/react'
 import React from 'react'
+import {Box, Heading, Text} from '@primer/react'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import Container from './container'
 

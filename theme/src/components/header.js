@@ -1,15 +1,15 @@
+import React from 'react'
 import {Box, Link} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
-import React from 'react'
 import styled from 'styled-components'
-import headerNavItems from '../header-nav.yml'
-import useSiteMetadata from '../hooks/use-site-metadata'
 import MobileSearch from './mobile-search'
 import NavDrawer from './nav-drawer'
 import Search from './search'
 import NpmLogo from './npm-logo'
+import Flex from './flex'
 import useSearch from '../hooks/use-search'
-import Flex from '../components/flex'
+import useSiteMetadata from '../hooks/use-site-metadata'
+import headerNavItems from '../header-nav.yml'
 
 export const HEADER_HEIGHT = 66
 

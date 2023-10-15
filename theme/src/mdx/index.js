@@ -1,6 +1,5 @@
 import React from 'react'
-// eslint-disable-next-line import/no-unresolved
-import {Location} from '@reach/router'
+import {useLocation} from '@reach/router' // eslint-disable-line import/no-unresolved
 import {Box, Link} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 import NavHierarchy from '../util/nav-hierarchy'
@@ -34,24 +33,18 @@ function showHierarchy(items, props, depth = 1) {
 }
 
 function Index(props) {
-  return (
-    <Location>
-      {({location}) => {
-        const path = NavHierarchy.getLocation(location.pathname)
-        let root = props.root ? props.root : path
-        root = root.replace(/\/+$/g, '')
+  const location = useLocation()
+  const path = NavHierarchy.getLocation(location.pathname)
+  const root = (props.root ? props.root : path).replace(/\/+$/g, '')
 
-        const rootItem = NavHierarchy.getItem(root)
-        const hierarchy = NavHierarchy.getHierarchy(rootItem, props)
+  const rootItem = NavHierarchy.getItem(root)
+  const hierarchy = NavHierarchy.getHierarchy(rootItem, props)
 
-        if (!hierarchy) {
-          throw new Error(`could not find entry for ${root}`)
-        }
+  if (!hierarchy) {
+    throw new Error(`could not find entry for ${root}`)
+  }
 
-        return showHierarchy(hierarchy, props)
-      }}
-    </Location>
-  )
+  return showHierarchy(hierarchy, props)
 }
 
 export default Index

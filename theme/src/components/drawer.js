@@ -1,6 +1,6 @@
+import React from 'react'
 import {Box} from '@primer/react'
 import {AnimatePresence, motion} from 'framer-motion'
-import React from 'react'
 import {FocusOn} from 'react-focus-on'
 
 function Drawer({isOpen, onDismiss, children}) {
@@ -10,7 +10,6 @@ function Drawer({isOpen, onDismiss, children}) {
         // These event handlers fix a bug that caused links below the fold
         // to be unclickable in macOS Safari.
         // Reference: https://github.com/theKashey/react-focus-lock/issues/79
-
         <div
           style={{textAlign: 'start', fontSize: '1rem', lineHeight: '1.5rem'}}
           onMouseDown={event => event.preventDefault()}

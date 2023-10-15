@@ -1,6 +1,6 @@
+import React from 'react'
 import {Box, StyledOcticon, Link} from '@primer/react'
 import {PencilIcon} from '@primer/octicons-react'
-import React from 'react'
 import Contributors from './contributors'
 import BorderBox from './border-box'
 

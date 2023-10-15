@@ -1,6 +1,6 @@
 import React from 'react'
 import {Text} from '@primer/react'
-import BorderBox from './border-box'
+import BorderBox from '../components/border-box'
 
 function Prompt({children}) {
   return (

@@ -26,6 +26,7 @@ module.exports = {
   macCI: false,
   windowsCI: false,
   lockfile: true,
+  allowedPackages: ['eslint'],
   allowPaths: [
     '/.reuse/',
     '/src/',

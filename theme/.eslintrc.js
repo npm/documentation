@@ -28,7 +28,7 @@ module.exports = {
     'max-len': 'off',
     'react/prop-types': 'off',
     // TODO: migrate primer/react components to sx instead of deprecated system props
-    'primer-react/no-system-props': ['off', {includeUtilityComponents: true}],
+    'primer-react/no-system-props': ['warn', {includeUtilityComponents: true}],
   },
   overrides: [
     {

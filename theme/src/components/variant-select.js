@@ -1,12 +1,12 @@
+import React from 'react'
+import {ActionList, ActionMenu} from '@primer/react'
+import NavHierarchy from '../util/nav-hierarchy'
+
 // VariantSelect: allows a variant to be set up within a document hierarchy
 //
 // For example, given two paths `/docs/v1.0/foo` and `/docs/v2.0/foo`, the
 // second folder acts as a variant.  If you use <VariantSelect root="/docs">
 // then you'll get a selection for the different variants (v1.0, v2.0).
-
-import React from 'react'
-import {ActionList, ActionMenu} from '@primer/react'
-import NavHierarchy from '../util/nav-hierarchy'
 
 function VariantSelect(props) {
   const [open, setOpen] = React.useState(false)
