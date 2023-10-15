@@ -11,7 +11,7 @@ module.exports = {
   },
   rootModule: {
     add: {
-      'package.json': { file: 'pkg.json', overwrite: false },
+      'package.json': {file: 'pkg.json', overwrite: false},
       '.eslintrc.js': false,
       'CODE_OF_CONDUCT.md': false,
       'CONTRIBUTING.md': false,
@@ -24,7 +24,7 @@ module.exports = {
   },
   workspaceModule: {
     add: {
-      'package.json': { file: 'pkg.json', overwrite: false },
+      'package.json': {file: 'pkg.json', overwrite: false},
       '.eslintrc.js': false,
     },
   },
@@ -35,7 +35,7 @@ module.exports = {
   lockfile: true,
   allowedPackages: ['eslint'],
   requiredPackages: {
-    devDependencies: []
+    devDependencies: [],
   },
   allowPaths: [
     '/.reuse/',

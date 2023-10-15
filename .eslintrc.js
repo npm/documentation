@@ -1,11 +1,7 @@
 module.exports = {
   root: true,
-  ignorePatterns: [
-    'cli/',
-    'theme/',
-  ],
+  ignorePatterns: ['cli/', '.cache/', 'public/'],
   extends: [
-    '@npmcli',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:github/react',
@@ -17,26 +13,29 @@ module.exports = {
       version: 'detect',
     },
   },
-  overrides: [{
-    files: ['src/**'],
-    parserOptions: {
-      ecmaFeatures: {
-        jsx: true,
+  overrides: [
+    {
+      files: ['src/**'],
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      env: {
+        commonjs: true,
+        es2022: true,
+        browser: true,
+        node: false,
+      },
+      rules: {
+        'max-len': 'off',
       },
     },
-    env: {
-      commonjs: true,
-      es2022: true,
-      browser: true,
-      node: false,
+    {
+      files: ['src/shared.js'],
+      rules: {
+        'react/no-unescaped-entities': 'off',
+      },
     },
-    rules: {
-      'max-len': 'off',
-    },
-  }, {
-    files: ['src/shared.js'],
-    rules: {
-      'react/no-unescaped-entities': 'off',
-    },
-  }],
+  ],
 }

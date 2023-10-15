@@ -1,10 +1,7 @@
 **/template-oss/*.json
 **/template-oss/*.yml
 content/
-content-debug/
 cli/
 .github/
 package-lock.json
-CODE_OF_CONDUCT.md
-CONTENT-MODEL.md
 SECURITY.md

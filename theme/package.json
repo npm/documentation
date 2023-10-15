@@ -9,7 +9,6 @@
   "private": true,
   "main": "index.js",
   "license": "MIT",
-  "prettier": "@github/prettier-config",
   "scripts": {
     "test": "jest",
     "lint": "eslint \"**/*.js\"",
