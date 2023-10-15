@@ -1,7 +1,7 @@
 import {withPrefix} from 'gatsby'
 import navItems from '../nav.yml'
 
-export default {
+const NavHierarchy = {
   getLocation(path) {
     const pathPrefix = withPrefix('/')
 
@@ -252,3 +252,5 @@ export default {
     return linkItem ? this.isActiveItem(currentPath, linkItem) : false
   },
 }
+
+export default NavHierarchy

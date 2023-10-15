@@ -8,12 +8,10 @@
 !/.eslintrc.js
 !/.eslintrc.local.*
 !/.gitignore
-!/.prettierIgnore
 !/bin/
 !/CHANGELOG*
 !/docs/
 !/gatsby-*.js
-!/index.js
 !/jest*.js
 !/lib/
 !/LICENSE*

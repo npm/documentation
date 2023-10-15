@@ -12,10 +12,10 @@
 !/.gitignore
 !/.npmrc
 !/.nvmrc
-!/.prettierIgnore
+!/.prettierignore
+!/.prettierrc.js
 !/.release-please-manifest.json
 !/.reuse/
-!/*.md
 !/bin/
 !/CHANGELOG*
 !/CODE_OF_CONDUCT.md

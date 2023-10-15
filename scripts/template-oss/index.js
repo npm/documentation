@@ -33,7 +33,7 @@ module.exports = {
   macCI: false,
   windowsCI: false,
   lockfile: true,
-  allowedPackages: ['eslint'],
+  allowedPackages: ['eslint', 'eslint-plugin-import'],
   requiredPackages: {
     devDependencies: [],
   },
@@ -43,11 +43,12 @@ module.exports = {
     '/static/',
     '/content/',
     '/LICENSE*',
-    '/*.md',
     '/gatsby-*.js',
+    '/CODE_OF_CONDUCT.md',
     '/CONTRIBUTING.md',
     '/CONTENT-MODEL.md',
     '/.nvmrc',
-    '/.prettierIgnore',
+    '/.prettierignore',
+    '/.prettierrc.js',
   ],
 }

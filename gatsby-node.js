@@ -21,7 +21,7 @@ exports.onCreateNode = ({node, actions, getNode}) => {
   }
 }
 
-exports.onCreateWebpackConfig = ({stage, actions}) => {
+exports.onCreateWebpackConfig = ({actions}) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {

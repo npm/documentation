@@ -20,19 +20,6 @@ function Hero() {
       </Box>
     </ThemeProvider>
   )
-
-  return (
-    <Box bg="black" py={6}>
-      <Container>
-        <Heading as="h1" color="white" fontSize={7} m={0}>
-          {title}
-        </Heading>
-        <Text as="p" m={0} color="gray.4" fontSize={4}>
-          {description}
-        </Text>
-      </Container>
-    </Box>
-  )
 }
 
 export default Hero

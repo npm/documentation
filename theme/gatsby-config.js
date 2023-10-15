@@ -44,9 +44,6 @@ module.exports = ({icon}) => ({
   plugins: [
     {
       resolve: 'gatsby-plugin-styled-components',
-      // options: {
-      //   minify: !DEV,
-      // },
     },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
