@@ -7,7 +7,10 @@
     "type": "git"
   },
   "private": true,
-  "main": "index.js",
+  "exports": {
+    ".": "./src/mdx/index.js",
+    "./layout/*.js": "./src/layout/*.js"
+  },
   "license": "MIT",
   "scripts": {
     "test": "jest",

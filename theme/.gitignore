@@ -12,7 +12,6 @@
 !/CHANGELOG*
 !/docs/
 !/gatsby-*.js
-!/jest*.js
 !/lib/
 !/LICENSE*
 !/map.js

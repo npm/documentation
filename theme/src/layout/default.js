@@ -1,30 +1,30 @@
 import React from 'react'
 import {Box, Heading, StyledOcticon, Text, Details} from '@primer/react'
 import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
-import Head from './components/head'
-import Header, {HEADER_HEIGHT} from './components/header'
-import PageFooter from './components/page-footer'
-import Sidebar from './components/sidebar'
-import TableOfContents from './components/table-of-contents'
-import VariantSelect from './components/variant-select'
-import BorderBox from './components/border-box'
-import Flex from './components/flex'
-import * as Slugger from './hooks/use-slugger'
-import NavHierarchy from './util/nav-hierarchy'
+import Head from '../components/head'
+import Header, {HEADER_HEIGHT} from '../components/header'
+import PageFooter from '../components/page-footer'
+import Sidebar from '../components/sidebar'
+import TableOfContents from '../components/table-of-contents'
+import VariantSelect from '../components/variant-select'
+import BorderBox from '../components/border-box'
+import * as Slugger from '../hooks/use-slugger'
+import NavHierarchy from '../util/nav-hierarchy'
 
 function Layout({children, pageContext, location}) {
-  const {title, description} = pageContext.frontmatter
+  const {repositoryUrl, editUrl, contributors, frontmatter, tableOfContents} = pageContext
+  const {title, description} = frontmatter
 
   const variantRoot = NavHierarchy.getVariantRoot(location.pathname)
 
   return (
     <Slugger.Provider>
-      <Flex flexDirection="column" minHeight="100vh">
+      <Box display="flex" flexDirection="column" minHeight="100vh">
         <Head title={title} description={description} />
-        <Header repositoryUrl={pageContext.repositoryUrl} location={location} />
-        <Flex flex="1 1 auto" flexDirection="row" css={{zIndex: 0}} role="main">
+        <Header repositoryUrl={repositoryUrl} location={location} />
+        <Box display="flex" flex="1 1 auto" flexDirection="row" css={{zIndex: 0}} role="main">
           <Box display={['none', null, null, 'block']}>
-            <Sidebar repositoryUrl={pageContext.repositoryUrl} location={location} />
+            <Sidebar repositoryUrl={repositoryUrl} location={location} />
           </Box>
           <Box
             display="grid"
@@ -60,7 +60,7 @@ function Layout({children, pageContext, location}) {
                 </Box>
               ) : null}
             </Box>
-            {pageContext.tableOfContents ? (
+            {tableOfContents ? (
               <Box
                 display={['none', null, 'block']}
                 css={{gridArea: 'table-of-contents', overflow: 'auto'}}
@@ -75,11 +75,11 @@ function Layout({children, pageContext, location}) {
                 <Text display="inline-block" fontWeight="bold" mb={1} id="table-of-content-label">
                   Table of contents
                 </Text>
-                <TableOfContents items={pageContext.tableOfContents} labelId="table-of-content-label" />
+                <TableOfContents items={tableOfContents} labelId="table-of-content-label" />
               </Box>
             ) : null}
             <Box css={{gridArea: 'content'}}>
-              {pageContext.tableOfContents ? (
+              {tableOfContents ? (
                 <Box display={['block', null, 'none']} mb={3}>
                   <Details>
                     {({open}) => (
@@ -93,7 +93,7 @@ function Layout({children, pageContext, location}) {
                           Table of contents
                         </Text>
                         <Box pt={1}>
-                          <TableOfContents items={pageContext.tableOfContents} />
+                          <TableOfContents items={tableOfContents} />
                         </Box>
                       </>
                     )}
@@ -101,11 +101,11 @@ function Layout({children, pageContext, location}) {
                 </Box>
               ) : null}
               {children}
-              <PageFooter editUrl={pageContext.editUrl} contributors={pageContext.contributors} />
+              <PageFooter editUrl={editUrl} contributors={contributors} />
             </Box>
           </Box>
-        </Flex>
-      </Flex>
+        </Box>
+      </Box>
     </Slugger.Provider>
   )
 }

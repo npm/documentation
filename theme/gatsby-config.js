@@ -53,7 +53,7 @@ module.exports = ({icon}) => ({
       options: {
         extensions: ['.mdx', '.md'],
         defaultLayouts: {
-          default: require.resolve('./src/layout-default.js'),
+          default: require.resolve('./src/layout/default.js'),
         },
       },
     },

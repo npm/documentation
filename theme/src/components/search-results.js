@@ -1,6 +1,5 @@
 import React from 'react'
-import {Text} from '@primer/react'
-import Flex from './flex'
+import {Box, Text} from '@primer/react'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import NavHierarchy from '../util/nav-hierarchy'
 
@@ -16,7 +15,8 @@ function SearchResults({results, getItemProps, highlightedIndex}) {
   }
 
   return results.map((item, index) => (
-    <Flex
+    <Box
+      display="flex"
       key={item.path}
       {...getItemProps({
         item,
@@ -33,7 +33,7 @@ function SearchResults({results, getItemProps, highlightedIndex}) {
         {getBreadcrumbs(siteMetadata.shortName, item.path).join(' / ')}
       </Text>
       {item.title}
-    </Flex>
+    </Box>
   ))
 }
 

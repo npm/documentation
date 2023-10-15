@@ -1,12 +1,11 @@
 import React from 'react'
-import {Link} from '@primer/react'
+import {Box, Link} from '@primer/react'
 import BorderBox from './border-box'
 import {XIcon, ThreeBarsIcon} from '@primer/octicons-react'
 import {Link as GatsbyLink} from 'gatsby'
 import DarkButton from './dark-button'
 import Drawer from './drawer'
 import NavItems from './nav-items'
-import Flex from './flex'
 import navItems from '../nav.yml'
 import headerNavItems from '../header-nav.yml'
 import useSiteMetadata from '../hooks/use-site-metadata'
@@ -37,35 +36,45 @@ function NavDrawer({location, repositoryUrl}) {
         <ThreeBarsIcon />
       </DarkButton>
       <Drawer isOpen={isOpen} onDismiss={setClose}>
-        <Flex
+        <Box
+          display="flex"
           flexDirection="column"
           height="100%"
           bg="gray.0"
           style={{overflow: 'auto', WebkitOverflowScrolling: 'touch'}}
         >
-          <Flex flexDirection="column" flex="1 0 auto" color="gray.7" bg="gray.0">
+          <Box display="flex" flexDirection="column" flex="1 0 auto" color="gray.7" bg="gray.0">
             <BorderBox borderWidth={0} borderRadius={0} borderBottomWidth={1} borderColor="gray.7">
-              <Flex py={3} pl={4} pr={3} alignItems="center" justifyContent="space-between" color="gray.1" bg="gray.9">
+              <Box
+                display="flex"
+                py={3}
+                pl={4}
+                pr={3}
+                alignItems="center"
+                justifyContent="space-between"
+                color="gray.1"
+                bg="gray.9"
+              >
                 <Link as={GatsbyLink} to="/" sx={{display: 'inline-block', color: 'inherit'}}>
                   {siteMetadata.title}
                 </Link>
                 <DarkButton aria-label="Close" onClick={setClose}>
                   <XIcon />
                 </DarkButton>
-              </Flex>
+              </Box>
             </BorderBox>
             {navItems.length > 0 ? (
-              <Flex flexDirection="column">
+              <Box display="flex" flexDirection="column">
                 <NavItems location={location} items={navItems} repositoryUrl={repositoryUrl} />
-              </Flex>
+              </Box>
             ) : null}
-          </Flex>
+          </Box>
           {headerNavItems.length > 0 ? (
-            <Flex flexDirection="column" flex="1 0 auto" color="gray.1" bg="gray.9">
+            <Box display="flex" flexDirection="column" flex="1 0 auto" color="gray.1" bg="gray.9">
               <HeaderNavItems items={headerNavItems} />
-            </Flex>
+            </Box>
           ) : null}
-        </Flex>
+        </Box>
       </Drawer>
     </>
   )

@@ -1,6 +1,5 @@
 import {Box} from '@primer/react'
 import React from 'react'
-import Flex from './flex'
 import {HEADER_HEIGHT} from './header'
 import NavItems from './nav-items'
 import BorderBox from './border-box'
@@ -18,9 +17,9 @@ function Sidebar({location, repositoryUrl}) {
       role="navigation"
     >
       <BorderBox borderWidth={0} borderRightWidth={1} borderRadius={0} height="100%" style={{overflow: 'auto'}}>
-        <Flex flexDirection="column" role="list">
+        <Box display="flex" flexDirection="column" role="list">
           <NavItems location={location} items={navItems} repositoryUrl={repositoryUrl} />
-        </Flex>
+        </Box>
       </BorderBox>
     </Box>
   )

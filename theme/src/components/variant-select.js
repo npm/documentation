@@ -8,41 +8,27 @@ import NavHierarchy from '../util/nav-hierarchy'
 // second folder acts as a variant.  If you use <VariantSelect root="/docs">
 // then you'll get a selection for the different variants (v1.0, v2.0).
 
-function VariantSelect(props) {
+const VariantSelect = ({variantPages, path}) => {
   const [open, setOpen] = React.useState(false)
-  const path = NavHierarchy.getPath(props.location.pathname)
-  const vp = NavHierarchy.getVariantAndPage(props.root, path)
-
-  if (!vp) {
-    return null
-  }
-
-  const variantPages = NavHierarchy.getVariantsForPage(props.root, vp.page)
-  const items = []
-  let selectedItem = variantPages[0]
-
-  if (variantPages.length === 0) {
-    return null
-  }
-
-  function anchorClickHandler(event, url) {
+  const anchorClickHandler = React.useCallback((event, url) => {
     event.preventDefault()
     window.location.href = `${url}?v=true`
-  }
+  }, [])
 
-  function onItemEnterKey(event, url) {
+  const onItemEnterKey = React.useCallback((event, url) => {
     if (event.key === 'Enter') {
       window.location.href = `${url}?v=true`
     }
-  }
+  }, [])
 
-  for (const [index, match] of variantPages.entries()) {
+  let selectedItem = variantPages[0]
+  const items = variantPages.map((match, index) => {
     let active = false
     if (match.page.url === path) {
       selectedItem = match
       active = true
     }
-    items.push(
+    return (
       <ActionList.Item
         onKeyDown={e => onItemEnterKey(e, match.page.url)}
         onClick={e => anchorClickHandler(e, match.page.url)}
@@ -51,9 +37,9 @@ function VariantSelect(props) {
         active={active}
       >
         {match.variant.title}
-      </ActionList.Item>,
+      </ActionList.Item>
     )
-  }
+  })
 
   return (
     <>
@@ -75,4 +61,16 @@ function VariantSelect(props) {
   )
 }
 
-export default VariantSelect
+const VariantSelectLocation = ({root, location}) => {
+  const path = NavHierarchy.getPath(location.pathname)
+  const vp = NavHierarchy.getVariantAndPage(root, path)
+  const variantPages = vp ? NavHierarchy.getVariantsForPage(root, vp.page) : []
+
+  if (!variantPages.length) {
+    return null
+  }
+
+  return <VariantSelect variantPages={variantPages} path={path} />
+}
+
+export default VariantSelectLocation

@@ -1,7 +1,5 @@
 import React from 'react'
-import {Link} from '@primer/react'
-import Screenshot from 'theme/src/mdx/screenshot'
-import Note from 'theme/src/mdx/note'
+import {Link, Note, Screenshot} from 'theme'
 
 const shared = {
   /* User login */
