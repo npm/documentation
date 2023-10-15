@@ -1,12 +1,15 @@
 import React from 'react'
 import {Helmet} from 'react-helmet'
 import useSiteMetdata from '../hooks/use-site-metadata'
+import {useFrontmatter} from '../layout'
 
-function Head(props) {
+function Head() {
+  const fm = useFrontmatter()
   const siteMetadata = useSiteMetdata()
-  const title = [props.title, siteMetadata.title].filter(Boolean).join(' | ')
-  const description = props.description || siteMetadata.description
-  const lang = props.lang || siteMetadata.lang
+
+  const title = [fm.title, siteMetadata.title].filter(Boolean).join(' | ')
+  const description = fm.description || siteMetadata.description
+  const lang = fm.lang || siteMetadata.lang
 
   return (
     <Helmet>

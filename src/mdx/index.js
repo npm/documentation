@@ -6,8 +6,8 @@ import {LinkIcon} from '@primer/octicons-react'
 import textContent from 'react-addons-text-content'
 import Code from './code'
 import NavHierarchy from './nav-hierarchy'
-import {HEADER_HEIGHT} from '../components/header'
-import {useSlugger} from '../hooks/use-slugger'
+import {useSlugger} from '../layout'
+import {HEADER_HEIGHT, SKIP_NAV} from '../constants'
 
 const required = (prop, name) => {
   if (!prop) {
@@ -25,7 +25,7 @@ export {Code, NavHierarchy as Index}
 export const Pre = ({children}) => children
 
 const SkipLinkBase = props => (
-  <PrimerLink {...props} href="#skip-nav" sx={{backgroundColor: 'blue.6', color: 'white', p: 3, fontSize: 1}}>
+  <PrimerLink {...props} href={`#${SKIP_NAV}`} sx={{backgroundColor: 'blue.6', color: 'white', p: 3, fontSize: 1}}>
     Skip to content
   </PrimerLink>
 )

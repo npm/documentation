@@ -191,7 +191,7 @@ const NavHierarchy = {
   },
 
   getVariantAndPage(root, path) {
-    if (!path.startsWith(`${root}/`)) {
+    if (!root || !path.startsWith(`${root}/`)) {
       return null
     }
 

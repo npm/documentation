@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const {NODE_ENV, GATSBY_PARTIAL_CONTENT, GATSBY_CONTENT_DIR = 'content'} = process.env
 const DEV = NODE_ENV === 'development'
-const CONTENT_DIR = path.resolve(__dirname, '..', GATSBY_CONTENT_DIR)
+const CONTENT_DIR = path.resolve(GATSBY_CONTENT_DIR)
 
 const walkDirs = dir => {
   const dirs = fs
@@ -77,7 +77,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: path.resolve('./src/images/favicon.png'),
+        icon: path.resolve('./src/favicon.png'),
       },
     },
     'gatsby-plugin-meta-redirect',

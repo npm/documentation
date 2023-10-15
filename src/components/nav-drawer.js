@@ -25,7 +25,7 @@ const useDrawerIsOpen = () => {
   return [isOpen, {setOpen, setClose}]
 }
 
-function NavDrawer({location, repositoryUrl}) {
+function NavDrawer() {
   const siteMetadata = useSiteMetadata()
   const [isOpen, {setOpen, setClose}] = useDrawerIsOpen()
 
@@ -62,39 +62,31 @@ function NavDrawer({location, repositoryUrl}) {
                 </DarkButton>
               </Box>
             </Box>
-            {navItems.length > 0 ? (
-              <Box display="flex" flexDirection="column">
-                <NavItems location={location} items={navItems} repositoryUrl={repositoryUrl} />
-              </Box>
-            ) : null}
-          </Box>
-          {headerNavItems.length > 0 ? (
-            <Box display="flex" flexDirection="column" flex="1 0 auto" color="gray.1" bg="gray.9">
-              <HeaderNavItems items={headerNavItems} />
+            <Box display="flex" flexDirection="column">
+              <NavItems items={navItems} />
             </Box>
-          ) : null}
+          </Box>
+          <Box display="flex" flexDirection="column" flex="1 0 auto" color="gray.1" bg="gray.9">
+            {headerNavItems.map((item, index) => (
+              <Box
+                borderStyle="solid"
+                key={item.title}
+                borderWidth={0}
+                borderRadius={0}
+                borderTopWidth={index !== 0 ? 1 : 0}
+                borderColor="gray.7"
+                p={4}
+              >
+                <Link key={index} href={item.url} sx={{color: 'inherit', display: 'block'}}>
+                  {item.title}
+                </Link>
+              </Box>
+            ))}
+          </Box>
         </Box>
       </Drawer>
     </>
   )
-}
-
-function HeaderNavItems({items}) {
-  return items.map((item, index) => (
-    <Box
-      borderStyle="solid"
-      key={item.title}
-      borderWidth={0}
-      borderRadius={0}
-      borderTopWidth={index !== 0 ? 1 : 0}
-      borderColor="gray.7"
-      p={4}
-    >
-      <Link key={index} href={item.url} sx={{color: 'inherit', display: 'block'}}>
-        {item.title}
-      </Link>
-    </Box>
-  ))
 }
 
 export default NavDrawer

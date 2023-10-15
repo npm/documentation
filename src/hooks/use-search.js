@@ -4,9 +4,8 @@ import {navigate, graphql, useStaticQuery} from 'gatsby'
 import {useIsMobile} from './use-breakpoint'
 
 const useSearchData = () => {
-  // TODO: this static query runs for all pages changes in dev mode.
-  // When not testing search explicitly it should be replaced with
-  // some static data.
+  // TODO: this static query runs for all pages changes in dev mode. When not
+  // testing search explicitly it should be replaced with some static data.
   const rawData = useStaticQuery(graphql`
     {
       allMdx {
