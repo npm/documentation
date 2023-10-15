@@ -5,19 +5,14 @@ import {LinkExternalIcon} from '@primer/octicons-react'
 import styled from 'styled-components'
 import NavHierarchy from '../util/nav-hierarchy'
 
-const getActiveProps = className => props => {
+const getActiveClass = props => {
   const location = NavHierarchy.getLocation(props.location.pathname)
   const href = NavHierarchy.getLocation(props.href)
-
-  if (NavHierarchy.isActiveUrl(location, href)) {
-    return {className: `${className} active`}
-  }
-
-  return {className: `${className}`}
+  return NavHierarchy.isActiveUrl(location, href) ? 'active' : ''
 }
 
 const ActiveLink = ({className, children, ...props}) => (
-  <Link as={GatsbyLink} getProps={getActiveProps(className)} {...props}>
+  <Link as={GatsbyLink} getProps={p => ({className: `${className} ${getActiveClass(p)}`})} {...props}>
     {children}
   </Link>
 )
@@ -126,11 +121,7 @@ function secondLevelItems(items, path) {
           <Box key={item.title} role="listitem">
             <SecondLevelLink key={item.url} to={item.url}>
               {item.title}
-              {item.description != null ? (
-                <>
-                  <Description>{item.description}</Description>
-                </>
-              ) : null}
+              {item.description != null ? <Description>{item.description}</Description> : null}
             </SecondLevelLink>
             {thirdLevelItems(children, path)}
           </Box>

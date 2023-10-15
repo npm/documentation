@@ -24,15 +24,37 @@
     "format": "prettier --write ."
   },
   "workspaces": [
-    "cli/",
-    "theme/"
+    "cli/"
   ],
   "dependencies": {
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "@primer/octicons-react": "^19.8.0",
     "@primer/react": "^35.31.0",
+    "babel-plugin-styled-components": "^2.1.4",
+    "copy-to-clipboard": "^3.3.3",
+    "details-element-polyfill": "^2.4.0",
+    "downshift": "^8.2.2",
+    "framer-motion": "^3.10.6",
+    "fuse.js": "^3.6.1",
     "gatsby": "^4.25.7",
+    "gatsby-plugin-catch-links": "^4.25.0",
+    "gatsby-plugin-manifest": "^4.25.0",
+    "gatsby-plugin-mdx": "^3.20.0",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "gatsby-plugin-react-helmet": "^5.25.0",
+    "gatsby-plugin-styled-components": "^5.25.0",
+    "gatsby-source-filesystem": "^4.25.0",
+    "gatsby-transformer-yaml": "^4.25.0",
+    "github-slugger": "^2.0.0",
+    "lodash.debounce": "4.0.8",
+    "prism-react-renderer": "^0.2.0",
     "react": "^17.0.2",
+    "react-addons-text-content": "^0.0.4",
     "react-dom": "^17.0.2",
-    "theme": "^1.0.0"
+    "react-focus-on": "^3.9.1",
+    "react-helmet": "^6.1.0",
+    "styled-components": "^5.3.11"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",

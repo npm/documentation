@@ -10,11 +10,10 @@ This is the documentation for [https://docs.npmjs.com/](https://docs.npmjs.com/)
 - [Navigation](#navigation)
 - [CLI](#cli)
 - [Deploying changes](#deploying-changes)
-- [Theme](#theme)
 
 ## Quick start
 
-1. `npm install` to download Gatsby, our theme, and the dependencies
+1. `npm install` to download Gatsby and all the dependencies
 2. `npm run develop`: starts the test server at `http://localhost:8000`.
 3. Update the content - it's MDX, which is like Markdown - in the `content` directory.
 4. Review your content at `http://localhost:8000`. (Gatsby watches the filesystem and will reload your content changes immediately.)
@@ -109,7 +108,7 @@ The content pages should include [frontmatter](https://jekyllrb.com/docs/front-m
 
 ## Navigation
 
-The site's navigation (on the left-hand sidebar of the site) is controlled by `src/theme/nav.yml`. If you add or remove a page from the site, you'll also want to add or remove it from the navigation configuration.
+The site's navigation (on the left-hand sidebar of the site) is controlled by `src/nav.yml`. If you add or remove a page from the site, you'll also want to add or remove it from the navigation configuration.
 
 ## CLI
 
@@ -147,7 +146,3 @@ The docs site (https://docs.npmjs.com/) is published from a [GitHub Actions work
 3. Merge that pull request
 
 On step three, your changes will be published live! 🎉
-
-## Theme
-
-The Gatsby theme used here is located in the [`theme/`](./theme) directory. It is a variation of [doctocat](https://github.com/primer/doctocat) with some theme changes for npm's design language and additional components to support multiple versions of the CLI documentation.
