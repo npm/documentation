@@ -1,45 +1,49 @@
 import React from 'react'
-import {ActionList, ActionMenu} from '@primer/react'
+import {ActionList, ActionMenu, Box} from '@primer/react'
 import NavHierarchy from '../util/nav-hierarchy'
+import {useLocation} from '../layout'
 
-// VariantSelect: allows a variant to be set up within a document hierarchy
-//
-// For example, given two paths `/docs/v1.0/foo` and `/docs/v2.0/foo`, the
-// second folder acts as a variant.  If you use <VariantSelect root="/docs">
-// then you'll get a selection for the different variants (v1.0, v2.0).
+const VariantItem = ({match, active}) => {
+  const {variant, page} = match
 
-const VariantSelect = ({variantPages, path}) => {
+  const handleClick = React.useCallback(
+    event => {
+      event.preventDefault()
+      window.location.href = `${page.url}?v=true`
+    },
+    [page.url],
+  )
+
+  const handleKey = React.useCallback(
+    event => {
+      if (event.key === 'Enter') {
+        window.location.href = `${page.url}?v=true`
+      }
+    },
+    [page.url],
+  )
+
+  return (
+    <ActionList.Item onKeyDown={handleKey} onClick={handleClick} id={variant.shortName} active={active}>
+      {variant.title}
+    </ActionList.Item>
+  )
+}
+
+const VariantMenu = ({variants, path}) => {
   const [open, setOpen] = React.useState(false)
-  const anchorClickHandler = React.useCallback((event, url) => {
-    event.preventDefault()
-    window.location.href = `${url}?v=true`
-  }, [])
 
-  const onItemEnterKey = React.useCallback((event, url) => {
-    if (event.key === 'Enter') {
-      window.location.href = `${url}?v=true`
-    }
-  }, [])
-
-  let selectedItem = variantPages[0]
-  const items = variantPages.map((match, index) => {
-    let active = false
-    if (match.page.url === path) {
-      selectedItem = match
-      active = true
-    }
-    return (
-      <ActionList.Item
-        onKeyDown={e => onItemEnterKey(e, match.page.url)}
-        onClick={e => anchorClickHandler(e, match.page.url)}
-        id={match.variant.shortName}
-        key={index}
-        active={active}
-      >
-        {match.variant.title}
-      </ActionList.Item>
-    )
-  })
+  const {selected, items} = variants.reduce(
+    (acc, match, key) => {
+      const active = match.page.url === path
+      if (active) {
+        acc.selected = match
+      }
+      acc.items.push({match, key, active})
+      return acc
+    },
+    {selected: variants[0], items: []},
+  )
 
   return (
     <>
@@ -49,11 +53,13 @@ const VariantSelect = ({variantPages, path}) => {
         in a previous accessibility audit which did not trigger the lint warning. */
         /* eslint-disable-next-line jsx-a11y/no-autofocus */}
         <ActionMenu.Button autoFocus aria-describedby="label-versions-list-item">
-          {selectedItem.variant.title}
+          {selected.variant.title}
         </ActionMenu.Button>
         <ActionMenu.Overlay width="medium" onEscape={() => setOpen(false)}>
           <ActionList id="versions-list-item" aria-labelledby="label-versions-list-item">
-            {items}
+            {items.map(item => (
+              <VariantItem key={item.key} {...item} />
+            ))}
           </ActionList>
         </ActionMenu.Overlay>
       </ActionMenu>
@@ -61,16 +67,22 @@ const VariantSelect = ({variantPages, path}) => {
   )
 }
 
-const VariantSelectLocation = ({root, location}) => {
+const VariantSelect = () => {
+  const location = useLocation()
+  const root = NavHierarchy.getVariantRoot(location.pathname)
   const path = NavHierarchy.getPath(location.pathname)
   const vp = NavHierarchy.getVariantAndPage(root, path)
-  const variantPages = vp ? NavHierarchy.getVariantsForPage(root, vp.page) : []
+  const variants = vp ? NavHierarchy.getVariantsForPage(root, vp.page) : []
 
-  if (!variantPages.length) {
+  if (!variants.length) {
     return null
   }
 
-  return <VariantSelect variantPages={variantPages} path={path} />
+  return (
+    <Box css={{'margin-top': '25px'}}>
+      <VariantMenu variantPages={variants} path={path} />
+    </Box>
+  )
 }
 
-export default VariantSelectLocation
+export default VariantSelect

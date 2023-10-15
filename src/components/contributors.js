@@ -1,8 +1,6 @@
 import {Box, Avatar, Link, Text, Tooltip} from '@primer/react'
 import React from 'react'
 
-const pluralize = (word, count) => `${word}${count === 1 ? '' : 's'}`
-
 const months = [
   'January',
   'February',
@@ -17,7 +15,10 @@ const months = [
   'November',
   'December',
 ]
+
 const format = d => `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
+
+const pluralize = (word, count) => `${word}${count === 1 ? '' : 's'}`
 
 function Contributors({logins, latestCommit}) {
   return (

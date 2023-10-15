@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, StyledOcticon, Link} from '@primer/react'
+import {Box, Link, Octicon} from '@primer/react'
 import {PencilIcon} from '@primer/octicons-react'
 import Contributors from './contributors'
 
@@ -18,7 +18,7 @@ function PageFooter({editUrl, contributors = {}}) {
       <Box display="grid" gridGap={4}>
         {editUrl != null ? (
           <Link href={editUrl}>
-            <StyledOcticon icon={PencilIcon} mr={2} />
+            <Octicon icon={PencilIcon} mr={2} />
             Edit this page on GitHub
           </Link>
         ) : null}

@@ -1,8 +1,8 @@
 import React from 'react'
-import {useLocation} from '@reach/router' // eslint-disable-line import/no-unresolved
 import {Box, Link} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 import NavHierarchy from '../util/nav-hierarchy'
+import {useLocation} from '../layout'
 
 function showHierarchy(items, props, depth = 1) {
   let hierarchy
