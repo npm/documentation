@@ -1,9 +1,9 @@
-import {Box} from '@primer/react'
 import React from 'react'
-import useSiteMetadata from '../hooks/use-site-metadata'
+import {Box} from '@primer/react'
 import DarkTextInput from './dark-text-input'
 import SearchResults from './search-results'
 import BorderBox from './border-box'
+import useSiteMetadata from '../hooks/use-site-metadata'
 
 function Search(props) {
   const siteMetadata = useSiteMetadata()

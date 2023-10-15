@@ -1,2 +1,2 @@
-export {default as wrapPageElement} from './src/wrap/page-element'
-export {default as wrapRootElement} from './src/wrap/root-element'
+export {default as wrapPageElement} from './src/page-element'
+export {default as wrapRootElement} from './src/root-element'

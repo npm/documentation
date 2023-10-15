@@ -1,8 +1,8 @@
-import {Text} from '@primer/react'
 import React from 'react'
+import {Text} from '@primer/react'
+import Flex from './flex'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import NavHierarchy from '../util/nav-hierarchy'
-import Flex from '../components/flex'
 
 function SearchResults({results, getItemProps, highlightedIndex}) {
   const siteMetadata = useSiteMetadata()

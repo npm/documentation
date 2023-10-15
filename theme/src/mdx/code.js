@@ -1,9 +1,9 @@
 import {Box, Text} from '@primer/react'
-import BorderBox from './border-box'
 import Highlight, {defaultProps} from 'prism-react-renderer'
 import githubTheme from 'prism-react-renderer/themes/github'
 import React, {useState, useEffect} from 'react'
-import ClipboardCopy from './clipboard-copy'
+import ClipboardCopy from '../components/clipboard-copy'
+import BorderBox from '../components/border-box'
 
 /**
  * Resize the scroll handle to the size of the code contents, since the former has to be positioned absolutely.

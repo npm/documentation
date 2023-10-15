@@ -1,11 +1,11 @@
-import {Box, StyledOcticon, Link, themeGet} from '@primer/react'
-import BorderBox from './border-box'
-import {LinkExternalIcon} from '@primer/octicons-react'
-import {Link as GatsbyLink} from 'gatsby'
 import React from 'react'
+import {Link as GatsbyLink} from 'gatsby'
+import {Box, StyledOcticon, Link, themeGet} from '@primer/react'
+import {LinkExternalIcon} from '@primer/octicons-react'
 import styled from 'styled-components'
+import BorderBox from './border-box'
+import Flex from './flex'
 import NavHierarchy from '../util/nav-hierarchy'
-import Flex from '../components/flex'
 
 const getActiveProps = className => props => {
   const location = NavHierarchy.getLocation(props.location.pathname)

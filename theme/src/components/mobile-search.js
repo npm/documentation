@@ -1,13 +1,13 @@
+import React from 'react'
 import {Box} from '@primer/react'
 import {XIcon, SearchIcon} from '@primer/octicons-react'
 import {AnimatePresence, motion} from 'framer-motion'
-import React from 'react'
 import {FocusOn} from 'react-focus-on'
+import Flex from './flex'
 import DarkButton from './dark-button'
 import DarkTextInput from './dark-text-input'
 import SearchResults from './search-results'
 import useSiteMetadata from '../hooks/use-site-metadata'
-import Flex from '../components/flex'
 
 function MobileSearch({onDismiss, ...props}) {
   const siteMetadata = useSiteMetadata()

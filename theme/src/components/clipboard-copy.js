@@ -1,8 +1,8 @@
+import React from 'react'
 import {Button, StyledOcticon, themeGet} from '@primer/react'
 import {CheckIcon, CopyIcon} from '@primer/octicons-react'
 import styled from 'styled-components'
 import copy from 'copy-to-clipboard'
-import React from 'react'
 import {announce} from '../util/aria-live'
 
 const CopyToClipboard = styled(Button)`

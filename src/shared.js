@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from '@primer/react'
-import Screenshot from '../theme/src/components/screenshot'
-import Note from '../theme/src/components/note'
+import Screenshot from 'theme/src/mdx/screenshot'
+import Note from 'theme/src/mdx/note'
 
 export default {
   /* User login */

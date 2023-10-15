@@ -1,14 +1,18 @@
-import {Link} from '@primer/react'
-import styled from 'styled-components'
+import {BaseStyles, Link} from '@primer/react'
 import React from 'react'
+import styled, {createGlobalStyle} from 'styled-components'
 
-function SkipLinkBase(props) {
-  return (
-    <Link {...props} backgroundColor="blue.6" color="white" p={3} href="#skip-nav" fontSize={1}>
-      Skip to content
-    </Link>
-  )
-}
+const GlobalStyle = createGlobalStyle`
+  ::placeholder {
+    color: #dddddd;
+  }
+`
+
+const SkipLinkBase = props => (
+  <Link {...props} backgroundColor="blue.6" color="white" p={3} href="#skip-nav" fontSize={1}>
+    Skip to content
+  </Link>
+)
 
 const SkipLink = styled(SkipLinkBase)`
   z-index: 20;
@@ -33,4 +37,14 @@ const SkipLink = styled(SkipLinkBase)`
   }
 `
 
-export default SkipLink
+function PageElement({element}) {
+  return (
+    <BaseStyles>
+      <GlobalStyle />
+      <SkipLink />
+      {element}
+    </BaseStyles>
+  )
+}
+
+export default PageElement

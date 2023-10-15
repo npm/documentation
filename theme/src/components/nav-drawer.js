@@ -1,16 +1,16 @@
+import React from 'react'
 import {Link} from '@primer/react'
 import BorderBox from './border-box'
 import {XIcon, ThreeBarsIcon} from '@primer/octicons-react'
 import {Link as GatsbyLink} from 'gatsby'
-import React from 'react'
-import navItems from '../nav.yml'
-import headerNavItems from '../header-nav.yml'
-import useSiteMetadata from '../hooks/use-site-metadata'
 import DarkButton from './dark-button'
 import Drawer from './drawer'
 import NavItems from './nav-items'
+import Flex from './flex'
+import navItems from '../nav.yml'
+import headerNavItems from '../header-nav.yml'
+import useSiteMetadata from '../hooks/use-site-metadata'
 import {useIsMobile} from '../hooks/use-breakpoint'
-import Flex from '../components/flex'
 
 const useDrawerIsOpen = () => {
   const isMobile = useIsMobile()
