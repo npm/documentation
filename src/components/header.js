@@ -30,7 +30,7 @@ function Header({location, repositoryUrl}) {
   }
 
   return (
-    <Box position="sticky" role="banner">
+    <Box position="sticky" top={0} sx={{zIndex: 1}} role="banner">
       <NpmHeaderBar />
       <Box
         display="flex"

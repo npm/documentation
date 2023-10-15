@@ -12,15 +12,8 @@ module.exports = {
     'plugin:import/recommended',
     'prettier',
   ],
-  settings: {
-    import: {
-      ignore: ['^theme$'],
-    },
-  },
   rules: {
     'react/prop-types': 'off',
-    // our theme use exports which dont work with import/no-unresolved
-    'import/no-unresolved': ['error', {ignore: ['^theme$']}],
   },
   overrides: [
     {

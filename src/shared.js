@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, Note, Screenshot} from 'theme'
+import {Link, Note, Screenshot} from './mdx'
 
 const shared = {
   /* User login */

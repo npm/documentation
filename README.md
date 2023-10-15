@@ -18,10 +18,6 @@ This is the documentation for [https://docs.npmjs.com/](https://docs.npmjs.com/)
 
 Do you want to know more? Check out our [contributing guide](CONTRIBUTING.md).
 
-## Theme
-
-The gatsby theme used here is located in the [`theme/`](./theme) directory. It is a variation of [doctocat](https://github.com/primer/doctocat) with some theme changes for npm's design language and additional components to support multiple versions of the CLI documentation.
-
 ## License
 
 The npm product documentation in the content, and static folders are licensed under a [CC-BY 4.0 license](LICENSE).
