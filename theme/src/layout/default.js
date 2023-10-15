@@ -7,7 +7,6 @@ import PageFooter from '../components/page-footer'
 import Sidebar from '../components/sidebar'
 import TableOfContents from '../components/table-of-contents'
 import VariantSelect from '../components/variant-select'
-import BorderBox from '../components/border-box'
 import * as Slugger from '../hooks/use-slugger'
 import NavHierarchy from '../util/nav-hierarchy'
 
@@ -40,14 +39,21 @@ function Layout({children, pageContext, location}) {
             role="region"
           >
             <Box css={{gridArea: 'heading'}}>
-              <BorderBox borderWidth={0} borderBottomWidth={1} borderRadius={0} pb={2}>
+              <Box
+                borderStyle="solid"
+                borderColor="border.default"
+                borderWidth={0}
+                borderBottomWidth={1}
+                borderRadius={0}
+                pb={2}
+              >
                 <Box>
                   <Box>
                     <Heading as="h1">{title}</Heading>
                     {description}
                   </Box>
                 </Box>
-              </BorderBox>
+              </Box>
               {variantRoot != null ? (
                 <Box css={{'margin-top': '25px'}}>
                   <VariantSelect
