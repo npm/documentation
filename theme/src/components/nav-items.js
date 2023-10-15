@@ -158,7 +158,7 @@ function NavItems({location, repositoryUrl}) {
     <>
       {topLevelItems(items, path)}
       <BorderBox borderWidth={0} borderTopWidth={1} borderRadius={0} py={5} px={4}>
-        <Link href={repositoryUrl} color="inherit">
+        <Link href={repositoryUrl} sx={{color: 'inherit'}}>
           <Flex justifyContent="space-between" alignItems="center" color="gray.5">
             GitHub
             <StyledOcticon icon={LinkExternalIcon} color="gray.5" />

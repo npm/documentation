@@ -14,7 +14,7 @@ function TableOfContents({items, depth = 0, labelId}) {
     >
       {items.map(item => (
         <Box as="li" role="listitem" key={item.url} pl={depth > 0 ? 3 : 0}>
-          <Link key={item.title} display="inline-block" py={1} href={item.url} color="gray.6">
+          <Link key={item.title} href={item.url} sx={{display: 'inline-block', py: 1, color: 'gray.6'}}>
             {item.title}
           </Link>
           {item.items ? <TableOfContents items={item.items} depth={depth + 1} /> : null}

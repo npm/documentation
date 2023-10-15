@@ -15,7 +15,12 @@ function Screenshot(props) {
       <img
         src={withPrefix(props.src)}
         alt={props.alt}
-        style={{border: 'solid 1px #999999', marginTop: '15px', maxWidth: 'min(100%, 525px)', maxHeight: '300px'}}
+        style={{
+          border: 'solid 1px #999999',
+          marginTop: '15px',
+          maxWidth: 'min(100%, 525px)',
+          maxHeight: '300px',
+        }}
       />
     </div>
   )

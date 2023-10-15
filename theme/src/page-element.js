@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const SkipLinkBase = props => (
-  <Link {...props} backgroundColor="blue.6" color="white" p={3} href="#skip-nav" fontSize={1}>
+  <Link {...props} href="#skip-nav" sx={{backgroundColor: 'blue.6', color: 'white', p: 3, fontSize: 1}}>
     Skip to content
   </Link>
 )

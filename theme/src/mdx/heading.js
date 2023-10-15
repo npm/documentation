@@ -28,7 +28,7 @@ function MarkdownHeading({children, ...props}) {
 
   return (
     <StyledHeading id={id} {...props}>
-      <Link href={`#${id}`} p={2} ml={-32} color="gray.8" aria-label={`${text} permalink`}>
+      <Link href={`#${id}`} sx={{p: 2, ml: -32, color: 'gray.8'}} aria-label={`${text} permalink`}>
         <LinkIcon className="octicon-link" verticalAlign="middle" />
       </Link>
       {children}
