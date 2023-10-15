@@ -1,6 +1,6 @@
 import React from 'react'
 import {MDXProvider} from '@mdx-js/react'
-import {Link, theme, SSRProvider, ThemeProvider} from '@primer/react'
+import {Link, SSRProvider, ThemeProvider, theme} from '@primer/react'
 import Blockquote from './mdx/blockquote'
 import Code from './mdx/code'
 import DescriptionList from './mdx/description-list'
@@ -20,6 +20,8 @@ import Screenshot from './mdx/screenshot'
 function UnderlinedLink(props) {
   return <Link {...props} underline={true} />
 }
+
+console.log(theme)
 
 const components = {
   a: UnderlinedLink,
@@ -52,7 +54,7 @@ function RootElement({element}) {
   return (
     <SSRProvider>
       <MDXProvider components={components}>
-        <ThemeProvider theme={theme}>{element}</ThemeProvider>
+        <ThemeProvider>{element}</ThemeProvider>
       </MDXProvider>
     </SSRProvider>
   )

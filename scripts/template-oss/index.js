@@ -11,6 +11,7 @@ module.exports = {
   },
   rootModule: {
     add: {
+      'package.json': { file: 'pkg.json', overwrite: false },
       '.eslintrc.js': false,
       'CODE_OF_CONDUCT.md': false,
       'CONTRIBUTING.md': false,
@@ -21,12 +22,21 @@ module.exports = {
       '.github/settings.yml': false,
     },
   },
+  workspaceModule: {
+    add: {
+      'package.json': { file: 'pkg.json', overwrite: false },
+      '.eslintrc.js': false,
+    },
+  },
   ciVersions: 'latest',
   latestCiVersion: 18,
   macCI: false,
   windowsCI: false,
   lockfile: true,
   allowedPackages: ['eslint'],
+  requiredPackages: {
+    devDependencies: []
+  },
   allowPaths: [
     '/.reuse/',
     '/src/',
@@ -38,5 +48,6 @@ module.exports = {
     '/CONTRIBUTING.md',
     '/CONTENT-MODEL.md',
     '/.nvmrc',
+    '/.prettierIgnore',
   ],
 }

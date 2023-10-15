@@ -3,5 +3,6 @@
     "test": "jest",
     "format": "prettier --write ."
   },
-  "files": {{{ del }}}
+  "files": {{{ del }}},
+  "tap": {{{ del }}}
 }
