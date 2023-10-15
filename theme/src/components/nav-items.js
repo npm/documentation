@@ -3,7 +3,6 @@ import {Link as GatsbyLink} from 'gatsby'
 import {Box, StyledOcticon, Link, themeGet} from '@primer/react'
 import {LinkExternalIcon} from '@primer/octicons-react'
 import styled from 'styled-components'
-import BorderBox from './border-box'
 import NavHierarchy from '../util/nav-hierarchy'
 
 const getActiveProps = className => props => {
@@ -88,14 +87,24 @@ function topLevelItems(items, path) {
           : null
 
         return (
-          <BorderBox key={item.title} borderWidth={0} borderRadius={0} borderTopWidth={1} py={3} px={4} role="listitem">
+          <Box
+            borderStyle="solid"
+            borderColor="border.default"
+            key={item.title}
+            borderWidth={0}
+            borderRadius={0}
+            borderTopWidth={1}
+            py={3}
+            px={4}
+            role="listitem"
+          >
             <Box display="flex" flexDirection="column">
               <TopLevelLink to={item.url} key={item.title}>
                 {item.title}
               </TopLevelLink>
               {secondLevelItems(children, path)}
             </Box>
-          </BorderBox>
+          </Box>
         )
       })}
     </>
@@ -156,14 +165,22 @@ function NavItems({location, repositoryUrl}) {
   return (
     <>
       {topLevelItems(items, path)}
-      <BorderBox borderWidth={0} borderTopWidth={1} borderRadius={0} py={5} px={4}>
+      <Box
+        borderStyle="solid"
+        borderColor="border.default"
+        borderWidth={0}
+        borderTopWidth={1}
+        borderRadius={0}
+        py={5}
+        px={4}
+      >
         <Link href={repositoryUrl} sx={{color: 'inherit'}}>
           <Box display="flex" justifyContent="space-between" alignItems="center" color="gray.5">
             GitHub
             <StyledOcticon icon={LinkExternalIcon} color="gray.5" />
           </Box>
         </Link>
-      </BorderBox>
+      </Box>
     </>
   )
 }

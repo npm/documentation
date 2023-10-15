@@ -1,6 +1,5 @@
 import React from 'react'
 import {Box, Link} from '@primer/react'
-import BorderBox from './border-box'
 import {XIcon, ThreeBarsIcon} from '@primer/octicons-react'
 import {Link as GatsbyLink} from 'gatsby'
 import DarkButton from './dark-button'
@@ -44,7 +43,7 @@ function NavDrawer({location, repositoryUrl}) {
           style={{overflow: 'auto', WebkitOverflowScrolling: 'touch'}}
         >
           <Box display="flex" flexDirection="column" flex="1 0 auto" color="gray.7" bg="gray.0">
-            <BorderBox borderWidth={0} borderRadius={0} borderBottomWidth={1} borderColor="gray.7">
+            <Box borderStyle="solid" borderWidth={0} borderRadius={0} borderBottomWidth={1} borderColor="gray.7">
               <Box
                 display="flex"
                 py={3}
@@ -62,7 +61,7 @@ function NavDrawer({location, repositoryUrl}) {
                   <XIcon />
                 </DarkButton>
               </Box>
-            </BorderBox>
+            </Box>
             {navItems.length > 0 ? (
               <Box display="flex" flexDirection="column">
                 <NavItems location={location} items={navItems} repositoryUrl={repositoryUrl} />
@@ -82,7 +81,8 @@ function NavDrawer({location, repositoryUrl}) {
 
 function HeaderNavItems({items}) {
   return items.map((item, index) => (
-    <BorderBox
+    <Box
+      borderStyle="solid"
       key={item.title}
       borderWidth={0}
       borderRadius={0}
@@ -93,7 +93,7 @@ function HeaderNavItems({items}) {
       <Link key={index} href={item.url} sx={{color: 'inherit', display: 'block'}}>
         {item.title}
       </Link>
-    </BorderBox>
+    </Box>
   ))
 }
 

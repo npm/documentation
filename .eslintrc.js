@@ -3,7 +3,7 @@ module.exports = {
   ignorePatterns: ['cli/', '.cache/', 'public/'],
   extends: [
     'react-app',
-    'react-app/jest',
+    // 'react-app/jest',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:github/react',

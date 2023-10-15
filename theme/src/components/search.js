@@ -2,7 +2,6 @@ import React from 'react'
 import {Box} from '@primer/react'
 import DarkTextInput from './dark-text-input'
 import SearchResults from './search-results'
-import BorderBox from './border-box'
 import useSiteMetadata from '../hooks/use-site-metadata'
 
 function Search(props) {
@@ -27,9 +26,20 @@ function Search(props) {
         })}
       >
         {isOpen ? (
-          <BorderBox minWidth={300} maxHeight="70vh" py={1} boxShadow="medium" bg="white" style={{overflow: 'auto'}}>
+          <Box
+            borderWidth={1}
+            borderStyle="solid"
+            borderColor="border.default"
+            borderRadius={2}
+            minWidth={300}
+            maxHeight="70vh"
+            py={1}
+            boxShadow="medium"
+            bg="white"
+            style={{overflow: 'auto'}}
+          >
             <SearchResults {...{results, getItemProps, highlightedIndex}} />
-          </BorderBox>
+          </Box>
         ) : null}
       </Box>
     </Box>

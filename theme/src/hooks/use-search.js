@@ -114,6 +114,8 @@ function useSearch() {
             }
           }
           break
+        default:
+          break
       }
       return changes
     },
