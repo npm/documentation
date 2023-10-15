@@ -107,7 +107,11 @@ function useSearch() {
         case useCombobox.stateChangeTypes.InputBlur:
           if (isMobile) {
             // Don't let a blur event change the state of `inputValue` or `isOpen`.
-            return {...changes, inputValue: state.inputValue, isOpen: state.isOpen}
+            return {
+              ...changes,
+              inputValue: state.inputValue,
+              isOpen: state.isOpen,
+            }
           }
           break
       }

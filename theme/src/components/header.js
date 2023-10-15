@@ -23,7 +23,12 @@ function Header({location, repositoryUrl}) {
   const search = useSearch()
 
   const logoStyle = {color: '#cb0000', marginRight: '16px'}
-  const titleStyle = {color: '#dddddd', fontWeight: '600', display: 'flex', alignItems: 'center'}
+  const titleStyle = {
+    color: '#dddddd',
+    fontWeight: '600',
+    display: 'flex',
+    alignItems: 'center',
+  }
 
   return (
     <Box position="sticky" role="banner">
@@ -36,7 +41,7 @@ function Header({location, repositoryUrl}) {
         bg="#333333"
       >
         <Flex alignItems="center">
-          <Link as={GatsbyLink} to="/" style={titleStyle} mr={4}>
+          <Link as={GatsbyLink} to="/" style={titleStyle} sx={{mr: 4}}>
             <NpmLogo size="32" style={logoStyle} />
             {siteMetadata.title}
           </Link>
@@ -62,7 +67,7 @@ function HeaderNavItems({items}) {
   return (
     <Flex alignItems="center" color="gray.2">
       {items.map((item, index) => (
-        <Link key={index} href={item.url} display="block" color="inherit" ml={4}>
+        <Link key={index} href={item.url} sx={{display: 'block', color: 'inherit', ml: 4}}>
           {item.title}
         </Link>
       ))}

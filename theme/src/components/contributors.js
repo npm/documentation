@@ -28,7 +28,7 @@ function Contributors({logins, latestCommit}) {
           {logins.length} {pluralize('contributor', logins.length)}
         </Text>
         {logins.map(login => (
-          <Link key={login} href={`https://github.com/${login}`} lineHeight="condensedUltra" mr={2}>
+          <Link key={login} href={`https://github.com/${login}`} sx={{lineHeight: 'condensedUltra', mr: 2}}>
             {/* eslint-disable-next-line primer-react/a11y-tooltip-interactive-trigger */}
             <Tooltip key={login} aria-label={login}>
               <Avatar src={`https://github.com/${login}.png?size=40`} alt={login} />
@@ -36,7 +36,6 @@ function Contributors({logins, latestCommit}) {
           </Link>
         ))}
       </Flex>
-
       {latestCommit ? (
         <Text fontSize={1} color="gray.7" mt={1}>
           Last edited by <Link href={`https://github.com/${latestCommit.login}`}>{latestCommit.login}</Link> on{' '}

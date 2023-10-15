@@ -46,7 +46,7 @@ function NavDrawer({location, repositoryUrl}) {
           <Flex flexDirection="column" flex="1 0 auto" color="gray.7" bg="gray.0">
             <BorderBox borderWidth={0} borderRadius={0} borderBottomWidth={1} borderColor="gray.7">
               <Flex py={3} pl={4} pr={3} alignItems="center" justifyContent="space-between" color="gray.1" bg="gray.9">
-                <Link as={GatsbyLink} to="/" display="inline-block" color="inherit">
+                <Link as={GatsbyLink} to="/" sx={{display: 'inline-block', color: 'inherit'}}>
                   {siteMetadata.title}
                 </Link>
                 <DarkButton aria-label="Close" onClick={setClose}>
@@ -81,7 +81,7 @@ function HeaderNavItems({items}) {
       borderColor="gray.7"
       p={4}
     >
-      <Link key={index} href={item.url} color="inherit" display="block">
+      <Link key={index} href={item.url} sx={{color: 'inherit', display: 'block'}}>
         {item.title}
       </Link>
     </BorderBox>
