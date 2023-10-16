@@ -1,6 +1,6 @@
 import React from 'react'
 import {ActionList, ActionMenu, Box} from '@primer/react'
-import NavHierarchy from '../util/nav-hierarchy'
+import getNav from '../util/get-nav'
 import {useLocation} from '../layout'
 
 const VariantItem = ({match, active}) => {
@@ -69,10 +69,10 @@ const VariantMenu = ({variants, path}) => {
 
 const VariantSelect = () => {
   const location = useLocation()
-  const root = NavHierarchy.getVariantRoot(location.pathname)
-  const path = NavHierarchy.getPath(location.pathname)
-  const vp = NavHierarchy.getVariantAndPage(root, path)
-  const variants = vp ? NavHierarchy.getVariantsForPage(root, vp.page) : []
+  const root = getNav.getVariantRoot(location.pathname)
+  const path = getNav.getPath(location.pathname)
+  const vp = getNav.getVariantAndPage(root, path)
+  const variants = vp ? getNav.getVariantsForPage(root, vp.page) : []
 
   if (!variants.length) {
     return null

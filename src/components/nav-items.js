@@ -3,13 +3,13 @@ import {Link as GatsbyLink} from 'gatsby'
 import {Box, StyledOcticon, Link, themeGet} from '@primer/react'
 import {LinkExternalIcon} from '@primer/octicons-react'
 import styled from 'styled-components'
-import NavHierarchy from '../util/nav-hierarchy'
+import getNav from '../util/get-nav'
 import {useLocation, usePageContext} from '../layout'
 
 const getActiveClass = props => {
-  const location = NavHierarchy.getLocation(props.location.pathname)
-  const href = NavHierarchy.getLocation(props.href)
-  return NavHierarchy.isActiveUrl(location, href) ? 'active' : ''
+  const location = getNav.getLocation(props.location.pathname)
+  const href = getNav.getLocation(props.href)
+  return getNav.isActiveUrl(location, href) ? 'active' : ''
 }
 
 const ActiveLink = ({className, children, ...props}) => (
@@ -78,8 +78,8 @@ function topLevelItems(items, path) {
   return (
     <>
       {items.map(item => {
-        const children = NavHierarchy.isActiveUrl(path, item.url)
-          ? NavHierarchy.getHierarchy(item, {path, hideVariants: true})
+        const children = getNav.isActiveUrl(path, item.url)
+          ? getNav.getHierarchy(item, {path, hideVariants: true})
           : null
 
         return (
@@ -115,8 +115,8 @@ function secondLevelItems(items, path) {
   return (
     <Box display="flex" flexDirection="column" mt={2} role="list">
       {items.map(item => {
-        const children = NavHierarchy.isActiveUrl(path, item.url)
-          ? NavHierarchy.getHierarchy(item, {path, hideVariants: true})
+        const children = getNav.isActiveUrl(path, item.url)
+          ? getNav.getHierarchy(item, {path, hideVariants: true})
           : null
         return (
           <Box key={item.title} role="listitem">
@@ -153,8 +153,8 @@ function thirdLevelItems(items) {
 function NavItems() {
   const location = useLocation()
   const {repositoryUrl} = usePageContext()
-  const path = NavHierarchy.getLocation(location.pathname)
-  const items = NavHierarchy.getHierarchy(null, {path, hideVariants: true})
+  const path = getNav.getLocation(location.pathname)
+  const items = getNav.getHierarchy(null, {path, hideVariants: true})
 
   return (
     <>

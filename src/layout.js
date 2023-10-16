@@ -13,10 +13,7 @@ const LocationContext = React.createContext(null)
 export const useSlugger = () => React.useContext(SluggerContext)
 export const usePageContext = () => React.useContext(PageContext)
 export const useLocation = () => React.useContext(LocationContext)
-export const useFrontmatter = () => {
-  const pageContext = usePageContext()
-  return pageContext.frontmatter || {}
-}
+export const useFrontmatter = () => usePageContext().frontmatter
 
 const withLayout = Component => {
   const LayoutProvider = props => (

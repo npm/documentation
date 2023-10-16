@@ -1,7 +1,7 @@
 import React from 'react'
 import {Box, Text} from '@primer/react'
 import useSiteMetadata from '../hooks/use-site-metadata'
-import NavHierarchy from '../util/nav-hierarchy'
+import getNav from '../util/get-nav'
 
 function SearchResults({results, getItemProps, highlightedIndex}) {
   const siteMetadata = useSiteMetadata()
@@ -38,7 +38,7 @@ function SearchResults({results, getItemProps, highlightedIndex}) {
 }
 
 function getBreadcrumbs(siteTitle, path) {
-  const hierarchy = NavHierarchy.getItemHierarchy(path)
+  const hierarchy = getNav.getItemHierarchy(path)
 
   if (hierarchy) {
     hierarchy.pop()
