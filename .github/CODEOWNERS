@@ -2,7 +2,6 @@
 
 # Content
 /.github/CODEOWNERS   @MylesBorins @monishcm @lukekarrys
-/.reuse/              @MylesBorins @monishcm @lukekarrys
 /content/             @MylesBorins @monishcm @lukekarrys
 /src/                 @MylesBorins @monishcm @lukekarrys
 /static/              @MylesBorins @monishcm @lukekarrys
@@ -13,6 +12,7 @@
 /CODE_OF_CONDUCT.md   @MylesBorins
 
 # Licensing
+/.reuse/              @MylesBorins @lukekarrys
 /LICENSES/            @MylesBorins
 /LICENSE              @MylesBorins
 /LICENSE-CODE         @MylesBorins
