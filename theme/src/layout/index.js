@@ -1,6 +1,6 @@
 import {BorderBox, Box, Flex, Grid, Heading, Position, StyledOcticon, Text} from '@primer/components'
 import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
-import React from 'react'
+import React, {useEffect} from 'react'
 import Head from '../components/head'
 import Header, {HEADER_HEIGHT} from '../components/header'
 import PageFooter from '../components/page-footer'
@@ -12,11 +12,16 @@ import VariantSelect from '../components/variant-select'
 import NavHierarchy from '../util/nav-hierarchy'
 import Details from '../components/details'
 import * as Slugger from '../hooks/use-slugger'
+import {makePreElementsFocusable} from '../util/common'
 
 function Layout({children, pageContext, location}) {
   const {title, description, status, source} = pageContext.frontmatter
 
   const variantRoot = NavHierarchy.getVariantRoot(location.pathname)
+
+  useEffect(() => {
+    makePreElementsFocusable()
+  }, [children])
 
   return (
     <Slugger.Provider>
