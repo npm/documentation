@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link as GatsbyLink} from 'gatsby'
-import {Box, StyledOcticon, Link, themeGet} from '@primer/react'
+import {Box, Octicon, Link, themeGet} from '@primer/react'
 import {LinkExternalIcon} from '@primer/octicons-react'
 import styled from 'styled-components'
 import getNav from '../util/get-nav'
@@ -17,6 +17,19 @@ const ActiveLink = ({className, children, ...props}) => (
     {children}
   </Link>
 )
+
+const withItems = Component => {
+  const WithItems = ({parent, path}) => {
+    if (!parent || getNav.isActiveUrl(path, parent.url)) {
+      const items = getNav.getHierarchy(parent, {path, hideVariants: true})
+      if (items) {
+        return <Component items={items} path={path} />
+      }
+    }
+    return null
+  }
+  return WithItems
+}
 
 const NavLink = styled(ActiveLink)`
   color: inherit;
@@ -35,6 +48,34 @@ const TopLevelLink = styled(NavLink)`
     color: ${themeGet('colors.gray.8')};
   }
 `
+
+const TopLevelItems = withItems(({items, path}) => (
+  <>
+    {items.map(item => (
+      <Box
+        key={item.title}
+        role="listitem"
+        sx={{
+          borderStyle: 'solid',
+          borderColor: 'border.default',
+          borderWidth: 0,
+          borderRadius: 0,
+          borderTopWidth: 1,
+          py: 3,
+          px: 4,
+        }}
+      >
+        <Box sx={{display: 'flex', flexDirection: 'column'}}>
+          <TopLevelLink to={item.url} key={item.title}>
+            {item.title}
+          </TopLevelLink>
+          <SecondLevelItems parent={item} path={path} />
+        </Box>
+      </Box>
+    ))}
+  </>
+))
+
 const SecondLevelLink = styled(NavLink)`
   display: block;
   font-size: ${themeGet('fontSizes.1')};
@@ -46,6 +87,28 @@ const SecondLevelLink = styled(NavLink)`
     color: ${themeGet('colors.gray.8')};
   }
 `
+
+const Description = styled(Box)`
+  & {
+    color: ${themeGet('colors.gray.6')};
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+`
+
+const SecondLevelItems = withItems(({items, path}) => (
+  <Box sx={{display: 'flex', flexDirection: 'column', mt: 2}} role="list">
+    {items.map(item => (
+      <Box key={item.title} role="listitem">
+        <SecondLevelLink key={item.url} to={item.url}>
+          {item.title}
+          {item.description ? <Description>{item.description}</Description> : null}
+        </SecondLevelLink>
+        <ThirdLevelItems parent={item} path={path} />
+      </Box>
+    ))}
+  </Box>
+))
 
 const ThirdLevelLink = styled(NavLink)`
   display: block;
@@ -62,108 +125,30 @@ const ThirdLevelLink = styled(NavLink)`
   }
 `
 
-const Description = styled(Box)`
-  & {
-    color: ${themeGet('colors.gray.6')};
-    font-size: 0.8em;
-    font-weight: normal;
-  }
-`
-
-function topLevelItems(items, path) {
-  if (items == null) {
-    return null
-  }
-
-  return (
-    <>
-      {items.map(item => {
-        const children = getNav.isActiveUrl(path, item.url)
-          ? getNav.getHierarchy(item, {path, hideVariants: true})
-          : null
-
-        return (
-          <Box
-            borderStyle="solid"
-            borderColor="border.default"
-            key={item.title}
-            borderWidth={0}
-            borderRadius={0}
-            borderTopWidth={1}
-            py={3}
-            px={4}
-            role="listitem"
-          >
-            <Box display="flex" flexDirection="column">
-              <TopLevelLink to={item.url} key={item.title}>
-                {item.title}
-              </TopLevelLink>
-              {secondLevelItems(children, path)}
-            </Box>
-          </Box>
-        )
-      })}
-    </>
-  )
-}
-
-function secondLevelItems(items, path) {
-  if (items == null) {
-    return null
-  }
-
-  return (
-    <Box display="flex" flexDirection="column" mt={2} role="list">
-      {items.map(item => {
-        const children = getNav.isActiveUrl(path, item.url)
-          ? getNav.getHierarchy(item, {path, hideVariants: true})
-          : null
-        return (
-          <Box key={item.title} role="listitem">
-            <SecondLevelLink key={item.url} to={item.url}>
-              {item.title}
-              {item.description != null ? <Description>{item.description}</Description> : null}
-            </SecondLevelLink>
-            {thirdLevelItems(children, path)}
-          </Box>
-        )
-      })}
-    </Box>
-  )
-}
-
-function thirdLevelItems(items) {
-  if (items == null) {
-    return null
-  }
-
-  return (
-    <Box display="flex" flexDirection="column" mt={2} role="list">
-      {items.map(item => (
-        <Box key={item.title} role="listitem">
-          <ThirdLevelLink key={item.url} to={item.url}>
-            {item.title}
-          </ThirdLevelLink>
-        </Box>
-      ))}
-    </Box>
-  )
-}
+const ThirdLevelItems = withItems(({items}) => (
+  <Box sx={{display: 'flex', flexDirection: 'column', mt: 2}} role="list">
+    {items.map(item => (
+      <Box key={item.title} role="listitem">
+        <ThirdLevelLink key={item.url} to={item.url}>
+          {item.title}
+        </ThirdLevelLink>
+      </Box>
+    ))}
+  </Box>
+))
 
 function NavItems() {
-  const location = useLocation()
   const {repositoryUrl} = usePageContext()
-  const path = getNav.getLocation(location.pathname)
-  const items = getNav.getHierarchy(null, {path, hideVariants: true})
+  const location = useLocation()
 
   return (
     <>
-      {topLevelItems(items, path)}
-      <Box borderStyle="solid" borderColor="border.default" borderWidth={0} borderTopWidth={1} py={3} px={4}>
+      <TopLevelItems path={getNav.getLocation(location.pathname)} />
+      <Box sx={{borderStyle: 'solid', borderColor: 'border.default', borderWidth: 0, borderTopWidth: 1, py: 3, px: 4}}>
         <Link href={repositoryUrl} sx={{color: 'inherit'}}>
-          <Box display="flex" justifyContent="space-between" alignItems="center" color="gray.5">
+          <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: 'gray.5'}}>
             GitHub
-            <StyledOcticon icon={LinkExternalIcon} color="gray.5" />
+            <Octicon icon={LinkExternalIcon} sx={{color: 'gray.5'}} />
           </Box>
         </Link>
       </Box>

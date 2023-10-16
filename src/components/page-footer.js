@@ -7,18 +7,20 @@ function PageFooter({editUrl, contributors = {}}) {
   const {logins = [], latestCommit} = contributors
   return editUrl || logins.length ? (
     <Box
-      borderStyle="solid"
-      borderColor="border.default"
-      borderRadius={2}
-      borderWidth={0}
-      borderTopWidth={1}
-      mt={8}
-      py={5}
+      sx={{
+        borderStyle: 'solid',
+        borderColor: 'border.default',
+        borderRadius: 2,
+        borderWidth: 0,
+        borderTopWidth: 1,
+        mt: 8,
+        py: 5,
+      }}
     >
-      <Box display="grid" gridGap={4}>
-        {editUrl != null ? (
+      <Box sx={{display: 'grid', gap: 4}}>
+        {editUrl ? (
           <Link href={editUrl}>
-            <Octicon icon={PencilIcon} mr={2} />
+            <Octicon icon={PencilIcon} sx={{mr: 2}} />
             Edit this page on GitHub
           </Link>
         ) : null}

@@ -1,10 +1,11 @@
 import React from 'react'
+import {Helmet} from 'react-helmet'
 import {Box} from '@primer/react'
 import Slugger from 'github-slugger'
-import Head from './components/head'
 import Header from './components/header'
 import Sidebar from './components/sidebar'
 import {SKIP_NAV} from './constants'
+import useSiteMetdata from './hooks/use-site-metadata'
 
 const SluggerContext = React.createContext(null)
 const PageContext = React.createContext(null)
@@ -13,21 +14,41 @@ const LocationContext = React.createContext(null)
 export const useSlugger = () => React.useContext(SluggerContext)
 export const usePageContext = () => React.useContext(PageContext)
 export const useLocation = () => React.useContext(LocationContext)
-export const useFrontmatter = () => usePageContext().frontmatter
+
+const Head = () => {
+  const {frontmatter} = usePageContext()
+  const siteMetadata = useSiteMetdata()
+
+  const title = [frontmatter.title, siteMetadata.title].filter(Boolean).join(' | ')
+  const description = frontmatter.description || siteMetadata.description
+  const lang = frontmatter.lang || siteMetadata.lang
+
+  return (
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={siteMetadata.imageUrl} />
+      <meta property="twitter:card" content="summary_large_image" />
+      <html lang={lang} />
+    </Helmet>
+  )
+}
 
 const withLayout = Component => {
   const LayoutProvider = props => (
     <SluggerContext.Provider value={new Slugger()}>
       <PageContext.Provider value={props.pageContext}>
         <LocationContext.Provider value={props.location}>
-          <Box display="flex" flexDirection="column" minHeight="100vh">
+          <Box sx={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
             <Head />
             <Header />
-            <Box display="flex" flex="1 1 auto" flexDirection="row" css={{zIndex: 0}} role="main">
-              <Box display={['none', null, null, 'block']}>
+            <Box sx={{display: 'flex', flex: '1 1 auto', flexDirection: 'row', zIndex: 0}} role="main">
+              <Box sx={{display: ['none', null, null, 'block']}}>
                 <Sidebar />
               </Box>
-              <Box id={SKIP_NAV}>
+              <Box sx={{width: '100%'}} id={SKIP_NAV}>
                 <Component {...props} />
               </Box>
             </Box>

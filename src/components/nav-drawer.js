@@ -1,11 +1,9 @@
 import React from 'react'
-import {Box, Link} from '@primer/react'
+import {Button, Box, Link} from '@primer/react'
 import {XIcon, ThreeBarsIcon} from '@primer/octicons-react'
 import {Link as GatsbyLink} from 'gatsby'
-import DarkButton from './dark-button'
 import Drawer from './drawer'
 import NavItems from './nav-items'
-import navItems from '../nav.yml'
 import headerNavItems from '../header-nav.yml'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import {useIsMobile} from '../hooks/use-breakpoint'
@@ -31,51 +29,60 @@ function NavDrawer() {
 
   return (
     <>
-      <DarkButton aria-label="Menu" aria-expanded={isOpen} onClick={setOpen} ml={3}>
+      <Button aria-label="Menu" aria-expanded={isOpen} onClick={setOpen} sx={{ml: 3}}>
         <ThreeBarsIcon />
-      </DarkButton>
+      </Button>
       <Drawer isOpen={isOpen} onDismiss={setClose}>
         <Box
-          display="flex"
-          flexDirection="column"
-          height="100%"
-          bg="gray.0"
-          style={{overflow: 'auto', WebkitOverflowScrolling: 'touch'}}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
+            bg: 'gray.0',
+            overflow: 'auto',
+            WebkitOverflowScrolling: 'touch',
+          }}
         >
-          <Box display="flex" flexDirection="column" flex="1 0 auto" color="gray.7" bg="gray.0">
-            <Box borderStyle="solid" borderWidth={0} borderRadius={0} borderBottomWidth={1} borderColor="gray.7">
+          <Box sx={{display: 'flex', flexDirection: 'column', flex: '1 0 auto', color: 'gray.7', bg: 'gray.0'}}>
+            <Box
+              sx={{borderStyle: 'solid', borderWidth: 0, borderRadius: 0, borderBottomWidth: 1, borderColor: 'gray.7'}}
+            >
               <Box
-                display="flex"
-                py={3}
-                pl={4}
-                pr={3}
-                alignItems="center"
-                justifyContent="space-between"
-                color="gray.1"
-                bg="gray.9"
+                sx={{
+                  display: 'flex',
+                  py: 3,
+                  pl: 4,
+                  pr: 3,
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  color: 'gray.1',
+                  bg: 'gray.9',
+                }}
               >
                 <Link as={GatsbyLink} to="/" sx={{display: 'inline-block', color: 'inherit'}}>
                   {siteMetadata.title}
                 </Link>
-                <DarkButton aria-label="Close" onClick={setClose}>
+                <Button aria-label="Close" onClick={setClose}>
                   <XIcon />
-                </DarkButton>
+                </Button>
               </Box>
             </Box>
-            <Box display="flex" flexDirection="column">
-              <NavItems items={navItems} />
+            <Box sx={{display: 'flex', flexDirection: 'column'}}>
+              <NavItems />
             </Box>
           </Box>
-          <Box display="flex" flexDirection="column" flex="1 0 auto" color="gray.1" bg="gray.9">
+          <Box sx={{display: 'flex', flexDirection: 'column', flex: '1 0 auto', color: 'gray.1', bg: 'gray.9'}}>
             {headerNavItems.map((item, index) => (
               <Box
-                borderStyle="solid"
                 key={item.title}
-                borderWidth={0}
-                borderRadius={0}
-                borderTopWidth={index !== 0 ? 1 : 0}
-                borderColor="gray.7"
-                p={4}
+                sx={{
+                  borderStyle: 'solid',
+                  borderWidth: 0,
+                  borderRadius: 0,
+                  borderTopWidth: index !== 0 ? 1 : 0,
+                  borderColor: 'gray.7',
+                  p: 4,
+                }}
               >
                 <Link key={index} href={item.url} sx={{color: 'inherit', display: 'block'}}>
                   {item.title}
