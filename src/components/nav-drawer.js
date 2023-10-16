@@ -38,25 +38,31 @@ function NavDrawer() {
             display: 'flex',
             flexDirection: 'column',
             height: '100%',
-            bg: 'gray.0',
+            bg: 'canvas.default',
             overflow: 'auto',
             WebkitOverflowScrolling: 'touch',
           }}
         >
-          <Box sx={{display: 'flex', flexDirection: 'column', flex: '1 0 auto', color: 'gray.7', bg: 'gray.0'}}>
+          <Box
+            sx={{display: 'flex', flexDirection: 'column', flex: '1 0 auto', color: 'fg.default', bg: 'canvas.default'}}
+          >
             <Box
-              sx={{borderStyle: 'solid', borderWidth: 0, borderRadius: 0, borderBottomWidth: 1, borderColor: 'gray.7'}}
+              sx={{
+                borderWidth: 0,
+                borderRadius: 0,
+                borderBottomWidth: 1,
+                borderColor: 'border.muted',
+                borderStyle: 'solid',
+              }}
             >
               <Box
                 sx={{
-                  display: 'flex',
                   py: 3,
                   pl: 4,
                   pr: 3,
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  color: 'gray.1',
-                  bg: 'gray.9',
+                  display: 'flex',
                 }}
               >
                 <Link as={GatsbyLink} to="/" sx={{display: 'inline-block', color: 'inherit'}}>
@@ -71,17 +77,20 @@ function NavDrawer() {
               <NavItems />
             </Box>
           </Box>
-          <Box sx={{display: 'flex', flexDirection: 'column', flex: '1 0 auto', color: 'gray.1', bg: 'gray.9'}}>
+          <Box
+            sx={{flexDirection: 'column', flex: '1 0 auto', color: 'fg.default', bg: 'canvas.default', display: 'flex'}}
+          >
             {headerNavItems.map((item, index) => (
               <Box
                 key={item.title}
                 sx={{
-                  borderStyle: 'solid',
                   borderWidth: 0,
                   borderRadius: 0,
                   borderTopWidth: index !== 0 ? 1 : 0,
-                  borderColor: 'gray.7',
-                  p: 4,
+                  borderColor: 'border.muted',
+                  px: 4,
+                  py: 3,
+                  borderStyle: 'solid',
                 }}
               >
                 <Link key={index} href={item.url} sx={{color: 'inherit', display: 'block'}}>

@@ -37,13 +37,16 @@ function Header() {
     <Box sx={{top: 0, position: 'sticky', zIndex: 1}} role="banner">
       <NpmHeaderBar />
       <Box
+        as="header"
         sx={{
           display: 'flex',
           height: HEADER_HEIGHT,
           px: [3, null, null, 4],
           alignItems: 'center',
           justifyContent: 'space-between',
-          bg: '#333333',
+          bg: 'canvas.default',
+          border: '1px solid',
+          borderColor: 'border.muted',
         }}
       >
         <Box sx={{display: 'flex', alignItems: 'center'}}>
@@ -52,8 +55,8 @@ function Header() {
             to="/"
             sx={{
               mr: 4,
-              color: '#dddddd',
-              fontWeight: '600',
+              fontWeight: 'bold',
+              color: 'fg.default',
               display: 'flex',
               alignItems: 'center',
             }}
@@ -69,7 +72,7 @@ function Header() {
           <Box sx={{display: ['none', null, null, 'block']}}>
             <Box sx={{display: 'flex', alignItems: 'center', color: 'gray.2'}}>
               {headerNavItems.map((item, index) => (
-                <Link key={index} href={item.url} sx={{display: 'block', color: 'inherit', ml: 4}}>
+                <Link key={index} href={item.url} sx={{display: 'block', ml: 4}}>
                   {item.title}
                 </Link>
               ))}

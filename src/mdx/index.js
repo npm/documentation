@@ -1,6 +1,7 @@
 import React from 'react'
-import {Box, Heading, themeGet, Text, Link as PrimerLink} from '@primer/react'
+import {Box, Heading, themeGet, Text, Link, Octicon} from '@primer/react'
 import styled from 'styled-components'
+import {variant} from 'styled-system'
 import {withPrefix} from 'gatsby'
 import {LinkIcon} from '@primer/octicons-react'
 import textContent from 'react-addons-text-content'
@@ -16,18 +17,23 @@ const required = (prop, name) => {
   return prop
 }
 
-export const Link = props => {
-  return <PrimerLink {...props} underline={true} />
-}
-
-export {Code, NavHierarchy as Index}
+export {Link, Code, NavHierarchy as Index}
 
 export const Pre = ({children}) => children
 
 const SkipLinkBase = props => (
-  <PrimerLink {...props} href={`#${SKIP_NAV}`} sx={{backgroundColor: 'blue.6', color: 'white', p: 3, fontSize: 1}}>
+  <Link
+    {...props}
+    href={`#${SKIP_NAV}`}
+    sx={{
+      p: 3,
+      color: 'fg.onEmphasis',
+      backgroundColor: 'accent.emphasis',
+      fontSize: 1,
+    }}
+  >
     Skip to content
-  </PrimerLink>
+  </Link>
 )
 
 export const SkipLink = styled(SkipLinkBase)`
@@ -57,14 +63,17 @@ const StyledHeading = styled(Heading)`
   margin-top: ${themeGet('space.4')};
   margin-bottom: ${themeGet('space.3')};
   scroll-margin-top: ${HEADER_HEIGHT + 24}px;
+  line-height: ${themeGet('lineHeights.condensed')};
 
-  & .octicon-link {
-    visibility: hidden;
-  }
+  @media (hover: hover) {
+    & .octicon-link {
+      visibility: hidden;
+    }
 
-  &:hover .octicon-link,
-  &:focus-within .octicon-link {
-    visibility: visible;
+    &:hover .octicon-link,
+    &:focus-within .octicon-link {
+      visibility: visible;
+    }
   }
 `
 
@@ -76,35 +85,56 @@ const Headings = {
 
     return (
       <StyledHeading id={id} {...props}>
-        <PrimerLink href={`#${id}`} sx={{p: 2, ml: -32, color: 'gray.8'}} aria-label={`${text} permalink`}>
-          <LinkIcon className="octicon-link" verticalAlign="middle" />
-        </PrimerLink>
-        {children}
+        <Link
+          href={`#${id}`}
+          sx={{
+            color: 'inherit',
+            '&:hover, &:focus': {
+              textDecoration: 'none',
+            },
+          }}
+          aria-label={`${text} permalink`}
+        >
+          {children}
+          <Octicon
+            icon={LinkIcon}
+            className="octicon-link"
+            sx={{
+              ml: 2,
+              color: 'fg.muted',
+              // !important is needed here to override default icon styles
+              verticalAlign: 'middle !important',
+            }}
+          />
+        </Link>
       </StyledHeading>
     )
   },
   h1: styled(StyledHeading).attrs({as: 'h1'})`
-    padding-bottom: ${themeGet('space.1')};
-    font-size: ${themeGet('fontSizes.5')};
-    border-bottom: 1px solid ${themeGet('colors.gray.2')};
+    padding-bottom: ${themeGet('space.2')};
+    font-size: ${themeGet('fontSizes.7')};
+    border-bottom: 1px solid ${themeGet('colors.border.default')};
   `,
   h2: styled(StyledHeading).attrs({as: 'h2'})`
-    padding-bottom: ${themeGet('space.1')};
+    padding-bottom: ${themeGet('space.2')};
     font-size: ${themeGet('fontSizes.4')};
-    border-bottom: 1px solid ${themeGet('colors.gray.2')};
+    border-bottom: 1px solid ${themeGet('colors.border.default')};
+    font-weight: ${themeGet('fontWeights.semibold')};
   `,
   h3: styled(StyledHeading).attrs({as: 'h3'})`
     font-size: ${themeGet('fontSizes.3')};
+    font-weight: ${themeGet('fontWeights.semibold')};
   `,
   h4: styled(StyledHeading).attrs({as: 'h4'})`
     font-size: ${themeGet('fontSizes.2')};
+    font-weight: ${themeGet('fontWeights.semibold')};
   `,
   h5: styled(StyledHeading).attrs({as: 'h5'})`
     font-size: ${themeGet('fontSizes.1')};
   `,
   h6: styled(StyledHeading).attrs({as: 'h6'})`
     font-size: ${themeGet('fontSizes.1')};
-    color: ${themeGet('colors.gray.5')};
+    color: ${themeGet('colors.fg.muted')};
   `,
   wrap(as) {
     return props => <Headings.Markdown as={Headings[as]} {...props} />
@@ -121,8 +151,8 @@ export const H6 = Headings.wrap('h6')
 export const Blockquote = styled.blockquote`
   margin: 0 0 ${themeGet('space.3')};
   padding: 0 ${themeGet('space.3')};
-  color: ${themeGet('colors.gray.5')};
-  border-left: 0.25em solid ${themeGet('colors.gray.2')};
+  color: ${themeGet('colors.fg.muted')};
+  border-left: 0.25em solid ${themeGet('colors.border.default')};
 
   > :first-child {
     margin-top: 0;
@@ -151,25 +181,25 @@ export const DescriptionList = styled.dl`
 `
 
 export const HorizontalRule = styled.hr`
-  height: ${themeGet('space.1')};
+  height: ${themeGet('borderWidths.1')};
   padding: 0;
   margin: ${themeGet('space.4')} 0;
-  background-color: ${themeGet('colors.gray.2')};
+  background-color: ${themeGet('colors.border.default')};
   border: 0;
 `
 
 export const Image = styled.img`
   max-width: 100%;
   box-sizing: content-box;
-  background-color: ${themeGet('colors.white')};
+  background-color: ${themeGet('colors.white')}; // TODO: this is wrong
 `
 
 export const InlineCode = styled.code`
   padding: 0.2em 0.4em;
   font-family: ${themeGet('fonts.mono')};
   font-size: 85%;
-  background-color: ${themeGet('colors.gray.1')};
-  border-radius: ${themeGet('radii.1')};
+  background-color: ${themeGet('colors.neutral.muted')};
+  border-radius: ${themeGet('radii.2')};
 `
 
 export const UnorderedList = styled.ul`
@@ -201,55 +231,87 @@ export const Paragraph = styled.p`
 `
 
 export const Table = styled.table`
-  display: block;
   width: 100%;
   margin: 0 0 ${themeGet('space.3')};
   overflow: auto;
+  border-collapse: separate;
+  border-spacing: 0px;
 
   th {
     font-weight: ${themeGet('fontWeights.bold')};
+    background-color: ${themeGet('colors.neutral.subtle')};
   }
 
   th,
   td {
     padding: ${themeGet('space.2')} ${themeGet('space.3')};
-    border: 1px solid ${themeGet('colors.gray.2')};
+    border-color: ${themeGet('colors.border.muted')};
+    border-style: solid;
+    border-width: 0;
+    border-left-width: ${themeGet('borderWidths.1')};
+    border-top-width: ${themeGet('borderWidths.1')};
   }
 
-  tr {
-    background-color: ${themeGet('colors.white')};
-    border-top: 1px solid ${themeGet('colors.gray.2')};
+  tr:last-child td {
+    border-bottom-width: ${themeGet('borderWidths.1')};
+  }
 
-    &:nth-child(2n) {
-      background-color: ${themeGet('colors.gray.1')};
-    }
+  tr td:last-child,
+  tr th:last-child {
+    border-right-width: ${themeGet('borderWidths.1')};
+  }
+
+  thead th:first-child {
+    border-top-left-radius: ${themeGet('radii.2')};
+  }
+
+  thead th:last-child {
+    border-top-right-radius: ${themeGet('radii.2')};
+  }
+
+  tbody tr:last-child td:last-child {
+    border-bottom-right-radius: ${themeGet('radii.2')};
+  }
+
+  tbody tr:last-child td:first-child {
+    border-bottom-left-radius: ${themeGet('radii.2')};
   }
 
   img {
     background-color: transparent;
+    vertical-align: middle;
   }
 `
 
-export const Note = ({children}) => (
-  <Box
-    sx={{
-      borderWidth: 1,
-      borderStyle: 'solid',
-      borderRadius: 0,
-      borderColor: 'blue.1',
-      backgroundColor: 'blue.0',
-      px: 3,
-      py: 2,
-      my: 4,
-    }}
-  >
-    {React.Children.toArray(children).map((child, index, list) =>
-      React.cloneElement(child, {
-        style: index === list.length - 1 ? {marginBottom: '0'} : null,
-      }),
-    )}
-  </Box>
-)
+const StyledNote = styled.div`
+  padding: ${themeGet('space.3')};
+  margin-bottom: ${themeGet('space.3')};
+  border-radius: ${themeGet('radii.2')};
+  border-left: ${themeGet('radii.2')} solid;
+
+  & *:last-child {
+    margin-bottom: 0;
+  }
+
+  ${variant({
+    variants: {
+      info: {
+        borderColor: 'accent.muted',
+        bg: 'accent.subtle',
+      },
+      warning: {
+        borderColor: 'attention.muted',
+        bg: 'attention.subtle',
+      },
+      danger: {
+        borderColor: 'danger.muted',
+        bg: 'danger.subtle',
+      },
+    },
+  })}
+`
+
+export const Note = ({variant = 'info', ...props}) => <StyledNote variant={variant} {...props} />
 
 export const Prompt = ({children}) => (
   <Box
@@ -259,8 +321,6 @@ export const Prompt = ({children}) => (
       mb: 3,
       p: 3,
       border: 0,
-      color: 'rgb(57, 58, 52)',
-      backgroundColor: 'rgb(246, 248, 250)',
       overflow: 'auto',
     }}
   >

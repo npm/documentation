@@ -1,15 +1,8 @@
 import React from 'react'
-import {Button, Octicon, themeGet} from '@primer/react'
+import {Button, Octicon} from '@primer/react'
 import {CheckIcon, CopyIcon} from '@primer/octicons-react'
-import styled from 'styled-components'
 import copy from 'copy-to-clipboard'
 import {announce} from '../util/aria-live'
-
-const CopyToClipboard = styled(Button)`
-  &:focus {
-    box-shadow: 0 0 0 3px ${themeGet('colors.blue.5')};
-  }
-`
 
 function ClipboardCopy({value}) {
   const [copied, setCopied] = React.useState(false)
@@ -25,16 +18,17 @@ function ClipboardCopy({value}) {
   }, [copied])
 
   return (
-    <CopyToClipboard
+    <Button
       aria-label="Copy to clipboard"
       onClick={() => {
         copy(value)
         setCopied(true)
         announce(`Copied to clipboard`)
       }}
+      sx={{px: 2}}
     >
-      <Octicon icon={copied ? CheckIcon : CopyIcon} sx={{color: copied ? 'green.5' : 'gray.7'}} />
-    </CopyToClipboard>
+      <Octicon icon={copied ? CheckIcon : CopyIcon} sx={{color: copied ? 'success.fg' : 'fg.muted'}} />
+    </Button>
   )
 }
 

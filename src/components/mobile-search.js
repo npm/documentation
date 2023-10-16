@@ -3,7 +3,7 @@ import {Button, Box} from '@primer/react'
 import {XIcon, SearchIcon} from '@primer/octicons-react'
 import {AnimatePresence, motion} from 'framer-motion'
 import {FocusOn} from 'react-focus-on'
-import DarkTextInput from './dark-text-input'
+import TextInput from './text-input'
 import SearchResults from './search-results'
 import useSiteMetadata from '../hooks/use-site-metadata'
 
@@ -21,7 +21,7 @@ function MobileSearch({onDismiss, ...props}) {
       <Box
         sx={{
           position: 'fixed',
-          top: '10px',
+          top: '10px', // TODO: use constant
           left: 0,
           right: 0,
           bottom: 0,
@@ -35,7 +35,7 @@ function MobileSearch({onDismiss, ...props}) {
             left: 0,
             right: 0,
             bottom: 0,
-            bg: 'rgba(0,0,0,0.5)',
+            bg: 'primer.canvas.backdrop',
             zIndex: -1,
           }}
           as={motion.div}
@@ -45,7 +45,7 @@ function MobileSearch({onDismiss, ...props}) {
           onClick={handleDismiss}
         />
         <Box sx={{display: 'flex', flexDirection: 'column', height: isOpen ? '100%' : 'auto'}}>
-          <Box sx={{display: 'flex', bg: 'gray.9', color: 'white', p: 3, flex: '0 0 auto'}}>
+          <Box sx={{display: 'flex', bg: 'canvas.default', color: 'fg.default', p: 3, flex: '0 0 auto'}}>
             <motion.div
               initial={{scaleX: 0.1}}
               animate={{scaleX: 1}}
@@ -53,11 +53,12 @@ function MobileSearch({onDismiss, ...props}) {
               transition={{type: 'tween', duration: 0.2}}
               style={{width: '100%', originX: '100%'}}
             >
-              <DarkTextInput
+              <TextInput
+                leadingVisual={SearchIcon}
                 {...getInputProps({
                   placeholder: `Search ${siteMetadata.title}`,
                   'aria-label': `Search ${siteMetadata.title}`,
-                  width: '100%',
+                  sx: {width: '100%'},
                 })}
               />
             </motion.div>
@@ -66,16 +67,19 @@ function MobileSearch({onDismiss, ...props}) {
             </Button>
           </Box>
           <Box
-            {...getMenuProps()}
-            sx={{
-              display: 'flex',
-              bg: 'white',
-              py: isOpen ? 1 : 0,
-              flexDirection: 'column',
-              flex: '1 1 auto',
-              overflow: 'auto',
-              WebkitOverflowScrolling: 'touch',
-            }}
+            {...getMenuProps({
+              sx: {
+                display: 'flex',
+                bg: 'canvas.default',
+                py: isOpen ? 1 : 0,
+                flexDirection: 'column',
+                flex: '1 1 auto',
+              },
+              style: {
+                overflow: 'auto',
+                WebkitOverflowScrolling: 'touch',
+              },
+            })}
           >
             {isOpen ? <SearchResults {...{results, getItemProps, highlightedIndex}} /> : null}
           </Box>
