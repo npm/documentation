@@ -4,7 +4,6 @@ import {Box} from '@primer/react'
 import Slugger from 'github-slugger'
 import Header from './components/header'
 import Sidebar from './components/sidebar'
-import {SKIP_NAV} from './constants'
 import useSiteMetdata from './hooks/use-site-metadata'
 
 const SluggerContext = React.createContext(null)
@@ -48,9 +47,7 @@ const withLayout = Component => {
               <Box sx={{display: ['none', null, null, 'block']}}>
                 <Sidebar />
               </Box>
-              <Box sx={{width: '100%'}} id={SKIP_NAV}>
-                <Component {...props} />
-              </Box>
+              <Component {...props} />
             </Box>
           </Box>
         </LocationContext.Provider>

@@ -1,159 +1,59 @@
 import React from 'react'
 import {Link as GatsbyLink} from 'gatsby'
-import {Box, Octicon, Link, themeGet} from '@primer/react'
+import {NavList} from '@primer/react/drafts'
 import {LinkExternalIcon} from '@primer/octicons-react'
-import styled from 'styled-components'
-import getNav from '../util/get-nav'
+import * as getNav from '../util/get-nav'
 import {useLocation, usePageContext} from '../layout'
+import VisuallyHidden from './visually-hidden'
 
-const getActiveClass = props => {
-  const location = getNav.getLocation(props.location.pathname)
-  const href = getNav.getLocation(props.href)
-  return getNav.isActiveUrl(location, href) ? 'active' : ''
+const NavItem = ({item, path}) => {
+  const href = getNav.getLocation(item.url)
+  const isCurrent = getNav.isActiveUrl(path, href)
+  const items = getNav.getHierarchy(item, {path: item.url, hideVariants: true})
+
+  return (
+    <NavList.Item as={GatsbyLink} to={href} defaultOpen={items && isCurrent} aria-current={isCurrent ? 'page' : null}>
+      {item.title}
+      {items ? (
+        <NavList.SubNav>
+          <NavItems items={items} path={path} />
+        </NavList.SubNav>
+      ) : null}
+    </NavList.Item>
+  )
 }
 
-const ActiveLink = ({className, children, ...props}) => (
-  <Link as={GatsbyLink} getProps={p => ({className: `${className} ${getActiveClass(p)}`})} {...props}>
-    {children}
-  </Link>
-)
-
-const withItems = Component => {
-  const WithItems = ({parent, path}) => {
-    if (!parent || getNav.isActiveUrl(path, parent.url)) {
-      const items = getNav.getHierarchy(parent, {path, hideVariants: true})
-      if (items) {
-        return <Component items={items} path={path} />
-      }
-    }
-    return null
-  }
-  return WithItems
-}
-
-const NavLink = styled(ActiveLink)`
-  color: inherit;
-  text-decoration: none;
-  :hover {
-    text-decoration: underline;
-  }
-`
-
-const TopLevelLink = styled(NavLink)`
-  &.active {
-    font-weight: ${themeGet('fontWeights.bold')};
-    color: ${themeGet('colors.gray.8')};
-  }
-  &.activePage {
-    color: ${themeGet('colors.gray.8')};
-  }
-`
-
-const TopLevelItems = withItems(({items, path}) => (
+const NavItems = ({items, path}) => (
   <>
     {items.map(item => (
-      <Box
-        key={item.title}
-        role="listitem"
-        sx={{
-          borderStyle: 'solid',
-          borderColor: 'border.default',
-          borderWidth: 0,
-          borderRadius: 0,
-          borderTopWidth: 1,
-          py: 3,
-          px: 4,
-        }}
-      >
-        <Box sx={{display: 'flex', flexDirection: 'column'}}>
-          <TopLevelLink to={item.url} key={item.title}>
-            {item.title}
-          </TopLevelLink>
-          <SecondLevelItems parent={item} path={path} />
-        </Box>
-      </Box>
+      <NavItem key={item.title} item={item} path={path} />
     ))}
   </>
-))
+)
 
-const SecondLevelLink = styled(NavLink)`
-  display: block;
-  font-size: ${themeGet('fontSizes.1')};
-  padding-top: ${themeGet('space.1')};
-  padding-bottom: ${themeGet('space.1')};
-  margin-top: ${themeGet('space.2')};
-  &.active {
-    font-weight: ${themeGet('fontWeights.bold')};
-    color: ${themeGet('colors.gray.8')};
-  }
-`
-
-const Description = styled(Box)`
-  & {
-    color: ${themeGet('colors.gray.6')};
-    font-size: 0.8em;
-    font-weight: normal;
-  }
-`
-
-const SecondLevelItems = withItems(({items, path}) => (
-  <Box sx={{display: 'flex', flexDirection: 'column', mt: 2}} role="list">
-    {items.map(item => (
-      <Box key={item.title} role="listitem">
-        <SecondLevelLink key={item.url} to={item.url}>
-          {item.title}
-          {item.description ? <Description>{item.description}</Description> : null}
-        </SecondLevelLink>
-        <ThirdLevelItems parent={item} path={path} />
-      </Box>
-    ))}
-  </Box>
-))
-
-const ThirdLevelLink = styled(NavLink)`
-  display: block;
-  font-size: ${themeGet('fontSizes.1')};
-  padding-top: ${themeGet('space.1')};
-  padding-bottom: ${themeGet('space.1')};
-  border-left: solid 1px ${themeGet('colors.gray.3')};
-  padding-left: calc(${themeGet('space.2')} + (${themeGet('space.1')} - 1px));
-  color: ${themeGet('colors.blue.5')};
-  &.active {
-    border-left: solid ${themeGet('space.1')} ${themeGet('colors.gray.3')};
-    padding-left: ${themeGet('space.2')};
-    color: ${themeGet('colors.gray.8')};
-  }
-`
-
-const ThirdLevelItems = withItems(({items}) => (
-  <Box sx={{display: 'flex', flexDirection: 'column', mt: 2}} role="list">
-    {items.map(item => (
-      <Box key={item.title} role="listitem">
-        <ThirdLevelLink key={item.url} to={item.url}>
-          {item.title}
-        </ThirdLevelLink>
-      </Box>
-    ))}
-  </Box>
-))
-
-function NavItems() {
-  const {repositoryUrl} = usePageContext()
+const Navigation = () => {
   const location = useLocation()
+  const {repositoryUrl} = usePageContext()
+  const path = getNav.getLocation(location.pathname)
+  const items = getNav.getHierarchy(null, {path, hideVariants: true})
 
   return (
     <>
-      <TopLevelItems path={getNav.getLocation(location.pathname)} />
-      <Box sx={{borderStyle: 'solid', borderColor: 'border.default', borderWidth: 0, borderTopWidth: 1, py: 3, px: 4}}>
-        <Link href={repositoryUrl} sx={{color: 'inherit'}}>
-          <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: 'gray.5'}}>
-            GitHub
-            <Octicon icon={LinkExternalIcon} sx={{color: 'gray.5'}} />
-          </Box>
-        </Link>
-      </Box>
+      <VisuallyHidden>
+        <h3>Site navigation</h3>
+      </VisuallyHidden>
+      <NavList aria-label="Site">
+        <NavItems items={items} path={path} />
+        <NavList.Divider />
+        <NavList.Item href={repositoryUrl}>
+          GitHub
+          <NavList.TrailingVisual>
+            <LinkExternalIcon />
+          </NavList.TrailingVisual>
+        </NavList.Item>
+      </NavList>
     </>
   )
 }
 
-export default NavItems
+export default Navigation

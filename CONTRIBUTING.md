@@ -27,7 +27,19 @@ First, `npm install` the dependencies. This will install Gatsby, et al.
 
 Next, `npm run develop` to start the test server to view your changes. The Gatsby server will be started on port 8000. You can navigate to `http://localhost:8000` to view the site live.
 
-In order to cut down on the time it takes `npm run develop` to complete, you can use the environment variable `GATSBY_PARTIAL_CONTENT` to only build some pages. For example, if the only pages you need to test locally are in `/cli/v10/commands`, then you can run the site locally with `GATSBY_PARTIAL_CONTENT=cli/v10/commands npm run develop`.
+In order to cut down on the time it takes `npm run develop` to complete, you can use the environment variables `GATSBY_CONTENT_ALLOW` and `GATSBY_CONTENT_IGNORE` to only build some pages.
+
+For example, if the only pages you need to test locally are in `/cli/v10/commands`, then you can run the the following to build the `cli/v10/commands` pages:
+
+```sh
+GATSBY_CONTENT_ALLOW=cli/v10/commands npm run develop
+```
+
+The `content/cli` directory has the most pages so it tends to be most helpful to ignore older CLI versions unless you need to explicitly test those pages:
+
+```sh
+GATSBY_CONTENT_IGNORE=cli/v6,cli/v7,cli/v8,cli/v9 npm run develop
+```
 
 **For best results use Node 18 and npm 9+**
 

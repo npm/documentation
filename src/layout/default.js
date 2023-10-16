@@ -3,7 +3,9 @@ import {Box, Heading} from '@primer/react'
 import PageFooter from '../components/page-footer'
 import * as TableOfContents from '../components/table-of-contents'
 import VariantSelect from '../components/variant-select'
+import Breadcrumbs from '../components/breadcrumbs'
 import withLayout from '../layout'
+import {SKIP_NAV} from '../constants'
 
 const Layout = ({children, pageContext: {frontmatter}}) => {
   const {title, description} = frontmatter
@@ -24,23 +26,19 @@ const Layout = ({children, pageContext: {frontmatter}}) => {
         alignSelf: 'start',
       }}
     >
+      <Box css={{gridArea: 'table-of-contents'}}>
+        <TableOfContents.Desktop />
+      </Box>
       <Box css={{gridArea: 'heading'}}>
-        <Box
-          sx={{
-            borderStyle: 'solid',
-            borderColor: 'border.default',
-            borderWidth: 0,
-            borderBottomWidth: 1,
-            borderRadius: 0,
-            pb: 2,
-          }}
-        >
-          <Heading as="h1">{title}</Heading>
-          {description}
+        <Box {...SKIP_NAV} sx={{mb: 4}}>
+          <Breadcrumbs />
+          <Heading as="h1" sx={{fontSize: 7}}>
+            {title}
+          </Heading>
+          {description ? <Box sx={{fontSize: 3, mb: 3}}>{description}</Box> : null}
         </Box>
         <VariantSelect />
       </Box>
-      <TableOfContents.Desktop />
       <Box css={{gridArea: 'content'}}>
         <TableOfContents.Mobile />
         {children}

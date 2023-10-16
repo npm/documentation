@@ -62,7 +62,6 @@ export const Desktop = withTableOfContents(({items}) => (
       pr: 1,
       pl: 1,
       pb: 1,
-      gridArea: 'table-of-contents',
       overflow: 'auto',
     }}
   >

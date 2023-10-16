@@ -1,7 +1,7 @@
 import React from 'react'
 import {ActionList, ActionMenu, Box} from '@primer/react'
 import {navigate} from 'gatsby'
-import getNav from '../util/get-nav'
+import * as getNav from '../util/get-nav'
 import {useLocation} from '../layout'
 
 const VariantItem = ({match, active}) => {

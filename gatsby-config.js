@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 
-const {NODE_ENV, GATSBY_PARTIAL_CONTENT, GATSBY_CONTENT_IGNORE, GATSBY_CONTENT_DIR = 'content'} = process.env
+const {NODE_ENV, GATSBY_CONTENT_ALLOW, GATSBY_CONTENT_IGNORE, GATSBY_CONTENT_DIR = 'content'} = process.env
 const DEV = NODE_ENV === 'development'
 const CONTENT_DIR = path.resolve(GATSBY_CONTENT_DIR)
 
@@ -15,28 +15,38 @@ const walkDirs = dir => {
 }
 
 const getContentOptions = () => {
-  if (!DEV || (!GATSBY_PARTIAL_CONTENT && !GATSBY_CONTENT_IGNORE)) {
+  if (!DEV || (!GATSBY_CONTENT_ALLOW && !GATSBY_CONTENT_IGNORE)) {
     return
   }
 
-  const partialContent = (GATSBY_PARTIAL_CONTENT ?? '').split(',')
+  const allowContent = (GATSBY_CONTENT_ALLOW ?? '').split(',').filter(Boolean)
+  const ignoreContent = (GATSBY_CONTENT_IGNORE ?? '').split(',').filter(Boolean)
 
   const paths = walkDirs(CONTENT_DIR)
     .map(p => path.relative(CONTENT_DIR, p))
     .sort()
     .reduce(
       (acc, p) => {
-        const include = partialContent.some(partial => partial.startsWith(p))
-        acc[include ? 'include' : 'ignore'].push(p)
+        const allow = allowContent.length ? allowContent.includes(p) : null
+        const ignore = ignoreContent.length ? ignoreContent.includes(p) : null
+        if (ignore === true || allow === false) {
+          acc.ignore.push(p)
+        } else {
+          acc.include.push(p)
+        }
         return acc
       },
       {include: [], ignore: []},
     )
 
-  console.log(`Only including the following partial content in dev mode:\n  - ${paths.include.join('\n  - ')}`)
+  const ignoreGlobs = paths.ignore.map(p => path.join('**', p, '**'))
+
+  console.log(`Only including the following partial content in dev mode`)
+  console.log(`Allow:\n  - ${paths.include.join('\n  - ')}`)
+  console.log(`Ignore:\n  - ${ignoreGlobs.join('\n  - ')}`)
 
   return {
-    ignore: paths.ignore,
+    ignore: ignoreGlobs,
   }
 }
 

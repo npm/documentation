@@ -24,7 +24,7 @@ export const Pre = ({children}) => children
 const SkipLinkBase = props => (
   <Link
     {...props}
-    href={`#${SKIP_NAV}`}
+    href={`#${SKIP_NAV.id}`}
     sx={{
       p: 3,
       color: 'fg.onEmphasis',
