@@ -83,7 +83,7 @@ const VariantSelect = () => {
 
   return (
     <Box css={{'margin-top': '25px'}}>
-      <VariantMenu variantPages={variants} path={path} />
+      <VariantMenu variants={variants} path={path} />
     </Box>
   )
 }
