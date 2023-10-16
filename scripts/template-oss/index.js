@@ -22,12 +22,6 @@ module.exports = {
       '.github/settings.yml': false,
     },
   },
-  workspaceModule: {
-    add: {
-      'package.json': {file: 'pkg.json', overwrite: false},
-      '.eslintrc.js': false,
-    },
-  },
   ciVersions: 'latest',
   latestCiVersion: 18,
   macCI: false,

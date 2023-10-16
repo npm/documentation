@@ -1,6 +1,7 @@
 {
   "scripts": {
     "test": "jest",
+    "snap": {{{ del }}},
     "format": "prettier --write ."
   },
   "files": {{{ del }}},
