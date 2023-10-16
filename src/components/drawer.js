@@ -17,36 +17,40 @@ const Drawer = ({isOpen, onDismiss, children}) => (
         role="button"
         tabIndex="0"
       >
-        <FocusOn returnFocus={true} onEscapeKey={() => onDismiss()}>
+        <FocusOn returnFocus={true} onEscapeKey={onDismiss}>
           <Box
-            position="fixed"
+            sx={{
+              position: 'fixed',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              bg: 'rgba(0, 0, 0, 0.5)',
+            }}
             key="overlay"
             as={motion.div}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
             transition={{type: 'tween'}}
-            top={0}
-            right={0}
-            bottom={0}
-            left={0}
-            bg="rgba(0, 0, 0, 0.5)"
-            onClick={() => onDismiss()}
+            onClick={onDismiss}
           />
           <Box
-            position="fixed"
+            sx={{
+              position: 'fixed',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              bg: 'gray.0',
+              width: 300,
+              zIndex: 1,
+            }}
             key="drawer"
             as={motion.div}
             initial={{x: '100%'}}
             animate={{x: 0}}
             exit={{x: '100%'}}
             transition={{type: 'tween', duration: 0.2}}
-            width={300}
-            top={0}
-            right={0}
-            bottom={0}
-            bg="gray.0"
-            style={{zIndex: 1}}
           >
             {children}
           </Box>

@@ -232,14 +232,16 @@ export const Table = styled.table`
 
 export const Note = ({children}) => (
   <Box
-    borderWidth={1}
-    borderStyle="solid"
-    borderRadius={0}
-    borderColor="blue.1"
-    backgroundColor="blue.0"
-    px={3}
-    py={2}
-    my={4}
+    sx={{
+      borderWidth: 1,
+      borderStyle: 'solid',
+      borderRadius: 0,
+      borderColor: 'blue.1',
+      backgroundColor: 'blue.0',
+      px: 3,
+      py: 2,
+      my: 4,
+    }}
   >
     {React.Children.toArray(children).map((child, index, list) =>
       React.cloneElement(child, {
@@ -252,19 +254,17 @@ export const Note = ({children}) => (
 export const Prompt = ({children}) => (
   <Box
     as="pre"
-    mt={0}
-    mb={3}
-    p={3}
-    border={0}
-    style={{
+    sx={{
+      mt: 0,
+      mb: 3,
+      p: 3,
+      border: 0,
       color: 'rgb(57, 58, 52)',
       backgroundColor: 'rgb(246, 248, 250)',
       overflow: 'auto',
     }}
   >
-    <Text fontFamily="mono" fontSize={1}>
-      {children}
-    </Text>
+    <Text sx={{fontFamily: 'mono', fontSize: 1}}>{children}</Text>
   </Box>
 )
 

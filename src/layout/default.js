@@ -10,25 +10,30 @@ const Layout = ({children, pageContext: {frontmatter}}) => {
 
   return (
     <Box
-      display="grid"
-      maxWidth="100%"
-      gridTemplateColumns={['100%', null, 'minmax(0, 65ch) 220px']}
-      gridTemplateAreas={['"heading" "content"', null, '"heading table-of-contents" "content table-of-contents"']}
-      gridColumnGap={[null, null, 6, 7]}
-      gridRowGap={3}
-      mx="auto"
-      p={[5, 6, null, 7]}
-      css={{alignItems: 'start', alignSelf: 'start'}}
       role="region"
+      sx={{
+        display: 'grid',
+        maxWidth: '100%',
+        gridTemplateColumns: ['100%', null, 'minmax(0, 65ch) 220px'],
+        gridTemplateAreas: ['"heading" "content"', null, '"heading table-of-contents" "content table-of-contents"'],
+        columnGap: [null, null, 6, 7],
+        rowGap: 3,
+        mx: 'auto',
+        p: [5, 6, null, 7],
+        alignItems: 'start',
+        alignSelf: 'start',
+      }}
     >
       <Box css={{gridArea: 'heading'}}>
         <Box
-          borderStyle="solid"
-          borderColor="border.default"
-          borderWidth={0}
-          borderBottomWidth={1}
-          borderRadius={0}
-          pb={2}
+          sx={{
+            borderStyle: 'solid',
+            borderColor: 'border.default',
+            borderWidth: 0,
+            borderBottomWidth: 1,
+            borderRadius: 0,
+            pb: 2,
+          }}
         >
           <Heading as="h1">{title}</Heading>
           {description}

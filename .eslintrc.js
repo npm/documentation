@@ -14,6 +14,7 @@ module.exports = {
   ],
   rules: {
     'react/prop-types': 'off',
+    'primer-react/no-system-props': ['error', {includeUtilityComponents: true}],
   },
   overrides: [
     {

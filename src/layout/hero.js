@@ -5,7 +5,7 @@ import Hero from '../components/hero'
 import withLayout from '../layout'
 
 const HeroLayout = ({children}) => (
-  <Box width="100%">
+  <Box sx={{width: '100%'}}>
     <Hero />
     <Container>{children}</Container>
   </Box>

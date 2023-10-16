@@ -144,14 +144,11 @@ const NavHierarchy = {
 
     for (const item of items) {
       if (item.variants) {
-        const cloned = {}
-        Object.assign(cloned, item)
-
-        const variant = this.getCurrentOrDefaultVariant(item, props.path)
-
-        cloned.url = variant.url
-
-        updated.push(cloned)
+        const {url} = this.getCurrentOrDefaultVariant(item, props.path)
+        updated.push({
+          ...item,
+          url,
+        })
       } else {
         updated.push(item)
       }

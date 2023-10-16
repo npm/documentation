@@ -33,7 +33,7 @@ function ClipboardCopy({value}) {
         announce(`Copied to clipboard`)
       }}
     >
-      {copied ? <Octicon icon={CheckIcon} color="green.5" /> : <Octicon icon={CopyIcon} color="gray.7" />}
+      <Octicon icon={copied ? CheckIcon : CopyIcon} sx={{color: copied ? 'green.5' : 'gray.7'}} />
     </CopyToClipboard>
   )
 }

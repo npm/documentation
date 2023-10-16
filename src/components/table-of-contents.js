@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Link, Text, Octicon, Details} from '@primer/react'
+import {Box, Link, Text, Octicon, Details, useDetails} from '@primer/react'
 import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
 import {usePageContext} from '../layout'
 import {HEADER_HEIGHT} from '../constants'
@@ -9,13 +9,11 @@ const TableOfContents = ({items, depth = 0, labelId}) => (
     key={items}
     as="ul"
     role="list"
-    m={0}
-    p={0}
-    css={{listStyle: 'none', lineHeight: '1.4em'}}
+    sx={{m: 0, p: 0, listStyle: 'none', lineHeight: '1.4em'}}
     aria-labelledby={labelId}
   >
     {items.map(item => (
-      <Box as="li" role="listitem" key={item.url} pl={depth > 0 ? 3 : 0}>
+      <Box as="li" role="listitem" key={item.url} sx={{pl: depth > 0 ? 3 : 0}}>
         <Link key={item.title} href={item.url} sx={{display: 'inline-block', py: 1, color: 'gray.6'}}>
           {item.title}
         </Link>
@@ -25,48 +23,47 @@ const TableOfContents = ({items, depth = 0, labelId}) => (
   </Box>
 )
 
-const withTableOfContent = Component => {
-  const TOC = props => {
+const withTableOfContents = Component => {
+  const WithTableOfContents = props => {
     const {tableOfContents} = usePageContext()
-    if (!tableOfContents) {
-      return null
-    }
-    return <Component {...props} items={tableOfContents} />
+    return tableOfContents ? <Component {...props} items={tableOfContents} /> : null
   }
-  return TOC
+  return WithTableOfContents
 }
 
-export const Mobile = withTableOfContent(({items}) => (
-  <Box display={['block', null, 'none']} mb={3}>
-    <Details>
-      {({open}) => (
-        <>
-          <Text as="summary" fontWeight="bold">
-            <Octicon icon={open ? ChevronDownIcon : ChevronRightIcon} mr={2} />
-            Table of contents
-          </Text>
-          <Box pt={1}>
-            <TableOfContents items={items} />
-          </Box>
-        </>
-      )}
-    </Details>
-  </Box>
-))
+export const Mobile = withTableOfContents(({items}) => {
+  const {getDetailsProps, open} = useDetails({})
+  return (
+    <Box sx={{display: ['block', null, 'none'], mb: 3}}>
+      <Details {...getDetailsProps()}>
+        <Text as="summary" sx={{fontWeight: 'bold'}}>
+          <Octicon icon={open ? ChevronDownIcon : ChevronRightIcon} sx={{mr: 2}} />
+          Table of contents
+        </Text>
+        <Box sx={{pt: 1}}>
+          <TableOfContents items={items} />
+        </Box>
+      </Details>
+    </Box>
+  )
+})
 
-export const Desktop = withTableOfContent(({items}) => (
+export const Desktop = withTableOfContents(({items}) => (
   <Box
-    display={['none', null, 'block']}
-    css={{gridArea: 'table-of-contents', overflow: 'auto'}}
-    position="sticky"
-    top={HEADER_HEIGHT + 24}
-    mt="6px"
-    maxHeight={`calc(100vh - ${HEADER_HEIGHT}px - 24px)`}
-    pr={1}
-    pl={1}
-    pb={1}
+    sx={{
+      display: ['none', null, 'block'],
+      position: 'sticky',
+      top: `${HEADER_HEIGHT + 24}px`,
+      maxHeight: `calc(100vh - ${HEADER_HEIGHT}px - 24px)`,
+      mt: '6px',
+      pr: 1,
+      pl: 1,
+      pb: 1,
+      gridArea: 'table-of-contents',
+      overflow: 'auto',
+    }}
   >
-    <Text display="inline-block" fontWeight="bold" mb={1} id="table-of-content-label">
+    <Text id="table-of-content-label" sx={{display: 'inline-block', fontWeight: 'bold', mb: 1}}>
       Table of contents
     </Text>
     <TableOfContents items={items} labelId="table-of-content-label" />

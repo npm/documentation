@@ -23,8 +23,8 @@ const pluralize = (word, count) => `${word}${count === 1 ? '' : 's'}`
 function Contributors({logins, latestCommit}) {
   return (
     <div>
-      <Box display="flex" alignItems="center">
-        <Text mr={2}>
+      <Box sx={{display: 'flex', alignItems: 'center'}}>
+        <Text sx={{mr: 2}}>
           {logins.length} {pluralize('contributor', logins.length)}
         </Text>
         {logins.map(login => (
@@ -37,7 +37,7 @@ function Contributors({logins, latestCommit}) {
         ))}
       </Box>
       {latestCommit ? (
-        <Text fontSize={1} color="gray.7" mt={1}>
+        <Text sx={{fontSize: 1, color: 'gray.7', mt: 1}}>
           Last edited by <Link href={`https://github.com/${latestCommit.login}`}>{latestCommit.login}</Link> on{' '}
           <Link href={latestCommit.url}>{format(new Date(latestCommit.date))}</Link>
         </Text>
