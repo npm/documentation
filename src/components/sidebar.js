@@ -47,7 +47,6 @@ const Sidebar = () => (
         height: '100%',
         borderStyle: 'solid',
         borderColor: 'border.subtle',
-        px: 2,
       }}
     >
       <Box sx={{display: 'flex', flexDirection: 'column'}} role="list">

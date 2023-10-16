@@ -1,18 +1,13 @@
 import React from 'react'
 import {Box, Text} from '@primer/react'
 import useSiteMetadata from '../hooks/use-site-metadata'
-import getNav from '../util/get-nav'
+import * as getNav from '../util/get-nav'
 
 const Breadcrumbs = ({item, highlighted}) => {
   const siteMetadata = useSiteMetadata()
-  const hierarchy = getNav.getItemHierarchy(item.path)
+  const hierarchy = getNav.getItemBreadcrumbs(item.path)
 
-  const text = hierarchy
-    ? hierarchy
-        .slice(0, -1)
-        .map(item => item.shortName || item.title)
-        .join(' / ')
-    : siteMetadata.shortName
+  const text = hierarchy ? hierarchy.slice(0, -1).join(' / ') : siteMetadata.shortName
 
   return <Text sx={{fontSize: 0, color: highlighted ? 'blue.2' : 'gray.7'}}>{text}</Text>
 }
