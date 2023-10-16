@@ -48,7 +48,7 @@
     "gatsby-transformer-yaml": "^4.25.0",
     "github-slugger": "^2.0.0",
     "lodash.debounce": "4.0.8",
-    "prism-react-renderer": "^0.2.0",
+    "prism-react-renderer": "^2.1.0",
     "react-addons-text-content": "^0.0.4",
     "react-focus-on": "^3.9.1",
     "react-helmet": "^6.1.0",
