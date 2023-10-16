@@ -276,8 +276,8 @@
       url: /policies/security
     - title: Replication and web crawler policy
       url: /policies/crawlers
-- title: Threats and Mitigations
-  shortName: threats and mitigations
+- title: Threats and mitigations
+  shortName: Threats and mitigations
   url: /threats-and-mitigations
 - title: npm CLI
   shortName: CLI

@@ -6,6 +6,7 @@ import {FocusOn} from 'react-focus-on'
 import TextInput from './text-input'
 import SearchResults from './search-results'
 import useSiteMetadata from '../hooks/use-site-metadata'
+import {HEADER_BAR, HEADER_HEIGHT} from '../constants'
 
 function MobileSearch({onDismiss, ...props}) {
   const siteMetadata = useSiteMetadata()
@@ -21,7 +22,7 @@ function MobileSearch({onDismiss, ...props}) {
       <Box
         sx={{
           position: 'fixed',
-          top: '10px', // TODO: use constant
+          top: `${HEADER_BAR}px`,
           left: 0,
           right: 0,
           bottom: 0,
@@ -45,7 +46,17 @@ function MobileSearch({onDismiss, ...props}) {
           onClick={handleDismiss}
         />
         <Box sx={{display: 'flex', flexDirection: 'column', height: isOpen ? '100%' : 'auto'}}>
-          <Box sx={{display: 'flex', bg: 'canvas.default', color: 'fg.default', p: 3, flex: '0 0 auto'}}>
+          <Box
+            sx={{
+              display: 'flex',
+              bg: 'canvas.default',
+              color: 'fg.default',
+              height: `${HEADER_HEIGHT - HEADER_BAR}px`,
+              flex: '0 0 auto',
+              px: 3,
+              alignItems: 'center',
+            }}
+          >
             <motion.div
               initial={{scaleX: 0.1}}
               animate={{scaleX: 1}}
