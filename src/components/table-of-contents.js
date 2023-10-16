@@ -1,28 +1,26 @@
 import React from 'react'
-import {Box, Text, Octicon, Details, useDetails} from '@primer/react'
+import {Heading, Box, Details, useDetails, Button} from '@primer/react'
 import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
 import {usePageContext} from '../layout'
-import {HEADER_HEIGHT} from '../constants'
 import {NavList} from '@primer/react/drafts'
+import {HEADER_HEIGHT} from '../constants'
 
-const TableOfContentsItems = ({items}) => (
+const TableOfContentsItems = ({items, depth}) => (
   <>
     {items.map(item => (
-      <NavList.Item key={item.title} href={item.url}>
-        {item.title}
-        {item.items ? (
-          <NavList.SubNav>
-            <TableOfContentsItems items={item.items} />
-          </NavList.SubNav>
-        ) : null}
-      </NavList.Item>
+      <React.Fragment key={item.title}>
+        <NavList.Item href={item.url} sx={{pl: depth > 1 ? 4 : 2}}>
+          {item.title}
+        </NavList.Item>
+        {item.items ? <TableOfContentsItems items={item.items} depth={depth + 1} /> : null}
+      </React.Fragment>
     ))}
   </>
 )
 
-const TableOfContents = ({'aria-labelledby': ariaLabelledBy, items}) => (
-  <NavList aria-labelledby={ariaLabelledBy}>
-    <TableOfContentsItems items={items} />
+const TableOfContents = ({'aria-labelledby': ariaLabelledBy, items, depth = 1}) => (
+  <NavList {...(depth === 1 ? {'aria-labelledby': ariaLabelledBy, sx: {ml: -2}} : {})}>
+    <TableOfContentsItems items={items} depth={depth} />
   </NavList>
 )
 
@@ -37,15 +35,12 @@ const withTableOfContents = Component => {
 export const Mobile = withTableOfContents(({items}) => {
   const {getDetailsProps, open} = useDetails({})
   return (
-    <Box sx={{display: ['block', null, 'none'], mb: 3}}>
+    <Box sx={{display: ['block', null, 'none'], mb: 5}}>
       <Details {...getDetailsProps()}>
-        <Text as="summary" sx={{fontWeight: 'bold'}}>
-          <Octicon icon={open ? ChevronDownIcon : ChevronRightIcon} sx={{mr: 2}} />
+        <Button variant="invisible" as="summary" leadingIcon={open ? ChevronDownIcon : ChevronRightIcon}>
           Table of contents
-        </Text>
-        <Box sx={{pt: 1}}>
-          <TableOfContents items={items} />
-        </Box>
+        </Button>
+        <TableOfContents items={items} />
       </Details>
     </Box>
   )
@@ -54,20 +49,18 @@ export const Mobile = withTableOfContents(({items}) => {
 export const Desktop = withTableOfContents(({items}) => (
   <Box
     sx={{
+      width: 220,
+      flex: '0 0 auto',
+      marginLeft: [null, 7, 8, 9],
       display: ['none', null, 'block'],
       position: 'sticky',
-      top: `${HEADER_HEIGHT + 24}px`,
-      maxHeight: `calc(100vh - ${HEADER_HEIGHT}px - 24px)`,
-      mt: '6px',
-      pr: 1,
-      pl: 1,
-      pb: 1,
-      overflow: 'auto',
+      top: HEADER_HEIGHT + 48,
+      maxHeight: `calc(100vh - ${HEADER_HEIGHT}px - 48px)`,
     }}
   >
-    <Text id="table-of-content-label" sx={{display: 'inline-block', fontWeight: 'bold', mb: 1}}>
+    <Heading as="h3" sx={{fontSize: 1, display: 'inline-block', fontWeight: 'bold'}} id="toc-heading">
       Table of contents
-    </Text>
-    <TableOfContents items={items} aria-labelledby="table-of-content-label" />
+    </Heading>
+    <TableOfContents aria-labelledby="toc-heading" items={items} />
   </Box>
 ))

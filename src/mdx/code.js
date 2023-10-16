@@ -23,7 +23,15 @@ function Code({className: language = '', children}) {
             as="pre"
             className={className}
             style={{...style, overflow: 'auto'}}
-            sx={{borderRadius: 2, mt: 0, mb: 3, p: 3, border: 0}}
+            sx={{
+              borderRadius: 2,
+              mt: 0,
+              mb: 3,
+              p: 3,
+              borderStyle: 'solid',
+              borderWidth: 1,
+              borderColor: 'border.muted',
+            }}
           >
             {/* This is the scroll handle, it is supposed to be focused with keyboard and scroll a wide codebox horizontally */}
             <div aria-hidden="true" style={{visibility: 'hidden', position: 'absolute', ...size}} ref={scrollRef} />

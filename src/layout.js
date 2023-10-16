@@ -43,7 +43,7 @@ const withLayout = Component => {
           <Box sx={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
             <Head />
             <Header />
-            <Box sx={{display: 'flex', flex: '1 1 auto', flexDirection: 'row', zIndex: 0}} role="main">
+            <Box css={{zIndex: 0}} sx={{display: 'flex', flex: '1 1 auto', flexDirection: 'row'}} role="main">
               <Box sx={{display: ['none', null, null, 'block']}}>
                 <Sidebar />
               </Box>
