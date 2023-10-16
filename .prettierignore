@@ -5,3 +5,4 @@ cli/
 .github/
 package-lock.json
 SECURITY.md
+.reuse/
