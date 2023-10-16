@@ -16,7 +16,6 @@
     "postlint": "template-oss-check",
     "template-oss-apply": "template-oss-apply --force",
     "lintfix": "npm run lint -- --fix",
-    "snap": "tap",
     "test": "jest",
     "posttest": "npm run lint",
     "test-all": "npm run test -ws -iwr --if-present",

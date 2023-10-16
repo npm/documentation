@@ -9,8 +9,7 @@ const navPath = resolve(
   __dirname,
   '..',
   '..',
-  'src',
-  'theme',
+  'content',
   'nav.yml'
 )
 

@@ -13,7 +13,7 @@
     "template-oss-apply": "template-oss-apply --force",
     "lintfix": "npm run lint -- --fix",
     "snap": "tap",
-    "test": "jest",
+    "test": "tap",
     "posttest": "npm run lint",
     "format": "prettier --write ."
   },
@@ -41,5 +41,15 @@
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
     "version": "4.19.0",
     "content": "./scripts/template-oss"
+  },
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "tap": {
+    "nyc-arg": [
+      "--exclude",
+      "tap-snapshots/**"
+    ]
   }
 }
