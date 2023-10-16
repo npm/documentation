@@ -5,6 +5,7 @@ import {LinkExternalIcon} from '@primer/octicons-react'
 import * as getNav from '../util/get-nav'
 import {useLocation, usePageContext} from '../layout'
 import VisuallyHidden from './visually-hidden'
+import headerNavItems from '../../content/header-nav.yml'
 
 const NavItem = ({item, path}) => {
   const href = getNav.getLocation(item.url)
@@ -31,6 +32,15 @@ const NavItems = ({items, path}) => (
   </>
 )
 
+const ExternalNavItem = ({title, href, ...props}) => (
+  <NavList.Item {...props}>
+    {title}
+    <NavList.TrailingVisual>
+      <LinkExternalIcon />
+    </NavList.TrailingVisual>
+  </NavList.Item>
+)
+
 const Navigation = () => {
   const location = useLocation()
   const {repositoryUrl} = usePageContext()
@@ -45,12 +55,15 @@ const Navigation = () => {
       <NavList aria-label="Site">
         <NavItems items={items} path={path} />
         <NavList.Divider />
-        <NavList.Item href={repositoryUrl}>
-          GitHub
-          <NavList.TrailingVisual>
-            <LinkExternalIcon />
-          </NavList.TrailingVisual>
-        </NavList.Item>
+        {headerNavItems.map(item => (
+          <ExternalNavItem
+            key={item.title}
+            title={item.title}
+            href={item.url}
+            sx={{display: ['flex', null, null, 'none']}}
+          />
+        ))}
+        <ExternalNavItem title="GitHub" href={repositoryUrl} />
       </NavList>
     </>
   )

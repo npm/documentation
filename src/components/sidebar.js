@@ -43,7 +43,6 @@ const Sidebar = () => (
       sx={{
         borderWidth: 0,
         borderRightWidth: 1,
-        borderRadius: 0,
         height: '100%',
         borderStyle: 'solid',
         borderColor: 'border.subtle',

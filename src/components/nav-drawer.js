@@ -6,7 +6,6 @@ import Drawer from './drawer'
 import NavItems from './nav-items'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import {useIsMobile} from '../hooks/use-breakpoint'
-import headerNavItems from '../../content/header-nav.yml'
 
 const useDrawerIsOpen = () => {
   const isMobile = useIsMobile()
@@ -76,28 +75,6 @@ function NavDrawer() {
             <Box sx={{display: 'flex', flexDirection: 'column'}}>
               <NavItems />
             </Box>
-          </Box>
-          <Box
-            sx={{flexDirection: 'column', flex: '1 0 auto', color: 'fg.default', bg: 'canvas.default', display: 'flex'}}
-          >
-            {headerNavItems.map((item, index) => (
-              <Box
-                key={item.title}
-                sx={{
-                  borderWidth: 0,
-                  borderRadius: 0,
-                  borderTopWidth: index !== 0 ? 1 : 0,
-                  borderColor: 'border.muted',
-                  px: 4,
-                  py: 3,
-                  borderStyle: 'solid',
-                }}
-              >
-                <Link key={index} href={item.url} sx={{color: 'inherit', display: 'block'}}>
-                  {item.title}
-                </Link>
-              </Box>
-            ))}
           </Box>
         </Box>
       </Drawer>
