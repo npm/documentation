@@ -1,26 +1,29 @@
 import React from 'react'
 import {ActionList, ActionMenu, Box} from '@primer/react'
+import {navigate} from 'gatsby'
 import getNav from '../util/get-nav'
 import {useLocation} from '../layout'
 
 const VariantItem = ({match, active}) => {
   const {variant, page} = match
 
+  const navigateToPage = React.useCallback(() => navigate(`${page.url}?v=true`), [page.url])
+
   const handleClick = React.useCallback(
     event => {
       event.preventDefault()
-      window.location.href = `${page.url}?v=true`
+      navigateToPage()
     },
-    [page.url],
+    [navigateToPage],
   )
 
   const handleKey = React.useCallback(
     event => {
       if (event.key === 'Enter') {
-        window.location.href = `${page.url}?v=true`
+        navigateToPage()
       }
     },
-    [page.url],
+    [navigateToPage],
   )
 
   return (

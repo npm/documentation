@@ -1,5 +1,5 @@
 import {withPrefix} from 'gatsby'
-import navItems from '../nav.yml'
+import navItems from '../../content/nav.yml'
 
 const NavHierarchy = {
   getLocation(path) {

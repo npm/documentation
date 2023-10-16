@@ -108,7 +108,7 @@ The content pages should include [frontmatter](https://jekyllrb.com/docs/front-m
 
 ## Navigation
 
-The site's navigation (on the left-hand sidebar of the site) is controlled by `src/nav.yml`. If you add or remove a page from the site, you'll also want to add or remove it from the navigation configuration.
+The site's navigation (on the left-hand sidebar of the site) is controlled by `content/nav.yml`. If you add or remove a page from the site, you'll also want to add or remove it from the navigation configuration.
 
 ## CLI
 
