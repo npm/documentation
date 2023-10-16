@@ -1,6 +1,6 @@
 import React from 'react'
 import {Box} from '@primer/react'
-import DarkTextInput from './dark-text-input'
+import TextInput from './text-input'
 import SearchResults from './search-results'
 import useSiteMetadata from '../hooks/use-site-metadata'
 
@@ -10,7 +10,7 @@ function Search(props) {
 
   return (
     <Box sx={{position: 'relative'}}>
-      <DarkTextInput
+      <TextInput
         sx={{width: '240px'}}
         {...getInputProps({
           placeholder: `Search ${siteMetadata.title}`,
@@ -27,17 +27,17 @@ function Search(props) {
       >
         {isOpen ? (
           <Box
+            style={{overflow: 'auto'}}
             sx={{
-              borderWidth: 1,
-              borderStyle: 'solid',
-              borderColor: 'border.default',
-              borderRadius: 2,
-              minWidth: '300px',
+              minWidth: 300,
               maxHeight: '70vh',
-              py: 1,
-              boxShadow: 'medium',
-              bg: 'white',
-              overflow: 'auto',
+              p: 2,
+              boxShadow: 'shadow.large',
+              borderColor: 'border.muted',
+              bg: 'canvas.overlay',
+              borderRadius: '12px',
+              borderWidth: '1px',
+              borderStyle: 'solid',
             }}
           >
             <SearchResults {...{results, getItemProps, highlightedIndex}} />

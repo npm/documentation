@@ -43,8 +43,8 @@ const Drawer = ({isOpen, onDismiss, children}) => (
               bottom: 0,
               bg: 'gray.0',
               width: 300,
-              zIndex: 1,
             }}
+            style={{zIndex: 1}}
             key="drawer"
             as={motion.div}
             initial={{x: '100%'}}

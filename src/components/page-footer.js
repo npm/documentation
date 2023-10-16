@@ -8,13 +8,13 @@ function PageFooter({editUrl, contributors = {}}) {
   return editUrl || logins.length ? (
     <Box
       sx={{
-        borderStyle: 'solid',
-        borderColor: 'border.default',
-        borderRadius: 2,
         borderWidth: 0,
         borderTopWidth: 1,
+        borderRadius: 0,
         mt: 8,
         py: 5,
+        borderStyle: 'solid',
+        borderColor: 'border.default',
       }}
     >
       <Box sx={{display: 'grid', gap: 4}}>

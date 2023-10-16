@@ -1,26 +1,29 @@
 import React from 'react'
-import {Box, Link, Text, Octicon, Details, useDetails} from '@primer/react'
+import {Box, Text, Octicon, Details, useDetails} from '@primer/react'
 import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
 import {usePageContext} from '../layout'
 import {HEADER_HEIGHT} from '../constants'
+import {NavList} from '@primer/react/drafts'
 
-const TableOfContents = ({items, depth = 0, labelId}) => (
-  <Box
-    key={items}
-    as="ul"
-    role="list"
-    sx={{m: 0, p: 0, listStyle: 'none', lineHeight: '1.4em'}}
-    aria-labelledby={labelId}
-  >
+const TableOfContentsItems = ({items}) => (
+  <>
     {items.map(item => (
-      <Box as="li" role="listitem" key={item.url} sx={{pl: depth > 0 ? 3 : 0}}>
-        <Link key={item.title} href={item.url} sx={{display: 'inline-block', py: 1, color: 'gray.6'}}>
-          {item.title}
-        </Link>
-        {item.items ? <TableOfContents items={item.items} depth={depth + 1} /> : null}
-      </Box>
+      <NavList.Item key={item.title} href={item.url}>
+        {item.title}
+        {item.items ? (
+          <NavList.SubNav>
+            <TableOfContentsItems items={item.items} />
+          </NavList.SubNav>
+        ) : null}
+      </NavList.Item>
     ))}
-  </Box>
+  </>
+)
+
+const TableOfContents = ({'aria-labelledby': ariaLabelledBy, items}) => (
+  <NavList aria-labelledby={ariaLabelledBy}>
+    <TableOfContentsItems items={items} />
+  </NavList>
 )
 
 const withTableOfContents = Component => {
@@ -66,6 +69,6 @@ export const Desktop = withTableOfContents(({items}) => (
     <Text id="table-of-content-label" sx={{display: 'inline-block', fontWeight: 'bold', mb: 1}}>
       Table of contents
     </Text>
-    <TableOfContents items={items} labelId="table-of-content-label" />
+    <TableOfContents items={items} aria-labelledby="table-of-content-label" />
   </Box>
 ))

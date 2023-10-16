@@ -22,24 +22,15 @@ function Code({className: language = '', children}) {
             tabIndex={0}
             as="pre"
             className={className}
-            sx={{
-              borderWidth: 1,
-              borderStyle: 'solid',
-              borderColor: 'border.default',
-              borderRadius: 2,
-              mt: 0,
-              mb: 3,
-              p: 3,
-              border: 0,
-            }}
             style={{...style, overflow: 'auto'}}
+            sx={{borderRadius: 2, mt: 0, mb: 3, p: 3, border: 0}}
           >
             {/* This is the scroll handle, it is supposed to be focused with keyboard and scroll a wide codebox horizontally */}
             <div aria-hidden="true" style={{visibility: 'hidden', position: 'absolute', ...size}} ref={scrollRef} />
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({line, key: i})}>
                 {line.map((token, key) => (
-                  <Text key={key} sx={{fontFamily: 'mono', fontSize: 1}} {...getTokenProps({token, key})} />
+                  <Text key={key} {...getTokenProps({token, key})} sx={{fontFamily: 'mono', fontSize: 1}} />
                 ))}
               </div>
             ))}

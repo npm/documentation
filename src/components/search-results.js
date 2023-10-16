@@ -29,17 +29,21 @@ function SearchResults({results, getItemProps, highlightedIndex}) {
   return results.map((item, index) => (
     <Box
       key={item.path}
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        flex: '0 0 auto',
-        px: 3,
-        py: 2,
-        color: highlightedIndex === index ? 'white' : 'gray.8',
-        bg: highlightedIndex === index ? 'blue.5' : 'transparent',
-        cursor: 'pointer',
-      }}
-      {...getItemProps({item})}
+      {...getItemProps({
+        item,
+        style: {cursor: 'pointer'},
+        sx: {
+          display: 'flex',
+          flexDirection: 'column',
+          flex: '0 0 auto',
+          px: 3,
+          py: 2,
+          color: 'fg.default',
+          fontSize: 1,
+          bg: highlightedIndex === index ? 'neutral.muted' : 'transparent',
+          cursor: 'pointer',
+        },
+      })}
     >
       <Breadcrumbs item={item} highlighted={highlightedIndex === index} />
       {item.title}

@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 
-const {NODE_ENV, GATSBY_PARTIAL_CONTENT, GATSBY_CONTENT_DIR = 'content'} = process.env
+const {NODE_ENV, GATSBY_PARTIAL_CONTENT, GATSBY_CONTENT_IGNORE, GATSBY_CONTENT_DIR = 'content'} = process.env
 const DEV = NODE_ENV === 'development'
 const CONTENT_DIR = path.resolve(GATSBY_CONTENT_DIR)
 
@@ -15,7 +15,7 @@ const walkDirs = dir => {
 }
 
 const getContentOptions = () => {
-  if (!DEV || !GATSBY_PARTIAL_CONTENT) {
+  if (!DEV || (!GATSBY_PARTIAL_CONTENT && !GATSBY_CONTENT_IGNORE)) {
     return
   }
 
@@ -47,7 +47,6 @@ module.exports = {
     shortName: 'npm',
     description: 'Documentation for the npm registry, website, and command-line interface',
     lang: 'en',
-    // eslint-disable-next-line max-len
     imageUrl: 'https://user-images.githubusercontent.com/29712634/81721690-e2fb5d80-9445-11ea-8602-4b2294c964f3.png',
   },
   plugins: [
