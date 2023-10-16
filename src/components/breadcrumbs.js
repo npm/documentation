@@ -1,12 +1,25 @@
 import React from 'react'
 import {Breadcrumbs as PrimerBreadcrumbs} from '@primer/react'
-import {withPrefix} from 'gatsby'
+import {Link as GatsbyLink} from 'gatsby'
 import * as getNav from '../util/get-nav'
 import {useLocation} from '../layout'
 
+const BreadcrumbItem = ({item, path}) => {
+  // TODO: hide variant name
+  const href = getNav.getLocation(item.url)
+  const selected = getNav.isPathForItem(path, getNav.getItem(href))
+
+  return (
+    <PrimerBreadcrumbs.Item as={GatsbyLink} to={href} {...(selected ? {selected} : {})}>
+      {item.title}
+    </PrimerBreadcrumbs.Item>
+  )
+}
+
 const Breadcrumbs = () => {
-  const {pathname} = useLocation()
-  const items = getNav.getItemBreadcrumbs(pathname)
+  const location = useLocation()
+  const path = getNav.getLocation(location.pathname)
+  const items = getNav.getItemBreadcrumbs(location.pathname)
 
   if (items.length <= 1) {
     return null
@@ -15,13 +28,7 @@ const Breadcrumbs = () => {
   return (
     <PrimerBreadcrumbs sx={{mb: 4}}>
       {items.map(item => (
-        <PrimerBreadcrumbs.Item
-          key={item.url}
-          href={withPrefix(item.url)}
-          selected={getNav.isActiveUrl(pathname, item.url)}
-        >
-          {item.title}
-        </PrimerBreadcrumbs.Item>
+        <BreadcrumbItem key={item.url} item={item} path={path} />
       ))}
     </PrimerBreadcrumbs>
   )

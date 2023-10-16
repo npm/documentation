@@ -12,25 +12,19 @@ const Layout = ({children, pageContext: {frontmatter}}) => {
 
   return (
     <Box
-      role="region"
       sx={{
-        display: 'grid',
-        maxWidth: '100%',
-        gridTemplateColumns: ['100%', null, 'minmax(0, 65ch) 220px'],
-        gridTemplateAreas: ['"heading" "content"', null, '"heading table-of-contents" "content table-of-contents"'],
-        columnGap: [null, null, 6, 7],
-        rowGap: 3,
+        justifyContent: 'center',
+        flexDirection: 'row-reverse',
+        display: 'flex',
+        maxWidth: '1200px',
         mx: 'auto',
-        p: [5, 6, null, 7],
-        alignItems: 'start',
-        alignSelf: 'start',
+        width: '100%',
+        p: [4, 5, 6, 7],
       }}
     >
-      <Box css={{gridArea: 'table-of-contents'}}>
-        <TableOfContents.Desktop />
-      </Box>
-      <Box css={{gridArea: 'heading'}}>
-        <Box {...SKIP_NAV} sx={{mb: 4}}>
+      <TableOfContents.Desktop />
+      <Box sx={{width: '100%', maxWidth: '960px'}}>
+        <Box sx={{mb: 4}} {...SKIP_NAV}>
           <Breadcrumbs />
           <Heading as="h1" sx={{fontSize: 7}}>
             {title}
@@ -38,8 +32,6 @@ const Layout = ({children, pageContext: {frontmatter}}) => {
           {description ? <Box sx={{fontSize: 3, mb: 3}}>{description}</Box> : null}
         </Box>
         <VariantSelect />
-      </Box>
-      <Box css={{gridArea: 'content'}}>
         <TableOfContents.Mobile />
         {children}
         <PageFooter />

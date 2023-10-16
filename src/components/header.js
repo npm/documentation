@@ -6,12 +6,12 @@ import MobileSearch from './mobile-search'
 import NavDrawer from './nav-drawer'
 import Search from './search'
 import useSearch from '../hooks/use-search'
-import {HEADER_HEIGHT, NPM_RED} from '../constants'
+import {HEADER_HEIGHT, HEADER_BAR, NPM_RED} from '../constants'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import headerNavItems from '../../content/header-nav.yml'
 
 const NpmHeaderBar = styled(Box)`
-  height: 10px;
+  height: ${HEADER_BAR}px;
   background-image: linear-gradient(139deg, #fb8817, #ff4b01, #c12127, #e02aff);
 `
 
@@ -40,7 +40,7 @@ function Header() {
         as="header"
         sx={{
           display: 'flex',
-          height: HEADER_HEIGHT,
+          height: HEADER_HEIGHT - HEADER_BAR,
           px: [3, null, null, 4],
           alignItems: 'center',
           justifyContent: 'space-between',

@@ -7,7 +7,12 @@ const Breadcrumbs = ({item, highlighted}) => {
   const siteMetadata = useSiteMetadata()
   const hierarchy = getNav.getItemBreadcrumbs(item.path)
 
-  const text = hierarchy ? hierarchy.slice(0, -1).join(' / ') : siteMetadata.shortName
+  const text = hierarchy
+    ? hierarchy
+        .slice(0, -1)
+        .map(s => s.title)
+        .join(' / ')
+    : siteMetadata.shortName
 
   return <Text sx={{fontSize: 0, color: highlighted ? 'blue.2' : 'gray.7'}}>{text}</Text>
 }
