@@ -8,7 +8,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     // - directory indexes
     // - all cli paths
     // - all policies paths
-    if (name === 'index' || dir.startsWith('cli/') || dir.startsWith('policies/')) {
+    if (name === 'index' || dir.startsWith('cli/') || dir.startsWith('policies')) {
       return
     }
 
