@@ -84,18 +84,16 @@ const shared = {
   },
   'connect-to-accounts': {
     text: (
-      <>
-        <ul>
-          <li>
-            If you have previously linked a GitHub account to your npm account, select{' '}
-            <strong>Connect to GitHub</strong>. This will help our support team verify your account.
-          </li>
-          <li>
-            If you have previously linked a Twitter account to your npm account, select{' '}
-            <strong>Connect to Twitter</strong>. This will help our support team verify your account.
-          </li>
-        </ul>
-      </>
+      <ul>
+        <li>
+          If you have previously linked a GitHub account to your npm account, select <strong>Connect to GitHub</strong>.
+          This will help our support team verify your account.
+        </li>
+        <li>
+          If you have previously linked a Twitter account to your npm account, select{' '}
+          <strong>Connect to Twitter</strong>. This will help our support team verify your account.
+        </li>
+      </ul>
     ),
   },
   'submit-support-ticket': {
@@ -380,19 +378,17 @@ const shared = {
   'enterprise-migration-requirements': {
     text: (
       <Note>
-        <>
-          <strong>Note:</strong> Using{' '}
-          <code>
-            <a href="https://www.npmjs.com/package/pneumatic-tubes">pneumatic-tubes</a>
-          </code>{' '}
-          for migration requires{' '}
-          <ul>
-            <li>Node 8+</li>
-            <li>
-              npm 5+ (to install or upgrade, run <code>npm install npm@latest -g</code>)
-            </li>
-          </ul>
-        </>
+        <strong>Note:</strong> Using{' '}
+        <code>
+          <a href="https://www.npmjs.com/package/pneumatic-tubes">pneumatic-tubes</a>
+        </code>{' '}
+        for migration requires{' '}
+        <ul>
+          <li>Node 8+</li>
+          <li>
+            npm 5+ (to install or upgrade, run <code>npm install npm@latest -g</code>)
+          </li>
+        </ul>
       </Note>
     ),
   },

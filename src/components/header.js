@@ -6,9 +6,9 @@ import MobileSearch from './mobile-search'
 import NavDrawer from './nav-drawer'
 import Search from './search'
 import useSearch from '../hooks/use-search'
-import useSiteMetadata from '../hooks/use-site-metadata'
-import headerNavItems from '../header-nav.yml'
 import {HEADER_HEIGHT, NPM_RED} from '../constants'
+import useSiteMetadata from '../hooks/use-site-metadata'
+import headerNavItems from '../../content/header-nav.yml'
 
 const NpmHeaderBar = styled(Box)`
   height: 10px;

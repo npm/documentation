@@ -4,9 +4,9 @@ import {XIcon, ThreeBarsIcon} from '@primer/octicons-react'
 import {Link as GatsbyLink} from 'gatsby'
 import Drawer from './drawer'
 import NavItems from './nav-items'
-import headerNavItems from '../header-nav.yml'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import {useIsMobile} from '../hooks/use-breakpoint'
+import headerNavItems from '../../content/header-nav.yml'
 
 const useDrawerIsOpen = () => {
   const isMobile = useIsMobile()
