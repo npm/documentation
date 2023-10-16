@@ -10,7 +10,7 @@ const checkOnly = process.argv.includes('--check-only')
 
 const ROOT = resolve(__dirname, '../..')
 const contentPath = join(ROOT, 'content/cli')
-const navPath = join(ROOT, 'src/theme/nav.yml')
+const navPath = join(ROOT, 'content/nav.yml')
 
 const checkContent = () => {
   const status = spawnSync('git', ['status', '--porcelain', contentPath], { encoding: 'utf-8' })
