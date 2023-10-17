@@ -34,7 +34,6 @@ function SearchResults({results, getItemProps, highlightedIndex}) {
         color: 'fg.default',
         fontSize: 1,
         bg: highlightedIndex === index ? 'neutral.muted' : 'transparent',
-        cursor: 'pointer',
       }}
       {...getItemProps({item, index})}
     >

@@ -14,8 +14,7 @@
     "lintfix": "npm run lint -- --fix",
     "snap": "tap",
     "test": "tap",
-    "posttest": "npm run lint",
-    "format": "prettier --write ."
+    "posttest": "npm run lint"
   },
   "dependencies": {
     "@octokit/rest": "^20.0.2",

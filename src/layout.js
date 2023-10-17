@@ -15,7 +15,7 @@ export const usePageContext = () => React.useContext(PageContext)
 export const useLocation = () => React.useContext(LocationContext)
 
 const Head = () => {
-  const {frontmatter} = usePageContext()
+  const {frontmatter = {}} = usePageContext()
   const siteMetadata = useSiteMetdata()
 
   const title = [frontmatter.title, siteMetadata.title].filter(Boolean).join(' | ')
