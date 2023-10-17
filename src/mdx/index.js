@@ -188,12 +188,6 @@ export const HorizontalRule = styled.hr`
   border: 0;
 `
 
-export const Image = styled.img`
-  max-width: 100%;
-  box-sizing: content-box;
-  background-color: ${themeGet('colors.white')}; // TODO: this is wrong
-`
-
 export const InlineCode = styled.code`
   padding: 0.2em 0.4em;
   font-family: ${themeGet('fonts.mono')};
@@ -330,15 +324,19 @@ export const Prompt = ({children}) => (
 
 export const PromptReply = ({children}) => <strong>{children}</strong>
 
-const ScreenshotImage = styled.img`
+const RequiredImage = ({src, alt, ...props}) => <img src={required(src, 'src')} alt={required(alt, 'alt')} {...props} />
+
+export const Image = styled(RequiredImage)`
+  max-width: 100%;
+  box-sizing: content-box;
+`
+
+const ScreenshotImage = ({src, ...props}) => <RequiredImage src={withPrefix(src)} {...props} />
+
+export const Screenshot = styled(ScreenshotImage)`
   margin-top: 15px;
   max-width: min(100%, 525px);
   max-height: 300px;
   border: 1px solid ${themeGet('colors.border.default')};
+  display: block;
 `
-
-export const Screenshot = props => (
-  <div>
-    <ScreenshotImage src={withPrefix(required(props.src, 'src'))} alt={required(props.alt, 'alt')} />
-  </div>
-)

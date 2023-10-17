@@ -5,7 +5,7 @@ export const getItemBreadcrumbs = (path, props = {}) => {
   let hierarchy = getItemHierarchy(path)
 
   if (!hierarchy) {
-    return null
+    return []
   }
 
   if (props.hideVariants) {
@@ -14,10 +14,7 @@ export const getItemBreadcrumbs = (path, props = {}) => {
     hierarchy = hierarchy.filter(item => (vp ? item.shortName !== vp.variant : true))
   }
 
-  return hierarchy.map(item => ({
-    ...item,
-    title: item.shortName || item.title,
-  }))
+  return hierarchy
 }
 
 export const getLocation = path => {
