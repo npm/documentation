@@ -66,7 +66,7 @@ function Header() {
                 alignItems: 'center',
               }}
             >
-              <NpmLogo size="32" sx={{mr: '16px'}} />
+              <NpmLogo size="32" sx={{display: 'flex', mr: '16px'}} />
               {siteMetadata.title}
             </Link>
             <Box sx={{display: ['none', null, null, 'block'], ml: 4}}>

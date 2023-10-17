@@ -11,7 +11,7 @@ const TextInput = styled(PrimerTextInput)`
   }
 
   input::placeholder {
-    color: ${themeGet('colors.fg.muted')} !important;
+    color: ${themeGet('colors.fg.default')} !important;
   }
 `
 export default TextInput

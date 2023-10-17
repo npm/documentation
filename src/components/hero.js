@@ -8,12 +8,12 @@ function Hero() {
 
   return (
     <ThemeProvider colorMode="night" nightScheme="dark_dimmed">
-      <Box sx={{bg: 'canvas.default', py: 6}}>
+      <Box sx={{bg: 'canvas.inset', py: 6}}>
         <Container>
           <Heading as="h1" sx={{color: 'fg.default', fontSize: 7, m: 0}}>
             {title}
           </Heading>
-          <Text as="p" sx={{m: 0, color: 'fg.default', fontSize: 4}}>
+          <Text as="p" sx={{m: 0, color: 'fg.onEmphasis', fontSize: 4}}>
             {description}
           </Text>
         </Container>

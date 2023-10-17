@@ -14,6 +14,16 @@ const npmTheme = deepmerge(theme, {
         },
       },
     },
+    dark_dimmed: {
+      colors: {
+        canvas: {
+          default: '#333333',
+        },
+        fg: {
+          default: '#E1E4E8',
+        },
+      },
+    },
   },
 })
 

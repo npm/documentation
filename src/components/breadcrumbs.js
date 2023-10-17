@@ -10,7 +10,7 @@ const BreadcrumbItem = ({item, path}) => {
 
   return (
     <PrimerBreadcrumbs.Item as={GatsbyLink} to={href} {...(selected ? {selected} : {})}>
-      {item.title}
+      {item.shortName || item.title}
     </PrimerBreadcrumbs.Item>
   )
 }
@@ -20,7 +20,7 @@ const Breadcrumbs = () => {
   const path = getNav.getLocation(location.pathname)
   const items = getNav.getItemBreadcrumbs(location.pathname, {hideVariants: true})
 
-  if (!items || items.length <= 1) {
+  if (items.length <= 1) {
     return null
   }
 
