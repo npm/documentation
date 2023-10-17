@@ -1,14 +1,15 @@
 import React from 'react'
-import {Box, Heading, themeGet, Text, Link, Octicon} from '@primer/react'
+import {Box, Heading, themeGet, Text, Link as PrimerLink, Octicon} from '@primer/react'
 import styled from 'styled-components'
 import {variant} from 'styled-system'
 import {withPrefix} from 'gatsby'
 import {LinkIcon} from '@primer/octicons-react'
 import textContent from 'react-addons-text-content'
-import Code from './code'
-import NavHierarchy from './nav-hierarchy'
 import {useSlugger} from '../layout'
 import {HEADER_HEIGHT} from '../constants'
+
+export {default as Code} from './code'
+export {default as Index} from './nav-hierarchy'
 
 const required = (prop, name) => {
   if (!prop) {
@@ -17,7 +18,7 @@ const required = (prop, name) => {
   return prop
 }
 
-export {Link, Code, NavHierarchy as Index}
+export const Link = props => <PrimerLink underline {...props} />
 
 export const Pre = ({children}) => children
 
@@ -47,7 +48,7 @@ const Headings = {
 
     return (
       <StyledHeading id={id} {...props}>
-        <Link
+        <PrimerLink
           href={`#${id}`}
           aria-label={`${text} permalink`}
           sx={{
@@ -68,7 +69,7 @@ const Headings = {
               verticalAlign: 'middle !important',
             }}
           />
-        </Link>
+        </PrimerLink>
       </StyledHeading>
     )
   },
