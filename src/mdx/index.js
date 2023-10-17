@@ -6,7 +6,7 @@ import {withPrefix} from 'gatsby'
 import {LinkIcon} from '@primer/octicons-react'
 import textContent from 'react-addons-text-content'
 import {useSlugger} from '../layout'
-import {HEADER_HEIGHT} from '../constants'
+import {FULL_HEADER_HEIGHT} from '../constants'
 
 export {default as Code} from './code'
 export {default as Index} from './nav-hierarchy'
@@ -25,7 +25,7 @@ export const Pre = ({children}) => children
 const StyledHeading = styled(Heading)`
   margin-top: ${themeGet('space.4')};
   margin-bottom: ${themeGet('space.3')};
-  scroll-margin-top: ${HEADER_HEIGHT + 24}px;
+  scroll-margin-top: ${FULL_HEADER_HEIGHT + 24}px;
   line-height: ${themeGet('lineHeights.condensed')};
 
   @media (hover: hover) {

@@ -43,7 +43,7 @@ function Header() {
           as="header"
           sx={{
             display: 'flex',
-            height: HEADER_HEIGHT - HEADER_BAR,
+            height: HEADER_HEIGHT,
             px: [3, null, null, 4],
             alignItems: 'center',
             justifyContent: 'space-between',

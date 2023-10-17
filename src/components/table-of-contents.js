@@ -3,7 +3,7 @@ import {Heading, Box, Details, useDetails, Button} from '@primer/react'
 import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
 import {usePageContext} from '../layout'
 import {NavList} from '@primer/react/drafts'
-import {HEADER_HEIGHT} from '../constants'
+import {FULL_HEADER_HEIGHT} from '../constants'
 
 const TableOfContentsItems = ({items, depth}) => (
   <>
@@ -54,8 +54,8 @@ export const Desktop = withTableOfContents(({items}) => (
       marginLeft: [null, 7, 8, 9],
       display: ['none', null, 'block'],
       position: 'sticky',
-      top: HEADER_HEIGHT + 48,
-      maxHeight: `calc(100vh - ${HEADER_HEIGHT + 48}px)`,
+      top: FULL_HEADER_HEIGHT + 48,
+      maxHeight: `calc(100vh - ${FULL_HEADER_HEIGHT + 48}px)`,
     }}
   >
     <Heading as="h3" sx={{fontSize: 1, display: 'inline-block', fontWeight: 'bold'}} id="toc-heading">
