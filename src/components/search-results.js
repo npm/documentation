@@ -5,14 +5,13 @@ import * as getNav from '../util/get-nav'
 
 const Breadcrumbs = ({item, highlighted}) => {
   const siteMetadata = useSiteMetadata()
-  const hierarchy = getNav.getItemBreadcrumbs(item.path)
+  let hierarchy = getNav.getItemBreadcrumbs(item.path)
 
-  const text = hierarchy
-    ? hierarchy
-        .slice(0, -1)
-        .map(s => s.title)
-        .join(' / ')
-    : siteMetadata.shortName
+  if (hierarchy) {
+    hierarchy = hierarchy.slice(0, -1)
+  }
+
+  const text = hierarchy && hierarchy.length ? hierarchy.map(s => s.title).join(' / ') : siteMetadata.shortName
 
   return <Text sx={{fontSize: 0, color: highlighted ? 'blue.2' : 'gray.7'}}>{text}</Text>
 }
