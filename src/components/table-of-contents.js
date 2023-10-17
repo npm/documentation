@@ -55,12 +55,19 @@ export const Desktop = withTableOfContents(({items}) => (
       display: ['none', null, 'block'],
       position: 'sticky',
       top: HEADER_HEIGHT + 48,
-      maxHeight: `calc(100vh - ${HEADER_HEIGHT}px - 48px)`,
+      maxHeight: `calc(100vh - ${HEADER_HEIGHT + 48}px)`,
     }}
   >
     <Heading as="h3" sx={{fontSize: 1, display: 'inline-block', fontWeight: 'bold'}} id="toc-heading">
       Table of contents
     </Heading>
-    <TableOfContents aria-labelledby="toc-heading" items={items} />
+    <Box
+      sx={{
+        maxHeight: `calc(100% - 21px)`,
+        overflowY: 'scroll',
+      }}
+    >
+      <TableOfContents aria-labelledby="toc-heading" items={items} />
+    </Box>
   </Box>
 ))

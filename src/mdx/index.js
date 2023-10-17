@@ -8,7 +8,7 @@ import textContent from 'react-addons-text-content'
 import Code from './code'
 import NavHierarchy from './nav-hierarchy'
 import {useSlugger} from '../layout'
-import {HEADER_HEIGHT, SKIP_NAV} from '../constants'
+import {HEADER_HEIGHT} from '../constants'
 
 const required = (prop, name) => {
   if (!prop) {
@@ -20,44 +20,6 @@ const required = (prop, name) => {
 export {Link, Code, NavHierarchy as Index}
 
 export const Pre = ({children}) => children
-
-const SkipLinkBase = props => (
-  <Link
-    {...props}
-    href={`#${SKIP_NAV.id}`}
-    sx={{
-      p: 3,
-      color: 'fg.onEmphasis',
-      backgroundColor: 'accent.emphasis',
-      fontSize: 1,
-    }}
-  >
-    Skip to content
-  </Link>
-)
-
-export const SkipLink = styled(SkipLinkBase)`
-  z-index: 20;
-  width: auto;
-  height: auto;
-  clip: auto;
-  position: absolute;
-  overflow: hidden;
-
-  // The following rules are to ensure that the element
-  // is visually hidden, unless it has focus. This is the recommended
-  // way to hide content from:
-  // https://webaim.org/techniques/css/invisiblecontent/#techniques
-
-  &:not(:focus) {
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
-    height: 1px;
-    width: 1px;
-    margin: -1px;
-    padding: 0;
-  }
-`
 
 const StyledHeading = styled(Heading)`
   margin-top: ${themeGet('space.4')};
