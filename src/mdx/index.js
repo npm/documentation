@@ -49,13 +49,13 @@ const Headings = {
       <StyledHeading id={id} {...props}>
         <Link
           href={`#${id}`}
+          aria-label={`${text} permalink`}
           sx={{
             color: 'inherit',
             '&:hover, &:focus': {
               textDecoration: 'none',
             },
           }}
-          aria-label={`${text} permalink`}
         >
           {children}
           <Octicon
