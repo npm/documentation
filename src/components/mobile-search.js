@@ -66,11 +66,10 @@ function MobileSearch({onDismiss, ...props}) {
             >
               <TextInput
                 leadingVisual={SearchIcon}
-                {...getInputProps({
-                  placeholder: `Search ${siteMetadata.title}`,
-                  'aria-label': `Search ${siteMetadata.title}`,
-                  sx: {width: '100%'},
-                })}
+                placeholder={`Search ${siteMetadata.title}`}
+                aria-label={`Search ${siteMetadata.title}`}
+                sx={{width: '100%'}}
+                {...getInputProps()}
               />
             </motion.div>
             <Button sx={{ml: 3}} aria-label="Cancel" onClick={handleDismiss}>
