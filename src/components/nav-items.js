@@ -1,4 +1,5 @@
 import React from 'react'
+import {Box} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 import {NavList} from '@primer/react/drafts'
 import {LinkExternalIcon} from '@primer/octicons-react'
@@ -56,12 +57,9 @@ const Navigation = () => {
         <NavItems items={items} path={path} />
         <NavList.Divider />
         {headerNavItems.map(item => (
-          <ExternalNavItem
-            key={item.title}
-            title={item.title}
-            href={item.url}
-            sx={{display: ['flex', null, null, 'none']}}
-          />
+          <Box key={item.title} sx={{display: ['flex', null, null, 'none']}}>
+            <ExternalNavItem title={item.title} href={item.url} />
+          </Box>
         ))}
         <ExternalNavItem title="GitHub" href={repositoryUrl} />
       </NavList>
