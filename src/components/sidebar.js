@@ -34,7 +34,7 @@ const Sidebar = () => (
       position: 'sticky',
       top: `${HEADER_HEIGHT}px`,
       height: `calc(100vh - ${HEADER_HEIGHT}px)`,
-      width: 260,
+      width: 270,
     }}
   >
     <Box

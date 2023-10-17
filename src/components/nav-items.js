@@ -8,28 +8,40 @@ import {useLocation, usePageContext} from '../layout'
 import VisuallyHidden from './visually-hidden'
 import headerNavItems from '../../content/header-nav.yml'
 
-const NavItem = ({item, path}) => {
+const NavItem = ({item, path, ...props}) => {
   const href = getNav.getLocation(item.url)
   const isCurrent = getNav.isActiveUrl(path, href)
   const items = getNav.getHierarchy(item, {path: item.url, hideVariants: true})
 
   return (
-    <NavList.Item as={GatsbyLink} to={href} defaultOpen={items && isCurrent} aria-current={isCurrent ? 'page' : null}>
+    <NavList.Item
+      as={GatsbyLink}
+      to={href}
+      defaultOpen={items && isCurrent}
+      aria-current={isCurrent ? 'page' : null}
+      sx={{fontSize: 1}}
+    >
       {item.title}
       {items ? (
         <NavList.SubNav>
-          <NavItems items={items} path={path} />
+          <NavItems items={items} path={path} {...props} />
         </NavList.SubNav>
       ) : null}
     </NavList.Item>
   )
 }
 
-const NavItems = ({items, path}) => (
+const NavItems = ({items, path, depth = 1}) => (
   <>
-    {items.map(item => (
-      <NavItem key={item.title} item={item} path={path} />
-    ))}
+    {items.map(item =>
+      depth === 1 ? (
+        <NavList.Group key={item.title}>
+          <NavItem key={item.title} item={item} path={path} depth={depth + 1} />
+        </NavList.Group>
+      ) : (
+        <NavItem key={item.title} item={item} path={path} depth={depth + 1} />
+      ),
+    )}
   </>
 )
 
