@@ -1,14 +1,23 @@
 import {withPrefix} from 'gatsby'
 import navItems from '../../content/nav.yml'
 
-export const getItemBreadcrumbs = path => {
-  const hierarchy = getItemHierarchy(path)
-  return hierarchy
-    ? hierarchy.map(item => {
-        item.title = item.shortName || item.title
-        return item
-      })
-    : null
+export const getItemBreadcrumbs = (path, props = {}) => {
+  let hierarchy = getItemHierarchy(path)
+
+  if (!hierarchy) {
+    return null
+  }
+
+  if (props.hideVariants) {
+    const root = getVariantRoot(path)
+    const vp = getVariantAndPage(root, path)
+    hierarchy = hierarchy.filter(item => (vp ? item.shortName !== vp.variant : true))
+  }
+
+  return hierarchy.map(item => ({
+    ...item,
+    title: item.shortName || item.title,
+  }))
 }
 
 export const getLocation = path => {

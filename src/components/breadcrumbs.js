@@ -5,7 +5,6 @@ import * as getNav from '../util/get-nav'
 import {useLocation} from '../layout'
 
 const BreadcrumbItem = ({item, path}) => {
-  // TODO: hide variant name
   const href = getNav.getLocation(item.url)
   const selected = getNav.isPathForItem(path, getNav.getItem(href))
 
@@ -19,7 +18,7 @@ const BreadcrumbItem = ({item, path}) => {
 const Breadcrumbs = () => {
   const location = useLocation()
   const path = getNav.getLocation(location.pathname)
-  const items = getNav.getItemBreadcrumbs(location.pathname)
+  const items = getNav.getItemBreadcrumbs(location.pathname, {hideVariants: true})
 
   if (!items || items.length <= 1) {
     return null
