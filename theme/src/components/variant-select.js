@@ -55,22 +55,22 @@ function VariantSelect(props) {
     )
   }
 
-  const ariaLabelMenuButton = open ? 'Version release' : selectedItem.variant.title
+  // const ariaLabelMenuButton = open ? 'Version release' : selectedItem.variant.title
 
   return (
     <ThemeProvider>
-      <label id="label-versions-list-item" htmlFor="versions-list-item">
+      <p id="label-versions-list-item">
         Select CLI Version:
-      </label>
+      </p>
       <ActionMenu open={open} onOpenChange={setOpen}>
         {/* Disabling to remove lint warnings. This property was added as "autofocus"
         in a previous accessibility audit which did not trigger the lint warning. */
         /* eslint-disable-next-line jsx-a11y/no-autofocus */}
-        <ActionMenu.Button autoFocus aria-label={ariaLabelMenuButton}>
+        <ActionMenu.Button autoFocus aria-labelledby="label-versions-list-item">
           {selectedItem.variant.title}
         </ActionMenu.Button>
         <ActionMenu.Overlay width="medium" onEscape={() => setOpen(false)}>
-          <ActionList id="versions-list-item" aria-labelledby="label-versions-list-item">
+          <ActionList id="versions-list-item">
             {items}
           </ActionList>
         </ActionMenu.Overlay>
