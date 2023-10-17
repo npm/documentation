@@ -12,23 +12,15 @@ function Search(props) {
     <Box sx={{position: 'relative'}}>
       <TextInput
         sx={{width: '240px'}}
-        {...getInputProps({
-          placeholder: `Search ${siteMetadata.title}`,
-          'aria-label': `Search ${siteMetadata.title}`,
-        })}
+        placeholder={`Search ${siteMetadata.title}`}
+        aria-label={`Search ${siteMetadata.title}`}
+        {...getInputProps()}
       />
-      <Box
-        {...getMenuProps({
-          position: 'absolute',
-          left: 0,
-          right: 0,
-          pt: 2,
-        })}
-      >
+      <Box sx={{position: 'absolute', left: 0, right: 0, pt: 2}} {...getMenuProps()}>
         {isOpen ? (
           <Box
-            style={{overflow: 'auto'}}
             sx={{
+              overflow: 'auto',
               minWidth: 300,
               maxHeight: '70vh',
               p: 2,

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Box, Link} from '@primer/react'
+import {Button, Box, Link, ThemeProvider} from '@primer/react'
 import {XIcon, ThreeBarsIcon} from '@primer/octicons-react'
 import {Link as GatsbyLink} from 'gatsby'
 import Drawer from './drawer'
@@ -31,53 +31,61 @@ function NavDrawer() {
       <Button aria-label="Menu" aria-expanded={isOpen} onClick={setOpen} sx={{ml: 3}}>
         <ThreeBarsIcon />
       </Button>
-      <Drawer isOpen={isOpen} onDismiss={setClose}>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            height: '100%',
-            bg: 'canvas.default',
-            overflow: 'auto',
-            WebkitOverflowScrolling: 'touch',
-          }}
-        >
+      <ThemeProvider colorMode="light">
+        <Drawer isOpen={isOpen} onDismiss={setClose}>
           <Box
-            sx={{display: 'flex', flexDirection: 'column', flex: '1 0 auto', color: 'fg.default', bg: 'canvas.default'}}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              height: '100%',
+              bg: 'canvas.backdrop',
+              overflow: 'auto',
+            }}
+            style={{WebkitOverflowScrolling: 'touch'}}
           >
             <Box
               sx={{
-                borderWidth: 0,
-                borderRadius: 0,
-                borderBottomWidth: 1,
-                borderColor: 'border.muted',
-                borderStyle: 'solid',
+                display: 'flex',
+                flexDirection: 'column',
+                flex: '1 0 auto',
+                color: 'fg.default',
+                bg: 'canvas.default',
               }}
             >
               <Box
                 sx={{
-                  py: 3,
-                  pl: 4,
-                  pr: 3,
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  display: 'flex',
+                  borderWidth: 0,
+                  borderRadius: 0,
+                  borderBottomWidth: 1,
+                  borderColor: 'border.muted',
+                  borderStyle: 'solid',
                 }}
               >
-                <Link as={GatsbyLink} to="/" sx={{display: 'inline-block', color: 'inherit'}}>
-                  {siteMetadata.title}
-                </Link>
-                <Button aria-label="Close" onClick={setClose}>
-                  <XIcon />
-                </Button>
+                <Box
+                  sx={{
+                    py: 3,
+                    pl: 4,
+                    pr: 3,
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    display: 'flex',
+                  }}
+                >
+                  <Link as={GatsbyLink} to="/" sx={{display: 'inline-block', color: 'inherit'}}>
+                    {siteMetadata.title}
+                  </Link>
+                  <Button aria-label="Close" onClick={setClose}>
+                    <XIcon />
+                  </Button>
+                </Box>
+              </Box>
+              <Box sx={{display: 'flex', flexDirection: 'column'}}>
+                <NavItems />
               </Box>
             </Box>
-            <Box sx={{display: 'flex', flexDirection: 'column'}}>
-              <NavItems />
-            </Box>
           </Box>
-        </Box>
-      </Drawer>
+        </Drawer>
+      </ThemeProvider>
     </>
   )
 }

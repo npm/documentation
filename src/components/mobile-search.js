@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Box} from '@primer/react'
+import {Button, Box, ThemeProvider} from '@primer/react'
 import {XIcon, SearchIcon} from '@primer/octicons-react'
 import {AnimatePresence, motion} from 'framer-motion'
 import {FocusOn} from 'react-focus-on'
@@ -36,7 +36,7 @@ function MobileSearch({onDismiss, ...props}) {
             left: 0,
             right: 0,
             bottom: 0,
-            bg: 'primer.canvas.backdrop',
+            bg: 'canvas.backdrop',
             zIndex: -1,
           }}
           as={motion.div}
@@ -77,23 +77,24 @@ function MobileSearch({onDismiss, ...props}) {
               <XIcon />
             </Button>
           </Box>
-          <Box
-            {...getMenuProps({
-              sx: {
+          <ThemeProvider colorMode="light">
+            <Box
+              sx={{
                 display: 'flex',
                 bg: 'canvas.default',
                 py: isOpen ? 1 : 0,
                 flexDirection: 'column',
                 flex: '1 1 auto',
-              },
-              style: {
                 overflow: 'auto',
+              }}
+              style={{
                 WebkitOverflowScrolling: 'touch',
-              },
-            })}
-          >
-            {isOpen ? <SearchResults {...{results, getItemProps, highlightedIndex}} /> : null}
-          </Box>
+              }}
+              {...getMenuProps()}
+            >
+              {isOpen ? <SearchResults {...{results, getItemProps, highlightedIndex}} /> : null}
+            </Box>
+          </ThemeProvider>
         </Box>
       </Box>
     </FocusOn>

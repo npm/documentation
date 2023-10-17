@@ -330,17 +330,15 @@ export const Prompt = ({children}) => (
 
 export const PromptReply = ({children}) => <strong>{children}</strong>
 
+const ScreenshotImage = styled.img`
+  margin-top: 15px;
+  max-width: min(100%, 525px);
+  max-height: 300px;
+  border: 1px solid ${themeGet('colors.border.default')};
+`
+
 export const Screenshot = props => (
   <div>
-    <img
-      src={withPrefix(required(props.src, 'src'))}
-      alt={required(props.alt, 'alt')}
-      style={{
-        border: 'solid 1px #999999',
-        marginTop: '15px',
-        maxWidth: 'min(100%, 525px)',
-        maxHeight: '300px',
-      }}
-    />
+    <ScreenshotImage src={withPrefix(required(props.src, 'src'))} alt={required(props.alt, 'alt')} />
   </div>
 )
