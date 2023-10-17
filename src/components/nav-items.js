@@ -33,7 +33,7 @@ const NavItems = ({items, path}) => (
   </>
 )
 
-const ExternalNavItem = ({title, href, ...props}) => (
+const ExternalNavItem = ({title, ...props}) => (
   <NavList.Item {...props}>
     {title}
     <NavList.TrailingVisual>
