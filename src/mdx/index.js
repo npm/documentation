@@ -112,8 +112,9 @@ const Headings = {
   },
   h1: styled(StyledHeading).attrs({as: 'h1'})`
     padding-bottom: ${themeGet('space.2')};
-    font-size: ${themeGet('fontSizes.7')};
+    font-size: ${themeGet('fontSizes.6')};
     border-bottom: 1px solid ${themeGet('colors.border.default')};
+    margin-top: 0;
   `,
   h2: styled(StyledHeading).attrs({as: 'h2'})`
     padding-bottom: ${themeGet('space.2')};
