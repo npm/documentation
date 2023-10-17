@@ -59,7 +59,7 @@ function VariantSelect(props) {
 
   return (
     <ThemeProvider>
-      <p id="label-versions-list-item" htmlFor="versions-list-item">
+      <p id="label-versions-list-item">
         Select CLI Version:
       </p>
       <ActionMenu open={open} onOpenChange={setOpen}>
