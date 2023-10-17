@@ -51,7 +51,7 @@ function MobileSearch({onDismiss, ...props}) {
               display: 'flex',
               bg: 'canvas.default',
               color: 'fg.default',
-              height: `${HEADER_HEIGHT - HEADER_BAR}px`,
+              height: `${HEADER_HEIGHT}px`,
               flex: '0 0 auto',
               px: 3,
               alignItems: 'center',

@@ -1,7 +1,7 @@
 import {Box} from '@primer/react'
 import React from 'react'
 import NavItems from './nav-items'
-import {HEADER_HEIGHT} from '../constants'
+import {FULL_HEADER_HEIGHT} from '../constants'
 
 function usePersistentScroll(id) {
   const ref = React.useRef()
@@ -32,8 +32,8 @@ const Sidebar = () => (
     role="navigation"
     sx={{
       position: 'sticky',
-      top: `${HEADER_HEIGHT}px`,
-      height: `calc(100vh - ${HEADER_HEIGHT}px)`,
+      top: `${FULL_HEADER_HEIGHT}px`,
+      height: `calc(100vh - ${FULL_HEADER_HEIGHT}px)`,
       width: 270,
     }}
   >
