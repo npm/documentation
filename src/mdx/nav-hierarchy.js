@@ -12,7 +12,7 @@ const HierarchyItem = ({item, depth, ...props}) => {
       <Link as={GatsbyLink} key={item.title} to={item.url}>
         {item.title}
       </Link>
-      {item.description ? <Box style={{fontSize: '0.85em', marginBottom: '0.5em'}}>{item.description}</Box> : null}
+      {item.description ? <Box sx={{fontSize: '0.85em', marginBottom: '0.5em'}}>{item.description}</Box> : null}
       {hierarchy ? <Hierarchy items={hierarchy} depth={depth + 1} {...props} /> : null}
     </Box>
   )

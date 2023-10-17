@@ -1,17 +1,18 @@
 import React from 'react'
-import {BaseStyles} from '@primer/react'
+import {BaseStyles, themeGet} from '@primer/react'
 import {createGlobalStyle} from 'styled-components'
 import {SkipLink} from './mdx'
 
-const GlobalStyle = createGlobalStyle`
-  ::placeholder {
-    color: #dddddd;
+const GlobalStyles = createGlobalStyle`
+  body {
+    color: ${themeGet('colors.fg.default')};
+    background-color: ${themeGet('colors.canvas.default')};
   }
 `
 
 const PageElement = ({element}) => (
   <BaseStyles>
-    <GlobalStyle />
+    <GlobalStyles />
     <SkipLink />
     {element}
   </BaseStyles>

@@ -39,8 +39,8 @@ const Sidebar = () => (
   >
     <Box
       {...usePersistentScroll('sidebar')}
-      style={{overflow: 'auto'}}
       sx={{
+        overflow: 'auto',
         borderWidth: 0,
         borderRightWidth: 1,
         height: '100%',

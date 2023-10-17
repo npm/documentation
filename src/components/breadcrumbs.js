@@ -21,7 +21,7 @@ const Breadcrumbs = () => {
   const path = getNav.getLocation(location.pathname)
   const items = getNav.getItemBreadcrumbs(location.pathname)
 
-  if (items.length <= 1) {
+  if (!items || items.length <= 1) {
     return null
   }
 

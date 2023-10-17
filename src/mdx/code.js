@@ -22,8 +22,9 @@ function Code({className: language = '', children}) {
             tabIndex={0}
             as="pre"
             className={className}
-            style={{...style, overflow: 'auto'}}
+            style={style}
             sx={{
+              overflow: 'auto',
               borderRadius: 2,
               mt: 0,
               mb: 3,

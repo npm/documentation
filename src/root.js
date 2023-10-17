@@ -1,7 +1,21 @@
 import React from 'react'
 import {MDXProvider} from '@mdx-js/react'
-import {SSRProvider, ThemeProvider} from '@primer/react'
+import {SSRProvider, ThemeProvider, theme} from '@primer/react'
+import deepmerge from 'deepmerge'
 import * as Components from './mdx'
+import {NPM_RED} from './constants'
+
+const npmTheme = deepmerge(theme, {
+  colorSchemes: {
+    light: {
+      colors: {
+        accent: {
+          fg: NPM_RED,
+        },
+      },
+    },
+  },
+})
 
 const components = {
   a: Components.Link,
@@ -33,7 +47,7 @@ const components = {
 const RootElement = ({element}) => (
   <SSRProvider>
     <MDXProvider components={components}>
-      <ThemeProvider>{element}</ThemeProvider>
+      <ThemeProvider theme={npmTheme}>{element}</ThemeProvider>
     </MDXProvider>
   </SSRProvider>
 )
