@@ -55,6 +55,11 @@ function MobileSearch({onDismiss, ...props}) {
               flex: '0 0 auto',
               px: 3,
               alignItems: 'center',
+              border: '1px solid',
+              borderTopWidth: 0,
+              borderLeftWidth: 0,
+              borderRightWidth: 0,
+              borderColor: 'border.muted',
             }}
           >
             <motion.div

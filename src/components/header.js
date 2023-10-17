@@ -49,6 +49,8 @@ function Header() {
             justifyContent: 'space-between',
             bg: 'canvas.default',
             border: '1px solid',
+            borderLeftWidth: 0,
+            borderRightWidth: 0,
             borderColor: 'border.muted',
           }}
         >
@@ -74,7 +76,7 @@ function Header() {
           <Box sx={{display: 'flex'}}>
             <Box sx={{display: ['none', null, null, 'flex'], alignItems: 'center'}}>
               {headerNavItems.map((item, index) => (
-                <Link key={index} href={item.url} sx={{display: 'block', ml: 4}}>
+                <Link key={index} href={item.url} sx={{display: 'block', ml: 4, color: 'fg.default'}}>
                   {item.title}
                 </Link>
               ))}
