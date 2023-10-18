@@ -1,6 +1,7 @@
 import React from 'react'
-import {Box, Text, Button, Octicon} from '@primer/react'
+import {Box, Text, Button, Octicon, themeGet} from '@primer/react'
 import {Highlight, themes} from 'prism-react-renderer'
+import styled from 'styled-components'
 import {CheckIcon, CopyIcon} from '@primer/octicons-react'
 import copy from 'copy-to-clipboard'
 import {announce} from '../util/aria-live'
@@ -33,14 +34,21 @@ function ClipboardCopy({value, ...props}) {
   )
 }
 
-// export default ClipboardCopy
+export const InlineCode = styled.code`
+  padding: 0.2em 0.4em;
+  font-family: ${themeGet('fonts.mono')};
+  font-size: 85%;
+  background-color: ${themeGet('colors.neutral.muted')};
+  border-radius: ${themeGet('radii.2')};
+`
 
-function Code({className, children}) {
-  const language = className ? className.replace(/language-/, '') : ''
-  const code = children.trim()
+function Code({className = '', children, ...props}) {
+  if (!className.startsWith('language-')) {
+    return <InlineCode {...props}>{children}</InlineCode>
+  }
 
   return (
-    <Highlight code={code} language={language} theme={themes.github}>
+    <Highlight code={children} language={className.replace(/language-/, '')} theme={themes.github}>
       {({className, style, tokens, getLineProps, getTokenProps}) => (
         <Box
           sx={{
@@ -65,7 +73,7 @@ function Code({className, children}) {
             }}
           >
             <ClipboardCopy
-              value={code}
+              value={children.toString().trim()}
               sx={{
                 borderRadius: 0,
                 borderStyle: 'solid',
