@@ -1,60 +1,67 @@
 import React from 'react'
-import {Helmet} from 'react-helmet'
-import {Box} from '@primer/react'
-import Slugger from 'github-slugger'
-import Header from './components/header'
-import Sidebar from './components/sidebar'
-import useSiteMetdata from './hooks/use-site-metadata'
+import {Box, Heading, Text, ThemeProvider} from '@primer/react'
+import {H1} from './mdx'
+import PageFooter from './components/page-footer'
+import * as TableOfContents from './components/table-of-contents'
+import VariantSelect from './components/variant-select'
+import Breadcrumbs from './components/breadcrumbs'
+import Container from './components/container'
+import {SKIP_NAV} from './constants'
+import useSiteMetadata from './hooks/use-site-metadata'
+import usePage from './hooks/use-page'
 
-const SluggerContext = React.createContext(null)
-const PageContext = React.createContext(null)
-const LocationContext = React.createContext(null)
-
-export const useSlugger = () => React.useContext(SluggerContext)
-export const usePageContext = () => React.useContext(PageContext)
-export const useLocation = () => React.useContext(LocationContext)
-
-const Head = () => {
-  const {frontmatter = {}} = usePageContext()
-  const siteMetadata = useSiteMetdata()
-
-  const title = [frontmatter.title, siteMetadata.title].filter(Boolean).join(' | ')
-  const description = frontmatter.description || siteMetadata.description
-  const lang = frontmatter.lang || siteMetadata.lang
+export const HeroLayout = ({children}) => {
+  const {title, description} = useSiteMetadata()
 
   return (
-    <Helmet>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={siteMetadata.imageUrl} />
-      <meta property="twitter:card" content="summary_large_image" />
-      <html lang={lang} />
-    </Helmet>
+    <Box sx={{width: '100%'}} {...SKIP_NAV}>
+      <ThemeProvider colorMode="night" nightScheme="dark_dimmed">
+        <Box sx={{bg: 'canvas.inset', py: 6}}>
+          <Container>
+            <Heading as="h1" sx={{color: 'fg.default', fontSize: 7, m: 0}}>
+              {title}
+            </Heading>
+            <Text as="p" sx={{m: 0, color: 'fg.onEmphasis', fontSize: 4}}>
+              {description}
+            </Text>
+          </Container>
+        </Box>
+      </ThemeProvider>
+      <Container>{children}</Container>
+    </Box>
   )
 }
 
-const withLayout = Component => {
-  const LayoutProvider = props => (
-    <SluggerContext.Provider value={new Slugger()}>
-      <PageContext.Provider value={props.pageContext}>
-        <LocationContext.Provider value={props.location}>
-          <Box sx={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
-            <Head />
-            <Header />
-            <Box sx={{zIndex: 0, display: 'flex', flex: '1 1 auto', flexDirection: 'row'}} role="main">
-              <Box sx={{display: ['none', null, null, 'block']}}>
-                <Sidebar />
-              </Box>
-              <Component {...props} />
-            </Box>
-          </Box>
-        </LocationContext.Provider>
-      </PageContext.Provider>
-    </SluggerContext.Provider>
+export const DefaultLayout = ({children}) => {
+  const {title, description} = usePage().frontmatter
+  return (
+    <Box
+      sx={{
+        justifyContent: 'center',
+        flexDirection: 'row-reverse',
+        display: 'flex',
+        maxWidth: '1200px',
+        mx: 'auto',
+        width: '100%',
+        p: [4, 5, 6, 7],
+      }}
+    >
+      <TableOfContents.Desktop />
+      <Box sx={{width: '100%', maxWidth: '960px'}}>
+        <Box sx={{mb: 4}} {...SKIP_NAV}>
+          <Breadcrumbs />
+          <H1>{title}</H1>
+          {description ? <Box sx={{fontSize: 3, mb: 3}}>{description}</Box> : null}
+        </Box>
+        <VariantSelect />
+        <TableOfContents.Mobile />
+        {children}
+        <PageFooter />
+      </Box>
+    </Box>
   )
-  return LayoutProvider
 }
 
-export default withLayout
+const getLayout = ({path}) => ({'/': HeroLayout})[path] ?? DefaultLayout
+
+export default getLayout

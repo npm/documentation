@@ -2,7 +2,7 @@ import React from 'react'
 import {Box, Link} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 import * as getNav from '../util/get-nav'
-import {useLocation} from '../layout'
+import usePage from '../hooks/use-page'
 
 const HierarchyItem = ({item, depth, ...props}) => {
   const hierarchy = getNav.getHierarchy(item, props)
@@ -33,7 +33,7 @@ const Hierarchy = ({items, ...props}) => {
 }
 
 function NavHierarchy({root, depth, ...props}) {
-  const location = useLocation()
+  const {location} = usePage()
   const path = getNav.getLocation(location.pathname)
   const navRoot = (root || path).replace(/\/+$/g, '')
 

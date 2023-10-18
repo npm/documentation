@@ -1,7 +1,6 @@
 import React from 'react'
 import {Box, Text, Button, Octicon} from '@primer/react'
-import Highlight, {defaultProps} from 'prism-react-renderer'
-import githubTheme from 'prism-react-renderer/themes/github'
+import {Highlight, themes} from 'prism-react-renderer'
 import {CheckIcon, CopyIcon} from '@primer/octicons-react'
 import copy from 'copy-to-clipboard'
 import {announce} from '../util/aria-live'
@@ -41,7 +40,7 @@ function Code({className, children}) {
   const code = children.trim()
 
   return (
-    <Highlight {...defaultProps} code={code} language={language} theme={githubTheme}>
+    <Highlight code={code} language={language} theme={themes.github}>
       {({className, style, tokens, getLineProps, getTokenProps}) => (
         <Box
           sx={{

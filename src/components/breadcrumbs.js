@@ -2,7 +2,7 @@ import React from 'react'
 import {Breadcrumbs as PrimerBreadcrumbs} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 import * as getNav from '../util/get-nav'
-import {useLocation} from '../layout'
+import usePage from '../hooks/use-page'
 
 const BreadcrumbItem = ({item, path}) => {
   const href = getNav.getLocation(item.url)
@@ -16,7 +16,7 @@ const BreadcrumbItem = ({item, path}) => {
 }
 
 const Breadcrumbs = () => {
-  const location = useLocation()
+  const {location} = usePage()
   const path = getNav.getLocation(location.pathname)
   const items = getNav.getItemBreadcrumbs(location.pathname, {hideVariants: true})
 

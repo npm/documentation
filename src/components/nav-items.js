@@ -4,9 +4,9 @@ import {Link as GatsbyLink} from 'gatsby'
 import {NavList} from '@primer/react/drafts'
 import {LinkExternalIcon} from '@primer/octicons-react'
 import * as getNav from '../util/get-nav'
-import {useLocation, usePageContext} from '../layout'
 import VisuallyHidden from './visually-hidden'
 import headerNavItems from '../../content/header-nav.yml'
+import usePage from '../hooks/use-page'
 
 const NavItem = ({item, path, ...props}) => {
   const href = getNav.getLocation(item.url)
@@ -55,8 +55,10 @@ const ExternalNavItem = ({title, ...props}) => (
 )
 
 const Navigation = () => {
-  const location = useLocation()
-  const {repositoryUrl} = usePageContext()
+  const {
+    location,
+    pageContext: {repositoryUrl},
+  } = usePage()
   const path = getNav.getLocation(location.pathname)
   const items = getNav.getHierarchy(null, {path, hideVariants: true})
 
