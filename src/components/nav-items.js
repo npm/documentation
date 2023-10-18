@@ -8,7 +8,7 @@ import VisuallyHidden from './visually-hidden'
 import headerNavItems from '../../content/header-nav.yml'
 import usePage from '../hooks/use-page'
 
-const NavItem = ({item, path, ...props}) => {
+const NavItem = ({item, path, depth}) => {
   const href = getNav.getLocation(item.url)
   const isCurrent = getNav.isActiveUrl(path, href)
   const items = getNav.getHierarchy(item, {path: item.url, hideVariants: true})
@@ -19,12 +19,12 @@ const NavItem = ({item, path, ...props}) => {
       to={href}
       defaultOpen={items && isCurrent}
       aria-current={isCurrent ? 'page' : null}
-      sx={{fontSize: 1}}
+      sx={{fontSize: depth === 1 ? 2 : 1}}
     >
       {item.title}
       {items ? (
         <NavList.SubNav>
-          <NavItems items={items} path={path} {...props} />
+          <NavItems items={items} path={path} depth={depth + 1} />
         </NavList.SubNav>
       ) : null}
     </NavList.Item>
@@ -34,19 +34,17 @@ const NavItem = ({item, path, ...props}) => {
 const NavItems = ({items, path, depth = 1}) => (
   <>
     {items.map(item =>
-      depth === 1 ? (
-        <NavList.Group key={item.title}>
-          <NavItem key={item.title} item={item} path={path} depth={depth + 1} />
-        </NavList.Group>
-      ) : (
-        <NavItem key={item.title} item={item} path={path} depth={depth + 1} />
+      React.createElement(
+        depth === 1 ? NavList.Group : React.Fragment,
+        {key: item.title},
+        <NavItem item={item} path={path} depth={depth} />,
       ),
     )}
   </>
 )
 
 const ExternalNavItem = ({title, ...props}) => (
-  <NavList.Item {...props}>
+  <NavList.Item sx={{fontSize: 2}} {...props}>
     {title}
     <NavList.TrailingVisual>
       <LinkExternalIcon />
