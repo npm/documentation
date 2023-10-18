@@ -75,12 +75,12 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-const PageElement = ({element, props}) => {
+const PageElement = ({element, props, ...rest}) => {
   const page = {
     pageContext: props.pageContext,
     frontmatter: props.pageContext?.frontmatter || {},
     location: props.location,
-    path: props.path,
+    path: props.location.pathname,
     slugger: new Slugger(),
   }
   return (
@@ -95,7 +95,7 @@ const PageElement = ({element, props}) => {
             <Box sx={{display: ['none', null, null, 'block']}}>
               <Sidebar />
             </Box>
-            {React.createElement(getLayout(props), props, element)}
+            {React.createElement(getLayout(page), {key: 'layout', ...props}, element)}
           </Box>
         </Box>
       </PageProvider>

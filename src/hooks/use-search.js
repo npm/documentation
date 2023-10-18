@@ -85,6 +85,7 @@ function useSearch() {
   }, [query])
 
   const combobox = useCombobox({
+    id: 'search-box',
     // We don't need Downshift to keep track of a selected item because as
     // soon as an item is selected we navigate to a new page.
     // Let's avoid any unexpected states related to the selected item
