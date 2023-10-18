@@ -1,6 +1,6 @@
 import React from 'react'
 import {MDXProvider} from '@mdx-js/react'
-import {SSRProvider, ThemeProvider, theme} from '@primer/react'
+import {ThemeProvider, theme} from '@primer/react'
 import deepmerge from 'deepmerge'
 import * as Components from './mdx'
 import {NPM_RED} from './constants'
@@ -54,11 +54,9 @@ const components = {
 }
 
 const RootElement = ({element}) => (
-  <SSRProvider>
-    <MDXProvider components={components}>
-      <ThemeProvider theme={npmTheme}>{element}</ThemeProvider>
-    </MDXProvider>
-  </SSRProvider>
+  <MDXProvider components={components}>
+    <ThemeProvider theme={npmTheme}>{element}</ThemeProvider>
+  </MDXProvider>
 )
 
 export default RootElement
