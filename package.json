@@ -35,7 +35,7 @@
     "deepmerge": "^4.3.1",
     "details-element-polyfill": "^2.4.0",
     "downshift": "^8.2.2",
-    "framer-motion": "^3.10.6",
+    "framer-motion": "^10.16.4",
     "fuse.js": "^3.6.1",
     "gatsby": "^5.12.7",
     "gatsby-plugin-catch-links": "^5.12.0",
