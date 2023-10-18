@@ -26,7 +26,7 @@ onmessage = function ({data}) {
   if (data.data) {
     fuse = new Fuse(data.data, {
       threshold: 0.2,
-      keys: ['title', 'rawBody'],
+      keys: ['title', 'body'],
       tokenize: true,
     })
   } else if (data.query) {

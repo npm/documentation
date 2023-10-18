@@ -29,9 +29,8 @@ const npmTheme = deepmerge(theme, {
 
 const components = {
   a: Components.Link,
-  pre: Components.Pre,
-  code: Components.Code,
-  inlineCode: Components.InlineCode,
+  pre: Components.Code,
+  code: Components.InlineCode,
   table: Components.Table,
   img: Components.Image,
   p: Components.Paragraph,

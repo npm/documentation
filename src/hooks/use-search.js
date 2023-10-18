@@ -14,7 +14,7 @@ const useSearchData = () => {
           frontmatter {
             title
           }
-          rawBody
+          body
         }
       }
       allSitePage {
@@ -41,7 +41,7 @@ const useSearchData = () => {
         return {
           path: node.path,
           title: mdxNode.frontmatter.title,
-          rawBody: mdxNode.rawBody,
+          body: mdxNode.body,
         }
       })
   }, [rawData])

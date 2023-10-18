@@ -1,9 +1,9 @@
 import React from 'react'
 import {Heading, Box, Details, useDetails, Button} from '@primer/react'
 import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
-import {usePageContext} from '../layout'
 import {NavList} from '@primer/react/drafts'
 import {FULL_HEADER_HEIGHT} from '../constants'
+import usePage from '../hooks/use-page'
 
 const TableOfContentsItems = ({items, depth}) => (
   <>
@@ -26,7 +26,7 @@ const TableOfContents = ({'aria-labelledby': ariaLabelledBy, items, depth = 1}) 
 
 const withTableOfContents = Component => {
   const WithTableOfContents = props => {
-    const {tableOfContents} = usePageContext()
+    const {tableOfContents} = usePage().pageContext
     return tableOfContents ? <Component {...props} items={tableOfContents} /> : null
   }
   return WithTableOfContents

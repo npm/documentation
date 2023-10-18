@@ -112,6 +112,10 @@ const transform = (data, { release, path, frontmatter }) => {
       /\[([^\]]+)\]\(\/((?:commands|configuring-npm|using-npm)\/[^)]+)\)/g,
       (_, p1, p2) => `[${p1}](${release.url}/${p2})`
     )
+    .replace(/^<!--\s.*?\s-->$\n/gm, '')
+    .replace(/<(http)(.*?)\\?>/g, '[$1$2]($1$2)')
+    .replace(/<([^@]+?)@([^@]+?)>/g, '[$1@$2](mailto:$1@$2)')
+    .replace(/<2\.0\.0/g, '\\<2.0.0')
 
   return `---\n${yaml.stringify(attributes).trim()}\n---\n\n${body}`
 }

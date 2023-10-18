@@ -46,12 +46,13 @@ exports.createSchemaCustomization = ({actions: {createTypes}}) => {
       fields: MdxFields
     }
     type MdxFrontmatter {
-      github_repo: String,
+      edit_on_github: Boolean,
       github_branch: String,
       github_path: String,
-      edit_on_github: Boolean,
+      github_repo: String,
+      redirect_from: [String],
       slug: String,
-      redirect_from: [String]
+      title: String
     }
     type MdxFields {
       slug: String
@@ -67,18 +68,20 @@ exports.createPages = async ({graphql, actions}) => {
       allMdx {
         nodes {
           id
-          fileAbsolutePath
+          internal {
+            contentFilePath
+          }
           fields {
             slug
           }
           frontmatter {
-            title
-            github_repo
+            edit_on_github
             github_branch
             github_path
-            edit_on_github
-            slug
+            github_repo
             redirect_from
+            slug
+            title
           }
           tableOfContents
           parent {
@@ -95,10 +98,15 @@ exports.createPages = async ({graphql, actions}) => {
   // Turn every MDX file into a page.
   return Promise.all(
     data.allMdx.nodes.map(async node => {
-      const {id, frontmatter, fileAbsolutePath, tableOfContents = {}} = node
+      const {
+        id,
+        frontmatter,
+        internal: {contentFilePath},
+        tableOfContents = {},
+      } = node
 
       const pagePath = getPath(node)
-      const relativePath = path.relative(rootAbsolutePath, fileAbsolutePath)
+      const relativePath = path.relative(rootAbsolutePath, contentFilePath)
       const editUrl = getEditUrl(REPO, relativePath, frontmatter)
 
       const contributors = SHOW_CONTRIBUTORS ? await fetchContributors(REPO, relativePath, frontmatter) : {}
@@ -116,7 +124,7 @@ exports.createPages = async ({graphql, actions}) => {
 
       actions.createPage({
         path: pagePath,
-        component: fileAbsolutePath,
+        component: contentFilePath,
         context: {
           mdxId: id,
           editUrl,

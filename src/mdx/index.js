@@ -5,8 +5,8 @@ import {variant} from 'styled-system'
 import {withPrefix} from 'gatsby'
 import {LinkIcon} from '@primer/octicons-react'
 import textContent from 'react-addons-text-content'
-import {useSlugger} from '../layout'
 import {FULL_HEADER_HEIGHT} from '../constants'
+import usePage from '../hooks/use-page'
 
 export {default as Code} from './code'
 export {default as Index} from './nav-hierarchy'
@@ -19,8 +19,6 @@ const required = (prop, name) => {
 }
 
 export const Link = props => <PrimerLink underline {...props} />
-
-export const Pre = ({children}) => children
 
 const StyledHeading = styled(Heading)`
   margin-top: ${themeGet('space.4')};
@@ -42,7 +40,7 @@ const StyledHeading = styled(Heading)`
 
 const Headings = {
   Markdown: ({children, ...props}) => {
-    const slugger = useSlugger()
+    const {slugger} = usePage()
     const text = children ? textContent(children) : ''
     const id = text ? slugger.slug(text) : ''
 

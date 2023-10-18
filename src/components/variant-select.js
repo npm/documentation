@@ -2,7 +2,7 @@ import React from 'react'
 import {ActionList, ActionMenu, Box} from '@primer/react'
 import {navigate} from 'gatsby'
 import * as getNav from '../util/get-nav'
-import {useLocation} from '../layout'
+import usePage from '../hooks/use-page'
 
 const VariantItem = ({match, active}) => {
   const {variant, page} = match
@@ -71,7 +71,7 @@ const VariantMenu = ({variants, path}) => {
 }
 
 const VariantSelect = () => {
-  const location = useLocation()
+  const {location} = usePage()
   const root = getNav.getVariantRoot(location.pathname)
   const path = getNav.getPath(location.pathname)
   const vp = getNav.getVariantAndPage(root, path)
