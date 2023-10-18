@@ -91,7 +91,7 @@ function Layout({children, pageContext, location}) {
                   <Details>
                     {({open}) => (
                       <>
-                        <Text as="summary" fontWeight="bold">
+                        <Text as="summary" fontWeight="bold" sx={{cursor: 'pointer'}}>
                           {open ? (
                             <StyledOcticon icon={ChevronDownIcon} mr={2} />
                           ) : (
