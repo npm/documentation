@@ -16,7 +16,6 @@ const Head = () => {
 
   const title = [frontmatter.title, siteMetadata.title].filter(Boolean).join(' | ')
   const description = frontmatter.description || siteMetadata.description
-  const lang = frontmatter.lang || siteMetadata.lang
 
   return (
     <Helmet>
@@ -26,7 +25,7 @@ const Head = () => {
       <meta property="og:description" content={description} />
       <meta property="og:image" content={siteMetadata.imageUrl} />
       <meta property="twitter:card" content="summary_large_image" />
-      <html lang={lang} />
+      <html lang={siteMetadata.lang} />
     </Helmet>
   )
 }
