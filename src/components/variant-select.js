@@ -50,7 +50,9 @@ const VariantMenu = ({variants, path}) => {
 
   return (
     <>
-      <p id="label-versions-list-item">Select CLI Version:</p>
+      <Box as="p" sx={{m: 0}} id="label-versions-list-item">
+        Select CLI Version:
+      </Box>
       <ActionMenu open={open} onOpenChange={setOpen}>
         {/* Disabling to remove lint warnings. This property was added as "autofocus"
         in a previous accessibility audit which did not trigger the lint warning. */
@@ -82,7 +84,7 @@ const VariantSelect = () => {
   }
 
   return (
-    <Box sx={{mt: 2}}>
+    <Box sx={{mt: 2, mb: 3}}>
       <VariantMenu variants={variants} path={path} />
     </Box>
   )
