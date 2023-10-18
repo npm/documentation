@@ -31,8 +31,8 @@ This runs a package's "stop" script, if one was provided.
 
 ### See Also
 
-* [npm run-script](/cli/v6/commands/npm-run-script)
-* [npm scripts](/cli/v6/using-npm/scripts)
-* [npm test](/cli/v6/commands/npm-test)
-* [npm start](/cli/v6/commands/npm-start)
-* [npm restart](/cli/v6/commands/npm-restart)
+- [npm run-script](/cli/v6/commands/npm-run-script)
+- [npm scripts](/cli/v6/using-npm/scripts)
+- [npm test](/cli/v6/commands/npm-test)
+- [npm start](/cli/v6/commands/npm-start)
+- [npm restart](/cli/v6/commands/npm-restart)

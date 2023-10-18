@@ -33,17 +33,14 @@ Note: This command is unaware of workspaces.
 
 If supplied a topic, then show the appropriate documentation page.
 
-If the topic does not exist, or if multiple terms are provided, then npm
-will run the `help-search` command to find a match.  Note that, if
-`help-search` finds a single subject, then it will run `help` on that
-topic, so unique matches are equivalent to specifying a topic name.
+If the topic does not exist, or if multiple terms are provided, then npm will run the `help-search` command to find a match. Note that, if `help-search` finds a single subject, then it will run `help` on that topic, so unique matches are equivalent to specifying a topic name.
 
 ### Configuration
 
 #### `viewer`
 
-* Default: "man" on Posix, "browser" on Windows
-* Type: String
+- Default: "man" on Posix, "browser" on Windows
+- Type: String
 
 The program to use to view help content.
 
@@ -51,9 +48,9 @@ Set to `"browser"` to view html help content in the default web browser.
 
 ### See Also
 
-* [npm](/cli/v8/commands/npm)
-* [npm folders](/cli/v8/configuring-npm/folders)
-* [npm config](/cli/v8/commands/npm-config)
-* [npmrc](/cli/v8/configuring-npm/npmrc)
-* [package.json](/cli/v8/configuring-npm/package-json)
-* [npm help-search](/cli/v8/commands/npm-help-search)
+- [npm](/cli/v8/commands/npm)
+- [npm folders](/cli/v8/configuring-npm/folders)
+- [npm config](/cli/v8/commands/npm-config)
+- [npmrc](/cli/v8/configuring-npm/npmrc)
+- [package.json](/cli/v8/configuring-npm/package-json)
+- [npm help-search](/cli/v8/commands/npm-help-search)

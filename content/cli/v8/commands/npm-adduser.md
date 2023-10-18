@@ -31,20 +31,15 @@ Note: This command is unaware of workspaces.
 
 ### Description
 
-Create or verify a user named `<username>` in the specified registry, and
-save the credentials to the `.npmrc` file. If no registry is specified,
-the default registry will be used (see [`config`](/cli/v8/using-npm/config)).
+Create or verify a user named `<username>` in the specified registry, and save the credentials to the `.npmrc` file. If no registry is specified, the default registry will be used (see [`config`](/cli/v8/using-npm/config)).
 
 The username, password, and email are read in from prompts.
 
-To reset your password, go to <https://www.npmjs.com/forgot>
+To reset your password, go to [https://www.npmjs.com/forgot](https://www.npmjs.com/forgot)
 
-To change your email address, go to <https://www.npmjs.com/email-edit>
+To change your email address, go to [https://www.npmjs.com/email-edit](https://www.npmjs.com/email-edit)
 
-You may use this command multiple times with the same user account to
-authorize on a new machine.  When authenticating on a new machine,
-the username, password and email address must all match with
-your existing record.
+You may use this command multiple times with the same user account to authorize on a new machine. When authenticating on a new machine, the username, password and email address must all match with your existing record.
 
 `npm login` is an alias to `adduser` and behaves exactly the same way.
 
@@ -52,15 +47,15 @@ your existing record.
 
 #### `registry`
 
-* Default: "https://registry.npmjs.org/"
-* Type: URL
+- Default: "https://registry.npmjs.org/"
+- Type: URL
 
 The base URL of the npm registry.
 
 #### `scope`
 
-* Default: the scope of the current project, if any, or ""
-* Type: String
+- Default: the scope of the current project, if any, or ""
+- Type: String
 
 Associate an operation with a scope for a scoped registry.
 
@@ -74,9 +69,7 @@ npm login --scope=@mycorp --registry=https://registry.mycorp.com
 npm logout --scope=@mycorp
 ```
 
-This will cause `@mycorp` to be mapped to the registry for future
-installation of packages specified according to the pattern
-`@mycorp/package`.
+This will cause `@mycorp` to be mapped to the registry for future installation of packages specified according to the pattern `@mycorp/package`.
 
 This will also cause `npm init` to create a scoped package.
 
@@ -86,23 +79,21 @@ This will also cause `npm init` to create a scoped package.
 npm init --scope=@foo --yes
 ```
 
-
 #### `auth-type`
 
-* Default: "legacy"
-* Type: "legacy", "web", "sso", "saml", "oauth", or "webauthn"
+- Default: "legacy"
+- Type: "legacy", "web", "sso", "saml", "oauth", or "webauthn"
 
-NOTE: auth-type values "sso", "saml", "oauth", and "webauthn" will be
-removed in a future version.
+NOTE: auth-type values "sso", "saml", "oauth", and "webauthn" will be removed in a future version.
 
 What authentication strategy to use with `login`.
 
 ### See Also
 
-* [npm registry](/cli/v8/using-npm/registry)
-* [npm config](/cli/v8/commands/npm-config)
-* [npmrc](/cli/v8/configuring-npm/npmrc)
-* [npm owner](/cli/v8/commands/npm-owner)
-* [npm whoami](/cli/v8/commands/npm-whoami)
-* [npm token](/cli/v8/commands/npm-token)
-* [npm profile](/cli/v8/commands/npm-profile)
+- [npm registry](/cli/v8/using-npm/registry)
+- [npm config](/cli/v8/commands/npm-config)
+- [npmrc](/cli/v8/configuring-npm/npmrc)
+- [npm owner](/cli/v8/commands/npm-owner)
+- [npm whoami](/cli/v8/commands/npm-whoami)
+- [npm token](/cli/v8/commands/npm-token)
+- [npm profile](/cli/v8/commands/npm-profile)

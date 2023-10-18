@@ -33,8 +33,8 @@ This runs a package's "test" script, if one was provided.
 
 ### See Also
 
-* [npm run-script](/cli/v6/commands/npm-run-script)
-* [npm scripts](/cli/v6/using-npm/scripts)
-* [npm start](/cli/v6/commands/npm-start)
-* [npm restart](/cli/v6/commands/npm-restart)
-* [npm stop](/cli/v6/commands/npm-stop)
+- [npm run-script](/cli/v6/commands/npm-run-script)
+- [npm scripts](/cli/v6/using-npm/scripts)
+- [npm start](/cli/v6/commands/npm-start)
+- [npm restart](/cli/v6/commands/npm-restart)
+- [npm stop](/cli/v6/commands/npm-stop)

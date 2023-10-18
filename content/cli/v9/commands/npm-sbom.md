@@ -27,9 +27,7 @@ npm sbom
 
 ### Description
 
-The `npm sbom` command generates a Software Bill of Materials (SBOM) listing the
-dependencies for the current project. SBOMs can be generated in either
-[SPDX](https://spdx.dev/) or [CycloneDX](https://cyclonedx.org/) format.
+The `npm sbom` command generates a Software Bill of Materials (SBOM) listing the dependencies for the current project. SBOMs can be generated in either [SPDX](https://spdx.dev/) or [CycloneDX](https://cyclonedx.org/) format.
 
 ### Example CycloneDX SBOM
 
@@ -131,9 +129,7 @@ dependencies for the current project. SBOMs can be generated in either
   "dependencies": [
     {
       "ref": "simple@1.0.0",
-      "dependsOn": [
-        "lodash@4.17.21"
-      ]
+      "dependsOn": ["lodash@4.17.21"]
     },
     {
       "ref": "lodash@4.17.21",
@@ -154,13 +150,9 @@ dependencies for the current project. SBOMs can be generated in either
   "documentNamespace": "http://spdx.org/spdxdocs/simple-1.0.0-bf81090e-8bbc-459d-bec9-abeb794e096a",
   "creationInfo": {
     "created": "2023-09-01T00:00:00.001Z",
-    "creators": [
-      "Tool: npm/cli-10.1.0"
-    ]
+    "creators": ["Tool: npm/cli-10.1.0"]
   },
-  "documentDescribes": [
-    "SPDXRef-Package-simple-1.0.0"
-  ],
+  "documentDescribes": ["SPDXRef-Package-simple-1.0.0"],
   "packages": [
     {
       "name": "simple",
@@ -223,112 +215,81 @@ dependencies for the current project. SBOMs can be generated in either
 
 ### Package lock only mode
 
-If package-lock-only is enabled, only the information in the package
-lock (or shrinkwrap) is loaded.  This means that information from the
-package.json files of your dependencies will not be included in the
-result set (e.g. description, homepage, engines).
+If package-lock-only is enabled, only the information in the package lock (or shrinkwrap) is loaded. This means that information from the package.json files of your dependencies will not be included in the result set (e.g. description, homepage, engines).
 
 ### Configuration
 
 #### `omit`
 
-* Default: 'dev' if the `NODE_ENV` environment variable is set to
-  'production', otherwise empty.
-* Type: "dev", "optional", or "peer" (can be set multiple times)
+- Default: 'dev' if the `NODE_ENV` environment variable is set to 'production', otherwise empty.
+- Type: "dev", "optional", or "peer" (can be set multiple times)
 
 Dependency types to omit from the installation tree on disk.
 
-Note that these dependencies _are_ still resolved and added to the
-`package-lock.json` or `npm-shrinkwrap.json` file. They are just not
-physically installed on disk.
+Note that these dependencies _are_ still resolved and added to the `package-lock.json` or `npm-shrinkwrap.json` file. They are just not physically installed on disk.
 
-If a package type appears in both the `--include` and `--omit` lists, then
-it will be included.
+If a package type appears in both the `--include` and `--omit` lists, then it will be included.
 
-If the resulting omit list includes `'dev'`, then the `NODE_ENV` environment
-variable will be set to `'production'` for all lifecycle scripts.
-
-
+If the resulting omit list includes `'dev'`, then the `NODE_ENV` environment variable will be set to `'production'` for all lifecycle scripts.
 
 #### `package-lock-only`
 
-* Default: false
-* Type: Boolean
+- Default: false
+- Type: Boolean
 
-If set to true, the current operation will only use the `package-lock.json`,
-ignoring `node_modules`.
+If set to true, the current operation will only use the `package-lock.json`, ignoring `node_modules`.
 
-For `update` this means only the `package-lock.json` will be updated,
-instead of checking `node_modules` and downloading dependencies.
+For `update` this means only the `package-lock.json` will be updated, instead of checking `node_modules` and downloading dependencies.
 
-For `list` this means the output will be based on the tree described by the
-`package-lock.json`, rather than the contents of `node_modules`.
-
-
+For `list` this means the output will be based on the tree described by the `package-lock.json`, rather than the contents of `node_modules`.
 
 #### `sbom-format`
 
-* Default: null
-* Type: "cyclonedx" or "spdx"
+- Default: null
+- Type: "cyclonedx" or "spdx"
 
 SBOM format to use when generating SBOMs.
 
-
-
 #### `sbom-type`
 
-* Default: "library"
-* Type: "library", "application", or "framework"
+- Default: "library"
+- Type: "library", "application", or "framework"
 
-The type of package described by the generated SBOM. For SPDX, this is the
-value for the `primaryPackagePurpose` field. For CycloneDX, this is the
-value for the `type` field.
-
-
+The type of package described by the generated SBOM. For SPDX, this is the value for the `primaryPackagePurpose` field. For CycloneDX, this is the value for the `type` field.
 
 #### `workspace`
 
-* Default:
-* Type: String (can be set multiple times)
+- Default:
+- Type: String (can be set multiple times)
 
-Enable running a command in the context of the configured workspaces of the
-current project while filtering by running only the workspaces defined by
-this configuration option.
+Enable running a command in the context of the configured workspaces of the current project while filtering by running only the workspaces defined by this configuration option.
 
 Valid values for the `workspace` config are either:
 
-* Workspace names
-* Path to a workspace directory
-* Path to a parent workspace directory (will result in selecting all
-  workspaces within that folder)
+- Workspace names
+- Path to a workspace directory
+- Path to a parent workspace directory (will result in selecting all workspaces within that folder)
 
-When set for the `npm init` command, this may be set to the folder of a
-workspace which does not yet exist, to create the folder and set it up as a
-brand new workspace within the project.
+When set for the `npm init` command, this may be set to the folder of a workspace which does not yet exist, to create the folder and set it up as a brand new workspace within the project.
 
 This value is not exported to the environment for child processes.
 
 #### `workspaces`
 
-* Default: null
-* Type: null or Boolean
+- Default: null
+- Type: null or Boolean
 
-Set to true to run the command in the context of **all** configured
-workspaces.
+Set to true to run the command in the context of **all** configured workspaces.
 
-Explicitly setting this to false will cause commands like `install` to
-ignore workspaces altogether. When not set explicitly:
+Explicitly setting this to false will cause commands like `install` to ignore workspaces altogether. When not set explicitly:
 
-- Commands that operate on the `node_modules` tree (install, update, etc.)
-will link workspaces into the `node_modules` folder. - Commands that do
-other things (test, exec, publish, etc.) will operate on the root project,
-_unless_ one or more workspaces are specified in the `workspace` config.
+- Commands that operate on the `node_modules` tree (install, update, etc.) will link workspaces into the `node_modules` folder. - Commands that do other things (test, exec, publish, etc.) will operate on the root project, _unless_ one or more workspaces are specified in the `workspace` config.
 
 This value is not exported to the environment for child processes.
+
 ## See Also
 
-* [package spec](/cli/v9/using-npm/package-spec)
-* [dependency selectors](/cli/v9/using-npm/dependency-selectors)
-* [package.json](/cli/v9/configuring-npm/package-json)
-* [workspaces](/cli/v9/using-npm/workspaces)
-
+- [package spec](/cli/v9/using-npm/package-spec)
+- [dependency selectors](/cli/v9/using-npm/dependency-selectors)
+- [package.json](/cli/v9/configuring-npm/package-json)
+- [workspaces](/cli/v9/using-npm/workspaces)

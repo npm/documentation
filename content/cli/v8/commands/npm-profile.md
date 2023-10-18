@@ -32,12 +32,9 @@ Note: This command is unaware of workspaces.
 
 ### Description
 
-Change your profile information on the registry.  Note that this command
-depends on the registry implementation, so third-party registries may not
-support this interface.
+Change your profile information on the registry. Note that this command depends on the registry implementation, so third-party registries may not support this interface.
 
-* `npm profile get [<property>]`: Display all of the properties of your
-  profile, or one or more specific properties.  It looks like:
+- `npm profile get [<property>]`: Display all of the properties of your profile, or one or more specific properties. It looks like:
 
 ```bash
 +-----------------+---------------------------+
@@ -63,25 +60,16 @@ support this interface.
 +-----------------+---------------------------+
 ```
 
-* `npm profile set <property> <value>`: Set the value of a profile
-  property. You can set the following properties this way: email, fullname,
-  homepage, freenode, twitter, github
+- `npm profile set <property> <value>`: Set the value of a profile property. You can set the following properties this way: email, fullname, homepage, freenode, twitter, github
 
-* `npm profile set password`: Change your password.  This is interactive,
-  you'll be prompted for your current password and a new password.  You'll
-  also be prompted for an OTP if you have two-factor authentication
-  enabled.
+- `npm profile set password`: Change your password. This is interactive, you'll be prompted for your current password and a new password. You'll also be prompted for an OTP if you have two-factor authentication enabled.
 
-* `npm profile enable-2fa [auth-and-writes|auth-only]`: Enables two-factor
-  authentication. Defaults to `auth-and-writes` mode. Modes are:
-  * `auth-only`: Require an OTP when logging in or making changes to your
-    account's authentication.  The OTP will be required on both the website
-    and the command line.
-  * `auth-and-writes`: Requires an OTP at all the times `auth-only` does,
-    and also requires one when publishing a module, setting the `latest`
-    dist-tag, or changing access via `npm access` and `npm owner`.
+- `npm profile enable-2fa [auth-and-writes|auth-only]`: Enables two-factor authentication. Defaults to `auth-and-writes` mode. Modes are:
 
-* `npm profile disable-2fa`: Disables two-factor authentication.
+  - `auth-only`: Require an OTP when logging in or making changes to your account's authentication. The OTP will be required on both the website and the command line.
+  - `auth-and-writes`: Requires an OTP at all the times `auth-only` does, and also requires one when publishing a module, setting the `latest` dist-tag, or changing access via `npm access` and `npm owner`.
+
+- `npm profile disable-2fa`: Disables two-factor authentication.
 
 ### Details
 
@@ -91,48 +79,44 @@ Some of these commands may not be available on non npmjs.com registries.
 
 #### `registry`
 
-* Default: "https://registry.npmjs.org/"
-* Type: URL
+- Default: "https://registry.npmjs.org/"
+- Type: URL
 
 The base URL of the npm registry.
 
 #### `json`
 
-* Default: false
-* Type: Boolean
+- Default: false
+- Type: Boolean
 
 Whether or not to output JSON data, rather than the normal output.
 
-* In `npm pkg set` it enables parsing set values with JSON.parse() before
-  saving them to your `package.json`.
+- In `npm pkg set` it enables parsing set values with JSON.parse() before saving them to your `package.json`.
 
 Not supported by all npm commands.
 
 #### `parseable`
 
-* Default: false
-* Type: Boolean
+- Default: false
+- Type: Boolean
 
-Output parseable results from commands that write to standard output. For
-`npm search`, this will be tab-separated table format.
+Output parseable results from commands that write to standard output. For `npm search`, this will be tab-separated table format.
 
 #### `otp`
 
-* Default: null
-* Type: null or String
+- Default: null
+- Type: null or String
 
-This is a one-time password from a two-factor authenticator. It's needed
-when publishing or changing package permissions with `npm access`.
+This is a one-time password from a two-factor authenticator. It's needed when publishing or changing package permissions with `npm access`.
 
-If not set, and a registry response fails with a challenge for a one-time
-password, npm will prompt on the command line for one.
+If not set, and a registry response fails with a challenge for a one-time password, npm will prompt on the command line for one.
 
 ### See Also
 
-* [npm adduser](/cli/v8/commands/npm-adduser)
-* [npm registry](/cli/v8/using-npm/registry)
-* [npm config](/cli/v8/commands/npm-config)
-* [npmrc](/cli/v8/configuring-npm/npmrc)
-* [npm owner](/cli/v8/commands/npm-owner)
-* [npm whoami](/cli/v8/commands/npm-whoami)
-* [npm token](/cli/v8/commands/npm-token)
+- [npm adduser](/cli/v8/commands/npm-adduser)
+- [npm registry](/cli/v8/using-npm/registry)
+- [npm config](/cli/v8/commands/npm-config)
+- [npmrc](/cli/v8/configuring-npm/npmrc)
+- [npm owner](/cli/v8/commands/npm-owner)
+- [npm whoami](/cli/v8/commands/npm-whoami)
+- [npm token](/cli/v8/commands/npm-token)

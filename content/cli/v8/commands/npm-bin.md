@@ -35,22 +35,19 @@ Print the folder where npm will install executables.
 
 #### `global`
 
-* Default: false
-* Type: Boolean
+- Default: false
+- Type: Boolean
 
-Operates in "global" mode, so that packages are installed into the `prefix`
-folder instead of the current working directory. See
-[folders](/cli/v8/configuring-npm/folders) for more on the differences in behavior.
+Operates in "global" mode, so that packages are installed into the `prefix` folder instead of the current working directory. See [folders](/cli/v8/configuring-npm/folders) for more on the differences in behavior.
 
-* packages are installed into the `{prefix}/lib/node_modules` folder, instead
-  of the current working directory.
-* bin files are linked to `{prefix}/bin`
-* man pages are linked to `{prefix}/share/man`
+- packages are installed into the `{prefix}/lib/node_modules` folder, instead of the current working directory.
+- bin files are linked to `{prefix}/bin`
+- man pages are linked to `{prefix}/share/man`
 
 ### See Also
 
-* [npm prefix](/cli/v8/commands/npm-prefix)
-* [npm root](/cli/v8/commands/npm-root)
-* [npm folders](/cli/v8/configuring-npm/folders)
-* [npm config](/cli/v8/commands/npm-config)
-* [npmrc](/cli/v8/configuring-npm/npmrc)
+- [npm prefix](/cli/v8/commands/npm-prefix)
+- [npm root](/cli/v8/commands/npm-root)
+- [npm folders](/cli/v8/configuring-npm/folders)
+- [npm config](/cli/v8/commands/npm-config)
+- [npmrc](/cli/v8/configuring-npm/npmrc)

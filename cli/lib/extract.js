@@ -7,12 +7,35 @@ const Transform = require('./transform')
 const gh = require('./gh')
 const log = require('./log')
 
+const whackAMoleReplace = (s, replacements) => {
+  // some known content in changelogs that is problematic for mdx this is
+  // a bit of whack-a-mole but is necessary since markdown in the CLI is
+  // different from the mdx v2 we parse for the docs site
+  for (const rep of replacements) {
+    s = s.replace(rep, rep.replace(/([<>])/g, '\\$1').replace(/([{}])/g, '\\$1'))
+  }
+  return s
+}
+
 const unpackTarball = async ({ release, cwd, dir }) => {
   const strip = 1
   const result = []
   const dirParts = dir.split(sep)
 
   log.verbose('tarball', release.resolved, { cwd, dir })
+
+  const format = (s) => {
+    // a few specific replacements that cause problems for mdx
+    return whackAMoleReplace(s, [
+      '{npm-version} node/{node-version} {platform} {arch} workspaces/{workspaces} {ci}',
+      'Default: {prefix}/etc/npmrc',
+    ])
+      // we cant remove all emails since all except this one are in code blocks
+      .replace(/(:: )<(i@izs\.me)>/g, '$1[$2](mailto:$2)')
+      // the v6 version of the funding page has json not inside a code
+      .replace(/(:\n\n)(\s{4}"funding": {)/g, '$1```json\n$2')
+      .replace(/^(\s{4}]$)(\n\n)/gm, '$1\n```$2')
+  }
 
   const extract = () =>
     tar.x({
@@ -24,6 +47,7 @@ const unpackTarball = async ({ release, cwd, dir }) => {
         return new Transform({
           path,
           release,
+          format,
         })
       },
       filter: (path) => {
@@ -65,13 +89,27 @@ const writeChangelog = async ({ release, nav, cwd, srcPath, contentPath }) => {
 
   await fs.writeFile(
     join(cwd, contentPath + '.md'),
-    // mdx needs `>` escaped
-    Transform.sync(changelog.toString().replace(/([^\\])>/g, '$1\\>'), {
+    Transform.sync(changelog, {
       release,
       path: contentPath,
       frontmatter: {
         github_path: srcPath,
         title,
+      },
+      format: (s) => {
+        // some known content in changelogs that is problematic for mdx this is
+        // a bit of whack-a-mole but is necessary since markdown in the CLI is
+        // different from the mdx v2 we parse for the docs site
+        return whackAMoleReplace(s, [
+          ' support for node <=16.13 ',
+          '<->',
+          ' npm install <folder> ',
+          ' --replace-registry-host=<npmjs|always|never> ',
+          'bundledDependencies -> bundleDependencies ',
+          ' bump knownBroken to <12.5.0 ',
+        ])
+          // remove changelog h1 so it doesnt double render the title
+          .replace(/^#\s+Changelog\s+$\n/gm, '')
       },
     }),
     'utf-8'
