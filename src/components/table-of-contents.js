@@ -35,7 +35,7 @@ const withTableOfContents = Component => {
 export const Mobile = withTableOfContents(({items}) => {
   const {getDetailsProps, open} = useDetails({})
   return (
-    <Box sx={{display: ['block', null, 'none'], mb: 5}}>
+    <Box sx={{display: ['block', null, 'none'], mb: 3}}>
       <Details {...getDetailsProps()}>
         <Button variant="invisible" as="summary" leadingIcon={open ? ChevronDownIcon : ChevronRightIcon}>
           Table of contents
