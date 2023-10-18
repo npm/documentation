@@ -33,5 +33,5 @@ This command runs an `npm ci` followed immediately by an `npm test`.
 
 ### See Also
 
-* [npm ci](/cli/v6/commands/npm-ci)
-* [npm test](/cli/v6/commands/npm-test)
+- [npm ci](/cli/v6/commands/npm-ci)
+- [npm test](/cli/v6/commands/npm-test)

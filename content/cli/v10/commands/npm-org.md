@@ -87,59 +87,45 @@ $ npm org ls my-org @mx-santos
 
 ### Description
 
-You can use the `npm org` commands to manage and view users of an
-organization.  It supports adding and removing users, changing their roles,
-listing them, and finding specific ones and their roles.
+You can use the `npm org` commands to manage and view users of an organization. It supports adding and removing users, changing their roles, listing them, and finding specific ones and their roles.
 
 ### Configuration
 
 #### `registry`
 
-* Default: "https://registry.npmjs.org/"
-* Type: URL
+- Default: "https://registry.npmjs.org/"
+- Type: URL
 
 The base URL of the npm registry.
 
-
-
 #### `otp`
 
-* Default: null
-* Type: null or String
+- Default: null
+- Type: null or String
 
-This is a one-time password from a two-factor authenticator. It's needed
-when publishing or changing package permissions with `npm access`.
+This is a one-time password from a two-factor authenticator. It's needed when publishing or changing package permissions with `npm access`.
 
-If not set, and a registry response fails with a challenge for a one-time
-password, npm will prompt on the command line for one.
-
-
+If not set, and a registry response fails with a challenge for a one-time password, npm will prompt on the command line for one.
 
 #### `json`
 
-* Default: false
-* Type: Boolean
+- Default: false
+- Type: Boolean
 
 Whether or not to output JSON data, rather than the normal output.
 
-* In `npm pkg set` it enables parsing set values with JSON.parse() before
-  saving them to your `package.json`.
+- In `npm pkg set` it enables parsing set values with JSON.parse() before saving them to your `package.json`.
 
 Not supported by all npm commands.
 
-
-
 #### `parseable`
 
-* Default: false
-* Type: Boolean
+- Default: false
+- Type: Boolean
 
-Output parseable results from commands that write to standard output. For
-`npm search`, this will be tab-separated table format.
-
-
+Output parseable results from commands that write to standard output. For `npm search`, this will be tab-separated table format.
 
 ### See Also
 
-* [using orgs](/cli/v10/using-npm/orgs)
-* [Documentation on npm Orgs](https://docs.npmjs.com/orgs/)
+- [using orgs](/cli/v10/using-npm/orgs)
+- [Documentation on npm Orgs](https://docs.npmjs.com/orgs/)

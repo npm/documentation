@@ -39,35 +39,39 @@ const StyledHeading = styled(Heading)`
 `
 
 const Headings = {
-  Markdown: ({children, ...props}) => {
+  Markdown: ({children, autolink = true, ...props}) => {
     const {slugger} = usePage()
     const text = children ? textContent(children) : ''
     const id = text ? slugger.slug(text) : ''
 
     return (
-      <StyledHeading id={id} {...props}>
-        <PrimerLink
-          href={`#${id}`}
-          aria-label={`${text} permalink`}
-          sx={{
-            color: 'inherit',
-            '&:hover, &:focus': {
-              textDecoration: 'none',
-            },
-          }}
-        >
-          {children}
-          <Octicon
-            icon={LinkIcon}
-            className="octicon-link"
+      <StyledHeading {...(autolink ? {id} : {})} {...props}>
+        {autolink ? (
+          <PrimerLink
+            href={`#${id}`}
+            aria-label={`${text} permalink`}
             sx={{
-              ml: 2,
-              color: 'fg.muted',
-              // !important is needed here to override default icon styles
-              verticalAlign: 'middle !important',
+              color: 'inherit',
+              '&:hover, &:focus': {
+                textDecoration: 'none',
+              },
             }}
-          />
-        </PrimerLink>
+          >
+            {children}
+            <Octicon
+              icon={LinkIcon}
+              className="octicon-link"
+              sx={{
+                ml: 2,
+                color: 'fg.muted',
+                // !important is needed here to override default icon styles
+                verticalAlign: 'middle !important',
+              }}
+            />
+          </PrimerLink>
+        ) : (
+          children
+        )}
       </StyledHeading>
     )
   },

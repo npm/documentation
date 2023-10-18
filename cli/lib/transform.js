@@ -4,6 +4,7 @@ const yaml = require('yaml')
 const { minimatch } = require('minimatch')
 const { sep, join, posix, isAbsolute } = require('path')
 const gh = require('./gh')
+const prettier = require('@prettier/sync')
 const rawRedirects = require('./redirects')
 
 const getPathParts = (path) => {
@@ -61,7 +62,7 @@ const getRedirects = ({ path, release }) => {
     .sort((a, b) => a.localeCompare(b, 'en'))
 }
 
-const transform = (data, { release, path, frontmatter }) => {
+const transform = (data, { release, path, frontmatter, format = s => s }) => {
   let { attributes, body } = parseFm(data.toString())
 
   /* istanbul ignore next */
@@ -102,6 +103,10 @@ const transform = (data, { release, path, frontmatter }) => {
       })
   )
 
+  // first format with prettier, this helps so other replacements don't have to
+  // worry about newlines vs spaces
+  body = prettier.format(body, { parser: 'markdown', proseWrap: 'never' })
+  // then do replacements for all cli makdown files
   body = body
     // some legacy versions of the docs did not get this replaced
     // in the source so we need to replace it here
@@ -112,10 +117,13 @@ const transform = (data, { release, path, frontmatter }) => {
       /\[([^\]]+)\]\(\/((?:commands|configuring-npm|using-npm)\/[^)]+)\)/g,
       (_, p1, p2) => `[${p1}](${release.url}/${p2})`
     )
+    // remove html comments which are not mdx compatible
     .replace(/^<!--\s.*?\s-->$\n/gm, '')
+    // replace markdown autolinks with full markdown links, also for mdx
     .replace(/<(http)(.*?)\\?>/g, '[$1$2]($1$2)')
-    .replace(/<([^@]+?)@([^@]+?)>/g, '[$1@$2](mailto:$1@$2)')
-    .replace(/<2\.0\.0/g, '\\<2.0.0')
+
+  // then do any transformer specific replacements
+  body = format(body)
 
   return `---\n${yaml.stringify(attributes).trim()}\n---\n\n${body}`
 }
@@ -126,6 +134,8 @@ class Transform extends Minipass {
   #data = []
   #length = 0
   #opts = {}
+
+  static sync = transform
 
   constructor (transformOpts) {
     super({ encoding: 'utf-8' })
@@ -145,4 +155,3 @@ class Transform extends Minipass {
 }
 
 module.exports = Transform
-module.exports.sync = transform

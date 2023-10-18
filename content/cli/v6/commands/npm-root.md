@@ -20,6 +20,7 @@ redirect_from:
 ---
 
 ### Synopsis
+
 ```bash
 npm root [-g]
 ```
@@ -30,8 +31,8 @@ Print the effective `node_modules` folder to standard out.
 
 ### See Also
 
-* [npm prefix](/cli/v6/commands/npm-prefix)
-* [npm bin](/cli/v6/commands/npm-bin)
-* [npm folders](/cli/v6/configuring-npm/folders)
-* [npm config](/cli/v6/commands/npm-config)
-* [npmrc](/cli/v6/configuring-npm/npmrc)
+- [npm prefix](/cli/v6/commands/npm-prefix)
+- [npm bin](/cli/v6/commands/npm-bin)
+- [npm folders](/cli/v6/configuring-npm/folders)
+- [npm config](/cli/v6/commands/npm-config)
+- [npmrc](/cli/v6/configuring-npm/npmrc)

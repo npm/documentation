@@ -37,10 +37,9 @@ common options: [--save|--save-dev|--save-optional] [--save-exact] [--dry-run]
 
 ### Description
 
-This command runs an `npm install` followed immediately by an `npm test`. It
-takes exactly the same arguments as `npm install`.
+This command runs an `npm install` followed immediately by an `npm test`. It takes exactly the same arguments as `npm install`.
 
 ### See Also
 
-* [npm install](/cli/v6/commands/npm-install)
-* [npm test](/cli/v6/commands/npm-test)
+- [npm install](/cli/v6/commands/npm-install)
+- [npm test](/cli/v6/commands/npm-test)

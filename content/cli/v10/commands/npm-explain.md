@@ -45,11 +45,9 @@ alias: why
 
 ### Description
 
-This command will print the chain of dependencies causing a given package
-to be installed in the current project.
+This command will print the chain of dependencies causing a given package to be installed in the current project.
 
-If one or more package specs are provided, then only packages matching
-one of the specifiers will have their relationships explained.
+If one or more package specs are provided, then only packages matching one of the specifiers will have their relationships explained.
 
 The package spec can also refer to a folder within `./node_modules`
 
@@ -69,10 +67,7 @@ node_modules/tacks/node_modules/glob
       dev tacks@"^1.3.0" from the root project
 ```
 
-To explain just the package residing at a specific folder, pass that as the
-argument to the command.  This can be useful when trying to figure out
-exactly why a given dependency is being duplicated to satisfy conflicting
-version requirements within the project.
+To explain just the package residing at a specific folder, pass that as the argument to the command. This can be useful when trying to figure out exactly why a given dependency is being duplicated to satisfy conflicting version requirements within the project.
 
 ```bash
 $ npm explain node_modules/nyc/node_modules/find-up
@@ -86,51 +81,44 @@ node_modules/nyc/node_modules/find-up
 ```
 
 ### Configuration
+
 #### `json`
 
-* Default: false
-* Type: Boolean
+- Default: false
+- Type: Boolean
 
 Whether or not to output JSON data, rather than the normal output.
 
-* In `npm pkg set` it enables parsing set values with JSON.parse() before
-  saving them to your `package.json`.
+- In `npm pkg set` it enables parsing set values with JSON.parse() before saving them to your `package.json`.
 
 Not supported by all npm commands.
 
-
-
 #### `workspace`
 
-* Default:
-* Type: String (can be set multiple times)
+- Default:
+- Type: String (can be set multiple times)
 
-Enable running a command in the context of the configured workspaces of the
-current project while filtering by running only the workspaces defined by
-this configuration option.
+Enable running a command in the context of the configured workspaces of the current project while filtering by running only the workspaces defined by this configuration option.
 
 Valid values for the `workspace` config are either:
 
-* Workspace names
-* Path to a workspace directory
-* Path to a parent workspace directory (will result in selecting all
-  workspaces within that folder)
+- Workspace names
+- Path to a workspace directory
+- Path to a parent workspace directory (will result in selecting all workspaces within that folder)
 
-When set for the `npm init` command, this may be set to the folder of a
-workspace which does not yet exist, to create the folder and set it up as a
-brand new workspace within the project.
+When set for the `npm init` command, this may be set to the folder of a workspace which does not yet exist, to create the folder and set it up as a brand new workspace within the project.
 
 This value is not exported to the environment for child processes.
 
 ### See Also
 
-* [package spec](/cli/v10/using-npm/package-spec)
-* [npm config](/cli/v10/commands/npm-config)
-* [npmrc](/cli/v10/configuring-npm/npmrc)
-* [npm folders](/cli/v10/configuring-npm/folders)
-* [npm ls](/cli/v10/commands/npm-ls)
-* [npm install](/cli/v10/commands/npm-install)
-* [npm link](/cli/v10/commands/npm-link)
-* [npm prune](/cli/v10/commands/npm-prune)
-* [npm outdated](/cli/v10/commands/npm-outdated)
-* [npm update](/cli/v10/commands/npm-update)
+- [package spec](/cli/v10/using-npm/package-spec)
+- [npm config](/cli/v10/commands/npm-config)
+- [npmrc](/cli/v10/configuring-npm/npmrc)
+- [npm folders](/cli/v10/configuring-npm/folders)
+- [npm ls](/cli/v10/commands/npm-ls)
+- [npm install](/cli/v10/commands/npm-install)
+- [npm link](/cli/v10/commands/npm-link)
+- [npm prune](/cli/v10/commands/npm-prune)
+- [npm outdated](/cli/v10/commands/npm-outdated)
+- [npm update](/cli/v10/commands/npm-update)

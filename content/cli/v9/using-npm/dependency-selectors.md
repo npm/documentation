@@ -52,6 +52,7 @@ The [`npm query`](/cli/v9/commands/npm-query) command exposes a new dependency s
 - `.bundled` dependency found in the `bundleDependencies` section of `package.json`, or is a child of said dependency
 
 #### Pseudo Selectors
+
 - [`:not(<selector>)`](https://developer.mozilla.org/en-US/docs/Web/CSS/:not)
 - [`:has(<selector>)`](https://developer.mozilla.org/en-US/docs/Web/CSS/:has)
 - [`:is(<selector list>)`](https://developer.mozilla.org/en-US/docs/Web/CSS/:is)
@@ -60,7 +61,7 @@ The [`npm query`](/cli/v9/commands/npm-query) command exposes a new dependency s
 - [`:empty`](https://developer.mozilla.org/en-US/docs/Web/CSS/:empty) when a dependency has no dependencies
 - [`:private`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#private) when a dependency is private
 - `:link` when a dependency is linked (for instance, workspaces or packages manually [`linked`](https://docs.npmjs.com/cli/v8/commands/npm-link)
-- `:deduped` when a dependency has been deduped (note that this does *not* always mean the dependency has been hoisted to the root of node_modules)
+- `:deduped` when a dependency has been deduped (note that this does _not_ always mean the dependency has been hoisted to the root of node_modules)
 - `:overridden` when a dependency has been overridden
 - `:extraneous` when a dependency exists but is not defined as a dependency of any node
 - `:invalid` when a dependency version is out of its ancestors specified range
@@ -128,7 +129,7 @@ The generic `:attr()` pseudo selector standardizes a pattern which can be used f
 
 ```css
 /* return dependencies that have a `scripts.test` containing `"tap"` */
-*:attr(scripts, [test~=tap])
+*: attr(scripts, [test~=tap]);
 ```
 
 #### Nested `Objects`
@@ -137,7 +138,7 @@ Nested objects are expressed as sequential arguments to `:attr()`.
 
 ```css
 /* return dependencies that have a testling config for opera browsers */
-*:attr(testling, browsers, [~=opera])
+*: attr(testling, browsers, [~=opera]);
 ```
 
 #### `Arrays`
@@ -145,6 +146,7 @@ Nested objects are expressed as sequential arguments to `:attr()`.
 `Array`s specifically uses a special/reserved `.` character in place of a typical attribute name. `Arrays` also support exact `value` matching when a `String` is passed to the selector.
 
 ##### Example of an `Array` Attribute Selection:
+
 ```css
 /* removes the distinction between properties & arrays */
 /* ie. we'd have to check the property & iterate to match selection */
@@ -153,16 +155,18 @@ Nested objects are expressed as sequential arguments to `:attr()`.
 ```
 
 ##### Example of an `Array` matching directly to a value:
+
 ```css
 /* return dependencies that have the exact keyword "react" */
 /* this is equivalent to `*:keywords([value="react"])` */
-*:attr([keywords=react])
+*: attr([keywords=react]);
 ```
 
 ##### Example of an `Array` of `Object`s:
+
 ```css
 /* returns */
-*:attr(contributors, [email=ruyadorno@github.com])
+*: attr(contributors, [email=ruyadorno @github.com]);
 ```
 
 ### Groups
@@ -176,7 +180,7 @@ Dependency groups are defined by the package relationships to their ancestors (i
 - `.bundled`
 - `.workspace`
 
-Please note that currently `workspace` deps are always `prod` dependencies.  Additionally the `.root` dependency is also considered a `prod` dependency.
+Please note that currently `workspace` deps are always `prod` dependencies. Additionally the `.root` dependency is also considered a `prod` dependency.
 
 ### Programmatic Usage
 
@@ -184,31 +188,31 @@ Please note that currently `workspace` deps are always `prod` dependencies.  Add
   - this method will return a filtered, flattened dependency Arborist `Node` list based on a valid query selector
 
 ```js
-const Arborist = require('@npmcli/arborist')
-const arb = new Arborist({})
+const Arborist = require("@npmcli/arborist");
+const arb = new Arborist({});
 ```
 
 ```js
 // root-level
 arb.loadActual().then(async (tree) => {
   // query all production dependencies
-  const results = await tree.querySelectorAll('.prod')
-  console.log(results)
-})
+  const results = await tree.querySelectorAll(".prod");
+  console.log(results);
+});
 ```
 
 ```js
 // iterative
 arb.loadActual().then(async (tree) => {
   // query for the deduped version of react
-  const results = await tree.querySelectorAll('#react:not(:deduped)')
+  const results = await tree.querySelectorAll("#react:not(:deduped)");
   // query the deduped react for git deps
-  const deps = await results[0].querySelectorAll(':type(git)')
-  console.log(deps)
-})
+  const deps = await results[0].querySelectorAll(":type(git)");
+  console.log(deps);
+});
 ```
 
 ## See Also
 
-* [npm query](/cli/v9/commands/npm-query)
-* [@npmcli/arborist](https://npm.im/@npmcli/arborist)
+- [npm query](/cli/v9/commands/npm-query)
+- [@npmcli/arborist](https://npm.im/@npmcli/arborist)

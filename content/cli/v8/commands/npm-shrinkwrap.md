@@ -29,19 +29,14 @@ Note: This command is unaware of workspaces.
 
 ### Description
 
-This command repurposes `package-lock.json` into a publishable
-`npm-shrinkwrap.json` or simply creates a new one. The file created and
-updated by this command will then take precedence over any other existing
-or future `package-lock.json` files. For a detailed explanation of the
-design and purpose of package locks in npm, see
-[package-lock-json](/cli/v8/configuring-npm/package-lock-json).
+This command repurposes `package-lock.json` into a publishable `npm-shrinkwrap.json` or simply creates a new one. The file created and updated by this command will then take precedence over any other existing or future `package-lock.json` files. For a detailed explanation of the design and purpose of package locks in npm, see [package-lock-json](/cli/v8/configuring-npm/package-lock-json).
 
 ### See Also
 
-* [npm install](/cli/v8/commands/npm-install)
-* [npm run-script](/cli/v8/commands/npm-run-script)
-* [npm scripts](/cli/v8/using-npm/scripts)
-* [package.json](/cli/v8/configuring-npm/package-json)
-* [package-lock.json](/cli/v8/configuring-npm/package-lock-json)
-* [npm-shrinkwrap.json](/cli/v8/configuring-npm/npm-shrinkwrap-json)
-* [npm ls](/cli/v8/commands/npm-ls)
+- [npm install](/cli/v8/commands/npm-install)
+- [npm run-script](/cli/v8/commands/npm-run-script)
+- [npm scripts](/cli/v8/using-npm/scripts)
+- [package.json](/cli/v8/configuring-npm/package-json)
+- [package-lock.json](/cli/v8/configuring-npm/package-lock-json)
+- [npm-shrinkwrap.json](/cli/v8/configuring-npm/npm-shrinkwrap-json)
+- [npm ls](/cli/v8/commands/npm-ls)

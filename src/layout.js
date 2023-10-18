@@ -50,7 +50,7 @@ export const DefaultLayout = ({children}) => {
       <Box sx={{width: '100%', maxWidth: '960px'}}>
         <Box sx={{mb: 4}} {...SKIP_NAV}>
           <Breadcrumbs />
-          <H1>{title}</H1>
+          <H1 autolink={false}>{title}</H1>
           {description ? <Box sx={{fontSize: 3, mb: 3}}>{description}</Box> : null}
         </Box>
         <VariantSelect />
