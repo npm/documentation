@@ -1320,7 +1320,7 @@
             - title: Changelog
               url: /cli/v9/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 10.2.0 (Latest Release)
+    - title: Version 10.2.1 (Latest Release)
       shortName: v10
       url: /cli/v10
       default: true
