@@ -1,5 +1,4 @@
-import {BorderBox, Box, Flex, Grid, Heading, Position, StyledOcticon, Text} from '@primer/components'
-import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
+import {BorderBox, Box, Flex, Grid, Heading, Position, Text} from '@primer/components'
 import React from 'react'
 import Head from '../components/head'
 import Header, {HEADER_HEIGHT} from '../components/header'
@@ -10,7 +9,6 @@ import StatusLabel from '../components/status-label'
 import TableOfContents from '../components/table-of-contents'
 import VariantSelect from '../components/variant-select'
 import NavHierarchy from '../util/nav-hierarchy'
-import Details from '../components/details'
 import * as Slugger from '../hooks/use-slugger'
 
 function Layout({children, pageContext, location}) {
@@ -88,23 +86,12 @@ function Layout({children, pageContext, location}) {
               ) : null}
               {pageContext.tableOfContents ? (
                 <Box display={['block', null, 'none']} mb={3}>
-                  <Details>
-                    {({open}) => (
-                      <>
-                        <Text as="summary" fontWeight="bold">
-                          {open ? (
-                            <StyledOcticon icon={ChevronDownIcon} mr={2} />
-                          ) : (
-                            <StyledOcticon icon={ChevronRightIcon} mr={2} />
-                          )}
-                          Table of contents
-                        </Text>
-                        <Box pt={1}>
-                          <TableOfContents items={pageContext.tableOfContents} />
-                        </Box>
-                      </>
-                    )}
-                  </Details>
+                  <>
+                    <Text display="inline-block" fontWeight="bold" mb={1} id="table-of-content-label">
+                      Table of contents
+                    </Text>
+                    <TableOfContents items={pageContext.tableOfContents} labelId="table-of-content-label" />
+                  </>
                 </Box>
               ) : null}
               {children}
