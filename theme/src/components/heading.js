@@ -1,11 +1,11 @@
 import {Heading, Link} from '@primer/components'
 import {LinkIcon} from '@primer/octicons-react'
 import {themeGet} from '@styled-system/theme-get'
-import GithubSlugger from 'github-slugger'
 import React from 'react'
 import textContent from 'react-addons-text-content'
 import styled from 'styled-components'
 import {HEADER_HEIGHT} from './header'
+import {useSlugger} from '../hooks/use-slugger'
 
 const StyledHeading = styled(Heading)`
   margin-top: ${themeGet('space.4')};
@@ -23,7 +23,7 @@ const StyledHeading = styled(Heading)`
 `
 
 function MarkdownHeading({children, ...props}) {
-  const slugger = new GithubSlugger()
+  const slugger = useSlugger()
   const text = children ? textContent(children) : ''
   const id = text ? slugger.slug(text) : ''
 

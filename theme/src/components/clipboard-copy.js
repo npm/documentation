@@ -3,7 +3,7 @@ import {CheckIcon, CopyIcon} from '@primer/octicons-react'
 import styled from 'styled-components'
 import copy from 'copy-to-clipboard'
 import React from 'react'
-import {announce} from '../aria-live'
+import {announce} from '../util/aria-live'
 
 const CopyToClipboard = styled(Button)`
   &:focus {

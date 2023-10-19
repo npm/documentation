@@ -172,8 +172,6 @@ These are run from the scripts of `<pkg-name>`
 * `publish`
 * `postpublish`
 
-`prepare` will not run during `--dry-run`
-
 #### [`npm rebuild`](/cli/v10/commands/npm-rebuild)
 
 * `preinstall`

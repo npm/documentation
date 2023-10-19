@@ -1,5 +1,5 @@
-import navItems from './nav.yml'
 import {withPrefix} from 'gatsby'
+import navItems from '../nav.yml'
 
 export default {
   getLocation(path) {

@@ -4,11 +4,11 @@ import {Link as GatsbyLink} from 'gatsby'
 import React from 'react'
 import navItems from '../nav.yml'
 import headerNavItems from '../header-nav.yml'
-import useSiteMetadata from '../use-site-metadata'
+import useSiteMetadata from '../hooks/use-site-metadata'
 import DarkButton from './dark-button'
 import Drawer from './drawer'
 import NavItems from './nav-items'
-import {useIsMobile} from '../use-breakpoint'
+import {useIsMobile} from '../hooks/use-breakpoint'
 
 const useDrawerIsOpen = () => {
   const isMobile = useIsMobile()
@@ -25,7 +25,7 @@ const useDrawerIsOpen = () => {
   return [isOpen, {setOpen, setClose}]
 }
 
-function NavDrawer({location}) {
+function NavDrawer({location, repositoryUrl}) {
   const siteMetadata = useSiteMetadata()
   const [isOpen, {setOpen, setClose}] = useDrawerIsOpen()
 
@@ -54,7 +54,7 @@ function NavDrawer({location}) {
             </BorderBox>
             {navItems.length > 0 ? (
               <Flex flexDirection="column">
-                <NavItems location={location} items={navItems} editOnGitHub={false} />
+                <NavItems location={location} items={navItems} repositoryUrl={repositoryUrl} />
               </Flex>
             ) : null}
           </Flex>

@@ -23,7 +23,7 @@ Note: This command is unaware of workspaces.
 
 ### Version
 
-9.8.1
+9.9.0
 
 ### Description
 

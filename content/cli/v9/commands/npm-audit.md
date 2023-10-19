@@ -47,6 +47,13 @@ vulnerability is found. It may be useful in CI environments to include the
 will cause the command to fail. This option does not filter the report
 output, it simply changes the command's failure threshold.
 
+### Package lock
+
+By default npm requires a package-lock or shrinkwrap in order to run the
+audit.  You can bypass the package lock with `--no-package-lock` but be
+aware the results may be different with every run, since npm will
+re-build the dependency tree each time.
+
 ### Audit Signatures
 
 To ensure the integrity of packages you download from the public npm registry, or any registry that supports signatures, you can verify the registry signatures of downloaded packages using the npm CLI.
@@ -333,6 +340,16 @@ instead of checking `node_modules` and downloading dependencies.
 
 For `list` this means the output will be based on the tree described by the
 `package-lock.json`, rather than the contents of `node_modules`.
+
+
+
+#### `package-lock`
+
+* Default: true
+* Type: Boolean
+
+If set to false, then ignore `package-lock.json` files when installing. This
+will also prevent _writing_ `package-lock.json` if `save` is true.
 
 
 

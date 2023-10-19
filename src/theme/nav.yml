@@ -1051,7 +1051,7 @@
             - title: Changelog
               url: /cli/v8/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 9.8.1 (Legacy Release)
+    - title: Version 9.9.0 (Legacy Release)
       shortName: v9
       url: /cli/v9
       default: false
@@ -1204,6 +1204,9 @@
             - title: npm run-script
               url: /cli/v9/commands/npm-run-script
               description: Run arbitrary package scripts
+            - title: npm sbom
+              url: /cli/v9/commands/npm-sbom
+              description: Generate a Software Bill of Materials (SBOM)
             - title: npm search
               url: /cli/v9/commands/npm-search
               description: Search for packages
@@ -1317,7 +1320,7 @@
             - title: Changelog
               url: /cli/v9/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 10.1.0 (Latest Release)
+    - title: Version 10.2.1 (Latest Release)
       shortName: v10
       url: /cli/v10
       default: true

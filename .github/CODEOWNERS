@@ -1,18 +1,21 @@
-# This file is automatically added by @npmcli/template-oss. Do not edit.
-
 * @npm/cli-team
 
-# Documentation content
-/content/          @MylesBorins @monishcm
-/src/              @MylesBorins @monishcm
-/static/           @MylesBorins @monishcm
-/.reuse/           @MylesBorins @monishcm
-/CONTENT-MODEL.md  @MylesBorins @monishcm
+# Content
+/.github/CODEOWNERS   @MylesBorins @monishcm @lukekarrys
+/content/             @MylesBorins @monishcm @lukekarrys
+/src/                 @MylesBorins @monishcm @lukekarrys
+/static/              @MylesBorins @monishcm @lukekarrys
+/CONTENT-MODEL.md     @MylesBorins @monishcm @lukekarrys
+
+# Policies
+/content/policies/    @MylesBorins
+/CODE_OF_CONDUCT.md   @MylesBorins
 
 # Licensing
-/LICENSES/         @MylesBorins @monishcm
-/LICENSE           @MylesBorins @monishcm
-/LICENSE-CODE      @MylesBorins @monishcm
+/.reuse/              @MylesBorins @lukekarrys
+/LICENSES/            @MylesBorins
+/LICENSE              @MylesBorins
+/LICENSE-CODE         @MylesBorins
 
-# CLI content
-/content/cli/      @npm/cli-team
+# CLI
+/content/cli/         @npm/cli-team

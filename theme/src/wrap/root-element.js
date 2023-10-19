@@ -3,16 +3,21 @@ import {Link, theme} from '@primer/components'
 import {SSRProvider} from '@primer/react'
 import React from 'react'
 import {ThemeProvider} from 'styled-components'
-import Blockquote from './blockquote'
-import Code from './code'
-import DescriptionList from './description-list'
-import {H1, H2, H3, H4, H5, H6} from './heading'
-import HorizontalRule from './horizontal-rule'
-import Image from './image'
-import InlineCode from './inline-code'
-import List from './list'
-import Paragraph from './paragraph'
-import Table from './table'
+import Blockquote from '../components/blockquote'
+import Code from '../components/code'
+import DescriptionList from '../components/description-list'
+import {H1, H2, H3, H4, H5, H6} from '../components/heading'
+import HorizontalRule from '../components/horizontal-rule'
+import Image from '../components/image'
+import InlineCode from '../components/inline-code'
+import List from '../components/list'
+import Paragraph from '../components/paragraph'
+import Table from '../components/table'
+import Index from '../components/index'
+import Note from '../components/note'
+import Prompt from '../components/prompt'
+import PromptReply from '../components/prompt-reply'
+import Screenshot from '../components/screenshot'
 
 const components = {
   a: Link,
@@ -33,6 +38,12 @@ const components = {
   ul: List,
   ol: List.withComponent('ol'),
   dl: DescriptionList,
+  Index,
+  Note,
+  Prompt,
+  PromptReply,
+  Screenshot,
+  Link,
 }
 
 function wrapRootElement({element}) {

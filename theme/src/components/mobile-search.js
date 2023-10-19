@@ -6,7 +6,7 @@ import {FocusOn} from 'react-focus-on'
 import DarkButton from './dark-button'
 import DarkTextInput from './dark-text-input'
 import SearchResults from './search-results'
-import useSiteMetadata from '../use-site-metadata'
+import useSiteMetadata from '../hooks/use-site-metadata'
 
 function MobileSearch({onDismiss, ...props}) {
   const siteMetadata = useSiteMetadata()
@@ -46,6 +46,7 @@ function MobileSearch({onDismiss, ...props}) {
                 {...getInputProps({
                   placeholder: `Search ${siteMetadata.title}`,
                   width: '100%',
+                  'aria-label': `Search ${siteMetadata.title}`,
                 })}
               />
             </motion.div>

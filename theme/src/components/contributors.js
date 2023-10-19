@@ -1,42 +1,44 @@
 import {Avatar, Flex, Link, Text, Tooltip} from '@primer/components'
-import {format} from 'date-fns'
-import uniqBy from 'lodash.uniqby'
-import pluralize from 'pluralize'
 import React from 'react'
 
-// The `contributors` array is fetched in gatsby-node.js at build-time.
+const pluralize = (word, count) => `${word}${count === 1 ? '' : 's'}`
 
-function Contributors({contributors}) {
-  const uniqueContributors = uniqBy(contributors, 'login')
-  const latestContributor = uniqueContributors[0] || {}
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+]
+const format = d => `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
 
+function Contributors({logins, latestCommit}) {
   return (
     <div>
       <Flex alignItems="center">
         <Text mr={2}>
-          {uniqueContributors.length} {pluralize('contributor', uniqueContributors.length)}
+          {logins.length} {pluralize('contributor', logins.length)}
         </Text>
-        {uniqueContributors.map(contributor => (
-          <Link
-            key={contributor.login}
-            href={`https://github.com/${contributor.login}`}
-            lineHeight="condensedUltra"
-            mr={2}
-          >
-            <Tooltip key={contributor.login} aria-label={contributor.login}>
-              <Avatar src={`https://github.com/${contributor.login}.png?size=40`} alt={contributor.login} />
+        {logins.map(login => (
+          <Link key={login} href={`https://github.com/${login}`} lineHeight="condensedUltra" mr={2}>
+            <Tooltip key={login} aria-label={login}>
+              <Avatar src={`https://github.com/${login}.png?size=40`} alt={login} />
             </Tooltip>
           </Link>
         ))}
       </Flex>
 
-      {latestContributor.latestCommit ? (
+      {latestCommit ? (
         <Text fontSize={1} color="gray.7" mt={1}>
-          Last edited by <Link href={`https://github.com/${latestContributor.login}`}>{latestContributor.login}</Link>{' '}
-          on{' '}
-          <Link href={latestContributor.latestCommit.url}>
-            {format(new Date(latestContributor.latestCommit.date), 'MMMM d, y')}
-          </Link>
+          Last edited by <Link href={`https://github.com/${latestCommit.login}`}>{latestCommit.login}</Link> on{' '}
+          <Link href={latestCommit.url}>{format(new Date(latestCommit.date))}</Link>
         </Text>
       ) : null}
     </div>

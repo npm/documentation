@@ -3,12 +3,12 @@ import {Link as GatsbyLink} from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import headerNavItems from '../header-nav.yml'
-import useSiteMetadata from '../use-site-metadata'
+import useSiteMetadata from '../hooks/use-site-metadata'
 import MobileSearch from './mobile-search'
 import NavDrawer from './nav-drawer'
 import Search from './search'
 import NpmLogo from './npm-logo'
-import useSearch from '../use-search'
+import useSearch from '../hooks/use-search'
 
 export const HEADER_HEIGHT = 66
 
@@ -17,7 +17,7 @@ const NpmHeaderBar = styled(Box)`
   background-image: linear-gradient(139deg, #fb8817, #ff4b01, #c12127, #e02aff);
 `
 
-function Header({location, isSearchEnabled = true}) {
+function Header({location, repositoryUrl}) {
   const siteMetadata = useSiteMetadata()
   const search = useSearch()
 
@@ -39,19 +39,17 @@ function Header({location, isSearchEnabled = true}) {
             <NpmLogo size="32" style={logoStyle} />
             {siteMetadata.title}
           </Link>
-          {isSearchEnabled ? (
-            <Box display={['none', null, null, 'block']} ml={4}>
-              <Search {...search} />
-            </Box>
-          ) : null}
+          <Box display={['none', null, null, 'block']} ml={4}>
+            <Search {...search} />
+          </Box>
         </Flex>
         <Flex>
           <Box display={['none', null, null, 'block']}>
             <HeaderNavItems items={headerNavItems} />
           </Box>
           <Flex display={['flex', null, null, 'none']}>
-            {isSearchEnabled ? <MobileSearch {...search} /> : null}
-            <NavDrawer location={location} />
+            <MobileSearch {...search} />
+            <NavDrawer location={location} repositoryUrl={repositoryUrl} />
           </Flex>
         </Flex>
       </Flex>

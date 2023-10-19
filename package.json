@@ -1,5 +1,5 @@
 {
-  "name": "npm-documentation",
+  "name": "documentation",
   "version": "1.0.0",
   "repository": {
     "type": "git",
@@ -7,8 +7,9 @@
   },
   "private": true,
   "scripts": {
-    "develop": "gatsby develop",
-    "build": "NODE_OPTIONS=--max-old-space-size=7168 gatsby build",
+    "develop": "NODE_OPTIONS=--max-old-space-size=8192 gatsby develop",
+    "build": "NODE_OPTIONS=--max-old-space-size=8192 gatsby build --verbose --log-pages",
+    "clean": "rm -rf .cache/ public/",
     "serve": "gatsby serve",
     "lint": "eslint \"**/*.js\"",
     "postlint": "template-oss-check",
@@ -25,18 +26,17 @@
     "theme/"
   ],
   "dependencies": {
-    "gatsby": "^4.25.0",
-    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "gatsby": "^4.25.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "theme": "^1.0.0"
   },
   "devDependencies": {
-    "@npmcli/eslint-config": "^4.0.1",
+    "@npmcli/eslint-config": "^4.0.2",
     "@npmcli/template-oss": "4.19.0",
     "eslint-plugin-github": "^4.10.1",
-    "eslint-plugin-primer-react": "^4.0.2",
-    "tap": "^16.3.2"
+    "eslint-plugin-primer-react": "^4.0.3",
+    "tap": "^16.3.9"
   },
   "author": "GitHub Inc.",
   "files": [

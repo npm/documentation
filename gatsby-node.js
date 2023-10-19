@@ -1,25 +1,33 @@
+const path = require('path')
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-
   if (node.internal.type === 'Mdx') {
-    const file = getNode(node.parent)
+    const { name, relativeDirectory: dir } = getNode(node.parent)
 
-    // cli paths are unchanged
-    if (file.relativeDirectory.startsWith('cli/')) {
-      return
-    }
-
-    // directory index paths and policy are unchanged
-    if (file.name === 'index' ||
-        file.relativeDirectory.match(/^policies(\/.*)?$/)) {
+    // These paths are unchanged:
+    // - directory indexes
+    // - all cli paths
+    // - all policies paths
+    if (name === 'index' || dir.startsWith('cli/') || dir.startsWith('policies')) {
       return
     }
 
     // otherwise, omit the directory path and use the filename as the slug
-    createNodeField({
+    actions.createNodeField({
       name: 'slug',
       node,
-      value: file.name,
+      value: name,
     })
   }
+}
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '~': path.resolve(__dirname, 'src/'),
+      },
+      extensions: ['.js'],
+    },
+  })
 }

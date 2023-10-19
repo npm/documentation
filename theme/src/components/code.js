@@ -3,7 +3,6 @@ import Highlight, {defaultProps} from 'prism-react-renderer'
 import githubTheme from 'prism-react-renderer/themes/github'
 import React, {useState, useEffect} from 'react'
 import ClipboardCopy from './clipboard-copy'
-import LiveCode from './live-code'
 
 /**
  * Resize the scroll handle to the size of the code contents, since the former has to be positioned absolutely.
@@ -39,14 +38,10 @@ const useScrollSize = () => {
   return {scrollRef, paddingRef, size}
 }
 
-function Code({className, children, live, noinline}) {
+function Code({className, children}) {
   const language = className ? className.replace(/language-/, '') : ''
   const code = children.trim()
   const {scrollRef, paddingRef, size} = useScrollSize()
-
-  if (live) {
-    return <LiveCode code={code} language={language} noinline={noinline} />
-  }
 
   return (
     <Relative>
@@ -57,7 +52,7 @@ function Code({className, children, live, noinline}) {
       </div>
       <Highlight {...defaultProps} code={code} language={language} theme={githubTheme}>
         {({className, style, tokens, getLineProps, getTokenProps}) => (
-          <BorderBox as="pre" className={className} mt={0} mb={3} p={3} border={0} style={{...style, overflow: 'auto'}}>
+          <BorderBox tabIndex={0} as="pre" className={className} mt={0} mb={3} p={3} border={0} style={{...style, overflow: 'auto'}}>
             {/* This is the scroll handle, it is supposed to be focused with keyboard and scroll a wide codebox horizontally */}
             <div aria-hidden="true" style={{visibility: 'hidden', position: 'absolute', ...size}} ref={scrollRef} />
             {tokens.map((line, i) => (

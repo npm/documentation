@@ -3,7 +3,7 @@ import React from 'react'
 import {Location} from '@reach/router'
 import {Box, Link} from '@primer/components'
 import {Link as GatsbyLink} from 'gatsby'
-import NavHierarchy from '../nav-hierarchy'
+import NavHierarchy from '../util/nav-hierarchy'
 
 function showHierarchy(items, props, depth = 1) {
   let hierarchy
