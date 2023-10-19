@@ -38,39 +38,61 @@ const StyledHeading = styled(Heading)`
   }
 `
 
+const HeaderLink = ({autolink, children, ...props}) =>
+  autolink ? (
+    <PrimerLink
+      {...props}
+      sx={{
+        color: 'inherit',
+        '&:hover, &:focus': {
+          textDecoration: 'none',
+        },
+      }}
+    >
+      {children}
+      <Octicon
+        icon={LinkIcon}
+        className="octicon-link"
+        sx={{
+          ml: 2,
+          color: 'fg.muted',
+          // !important is needed here to override default icon styles
+          verticalAlign: 'middle !important',
+        }}
+      />
+    </PrimerLink>
+  ) : (
+    children
+  )
+
 const Headings = {
   Markdown: ({children, autolink = true, ...props}) => {
+    const childArray = React.Children.toArray(children)
+    const childLink =
+      React.Children.count(children) > 1 && childArray[0].type?.name === 'Link' ? childArray.shift() : null
+
     const {slugger} = usePage()
     const text = children ? textContent(children) : ''
     const id = text ? slugger.slug(text) : ''
+    const linkProps = {
+      autolink,
+      'aria-label': `${text} permalink`.trim(),
+      ...(id ? {href: `#${id}`} : {}),
+    }
 
     return (
-      <StyledHeading {...(autolink ? {id} : {})} {...props}>
-        {autolink ? (
-          <PrimerLink
-            href={`#${id}`}
-            aria-label={`${text} permalink`}
-            sx={{
-              color: 'inherit',
-              '&:hover, &:focus': {
-                textDecoration: 'none',
-              },
-            }}
-          >
-            {children}
-            <Octicon
-              icon={LinkIcon}
-              className="octicon-link"
-              sx={{
-                ml: 2,
-                color: 'fg.muted',
-                // !important is needed here to override default icon styles
-                verticalAlign: 'middle !important',
-              }}
-            />
-          </PrimerLink>
+      <StyledHeading {...(autolink && id ? {id} : {})} {...props}>
+        {childLink ? (
+          <React.Fragment>
+            {childLink}
+            <HeaderLink {...linkProps}>
+              {childArray.map((child, index) => (
+                <React.Fragment key={index}>{child}</React.Fragment>
+              ))}
+            </HeaderLink>
+          </React.Fragment>
         ) : (
-          children
+          <HeaderLink {...linkProps}>{children}</HeaderLink>
         )}
       </StyledHeading>
     )
