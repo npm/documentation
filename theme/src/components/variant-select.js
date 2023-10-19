@@ -66,11 +66,11 @@ function VariantSelect(props) {
         {/* Disabling to remove lint warnings. This property was added as "autofocus"
         in a previous accessibility audit which did not trigger the lint warning. */
         /* eslint-disable-next-line jsx-a11y/no-autofocus */}
-        <ActionMenu.Button autoFocus aria-labelledby="label-versions-list-item">
+        <ActionMenu.Button autoFocus aria-describedby="label-versions-list-item">
           {selectedItem.variant.title}
         </ActionMenu.Button>
         <ActionMenu.Overlay width="medium" onEscape={() => setOpen(false)}>
-          <ActionList id="versions-list-item">
+          <ActionList id="versions-list-item" aria-labelledby="label-versions-list-item">
             {items}
           </ActionList>
         </ActionMenu.Overlay>
