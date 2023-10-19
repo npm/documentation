@@ -6,7 +6,7 @@ import Note from '../theme/src/components/note'
 export default {
   /* User login */
   'user-login': {
-    text: (<>On the npm "<Link href="https://www.npmjs.com/login" underline={true} color="#0071F1">Sign In</Link>" page, enter your account details and click <strong>Sign In</strong>.</>),
+    text: (<>On the npm "<Link href="https://www.npmjs.com/login">Sign In</Link>" page, enter your account details and click <strong>Sign In</strong>.</>),
     image: (<Screenshot src="/shared/user-login.png" alt="Screenshot of npm login dialog" />),
   },
   'contact-support': {
