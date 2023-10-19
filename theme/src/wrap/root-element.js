@@ -24,7 +24,7 @@ function UnderlinedLink(props) {
 }
 
 const components = {
-  a: Link,
+  a: UnderlinedLink,
   pre: props => props.children,
   code: Code,
   inlineCode: InlineCode,
