@@ -289,6 +289,5 @@ const fetchContributors = async (path, fm, {reporter, octokit}) => {
     }
   } catch (err) {
     reporter[CI ? 'panic' : 'error'](`Error fetching contributors for ${path}`, err)
-    return
   }
 }

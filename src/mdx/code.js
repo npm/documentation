@@ -54,7 +54,7 @@ function Code({className = '', children}) {
 
   return (
     <Highlight code={code} language={className.replace(/language-/, '') || 'bash'} theme={themes.github}>
-      {({className, style, tokens, getLineProps, getTokenProps}) => (
+      {({className: highlightClassName, style, tokens, getLineProps, getTokenProps}) => (
         <Box
           sx={{
             // Make <pre> adjust to the width of the container
@@ -91,7 +91,7 @@ function Code({className = '', children}) {
               }}
             />
             <Box sx={{m: 0, p: 3, overflowX: 'auto'}}>
-              <Box as="pre" className={className} tabIndex={0} sx={{m: 0}}>
+              <Box as="pre" className={highlightClassName} tabIndex={0} sx={{m: 0}}>
                 {tokens.map((line, i) => (
                   <div key={i} {...getLineProps({line, key: i})}>
                     {line.map((token, key) => (

@@ -22,6 +22,11 @@ module.exports = {
       '.github/settings.yml': false,
     },
   },
+  workspaceModule: {
+    add: {
+      '.eslintrc.js': false,
+    },
+  },
   ciVersions: 'latest',
   latestCiVersion: 18,
   macCI: false,

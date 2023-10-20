@@ -1,7 +1,8 @@
 module.exports = {
   root: true,
-  ignorePatterns: ['cli/', '.cache/', 'public/'],
+  ignorePatterns: ['.cache/', 'public/'],
   extends: [
+    '@npmcli',
     'react-app',
     // 'react-app/jest',
     'eslint:recommended',
@@ -13,6 +14,7 @@ module.exports = {
     'prettier',
   ],
   rules: {
+    'max-len': 'off',
     'react/prop-types': 'off',
     'primer-react/no-system-props': ['error', {includeUtilityComponents: true}],
   },

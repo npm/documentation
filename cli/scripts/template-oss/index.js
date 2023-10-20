@@ -5,7 +5,5 @@ module.exports = {
       '.github/workflows/update-cli.yml': 'update-cli.yml',
     },
   },
-  allowPaths: [
-    '/releases.json',
-  ],
+  allowPaths: ['/releases.json'],
 }
