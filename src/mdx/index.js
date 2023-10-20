@@ -2,7 +2,7 @@ import React from 'react'
 import {Box, Heading, themeGet, Text, Octicon} from '@primer/react'
 import {withPrefix} from 'gatsby'
 import styled from 'styled-components'
-import {variant} from 'styled-system'
+import {variant as styledVariant} from 'styled-system'
 import {LinkIcon} from '@primer/octicons-react'
 import textContent from 'react-addons-text-content'
 import {FULL_HEADER_HEIGHT} from '../constants'
@@ -268,7 +268,7 @@ const StyledNote = styled.div`
     margin-bottom: 0;
   }
 
-  ${variant({
+  ${styledVariant({
     variants: {
       info: {
         borderColor: 'accent.muted',

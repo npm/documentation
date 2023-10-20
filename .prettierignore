@@ -1,8 +1,9 @@
 **/template-oss/*.json
 **/template-oss/*.yml
-content/
-cli/
-.github/
-package-lock.json
-SECURITY.md
-.reuse/
+/content/
+/.github/
+/package-lock.json
+/SECURITY.md
+/.reuse/
+.nyc_output/
+coverage/
