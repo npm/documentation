@@ -7,9 +7,9 @@
   },
   "private": true,
   "scripts": {
-    "develop": "gatsby develop",
-    "develop:ssr": "DEV_SSR=true gatsby develop",
-    "build": "gatsby build --verbose --log-pages",
+    "develop": "./scripts/gatsby.sh develop",
+    "develop:ssr": "DEV_SSR=true ./scripts/gatsby.sh develop",
+    "build": "./scripts/gatsby.sh build --verbose --log-pages",
     "clean": "gatsby clean",
     "serve": "gatsby serve",
     "lint": "eslint \"**/*.js\"",
