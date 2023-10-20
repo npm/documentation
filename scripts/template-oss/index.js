@@ -27,7 +27,9 @@ module.exports = {
   macCI: false,
   windowsCI: false,
   lockfile: true,
-  allowedPackages: ['eslint', 'eslint-plugin-import'],
+  // these need to be allowed since they need to installed explicitly since
+  // the repo uses legacy-peer-deps to avoid gatsby errors
+  allowedPackages: ['eslint', 'eslint-plugin-import', 'eslint-plugin-node', 'eslint-plugin-promise'],
   requiredPackages: {
     devDependencies: [],
   },
