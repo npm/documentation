@@ -3,7 +3,7 @@ import debounce from 'lodash.debounce'
 
 let fuse = null
 
-// [MKT]: I landed on the debouce wait value of 50 based mostly on
+// [MKT]: I landed on the debounce wait value of 50 based mostly on
 // experimentation. With both `leading` and `trailing` set to `true`, this
 // feels pretty snappy.
 //

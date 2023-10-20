@@ -49,7 +49,7 @@ const mockBuild = async (t, {
 
   if (!packument.versions) {
     packument.versions = releases.map(r => {
-      // real tarball requests are made for these verions
+      // real tarball requests are made for these versions
       // so by default they all need to exist
       switch (r.id.slice(1)) {
         case '6':

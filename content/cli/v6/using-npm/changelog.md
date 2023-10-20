@@ -289,7 +289,7 @@ redirect_from:
 ### DEPENDENCIES
 
 * [`909cc3918`](https://github.com/npm/cli/commit/909cc39180a352f206898481add5772206c8b65f) `hosted-git-info@2.8.8` ([@darcyclarke](https://github.com/darcyclarke))
-  * [`5038b1891`](https://github.com/npm/hosted-git-info/commit/5038b1891a61ca3cd7453acbf85d7011fe0086bb) fix: regression in old node versions w/ respect to url.URL implmentation
+  * [`5038b1891`](https://github.com/npm/hosted-git-info/commit/5038b1891a61ca3cd7453acbf85d7011fe0086bb) fix: regression in old node versions w/ respect to url.URL implementation
 * [`9204ffa58`](https://github.com/npm/cli/commit/9204ffa584c140c5e22b1ee37f6df2c98f5dc70b) `npm-profile@4.0.4` ([@isaacs](https://github.com/isaacs))
   * [`6bcf0860a`](https://github.com/npm/npm-profile/commit/6bcf0860a3841865099d0115dbcbde8b78109bd9) fix: treat non-http/https login urls as invalid
 * [`0365d39bd`](https://github.com/npm/cli/commit/0365d39bdc74960a18caac674f51d0e2a98b31e6) `glob@7.1.6` ([@isaacs](https://github.com/isaacs))

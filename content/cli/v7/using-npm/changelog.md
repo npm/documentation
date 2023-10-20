@@ -1581,7 +1581,7 @@ redirect_from:
 
 * [`ba1adef42`](https://github.com/npm/cli/commit/ba1adef4292123e87e26b59e0c6fd6f5ff1fe775)
   [#2760](https://github.com/npm/cli/issues/2760)
-  chore(docs): capitalize all Instaces of "package"
+  chore(docs): capitalize all Instances of "package"
   ([@MrBrain295](https://github.com/MrBrain295))
 * [`8bfa05fa1`](https://github.com/npm/cli/commit/8bfa05fa1dfd4a64381c7ec750df6d174724e8c1)
   [#2775](https://github.com/npm/cli/issues/2775)
@@ -3322,7 +3322,7 @@ New notification style for updates, and a working doctor.
 
 ## v7.0.0-beta.1 (2020-08-05)
 
-Fix some issues found in the beta pubish process, and initial attempts to
+Fix some issues found in the beta publish process, and initial attempts to
 use npm v7 with [citgm](https://github.com/nodejs/citgm/).
 
 * [`2c305e8b7`](https://github.com/npm/cli/commit/2c305e8b7bfa28b07812df74f46983fad2cb85b6)
