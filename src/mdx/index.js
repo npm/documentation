@@ -1,12 +1,13 @@
 import React from 'react'
-import {Box, Heading, themeGet, Text, Link as PrimerLink, Octicon} from '@primer/react'
+import {Box, Heading, themeGet, Text, Octicon} from '@primer/react'
+import {withPrefix} from 'gatsby'
 import styled from 'styled-components'
 import {variant} from 'styled-system'
-import {withPrefix} from 'gatsby'
 import {LinkIcon} from '@primer/octicons-react'
 import textContent from 'react-addons-text-content'
 import {FULL_HEADER_HEIGHT} from '../constants'
 import usePage from '../hooks/use-page'
+import SiteLink from '../components/link'
 
 export {default as Code} from './code'
 export {default as Index} from './nav-hierarchy'
@@ -18,7 +19,7 @@ const required = (prop, name) => {
   return prop
 }
 
-export const Link = props => <PrimerLink underline {...props} />
+export const Link = props => <SiteLink underline {...props} />
 
 const StyledHeading = styled(Heading)`
   margin-top: ${themeGet('space.4')};
@@ -40,7 +41,7 @@ const StyledHeading = styled(Heading)`
 
 const HeaderLink = ({autolink, children, ...props}) =>
   autolink ? (
-    <PrimerLink
+    <SiteLink
       {...props}
       sx={{
         color: 'inherit',
@@ -60,7 +61,7 @@ const HeaderLink = ({autolink, children, ...props}) =>
           verticalAlign: 'middle !important',
         }}
       />
-    </PrimerLink>
+    </SiteLink>
   ) : (
     children
   )

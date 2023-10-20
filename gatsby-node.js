@@ -1,6 +1,6 @@
-const path = require('path')
+const {resolve, join: _join, relative} = require('path')
+const join = (...paths) => _join(...paths).replace(/\\/g, '/')
 
-const DEV = process.env.NODE_ENV === 'development'
 const SHOW_CONTRIBUTORS = false
 const REPO = {
   url: 'https://github.com/npm/documentation',
@@ -32,7 +32,7 @@ exports.onCreateWebpackConfig = ({actions}) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        '~': path.resolve(__dirname, 'src/'),
+        '~': resolve(__dirname, 'src/'),
       },
       extensions: ['.js'],
     },
@@ -61,8 +61,6 @@ exports.createSchemaCustomization = ({actions: {createTypes}}) => {
 }
 
 exports.createPages = async ({graphql, actions}) => {
-  const rootAbsolutePath = process.cwd()
-
   const {data} = await graphql(`
     {
       allMdx {
@@ -96,82 +94,71 @@ exports.createPages = async ({graphql, actions}) => {
   `)
 
   // Turn every MDX file into a page.
-  return Promise.all(
-    data.allMdx.nodes.map(async node => {
-      const {
-        id,
-        frontmatter,
-        internal: {contentFilePath},
-        tableOfContents = {},
-      } = node
-
-      const pagePath = getPath(node)
-      const relativePath = path.relative(rootAbsolutePath, contentFilePath)
-      const editUrl = getEditUrl(REPO, relativePath, frontmatter)
-
-      const contributors = SHOW_CONTRIBUTORS ? await fetchContributors(REPO, relativePath, frontmatter) : {}
-
-      // Fix some old CLI pages which have mismatched headings at the top level.
-      // All top level headings should be the same level.
-      const toc = tableOfContents.items?.reduce((acc, item) => {
-        if (!item.url && Array.isArray(item.items)) {
-          acc.push(...item.items)
-        } else {
-          acc.push(item)
-        }
-        return acc
-      }, [])
-
-      actions.createPage({
-        path: pagePath,
-        component: contentFilePath,
-        context: {
-          mdxId: id,
-          editUrl,
-          contributors,
-          tableOfContents: toc,
-          repositoryUrl: REPO.url,
-        },
-      })
-
-      if (!DEV) {
-        for (const from of frontmatter.redirect_from ?? []) {
-          actions.createRedirect({
-            fromPath: from,
-            toPath: `/${pagePath}`,
-            isPermanent: true,
-            redirectInBrowser: true,
-          })
-
-          if (pagePath.startsWith('cli/') && !from.endsWith('index')) {
-            actions.createRedirect({
-              fromPath: `${from}.html`,
-              toPath: `/${pagePath}`,
-              isPermanent: true,
-              redirectInBrowser: true,
-            })
-          }
-        }
-      }
-    }),
-  )
+  return Promise.all(data.allMdx.nodes.map(node => createPage(node, actions)))
 }
 
-function getPath(node) {
+async function createPage(
+  {
+    id,
+    internal: {contentFilePath},
+    fields: {slug} = {},
+    frontmatter = {},
+    tableOfContents = {},
+    parent: {relativeDirectory, name: parentName},
+  },
+  actions,
+) {
   // sites can programmatically override slug, that takes priority
-  if (node.fields && node.fields.slug) {
-    return node.fields.slug
-  }
-
   // then a slug specified in frontmatter
-  if (node.frontmatter && node.frontmatter.slug) {
-    return node.frontmatter.slug
-  }
-
   // finally, we'll just use the path on disk
-  return path
-    .join(node.parent.relativeDirectory, node.parent.name === 'index' ? '/' : node.parent.name)
-    .replace(/\\/g, '/') // Windows paths to forward slashes
+  const pagePath = slug ?? frontmatter.slug ?? join(relativeDirectory, parentName === 'index' ? '/' : parentName)
+
+  const relativePath = relative(process.cwd(), contentFilePath)
+
+  const editUrl = getEditUrl(REPO, relativePath, frontmatter)
+
+  const contributors = SHOW_CONTRIBUTORS ? await fetchContributors(REPO, relativePath, frontmatter) : {}
+
+  // Fix some old CLI pages which have mismatched headings at the top level.
+  // All top level headings should be the same level.
+  const toc = tableOfContents.items?.reduce((acc, item) => {
+    if (!item.url && Array.isArray(item.items)) {
+      acc.push(...item.items)
+    } else {
+      acc.push(item)
+    }
+    return acc
+  }, [])
+
+  actions.createPage({
+    path: pagePath,
+    component: contentFilePath,
+    context: {
+      mdxId: id,
+      editUrl,
+      contributors,
+      tableOfContents: toc,
+      repositoryUrl: REPO.url,
+    },
+  })
+
+  for (const from of frontmatter.redirect_from ?? []) {
+    actions.createRedirect({
+      fromPath: from,
+      toPath: `/${pagePath}`,
+      isPermanent: true,
+      redirectInBrowser: true,
+    })
+
+    if (pagePath.startsWith('cli/') && !from.endsWith('index')) {
+      actions.createRedirect({
+        fromPath: `${from}.html`,
+        toPath: `/${pagePath}`,
+        isPermanent: true,
+        redirectInBrowser: true,
+      })
+    }
+  }
 }
 
 function getGitHubData(repo, overrideData, filePath) {
@@ -204,8 +191,8 @@ function getEditUrl(repo, filePath, overrideData = {}) {
     return null
   }
 
-  const gh = getGitHubData(repo, overrideData, filePath)
-  return `https://github.com/${gh.nwo}/edit/${gh.branch}/${gh.path}`
+  const {nwo, branch, path} = getGitHubData(repo, overrideData, filePath)
+  return `https://github.com/${nwo}/edit/${branch}/${path}`
 }
 
 const CONTRIBUTOR_CACHE = new Map()

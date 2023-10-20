@@ -63,11 +63,8 @@ module.exports = {
     DEV_SSR: !!process.env.DEV_SSR,
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-styled-components',
-    },
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-catch-links',
     'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-plugin-mdx',

@@ -1,10 +1,10 @@
 import React from 'react'
-import {Box, Link, ThemeProvider} from '@primer/react'
-import {Link as GatsbyLink} from 'gatsby'
+import {Box, ThemeProvider} from '@primer/react'
 import styled from 'styled-components'
 import MobileSearch from './mobile-search'
 import NavDrawer from './nav-drawer'
 import Search from './search'
+import Link from './link'
 import useSearch from '../hooks/use-search'
 import {HEADER_HEIGHT, HEADER_BAR, NPM_RED} from '../constants'
 import useSiteMetadata from '../hooks/use-site-metadata'
@@ -56,7 +56,6 @@ function Header() {
         >
           <Box sx={{display: 'flex', alignItems: 'center'}}>
             <Link
-              as={GatsbyLink}
               to="/"
               sx={{
                 mr: 4,

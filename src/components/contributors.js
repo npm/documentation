@@ -1,5 +1,6 @@
-import {Box, Avatar, Link, Text, Tooltip} from '@primer/react'
 import React from 'react'
+import {Box, Avatar, Text, Tooltip} from '@primer/react'
+import Link from './link'
 
 const months = [
   'January',

@@ -1,7 +1,7 @@
 import React from 'react'
-import {Button, Box, Link, ThemeProvider} from '@primer/react'
+import {Button, Box, ThemeProvider} from '@primer/react'
 import {XIcon, ThreeBarsIcon} from '@primer/octicons-react'
-import {Link as GatsbyLink} from 'gatsby'
+import Link from './link'
 import Drawer from './drawer'
 import NavItems from './nav-items'
 import useSiteMetadata from '../hooks/use-site-metadata'
@@ -71,7 +71,7 @@ function NavDrawer() {
                     display: 'flex',
                   }}
                 >
-                  <Link as={GatsbyLink} to="/" sx={{display: 'inline-block', color: 'inherit'}}>
+                  <Link to="/" sx={{display: 'inline-block', color: 'inherit'}}>
                     {siteMetadata.title}
                   </Link>
                   <Button aria-label="Close" onClick={setClose}>
