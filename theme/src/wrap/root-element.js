@@ -19,8 +19,12 @@ import Prompt from '../components/prompt'
 import PromptReply from '../components/prompt-reply'
 import Screenshot from '../components/screenshot'
 
+function UnderlinedLink(props) {
+  return <Link {...props} underline={true}/>
+}
+
 const components = {
-  a: Link,
+  a: UnderlinedLink,
   pre: props => props.children,
   code: Code,
   inlineCode: InlineCode,
@@ -43,7 +47,7 @@ const components = {
   Prompt,
   PromptReply,
   Screenshot,
-  Link,
+  Link: UnderlinedLink,
 }
 
 function wrapRootElement({element}) {
