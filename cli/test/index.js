@@ -89,6 +89,7 @@ const mockBuild = async (t, {
         }
       },
     },
+    '@prettier/sync': { format: s => s },
     '../lib/gh.js': {
       getFile: async ({ ref }) => navSection(ref),
       pathExists: async (ref, p) => {
