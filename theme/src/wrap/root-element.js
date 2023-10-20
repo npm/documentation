@@ -18,6 +18,7 @@ import Note from '../components/note'
 import Prompt from '../components/prompt'
 import PromptReply from '../components/prompt-reply'
 import Screenshot from '../components/screenshot'
+import './style.css'
 
 const components = {
   a: Link,

@@ -12,7 +12,7 @@ import VariantSelect from '../components/variant-select'
 import NavHierarchy from '../util/nav-hierarchy'
 import Details from '../components/details'
 import * as Slugger from '../hooks/use-slugger'
-import './style.css'
+
 
 function Layout({children, pageContext, location}) {
   const {title, description, status, source} = pageContext.frontmatter
