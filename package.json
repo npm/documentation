@@ -8,6 +8,7 @@
   "private": true,
   "scripts": {
     "develop": "gatsby develop",
+    "develop:ssr": "DEV_SSR=true gatsby develop",
     "build": "gatsby build --verbose --log-pages",
     "clean": "gatsby clean",
     "serve": "gatsby serve",
@@ -27,6 +28,9 @@
   "dependencies": {
     "@mdx-js/mdx": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
+    "@octokit/plugin-retry": "^6.0.1",
+    "@octokit/plugin-throttling": "^8.0.0",
+    "@octokit/rest": "^20.0.2",
     "@primer/octicons-react": "^19.8.0",
     "@primer/react": "^35.32.1",
     "babel-plugin-styled-components": "^2.1.4",

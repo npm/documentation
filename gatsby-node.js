@@ -1,10 +1,44 @@
-const {resolve, join: _join, relative} = require('path')
-const join = (...paths) => _join(...paths).replace(/\\/g, '/')
+const {resolve, join, relative} = require('path')
+const {Octokit: CoreOctokit} = require('@octokit/rest')
+const {throttling} = require('@octokit/plugin-throttling')
+const {retry} = require('@octokit/plugin-retry')
 
-const SHOW_CONTRIBUTORS = false
-const REPO = {
-  url: 'https://github.com/npm/documentation',
-  defaultBranch: 'main',
+const PROD = process.env.NODE_ENV === 'production'
+const REPO_URL = 'https://github.com/npm/documentation'
+const NWO = new URL(REPO_URL).pathname.slice(1)
+const REPO_BRANCH = 'main'
+const CWD = process.cwd()
+const TEST_CONTRIBUTORS = [
+  {
+    author: {login: 'mona'},
+    commit: {author: {date: new Date('2023-03-21').toJSON()}},
+    html_url: REPO_URL,
+  },
+]
+
+const createOctokit = ({reporter}) => {
+  const Octokit = CoreOctokit.plugin(throttling).plugin(retry)
+  return new Octokit({
+    log: {
+      debug: () => {},
+      info: reporter.info,
+      warn: reporter.warn,
+      error: reporter.error,
+    },
+    auth: process.env.GITHUB_TOKEN,
+    throttle: {
+      onRateLimit: (retryAfter, options, {log}, retryCount) => {
+        log.warn(`Request quota exhausted for request ${options.method} ${options.url}`)
+        if (retryCount < 2) {
+          log.info(`Retrying after ${retryAfter} seconds`)
+          return true
+        }
+      },
+      onSecondaryRateLimit: (_, options, {log}) => {
+        log.warn(`SecondaryRateLimit detected for request ${options.method} ${options.url}`)
+      },
+    },
+  })
 }
 
 exports.onCreateNode = ({node, actions, getNode}) => {
@@ -60,8 +94,8 @@ exports.createSchemaCustomization = ({actions: {createTypes}}) => {
   `)
 }
 
-exports.createPages = async ({graphql, actions}) => {
-  const {data} = await graphql(`
+exports.createPages = async ({graphql, actions, reporter}) => {
+  const response = await graphql(`
     {
       allMdx {
         nodes {
@@ -93,35 +127,90 @@ exports.createPages = async ({graphql, actions}) => {
     }
   `)
 
+  if (response.errors) {
+    reporter.panic('Error getting allMdx', response.errors)
+    return
+  }
+
+  const octokit = createOctokit({reporter})
+
   // Turn every MDX file into a page.
-  return Promise.all(data.allMdx.nodes.map(node => createPage(node, actions)))
+  return Promise.all(
+    response.data.allMdx.nodes.map(async node => {
+      try {
+        node.fields ||= {}
+        node.frontmatter ||= {}
+        node.frontmatter.redirect_from ||= []
+        node.tableOfContents ||= {}
+        node.tableOfContents.items ||= []
+        return await createPage(node, {actions, reporter, octokit})
+      } catch (err) {
+        reporter.panic(`Error creating page: ${JSON.stringify(node, null, 2)}`, err)
+      }
+    }),
+  )
 }
 
-async function createPage(
+const createPage = async (
   {
     id,
     internal: {contentFilePath},
-    fields: {slug} = {},
+    fields: {slug},
     frontmatter = {},
     tableOfContents = {},
     parent: {relativeDirectory, name: parentName},
   },
-  actions,
-) {
+  {actions, reporter, octokit},
+) => {
+  const path = relative(CWD, contentFilePath)
   // sites can programmatically override slug, that takes priority
   // then a slug specified in frontmatter
   // finally, we'll just use the path on disk
-  const pagePath = slug ?? frontmatter.slug ?? join(relativeDirectory, parentName === 'index' ? '/' : parentName)
+  const pageSlug =
+    slug ?? frontmatter.slug ?? join(relativeDirectory, parentName === 'index' ? '/' : parentName).replace(/\\/g, '/')
 
-  const relativePath = relative(process.cwd(), contentFilePath)
+  const context = {
+    mdxId: id,
+    tableOfContents: getTableOfConents(tableOfContents),
+    repositoryUrl: REPO_URL,
+  }
+  // edit_on_github: false in frontmatter will not include editUrl and contributors
+  // on the page. this is used for policy pages as well as some index pages that don't
+  // have any editable content
+  if (frontmatter.edit_on_github !== false) {
+    context.editUrl = getRepo(path, frontmatter).replace(`https://github.com/{nwo}/edit/{branch}/{path}`)
+    Object.assign(context, await fetchContributors(path, frontmatter, {reporter, octokit}))
+  }
 
-  const editUrl = getEditUrl(REPO, relativePath, frontmatter)
+  actions.createPage({
+    path: pageSlug,
+    component: contentFilePath,
+    context,
+  })
 
-  const contributors = SHOW_CONTRIBUTORS ? await fetchContributors(REPO, relativePath, frontmatter) : {}
+  for (const from of frontmatter.redirect_from) {
+    actions.createRedirect({
+      fromPath: from,
+      toPath: `/${pageSlug}`,
+      isPermanent: true,
+      redirectInBrowser: true,
+    })
 
+    if (pageSlug.startsWith('cli/') && !from.endsWith('index')) {
+      actions.createRedirect({
+        fromPath: `${from}.html`,
+        toPath: `/${pageSlug}`,
+        isPermanent: true,
+        redirectInBrowser: true,
+      })
+    }
+  }
+}
+
+const getTableOfConents = ({items}) => {
   // Fix some old CLI pages which have mismatched headings at the top level.
   // All top level headings should be the same level.
-  const toc = tableOfContents.items?.reduce((acc, item) => {
+  const tableOfContents = items.reduce((acc, item) => {
     if (!item.url && Array.isArray(item.items)) {
       acc.push(...item.items)
     } else {
@@ -130,103 +219,60 @@ async function createPage(
     return acc
   }, [])
 
-  actions.createPage({
-    path: pagePath,
-    component: contentFilePath,
-    context: {
-      mdxId: id,
-      editUrl,
-      contributors,
-      tableOfContents: toc,
-      repositoryUrl: REPO.url,
-    },
-  })
+  if (tableOfContents.length) {
+    return tableOfContents
+  }
+}
 
-  for (const from of frontmatter.redirect_from ?? []) {
-    actions.createRedirect({
-      fromPath: from,
-      toPath: `/${pagePath}`,
-      isPermanent: true,
-      redirectInBrowser: true,
-    })
+const getRepo = (path, fm) => {
+  const result = {
+    nwo: NWO,
+    branch: REPO_BRANCH,
+    ...(fm.github_repo ? {nwo: fm.github_repo} : {}),
+    ...(fm.github_branch ? {branch: fm.github_branch} : {}),
+    path: fm.github_path || path,
+  }
+  const [owner, repo] = result.nwo.split('/')
+  result.owner = owner
+  result.repo = repo
+  result.replace = str => str.replace(/\{([a-z]+)\}/g, (_, name) => result[name])
+  return result
+}
 
-    if (pagePath.startsWith('cli/') && !from.endsWith('index')) {
-      actions.createRedirect({
-        fromPath: `${from}.html`,
-        toPath: `/${pagePath}`,
-        isPermanent: true,
-        redirectInBrowser: true,
-      })
+let warnOnNoContributors = true
+const fetchContributors = async (path, fm, {reporter, octokit}) => {
+  const noAuth = (await octokit.auth()).type === 'unauthenticated'
+  if (noAuth) {
+    const msg = `Cannot fetch contributors without GitHub authentication.`
+    if (PROD) {
+      reporter.panic(msg)
+      return
     }
-  }
-}
 
-function getGitHubData(repo, overrideData, filePath) {
-  const gh = {
-    nwo: new URL(repo.url).pathname.slice(1).split('/'),
-    branch: 'master',
-  }
-
-  if (overrideData.github_repo) {
-    gh.nwo = overrideData.github_repo
-  }
-
-  if (overrideData.github_branch) {
-    gh.branch = overrideData.github_branch
-  } else if (repo.defaultBranch) {
-    gh.branch = repo.defaultBranch
-  }
-
-  if (overrideData.github_path) {
-    gh.path = overrideData.github_path
-  } else {
-    gh.path = filePath
-  }
-
-  return gh
-}
-
-function getEditUrl(repo, filePath, overrideData = {}) {
-  if (overrideData.edit_on_github === false) {
-    return null
-  }
-
-  const {nwo, branch, path} = getGitHubData(repo, overrideData, filePath)
-  return `https://github.com/${nwo}/edit/${branch}/${path}`
-}
-
-const CONTRIBUTOR_CACHE = new Map()
-
-async function fetchContributors(repo, filePath, overrideData = {}) {
-  if (!process.env.GITHUB_TOKEN) {
-    console.warn('Skipping fetching contributors because no github token was set')
-    return
-  }
-
-  const gh = getGitHubData(repo, overrideData, filePath)
-  const key = JSON.stringify(gh)
-
-  const cached = CONTRIBUTOR_CACHE.get(key)
-  if (cached) {
-    return cached
+    if (warnOnNoContributors) {
+      warnOnNoContributors = false
+      reporter.warn(`${msg} Pages will be include test contributor data.`)
+    }
   }
 
   try {
-    const resp = await fetch(
-      `https://api.github.com/repos/${gh.nwo}/commits?path=${gh.path}&sha=${gh.branch}&per_page=100`,
-      {
-        headers: {
-          Authorization: `token ${process.env.GITHUB_TOKEN}`,
-        },
-      },
-    )
+    const repo = getRepo(path, fm)
+    const resp = noAuth
+      ? {data: TEST_CONTRIBUTORS}
+      : await octokit.rest.repos.listCommits({
+          repo: repo.repo,
+          owner: repo.owner,
+          path: repo.path,
+          sha: repo.branch,
+          per_page: 100,
+        })
 
-    const logins = new Set()
+    const contributors = new Set()
     let latestCommit = null
 
-    for (const item of await resp.json().then(r => r.data)) {
+    for (const item of resp.data) {
       if (item.author?.login) {
-        logins.add(item.author.login)
+        contributors.add(item.author.login)
         if (!latestCommit) {
           latestCommit = {
             login: item.author.login,
@@ -237,11 +283,12 @@ async function fetchContributors(repo, filePath, overrideData = {}) {
       }
     }
 
-    const result = {logins: [...logins], latestCommit}
-    CONTRIBUTOR_CACHE.set(key, result)
-    return result
-  } catch (error) {
-    console.error(`[ERROR] Unable to fetch contributors for ${filePath}. ${error.message}`)
-    return []
+    return {
+      contributors: [...contributors],
+      latestCommit,
+    }
+  } catch (err) {
+    reporter[PROD ? 'panic' : 'error'](`Error fetching contributors for ${path}`, err)
+    return
   }
 }
