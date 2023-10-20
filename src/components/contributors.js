@@ -21,14 +21,14 @@ const format = d => `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
 
 const pluralize = (word, count) => `${word}${count === 1 ? '' : 's'}`
 
-function Contributors({logins, latestCommit}) {
+function Contributors({contributors = [], latestCommit}) {
   return (
     <div>
       <Box sx={{display: 'flex', alignItems: 'center'}}>
         <Text sx={{mr: 2}}>
-          {logins.length} {pluralize('contributor', logins.length)}
+          {contributors.length} {pluralize('contributor', contributors.length)}
         </Text>
-        {logins.map(login => (
+        {contributors.map(login => (
           <Link key={login} href={`https://github.com/${login}`} sx={{lineHeight: 'condensedUltra', mr: 2}}>
             {/* eslint-disable-next-line primer-react/a11y-tooltip-interactive-trigger */}
             <Tooltip key={login} aria-label={login}>

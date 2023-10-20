@@ -5,7 +5,7 @@ import Contributors from '../contributors'
 test('renders contributors', () => {
   const {queryByText} = render(
     <Contributors
-      logins={['colebemis', 'emplums']}
+      contributors={['colebemis', 'emplums']}
       latestCommit={{
         login: 'colebemis',
         url: '#',
@@ -21,7 +21,7 @@ test('renders contributors', () => {
 })
 
 test('does not render "last edited by" if latest contributor does not have a latest commit', () => {
-  const {queryByText} = render(<Contributors logins={['ashygee']} />)
+  const {queryByText} = render(<Contributors contributors={['ashygee']} />)
 
   expect(queryByText(/1 contributor/)).toBeInTheDocument()
   expect(queryByText(/Last edited by/)).toBeNull()
