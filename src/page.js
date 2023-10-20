@@ -1,11 +1,12 @@
 import React from 'react'
-import {BaseStyles, themeGet, Link, Box} from '@primer/react'
+import {BaseStyles, themeGet, Box} from '@primer/react'
 import styled, {createGlobalStyle} from 'styled-components'
 import {SKIP_NAV} from './constants'
 import {Helmet} from 'react-helmet'
 import Slugger from 'github-slugger'
 import Header from './components/header'
 import Sidebar from './components/sidebar'
+import Link from './components/link'
 import useSiteMetdata from './hooks/use-site-metadata'
 import usePage, {PageProvider} from './hooks/use-page'
 import getLayout from './layout'
@@ -75,7 +76,7 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-const PageElement = ({element, props, ...rest}) => {
+const PageElement = ({element, props}) => {
   const page = {
     pageContext: props.pageContext,
     frontmatter: props.pageContext?.frontmatter || {},

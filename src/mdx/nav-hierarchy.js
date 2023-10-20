@@ -1,6 +1,6 @@
 import React from 'react'
-import {Box, Link} from '@primer/react'
-import {Link as GatsbyLink} from 'gatsby'
+import {Box} from '@primer/react'
+import Link from '../components/link'
 import * as getNav from '../util/get-nav'
 import usePage from '../hooks/use-page'
 
@@ -9,7 +9,7 @@ const HierarchyItem = ({item, depth, ...props}) => {
 
   return (
     <Box as="li" key={item.url}>
-      <Link as={GatsbyLink} key={item.title} to={item.url}>
+      <Link key={item.title} to={item.url}>
         {item.title}
       </Link>
       {item.description ? <Box sx={{fontSize: 1, mb: 1}}>{item.description}</Box> : null}

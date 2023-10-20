@@ -1,8 +1,8 @@
 import React from 'react'
 import {Box} from '@primer/react'
-import {Link as GatsbyLink} from 'gatsby'
 import {NavList} from '@primer/react/drafts'
 import {LinkExternalIcon} from '@primer/octicons-react'
+import Link from './link'
 import * as getNav from '../util/get-nav'
 import VisuallyHidden from './visually-hidden'
 import headerNavItems from '../../content/header-nav.yml'
@@ -15,7 +15,7 @@ const NavItem = ({item, path, depth}) => {
 
   return (
     <NavList.Item
-      as={GatsbyLink}
+      as={Link}
       to={href}
       defaultOpen={items && isCurrent}
       aria-current={isCurrent ? 'page' : null}

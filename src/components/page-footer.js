@@ -1,6 +1,7 @@
 import React from 'react'
-import {Box, Link, Octicon} from '@primer/react'
+import {Box, Octicon} from '@primer/react'
 import {PencilIcon} from '@primer/octicons-react'
+import Link from './link'
 import Contributors from './contributors'
 
 function PageFooter({editUrl, contributors = {}}) {
