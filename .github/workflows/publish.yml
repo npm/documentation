@@ -18,7 +18,7 @@ jobs:
       pages: read
     name: Build and Upload
     if: github.repository_owner == 'npm'
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
