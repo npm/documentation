@@ -3,7 +3,7 @@ const {Octokit: CoreOctokit} = require('@octokit/rest')
 const {throttling} = require('@octokit/plugin-throttling')
 const {retry} = require('@octokit/plugin-retry')
 
-const PROD = process.env.NODE_ENV === 'production'
+const CI = !!process.env.CI
 const REPO_URL = 'https://github.com/npm/documentation'
 const NWO = new URL(REPO_URL).pathname.slice(1)
 const REPO_BRANCH = 'main'
@@ -244,7 +244,7 @@ const fetchContributors = async (path, fm, {reporter, octokit}) => {
   const noAuth = (await octokit.auth()).type === 'unauthenticated'
   if (noAuth) {
     const msg = `Cannot fetch contributors without GitHub authentication.`
-    if (PROD) {
+    if (CI) {
       reporter.panic(msg)
       return
     }
@@ -288,7 +288,7 @@ const fetchContributors = async (path, fm, {reporter, octokit}) => {
       latestCommit,
     }
   } catch (err) {
-    reporter[PROD ? 'panic' : 'error'](`Error fetching contributors for ${path}`, err)
+    reporter[CI ? 'panic' : 'error'](`Error fetching contributors for ${path}`, err)
     return
   }
 }
