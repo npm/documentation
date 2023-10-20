@@ -7,9 +7,8 @@
   },
   "private": true,
   "scripts": {
-    "develop": "NODE_OPTIONS=--max-old-space-size=8192 gatsby develop --verbose",
-    "develop:debug": "GATSBY_WEBPACK_LOGGING=develop npm run develop",
-    "build": "NODE_OPTIONS=--max-old-space-size=8192 gatsby build --verbose --log-pages",
+    "develop": "gatsby develop",
+    "build": "gatsby build --verbose --log-pages",
     "clean": "gatsby clean",
     "serve": "gatsby serve",
     "lint": "eslint \"**/*.js\"",
