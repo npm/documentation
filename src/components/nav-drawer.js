@@ -1,11 +1,12 @@
 import React from 'react'
-import {Button, Box, ThemeProvider} from '@primer/react'
+import {Button, Box} from '@primer/react'
 import {XIcon, ThreeBarsIcon} from '@primer/octicons-react'
 import Link from './link'
 import Drawer from './drawer'
 import NavItems from './nav-items'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import {useIsMobile} from '../hooks/use-breakpoint'
+import {DarkTheme, LightTheme} from '../theme'
 
 const useDrawerIsOpen = () => {
   const isMobile = useIsMobile()
@@ -31,7 +32,7 @@ function NavDrawer() {
       <Button aria-label="Menu" aria-expanded={isOpen} onClick={setOpen} sx={{ml: 3}}>
         <ThreeBarsIcon />
       </Button>
-      <ThemeProvider colorMode="light">
+      <LightTheme>
         <Drawer isOpen={isOpen} onDismiss={setClose}>
           <Box
             sx={{
@@ -52,7 +53,7 @@ function NavDrawer() {
                 bg: 'canvas.default',
               }}
             >
-              <ThemeProvider colorMode="night" nightScheme="dark_dimmed">
+              <DarkTheme>
                 <Box
                   sx={{
                     borderWidth: 0,
@@ -82,14 +83,14 @@ function NavDrawer() {
                     </Button>
                   </Box>
                 </Box>
-              </ThemeProvider>
+              </DarkTheme>
               <Box sx={{display: 'flex', flexDirection: 'column'}}>
                 <NavItems />
               </Box>
             </Box>
           </Box>
         </Drawer>
-      </ThemeProvider>
+      </LightTheme>
     </>
   )
 }

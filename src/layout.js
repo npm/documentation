@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Heading, Text, ThemeProvider} from '@primer/react'
+import {Box, Heading, Text} from '@primer/react'
 import {H1} from './mdx'
 import PageFooter from './components/page-footer'
 import * as TableOfContents from './components/table-of-contents'
@@ -9,13 +9,14 @@ import Container from './components/container'
 import {SKIP_NAV} from './constants'
 import useSiteMetadata from './hooks/use-site-metadata'
 import usePage from './hooks/use-page'
+import {DarkTheme} from './theme'
 
 const HeroLayout = ({children}) => {
   const {title, description} = useSiteMetadata()
 
   return (
     <Box sx={{width: '100%'}} {...SKIP_NAV}>
-      <ThemeProvider colorMode="night" nightScheme="dark_dimmed">
+      <DarkTheme>
         <Box sx={{bg: 'canvas.inset', py: 6}}>
           <Container>
             <Heading as="h1" sx={{color: 'fg.default', fontSize: 7, m: 0}}>
@@ -26,7 +27,7 @@ const HeroLayout = ({children}) => {
             </Text>
           </Container>
         </Box>
-      </ThemeProvider>
+      </DarkTheme>
       <Container>{children}</Container>
     </Box>
   )
