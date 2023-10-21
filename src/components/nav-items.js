@@ -7,6 +7,7 @@ import * as getNav from '../util/get-nav'
 import VisuallyHidden from './visually-hidden'
 import headerNavItems from '../../content/header-nav.yml'
 import usePage from '../hooks/use-page'
+import useSiteMetadata from '../hooks/use-site-metadata'
 
 const NavItem = ({item, path, depth}) => {
   const href = getNav.getLocation(item.url)
@@ -53,10 +54,8 @@ const ExternalNavItem = ({title, ...props}) => (
 )
 
 const Navigation = () => {
-  const {
-    location,
-    pageContext: {repositoryUrl},
-  } = usePage()
+  const {location} = usePage()
+  const {repositoryUrl} = useSiteMetadata()
   const path = getNav.getLocation(location.pathname)
   const items = getNav.getHierarchy(null, {path, hideVariants: true})
 
