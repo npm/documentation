@@ -143,11 +143,7 @@ export const getHierarchy = (root, props = {}) => {
     children = root.children
   }
 
-  if (children && props.hideVariants === true) {
-    children = hideVariantsForItems(children, props.path)
-  }
-
-  return children
+  return children && props.hideVariants === true ? hideVariantsForItems(children, props.path) : children
 }
 
 export const hideVariantsForItems = (items, path) => {
@@ -159,10 +155,9 @@ export const hideVariantsForItems = (items, path) => {
 
   for (const item of items) {
     if (item.variants) {
-      const {url} = getCurrentOrDefaultVariant(item, path)
       updated.push({
         ...item,
-        url,
+        url: getCurrentOrDefaultVariant(item, path).url,
       })
     } else {
       updated.push(item)
@@ -173,13 +168,7 @@ export const hideVariantsForItems = (items, path) => {
 }
 
 export const getCurrentOrDefaultVariant = (root, path) => {
-  let variant = path ? getCurrentVariant(root, path) : null
-
-  if (!variant) {
-    variant = getDefaultVariant(root)
-  }
-
-  return variant
+  return getCurrentVariant(root, path) || getDefaultVariant(root)
 }
 
 export const getCurrentVariant = (root, path) => {
@@ -218,6 +207,19 @@ export const getVariantAndPage = (root, path) => {
   return {variant: match[1], page: match[2]}
 }
 
+export const didVariantChange = (oldPath, newPath) => {
+  if (!oldPath || !newPath || oldPath === newPath) {
+    return false
+  }
+
+  const oldVariant = getVariantAndPage(getVariantRoot(oldPath), getPath(oldPath))?.variant
+  if (!oldVariant) {
+    return false
+  }
+
+  return oldVariant !== getVariantAndPage(getVariantRoot(newPath), getPath(newPath))?.variant
+}
+
 export const getVariantsForPage = (root, page) => {
   const pages = []
   const rootItem = findItem(item => (getPath(item.url) === getPath(root) ? item : null))
@@ -229,16 +231,13 @@ export const getVariantsForPage = (root, page) => {
       }
 
       const vp = getVariantAndPage(root, variant.url)
-      let variantPage
-
-      if (vp.page === page) {
-        variantPage = variant
-      } else {
-        variantPage = findItem(item => {
-          const itemVp = getVariantAndPage(root, item.url)
-          return itemVp && itemVp.page === page ? item : null
-        }, variant.children)
-      }
+      const variantPage =
+        vp.page === page
+          ? variant
+          : findItem(item => {
+              const itemVp = getVariantAndPage(root, item.url)
+              return itemVp?.page === page ? item : null
+            }, variant.children)
 
       if (!variantPage) {
         continue

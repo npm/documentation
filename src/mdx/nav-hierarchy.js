@@ -32,10 +32,10 @@ const Hierarchy = ({items, ...props}) => {
   )
 }
 
-function NavHierarchy({root, depth, ...props}) {
+function NavHierarchy({depth, ...props}) {
   const {location} = usePage()
   const path = getNav.getLocation(location.pathname)
-  const navRoot = (root || path).replace(/\/+$/g, '')
+  const navRoot = path.replace(/\/+$/g, '')
 
   const rootItem = getNav.getItem(navRoot)
   const hierarchy = getNav.getHierarchy(rootItem, props)

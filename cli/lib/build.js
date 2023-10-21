@@ -14,6 +14,7 @@ const updateNav = async (updates, {nav, path}) => {
     shortName: release.id,
     url: release.url,
     default: release.default,
+    type: release.type,
     children: release.nav,
   }))
 
@@ -43,7 +44,7 @@ const getCurrentVersions = nav => {
 
   const currentVersions = currentSections
     .map(v => {
-      const version = v.title?.match(/^Version\s(.*?)\s/)[1]
+      const version = v.title?.match(/^Version\s(.*?)$/)[1]
       return version
     })
     .sort(semver.compare)
@@ -95,16 +96,17 @@ const main = async ({loglevel, releases: rawReleases, useCurrent, navPath, conte
 
   const releases = releaseVersions.map(release => {
     const type = release.default
-      ? 'Latest Release'
+      ? 'latest'
       : release.prerelease
-      ? 'Prerelease'
+      ? 'prerelease'
       : semver.gt(release.version, latestRelease.version)
-      ? 'Current Release'
-      : 'Legacy Release'
+      ? 'current'
+      : 'legacy'
 
     return {
       ...release,
-      title: `Version ${release.version} (${type})`,
+      type,
+      title: `Version ${release.version}`,
       url: `/${DOCS_PATH}/${release.id}`,
       urlPrefix: DOCS_PATH,
       urlPrefixes: [DOCS_PATH, `${DOCS_PATH}-documentation`],
