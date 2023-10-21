@@ -22,6 +22,13 @@ const npmTheme = deepmerge(theme, {
         fg: {
           default: '#E1E4E8',
         },
+        btn: {
+          text: '#E1E4E8',
+          bg: 'transparent',
+          border: '#444D56',
+          hoverBorder: '#444D56',
+          hoverBg: NPM_RED,
+        },
       },
     },
   },
