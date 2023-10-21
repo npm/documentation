@@ -29,12 +29,11 @@ function Contributors({contributors = [], latestCommit}) {
           {contributors.length} {pluralize('contributor', contributors.length)}
         </Text>
         {contributors.map(login => (
-          <Link key={login} href={`https://github.com/${login}`} sx={{lineHeight: 'condensedUltra', mr: 2}}>
-            {/* eslint-disable-next-line primer-react/a11y-tooltip-interactive-trigger */}
-            <Tooltip key={login} aria-label={login}>
+          <Tooltip key={login} aria-label={login}>
+            <Link href={`https://github.com/${login}`} sx={{lineHeight: 'condensedUltra', mr: 2}}>
               <Avatar src={`https://github.com/${login}.png?size=40`} alt={login} />
-            </Tooltip>
-          </Link>
+            </Link>
+          </Tooltip>
         ))}
       </Box>
       {latestCommit ? (
