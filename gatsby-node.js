@@ -63,7 +63,7 @@ exports.onCreateNode = ({node, actions, getNode}) => {
   }
 }
 
-exports.onCreateWebpackConfig = ({actions}) => {
+exports.onCreateWebpackConfig = ({stage, actions}) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -72,6 +72,12 @@ exports.onCreateWebpackConfig = ({actions}) => {
       extensions: ['.js'],
     },
   })
+
+  if (stage === `build-javascript`) {
+    actions.setWebpackConfig({
+      devtool: false,
+    })
+  }
 }
 
 exports.createSchemaCustomization = ({actions: {createTypes}}) => {
