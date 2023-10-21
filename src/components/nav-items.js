@@ -10,14 +10,13 @@ import usePage from '../hooks/use-page'
 import useSiteMetadata from '../hooks/use-site-metadata'
 
 const NavItem = ({item, path, depth}) => {
-  const href = getNav.getLocation(item.url)
-  const isCurrent = getNav.isActiveUrl(path, href)
-  const items = getNav.getHierarchy(item, {path: item.url, hideVariants: true})
+  const isCurrent = getNav.isActiveUrl(path, item.url)
+  const items = getNav.getHierarchy(item, item.url, {hideVariants: true})
 
   return (
     <NavList.Item
       as={Link}
-      to={href}
+      to={item.url}
       defaultOpen={items && isCurrent}
       aria-current={isCurrent ? 'page' : null}
       sx={{fontSize: depth === 1 ? 2 : 1}}
@@ -54,10 +53,9 @@ const ExternalNavItem = ({title, ...props}) => (
 )
 
 const Navigation = () => {
-  const {location} = usePage()
   const {repositoryUrl} = useSiteMetadata()
-  const path = getNav.getLocation(location.pathname)
-  const items = getNav.getHierarchy(null, {path, hideVariants: true})
+  const {pathname} = usePage().location
+  const items = getNav.getHierarchy(null, pathname, {hideVariants: true})
 
   return (
     <>
@@ -65,7 +63,7 @@ const Navigation = () => {
         <h3>Site navigation</h3>
       </VisuallyHidden>
       <NavList aria-label="Site">
-        <NavItems items={items} path={path} />
+        <NavItems items={items} path={pathname} />
         <NavList.Divider />
         {headerNavItems.map(item => (
           <Box key={item.title} sx={{display: ['flex', null, null, 'none']}}>

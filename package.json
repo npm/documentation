@@ -7,7 +7,6 @@
   },
   "private": true,
   "scripts": {
-    "//": "Fix for parcel segfaults",
     "//": "https://github.com/parcel-bundler/parcel/issues/7702",
     "gatsby": "PARCEL_WORKERS=0 gatsby",
     "develop": "npm run gatsby -- develop",
@@ -42,7 +41,7 @@
     "details-element-polyfill": "^2.4.0",
     "downshift": "^8.2.2",
     "framer-motion": "^10.16.4",
-    "fuse.js": "^3.6.1",
+    "fuse.js": "^6.6.2",
     "gatsby": "^5.12.7",
     "gatsby-plugin-manifest": "^5.12.1",
     "gatsby-plugin-mdx": "^5.12.1",

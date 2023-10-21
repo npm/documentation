@@ -5,20 +5,18 @@ import * as getNav from '../util/get-nav'
 import usePage from '../hooks/use-page'
 
 const BreadcrumbItem = ({item, path}) => {
-  const href = getNav.getLocation(item.url)
-  const selected = getNav.isPathForItem(path, getNav.getItem(href))
+  const selected = getNav.isPathForItem(path, getNav.getItem(item.url))
 
   return (
-    <PrimerBreadcrumbs.Item as={GatsbyLink} to={href} {...(selected ? {selected} : {})}>
+    <PrimerBreadcrumbs.Item as={GatsbyLink} to={item.url} {...(selected ? {selected} : {})}>
       {item.shortName || item.title}
     </PrimerBreadcrumbs.Item>
   )
 }
 
 const Breadcrumbs = () => {
-  const {location} = usePage()
-  const path = getNav.getLocation(location.pathname)
-  const items = getNav.getItemBreadcrumbs(location.pathname, {hideVariants: true})
+  const {pathname} = usePage().location
+  const items = getNav.getItemBreadcrumbs(pathname, {hideVariants: true})
 
   if (items.length <= 1) {
     return null
@@ -27,7 +25,7 @@ const Breadcrumbs = () => {
   return (
     <PrimerBreadcrumbs sx={{mb: 4}}>
       {items.map(item => (
-        <BreadcrumbItem key={item.url} item={item} path={path} />
+        <BreadcrumbItem key={item.url} item={item} path={pathname} />
       ))}
     </PrimerBreadcrumbs>
   )
