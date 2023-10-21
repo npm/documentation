@@ -52,33 +52,37 @@ function NavDrawer() {
                 bg: 'canvas.default',
               }}
             >
-              <Box
-                sx={{
-                  borderWidth: 0,
-                  borderRadius: 0,
-                  borderBottomWidth: 1,
-                  borderColor: 'border.muted',
-                  borderStyle: 'solid',
-                }}
-              >
+              <ThemeProvider colorMode="night" nightScheme="dark_dimmed">
                 <Box
                   sx={{
-                    py: 3,
-                    pl: 4,
-                    pr: 3,
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    display: 'flex',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    borderBottomWidth: 1,
+                    borderColor: 'border.muted',
+                    borderStyle: 'solid',
+                    color: 'fg.default',
+                    bg: 'canvas.default',
                   }}
                 >
-                  <Link to="/" sx={{display: 'inline-block', color: 'inherit'}}>
-                    {siteMetadata.title}
-                  </Link>
-                  <Button aria-label="Close" onClick={setClose}>
-                    <XIcon />
-                  </Button>
+                  <Box
+                    sx={{
+                      py: 3,
+                      pl: 4,
+                      pr: 3,
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      display: 'flex',
+                    }}
+                  >
+                    <Link to="/" sx={{fontSize: 2, color: 'fg.default'}}>
+                      {siteMetadata.title}
+                    </Link>
+                    <Button aria-label="Close" onClick={setClose}>
+                      <XIcon />
+                    </Button>
+                  </Box>
                 </Box>
-              </Box>
+              </ThemeProvider>
               <Box sx={{display: 'flex', flexDirection: 'column'}}>
                 <NavItems />
               </Box>
