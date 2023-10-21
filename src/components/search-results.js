@@ -5,7 +5,15 @@ import * as getNav from '../util/get-nav'
 
 const Breadcrumbs = ({item}) => {
   const siteMetadata = useSiteMetadata()
-  const hierarchy = getNav.getItemBreadcrumbs(item.path).slice(0, -1)
+  const variant = getNav.getVariant(getNav.getVariantRoot(item.path), item.path)
+  const hierarchy = getNav.getItemBreadcrumbs(item.path)
+
+  // keep the variant in the breadcrumb if we have one and its not the
+  // same as the last breadcrumb. this makes sure that variant index pages
+  // don't all appear the same in the search results
+  if (!variant || variant !== hierarchy[hierarchy.length - 1].shortName) {
+    hierarchy.pop()
+  }
 
   const text = hierarchy.length ? hierarchy.map(s => s.shortName || s.title).join(' / ') : siteMetadata.shortName
 

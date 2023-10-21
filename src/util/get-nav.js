@@ -1,34 +1,11 @@
-import {withPrefix} from 'gatsby'
 import navItems from '../../content/nav.yml'
 
-export const getItemBreadcrumbs = (path, props = {}) => {
-  let hierarchy = getItemHierarchy(path)
-
-  if (!hierarchy) {
-    return []
-  }
-
-  if (props.hideVariants) {
-    const root = getVariantRoot(path)
-    const vp = getVariantAndPage(root, path)
-    hierarchy = hierarchy.filter(item => (vp ? item.shortName !== vp.variant : true))
-  }
-
-  return hierarchy
-}
-
-export const getLocation = path => {
-  const pathPrefix = withPrefix('/')
-
-  if (!pathPrefix || pathPrefix === '/') {
-    return path
-  }
-
-  const match = new RegExp(`^${pathPrefix}`)
-  return path.replace(match, '/')
-}
-
-export const getPath = path => {
+/*
+ *
+ * Internal functions
+ *
+ */
+const getPath = path => {
   while (path && path.endsWith('/')) {
     path = path.substring(0, path.length - 1)
   }
@@ -36,36 +13,64 @@ export const getPath = path => {
   return path
 }
 
-export const getVariantRoot = path => {
-  path = getPath(path)
-
-  return findItem(item => {
-    if (item.variants && path.startsWith(`${item.url}/`)) {
-      return item.url
-    }
-
-    return null
-  })
-}
-
-export const findItem = (fn, items = navItems) => {
-  for (let i = 0; i < items.length; i++) {
-    const item = items[i]
-    let result = fn(item)
-
-    if (!result && item.children) {
-      result = findItem(fn, item.children)
-    }
-
-    if (result) {
-      return result
+const getCurrentVariant = (root, path) => {
+  for (const v of root.variants) {
+    if (isActiveItem(path, v)) {
+      return v
     }
   }
 
   return null
 }
 
-export const getItemHierarchy = (path, items = navItems) => {
+const getDefaultVariant = root => {
+  for (const v of root.variants) {
+    if (v.default) {
+      return v
+    }
+  }
+
+  return root.variants[0]
+}
+
+const getVariantAndPage = (root, path) => {
+  if (!root || !path.startsWith(`${root}/`)) {
+    return null
+  }
+
+  path = path.substring(root.length + 1)
+
+  const match = /^([^/]+)(?:\/(.*))?/.exec(path)
+
+  if (!match) {
+    return null
+  }
+
+  return {variant: match[1], page: match[2]}
+}
+
+const hideVariantsForItems = (items, path) => {
+  if (!items) {
+    return null
+  }
+
+  const updated = []
+
+  for (const item of items) {
+    if (item.variants) {
+      updated.push({
+        ...item,
+        url: getCurrentOrDefaultVariant(item, path).url,
+      })
+    } else {
+      updated.push(item)
+    }
+  }
+
+  return updated
+}
+
+const getItemHierarchy = (path, items = navItems) => {
   if (!path) {
     return null
   }
@@ -91,7 +96,107 @@ export const getItemHierarchy = (path, items = navItems) => {
   return null
 }
 
+const isChildItem = (path, items = navItems) => {
+  if (!path) {
+    return false
+  }
+
+  return findItem(item => (isPathForItem(path, item) ? item : null), items) != null
+}
+
+const findItem = (fn, items = navItems) => {
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i]
+    let result = fn(item)
+
+    if (!result && item.children) {
+      result = findItem(fn, item.children)
+    }
+
+    if (result) {
+      return result
+    }
+  }
+
+  return null
+}
+
+const isActiveItem = (currentPath, linkItem) => {
+  return (
+    isPathForItem(currentPath, linkItem) ||
+    (linkItem.children && isChildItem(currentPath, linkItem.children)) ||
+    (linkItem.variants && isChildItem(currentPath, linkItem.variants))
+  )
+}
+
+const getVariantsForPage = (root, page) => {
+  const pages = []
+  const rootItem = findItem(item => (getPath(item.url) === getPath(root) ? item : null))
+
+  if (rootItem && rootItem.variants) {
+    for (const variant of rootItem.variants) {
+      if (!variant.children) {
+        continue
+      }
+
+      const vp = getVariantPage(root, variant.url)
+      const variantPage =
+        vp === page
+          ? variant
+          : findItem(item => {
+              const itemVp = getVariantPage(root, item.url)
+              return itemVp === page ? item : null
+            }, variant.children)
+
+      if (!variantPage) {
+        continue
+      }
+
+      pages.push({variant, page: variantPage})
+    }
+  }
+
+  return pages
+}
+
+/*
+ *
+ * Export functions
+ *
+ */
+export const getItemBreadcrumbs = (path, {hideVariants} = {}) => {
+  let hierarchy = getItemHierarchy(path)
+
+  if (!hierarchy) {
+    return []
+  }
+
+  if (hideVariants) {
+    const root = getVariantRoot(path)
+    const variant = getVariant(root, path)
+    hierarchy = hierarchy.filter(item => (variant ? item.shortName !== variant : true))
+  }
+
+  return hierarchy
+}
+
+export const getVariantRoot = (path, {stripTrailing = true} = {}) => {
+  if (stripTrailing) {
+    path = getPath(path)
+  }
+
+  return findItem(item => {
+    if (item.variants && path.startsWith(`${item.url}/`)) {
+      return item.url
+    }
+
+    return null
+  })
+}
+
 export const getItem = (path, items = navItems) => {
+  path = getPath(path)
+
   if (!path) {
     return {url: '/', children: items}
   }
@@ -121,141 +226,53 @@ export const isPathForItem = (path, item) => {
   return getPath(item.url) === getPath(path)
 }
 
-export const isChildItem = (path, items = navItems) => {
-  if (!path) {
-    return false
-  }
-
-  return findItem(item => (isPathForItem(path, item) ? item : null), items) != null
-}
-
-export const getHierarchy = (root, props = {}) => {
+export const getHierarchy = (root, path, {hideVariants} = {}) => {
   let children
 
   if (!root) {
     children = navItems
-  } else if (root.variants && props.hideVariants === true) {
-    const variant = getCurrentOrDefaultVariant(root, props.path)
-    children = variant.children
+  } else if (root.variants && hideVariants === true) {
+    children = getCurrentOrDefaultVariant(root, path).children
   } else if (root.variants) {
     children = root.variants
   } else {
     children = root.children
   }
 
-  return children && props.hideVariants === true ? hideVariantsForItems(children, props.path) : children
-}
-
-export const hideVariantsForItems = (items, path) => {
-  if (!items) {
-    return null
-  }
-
-  const updated = []
-
-  for (const item of items) {
-    if (item.variants) {
-      updated.push({
-        ...item,
-        url: getCurrentOrDefaultVariant(item, path).url,
-      })
-    } else {
-      updated.push(item)
-    }
-  }
-
-  return updated
+  return children && hideVariants === true ? hideVariantsForItems(children, path) : children
 }
 
 export const getCurrentOrDefaultVariant = (root, path) => {
-  return getCurrentVariant(root, path) || getDefaultVariant(root)
-}
+  let variant = path ? getCurrentVariant(root, path) : null
 
-export const getCurrentVariant = (root, path) => {
-  for (const v of root.variants) {
-    if (isActiveItem(path, v)) {
-      return v
-    }
+  if (!variant) {
+    variant = getDefaultVariant(root)
   }
 
-  return null
+  return variant
 }
 
-export const getDefaultVariant = root => {
-  for (const v of root.variants) {
-    if (v.default) {
-      return v
-    }
-  }
+export const getVariant = (root, path) => getVariantAndPage(root, path)?.variant ?? null
 
-  return root.variants[0]
-}
-
-export const getVariantAndPage = (root, path) => {
-  if (!root || !path.startsWith(`${root}/`)) {
-    return null
-  }
-
-  path = path.substring(root.length + 1)
-
-  const match = /^([^/]+)(?:\/(.*))?/.exec(path)
-
-  if (!match) {
-    return null
-  }
-
-  return {variant: match[1], page: match[2]}
-}
+export const getVariantPage = (root, path) => getVariantAndPage(root, path)?.page ?? null
 
 export const didVariantChange = (oldPath, newPath) => {
   if (!oldPath || !newPath || oldPath === newPath) {
     return false
   }
 
-  const oldVariant = getVariantAndPage(getVariantRoot(oldPath), getPath(oldPath))?.variant
+  const oldVariant = getVariant(getVariantRoot(oldPath), getPath(oldPath))
   if (!oldVariant) {
     return false
   }
 
-  return oldVariant !== getVariantAndPage(getVariantRoot(newPath), getPath(newPath))?.variant
+  return oldVariant !== getVariant(getVariantRoot(newPath), getPath(newPath))
 }
 
-export const getVariantsForPage = (root, page) => {
-  const pages = []
-  const rootItem = findItem(item => (getPath(item.url) === getPath(root) ? item : null))
-
-  if (rootItem && rootItem.variants) {
-    for (const variant of rootItem.variants) {
-      if (!variant.children) {
-        continue
-      }
-
-      const vp = getVariantAndPage(root, variant.url)
-      const variantPage =
-        vp.page === page
-          ? variant
-          : findItem(item => {
-              const itemVp = getVariantAndPage(root, item.url)
-              return itemVp?.page === page ? item : null
-            }, variant.children)
-
-      if (!variantPage) {
-        continue
-      }
-
-      pages.push({variant, page: variantPage})
-    }
-  }
-
-  return pages
-}
-
-export const isActiveItem = (currentPath, linkItem) => {
-  return (
-    isPathForItem(currentPath, linkItem) ||
-    (linkItem.children && isChildItem(currentPath, linkItem.children)) ||
-    (linkItem.variants && isChildItem(currentPath, linkItem.variants))
-  )
+export const getVariantsForPath = path => {
+  const root = getVariantRoot(path)
+  const vPage = getVariantPage(root, path)
+  return vPage ? getVariantsForPage(root, vPage) : []
 }
 
 export const isActiveUrl = (currentPath, linkPath) => {

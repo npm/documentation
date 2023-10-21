@@ -1,6 +1,5 @@
 import React from 'react'
 import {Box, Heading, themeGet, Text, Octicon} from '@primer/react'
-import {withPrefix} from 'gatsby'
 import styled from 'styled-components'
 import {variant as styledVariant} from 'styled-system'
 import {LinkIcon} from '@primer/octicons-react'
@@ -312,9 +311,7 @@ export const Image = styled(RequiredImage)`
   box-sizing: content-box;
 `
 
-const ScreenshotImage = ({src, ...props}) => <RequiredImage src={withPrefix(src)} {...props} />
-
-export const Screenshot = styled(ScreenshotImage)`
+export const Screenshot = styled(RequiredImage)`
   margin-top: 15px;
   max-width: min(100%, 525px);
   max-height: 300px;

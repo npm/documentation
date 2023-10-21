@@ -2,11 +2,15 @@ import React from 'react'
 import {useCombobox} from 'downshift'
 import {navigate, graphql, useStaticQuery} from 'gatsby'
 import {useIsMobile} from './use-breakpoint'
+import usePage from './use-page'
+import * as getNav from '../util/get-nav'
+
+// This worker can live for the entire duraction of the site
+const WORKER = new Worker(new URL('../util/search.worker.js', import.meta.url))
+const CLI_ROOT = '/cli'
 
 const useSearchData = () => {
-  // TODO: this static query runs for all pages changes in dev mode. When not
-  // testing search explicitly it should be replaced with some static data.
-  const rawData = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
       allMdx {
         nodes {
@@ -27,15 +31,13 @@ const useSearchData = () => {
   `)
 
   return React.useMemo(() => {
-    const mdxNodes = rawData.allMdx.nodes.reduce((map, obj) => {
+    const mdxNodes = data.allMdx.nodes.reduce((map, obj) => {
       map[obj.id] = obj
       return map
     }, {})
 
-    return rawData.allSitePage.nodes
-      .filter(node => {
-        return node.pageContext && node.pageContext.mdxId && mdxNodes[node.pageContext.mdxId] != null
-      })
+    return data.allSitePage.nodes
+      .filter(node => mdxNodes[node.pageContext?.mdxId] != null)
       .map(node => {
         const mdxNode = mdxNodes[node.pageContext.mdxId]
         return {
@@ -44,53 +46,58 @@ const useSearchData = () => {
           body: mdxNode.body,
         }
       })
-  }, [rawData])
+  }, [data])
+}
+
+const useCliVersion = () => {
+  return getNav.getCurrentOrDefaultVariant(
+    getNav.getItem(getNav.getVariantRoot(`${CLI_ROOT}/`, {stripTrailing: false})),
+    usePage().location.pathname,
+  )
 }
 
 function useSearch() {
-  const isMobile = useIsMobile()
-
-  const queryRef = React.useRef()
-  const workerRef = React.useRef()
-
   const [query, setQuery] = React.useState()
-  const [items, setItems] = React.useState(null)
-
-  const searchData = useSearchData()
+  const [results, setResults] = React.useState(null)
+  const queryRef = React.useRef()
+  const items = useSearchData()
+  const isMobile = useIsMobile()
+  const {url: cliUrl} = useCliVersion()
 
   const handleSearchResults = React.useCallback(({data}) => {
+    if (data.debug) {
+      console.log(data.debug)
+    }
     if (data.query && data.results && data.query === queryRef.current) {
-      setItems(data.results)
+      setResults(data.results)
     }
   }, [])
 
   React.useEffect(() => {
-    const worker = new Worker(new URL('../util/search.worker.js', import.meta.url))
-    workerRef.current = worker
+    WORKER.addEventListener('message', handleSearchResults)
+  }, [handleSearchResults])
 
-    worker.addEventListener('message', handleSearchResults)
-    worker.postMessage({data: searchData})
+  React.useEffect(() => {
+    WORKER.postMessage({items})
+  }, [items])
 
-    return () => worker.terminate()
-  }, [searchData, handleSearchResults])
+  React.useEffect(() => {
+    WORKER.postMessage({cli: {root: CLI_ROOT, current: cliUrl}})
+  }, [cliUrl])
 
   React.useEffect(() => {
     queryRef.current = query
 
     if (query) {
-      workerRef.current.postMessage({query})
+      WORKER.postMessage({query})
     } else {
-      setItems(null)
+      setResults(null)
     }
   }, [query])
 
   const combobox = useCombobox({
     id: 'search-box',
-    // We don't need Downshift to keep track of a selected item because as
-    // soon as an item is selected we navigate to a new page.
-    // Let's avoid any unexpected states related to the selected item
-    // by setting it to always be `null`.
-    items: items || [],
+    items: results || [],
     onInputValueChange: ({inputValue}) => setQuery(inputValue),
     onSelectedItemChange: ({selectedItem}) => {
       if (selectedItem) {
@@ -126,8 +133,8 @@ function useSearch() {
 
   return {
     ...combobox,
-    results: items,
-    isOpen: !!(combobox.isOpen && items),
+    results,
+    isOpen: !!(combobox.isOpen && results),
   }
 }
 

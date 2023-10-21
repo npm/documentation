@@ -4,8 +4,8 @@ import Link from '../components/link'
 import * as getNav from '../util/get-nav'
 import usePage from '../hooks/use-page'
 
-const HierarchyItem = ({item, depth, ...props}) => {
-  const hierarchy = getNav.getHierarchy(item, props)
+const HierarchyItem = ({item, maxDepth, depth, hideVariants}) => {
+  const hierarchy = getNav.getHierarchy(item, null, {hideVariants})
 
   return (
     <Box as="li" key={item.url}>
@@ -13,34 +13,32 @@ const HierarchyItem = ({item, depth, ...props}) => {
         {item.title}
       </Link>
       {item.description ? <Box sx={{fontSize: 1, mb: 1}}>{item.description}</Box> : null}
-      {hierarchy ? <Hierarchy items={hierarchy} depth={depth + 1} {...props} /> : null}
+      {hierarchy ? (
+        <Hierarchy items={hierarchy} maxDepth={maxDepth} depth={depth + 1} hideVariants={hideVariants} />
+      ) : null}
     </Box>
   )
 }
 
-const Hierarchy = ({items, ...props}) => {
-  if (props.maxDepth && props.depth > props.maxDepth) {
+const Hierarchy = ({items, maxDepth, depth, hideVariants}) => {
+  if (maxDepth && depth > maxDepth) {
     return null
   }
 
   return (
     <Box as="ul">
       {items.map(item => (
-        <HierarchyItem key={item.url} item={item} {...props} />
+        <HierarchyItem key={item.url} item={item} maxDepth={maxDepth} depth={depth} hideVariants={hideVariants} />
       ))}
     </Box>
   )
 }
 
-function NavHierarchy({depth, ...props}) {
-  const {location} = usePage()
-  const path = getNav.getLocation(location.pathname)
-  const navRoot = path.replace(/\/+$/g, '')
+function NavHierarchy({depth, hideVariants}) {
+  const {pathname} = usePage().location
+  const hierarchy = getNav.getHierarchy(getNav.getItem(pathname), null, {hideVariants})
 
-  const rootItem = getNav.getItem(navRoot)
-  const hierarchy = getNav.getHierarchy(rootItem, props)
-
-  return <Hierarchy items={hierarchy} maxDepth={depth} depth={1} {...props} />
+  return <Hierarchy items={hierarchy} maxDepth={depth} depth={1} hideVariants={hideVariants} />
 }
 
 export default NavHierarchy

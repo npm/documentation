@@ -59,13 +59,11 @@ const VariantMenu = ({title, latest, current, prerelease, legacy, path}) => {
               {current && <VariantItem {...current} />}
               {prerelease && <VariantItem {...prerelease} />}
             </ActionList.Group>
-            {legacy && (
-              <ActionList.Group title="Legacy">
-                {legacy.map(item => (
-                  <VariantItem key={item.title} {...item} />
-                ))}
-              </ActionList.Group>
-            )}
+            <ActionList.Group title="Legacy">
+              {legacy.map(item => (
+                <VariantItem key={item.title} {...item} />
+              ))}
+            </ActionList.Group>
           </ActionList>
         </ActionMenu.Overlay>
       </ActionMenu>
@@ -74,13 +72,10 @@ const VariantMenu = ({title, latest, current, prerelease, legacy, path}) => {
 }
 
 const useVariants = () => {
-  const {pathname} = usePage().location
+  const {pathname: path} = usePage().location
 
   return React.useMemo(() => {
-    const root = getNav.getVariantRoot(pathname)
-    const path = getNav.getPath(pathname)
-    const vp = getNav.getVariantAndPage(root, path)
-    const variantPages = vp ? getNav.getVariantsForPage(root, vp.page) : []
+    const variantPages = getNav.getVariantsForPath(path)
 
     if (!variantPages.length) {
       return null
@@ -106,7 +101,7 @@ const useVariants = () => {
           break
         default:
           result.legacy.push(item)
-          typeDesc = ' Legacy'
+          typeDesc = ' (Legacy)'
       }
       if (item.active) {
         result.title = `${item.title}${typeDesc}`
@@ -116,7 +111,7 @@ const useVariants = () => {
     result.legacy.sort((a, b) => parseInt(b.shortName.slice(1)) - parseInt(a.shortName.slice(1)))
 
     return result
-  }, [pathname])
+  }, [path])
 }
 
 const VariantSelect = () => {
