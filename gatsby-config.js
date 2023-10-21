@@ -58,13 +58,13 @@ module.exports = {
     description: 'Documentation for the npm registry, website, and command-line interface',
     lang: 'en',
     imageUrl: 'https://user-images.githubusercontent.com/29712634/81721690-e2fb5d80-9445-11ea-8602-4b2294c964f3.png',
+    repositoryUrl: 'https://github.com/npm/documentation',
   },
   flags: {
     DEV_SSR: !!process.env.DEV_SSR,
   },
   plugins: [
     'gatsby-plugin-styled-components',
-    'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-plugin-mdx',

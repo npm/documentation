@@ -44,7 +44,6 @@
     "gatsby-plugin-manifest": "^5.12.1",
     "gatsby-plugin-mdx": "^5.12.1",
     "gatsby-plugin-meta-redirect": "^1.1.1",
-    "gatsby-plugin-react-helmet": "^6.12.0",
     "gatsby-plugin-styled-components": "^6.12.0",
     "gatsby-source-filesystem": "^5.12.0",
     "gatsby-transformer-yaml": "^5.12.0",
@@ -56,7 +55,6 @@
     "react-addons-text-content": "^0.0.4",
     "react-dom": "^18.2.0",
     "react-focus-on": "^3.9.1",
-    "react-helmet": "^6.1.0",
     "styled-components": "^5.3.11",
     "styled-system": "^5.1.5"
   },

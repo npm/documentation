@@ -10,7 +10,7 @@ import {SKIP_NAV} from './constants'
 import useSiteMetadata from './hooks/use-site-metadata'
 import usePage from './hooks/use-page'
 
-export const HeroLayout = ({children}) => {
+const HeroLayout = ({children}) => {
   const {title, description} = useSiteMetadata()
 
   return (
@@ -32,7 +32,7 @@ export const HeroLayout = ({children}) => {
   )
 }
 
-export const DefaultLayout = ({children}) => {
+const DefaultLayout = ({children}) => {
   const {title, description} = usePage().frontmatter
   return (
     <Box
@@ -62,6 +62,6 @@ export const DefaultLayout = ({children}) => {
   )
 }
 
-const getLayout = ({path}) => ({'/': HeroLayout})[path] ?? DefaultLayout
+const Layout = ({children}) => React.createElement(usePage().path === '/' ? HeroLayout : DefaultLayout, null, children)
 
-export default getLayout
+export default Layout

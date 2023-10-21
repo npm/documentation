@@ -10,6 +10,7 @@ function useSiteMetadata() {
           description
           lang
           imageUrl
+          repositoryUrl
         }
       }
     }

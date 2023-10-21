@@ -1,13 +1,14 @@
-const {resolve, join, relative} = require('path')
+const {join, relative} = require('path')
 const {Octokit: CoreOctokit} = require('@octokit/rest')
 const {throttling} = require('@octokit/plugin-throttling')
 const {retry} = require('@octokit/plugin-retry')
 
 const CI = !!process.env.CI
+const CWD = process.cwd()
+const SRC = join(CWD, 'src')
 const REPO_URL = 'https://github.com/npm/documentation'
 const NWO = new URL(REPO_URL).pathname.slice(1)
 const REPO_BRANCH = 'main'
-const CWD = process.cwd()
 const TEST_CONTRIBUTORS = [
   {
     author: {login: 'mona'},
@@ -66,7 +67,7 @@ exports.onCreateWebpackConfig = ({actions}) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        '~': resolve(__dirname, 'src/'),
+        '~': SRC,
       },
       extensions: ['.js'],
     },
@@ -172,7 +173,6 @@ const createPage = async (
   const context = {
     mdxId: id,
     tableOfContents: getTableOfConents(tableOfContents),
-    repositoryUrl: REPO_URL,
   }
   // edit_on_github: false in frontmatter will not include editUrl and contributors
   // on the page. this is used for policy pages as well as some index pages that don't
@@ -184,7 +184,7 @@ const createPage = async (
 
   actions.createPage({
     path: pageSlug,
-    component: contentFilePath,
+    component: `${join(SRC, 'head.js')}?__contentFilePath=${contentFilePath}`,
     context,
   })
 
