@@ -1,4 +1,5 @@
-import {BorderBox, Flex, Link} from '@primer/components'
+import {Link} from '@primer/react'
+import BorderBox from './border-box'
 import {XIcon, ThreeBarsIcon} from '@primer/octicons-react'
 import {Link as GatsbyLink} from 'gatsby'
 import React from 'react'
@@ -9,6 +10,7 @@ import DarkButton from './dark-button'
 import Drawer from './drawer'
 import NavItems from './nav-items'
 import {useIsMobile} from '../hooks/use-breakpoint'
+import Flex from '../components/flex'
 
 const useDrawerIsOpen = () => {
   const isMobile = useIsMobile()

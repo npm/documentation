@@ -1,8 +1,9 @@
 const path = require('path')
 const fs = require('fs')
 
-const {NODE_ENV, GATSBY_PARTIAL_CONTENT} = process.env
-const CONTENT_DIR = path.resolve(__dirname, '..', 'content')
+const {NODE_ENV, GATSBY_PARTIAL_CONTENT, GATSBY_CONTENT_DIR = 'content'} = process.env
+const DEV = NODE_ENV === 'development'
+const CONTENT_DIR = path.resolve(__dirname, '..', GATSBY_CONTENT_DIR)
 
 const walkDirs = dir => {
   const dirs = fs
@@ -14,7 +15,7 @@ const walkDirs = dir => {
 }
 
 const getContentOptions = () => {
-  if (NODE_ENV !== 'development' || !GATSBY_PARTIAL_CONTENT) {
+  if (!DEV || !GATSBY_PARTIAL_CONTENT) {
     return
   }
 
@@ -41,7 +42,12 @@ const getContentOptions = () => {
 
 module.exports = ({icon}) => ({
   plugins: [
-    'gatsby-plugin-styled-components',
+    {
+      resolve: 'gatsby-plugin-styled-components',
+      // options: {
+      //   minify: !DEV,
+      // },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
     'gatsby-transformer-yaml',

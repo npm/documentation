@@ -8,7 +8,7 @@ if (typeof window !== 'undefined') {
   require('details-element-polyfill')
 }
 
-// TODO: Replace this Details component with the one from @primer/components when 14.0.0 is released.
+// TODO: Replace this Details component with the one from @primer/react when 14.0.0 is released.
 // Reference: https://github.com/primer/components/pull/499
 
 const DetailsReset = styled.details`

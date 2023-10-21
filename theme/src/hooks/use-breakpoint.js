@@ -1,5 +1,5 @@
 import React from 'react'
-import {ThemeContext} from 'styled-components'
+import {useTheme} from '@primer/react'
 
 const getMatches = query => (typeof window !== 'undefined' ? window.matchMedia(query).matches : false)
 
@@ -28,7 +28,7 @@ export function useBreakpoint(breakpoint, minMax = 'min') {
 
 // a common breakpoint where things change on mobile
 export function useIsMobile() {
-  const theme = React.useContext(ThemeContext)
+  const theme = useTheme()
   return useBreakpoint(theme.breakpoints[2], 'max')
 }
 

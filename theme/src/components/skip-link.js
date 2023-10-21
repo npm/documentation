@@ -1,4 +1,4 @@
-import {Link} from '@primer/components'
+import {Link} from '@primer/react'
 import styled from 'styled-components'
 import React from 'react'
 

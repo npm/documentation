@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from '@primer/components'
+import { Link } from '@primer/react'
 import Screenshot from '../theme/src/components/screenshot'
 import Note from '../theme/src/components/note'
 

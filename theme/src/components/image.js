@@ -1,4 +1,4 @@
-import {themeGet} from '@styled-system/theme-get'
+import {themeGet} from '@primer/react'
 import styled from 'styled-components'
 
 const Image = styled.img`

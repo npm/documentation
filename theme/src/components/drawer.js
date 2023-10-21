@@ -1,4 +1,4 @@
-import {Fixed} from '@primer/components'
+import {Box} from '@primer/react'
 import {AnimatePresence, motion} from 'framer-motion'
 import React from 'react'
 import {FocusOn} from 'react-focus-on'
@@ -20,7 +20,8 @@ function Drawer({isOpen, onDismiss, children}) {
           tabIndex="0"
         >
           <FocusOn returnFocus={true} onEscapeKey={() => onDismiss()}>
-            <Fixed
+            <Box
+              position="fixed"
               key="overlay"
               as={motion.div}
               initial={{opacity: 0}}
@@ -34,7 +35,8 @@ function Drawer({isOpen, onDismiss, children}) {
               bg="rgba(0, 0, 0, 0.5)"
               onClick={() => onDismiss()}
             />
-            <Fixed
+            <Box
+              position="fixed"
               key="drawer"
               as={motion.div}
               initial={{x: '100%'}}
@@ -49,7 +51,7 @@ function Drawer({isOpen, onDismiss, children}) {
               style={{zIndex: 1}}
             >
               {children}
-            </Fixed>
+            </Box>
           </FocusOn>
         </div>
       ) : null}

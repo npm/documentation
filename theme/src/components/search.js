@@ -1,15 +1,16 @@
-import {BorderBox, Position} from '@primer/components'
+import {Box} from '@primer/react'
 import React from 'react'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import DarkTextInput from './dark-text-input'
 import SearchResults from './search-results'
+import BorderBox from './border-box'
 
 function Search(props) {
   const siteMetadata = useSiteMetadata()
   const {getInputProps, getMenuProps, isOpen, results, getItemProps, highlightedIndex} = props
 
   return (
-    <Position position="relative">
+    <Box position="relative">
       <DarkTextInput
         {...getInputProps({
           placeholder: `Search ${siteMetadata.title}`,
@@ -17,7 +18,7 @@ function Search(props) {
           'aria-label': `Search ${siteMetadata.title}`,
         })}
       />
-      <Position
+      <Box
         {...getMenuProps({
           position: 'absolute',
           left: 0,
@@ -30,8 +31,8 @@ function Search(props) {
             <SearchResults {...{results, getItemProps, highlightedIndex}} />
           </BorderBox>
         ) : null}
-      </Position>
-    </Position>
+      </Box>
+    </Box>
   )
 }
 
