@@ -6,16 +6,16 @@ import * as TableOfContents from './components/table-of-contents'
 import VariantSelect from './components/variant-select'
 import Breadcrumbs from './components/breadcrumbs'
 import Container from './components/container'
-import {SKIP_NAV} from './constants'
 import useSiteMetadata from './hooks/use-site-metadata'
 import usePage from './hooks/use-page'
 import {DarkTheme} from './theme'
+import {SkipNav} from './components/skip-nav'
 
 const HeroLayout = ({children}) => {
   const {title, description} = useSiteMetadata()
 
   return (
-    <Box sx={{width: '100%'}} {...SKIP_NAV}>
+    <Box as="main" sx={{width: '100%'}}>
       <DarkTheme>
         <Box sx={{bg: 'canvas.inset', py: 6}}>
           <Container>
@@ -28,6 +28,7 @@ const HeroLayout = ({children}) => {
           </Container>
         </Box>
       </DarkTheme>
+      <SkipNav />
       <Container>{children}</Container>
     </Box>
   )
@@ -48,12 +49,13 @@ const DefaultLayout = ({children}) => {
       }}
     >
       <TableOfContents.Desktop />
-      <Box sx={{width: '100%', maxWidth: '960px'}}>
-        <Box sx={{mb: 4}} {...SKIP_NAV}>
+      <Box as="main" sx={{width: '100%', maxWidth: '960px'}}>
+        <Box sx={{mb: 4}}>
           <Breadcrumbs />
           <H1 autolink={false}>{title}</H1>
           {description ? <Box sx={{fontSize: 3, mb: 3}}>{description}</Box> : null}
         </Box>
+        <SkipNav />
         <VariantSelect />
         <TableOfContents.Mobile />
         {children}

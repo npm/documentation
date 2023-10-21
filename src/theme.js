@@ -13,6 +13,7 @@ export const theme = deepmerge(primerTheme, {
       colors: {
         accent: {
           fg: NPM_RED,
+          emphasis: NPM_RED,
         },
       },
     },

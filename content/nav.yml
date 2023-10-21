@@ -283,10 +283,11 @@
   shortName: CLI
   url: /cli
   variants:
-    - title: Version 6.14.18 (Legacy Release)
+    - title: Version 6.14.18
       shortName: v6
       url: /cli/v6
       default: false
+      type: legacy
       children:
         - title: CLI Commands
           shortName: Commands
@@ -525,10 +526,11 @@
             - title: Changelog
               url: /cli/v6/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 7.24.2 (Legacy Release)
+    - title: Version 7.24.2
       shortName: v7
       url: /cli/v7
       default: false
+      type: legacy
       children:
         - title: CLI Commands
           shortName: Commands
@@ -782,10 +784,11 @@
             - title: Changelog
               url: /cli/v7/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 8.19.4 (Legacy Release)
+    - title: Version 8.19.4
       shortName: v8
       url: /cli/v8
       default: false
+      type: legacy
       children:
         - title: CLI Commands
           shortName: Commands
@@ -1051,10 +1054,11 @@
             - title: Changelog
               url: /cli/v8/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 9.9.0 (Legacy Release)
+    - title: Version 9.9.0
       shortName: v9
       url: /cli/v9
       default: false
+      type: legacy
       children:
         - title: CLI Commands
           shortName: Commands
@@ -1320,10 +1324,11 @@
             - title: Changelog
               url: /cli/v9/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 10.2.1 (Latest Release)
+    - title: Version 10.2.1
       shortName: v10
       url: /cli/v10
       default: true
+      type: latest
       children:
         - title: CLI Commands
           shortName: Commands

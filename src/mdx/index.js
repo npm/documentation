@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import {variant as styledVariant} from 'styled-system'
 import {LinkIcon} from '@primer/octicons-react'
 import textContent from 'react-addons-text-content'
-import {FULL_HEADER_HEIGHT} from '../constants'
+import {SCROLL_MARGIN_TOP} from '../constants'
 import usePage from '../hooks/use-page'
 import SiteLink from '../components/link'
 
@@ -24,7 +24,7 @@ export const Link = props => <SiteLink underline {...props} />
 const StyledHeading = styled(Heading)`
   margin-top: ${themeGet('space.4')};
   margin-bottom: ${themeGet('space.3')};
-  scroll-margin-top: ${FULL_HEADER_HEIGHT + 24}px;
+  scroll-margin-top: ${SCROLL_MARGIN_TOP}px;
   line-height: ${themeGet('lineHeights.condensed')};
 
   @media (hover: hover) {

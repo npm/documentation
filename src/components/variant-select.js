@@ -1,70 +1,71 @@
 import React from 'react'
 import {ActionList, ActionMenu, Box} from '@primer/react'
-import {navigate} from 'gatsby'
 import * as getNav from '../util/get-nav'
 import usePage from '../hooks/use-page'
+import Link from './link'
 
-const VariantItem = ({match, active}) => {
-  const {variant, page} = match
+const VariantItem = ({title, shortName, url, active}) => (
+  <ActionList.Item
+    as={Link}
+    to={url}
+    id={shortName}
+    active={active}
+    sx={{
+      ':hover': {textDecoration: 'none'},
+    }}
+  >
+    {title}
+  </ActionList.Item>
+)
 
-  const navigateToPage = React.useCallback(() => navigate(`${page.url}?v=true`), [page.url])
+const useVariantFocus = path => {
+  const anchorRef = React.useRef(null)
+  const pathRef = React.useRef(null)
 
-  const handleClick = React.useCallback(
-    event => {
-      event.preventDefault()
-      navigateToPage()
-    },
-    [navigateToPage],
-  )
+  React.useEffect(() => {
+    const previousPath = pathRef.current
+    pathRef.current = path
 
-  const handleKey = React.useCallback(
-    event => {
-      if (event.key === 'Enter') {
-        navigateToPage()
+    if (getNav.didVariantChange(previousPath, path)) {
+      const anchor = anchorRef.current
+      const onBlur = () => {
+        anchor.removeEventListener('blur', onBlur)
+        anchor.focus()
       }
-    },
-    [navigateToPage],
-  )
+      anchor.addEventListener('blur', onBlur)
+      return () => anchor.removeEventListener('blur', onBlur)
+    }
+  }, [path])
 
-  return (
-    <ActionList.Item onKeyDown={handleKey} onClick={handleClick} id={variant.shortName} active={active}>
-      {variant.title}
-    </ActionList.Item>
-  )
+  return anchorRef
 }
 
-const VariantMenu = ({variants, path}) => {
+const VariantMenu = ({title, latest, current, prerelease, legacy, path}) => {
   const [open, setOpen] = React.useState(false)
-
-  const {selected, items} = variants.reduce(
-    (acc, match, key) => {
-      const active = match.page.url === path
-      if (active) {
-        acc.selected = match
-      }
-      acc.items.push({match, key, active})
-      return acc
-    },
-    {selected: variants[0], items: []},
-  )
+  const anchorRef = useVariantFocus(path)
+  const labelId = 'label-versions-list-item'
 
   return (
     <>
-      <Box as="p" sx={{m: 0}} id="label-versions-list-item">
+      <Box as="p" sx={{m: 0}} id={labelId}>
         Select CLI Version:
       </Box>
-      <ActionMenu open={open} onOpenChange={setOpen}>
-        {/* Disabling to remove lint warnings. This property was added as "autofocus"
-        in a previous accessibility audit which did not trigger the lint warning. */
-        /* eslint-disable-next-line jsx-a11y/no-autofocus */}
-        <ActionMenu.Button autoFocus aria-describedby="label-versions-list-item">
-          {selected.variant.title}
-        </ActionMenu.Button>
-        <ActionMenu.Overlay width="medium" onEscape={() => setOpen(false)}>
-          <ActionList id="versions-list-item" aria-labelledby="label-versions-list-item">
-            {items.map(item => (
-              <VariantItem key={item.key} {...item} />
-            ))}
+      <ActionMenu anchorRef={anchorRef} open={open} onOpenChange={setOpen}>
+        <ActionMenu.Button aria-describedby={labelId}>{title}</ActionMenu.Button>
+        <ActionMenu.Overlay width="auto" onEscape={() => setOpen(false)}>
+          <ActionList aria-labelledby={labelId}>
+            <ActionList.Group title="Current">
+              <VariantItem {...latest} />
+              {current && <VariantItem {...current} />}
+              {prerelease && <VariantItem {...prerelease} />}
+            </ActionList.Group>
+            {legacy && (
+              <ActionList.Group title="Legacy">
+                {legacy.map(item => (
+                  <VariantItem key={item.title} {...item} />
+                ))}
+              </ActionList.Group>
+            )}
           </ActionList>
         </ActionMenu.Overlay>
       </ActionMenu>
@@ -72,22 +73,59 @@ const VariantMenu = ({variants, path}) => {
   )
 }
 
+const useVariants = () => {
+  const {pathname} = usePage().location
+
+  return React.useMemo(() => {
+    const root = getNav.getVariantRoot(pathname)
+    const path = getNav.getPath(pathname)
+    const vp = getNav.getVariantAndPage(root, path)
+    const variantPages = vp ? getNav.getVariantsForPage(root, vp.page) : []
+
+    if (!variantPages.length) {
+      return null
+    }
+
+    const result = {path, latest: null, current: null, prerelease: null, legacy: []}
+
+    for (const {variant, page} of variantPages) {
+      const item = {...variant, url: page.url, active: page.url === path}
+      let typeDesc = ''
+      switch (variant.type) {
+        case 'latest':
+          result.latest = item
+          typeDesc = ' (Latest)'
+          break
+        case 'current':
+          result.current = item
+          typeDesc = ' (Current)'
+          break
+        case 'prerelease':
+          result.prerelease = item
+          typeDesc = ' (Prerelease)'
+          break
+        default:
+          result.legacy.push(item)
+          typeDesc = ' Legacy'
+      }
+      if (item.active) {
+        result.title = `${item.title}${typeDesc}`
+      }
+    }
+
+    result.legacy.sort((a, b) => parseInt(b.shortName.slice(1)) - parseInt(a.shortName.slice(1)))
+
+    return result
+  }, [pathname])
+}
+
 const VariantSelect = () => {
-  const {location} = usePage()
-  const root = getNav.getVariantRoot(location.pathname)
-  const path = getNav.getPath(location.pathname)
-  const vp = getNav.getVariantAndPage(root, path)
-  const variants = vp ? getNav.getVariantsForPage(root, vp.page) : []
-
-  if (!variants.length) {
-    return null
-  }
-
-  return (
+  const variants = useVariants()
+  return variants ? (
     <Box sx={{mt: 2, mb: 3}}>
-      <VariantMenu variants={variants} path={path} />
+      <VariantMenu {...variants} />
     </Box>
-  )
+  ) : null
 }
 
 export default VariantSelect

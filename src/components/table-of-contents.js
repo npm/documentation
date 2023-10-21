@@ -2,7 +2,7 @@ import React from 'react'
 import {Heading, Box, Details, useDetails, Button} from '@primer/react'
 import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
 import {NavList} from '@primer/react/drafts'
-import {FULL_HEADER_HEIGHT} from '../constants'
+import {SCROLL_MARGIN_TOP} from '../constants'
 import usePage from '../hooks/use-page'
 
 const TableOfContentsItems = ({items, depth}) => (
@@ -54,8 +54,8 @@ export const Desktop = withTableOfContents(({items}) => (
       marginLeft: [null, 7, 8, 9],
       display: ['none', null, 'block'],
       position: 'sticky',
-      top: FULL_HEADER_HEIGHT + 48,
-      maxHeight: `calc(100vh - ${FULL_HEADER_HEIGHT + 48}px)`,
+      top: SCROLL_MARGIN_TOP,
+      maxHeight: `calc(100vh - ${SCROLL_MARGIN_TOP}px)`,
     }}
   >
     <Heading as="h3" sx={{fontSize: 1, display: 'inline-block', fontWeight: 'bold'}} id="toc-heading">
@@ -63,7 +63,8 @@ export const Desktop = withTableOfContents(({items}) => (
     </Heading>
     <Box
       sx={{
-        maxHeight: `calc(100% - 21px)`,
+        // extra pixels to account for table of contents title height
+        maxHeight: `calc(100% - 24px)`,
         overflowY: 'scroll',
       }}
     >
