@@ -61,7 +61,7 @@ module.exports = {
     repositoryUrl: 'https://github.com/npm/documentation',
   },
   flags: {
-    DEV_SSR: !!process.env.DEV_SSR,
+    DEV_SSR: !!process.env.GATSBY_DEV_SSR,
   },
   plugins: [
     'gatsby-plugin-styled-components',
