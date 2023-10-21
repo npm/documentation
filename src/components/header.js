@@ -1,31 +1,25 @@
 import React from 'react'
-import {Box, ThemeProvider} from '@primer/react'
+import {Box} from '@primer/react'
 import styled from 'styled-components'
 import MobileSearch from './mobile-search'
 import NavDrawer from './nav-drawer'
 import Search from './search'
 import Link from './link'
 import useSearch from '../hooks/use-search'
-import {HEADER_HEIGHT, HEADER_BAR, NPM_RED} from '../constants'
+import {HEADER_HEIGHT, HEADER_BAR} from '../constants'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import headerNavItems from '../../content/header-nav.yml'
+import {DarkTheme} from '../theme'
 
 const NpmHeaderBar = styled(Box)`
   height: ${HEADER_BAR}px;
   background-image: linear-gradient(139deg, #fb8817, #ff4b01, #c12127, #e02aff);
 `
 
-const NpmLogo = ({size, ...props}) => (
-  <Box {...props} role="banner">
-    <svg
-      height={size}
-      width={size}
-      viewBox="0 0 700 700"
-      fill="currentColor"
-      style={{color: NPM_RED}}
-      aria-hidden="true"
-    >
-      <polygon fill={NPM_RED} points="0,700 700,700 700,0 0,0" />
+const NpmLogo = ({size, sx}) => (
+  <Box sx={{...sx, color: 'logoBg'}} role="banner">
+    <svg height={size} width={size} viewBox="0 0 700 700" fill="currentColor" aria-hidden="true">
+      <polygon fill="currentColor" points="0,700 700,700 700,0 0,0" />
       <polygon fill="#ffffff" points="150,550 350,550 350,250 450,250 450,550 550,550 550,150 150,150 " />
     </svg>
   </Box>
@@ -36,7 +30,7 @@ function Header() {
   const search = useSearch()
 
   return (
-    <ThemeProvider colorMode="night" nightScheme="dark_dimmed">
+    <DarkTheme>
       <Box sx={{top: 0, position: 'sticky', zIndex: 1}}>
         <NpmHeaderBar />
         <Box
@@ -87,7 +81,7 @@ function Header() {
           </Box>
         </Box>
       </Box>
-    </ThemeProvider>
+    </DarkTheme>
   )
 }
 

@@ -1,8 +1,9 @@
 import React from 'react'
-import {Box, ThemeProvider} from '@primer/react'
+import {Box} from '@primer/react'
 import TextInput from './text-input'
 import SearchResults from './search-results'
 import useSiteMetadata from '../hooks/use-site-metadata'
+import {LightTheme} from '../theme'
 
 function Search(props) {
   const siteMetadata = useSiteMetadata()
@@ -18,7 +19,7 @@ function Search(props) {
       />
       <Box sx={{position: 'absolute', left: 0, right: 0, pt: 2}} {...getMenuProps()}>
         {isOpen ? (
-          <ThemeProvider colorMode="light">
+          <LightTheme>
             <Box
               sx={{
                 overflow: 'auto',
@@ -35,7 +36,7 @@ function Search(props) {
             >
               <SearchResults {...{results, getItemProps, highlightedIndex}} />
             </Box>
-          </ThemeProvider>
+          </LightTheme>
         ) : null}
       </Box>
     </Box>

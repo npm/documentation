@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Box, ThemeProvider} from '@primer/react'
+import {Button, Box} from '@primer/react'
 import {XIcon, SearchIcon} from '@primer/octicons-react'
 import {AnimatePresence, motion} from 'framer-motion'
 import {FocusOn} from 'react-focus-on'
@@ -7,6 +7,7 @@ import TextInput from './text-input'
 import SearchResults from './search-results'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import {HEADER_BAR, HEADER_HEIGHT} from '../constants'
+import {LightTheme} from '../theme'
 
 function MobileSearch({onDismiss, ...props}) {
   const siteMetadata = useSiteMetadata()
@@ -81,7 +82,7 @@ function MobileSearch({onDismiss, ...props}) {
               <XIcon />
             </Button>
           </Box>
-          <ThemeProvider colorMode="light">
+          <LightTheme>
             <Box
               sx={{
                 display: 'flex',
@@ -98,7 +99,7 @@ function MobileSearch({onDismiss, ...props}) {
             >
               {isOpen ? <SearchResults {...{results, getItemProps, highlightedIndex}} /> : null}
             </Box>
-          </ThemeProvider>
+          </LightTheme>
         </Box>
       </Box>
     </FocusOn>
