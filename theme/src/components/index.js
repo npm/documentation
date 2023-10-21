@@ -1,7 +1,7 @@
 import React from 'react'
 // eslint-disable-next-line import/no-unresolved
 import {Location} from '@reach/router'
-import {Box, Link} from '@primer/components'
+import {Box, Link} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 import NavHierarchy from '../util/nav-hierarchy'
 

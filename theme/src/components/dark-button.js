@@ -1,5 +1,8 @@
-import {ButtonOutline, themeGet} from '@primer/components'
+import React from 'react'
+import {Button, themeGet} from '@primer/react'
 import styled from 'styled-components'
+
+const ButtonOutline = props => <Button variant="outline" {...props} />
 
 const DarkButton = styled(ButtonOutline)`
   color: ${themeGet('colors.gray.2')};

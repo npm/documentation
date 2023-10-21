@@ -28,10 +28,8 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@primer/components": "^23.0.0",
     "@primer/octicons-react": "^19.8.0",
     "@primer/react": "^35.31.0",
-    "@styled-system/theme-get": "^5.1.2",
     "babel-plugin-styled-components": "^2.1.4",
     "copy-to-clipboard": "^3.3.3",
     "details-element-polyfill": "^2.4.0",
@@ -52,8 +50,7 @@
     "react-addons-text-content": "^0.0.4",
     "react-focus-on": "^3.9.1",
     "react-helmet": "^6.1.0",
-    "styled-components": "^5.3.11",
-    "styled-system": "^5.1.5"
+    "styled-components": "^5.3.11"
   },
   "devDependencies": {
     "@github/prettier-config": "^0.0.6",

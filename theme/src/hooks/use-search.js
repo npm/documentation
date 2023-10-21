@@ -3,15 +3,7 @@ import {useCombobox} from 'downshift'
 import {navigate, graphql, useStaticQuery} from 'gatsby'
 import {useIsMobile} from './use-breakpoint'
 
-function useSearch() {
-  const isMobile = useIsMobile()
-
-  const queryRef = React.useRef()
-  const workerRef = React.useRef()
-
-  const [query, setQuery] = React.useState()
-  const [items, setItems] = React.useState(null)
-
+const useSearchData = () => {
   const rawData = useStaticQuery(graphql`
     {
       allMdx {
@@ -32,7 +24,11 @@ function useSearch() {
     }
   `)
 
-  const data = React.useMemo(() => {
+  return React.useMemo(() => {
+    if (!rawData) {
+      return [{path: '/', title: 'Dev Title', rawBody: 'Test'}]
+    }
+
     const mdxNodes = rawData.allMdx.nodes.reduce((map, obj) => {
       map[obj.id] = obj
       return map
@@ -51,6 +47,18 @@ function useSearch() {
         }
       })
   }, [rawData])
+}
+
+function useSearch() {
+  const isMobile = useIsMobile()
+
+  const queryRef = React.useRef()
+  const workerRef = React.useRef()
+
+  const [query, setQuery] = React.useState()
+  const [items, setItems] = React.useState(null)
+
+  const data = useSearchData()
 
   const handleSearchResults = React.useCallback(({data}) => {
     if (data.query && data.results && data.query === queryRef.current) {

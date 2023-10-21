@@ -1,5 +1,5 @@
 import React from 'react'
-import {BorderBox} from '@primer/components'
+import BorderBox from './border-box'
 
 function Note({children}) {
   return (

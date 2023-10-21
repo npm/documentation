@@ -1,4 +1,4 @@
-import {Absolute, Fixed, Flex} from '@primer/components'
+import {Box} from '@primer/react'
 import {XIcon, SearchIcon} from '@primer/octicons-react'
 import {AnimatePresence, motion} from 'framer-motion'
 import React from 'react'
@@ -7,6 +7,7 @@ import DarkButton from './dark-button'
 import DarkTextInput from './dark-text-input'
 import SearchResults from './search-results'
 import useSiteMetadata from '../hooks/use-site-metadata'
+import Flex from '../components/flex'
 
 function MobileSearch({onDismiss, ...props}) {
   const siteMetadata = useSiteMetadata()
@@ -19,8 +20,9 @@ function MobileSearch({onDismiss, ...props}) {
 
   return (
     <FocusOn returnFocus={true} onEscapeKey={handleDismiss}>
-      <Fixed top="10px" left={0} right={0} bottom={0} zIndex={1}>
-        <Absolute
+      <Box position="fixed" top="10px" left={0} right={0} bottom={0} zIndex={1}>
+        <Box
+          position="absolute"
           as={motion.div}
           initial={{opacity: 0}}
           animate={{opacity: 1}}
@@ -69,7 +71,7 @@ function MobileSearch({onDismiss, ...props}) {
             {isOpen ? <SearchResults {...{results, getItemProps, highlightedIndex}} /> : null}
           </Flex>
         </Flex>
-      </Fixed>
+      </Box>
     </FocusOn>
   )
 }

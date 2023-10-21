@@ -1,20 +1,20 @@
-import {BorderBox, Box, Flex, Grid, Heading, Position, StyledOcticon, Text} from '@primer/components'
+import {Box, Heading, StyledOcticon, Text} from '@primer/react'
 import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
 import React from 'react'
 import Head from '../components/head'
 import Header, {HEADER_HEIGHT} from '../components/header'
 import PageFooter from '../components/page-footer'
 import Sidebar from '../components/sidebar'
-import SourceLink from '../components/source-link'
-import StatusLabel from '../components/status-label'
 import TableOfContents from '../components/table-of-contents'
 import VariantSelect from '../components/variant-select'
 import NavHierarchy from '../util/nav-hierarchy'
 import Details from '../components/details'
 import * as Slugger from '../hooks/use-slugger'
+import BorderBox from '../components/border-box'
+import Flex from '../components/flex'
 
 function Layout({children, pageContext, location}) {
-  const {title, description, status, source} = pageContext.frontmatter
+  const {title, description} = pageContext.frontmatter
 
   const variantRoot = NavHierarchy.getVariantRoot(location.pathname)
 
@@ -27,7 +27,8 @@ function Layout({children, pageContext, location}) {
           <Box display={['none', null, null, 'block']}>
             <Sidebar repositoryUrl={pageContext.repositoryUrl} location={location} />
           </Box>
-          <Grid
+          <Box
+            display="grid"
             id="skip-nav"
             maxWidth="100%"
             gridTemplateColumns={['100%', null, 'minmax(0, 65ch) 220px']}
@@ -61,7 +62,7 @@ function Layout({children, pageContext, location}) {
               ) : null}
             </Box>
             {pageContext.tableOfContents ? (
-              <Position
+              <Box
                 display={['none', null, 'block']}
                 css={{gridArea: 'table-of-contents', overflow: 'auto'}}
                 position="sticky"
@@ -76,16 +77,9 @@ function Layout({children, pageContext, location}) {
                   Table of contents
                 </Text>
                 <TableOfContents items={pageContext.tableOfContents} labelId="table-of-content-label" />
-              </Position>
+              </Box>
             ) : null}
             <Box css={{gridArea: 'content'}}>
-              {status || source ? (
-                <Flex mb={3} alignItems="center">
-                  {status ? <StatusLabel status={status} /> : null}
-                  <Box mx="auto" />
-                  {source ? <SourceLink href={source} /> : null}
-                </Flex>
-              ) : null}
               {pageContext.tableOfContents ? (
                 <Box display={['block', null, 'none']} mb={3}>
                   <Details>
@@ -110,7 +104,7 @@ function Layout({children, pageContext, location}) {
               {children}
               <PageFooter editUrl={pageContext.editUrl} contributors={pageContext.contributors} />
             </Box>
-          </Grid>
+          </Box>
         </Flex>
       </Flex>
     </Slugger.Provider>

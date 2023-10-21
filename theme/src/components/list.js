@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {themeGet} from '@styled-system/theme-get'
+import {themeGet} from '@primer/react'
 
 const List = styled.ul`
   padding-left: 2em;

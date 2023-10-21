@@ -1,4 +1,5 @@
-import {Absolute, BorderBox, Relative, Text} from '@primer/components'
+import {Box, Text} from '@primer/react'
+import BorderBox from './border-box'
 import Highlight, {defaultProps} from 'prism-react-renderer'
 import githubTheme from 'prism-react-renderer/themes/github'
 import React, {useState, useEffect} from 'react'
@@ -44,11 +45,11 @@ function Code({className, children}) {
   const {scrollRef, paddingRef, size} = useScrollSize()
 
   return (
-    <Relative>
+    <Box position="relative">
       <div ref={paddingRef}>
-        <Absolute top={0} right={0} p={2} zIndex={1}>
+        <Box position="absolute" top={0} right={0} p={2} zIndex={1}>
           <ClipboardCopy value={code} />
-        </Absolute>
+        </Box>
       </div>
       <Highlight {...defaultProps} code={code} language={language} theme={githubTheme}>
         {({className, style, tokens, getLineProps, getTokenProps}) => (
@@ -65,7 +66,7 @@ function Code({className, children}) {
           </BorderBox>
         )}
       </Highlight>
-    </Relative>
+    </Box>
   )
 }
 

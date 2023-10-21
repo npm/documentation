@@ -1,5 +1,7 @@
 const path = require('path')
 
+const DEV = process.env.NODE_ENV === 'development'
+
 exports.createSchemaCustomization = ({actions: {createTypes}}) => {
   createTypes(`
     type Mdx implements Node {
@@ -87,21 +89,23 @@ exports.createPages = async ({graphql, actions}, {repo, showContributors}) => {
         },
       })
 
-      for (const from of frontmatter.redirect_from ?? []) {
-        actions.createRedirect({
-          fromPath: from,
-          toPath: `/${pagePath}`,
-          isPermanent: true,
-          redirectInBrowser: true,
-        })
-
-        if (pagePath.startsWith('cli/') && !from.endsWith('index')) {
+      if (!DEV) {
+        for (const from of frontmatter.redirect_from ?? []) {
           actions.createRedirect({
-            fromPath: `${from}.html`,
+            fromPath: from,
             toPath: `/${pagePath}`,
             isPermanent: true,
             redirectInBrowser: true,
           })
+
+          if (pagePath.startsWith('cli/') && !from.endsWith('index')) {
+            actions.createRedirect({
+              fromPath: `${from}.html`,
+              toPath: `/${pagePath}`,
+              isPermanent: true,
+              redirectInBrowser: true,
+            })
+          }
         }
       }
     }),

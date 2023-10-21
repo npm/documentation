@@ -1,5 +1,6 @@
-import {Avatar, Flex, Link, Text, Tooltip} from '@primer/components'
+import {Avatar, Link, Text, Tooltip} from '@primer/react'
 import React from 'react'
+import Flex from '../components/flex'
 
 const pluralize = (word, count) => `${word}${count === 1 ? '' : 's'}`
 

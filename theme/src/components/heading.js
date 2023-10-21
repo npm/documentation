@@ -1,6 +1,5 @@
-import {Heading, Link} from '@primer/components'
+import {Heading, Link, themeGet} from '@primer/react'
 import {LinkIcon} from '@primer/octicons-react'
-import {themeGet} from '@styled-system/theme-get'
 import React from 'react'
 import textContent from 'react-addons-text-content'
 import styled from 'styled-components'

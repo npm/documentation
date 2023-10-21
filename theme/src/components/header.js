@@ -1,4 +1,4 @@
-import {Box, Flex, Link, Sticky} from '@primer/components'
+import {Box, Link} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
@@ -9,6 +9,7 @@ import NavDrawer from './nav-drawer'
 import Search from './search'
 import NpmLogo from './npm-logo'
 import useSearch from '../hooks/use-search'
+import Flex from '../components/flex'
 
 export const HEADER_HEIGHT = 66
 
@@ -25,7 +26,7 @@ function Header({location, repositoryUrl}) {
   const titleStyle = {color: '#dddddd', fontWeight: '600', display: 'flex', alignItems: 'center'}
 
   return (
-    <Sticky role="banner">
+    <Box position="sticky" role="banner">
       <NpmHeaderBar />
       <Flex
         height={HEADER_HEIGHT}
@@ -53,7 +54,7 @@ function Header({location, repositoryUrl}) {
           </Flex>
         </Flex>
       </Flex>
-    </Sticky>
+    </Box>
   )
 }
 

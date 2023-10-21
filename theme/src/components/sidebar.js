@@ -1,12 +1,14 @@
-import {BorderBox, Flex, Position} from '@primer/components'
+import {Box} from '@primer/react'
 import React from 'react'
 import navItems from '../nav.yml'
 import {HEADER_HEIGHT} from './header'
 import NavItems from './nav-items'
+import BorderBox from './border-box'
+import Flex from '../components/flex'
 
 function Sidebar({location, repositoryUrl}) {
   return (
-    <Position
+    <Box
       position="sticky"
       top={HEADER_HEIGHT}
       height={`calc(100vh - ${HEADER_HEIGHT}px)`}
@@ -20,7 +22,7 @@ function Sidebar({location, repositoryUrl}) {
           <NavItems location={location} items={navItems} repositoryUrl={repositoryUrl} />
         </Flex>
       </BorderBox>
-    </Position>
+    </Box>
   )
 }
 
