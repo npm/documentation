@@ -69,6 +69,8 @@ const unpackTarball = async ({release, cwd, dir}) => {
       }),
   )
 
+  await Promise.all(result.map(f => fs.rename(join(cwd, f), join(cwd, f.replace('.md', '.mdx')))))
+
   return result
 }
 
@@ -93,7 +95,7 @@ const writeChangelog = async ({release, nav, cwd, srcPath, contentPath}) => {
   const changelog = await gh.getFile({ref: release.branch, path: srcPath})
 
   await fs.writeFile(
-    join(cwd, contentPath + '.md'),
+    join(cwd, contentPath + '.mdx'),
     Transform.sync(changelog, {
       release,
       path: contentPath,
