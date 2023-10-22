@@ -310,3 +310,14 @@ export const Screenshot = styled(RequiredImage)`
   border: 1px solid ${themeGet('colors.border.default')};
   display: block;
 `
+
+export const YouTube = ({id}) => (
+  <Box
+    as="iframe"
+    sx={{aspectRatio: '16 / 9', width: '100%'}}
+    title="YouTube video"
+    src={`https://www.youtube.com/embed/${id}`}
+    frameBorder="0"
+    allowFullScreen
+  />
+)

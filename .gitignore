@@ -23,7 +23,7 @@
 !/content/
 !/CONTRIBUTING.md
 !/docs/
-!/gatsby-*.js
+!/gatsby-*
 !/jest*.js
 !/lib/
 !/LICENSE*
@@ -38,4 +38,5 @@
 !/static/
 !/tap-snapshots/
 !/test/
+!/webpack.config.js
 !/cli/

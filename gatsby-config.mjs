@@ -1,5 +1,7 @@
-const path = require('path')
-const fs = require('fs')
+import path from 'path'
+import fs from 'fs'
+import remarkGfm from 'remark-gfm'
+import remarkFm from 'remark-frontmatter'
 
 const {NODE_ENV, GATSBY_CONTENT_ALLOW, GATSBY_CONTENT_IGNORE, GATSBY_CONTENT_DIR = 'content'} = process.env
 const DEV = NODE_ENV === 'development'
@@ -50,7 +52,7 @@ const getContentOptions = () => {
   }
 }
 
-module.exports = {
+const config = {
   trailingSlash: 'never',
   siteMetadata: {
     title: 'npm Docs',
@@ -69,7 +71,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
-        extensions: ['.mdx', '.md'],
+        mdxOptions: {
+          remarkPlugins: [remarkGfm, remarkFm],
+        },
       },
     },
     {
@@ -89,3 +93,5 @@ module.exports = {
     'gatsby-plugin-meta-redirect',
   ],
 }
+
+export default config
