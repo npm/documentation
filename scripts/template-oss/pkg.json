@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "lint": "eslint \"**/*.{js,mjs,mdx}\"",
     "test": "jest",
     "snap": {{{ del }}},
     "format": "prettier --write ."

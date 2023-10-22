@@ -12,7 +12,7 @@ const whackAMoleReplace = (s, replacements) => {
   // a bit of whack-a-mole but is necessary since markdown in the CLI is
   // different from the mdx v2 we parse for the docs site
   for (const rep of replacements) {
-    s = s.replace(rep, rep.replace(/([<>])/g, '\\$1').replace(/([{}])/g, '\\$1'))
+    s = s.replace(rep, rep.replace(/([<>{}])/g, '\\$1'))
   }
   return s
 }
@@ -29,6 +29,7 @@ const unpackTarball = async ({release, cwd, dir}) => {
     return (
       whackAMoleReplace(s, [
         '{npm-version} node/{node-version} {platform} {arch} workspaces/{workspaces} {ci}',
+        'node/{process.version} {process.platform} {process.arch}',
         'Default: {prefix}/etc/npmrc',
       ])
         // we cant remove all emails since all except this one are in code blocks

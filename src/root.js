@@ -27,6 +27,7 @@ const components = {
   PromptReply: Components.PromptReply,
   Screenshot: Components.Screenshot,
   Link: Components.Link,
+  YouTube: Components.YouTube,
 }
 
 const RootElement = ({element}) => (

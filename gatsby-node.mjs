@@ -1,7 +1,8 @@
-const {join, relative} = require('path')
-const {Octokit: CoreOctokit} = require('@octokit/rest')
-const {throttling} = require('@octokit/plugin-throttling')
-const {retry} = require('@octokit/plugin-retry')
+import {join, relative} from 'path'
+import {Octokit as CoreOctokit} from '@octokit/rest'
+import {throttling} from '@octokit/plugin-throttling'
+import {retry} from '@octokit/plugin-retry'
+import webpackConfig from './webpack.config.js'
 
 const CI = !!process.env.CI
 const CWD = process.cwd()
@@ -42,7 +43,7 @@ const createOctokit = ({reporter}) => {
   })
 }
 
-exports.onCreateNode = ({node, actions, getNode}) => {
+export const onCreateNode = ({node, actions, getNode}) => {
   if (node.internal.type === 'Mdx') {
     const {name, relativeDirectory: dir} = getNode(node.parent)
 
@@ -63,14 +64,9 @@ exports.onCreateNode = ({node, actions, getNode}) => {
   }
 }
 
-exports.onCreateWebpackConfig = ({stage, actions}) => {
+export const onCreateWebpackConfig = ({stage, actions}) => {
   actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        '~': SRC,
-      },
-      extensions: ['.js'],
-    },
+    ...webpackConfig,
   })
 
   if (stage === `build-javascript`) {
@@ -80,7 +76,7 @@ exports.onCreateWebpackConfig = ({stage, actions}) => {
   }
 }
 
-exports.createSchemaCustomization = ({actions: {createTypes}}) => {
+export const createSchemaCustomization = ({actions: {createTypes}}) => {
   createTypes(`
     type Mdx implements Node {
       frontmatter: MdxFrontmatter
@@ -101,7 +97,7 @@ exports.createSchemaCustomization = ({actions: {createTypes}}) => {
   `)
 }
 
-exports.createPages = async ({graphql, actions, reporter}) => {
+export const createPages = async ({graphql, actions, reporter}) => {
   const response = await graphql(`
     {
       allMdx {

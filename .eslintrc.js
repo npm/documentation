@@ -1,3 +1,5 @@
+const {getGlobals} = require('eslint-plugin-mdx/lib/helpers')
+
 module.exports = {
   root: true,
   ignorePatterns: ['.cache/', 'public/'],
@@ -10,7 +12,6 @@ module.exports = {
     'plugin:github/react',
     'plugin:primer-react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:import/recommended',
     'prettier',
   ],
   rules: {
@@ -20,9 +21,30 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['*.js'],
+      extends: ['plugin:import/recommended'],
+    },
+    {
       files: ['src/shared.js'],
       rules: {
         'react/no-unescaped-entities': 'off',
+      },
+    },
+    {
+      files: ['*.mdx'],
+      plugins: ['mdx', 'prettier'],
+      extends: ['plugin:mdx/recommended'],
+      parserOptions: {
+        sourceType: 'module',
+      },
+      globals: getGlobals(['Index', 'Note', 'Prompt', 'PromptReply', 'Screenshot', 'Link', 'YouTube']),
+      settings: {
+        'import/resolver': 'webpack',
+      },
+      rules: {
+        'no-irregular-whitespace': 'off',
+        'jsx-a11y/anchor-has-content': 'off',
+        'react/jsx-no-target-blank': 'off',
       },
     },
   ],
