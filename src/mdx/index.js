@@ -197,6 +197,7 @@ export const Paragraph = styled.p`
 `
 
 export const Table = styled.table`
+  display: block;
   width: 100%;
   margin: 0 0 ${themeGet('space.3')};
   overflow: auto;
