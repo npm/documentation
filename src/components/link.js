@@ -38,4 +38,19 @@ const Link = React.forwardRef(function Link({to, href, ...props}, ref) {
   return <PrimerLink ref={ref} href={href} {...props} />
 })
 
+export const LinkNoUnderline = React.forwardRef(function LinkNoUnderline({sx, ...props}, ref) {
+  return (
+    <Link
+      ref={ref}
+      sx={{
+        ...sx,
+        '&:hover, &:focus': {
+          textDecoration: 'none',
+        },
+      }}
+      {...props}
+    />
+  )
+})
+
 export default Link

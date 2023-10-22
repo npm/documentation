@@ -4,10 +4,7 @@ import {navigate, graphql, useStaticQuery} from 'gatsby'
 import {useIsMobile} from './use-breakpoint'
 import usePage from './use-page'
 import * as getNav from '../util/get-nav'
-
-// This worker can live for the entire duraction of the site
-const WORKER = new Worker(new URL('../util/search.worker.js', import.meta.url))
-const CLI_ROOT = '/cli'
+import {CLI_PATH} from '../constants'
 
 const useSearchData = () => {
   const data = useStaticQuery(graphql`
@@ -51,50 +48,13 @@ const useSearchData = () => {
 
 const useCliVersion = () => {
   return getNav.getCurrentOrDefaultVariant(
-    getNav.getItem(getNav.getVariantRoot(`${CLI_ROOT}/`, {stripTrailing: false})),
+    getNav.getItem(getNav.getVariantRoot(`${CLI_PATH}/`, {stripTrailing: false})),
     usePage().location.pathname,
   )
 }
 
-function useSearch() {
-  const [query, setQuery] = React.useState()
-  const [results, setResults] = React.useState(null)
-  const queryRef = React.useRef()
-  const items = useSearchData()
+const useSearchCombobox = (results, setQuery) => {
   const isMobile = useIsMobile()
-  const {url: cliUrl} = useCliVersion()
-
-  const handleSearchResults = React.useCallback(({data}) => {
-    if (data.debug) {
-      console.log(data.debug)
-    }
-    if (data.query && data.results && data.query === queryRef.current) {
-      setResults(data.results)
-    }
-  }, [])
-
-  React.useEffect(() => {
-    WORKER.addEventListener('message', handleSearchResults)
-  }, [handleSearchResults])
-
-  React.useEffect(() => {
-    WORKER.postMessage({items})
-  }, [items])
-
-  React.useEffect(() => {
-    WORKER.postMessage({cli: {root: CLI_ROOT, current: cliUrl}})
-  }, [cliUrl])
-
-  React.useEffect(() => {
-    queryRef.current = query
-
-    if (query) {
-      WORKER.postMessage({query})
-    } else {
-      setResults(null)
-    }
-  }, [query])
-
   const combobox = useCombobox({
     id: 'search-box',
     items: results || [],
@@ -130,6 +90,50 @@ function useSearch() {
       return changes
     },
   })
+  return combobox
+}
+
+function useSearch() {
+  const [query, setQuery] = React.useState()
+  const [results, setResults] = React.useState(null)
+  const queryRef = React.useRef()
+  const items = useSearchData()
+  const {url: cliUrl} = useCliVersion()
+  const worker = React.useRef()
+
+  const handleSearchResults = React.useCallback(({data}) => {
+    if (data.query && data.results && data.query === queryRef.current) {
+      setResults(data.results)
+    }
+  }, [])
+
+  React.useEffect(() => {
+    worker.current = new Worker(new URL('../util/search.worker.js', import.meta.url))
+  }, [])
+
+  React.useEffect(() => {
+    worker.current.addEventListener('message', handleSearchResults)
+  }, [worker, handleSearchResults])
+
+  React.useEffect(() => {
+    worker.current.postMessage({items})
+  }, [worker, items])
+
+  React.useEffect(() => {
+    worker.current.postMessage({cli: {root: CLI_PATH, current: cliUrl}})
+  }, [worker, cliUrl])
+
+  React.useEffect(() => {
+    queryRef.current = query
+
+    if (query) {
+      worker.current.postMessage({query})
+    } else {
+      setResults(null)
+    }
+  }, [worker, query])
+
+  const combobox = useSearchCombobox(results, setQuery)
 
   return {
     ...combobox,
