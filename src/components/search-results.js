@@ -4,7 +4,7 @@ import {LinkNoUnderline} from './link'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import * as getNav from '../util/get-nav'
 
-const Breadcrumbs = ({item}) => {
+const SearchItem = ({item}) => {
   const siteMetadata = useSiteMetadata()
   const variant = getNav.getVariant(getNav.getVariantRoot(item.path), item.path)
   const hierarchy = getNav.getItemBreadcrumbs(item.path)
@@ -16,9 +16,14 @@ const Breadcrumbs = ({item}) => {
     hierarchy.pop()
   }
 
-  const text = hierarchy.length ? hierarchy.map(s => s.shortName || s.title).join(' / ') : siteMetadata.shortName
-
-  return <Text sx={{fontSize: 0}}>{text}</Text>
+  return (
+    <>
+      <Text sx={{fontSize: 0}}>
+        {hierarchy.length ? hierarchy.map(s => s.shortName || s.title).join(' / ') : siteMetadata.shortName}
+      </Text>
+      {item.title}
+    </>
+  )
 }
 
 function SearchResults({results, getItemProps, highlightedIndex}) {
@@ -32,10 +37,10 @@ function SearchResults({results, getItemProps, highlightedIndex}) {
 
   return results.map((item, index) => (
     <Box
+      {...getItemProps({item, index})}
       as={LinkNoUnderline}
       to={item.path}
       key={item.path}
-      style={{cursor: 'pointer'}}
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -46,10 +51,8 @@ function SearchResults({results, getItemProps, highlightedIndex}) {
         fontSize: 1,
         bg: highlightedIndex === index ? 'neutral.muted' : 'transparent',
       }}
-      {...getItemProps({item, index})}
     >
-      <Breadcrumbs item={item} />
-      {item.title}
+      <SearchItem item={item} />
     </Box>
   ))
 }

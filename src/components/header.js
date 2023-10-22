@@ -1,9 +1,8 @@
 import React from 'react'
 import {Box} from '@primer/react'
 import styled from 'styled-components'
-import MobileSearch from './mobile-search'
+import * as Search from './search'
 import NavDrawer from './nav-drawer'
-import Search from './search'
 import Link from './link'
 import useSearch from '../hooks/use-search'
 import {HEADER_HEIGHT, HEADER_BAR} from '../constants'
@@ -63,7 +62,7 @@ function Header() {
               {siteMetadata.title}
             </Link>
             <Box sx={{display: ['none', null, null, 'block'], ml: 4}}>
-              <Search {...search} />
+              <Search.Desktop {...search} />
             </Box>
           </Box>
           <Box sx={{display: 'flex'}}>
@@ -75,7 +74,7 @@ function Header() {
               ))}
             </Box>
             <Box sx={{display: ['flex', null, null, 'none']}}>
-              <MobileSearch {...search} />
+              <Search.Mobile {...search} />
               <NavDrawer />
             </Box>
           </Box>
