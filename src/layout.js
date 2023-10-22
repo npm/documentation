@@ -16,17 +16,15 @@ const HeroLayout = ({children}) => {
 
   return (
     <Box as="main" sx={{width: '100%'}}>
-      <DarkTheme>
-        <Box sx={{bg: 'canvas.inset', py: 6}}>
-          <Container>
-            <Heading as="h1" sx={{color: 'fg.default', fontSize: 7, m: 0}}>
-              {title}
-            </Heading>
-            <Text as="p" sx={{m: 0, color: 'fg.onEmphasis', fontSize: 4}}>
-              {description}
-            </Text>
-          </Container>
-        </Box>
+      <DarkTheme sx={{bg: 'canvas.inset', py: 6}}>
+        <Container>
+          <Heading as="h1" sx={{color: 'fg.default', fontSize: 7, m: 0}}>
+            {title}
+          </Heading>
+          <Text as="p" sx={{m: 0, color: 'fg.onEmphasis', fontSize: 4}}>
+            {description}
+          </Text>
+        </Container>
       </DarkTheme>
       <SkipNav />
       <Container>{children}</Container>

@@ -23,22 +23,20 @@ export const Desktop = props => {
       />
       <Box sx={{position: 'absolute', left: 0, right: 0, pt: 1}} {...getMenuProps()}>
         {isOpen ? (
-          <LightTheme>
-            <Box
-              sx={{
-                overflow: 'auto',
-                minWidth: 300,
-                maxHeight: '70vh',
-                boxShadow: 'shadow.large',
-                borderColor: 'border.muted',
-                bg: 'canvas.overlay',
-                borderRadius: 2,
-                borderWidth: 1,
-                borderStyle: 'solid',
-              }}
-            >
-              <SearchResults {...{results, getItemProps, highlightedIndex}} />
-            </Box>
+          <LightTheme
+            sx={{
+              overflow: 'auto',
+              minWidth: 300,
+              maxHeight: '70vh',
+              boxShadow: 'shadow.large',
+              borderColor: 'border.muted',
+              bg: 'canvas.overlay',
+              borderRadius: 2,
+              borderWidth: 1,
+              borderStyle: 'solid',
+            }}
+          >
+            <SearchResults {...{results, getItemProps, highlightedIndex}} />
           </LightTheme>
         ) : null}
       </Box>
@@ -175,23 +173,21 @@ export const Mobile = props => {
                     </Button>
                   </Box>
                 </Box>
-                <LightTheme>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      bg: 'canvas.default',
-                      py: resultsOpen ? 1 : 0,
-                      flexDirection: 'column',
-                      flex: '1 1 auto',
-                      overflow: 'auto',
-                    }}
-                    style={{
-                      WebkitOverflowScrolling: 'touch',
-                    }}
-                    {...getMenuProps()}
-                  >
-                    {resultsOpen ? <SearchResults {...{results, getItemProps, highlightedIndex}} /> : null}
-                  </Box>
+                <LightTheme
+                  sx={{
+                    display: 'flex',
+                    bg: 'canvas.default',
+                    py: resultsOpen ? 1 : 0,
+                    flexDirection: 'column',
+                    flex: '1 1 auto',
+                    overflow: 'auto',
+                  }}
+                  style={{
+                    WebkitOverflowScrolling: 'touch',
+                  }}
+                  {...getMenuProps()}
+                >
+                  {resultsOpen ? <SearchResults {...{results, getItemProps, highlightedIndex}} /> : null}
                 </LightTheme>
               </Box>
             </Box>

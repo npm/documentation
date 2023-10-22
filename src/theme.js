@@ -1,10 +1,10 @@
 import React from 'react'
-import {ThemeProvider as PrimerThemeProvider, theme as primerTheme} from '@primer/react'
+import {ThemeProvider as Provider, theme, Box} from '@primer/react'
 import deepmerge from 'deepmerge'
 
 export const NPM_RED = '#cb0000'
 
-export const theme = deepmerge(primerTheme, {
+export const npmTheme = deepmerge(theme, {
   colors: {
     logoBg: NPM_RED,
   },
@@ -37,6 +37,13 @@ export const theme = deepmerge(primerTheme, {
   },
 })
 
-export const ThemeProvider = props => <PrimerThemeProvider theme={theme} {...props} />
-export const LightTheme = props => <ThemeProvider colorMode="light" {...props} />
-export const DarkTheme = props => <ThemeProvider colorMode="dark" nightScheme="dark_dimmed" {...props} />
+export const ThemeProvider = props => <Provider theme={npmTheme} {...props} />
+
+export const Theme = ({theme: colorMode, as = Box, ...props}) => (
+  <Provider colorMode={colorMode} nightScheme="dark_dimmed">
+    {React.createElement(as, props)}
+  </Provider>
+)
+
+export const LightTheme = props => <Theme theme="light" {...props} />
+export const DarkTheme = props => <Theme theme="dark" {...props} />

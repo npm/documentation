@@ -32,64 +32,60 @@ function NavDrawer() {
       <Button aria-label="Menu" aria-expanded={isOpen} onClick={setOpen} sx={{ml: 3}}>
         <ThreeBarsIcon />
       </Button>
-      <LightTheme>
-        <Drawer isOpen={isOpen} onDismiss={setClose}>
+      <LightTheme as={Drawer} isOpen={isOpen} onDismiss={setClose}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
+            bg: 'canvas.backdrop',
+            overflow: 'auto',
+          }}
+          style={{WebkitOverflowScrolling: 'touch'}}
+        >
           <Box
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              height: '100%',
-              bg: 'canvas.backdrop',
-              overflow: 'auto',
+              flex: '1 0 auto',
+              color: 'fg.default',
+              bg: 'canvas.default',
             }}
-            style={{WebkitOverflowScrolling: 'touch'}}
           >
-            <Box
+            <DarkTheme
               sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                flex: '1 0 auto',
+                borderWidth: 0,
+                borderRadius: 0,
+                borderBottomWidth: 1,
+                borderColor: 'border.muted',
+                borderStyle: 'solid',
                 color: 'fg.default',
                 bg: 'canvas.default',
               }}
             >
-              <DarkTheme>
-                <Box
-                  sx={{
-                    borderWidth: 0,
-                    borderRadius: 0,
-                    borderBottomWidth: 1,
-                    borderColor: 'border.muted',
-                    borderStyle: 'solid',
-                    color: 'fg.default',
-                    bg: 'canvas.default',
-                  }}
-                >
-                  <Box
-                    sx={{
-                      py: 3,
-                      pl: 4,
-                      pr: 3,
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      display: 'flex',
-                    }}
-                  >
-                    <Link to="/" sx={{fontSize: 2, color: 'fg.default'}}>
-                      {siteMetadata.title}
-                    </Link>
-                    <Button aria-label="Close" onClick={setClose}>
-                      <XIcon />
-                    </Button>
-                  </Box>
-                </Box>
-              </DarkTheme>
-              <Box sx={{display: 'flex', flexDirection: 'column'}}>
-                <NavItems />
+              <Box
+                sx={{
+                  py: 3,
+                  pl: 4,
+                  pr: 3,
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  display: 'flex',
+                }}
+              >
+                <Link to="/" sx={{fontSize: 2, color: 'fg.default'}}>
+                  {siteMetadata.title}
+                </Link>
+                <Button aria-label="Close" onClick={setClose}>
+                  <XIcon />
+                </Button>
               </Box>
+            </DarkTheme>
+            <Box sx={{display: 'flex', flexDirection: 'column'}}>
+              <NavItems />
             </Box>
           </Box>
-        </Drawer>
+        </Box>
       </LightTheme>
     </>
   )
