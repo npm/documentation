@@ -1,5 +1,6 @@
 import React from 'react'
 import {Box, Text} from '@primer/react'
+import {LinkNoUnderline} from './link'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import * as getNav from '../util/get-nav'
 
@@ -31,6 +32,8 @@ function SearchResults({results, getItemProps, highlightedIndex}) {
 
   return results.map((item, index) => (
     <Box
+      as={LinkNoUnderline}
+      to={item.path}
       key={item.path}
       style={{cursor: 'pointer'}}
       sx={{

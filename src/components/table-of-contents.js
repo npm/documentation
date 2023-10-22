@@ -37,7 +37,7 @@ export const Mobile = withTableOfContents(({items}) => {
   return (
     <Box sx={{display: ['block', null, 'none'], mb: 3}}>
       <Details {...getDetailsProps()}>
-        <Button variant="invisible" as="summary" leadingIcon={open ? ChevronDownIcon : ChevronRightIcon}>
+        <Button as="summary" sx={{display: 'inline-flex'}} leadingIcon={open ? ChevronDownIcon : ChevronRightIcon}>
           Table of contents
         </Button>
         <TableOfContents items={items} />

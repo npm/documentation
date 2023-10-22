@@ -6,7 +6,7 @@ import {LinkIcon} from '@primer/octicons-react'
 import textContent from 'react-addons-text-content'
 import {SCROLL_MARGIN_TOP} from '../constants'
 import usePage from '../hooks/use-page'
-import SiteLink from '../components/link'
+import SiteLink, {LinkNoUnderline} from '../components/link'
 
 export {default as Code} from './code'
 export {default as Index} from './nav-hierarchy'
@@ -40,15 +40,7 @@ const StyledHeading = styled(Heading)`
 
 const HeaderLink = ({autolink, children, ...props}) =>
   autolink ? (
-    <SiteLink
-      {...props}
-      sx={{
-        color: 'inherit',
-        '&:hover, &:focus': {
-          textDecoration: 'none',
-        },
-      }}
-    >
+    <LinkNoUnderline {...props} sx={{color: 'inherit'}}>
       {children}
       <Octicon
         icon={LinkIcon}
@@ -60,7 +52,7 @@ const HeaderLink = ({autolink, children, ...props}) =>
           verticalAlign: 'middle !important',
         }}
       />
-    </SiteLink>
+    </LinkNoUnderline>
   ) : (
     children
   )

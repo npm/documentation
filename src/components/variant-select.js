@@ -2,18 +2,10 @@ import React from 'react'
 import {ActionList, ActionMenu, Box} from '@primer/react'
 import * as getNav from '../util/get-nav'
 import usePage from '../hooks/use-page'
-import Link from './link'
+import {LinkNoUnderline} from './link'
 
 const VariantItem = ({title, shortName, url, active}) => (
-  <ActionList.Item
-    as={Link}
-    to={url}
-    id={shortName}
-    active={active}
-    sx={{
-      ':hover': {textDecoration: 'none'},
-    }}
-  >
+  <ActionList.Item as={LinkNoUnderline} to={url} id={shortName} active={active}>
     {title}
   </ActionList.Item>
 )
