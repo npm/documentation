@@ -304,7 +304,7 @@ export const Image = styled(RequiredImage)`
 `
 
 export const Screenshot = styled(RequiredImage)`
-  margin-top: 15px;
+  margin-top: ${themeGet('space.3')};
   max-width: min(100%, 525px);
   max-height: 300px;
   border: 1px solid ${themeGet('colors.border.default')};
