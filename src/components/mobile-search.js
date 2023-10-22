@@ -9,114 +9,156 @@ import useSiteMetadata from '../hooks/use-site-metadata'
 import {HEADER_BAR, HEADER_HEIGHT} from '../constants'
 import {LightTheme} from '../theme'
 
-function MobileSearch({onDismiss, ...props}) {
+function MobileSearch({open, setOpen, ...props}) {
   const siteMetadata = useSiteMetadata()
-  const {reset, results, isOpen, getInputProps, getItemProps, getMenuProps, highlightedIndex} = props
+  const {reset, results, isOpen: resultsOpen, getInputProps, getItemProps, getMenuProps, highlightedIndex} = props
 
   const handleDismiss = () => {
     reset()
-    onDismiss()
+    setOpen(false)
   }
 
   return (
-    <FocusOn returnFocus={true} onEscapeKey={handleDismiss}>
-      <Box
-        sx={{
-          position: 'fixed',
-          top: `${HEADER_BAR}px`,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          zIndex: 1,
-        }}
-      >
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            bg: 'canvas.backdrop',
-            zIndex: -1,
-          }}
-          as={motion.div}
-          initial={{opacity: 0}}
-          animate={{opacity: 1}}
-          exit={{opacity: 0}}
-          onClick={handleDismiss}
-        />
-        <Box sx={{display: 'flex', flexDirection: 'column', height: isOpen ? '100%' : 'auto'}}>
+    <AnimatePresence>
+      {open ? (
+        <FocusOn returnFocus={true} onEscapeKey={handleDismiss}>
           <Box
             sx={{
-              display: 'flex',
-              bg: 'canvas.default',
-              color: 'fg.default',
-              height: `${HEADER_HEIGHT}px`,
-              flex: '0 0 auto',
-              px: 3,
-              alignItems: 'center',
-              border: '1px solid',
-              borderTopWidth: 0,
-              borderLeftWidth: 0,
-              borderRightWidth: 0,
-              borderColor: 'border.muted',
+              position: 'fixed',
+              top: `${HEADER_BAR}px`,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 1,
             }}
           >
-            <motion.div
-              initial={{scaleX: 0.1}}
-              animate={{scaleX: 1}}
-              exit={{scaleX: 0.1, transition: {duration: 0.1}}}
-              transition={{type: 'tween', duration: 0.2}}
-              style={{width: '100%', originX: '100%'}}
-            >
-              <TextInput
-                leadingVisual={SearchIcon}
-                placeholder={`Search ${siteMetadata.title}`}
-                aria-label={`Search ${siteMetadata.title}`}
-                sx={{width: '100%'}}
-                {...getInputProps()}
-              />
-            </motion.div>
-            <Button sx={{ml: 3}} aria-label="Cancel" onClick={handleDismiss}>
-              <XIcon />
-            </Button>
-          </Box>
-          <LightTheme>
             <Box
               sx={{
-                display: 'flex',
-                bg: 'canvas.default',
-                py: isOpen ? 1 : 0,
-                flexDirection: 'column',
-                flex: '1 1 auto',
-                overflow: 'auto',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                bg: 'overlay.backdrop',
+                zIndex: -1,
               }}
-              style={{
-                WebkitOverflowScrolling: 'touch',
-              }}
-              {...getMenuProps()}
-            >
-              {isOpen ? <SearchResults {...{results, getItemProps, highlightedIndex}} /> : null}
+              key="search-backdrop"
+              as={motion.div}
+              initial={{opacity: 0}}
+              animate={{opacity: 1}}
+              exit={{opacity: 0}}
+              transition={{type: 'tween'}}
+              onClick={handleDismiss}
+            />
+            <Box sx={{display: 'flex', flexDirection: 'column', height: resultsOpen ? '100%' : 'auto'}}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  color: 'fg.default',
+                  height: `${HEADER_HEIGHT}px`,
+                  flex: '0 0 auto',
+                  px: 3,
+                  alignItems: 'center',
+                  border: '1px solid',
+                  borderTopWidth: 0,
+                  borderLeftWidth: 0,
+                  borderRightWidth: 0,
+                  borderColor: 'border.muted',
+                  position: 'relative',
+                }}
+              >
+                <motion.div
+                  key="search-box"
+                  initial={{scaleX: 0}}
+                  animate={{scaleX: 1}}
+                  exit={{scaleX: 0}}
+                  transition={{type: 'tween', ease: 'easeOut', duration: 0.2}}
+                  style={{width: '100%', originX: '100%'}}
+                >
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: 0,
+                      bottom: 0,
+                      left: 0,
+                      width: '70px',
+                      bg: 'canvas.default',
+                      zIndex: '-1',
+                    }}
+                  />
+                  <TextInput
+                    leadingVisual={SearchIcon}
+                    placeholder={`Search ${siteMetadata.title}`}
+                    aria-label={`Search ${siteMetadata.title}`}
+                    sx={{width: '100%'}}
+                    {...getInputProps()}
+                  />
+                </motion.div>
+                <Box
+                  key="button-blocker"
+                  as={motion.div}
+                  initial={{opacity: 0}}
+                  animate={{opacity: 1}}
+                  exit={{opacity: 0}}
+                  transition={{type: 'tween', ease: 'easeOut', duration: 0.2}}
+                  sx={{
+                    position: 'absolute',
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
+                    width: '70px',
+                    bg: 'canvas.default',
+                    zIndex: '-1',
+                  }}
+                />
+                <Box
+                  key="button"
+                  as={motion.div}
+                  initial={{opacity: 0}}
+                  animate={{opacity: 1}}
+                  exit={{opacity: 0}}
+                  transition={{type: 'tween', ease: 'easeOut', duration: 0.2}}
+                >
+                  <Button sx={{ml: 3}} aria-label="Cancel" onClick={handleDismiss}>
+                    <XIcon />
+                  </Button>
+                </Box>
+              </Box>
+              <LightTheme>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    bg: 'canvas.default',
+                    py: resultsOpen ? 1 : 0,
+                    flexDirection: 'column',
+                    flex: '1 1 auto',
+                    overflow: 'auto',
+                  }}
+                  style={{
+                    WebkitOverflowScrolling: 'touch',
+                  }}
+                  {...getMenuProps()}
+                >
+                  {resultsOpen ? <SearchResults {...{results, getItemProps, highlightedIndex}} /> : null}
+                </Box>
+              </LightTheme>
             </Box>
-          </LightTheme>
-        </Box>
-      </Box>
-    </FocusOn>
+          </Box>
+        </FocusOn>
+      ) : null}
+    </AnimatePresence>
   )
 }
 
 function MobileSearchWrapper(props) {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false)
 
   return (
     <>
-      <Button aria-label="Search" aria-expanded={isOpen} onClick={() => setIsOpen(true)}>
+      <Button aria-label="Search" aria-expanded={open} onClick={() => setOpen(true)}>
         <SearchIcon />
       </Button>
-      <AnimatePresence>
-        {isOpen ? <MobileSearch onDismiss={() => setIsOpen(false)} {...props} /> : null}
-      </AnimatePresence>
+      <MobileSearch open={open} setOpen={setOpen} {...props} />
     </>
   )
 }
