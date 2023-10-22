@@ -51,6 +51,15 @@ export const Mobile = props => {
   const siteMetadata = useSiteMetadata()
   const {reset, results, isOpen: resultsOpen, getInputProps, getItemProps, getMenuProps, highlightedIndex} = props
 
+  // Fixes focus behavior on iOS where the input gets focus styles but not the
+  // actual focus after animating open.
+  const ref = React.useRef()
+  React.useEffect(() => {
+    if (open) {
+      ref.current.focus()
+    }
+  }, [ref, open])
+
   const handleDismiss = () => {
     reset()
     setOpen(false)
@@ -133,7 +142,7 @@ export const Mobile = props => {
                       placeholder={`Search ${siteMetadata.title}`}
                       aria-label={`Search ${siteMetadata.title}`}
                       sx={{width: '100%'}}
-                      {...getInputProps()}
+                      {...getInputProps({ref})}
                     />
                   </motion.div>
                   <Box
