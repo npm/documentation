@@ -5,19 +5,20 @@ import PageFooter from './components/page-footer'
 import * as TableOfContents from './components/table-of-contents'
 import VariantSelect from './components/variant-select'
 import Breadcrumbs from './components/breadcrumbs'
-import Container from './components/container'
 import useSiteMetadata from './hooks/use-site-metadata'
 import usePage from './hooks/use-page'
 import {DarkTheme} from './theme'
 import {SkipNav} from './components/skip-nav'
+
+const Container = ({sx, ...props}) => <Box sx={{width: '100%', maxWidth: '960px', ...sx}} {...props} />
 
 const HeroLayout = ({children}) => {
   const {title, description} = useSiteMetadata()
 
   return (
     <Box as="main" sx={{width: '100%'}}>
-      <DarkTheme sx={{bg: 'canvas.inset', py: 6}}>
-        <Container>
+      <DarkTheme sx={{bg: 'canvas.inset', py: [0, 4, 5, 6]}}>
+        <Container sx={{p: 5, mx: 'auto'}}>
           <Heading as="h1" sx={{color: 'fg.default', fontSize: 7, m: 0}}>
             {title}
           </Heading>
@@ -27,7 +28,7 @@ const HeroLayout = ({children}) => {
         </Container>
       </DarkTheme>
       <SkipNav />
-      <Container>{children}</Container>
+      <Container sx={{p: 5, mx: 'auto'}}>{children}</Container>
     </Box>
   )
 }
@@ -47,7 +48,7 @@ const DefaultLayout = ({children}) => {
       }}
     >
       <TableOfContents.Desktop />
-      <Box as="main" sx={{width: '100%', maxWidth: '960px'}}>
+      <Container as="main">
         <Box sx={{mb: 4}}>
           <Breadcrumbs />
           <H1 autolink={false}>{title}</H1>
@@ -58,7 +59,7 @@ const DefaultLayout = ({children}) => {
         <TableOfContents.Mobile />
         {children}
         <PageFooter />
-      </Box>
+      </Container>
     </Box>
   )
 }

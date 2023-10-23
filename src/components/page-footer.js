@@ -29,7 +29,7 @@ const Contributors = ({contributors = [], latestCommit}) => {
   }
 
   return (
-    <div>
+    <>
       <Box sx={{display: 'flex', alignItems: 'center'}}>
         <Text sx={{mr: 2}}>
           {contributors.length} {pluralize('contributor', contributors.length)}
@@ -48,7 +48,7 @@ const Contributors = ({contributors = [], latestCommit}) => {
           <Link href={latestCommit.url}>{format(new Date(latestCommit.date))}</Link>
         </Text>
       ) : null}
-    </div>
+    </>
   )
 }
 
