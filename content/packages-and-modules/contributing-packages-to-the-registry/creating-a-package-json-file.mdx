@@ -9,11 +9,9 @@ You can add a `package.json` file to your package to make it easy for others to 
 
 A `package.json` file:
 
-* lists the packages your project depends on
-* specifies versions of a package that your project
-can use using [semantic versioning rules][semver]
-* makes your build reproducible, and therefore easier
-to share with other developers
+- lists the packages your project depends on
+- specifies versions of a package that your project can use using [semantic versioning rules][semver]
+- makes your build reproducible, and therefore easier to share with other developers
 
 <Note>
 
@@ -51,7 +49,7 @@ Your Name <email@example.com> (http://example.com)
 
 ## Creating a new `package.json` file
 
-You can create a `package.json` file by running a CLI questionnaire or  creating a default `package.json` file.
+You can create a `package.json` file by running a CLI questionnaire or creating a default `package.json` file.
 
 ### Running a CLI questionnaire
 
@@ -75,7 +73,6 @@ To create a `package.json` file with values that you supply, use the `npm init` 
 
 If you expect to create many `package.json` files, you can customize the questions asked and fields created during the `init` process so all the `package.json` files contain a standard set of information.
 
-
 1. In your home directory, create a file called `.npm-init.js`.
 
 2. To add custom questions, using a text editor, add questions with the `prompt` function:
@@ -97,8 +94,7 @@ To learn more about creating advanced `npm init` customizations, see the [init-p
 
 ### Creating a default `package.json` file
 
-To create a default `package.json` using information extracted from the current directory, use the `npm init` command with the `--yes`
-or `-y` flag. For a list of default values, see "[Default values extracted from the current directory](#default-values-extracted-from-the-current-directory)".
+To create a default `package.json` using information extracted from the current directory, use the `npm init` command with the `--yes` or `-y` flag. For a list of default values, see "[Default values extracted from the current directory](#default-values-extracted-from-the-current-directory)".
 
 1. On the command line, navigate to the root directory of your package.
 
@@ -141,15 +137,15 @@ Wrote to /home/monatheoctocat/my_package/package.json:
 
 #### Default values extracted from the current directory
 
-  - `name`: the current directory name
-  - `version`: always `1.0.0`
-  - `description`: info from the README, or an empty string `""`
-  - `scripts`: by default creates an empty `test` script
-  - `keywords`: empty
-  - `author`: empty
-  - `license`: [`ISC`][isc-license]
-  - `bugs`: information from the current directory, if present
-  - `homepage`: information from the current directory, if present
+- `name`: the current directory name
+- `version`: always `1.0.0`
+- `description`: info from the README, or an empty string `""`
+- `scripts`: by default creates an empty `test` script
+- `keywords`: empty
+- `author`: empty
+- `license`: [`ISC`][isc-license]
+- `bugs`: information from the current directory, if present
+- `homepage`: information from the current directory, if present
 
 ### Setting config options for the init command
 

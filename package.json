@@ -22,7 +22,8 @@
     "posttest": "npm run lint",
     "test-all": "npm run test -ws -iwr --if-present",
     "lint-all": "npm run lint -ws -iwr --if-present",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "workspaces": [
     "cli/"

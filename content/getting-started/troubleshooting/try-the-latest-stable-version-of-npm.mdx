@@ -28,29 +28,29 @@ By default, npm is installed alongside node in
 
 npm's globally installed packages (including, potentially, npm itself) are stored separately in a user-specific directory (which is currently
 
- `C:\Users\<username>\AppData\Roaming\npm`).
+`C:\Users\<username>\AppData\Roaming\npm`).
 
- Because the installer puts
+Because the installer puts
 
- `C:\Program Files (x86)\nodejs`  
+`C:\Program Files (x86)\nodejs`
 
- before
+before
 
- `C:\Users\<username>\AppData\Roaming\npm`
+`C:\Users\<username>\AppData\Roaming\npm`
 
- on your `PATH`, it will always use the version of npm installed with node instead of the version of npm you installed using `npm -g install npm@<version>`.
+on your `PATH`, it will always use the version of npm installed with node instead of the version of npm you installed using `npm -g install npm@<version>`.
 
- To get around this, you can do **one** of the following:
+To get around this, you can do **one** of the following:
 
-* Option 1: [edit your Windows installation's `PATH`](http://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them) to put `%appdata%\npm` before `%ProgramFiles%\nodejs`.
-Remember that you'll need to restart `cmd.exe` (and potentially restart Windows) when you make changes to `PATH` or how npm is installed.
+- Option 1: [edit your Windows installation's `PATH`](http://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them) to put `%appdata%\npm` before `%ProgramFiles%\nodejs`. Remember that you'll need to restart `cmd.exe` (and potentially restart Windows) when you make changes to `PATH` or how npm is installed.
 
-* Option 2: remove both of
-	* `%ProgramFiles%\nodejs\npm`
-	* `%ProgramFiles%\nodejs\npm.cmd`
+- Option 2: remove both of
 
-* Option 3: Navigate to `%ProgramFiles%\nodejs\node_modules\npm` and copy the `npmrc`file to another folder or the desktop.
-Then open `cmd.exe` as an administrator and run the following commands:
+  - `%ProgramFiles%\nodejs\npm`
+  - `%ProgramFiles%\nodejs\npm.cmd`
+
+- Option 3: Navigate to `%ProgramFiles%\nodejs\node_modules\npm` and copy the `npmrc`file to another folder or the desktop. Then open `cmd.exe` as an administrator and run the following commands:
+
 ```bash
 cd %ProgramFiles%\nodejs
 npm install npm@latest
@@ -58,17 +58,18 @@ npm install npm@latest
 
 If you installed npm with the node.js installer, after doing one of the previous steps, do the following.
 
-* Option 1 or 2
-    * Go into `%ProgramFiles%\nodejs\node_modules\npm` and copy the file named `npmrc` in the new npm folder, which should be `%appdata%\npm\node_modules\npm`. This will tell the new npm where the global installed packages are.
+- Option 1 or 2
 
-* Option 3
-    * Copy the npmrc file back into `%ProgramFiles%\nodejs\node_modules\npm`
+  - Go into `%ProgramFiles%\nodejs\node_modules\npm` and copy the file named `npmrc` in the new npm folder, which should be `%appdata%\npm\node_modules\npm`. This will tell the new npm where the global installed packages are.
 
-*(See also the [point below](https://docs.npmjs.com/common-errors#error-enoent-stat-cusersuserappdataroamingnpm-on-windows-7) if you're running Windows 7 and don't have the directory `%appdata%\npm`.)*
+- Option 3
+  - Copy the npmrc file back into `%ProgramFiles%\nodejs\node_modules\npm`
+
+_(See also the [point below](https://docs.npmjs.com/common-errors#error-enoent-stat-cusersuserappdataroamingnpm-on-windows-7) if you're running Windows 7 and don't have the directory `%appdata%\npm`.)_
 
 ### A brief note on the built-in Windows configuration
 
-The Node installer installs, directly into the npm folder, a special piece of Windows-specific configuration that tells npm where to install global packages. When npm is used to install itself, it is supposed to copy this special `builtin` configuration into the new install. There was a bug in some versions of npm that kept this from working, so you may need to go in and fix that up by hand. Run the following command to see where npm will  install global packages to verify it is correct.
+The Node installer installs, directly into the npm folder, a special piece of Windows-specific configuration that tells npm where to install global packages. When npm is used to install itself, it is supposed to copy this special `builtin` configuration into the new install. There was a bug in some versions of npm that kept this from working, so you may need to go in and fix that up by hand. Run the following command to see where npm will install global packages to verify it is correct.
 
 ```
 npm config get prefix -g

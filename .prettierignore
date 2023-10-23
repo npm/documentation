@@ -1,6 +1,5 @@
 **/template-oss/*.json
 **/template-oss/*.yml
-/content/
 /.github/
 /package-lock.json
 /SECURITY.md

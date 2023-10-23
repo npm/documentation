@@ -35,7 +35,6 @@ If one or more package names (and optionally version ranges) are provided, then 
 
 ### Configuration
 
-
 #### `global`
 
 - Default: false
@@ -47,7 +46,6 @@ Operates in "global" mode, so that packages are installed into the `prefix` fold
 - bin files are linked to `{prefix}/bin`
 - man pages are linked to `{prefix}/share/man`
 
-
 #### `bin-links`
 
 - Default: true
@@ -57,7 +55,6 @@ Tells npm to create symlinks (or `.cmd` shims on Windows) for package executable
 
 Set to false to have it not do this. This can be used to work around the fact that some file systems don't support symlinks, even on ostensibly Unix systems.
 
-
 #### `ignore-scripts`
 
 - Default: false
@@ -66,7 +63,6 @@ Set to false to have it not do this. This can be used to work around the fact th
 If true, npm does not run scripts specified in package.json files.
 
 Note that commands explicitly intended to run a particular script, such as `npm start`, `npm stop`, `npm restart`, `npm test`, and `npm run-script` will still run their intended script if `ignore-scripts` is set, but they will _not_ run any pre- or post-scripts.
-
 
 #### `workspace`
 
@@ -85,7 +81,6 @@ When set for the `npm init` command, this may be set to the folder of a workspac
 
 This value is not exported to the environment for child processes.
 
-
 #### `workspaces`
 
 - Default: false
@@ -94,8 +89,6 @@ This value is not exported to the environment for child processes.
 Enable running a command in the context of **all** the configured workspaces.
 
 This value is not exported to the environment for child processes.
-
-
 
 ### See Also
 

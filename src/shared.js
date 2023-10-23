@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, Note, Screenshot} from './mdx'
+import {Link, Note, Screenshot, ul as Ul} from './mdx'
 
 const shared = {
   /* User login */
@@ -84,7 +84,7 @@ const shared = {
   },
   'connect-to-accounts': {
     text: (
-      <ul>
+      <Ul>
         <li>
           If you have previously linked a GitHub account to your npm account, select <strong>Connect to GitHub</strong>.
           This will help our support team verify your account.
@@ -93,7 +93,7 @@ const shared = {
           If you have previously linked a Twitter account to your npm account, select{' '}
           <strong>Connect to Twitter</strong>. This will help our support team verify your account.
         </li>
-      </ul>
+      </Ul>
     ),
   },
   'submit-support-ticket': {
@@ -210,11 +210,11 @@ const shared = {
     text: (
       <>
         In the billing information dialog box, enter your billing information:
-        <ul>
+        <Ul>
           <li>Email: the email address used for the billing contact</li>
           <li>Name: the name on the credit card used to pay</li>
           <li>Street, City, ZIP Code, Country: the billing address associated with the credit card</li>
-        </ul>
+        </Ul>
       </>
     ),
     image: <Screenshot src="/shared/billing-form.png" alt="Screenshot of billing form" />,

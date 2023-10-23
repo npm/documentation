@@ -26,14 +26,14 @@ The npm CLI supports registry signatures and signing keys provided by any regist
 
 **1. Signatures are provided in the package's `packument` in each published version within the `dist` object:**
 
-  ```
-  "dist":{
-    ..omitted..,
-    "signatures": [{
-      "keyid": "SHA256:{{SHA256_PUBLIC_KEY}}",
-      "sig": "a312b9c3cb4a1b693e8ebac5ee1ca9cc01f2661c14391917dcb111517f72370809..."
-    }],
-  ```
+```
+"dist":{
+  ..omitted..,
+  "signatures": [{
+    "keyid": "SHA256:{{SHA256_PUBLIC_KEY}}",
+    "sig": "a312b9c3cb4a1b693e8ebac5ee1ca9cc01f2661c14391917dcb111517f72370809..."
+  }],
+```
 
 See this <a href="https://registry.npmjs.org/light-cycle/1.4.3" target="_blank">example of a signed package from the public npm registry</a>.
 
@@ -45,17 +45,17 @@ The `keyid` must match one of the public signing keys below.
 
 **2. Public signing keys are provided at `registry-host.tld/-/npm/v1/keys` in the following format:**
 
-  ```
-  {
-    "keys": [{
-      "expires": null,
-      "keyid": "SHA256:{{SHA256_PUBLIC_KEY}}",
-      "keytype": "ecdsa-sha2-nistp256",
-      "scheme": "ecdsa-sha2-nistp256",
-      "key": "{{B64_PUBLIC_KEY}}"
-    }]
-  }
-  ```
+```
+{
+  "keys": [{
+    "expires": null,
+    "keyid": "SHA256:{{SHA256_PUBLIC_KEY}}",
+    "keytype": "ecdsa-sha2-nistp256",
+    "scheme": "ecdsa-sha2-nistp256",
+    "key": "{{B64_PUBLIC_KEY}}"
+  }]
+}
+```
 
 Keys response:
 

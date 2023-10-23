@@ -20,22 +20,22 @@ For more information on package scope, access, and visibility, see "[Package sco
 
 1. On the command line, create a directory for your package:
 
-    ```
-    mkdir my-test-package
-    ```
+   ```
+   mkdir my-test-package
+   ```
 
 2. Navigate to the root directory of your package:
 
-    ```
-    cd my-test-package
-    ```
+   ```
+   cd my-test-package
+   ```
 
 3. If you are using git to manage your package code, in the package root directory, run the following commands, replacing `git-remote-url` with the git remote URL for your package:
 
-    ```
-    git init
-    git remote add origin git://git-remote-url
-    ```
+   ```
+   git init
+   git remote add origin git://git-remote-url
+   ```
 
 4. In the package root directory, run the `npm init` command.
 5. Respond to the prompts to generate a <a href="https://docs.npmjs.com/about-package-json-and-package-lock-json-files">`package.json`</a> file. For help naming your package, see "[Package name guidelines][pkg-name]".
@@ -60,26 +60,25 @@ npm install path/to/my-package
 
 1. On the command line, navigate to the root directory of your package.
 
-    ```
-    cd /path/to/package
-    ```
+   ```
+   cd /path/to/package
+   ```
 
 2. To publish your public package to the npm registry, run:
 
-    ```
-    npm publish
-    ```
+   ```
+   npm publish
+   ```
 
-    <Note>
+   <Note>
 
-    **Note:** If you use GitHub Actions to publish your packages, you can generate provenance information for each package you publish. For more information, see "[Generating provenance statements][provenance-how-to]."
+   **Note:** If you use GitHub Actions to publish your packages, you can generate provenance information for each package you publish. For more information, see "[Generating provenance statements][provenance-how-to]."
 
-    </Note>
+   </Note>
 
 3. To see your public package page, visit `https://npmjs.com/package/*package-name*`, replacing `*package-name*` with the name of your package. Public packages will say `public` below the package name on the npm website.
 
 For more information on the `publish` command, see the [CLI documentation][cli-publish].
-
 
 [pkg-viz]: package-scope-access-level-and-visibility
 [user-signup]: https://www.npmjs.com/signup

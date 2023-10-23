@@ -37,7 +37,7 @@ module.exports = {
       parserOptions: {
         sourceType: 'module',
       },
-      globals: getGlobals(['Index', 'Note', 'Prompt', 'PromptReply', 'Screenshot', 'Link', 'YouTube']),
+      globals: getGlobals(['Index', 'Note', 'Prompt', 'Screenshot', 'Link', 'YouTube']),
       settings: {
         'import/resolver': 'webpack',
       },
