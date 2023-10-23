@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, Note, Screenshot, ul as Ul} from './mdx'
+import {Link, Screenshot, ul as Ul} from './mdx'
 
 const shared = {
   /* User login */
@@ -109,11 +109,11 @@ const shared = {
     text: (
       <>
         In the credit card information dialog box, enter your credit card information:
-        <ul>
+        <Ul>
           <li>Card number</li>
           <li>MM / YY: the month and year of the card expiration date</li>
           <li>CVC: the three-digit code on the credit card</li>
-        </ul>
+        </Ul>
       </>
     ),
     image: <Screenshot src="/shared/billing-creditcard-form.png" alt="Screenshot of the credit card form" />,
@@ -339,58 +339,6 @@ const shared = {
       </>
     ),
     image: <Screenshot src="/shared/organization-teams-tab.png" alt="Screenshot of the organization teams tab" />,
-  },
-
-  /* Enterprise */
-  'enterprise-admin-panel': {
-    text: (
-      <>
-        In the upper right corner of the page, click your profile picture, then click{' '}
-        <strong>Site Administration</strong>.
-      </>
-    ),
-    image: <Screenshot src="/shared/enterprise-admin-panel.png" alt="Screenshot of the admin panel" />,
-  },
-  'enterprise-admin-panel-settings': {
-    image: (
-      <Screenshot
-        src="/shared/enterprise-admin-panel-settings.png"
-        alt="Screenshot of the admin panel settings button"
-      />
-    ),
-  },
-  'enterprise-choose-security-policy': {
-    image: (
-      <Screenshot src="/shared/enterprise-choose-security-policy.png" alt="Screenshot of the choose security policy" />
-    ),
-  },
-  'enterprise-custom-blocking-message': {
-    image: (
-      <Screenshot
-        src="/shared/enterprise-custom-blocking-message.png"
-        alt="Screenshot of the custom blocking message option"
-      />
-    ),
-  },
-  'enterprise-instance-login': {
-    text: <>Log in to your Enterprise instance.</>,
-  },
-  'enterprise-migration-requirements': {
-    text: (
-      <Note>
-        <strong>Note:</strong> Using{' '}
-        <code>
-          <a href="https://www.npmjs.com/package/pneumatic-tubes">pneumatic-tubes</a>
-        </code>{' '}
-        for migration requires{' '}
-        <ul>
-          <li>Node 8+</li>
-          <li>
-            npm 5+ (to install or upgrade, run <code>npm install npm@latest -g</code>)
-          </li>
-        </ul>
-      </Note>
-    ),
   },
 }
 

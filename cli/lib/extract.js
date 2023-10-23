@@ -37,6 +37,12 @@ const unpackTarball = async ({release, cwd, dir}) => {
         // the v6 version of the funding page has json not inside a code
         .replace(/(:\n\n)(\s{4}"funding": {)/g, '$1```json\n$2')
         .replace(/^(\s{4}]$)(\n\n)/gm, '$1\n```$2')
+        // anchor links to markdown. this regex does need to match spaces and newlines since the source markdown
+        // already has some links where attributes are separated by newlines
+        .replace(
+          /<a[\s\n]href="(.*?)"(?:[\s\n]target="_blank")?(?:[\s\n]rel="[a-z\s]+")?>(.*?)<\/a>/g,
+          (_, href, text) => `[${href}](${text.trim()})`,
+        )
     )
   }
 
