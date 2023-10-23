@@ -27,7 +27,6 @@ npm pack [[<@scope>/]<pkg>...] [--dry-run] [--json]
 
 ### Configuration
 
-
 #### `dry-run`
 
 - Default: false
@@ -36,7 +35,6 @@ npm pack [[<@scope>/]<pkg>...] [--dry-run] [--json]
 Indicates that you don't want npm to make any changes and that it should only report what it would have done. This can be passed into any of the commands that modify your local installation, eg, `install`, `update`, `dedupe`, `uninstall`, as well as `pack` and `publish`.
 
 Note: This is NOT honored by other network related commands, eg `dist-tags`, `owner`, etc.
-
 
 #### `json`
 
@@ -49,14 +47,12 @@ Whether or not to output JSON data, rather than the normal output.
 
 Not supported by all npm commands.
 
-
 #### `pack-destination`
 
 - Default: "."
 - Type: String
 
 Directory in which `npm pack` will save tarballs.
-
 
 #### `workspace`
 
@@ -75,7 +71,6 @@ When set for the `npm init` command, this may be set to the folder of a workspac
 
 This value is not exported to the environment for child processes.
 
-
 #### `workspaces`
 
 - Default: false
@@ -84,8 +79,6 @@ This value is not exported to the environment for child processes.
 Enable running a command in the context of **all** the configured workspaces.
 
 This value is not exported to the environment for child processes.
-
-
 
 ### Description
 

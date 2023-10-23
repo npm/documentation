@@ -95,7 +95,6 @@ If you _want_ to save the `file:` reference in your `package.json` and `package-
 
 ### Configuration
 
-
 #### `save`
 
 - Default: true
@@ -105,14 +104,12 @@ Save installed packages to a package.json file as dependencies.
 
 When used with the `npm rm` command, removes the dependency from package.json.
 
-
 #### `save-exact`
 
 - Default: false
 - Type: Boolean
 
 Dependencies saved to package.json will be configured with an exact version rather than using npm's default semver range operator.
-
 
 #### `global`
 
@@ -125,7 +122,6 @@ Operates in "global" mode, so that packages are installed into the `prefix` fold
 - bin files are linked to `{prefix}/bin`
 - man pages are linked to `{prefix}/share/man`
 
-
 #### `global-style`
 
 - Default: false
@@ -133,14 +129,12 @@ Operates in "global" mode, so that packages are installed into the `prefix` fold
 
 Causes npm to install the package into your local `node_modules` folder with the same layout it uses with the global `node_modules` folder. Only your direct dependencies will show in `node_modules` and everything they depend on will be flattened in their `node_modules` folders. This obviously will eliminate some deduping. If used with `legacy-bundling`, `legacy-bundling` will be preferred.
 
-
 #### `legacy-bundling`
 
 - Default: false
 - Type: Boolean
 
 Causes npm to install the package such that versions of npm prior to 1.4, such as the one included with node 0.8, can install the package. This eliminates all automatic deduping. If used with `global-style` this option will be preferred.
-
 
 #### `strict-peer-deps`
 
@@ -153,7 +147,6 @@ By default, conflicting `peerDependencies` deep in the dependency graph will be 
 
 When such and override is performed, a warning is printed, explaining the conflict and the packages involved. If `--strict-peer-deps` is set, then this warning is treated as a failure.
 
-
 #### `package-lock`
 
 - Default: true
@@ -162,7 +155,6 @@ When such and override is performed, a warning is printed, explaining the confli
 If set to false, then ignore `package-lock.json` files when installing. This will also prevent _writing_ `package-lock.json` if `save` is true.
 
 When package package-locks are disabled, automatic pruning of extraneous modules will also be disabled. To remove extraneous modules with package-locks disabled use `npm prune`.
-
 
 #### `omit`
 
@@ -177,7 +169,6 @@ If a package type appears in both the `--include` and `--omit` lists, then it wi
 
 If the resulting omit list includes `'dev'`, then the `NODE_ENV` environment variable will be set to `'production'` for all lifecycle scripts.
 
-
 #### `ignore-scripts`
 
 - Default: false
@@ -187,14 +178,12 @@ If true, npm does not run scripts specified in package.json files.
 
 Note that commands explicitly intended to run a particular script, such as `npm start`, `npm stop`, `npm restart`, `npm test`, and `npm run-script` will still run their intended script if `ignore-scripts` is set, but they will _not_ run any pre- or post-scripts.
 
-
 #### `audit`
 
 - Default: true
 - Type: Boolean
 
 When "true" submit audit reports alongside the current npm command to the default registry and all registries configured for scopes. See the documentation for [`npm audit`](/cli/v7/commands/npm-audit) for details on what is submitted.
-
 
 #### `bin-links`
 
@@ -205,14 +194,12 @@ Tells npm to create symlinks (or `.cmd` shims on Windows) for package executable
 
 Set to false to have it not do this. This can be used to work around the fact that some file systems don't support symlinks, even on ostensibly Unix systems.
 
-
 #### `fund`
 
 - Default: true
 - Type: Boolean
 
 When "true" displays the message at the end of each `npm install` acknowledging the number of dependencies looking for funding. See [`npm fund`](/cli/v7/commands/npm-fund) for details.
-
 
 #### `dry-run`
 
@@ -222,7 +209,6 @@ When "true" displays the message at the end of each `npm install` acknowledging 
 Indicates that you don't want npm to make any changes and that it should only report what it would have done. This can be passed into any of the commands that modify your local installation, eg, `install`, `update`, `dedupe`, `uninstall`, as well as `pack` and `publish`.
 
 Note: This is NOT honored by other network related commands, eg `dist-tags`, `owner`, etc.
-
 
 #### `workspace`
 
@@ -241,7 +227,6 @@ When set for the `npm init` command, this may be set to the folder of a workspac
 
 This value is not exported to the environment for child processes.
 
-
 #### `workspaces`
 
 - Default: false
@@ -250,8 +235,6 @@ This value is not exported to the environment for child processes.
 Enable running a command in the context of **all** the configured workspaces.
 
 This value is not exported to the environment for child processes.
-
-
 
 ### See Also
 

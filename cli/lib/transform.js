@@ -7,6 +7,12 @@ const gh = require('./gh')
 const prettier = require('@prettier/sync')
 const rawRedirects = require('./redirects')
 
+const prettierFormat = str =>
+  prettier.format(str, {
+    parser: 'markdown',
+    proseWrap: 'never',
+  })
+
 const getPathParts = path => {
   const abs = isAbsolute(path)
   const paths = path.replace(/\.mdx?$/, '').split(sep)
@@ -101,7 +107,8 @@ const transform = (data, {release, path, frontmatter, format = s => s}) => {
 
   // first format with prettier, this helps so other replacements don't have to
   // worry about newlines vs spaces
-  body = prettier.format(body, {parser: 'markdown', proseWrap: 'never'})
+  body = prettierFormat(body)
+
   // then do replacements for all cli makdown files
   body = body
     // some legacy versions of the docs did not get this replaced
@@ -120,6 +127,9 @@ const transform = (data, {release, path, frontmatter, format = s => s}) => {
 
   // then do any transformer specific replacements
   body = format(body)
+
+  // prettier again now that we've altered the contents
+  body = prettierFormat(body)
 
   return `---\n${yaml.stringify(attributes).trim()}\n---\n\n${body}`
 }

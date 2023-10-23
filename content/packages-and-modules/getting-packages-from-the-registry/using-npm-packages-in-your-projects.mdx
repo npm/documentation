@@ -10,14 +10,12 @@ Once you have [installed a package][install-pkg] in `node_modules`, you can use 
 
 If you are creating a Node.js module, you can use a package in your module by passing it as an argument to the `require` function.
 
-
 ```javascript
 var lodash = require('lodash');
 
 var output = lodash.without([1, 2, 3], 1);
 console.log(output);
 ```
-
 
 ### package.json file
 
@@ -36,7 +34,6 @@ In `package.json`, list the package under dependencies. You can optionally inclu
 To use a scoped package, simply include the scope wherever you use the package name.
 
 ### Node.js module
-
 
 ```js
 var projectName = require("@scope/package-name")
@@ -65,10 +62,8 @@ module.js:340
 Error: Cannot find module 'lodash'
 ```
 
-
 - For scoped packages, run `npm install <@scope/package_name>`
 - For unscoped packages, run `npm install <package_name>`
-
 
 [install-pkg]: downloading-and-installing-packages
 [semver]: about-semantic-versioning

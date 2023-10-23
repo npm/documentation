@@ -90,6 +90,8 @@ jobs:
         run: npm run lint --ignore-scripts -w cli
       - name: Post Lint
         run: npm run postlint --ignore-scripts -w cli
+      - name: Check Format
+        run: npm run format:check --ignore-scripts --if-present -w cli
 
   test:
     name: Test - ${{ matrix.platform.name }} - ${{ matrix.node-version }}

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Box, Heading, Text} from '@primer/react'
-import {H1} from './mdx'
+import {h1 as H1} from './mdx'
 import PageFooter from './components/page-footer'
 import * as TableOfContents from './components/table-of-contents'
 import VariantSelect from './components/variant-select'

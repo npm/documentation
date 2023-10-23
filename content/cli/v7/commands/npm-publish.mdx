@@ -78,7 +78,6 @@ See [`developers`](/cli/v7/using-npm/developers) for full details on what's incl
 
 ### Configuration
 
-
 #### `tag`
 
 - Default: "latest"
@@ -90,7 +89,6 @@ Also the tag that is added to the package@version specified by the `npm tag` com
 
 When used by the `npm diff` command, this is the tag used to fetch the tarball that will be compared with the local files by default.
 
-
 #### `access`
 
 - Default: 'restricted' for scoped packages, 'public' for unscoped packages
@@ -99,7 +97,6 @@ When used by the `npm diff` command, this is the tag used to fetch the tarball t
 When publishing scoped packages, the access level defaults to `restricted`. If you want your scoped package to be publicly viewable (and installable) set `--access=public`. The only valid values for `access` are `public` and `restricted`. Unscoped packages _always_ have an access level of `public`.
 
 Note: Using the `--access` flag on the `npm publish` command will only set the package access level on the initial publish of the package. Any subsequent `npm publish` commands using the `--access` flag will not have an effect to the access level. To make changes to the access level after the initial publish use `npm access`.
-
 
 #### `dry-run`
 
@@ -110,7 +107,6 @@ Indicates that you don't want npm to make any changes and that it should only re
 
 Note: This is NOT honored by other network related commands, eg `dist-tags`, `owner`, etc.
 
-
 #### `otp`
 
 - Default: null
@@ -119,7 +115,6 @@ Note: This is NOT honored by other network related commands, eg `dist-tags`, `ow
 This is a one-time password from a two-factor authenticator. It's needed when publishing or changing package permissions with `npm access`.
 
 If not set, and a registry response fails with a challenge for a one-time password, npm will prompt on the command line for one.
-
 
 #### `workspace`
 
@@ -138,7 +133,6 @@ When set for the `npm init` command, this may be set to the folder of a workspac
 
 This value is not exported to the environment for child processes.
 
-
 #### `workspaces`
 
 - Default: false
@@ -147,8 +141,6 @@ This value is not exported to the environment for child processes.
 Enable running a command in the context of **all** the configured workspaces.
 
 This value is not exported to the environment for child processes.
-
-
 
 ### See Also
 
