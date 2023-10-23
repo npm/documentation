@@ -33,7 +33,7 @@ const withTableOfContents = Component => {
 }
 
 export const Mobile = withTableOfContents(({items}) => {
-  const {getDetailsProps, open} = useDetails({})
+  const {getDetailsProps, open} = useDetails({defaultOpen: true})
   return (
     <Box sx={{display: ['block', null, 'none'], mb: 3}}>
       <Details {...getDetailsProps()}>
