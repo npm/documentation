@@ -59,9 +59,7 @@ const Navigation = () => {
 
   return (
     <>
-      <VisuallyHidden>
-        <h3>Site navigation</h3>
-      </VisuallyHidden>
+      <VisuallyHidden as="h3">Site navigation</VisuallyHidden>
       <NavList aria-label="Site">
         <NavItems items={items} path={pathname} />
         <NavList.Divider />

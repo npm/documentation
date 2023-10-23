@@ -39,11 +39,18 @@ export const npmTheme = deepmerge(theme, {
 
 export const ThemeProvider = props => <Provider theme={npmTheme} {...props} />
 
-export const Theme = ({theme: colorMode, as = Box, ...props}) => (
-  <Provider colorMode={colorMode} nightScheme="dark_dimmed">
-    {React.createElement(as, props)}
-  </Provider>
-)
+export const Theme = React.forwardRef(function Theme({theme: colorMode, as = Box, ...props}, ref) {
+  return (
+    <Provider colorMode={colorMode} nightScheme="dark_dimmed">
+      {React.createElement(as, {...props, ref})}
+    </Provider>
+  )
+})
 
-export const LightTheme = props => <Theme theme="light" {...props} />
-export const DarkTheme = props => <Theme theme="dark" {...props} />
+export const LightTheme = React.forwardRef(function LightTheme(props, ref) {
+  return <Theme ref={ref} theme="light" {...props} />
+})
+
+export const DarkTheme = React.forwardRef(function DarkTheme(props, ref) {
+  return <Theme ref={ref} theme="dark" {...props} />
+})

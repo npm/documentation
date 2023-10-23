@@ -1,38 +1,85 @@
 import React from 'react'
 import {Button, Box} from '@primer/react'
 import {XIcon, ThreeBarsIcon} from '@primer/octicons-react'
-import Link from './link'
-import Drawer from './drawer'
 import NavItems from './nav-items'
-import useSiteMetadata from '../hooks/use-site-metadata'
 import {useIsMobile} from '../hooks/use-breakpoint'
 import {DarkTheme, LightTheme} from '../theme'
+import {AnimatePresence, motion} from 'framer-motion'
+import {FocusOn} from 'react-focus-on'
+import {HEADER_BAR, HEADER_HEIGHT} from '../constants'
+import SiteTitle from './site-title'
 
-const useDrawerIsOpen = () => {
-  const isMobile = useIsMobile()
-  const [isOpen, setIsOpen] = React.useState(false)
-  const setOpen = React.useCallback(() => setIsOpen(true), [])
-  const setClose = React.useCallback(() => setIsOpen(false), [])
-
-  React.useEffect(() => {
-    if (!isMobile && isOpen) {
-      setIsOpen(false)
-    }
-  }, [isMobile, isOpen])
-
-  return [isOpen, {setOpen, setClose}]
-}
+const Drawer = ({isOpen, onDismiss, children}) => (
+  <AnimatePresence>
+    {isOpen ? (
+      // These event handlers fix a bug that caused links below the fold
+      // to be unclickable in macOS Safari.
+      // Reference: https://github.com/theKashey/react-focus-lock/issues/79
+      <Box
+        onMouseDown={event => event.preventDefault()}
+        onKeyDown={event => event.target.focus()}
+        onClick={event => event.target.focus()}
+        role="button"
+        tabIndex="0"
+      >
+        <FocusOn returnFocus={true} onEscapeKey={onDismiss}>
+          <Box
+            sx={{
+              position: 'fixed',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              bg: 'overlay.backdrop',
+            }}
+            key="overlay"
+            as={motion.div}
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            transition={{type: 'tween'}}
+            onClick={onDismiss}
+          />
+          <Box
+            sx={{
+              position: 'fixed',
+              top: `${HEADER_BAR}px`,
+              right: 0,
+              bottom: 0,
+              width: 300,
+              zIndex: 1,
+            }}
+            key="drawer"
+            as={motion.div}
+            initial={{x: '100%'}}
+            animate={{x: 0}}
+            exit={{x: '100%'}}
+            transition={{type: 'tween', duration: 0.2}}
+          >
+            {children}
+          </Box>
+        </FocusOn>
+      </Box>
+    ) : null}
+  </AnimatePresence>
+)
 
 function NavDrawer() {
-  const siteMetadata = useSiteMetadata()
-  const [isOpen, {setOpen, setClose}] = useDrawerIsOpen()
+  const isMobile = useIsMobile()
+  const [open, setOpen] = React.useState(false)
+
+  React.useEffect(() => {
+    if (!isMobile && open) {
+      setOpen(false)
+    }
+  }, [isMobile, open])
 
   return (
     <>
-      <Button aria-label="Menu" aria-expanded={isOpen} onClick={setOpen} sx={{ml: 3}}>
+      <Button aria-label="Menu" aria-expanded={open} onClick={() => setOpen(true)} sx={{ml: 3}}>
         <ThreeBarsIcon />
       </Button>
-      <LightTheme as={Drawer} isOpen={isOpen} onDismiss={setClose}>
+      <LightTheme as={Drawer} isOpen={open} onDismiss={() => setOpen(false)}>
         <Box
           sx={{
             display: 'flex',
@@ -54,32 +101,19 @@ function NavDrawer() {
           >
             <DarkTheme
               sx={{
-                borderWidth: 0,
-                borderRadius: 0,
-                borderBottomWidth: 1,
-                borderColor: 'border.muted',
-                borderStyle: 'solid',
                 color: 'fg.default',
                 bg: 'canvas.default',
+                height: `${HEADER_HEIGHT}px`,
+                px: 3,
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                display: 'flex',
               }}
             >
-              <Box
-                sx={{
-                  py: 3,
-                  pl: 4,
-                  pr: 3,
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  display: 'flex',
-                }}
-              >
-                <Link to="/" sx={{fontSize: 2, color: 'fg.default'}}>
-                  {siteMetadata.title}
-                </Link>
-                <Button aria-label="Close" onClick={setClose}>
-                  <XIcon />
-                </Button>
-              </Box>
+              <SiteTitle />
+              <Button aria-label="Close" onClick={() => setOpen(false)}>
+                <XIcon />
+              </Button>
             </DarkTheme>
             <Box sx={{display: 'flex', flexDirection: 'column'}}>
               <NavItems />

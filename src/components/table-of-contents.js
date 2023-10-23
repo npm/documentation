@@ -18,8 +18,8 @@ const TableOfContentsItems = ({items, depth}) => (
   </>
 )
 
-const TableOfContents = ({'aria-labelledby': ariaLabelledBy, items, depth = 1}) => (
-  <NavList {...(depth === 1 ? {'aria-labelledby': ariaLabelledBy, sx: {ml: -2}} : {})}>
+const TableOfContents = ({'aria-labelledby': ariaLabelledBy, items, depth = 1, ...props}) => (
+  <NavList aria-labelledby={ariaLabelledBy} {...props}>
     <TableOfContentsItems items={items} depth={depth} />
   </NavList>
 )
@@ -35,9 +35,28 @@ const withTableOfContents = Component => {
 export const Mobile = withTableOfContents(({items}) => {
   const {getDetailsProps, open} = useDetails({defaultOpen: true})
   return (
-    <Box sx={{display: ['block', null, 'none'], mb: 3}}>
-      <Details {...getDetailsProps()}>
-        <Button as="summary" sx={{display: 'inline-flex'}} leadingIcon={open ? ChevronDownIcon : ChevronRightIcon}>
+    <Box sx={{display: ['block', null, 'none'], mb: 3, mt: 4}}>
+      <Details
+        {...getDetailsProps()}
+        sx={{
+          borderStyle: 'solid',
+          borderWidth: 1,
+          borderColor: 'border.muted',
+          borderRadius: 2,
+        }}
+      >
+        <Button
+          as="summary"
+          sx={{
+            borderTopWidth: 0,
+            borderLeftWidth: 0,
+            borderRightWidth: 0,
+            borderBottomWidth: open ? 1 : 0,
+            borderBottomLeftRadius: open ? 0 : 2,
+            borderBottomRightRadius: open ? 0 : 2,
+          }}
+          leadingIcon={open ? ChevronDownIcon : ChevronRightIcon}
+        >
           Table of contents
         </Button>
         <TableOfContents items={items} />
@@ -68,7 +87,7 @@ export const Desktop = withTableOfContents(({items}) => (
         overflowY: 'scroll',
       }}
     >
-      <TableOfContents aria-labelledby="toc-heading" items={items} />
+      <TableOfContents aria-labelledby="toc-heading" items={items} sx={{ml: -2}} />
     </Box>
   </Box>
 ))

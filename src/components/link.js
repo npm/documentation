@@ -2,6 +2,16 @@ import React from 'react'
 import {Link as PrimerLink} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
 
+const omit = (obj, ...keys) => {
+  const res = {}
+  for (const k of Object.keys(obj)) {
+    if (!keys.includes(k)) {
+      res[k] = obj[k]
+    }
+  }
+  return res
+}
+
 const FALLBACK = `http://_${Math.random().toString().slice(2)}._${Math.random().toString().slice(2)}`
 
 const getLocalPath = href => {
@@ -21,11 +31,8 @@ const getLocalPath = href => {
   return null
 }
 
-const GatsbyLinkWithoutSxProps = React.forwardRef(function GatsbyLinkWithoutSxProps(
-  {sx, underline, hoverColor, muted, ...props},
-  ref,
-) {
-  return <GatsbyLink ref={ref} {...props} />
+const GatsbyLinkWithoutSxProps = React.forwardRef(function GatsbyLinkWithoutSxProps(props, ref) {
+  return <GatsbyLink ref={ref} {...omit(props, 'sx', 'underline', 'hoverColor', 'muted')} />
 })
 
 const Link = React.forwardRef(function Link({to, href, ...props}, ref) {

@@ -112,11 +112,11 @@ function Code({className = '', prompt, children}) {
       {({className: highlightClassName, style, tokens, getLineProps, getTokenProps}) => (
         <CodeBlock className={highlightClassName} style={style} code={code}>
           {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({line, key: i})}>
+            <Box key={i} {...getLineProps({line, key: i})}>
               {line.map((token, key) => (
                 <MonoText key={key} {...getTokenProps({token, key})} />
               ))}
-            </div>
+            </Box>
           ))}
         </CodeBlock>
       )}

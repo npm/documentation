@@ -26,17 +26,17 @@ const SearchItem = ({item}) => {
   )
 }
 
+const Result = React.forwardRef(function Result({sx, ...props}, ref) {
+  return <Box ref={ref} sx={{px: 3, py: 2, color: 'fg.default', fontSize: 1, ...sx}} {...props} />
+})
+
 function SearchResults({results, getItemProps, highlightedIndex}) {
-  if (results.length === 0) {
-    return (
-      <Text as="div" sx={{px: 3, py: 2, color: 'fg.default', fontSize: 1}}>
-        No results
-      </Text>
-    )
+  if (!results || results.length === 0) {
+    return <Result>No results</Result>
   }
 
   return results.map((item, index) => (
-    <Box
+    <Result
       {...getItemProps({item, index})}
       as={LinkNoUnderline}
       to={item.path}
@@ -45,15 +45,11 @@ function SearchResults({results, getItemProps, highlightedIndex}) {
         display: 'flex',
         flexDirection: 'column',
         flex: '0 0 auto',
-        px: 3,
-        py: 2,
-        color: 'fg.default',
-        fontSize: 1,
         bg: highlightedIndex === index ? 'neutral.muted' : 'transparent',
       }}
     >
       <SearchItem item={item} />
-    </Box>
+    </Result>
   ))
 }
 

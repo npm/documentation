@@ -46,7 +46,7 @@ module.exports = {
       },
     },
     {
-      files: ['*.mdx', 'shared.js'],
+      files: ['*.mdx', 'shared.js', 'src/**/*.js'],
       rules: {
         'react/forbid-elements': [
           'error',
@@ -109,7 +109,8 @@ module.exports = {
               'header',
               'hgroup',
               'hr',
-              'html',
+              // used in head
+              // 'html',
               'i',
               'input',
               'ins',
@@ -170,7 +171,8 @@ module.exports = {
               'th',
               'thead',
               'time',
-              'title',
+              // used in head
+              // 'title',
               'tr',
               'track',
               'tt',

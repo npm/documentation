@@ -8,6 +8,7 @@ import SearchResults from './search-results'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import {HEADER_BAR, HEADER_HEIGHT} from '../constants'
 import {LightTheme} from '../theme'
+import useLocationChange from '../hooks/use-location-change'
 
 export const Desktop = props => {
   const siteMetadata = useSiteMetadata()
@@ -44,10 +45,24 @@ export const Desktop = props => {
   )
 }
 
-export const Mobile = props => {
+export const Mobile = ({
+  reset,
+  results,
+  isOpen: resultsOpen,
+  getInputProps,
+  getItemProps,
+  getMenuProps,
+  highlightedIndex,
+}) => {
   const [open, setOpen] = React.useState(false)
   const siteMetadata = useSiteMetadata()
-  const {reset, results, isOpen: resultsOpen, getInputProps, getItemProps, getMenuProps, highlightedIndex} = props
+  const locationChange = useLocationChange()
+
+  React.useEffect(() => {
+    if (locationChange.change) {
+      setOpen(false)
+    }
+  }, [locationChange])
 
   // Fixes focus behavior on iOS where the input gets focus styles but not the
   // actual focus after animating open.
