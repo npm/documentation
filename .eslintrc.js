@@ -43,8 +43,6 @@ module.exports = {
       },
       rules: {
         'no-irregular-whitespace': 'off',
-        'jsx-a11y/anchor-has-content': 'off',
-        'react/jsx-no-target-blank': 'off',
       },
     },
   ],
