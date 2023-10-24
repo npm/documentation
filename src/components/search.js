@@ -8,11 +8,10 @@ import SearchResults from './search-results'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import {HEADER_BAR, HEADER_HEIGHT} from '../constants'
 import {LightTheme} from '../theme'
-import useLocationChange from '../hooks/use-location-change'
 
 export const Desktop = props => {
   const siteMetadata = useSiteMetadata()
-  const {getInputProps, getMenuProps, isOpen, results, getItemProps, highlightedIndex} = props
+  const {getInputProps, getMenuProps, resultsOpen, results, getItemProps, highlightedIndex} = props
 
   return (
     <Box sx={{position: 'relative'}}>
@@ -23,7 +22,7 @@ export const Desktop = props => {
         {...getInputProps()}
       />
       <Box sx={{position: 'absolute', left: 0, right: 0, pt: 1}} {...getMenuProps()}>
-        {isOpen ? (
+        {resultsOpen ? (
           <LightTheme
             sx={{
               overflow: 'auto',
@@ -46,46 +45,35 @@ export const Desktop = props => {
 }
 
 export const Mobile = ({
-  reset,
   results,
-  isOpen: resultsOpen,
+  resultsOpen,
   getInputProps,
   getItemProps,
   getMenuProps,
   highlightedIndex,
+  isMobileSearchOpen,
+  setMobileSearchOpen,
+  resetAndClose,
 }) => {
-  const [open, setOpen] = React.useState(false)
   const siteMetadata = useSiteMetadata()
-  const locationChange = useLocationChange()
-
-  React.useEffect(() => {
-    if (locationChange.change) {
-      setOpen(false)
-    }
-  }, [locationChange])
 
   // Fixes focus behavior on iOS where the input gets focus styles but not the
   // actual focus after animating open.
   const ref = React.useRef()
   React.useEffect(() => {
-    if (open) {
+    if (isMobileSearchOpen) {
       ref.current.focus()
     }
-  }, [ref, open])
-
-  const handleDismiss = () => {
-    reset()
-    setOpen(false)
-  }
+  }, [ref, isMobileSearchOpen])
 
   return (
     <>
-      <Button aria-label="Search" aria-expanded={open} onClick={() => setOpen(true)}>
+      <Button aria-label="Search" aria-expanded={isMobileSearchOpen} onClick={() => setMobileSearchOpen(true)}>
         <SearchIcon />
       </Button>
       <AnimatePresence>
-        {open ? (
-          <FocusOn returnFocus={true} onEscapeKey={handleDismiss}>
+        {isMobileSearchOpen ? (
+          <FocusOn returnFocus={true} onEscapeKey={resetAndClose}>
             <Box
               sx={{
                 position: 'fixed',
@@ -112,7 +100,7 @@ export const Mobile = ({
                 animate={{opacity: 1}}
                 exit={{opacity: 0}}
                 transition={{type: 'tween'}}
-                onClick={handleDismiss}
+                onClick={resetAndClose}
               />
               <Box sx={{display: 'flex', flexDirection: 'column', height: resultsOpen ? '100%' : 'auto'}}>
                 <Box
@@ -183,7 +171,7 @@ export const Mobile = ({
                     exit={{opacity: 0}}
                     transition={{type: 'tween', ease: 'easeOut', duration: 0.2}}
                   >
-                    <Button sx={{ml: 3}} aria-label="Cancel" onClick={handleDismiss}>
+                    <Button sx={{ml: 3}} aria-label="Cancel" onClick={resetAndClose}>
                       <XIcon />
                     </Button>
                   </Box>
