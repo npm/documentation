@@ -55,6 +55,8 @@ const useCliVersion = () => {
 
 const useSearchCombobox = (results, setQuery) => {
   const isMobile = useIsMobile()
+  const [isMobileSearchOpen, setMobileSearchOpen] = React.useState(false)
+
   const combobox = useCombobox({
     id: 'search-box',
     items: results || [],
@@ -62,6 +64,7 @@ const useSearchCombobox = (results, setQuery) => {
     onSelectedItemChange: ({selectedItem}) => {
       if (selectedItem) {
         navigate(selectedItem.path)
+        setMobileSearchOpen(false)
         combobox.reset()
       }
     },
@@ -90,7 +93,18 @@ const useSearchCombobox = (results, setQuery) => {
       return changes
     },
   })
-  return combobox
+
+  const resetAndClose = React.useCallback(() => {
+    combobox.reset()
+    setMobileSearchOpen(false)
+  }, [combobox, setMobileSearchOpen])
+
+  return {
+    ...combobox,
+    isMobileSearchOpen,
+    setMobileSearchOpen,
+    resetAndClose,
+  }
 }
 
 function useSearch() {
@@ -138,7 +152,7 @@ function useSearch() {
   return {
     ...combobox,
     results,
-    isOpen: !!(combobox.isOpen && results),
+    resultsOpen: !!(combobox.isOpen && results),
   }
 }
 
