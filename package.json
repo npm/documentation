@@ -42,7 +42,7 @@
     "details-element-polyfill": "^2.4.0",
     "downshift": "^8.2.2",
     "framer-motion": "^10.16.4",
-    "fuse.js": "^6.6.2",
+    "fuse.js": "^7.0.0",
     "gatsby": "^5.12.7",
     "gatsby-plugin-manifest": "^5.12.1",
     "gatsby-plugin-mdx": "^5.12.1",
