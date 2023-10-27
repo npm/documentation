@@ -6,7 +6,19 @@ import {LinkNoUnderline} from './link'
 import useLocationChange from '../hooks/use-location-change'
 
 const VariantItem = ({title, shortName, url, active}) => (
-  <ActionList.Item as={LinkNoUnderline} to={url} state={{scrollUpdate: false}} id={shortName} active={active}>
+  <ActionList.Item
+    sx={{
+      ':hover:not([aria-disabled])': {
+        backgroundColor: '#666D75',
+        color: '#FFFFFF',
+      },
+    }}
+    as={LinkNoUnderline}
+    to={url}
+    state={{scrollUpdate: false}}
+    id={shortName}
+    active={active}
+  >
     {title}
   </ActionList.Item>
 )
