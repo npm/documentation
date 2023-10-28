@@ -1,0 +1,8 @@
+**/template-oss/*.json
+**/template-oss/*.yml
+/.github/
+/package-lock.json
+/SECURITY.md
+/.reuse/
+.nyc_output/
+coverage/

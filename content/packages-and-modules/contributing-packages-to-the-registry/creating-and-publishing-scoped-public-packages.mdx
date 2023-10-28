@@ -1,6 +1,7 @@
 ---
 title: Creating and publishing scoped public packages
 ---
+
 import shared from '~/shared.js'
 
 To share your code publicly in a user or organization namespace, you can publish public user-scoped or organization-scoped packages to the npm registry.
@@ -9,9 +10,9 @@ For more information on scopes, see "[About scopes][scopes]".
 
 <Note>
 
-**Note:** Before you can publish user-scoped npm packages, you must <a href="https://www.npmjs.com/signup">sign up</a> for an npm user account.
+**Note:** Before you can publish user-scoped npm packages, you must [sign up](https://www.npmjs.com/signup) for an npm user account.
 
-Additionally, to publish organization-scoped packages, you must <a href="https://www.npmjs.com/signup">create an npm user account</a>, then <a href="https://www.npmjs.com/signup?next=/org/create">create an npm organization</a>.
+Additionally, to publish organization-scoped packages, you must [create an npm user account](https://www.npmjs.com/signup), then [create an npm organization](https://www.npmjs.com/signup?next=/org/create).
 
 </Note>
 
@@ -19,42 +20,43 @@ Additionally, to publish organization-scoped packages, you must <a href="https:/
 
 1. If you are using npmrc to [manage accounts on multiple registries][reg-config], on the command line, switch to the appropriate profile:
 
-    ```
-    npmrc <profile-name>
-    ```
+   ```
+   npmrc <profile-name>
+   ```
 
 2. On the command line, create a directory for your package:
 
-    ```
-    mkdir my-test-package
-    ```
+   ```
+   mkdir my-test-package
+   ```
 
 3. Navigate to the root directory of your package:
 
-    ```
-    cd my-test-package
-    ```
+   ```
+   cd my-test-package
+   ```
 
 4. If you are using git to manage your package code, in the package root directory, run the following commands, replacing `git-remote-url` with the git remote URL for your package:
 
-    ```
-    git init
-    git remote add origin git://git-remote-url
-    ```
+   ```
+   git init
+   git remote add origin git://git-remote-url
+   ```
 
 5. In the package root directory, run the `npm init` command and pass the scope to the `scope` flag:
 
-   * For an organization-scoped package, replace `my-org` with the name of your organization:
+   - For an organization-scoped package, replace `my-org` with the name of your organization:
+
      ```
      npm init --scope=@my-org
      ```
 
-   * For a user-scoped package, replace `my-username` with your username:
+   - For a user-scoped package, replace `my-username` with your username:
      ```
      npm init --scope=@my-username
      ```
 
-6. Respond to the prompts to generate a <a href="https://docs.npmjs.com/about-package-json-and-package-lock-json-files">`package.json`</a> file. For help naming your package, see "[Package name guidelines][pkg-name]".
+6. Respond to the prompts to generate a [`package.json`](https://docs.npmjs.com/about-package-json-and-package-lock-json-files) file. For help naming your package, see "[Package name guidelines][pkg-name]".
 7. Create a [README file][readme-file] that explains what your package code is and how to use it.
 8. In your preferred text editor, write the code for your package.
 
@@ -78,28 +80,27 @@ By default, scoped packages are published with private visibility. To publish a 
 
 1. On the command line, navigate to the root directory of your package.
 
-    ```
-    cd /path/to/package
-    ```
+   ```
+   cd /path/to/package
+   ```
 
 2. To publish your scoped public package to the npm registry, run:
 
-    ```
-    npm publish --access public
-    ```
+   ```
+   npm publish --access public
+   ```
 
-    <Note>
+   <Note>
 
-    **Note:** If you use GitHub Actions to publish your packages, you can generate provenance information for each package you publish. For more information, see "[Generating provenance statements][provenance-how-to]."
+   **Note:** If you use GitHub Actions to publish your packages, you can generate provenance information for each package you publish. For more information, see "[Generating provenance statements][provenance-how-to]."
 
-    </Note>
+   </Note>
 
 3. To see your public package page, visit https://npmjs.com/package/\*package-name\*, replacing \*package-name\* with the name of your package. Public packages will say `public` below the package name on the npm website.
 
    <>{shared['organization-package-public'].image}</>
 
 For more information on the `publish` command, see the [CLI documentation][cli-publish].
-
 
 [scopes]: /about-scopes
 [user-signup]: https://www.npmjs.com/signup

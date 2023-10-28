@@ -1,9 +1,9 @@
 const t = require('tap')
 const fm = require('front-matter')
 
-const transform = ({ id, path }) => {
+const transform = ({id, path}) => {
   const Transform = t.mock('../lib/transform', {
-    '../lib/gh.js': { nwo: 'npm/cli' },
+    '../lib/gh.js': {nwo: 'npm/cli'},
   })
   const transformed = Transform.sync('---\n---\n', {
     release: {
@@ -19,8 +19,8 @@ const transform = ({ id, path }) => {
 }
 
 t.test('v6 default page', async t => {
-  const v6 = transform({ id: 'v6', path: 'configuring-npm/package-locks' })
-  const v7 = transform({ id: 'v7', path: 'configuring-npm/package-locks' })
+  const v6 = transform({id: 'v6', path: 'configuring-npm/package-locks'})
+  const v7 = transform({id: 'v7', path: 'configuring-npm/package-locks'})
 
   t.strictSame(v6.redirect_from, [
     '/cli/configuring-npm/package-locks',
@@ -30,15 +30,12 @@ t.test('v6 default page', async t => {
     '/configuring-npm/package-locks',
     '/files/package-locks',
   ])
-  t.strictSame(v7.redirect_from, [
-    '/cli/v7/configuring-npm/package-locks',
-    '/cli/v7/files/package-locks',
-  ])
+  t.strictSame(v7.redirect_from, ['/cli/v7/configuring-npm/package-locks', '/cli/v7/files/package-locks'])
 })
 
 t.test('command', async t => {
-  const v7 = transform({ id: 'v7', path: 'commands/npm-bin' })
-  const v8 = transform({ id: 'v8', path: 'commands/npm-bin' })
+  const v7 = transform({id: 'v7', path: 'commands/npm-bin'})
+  const v8 = transform({id: 'v8', path: 'commands/npm-bin'})
 
   t.strictSame(v7.redirect_from, [
     '/cli/v7/bin',
@@ -69,8 +66,8 @@ t.test('command', async t => {
 })
 
 t.test('package-json files', async t => {
-  const v7 = transform({ id: 'v7', path: 'configuring-npm/package-json' })
-  const v8 = transform({ id: 'v8', path: 'configuring-npm/package-json' })
+  const v7 = transform({id: 'v7', path: 'configuring-npm/package-json'})
+  const v8 = transform({id: 'v8', path: 'configuring-npm/package-json'})
 
   t.strictSame(v7.redirect_from, [
     '/cli/v7/configuring-npm/package-json',
@@ -95,20 +92,26 @@ t.test('package-json files', async t => {
 })
 
 t.test('registry signatures', async t => {
-  t.strictSame(transform({
-    id: 'v8',
-    path: 'about-pgp-signatures-for-packages-in-the-public-registry',
-  }).redirect_from, [
-    '/about-registry-signatures',
-    '/cli/about-pgp-signatures-for-packages-in-the-public-registry',
-    '/cli/v8/about-pgp-signatures-for-packages-in-the-public-registry',
-  ])
-  t.strictSame(transform({
-    id: 'v8',
-    path: 'verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry',
-  }).redirect_from, [
-    '/cli/v8/verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry',
-    '/cli/verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry',
-    '/verifying-registry-signatures',
-  ])
+  t.strictSame(
+    transform({
+      id: 'v8',
+      path: 'about-pgp-signatures-for-packages-in-the-public-registry',
+    }).redirect_from,
+    [
+      '/about-registry-signatures',
+      '/cli/about-pgp-signatures-for-packages-in-the-public-registry',
+      '/cli/v8/about-pgp-signatures-for-packages-in-the-public-registry',
+    ],
+  )
+  t.strictSame(
+    transform({
+      id: 'v8',
+      path: 'verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry',
+    }).redirect_from,
+    [
+      '/cli/v8/verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry',
+      '/cli/verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry',
+      '/verifying-registry-signatures',
+    ],
+  )
 })

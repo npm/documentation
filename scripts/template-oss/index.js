@@ -11,6 +11,8 @@ module.exports = {
   },
   rootModule: {
     add: {
+      'package.json': {file: 'pkg.json', overwrite: false},
+      '.eslintrc.js': false,
       'CODE_OF_CONDUCT.md': false,
       'CONTRIBUTING.md': false,
     },
@@ -20,21 +22,36 @@ module.exports = {
       '.github/settings.yml': false,
     },
   },
+  workspaceModule: {
+    add: {
+      '.eslintrc.js': false,
+    },
+  },
   ciVersions: 'latest',
   latestCiVersion: 18,
   macCI: false,
   windowsCI: false,
   lockfile: true,
+  // these need to be allowed since they need to installed explicitly since
+  // the repo uses legacy-peer-deps to avoid gatsby errors
+  allowedPackages: ['eslint', 'eslint-plugin-import', 'eslint-plugin-node', 'eslint-plugin-promise'],
+  requiredPackages: {
+    devDependencies: [],
+  },
   allowPaths: [
-    '/.reuse/',
-    '/src/',
-    '/static/',
-    '/content/',
-    '/LICENSE*',
-    '/*.md',
-    '/gatsby-*.js',
-    '/CONTRIBUTING.md',
-    '/CONTENT-MODEL.md',
     '/.nvmrc',
+    '/.prettierignore',
+    '/.prettierrc.js',
+    '/.reuse/',
+    '/CODE_OF_CONDUCT.md',
+    '/CONTENT-MODEL.md',
+    '/content/',
+    '/CONTRIBUTING.md',
+    '/gatsby-*',
+    '/jest*.js',
+    '/LICENSE*',
+    '/src',
+    '/static/',
+    '/webpack.config.js',
   ],
 }

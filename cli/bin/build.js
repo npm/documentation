@@ -1,7 +1,7 @@
-const { resolve, relative, join } = require('path')
-const { spawnSync } = require('child_process')
+const {resolve, relative, join} = require('path')
+const {spawnSync} = require('child_process')
 const build = require('../lib/build.js')
-const { nwo } = require('../lib/gh')
+const {nwo} = require('../lib/gh')
 
 // check only build with the current versions instead of checking the registry
 // and also fails if any changes are detected. this is used in CI to make sure
@@ -10,10 +10,10 @@ const checkOnly = process.argv.includes('--check-only')
 
 const ROOT = resolve(__dirname, '../..')
 const contentPath = join(ROOT, 'content/cli')
-const navPath = join(ROOT, 'src/theme/nav.yml')
+const navPath = join(ROOT, 'content/nav.yml')
 
 const checkContent = () => {
-  const status = spawnSync('git', ['status', '--porcelain', contentPath], { encoding: 'utf-8' })
+  const status = spawnSync('git', ['status', '--porcelain', contentPath], {encoding: 'utf-8'})
   if (status.stdout) {
     const msg = [
       `The following untracked changes to ${relative(process.cwd(), contentPath)} were found:`,
@@ -38,7 +38,7 @@ build({
     }
     return console.log('DONE')
   })
-  .catch((e) => {
+  .catch(e => {
     console.error(e)
     process.exit(1)
   })

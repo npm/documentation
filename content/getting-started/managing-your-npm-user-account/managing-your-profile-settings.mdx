@@ -3,6 +3,7 @@ title: Managing your profile settings
 redirect_from:
   - /getting-started/modifying_your_profile_from_command_line
 ---
+
 import shared from '~/shared.js'
 
 You can manage settings for your user account profile from the web or command line.
@@ -11,13 +12,13 @@ You can manage settings for your user account profile from the web or command li
 
 From the web, you can change the following user profile settings:
 
-* Avatar
-* Password
-* Full name
-* Link GitHub Account
-* Link Twitter Account
-* Email address added to package metadata
-* Two-factor authentication status
+- Avatar
+- Password
+- Full name
+- Link GitHub Account
+- Link Twitter Account
+- Email address added to package metadata
+- Two-factor authentication status
 
 1. <>{shared['user-login'].text}</>
 
@@ -101,12 +102,12 @@ npm profile get
 
 From the CLI, you can change the following properties for your user account:
 
-* `email`
-* `two-factor auth`
-* `fullname`
-* `homepage`
-* `freenode`
-* `password`
+- `email`
+- `two-factor auth`
+- `fullname`
+- `homepage`
+- `freenode`
+- `password`
 
 1. On the command line, type the following command, replacing `property` with the name of the property, and `value` with the new value:
 
@@ -124,9 +125,9 @@ For more details, see the `profile` [command line documentation](https://docs.np
 
 1. On the command line, type the following command:
 
-  ```
-  npm profile set password
-  ```
+```
+npm profile set password
+```
 
 2. When prompted, provide your current password.
 
@@ -136,9 +137,9 @@ For more details, see the `profile` [command line documentation](https://docs.np
 
 To protect your account, when you reset your password from the command line, it must:
 
-* be longer than 10 characters
-* not contain part of your username
-* not be in the "[Have I Been Pwned](https://haveibeenpwned.com/)" breach database
+- be longer than 10 characters
+- not contain part of your username
+- not be in the "[Have I Been Pwned](https://haveibeenpwned.com/)" breach database
 
 </Note>
 

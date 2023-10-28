@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@octokit/rest": "^20.0.2",
+    "@prettier/sync": "^0.3.0",
     "front-matter": "^4.0.2",
     "minimatch": "^9.0.3",
     "minipass": "^7.0.4",
@@ -33,10 +34,6 @@
     "tap": "^16.3.9"
   },
   "author": "GitHub Inc.",
-  "files": [
-    "bin/",
-    "lib/"
-  ],
   "engines": {
     "node": ">=18.0.0"
   },
@@ -45,6 +42,10 @@
     "version": "4.19.0",
     "content": "./scripts/template-oss"
   },
+  "files": [
+    "bin/",
+    "lib/"
+  ],
   "tap": {
     "nyc-arg": [
       "--exclude",

@@ -1,6 +1,7 @@
 ---
 title: Deprecating and undeprecating packages or package versions
 ---
+
 import shared from '~/shared.js'
 
 If you no longer wish to maintain a package, or if you would like to encourage users to update to a new or different version, you can [deprecate][deprecate-cli] it. Deprecating a package or version will print a message to the terminal when a user installs it.
@@ -9,50 +10,37 @@ A deprecation warning or message can say anything. You may wish to include a mes
 
 <Note>
 
-**Note:** We strongly recommend deprecating packages or package versions instead of <a href="/unpublishing-packages-from-the-registry">unpublishing</a> them, because unpublishing removes a package from the registry entirely, meaning anyone who relied on it will no longer be able to use it, with no warning.
+**Note:** We strongly recommend deprecating packages or package versions instead of [unpublishing](/unpublishing-packages-from-the-registry) them, because unpublishing removes a package from the registry entirely, meaning anyone who relied on it will no longer be able to use it, with no warning.
 
 </Note>
 
 ## Deprecating an entire package
 
-Deprecating an entire package will remove it from search results on the
-npm website and a deprecation message will also be displayed on the
-package page.
+Deprecating an entire package will remove it from search results on the npm website and a deprecation message will also be displayed on the package page.
 
 <Screenshot src="/packages-and-modules/updating-and-managing-your-published-packages/deprecate-package.png" alt="Screenshot of package deprecation" />
 
-Deprecating a package is an alternative to deleting a package if
-your package does not meet the
-[unpublishing requirements](/policies/unpublish).
+Deprecating a package is an alternative to deleting a package if your package does not meet the [unpublishing requirements](/policies/unpublish).
 
 ### Using the website
 
-1. <>{shared["user-login"].text}</>
+1. <>{shared['user-login'].text}</>
 
-    <>{shared["user-login"].image}</>
+   <>{shared['user-login'].image}</>
 
-2. Navigate to the package page for the package you want to deprecate, replacing `<your-package-name>` with the name of your package:
-   `https://www.npmjs.com/package/<your-package-name>`.
+2. Navigate to the package page for the package you want to deprecate, replacing `<your-package-name>` with the name of your package: `https://www.npmjs.com/package/<your-package-name>`.
 
 3. Click **Settings**.
-    <Screenshot
-    	src="/packages-and-modules/securing-your-code/2fa-package-admin.png"
-    	alt="Screenshot showing the settings tab on a package page"
-    />
+
+   <Screenshot src="/packages-and-modules/securing-your-code/2fa-package-admin.png" alt="Screenshot showing the settings tab on a package page" />
 
 4. Under "deprecate package", click <strong>Deprecate package</strong>.
 
-	<Screenshot
-    	src="/packages-and-modules/deleting-deprecating/deprecate-package-settings.png"
-    	alt="Screenshot showing the deprecate package button"
-    />
+   <Screenshot src="/packages-and-modules/deleting-deprecating/deprecate-package-settings.png" alt="Screenshot showing the deprecate package button" />
 
 5. If you are sure that you want to continue, enter your package name and click <strong>Deprecate package</strong>.
 
-	<Screenshot
-    	src="packages-and-modules/deleting-deprecating/deprecate-package-confirm.png"
-    	alt="Screenshot showing the deprecate package confirmation"
-    />
+   <Screenshot src="/packages-and-modules/deleting-deprecating/deprecate-package-confirm.png" alt="Screenshot showing the deprecate package confirmation" />
 
 ### Using the command line
 
@@ -62,7 +50,7 @@ To deprecate an entire package, run the following command, replacing `<package-n
 npm deprecate <package-name> "<message>"
 ```
 
-If you have enabled [two-factor authentication][two-factor-auth], add a one-time password to the command, `--otp=123456` (where *123456* is the code from your authenticator app).
+If you have enabled [two-factor authentication][two-factor-auth], add a one-time password to the command, `--otp=123456` (where _123456_ is the code from your authenticator app).
 
 ## Deprecating a single version of a package
 
@@ -80,7 +68,7 @@ npm deprecate <package-name>@<version> "<message>"
 
 The CLI will also accept version ranges for `<version>`.
 
-If you have two-factor auth, add a one-time password to the command, `--otp=123456` (where *123456* is the code from your authenticator).
+If you have two-factor auth, add a one-time password to the command, `--otp=123456` (where _123456_ is the code from your authenticator).
 
 ## Undeprecating a package or version
 
@@ -92,7 +80,7 @@ For example, to undeprecate a package version, run the following command, replac
 npm deprecate <package-name>@<version> ""
 ```
 
-If you have two-factor auth, add a one-time password to the command, `--otp=123456` (where *123456* is the code from your authenticator).
+If you have two-factor auth, add a one-time password to the command, `--otp=123456` (where _123456_ is the code from your authenticator).
 
 ## Transferring a deprecated package to npm
 
@@ -111,7 +99,7 @@ npm owner add npm <package-name>
 npm owner rm <user> <package-name>
 ```
 
-If you have two-factor auth, add a one-time password to the command, `--otp=123456` (where *123456* is the code from your authenticator).
+If you have two-factor auth, add a one-time password to the command, `--otp=123456` (where _123456_ is the code from your authenticator).
 
 [deprecate-cli]: /cli/deprecate
 [two-factor-auth]: about-two-factor-authentication

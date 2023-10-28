@@ -1,26 +1,26 @@
-const { Octokit } = require('@octokit/rest')
-const { posix, sep } = require('path')
+const {Octokit} = require('@octokit/rest')
+const {posix, sep} = require('path')
 
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('GITHUB_TOKEN env var is required to build CLI docs')
 }
 
-const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
+const octokit = new Octokit({auth: process.env.GITHUB_TOKEN})
 const owner = 'npm'
 const repo = 'cli'
-const opts = { owner, repo }
+const opts = {owner, repo}
 
-const getFile = async ({ sha, ref, path }) => {
-  const { data } = await (sha
+const getFile = async ({sha, ref, path}) => {
+  const {data} = await (sha
     ? octokit.git.getBlob({
-      ...opts,
-      file_sha: sha,
-    })
+        ...opts,
+        file_sha: sha,
+      })
     : octokit.repos.getContent({
-      ...opts,
-      ref,
-      path: path.split(sep).join(posix.sep),
-    }))
+        ...opts,
+        ref,
+        path: path.split(sep).join(posix.sep),
+      }))
   return Buffer.from(data.content, data.encoding)
 }
 

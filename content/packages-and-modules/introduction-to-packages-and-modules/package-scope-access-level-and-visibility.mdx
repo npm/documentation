@@ -4,24 +4,24 @@ title: npm package scope, access level, and visibility
 
 Visibility of npm packages depends on the scope (namespace) in which the package is contained, and the access level (private or public) set for the package.
 
-<div class="note">
+<Note>
 
-<span class="bold">Note:</span> To create organization-scoped packages, you must first create an organization. For more information, see "<a href="https://docs.npmjs.com/creating-an-organization">Creating an organization</a>".
+**Note:** To create organization-scoped packages, you must first create an organization. For more information, see "[Creating an organization](https://docs.npmjs.com/creating-an-organization)".
 
-</div>
+</Note>
 
 ## Public registry
 
-| Scope        | Access level | Can view and download | Can write (publish)                                                                  |
-|--------------|--------------|-----------------------------------------------------------------------------|---|
-| Org | Private      | Members of a team in the organization with read access to the package | Members of a team in the organization with read and write access to the package |
-| Org | Public       | Everyone     | Members of a team in the organization with read and write access to the package |
-| User     | Private      | The package owner and users who have been granted read access to the package  | The package owner and users who have been granted read and write access to the package |
-| User     | Public       | Everyone  | The package owner and users who have been granted read and write access to the package |
+| Scope | Access level | Can view and download | Can write (publish) |
+| --- | --- | --- | --- |
+| Org | Private | Members of a team in the organization with read access to the package | Members of a team in the organization with read and write access to the package |
+| Org | Public | Everyone | Members of a team in the organization with read and write access to the package |
+| User | Private | The package owner and users who have been granted read access to the package | The package owner and users who have been granted read and write access to the package |
+| User | Public | Everyone | The package owner and users who have been granted read and write access to the package |
 | Unscoped | Public | Everyone | The package owner and users who have been granted read and write access to the package |
 
-<div class="note">
+<Note>
 
-<span class="bold">Note:</span> Only user accounts can create and manage unscoped packages. Organizations can only manage scoped packages.
+**Note:** Only user accounts can create and manage unscoped packages. Organizations can only manage scoped packages.
 
-</div>
+</Note>

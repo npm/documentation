@@ -9,6 +9,7 @@ If you do not already have an npm user account, you can create an account in ord
 1. Go to the [npm signup page](https://www.npmjs.com/signup)
 
 2. In the user signup form, type in the fields:
+
    - **Username:** The username that will be displayed when you publish packages or interact with other npm users on npmjs.com. Your username must be lower case, and can contain hyphens and numerals.
    - **Email address:** Your public email address will be added to the metadata of your packages and will be visible to anyone who downloads your packages. We will also send email to this account when you update packages, as well as occasional product updates and information.
    - **Password**: Your password must meet [our password guidelines](creating-a-strong-password).
@@ -16,9 +17,11 @@ If you do not already have an npm user account, you can create an account in ord
    <Screenshot src="/getting-started/setting-up-your-npm-user-account/signup-form.png" alt="Screenshot of the signup form" />
 
 3. Read the [End User License Agreement](https://www.npmjs.com/policies/terms) and [Privacy Policy](https://www.npmjs.com/policies/privacy), and indicate that you agree to them.
+
    <Screenshot src="/getting-started/setting-up-your-npm-user-account/privacy-policy.png" alt="Screenshot of the privacy policy" />
 
 4. Click **Create An Account**.
+
    <Screenshot src="/getting-started/setting-up-your-npm-user-account/create-account-button.png" alt="Screenshot of the create account button" />
 
 <Note>
@@ -29,27 +32,26 @@ If you do not already have an npm user account, you can create an account in ord
 
 ## Testing your new account with npm login
 
-Use the <a href="https://docs.npmjs.com/cli/adduser">`npm login`</a> command to test logging in to your new account.
+Use the [`npm login`](https://docs.npmjs.com/cli/adduser) command to test logging in to your new account.
 
 <Note>
 
-**Note:** If you misspell your existing account username when you log in with the `npm login` command, you will create a new account with the misspelled name. For help with accidentally-created accounts, <a href="https://www.npmjs.com/support">contact npm Support</a>.
+**Note:** If you misspell your existing account username when you log in with the `npm login` command, you will create a new account with the misspelled name. For help with accidentally-created accounts, [contact npm Support](https://www.npmjs.com/support).
 
 </Note>
 
 1. On the command line, type the following command:
 
-    ```
-    npm login
-    ```
+   ```
+   npm login
+   ```
 
 2. When prompted, enter your username, password, and email address.
 3. If you have [two-factor authentication](about-two-factor-authentication) enabled, when prompted, enter a one-time password.
 4. To test that you have successfully logged in, type:
 
-    ```
-    npm whoami
-    ```
+   ```
+   npm whoami
+   ```
 
-    Your npm username should be displayed.
-
+   Your npm username should be displayed.

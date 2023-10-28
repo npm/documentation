@@ -12,9 +12,10 @@
 !/.gitignore
 !/.npmrc
 !/.nvmrc
+!/.prettierignore
+!/.prettierrc.js
 !/.release-please-manifest.json
 !/.reuse/
-!/*.md
 !/bin/
 !/CHANGELOG*
 !/CODE_OF_CONDUCT.md
@@ -22,7 +23,8 @@
 !/content/
 !/CONTRIBUTING.md
 !/docs/
-!/gatsby-*.js
+!/gatsby-*
+!/jest*.js
 !/lib/
 !/LICENSE*
 !/map.js
@@ -32,9 +34,9 @@
 !/release-please-config.json
 !/scripts/
 !/SECURITY.md
-!/src/
+!/src
 !/static/
 !/tap-snapshots/
 !/test/
+!/webpack.config.js
 !/cli/
-!/theme/
