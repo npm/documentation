@@ -9,8 +9,8 @@ const VariantItem = ({title, shortName, url, active}) => (
   <ActionList.Item
     sx={{
       ':hover:not([aria-disabled])': {
-        backgroundColor: '#666D75',
-        color: '#FFFFFF',
+        backgroundColor: 'dropDown.backgroundColor',
+        color: 'dropDown.color',
       },
     }}
     as={LinkNoUnderline}

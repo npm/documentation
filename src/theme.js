@@ -7,6 +7,10 @@ export const NPM_RED = '#cb0000'
 export const npmTheme = deepmerge(theme, {
   colors: {
     logoBg: NPM_RED,
+    dropDown: {
+      backgroundColor: '#666D75',
+      color: '#FFFFFF',
+    },
   },
   colorSchemes: {
     light: {
