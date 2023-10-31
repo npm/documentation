@@ -1,16 +1,7 @@
 import React from 'react'
 import {Link as PrimerLink} from '@primer/react'
 import {Link as GatsbyLink} from 'gatsby'
-
-const omit = (obj, ...keys) => {
-  const res = {}
-  for (const k of Object.keys(obj)) {
-    if (!keys.includes(k)) {
-      res[k] = obj[k]
-    }
-  }
-  return res
-}
+import omit from '../util/omit'
 
 const FALLBACK = `http://_${Math.random().toString().slice(2)}._${Math.random().toString().slice(2)}`
 
