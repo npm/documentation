@@ -1,17 +1,61 @@
 import React from 'react'
-import {Button, Box} from '@primer/react'
+import {Button, ActionList, Box, Text} from '@primer/react'
 import {XIcon, SearchIcon} from '@primer/octicons-react'
 import {AnimatePresence, motion} from 'framer-motion'
 import {FocusOn} from 'react-focus-on'
 import TextInput from './text-input'
-import SearchResults from './search-results'
 import useSiteMetadata from '../hooks/use-site-metadata'
 import {HEADER_BAR, HEADER_HEIGHT} from '../constants'
 import {LightTheme} from '../theme'
+import {LinkNoUnderline} from './link'
+import * as getNav from '../util/get-nav'
+import omit from '../util/omit'
+
+const SearchResults = ({results, getItemProps, highlightedIndex}) => {
+  const siteMetadata = useSiteMetadata()
+
+  if (!results || results.length === 0) {
+    return <Box sx={{fontSize: 2, px: 3, py: 3}}>No results</Box>
+  }
+
+  return (
+    <ActionList>
+      {results.map((item, index) => {
+        // keep the variant in the breadcrumb if we have one and its not the
+        // same as the last breadcrumb. this makes sure that variant index pages
+        // don't all appear the same in the search results
+        const variant = getNav.getVariant(getNav.getVariantRoot(item.path), item.path)
+        const hierarchy = getNav.getItemBreadcrumbs(item.path)
+        if (!variant || variant !== hierarchy[hierarchy.length - 1].shortName) {
+          hierarchy.pop()
+        }
+
+        return (
+          <ActionList.Item
+            key={item.path}
+            // fixes a bug between downshift and react/primer where the search result item is always disabled
+            // this is safe to remove because we know we never have any disabled search results
+            {...omit(getItemProps({item, index}), 'aria-disabled')}
+            as={LinkNoUnderline}
+            to={item.path}
+            active={highlightedIndex === index}
+          >
+            <Box sx={{display: 'flex', flexDirection: 'column', flex: '0 0 auto'}}>
+              <Text sx={{fontSize: 0}}>
+                {hierarchy.length ? hierarchy.map(s => s.shortName || s.title).join(' / ') : siteMetadata.shortName}
+              </Text>
+              <Text>{item.title}</Text>
+            </Box>
+          </ActionList.Item>
+        )
+      })}
+    </ActionList>
+  )
+}
 
 export const Desktop = props => {
   const siteMetadata = useSiteMetadata()
-  const {getInputProps, getMenuProps, resultsOpen, results, getItemProps, highlightedIndex} = props
+  const {getInputProps, getMenuProps, resultsOpen, ...rest} = props
 
   return (
     <Box sx={{position: 'relative'}}>
@@ -36,7 +80,7 @@ export const Desktop = props => {
               borderStyle: 'solid',
             }}
           >
-            <SearchResults {...{results, getItemProps, highlightedIndex}} />
+            <SearchResults {...rest} />
           </LightTheme>
         ) : null}
       </Box>
@@ -45,26 +89,17 @@ export const Desktop = props => {
 }
 
 export const Mobile = ({
-  results,
   resultsOpen,
   getInputProps,
-  getItemProps,
   getMenuProps,
-  highlightedIndex,
   isMobileSearchOpen,
   setMobileSearchOpen,
+  isForceClose,
   resetAndClose,
+  ...rest
 }) => {
   const siteMetadata = useSiteMetadata()
-
-  // Fixes focus behavior on iOS where the input gets focus styles but not the
-  // actual focus after animating open.
-  const ref = React.useRef()
-  React.useEffect(() => {
-    if (isMobileSearchOpen) {
-      ref.current.focus()
-    }
-  }, [ref, isMobileSearchOpen])
+  const getCloseAnimation = exit => (isForceClose ? undefined : {exit})
 
   return (
     <>
@@ -73,7 +108,7 @@ export const Mobile = ({
       </Button>
       <AnimatePresence>
         {isMobileSearchOpen ? (
-          <FocusOn returnFocus={true} onEscapeKey={resetAndClose}>
+          <FocusOn returnFocus={true} onEscapeKey={() => resetAndClose(true)}>
             <Box
               sx={{
                 position: 'fixed',
@@ -98,9 +133,9 @@ export const Mobile = ({
                 as={motion.div}
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
-                exit={{opacity: 0}}
                 transition={{type: 'tween'}}
-                onClick={resetAndClose}
+                onClick={() => resetAndClose(true)}
+                {...getCloseAnimation({opacity: 0})}
               />
               <Box sx={{display: 'flex', flexDirection: 'column', height: resultsOpen ? '100%' : 'auto'}}>
                 <Box
@@ -123,7 +158,7 @@ export const Mobile = ({
                     key="search-box"
                     initial={{scaleX: 0}}
                     animate={{scaleX: 1}}
-                    exit={{scaleX: 0}}
+                    {...getCloseAnimation({scaleX: 0})}
                     transition={{type: 'tween', ease: 'easeOut', duration: 0.2}}
                     style={{width: '100%', originX: '100%'}}
                   >
@@ -143,7 +178,7 @@ export const Mobile = ({
                       placeholder={`Search ${siteMetadata.title}`}
                       aria-label={`Search ${siteMetadata.title}`}
                       sx={{width: '100%'}}
-                      {...getInputProps({ref})}
+                      {...getInputProps()}
                     />
                   </motion.div>
                   <Box
@@ -151,7 +186,7 @@ export const Mobile = ({
                     as={motion.div}
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
-                    exit={{opacity: 0}}
+                    {...getCloseAnimation({scaleX: 0})}
                     transition={{type: 'tween', ease: 'easeOut', duration: 0.2}}
                     sx={{
                       position: 'absolute',
@@ -168,10 +203,10 @@ export const Mobile = ({
                     as={motion.div}
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
-                    exit={{opacity: 0}}
+                    {...getCloseAnimation({opacity: 0})}
                     transition={{type: 'tween', ease: 'easeOut', duration: 0.2}}
                   >
-                    <Button sx={{ml: 3}} aria-label="Cancel" onClick={resetAndClose}>
+                    <Button sx={{ml: 3}} aria-label="Cancel" onClick={() => resetAndClose(false)}>
                       <XIcon />
                     </Button>
                   </Box>
@@ -180,7 +215,6 @@ export const Mobile = ({
                   sx={{
                     display: 'flex',
                     bg: 'canvas.default',
-                    py: resultsOpen ? 1 : 0,
                     flexDirection: 'column',
                     flex: '1 1 auto',
                     overflow: 'auto',
@@ -190,7 +224,7 @@ export const Mobile = ({
                   }}
                   {...getMenuProps()}
                 >
-                  {resultsOpen ? <SearchResults {...{results, getItemProps, highlightedIndex}} /> : null}
+                  {resultsOpen ? <SearchResults {...rest} /> : null}
                 </LightTheme>
               </Box>
             </Box>
