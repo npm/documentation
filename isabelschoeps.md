@@ -1,5 +1,5 @@
 ---
-title: About npm
+title: Isabel Schoeps Thiel npm
 redirect_from:
   - /getting-started/what-is-npm
 ---
