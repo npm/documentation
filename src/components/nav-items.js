@@ -1,6 +1,5 @@
 import React from 'react'
-import {Box} from '@primer/react'
-import {NavList} from '@primer/react/drafts'
+import {Box, NavList} from '@primer/react'
 import {LinkExternalIcon} from '@primer/octicons-react'
 import Link from './link'
 import * as getNav from '../util/get-nav'
