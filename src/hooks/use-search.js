@@ -55,17 +55,16 @@ const useCliVersion = () => {
 
 const useSearchCombobox = (results, setQuery) => {
   const isMobile = useIsMobile()
-  const [isMobileSearchOpen, setMobileSearchOpen] = React.useState(false)
 
   const combobox = useCombobox({
     id: 'search-box',
     items: results || [],
+    selectedItem: null,
     onInputValueChange: ({inputValue}) => setQuery(inputValue),
     onSelectedItemChange: ({selectedItem}) => {
       if (selectedItem) {
         navigate(selectedItem.path)
-        setMobileSearchOpen(false)
-        combobox.reset()
+        resetAndClose(true)
       }
     },
     itemToString: item => (item ? item.title : ''),
@@ -94,16 +93,54 @@ const useSearchCombobox = (results, setQuery) => {
     },
   })
 
-  const resetAndClose = React.useCallback(() => {
-    combobox.reset()
-    setMobileSearchOpen(false)
-  }, [combobox, setMobileSearchOpen])
+  const [isMobileSearchOpen, setMobileSearchOpen] = React.useState(false)
+  const [isForceClose, setForceClose] = React.useState(false)
+  const forceCloseRef = React.useRef(false)
+
+  const resetAndClose = React.useCallback(
+    force => {
+      combobox.reset()
+      if (force === true) {
+        setForceClose(true)
+      } else {
+        setMobileSearchOpen(false)
+      }
+    },
+    [combobox, setMobileSearchOpen],
+  )
+
+  // if forceClose is set then we wait until the exit animation props have
+  // been removed in the component and then set mobile search to false
+  React.useEffect(() => {
+    if (isMobileSearchOpen && isForceClose && !forceCloseRef.current) {
+      setMobileSearchOpen(false)
+    }
+    forceCloseRef.current = isForceClose
+  }, [forceCloseRef, isForceClose, isMobileSearchOpen, setMobileSearchOpen])
+
+  // always reset force close any time mobile search is closed
+  React.useEffect(() => {
+    if (!isMobileSearchOpen) {
+      setForceClose(false)
+    }
+  }, [setForceClose, isMobileSearchOpen])
+
+  // Fixes focus behavior on iOS where the input gets focus styles but not the
+  // actual focus after animating open.
+  const inputRef = React.useRef()
+  React.useEffect(() => {
+    if (isMobileSearchOpen) {
+      inputRef.current.focus()
+    }
+  }, [inputRef, isMobileSearchOpen])
 
   return {
     ...combobox,
     isMobileSearchOpen,
+    isForceClose,
     setMobileSearchOpen,
     resetAndClose,
+    getInputProps: (...props) => combobox.getInputProps({ref: inputRef, ...props}),
   }
 }
 

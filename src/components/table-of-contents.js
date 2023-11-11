@@ -1,7 +1,6 @@
 import React from 'react'
-import {Heading, Box, Details, useDetails, Button} from '@primer/react'
+import {Heading, Box, Details, useDetails, Button, NavList} from '@primer/react'
 import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
-import {NavList} from '@primer/react/drafts'
 import {SCROLL_MARGIN_TOP} from '../constants'
 import usePage from '../hooks/use-page'
 
