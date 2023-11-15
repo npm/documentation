@@ -31,7 +31,7 @@ This command removes "extraneous" packages. If a package name is provided, then 
 
 Extraneous packages are those present in the `node_modules` folder that are not listed as any package's dependency list.
 
-If the `--production` flag is specified or the `NODE_ENV` environment variable is set to `production`, this command will remove the packages specified in your `devDependencies`. Setting `--no-production` will negate `NODE_ENV` being set to `production`.
+If the `--omit=dev` flag is specified or the `NODE_ENV` environment variable is set to `production`, this command will remove the packages specified in your `devDependencies`.
 
 If the `--dry-run` flag is used then no changes will actually be made.
 
