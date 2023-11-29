@@ -1,29 +1,16 @@
 import React from 'react'
-import {Box} from '@primer/react'
+import {Box, themeGet} from '@primer/react'
 import styled from 'styled-components'
 import Link from './link'
 import {SCROLL_MARGIN_TOP, SKIP_TO_CONTENT_ID} from '../constants'
 
-const SkipLinkBase = props => (
-  <Link
-    {...props}
-    href={`#${props.skipTarget}`}
-    sx={{
-      p: 3,
-      color: 'fg.onEmphasis',
-      backgroundColor: 'accent.emphasis',
-      fontSize: 1,
-    }}
-  >
-    {props.linkText}
-  </Link>
-)
-
-export const SkipLink = styled(SkipLinkBase)`
+export const SkipLink = styled(Link)`
+  color: ${themeGet('colors.accent.emphasis')};
+  padding: ${themeGet('space.1')};
   &:focus {
     text-decoration: underline;
   }
-`;
+`
 
 // The following rules are to ensure that the element is visually hidden, unless
 // it has focus. This is the recommended way to hide content from:
@@ -36,9 +23,24 @@ export const SkipBox = styled.div`
   position: absolute;
   transform: translateY(-100%);
   transition: transform 0.3s;
+  padding: ${themeGet('space.2')};
+  background-color: ${themeGet('colors.canvas.default')};
+  border: 1px solid ${themeGet('colors.accent.emphasis')};
+  border-top: 0;
+  font-size: ${themeGet('fontSizes.1')};
+  border-radius: 0 0 ${themeGet('radii.2')} ${themeGet('radii.2')};
+  
 
   &:focus-within {
     transform: translateY(0%);
+  }
+
+  & > * {
+    margin-right: ${themeGet('space.1')};
+  }
+
+  & > *:last-child {
+    margin-right: 0;
   }
 `
 

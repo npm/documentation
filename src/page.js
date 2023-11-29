@@ -29,8 +29,8 @@ const PageElement = ({element, props}) => {
     <BaseStyles>
       <GlobalStyles />
       <SkipBox>
-        <SkipLink linkText="Skip to search" skipTarget={SKIP_TO_SEARCH_ID} />
-        <SkipLink linkText="Skip to content" skipTarget={SKIP_TO_CONTENT_ID} />
+        <SkipLink href={`#${SKIP_TO_SEARCH_ID}`}>Skip to search</SkipLink>
+        <SkipLink href={`#${SKIP_TO_CONTENT_ID}`}>Skip to content</SkipLink>
       </SkipBox>
       <PageProvider value={page}>
         <Box sx={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
