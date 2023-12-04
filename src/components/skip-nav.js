@@ -1,49 +1,50 @@
 import React from 'react'
-import {Box} from '@primer/react'
+import {Box, themeGet} from '@primer/react'
 import styled from 'styled-components'
 import Link from './link'
-import {SCROLL_MARGIN_TOP} from '../constants'
+import {SCROLL_MARGIN_TOP, SKIP_TO_CONTENT_ID} from '../constants'
 
-const ID = 'skip-nav'
-
-const SkipLinkBase = props => (
-  <Link
-    {...props}
-    href={`#${ID}`}
-    sx={{
-      p: 3,
-      color: 'fg.onEmphasis',
-      backgroundColor: 'accent.emphasis',
-      fontSize: 1,
-    }}
-  >
-    Skip to content
-  </Link>
-)
+export const SkipLink = styled(Link)`
+  color: ${themeGet('colors.accent.emphasis')};
+  padding: ${themeGet('space.1')};
+  &:focus {
+    text-decoration: underline;
+  }
+`
 
 // The following rules are to ensure that the element is visually hidden, unless
 // it has focus. This is the recommended way to hide content from:
 // https://webaim.org/techniques/css/invisiblecontent/#techniques
-export const SkipLink = styled(SkipLinkBase)`
+export const SkipBox = styled.div`
+  display: inline-flex;
   z-index: 20;
-  width: auto;
-  height: auto;
-  clip: auto;
-  position: absolute;
-  overflow: hidden;
   left: 10px;
+  gap: 3px;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  padding: ${themeGet('space.2')};
+  background-color: ${themeGet('colors.canvas.default')};
+  border: 1px solid ${themeGet('colors.accent.emphasis')};
+  border-top: 0;
+  font-size: ${themeGet('fontSizes.1')};
+  border-radius: 0 0 ${themeGet('radii.2')} ${themeGet('radii.2')};
+  
 
-  &:not(:focus) {
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
-    height: 1px;
-    width: 1px;
-    margin: -1px;
-    padding: 0;
+  &:focus-within {
+    transform: translateY(0%);
+  }
+
+  & > * {
+    margin-right: ${themeGet('space.1')};
+  }
+
+  & > *:last-child {
+    margin-right: 0;
   }
 `
 
-const SkipNavBase = props => <Box id={ID} {...props} />
+const SkipNavBase = props => <Box id={SKIP_TO_CONTENT_ID} {...props} />
 
 export const SkipNav = styled(SkipNavBase)`
   scroll-margin-top: ${SCROLL_MARGIN_TOP}px;
