@@ -2,6 +2,8 @@
 
 # ignore everything in the root
 /*
+# transient test directories
+tap-testdir*/
 
 # keep these
 !**/.gitignore
@@ -38,5 +40,6 @@
 !/static/
 !/tap-snapshots/
 !/test/
+!/tsconfig.json
 !/webpack.config.js
 !/cli/

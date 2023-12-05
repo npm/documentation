@@ -1,5 +1,4 @@
-**/template-oss/*.json
-**/template-oss/*.yml
+**/template-oss/*.hbs
 /.github/
 /package-lock.json
 /SECURITY.md
