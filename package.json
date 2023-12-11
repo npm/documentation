@@ -78,7 +78,7 @@
     "eslint-plugin-github": "^4.10.1",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-mdx": "^2.2.0",
+    "eslint-plugin-mdx": "^3.0.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-primer-react": "^4.0.3",
