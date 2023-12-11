@@ -22,11 +22,11 @@
     "front-matter": "^4.0.2",
     "minimatch": "^9.0.3",
     "minipass": "^7.0.4",
-    "pacote": "^17.0.4",
+    "pacote": "^17.0.5",
     "proc-log": "^3.0.0",
     "semver": "^7.5.4",
     "tar": "^6.2.0",
-    "yaml": "^2.3.2"
+    "yaml": "^2.3.4"
   },
   "devDependencies": {
     "@npmcli/eslint-config": "^4.0.2",
