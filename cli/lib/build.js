@@ -98,10 +98,10 @@ const main = async ({loglevel, releases: rawReleases, useCurrent, navPath, conte
     const type = release.default
       ? 'latest'
       : release.prerelease
-      ? 'prerelease'
-      : semver.gt(release.version, latestRelease.version)
-      ? 'current'
-      : 'legacy'
+        ? 'prerelease'
+        : semver.gt(release.version, latestRelease.version)
+          ? 'current'
+          : 'legacy'
 
     return {
       ...release,
