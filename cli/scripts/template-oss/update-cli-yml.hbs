@@ -9,7 +9,7 @@ jobs:
   update-cli:
     outputs:
       has_changes: $\{{ steps.status.outputs.has_changes }}
-    {{> job jobName="Update CLI" }}
+    {{> jobYml jobName="Update CLI" }}
       - name: Build documentation
         run: npm run build -w cli
         env:

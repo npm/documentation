@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "node bin/build.js",
-    "lint": "eslint \"**/*.js\"",
+    "lint": "eslint \"**/*.{js,cjs,ts,mjs,jsx,tsx}\"",
     "postlint": "template-oss-check",
     "template-oss-apply": "template-oss-apply --force",
     "lintfix": "npm run lint -- --fix",
@@ -22,15 +22,15 @@
     "front-matter": "^4.0.2",
     "minimatch": "^9.0.3",
     "minipass": "^7.0.4",
-    "pacote": "^17.0.4",
+    "pacote": "^17.0.5",
     "proc-log": "^3.0.0",
     "semver": "^7.5.4",
     "tar": "^6.2.0",
-    "yaml": "^2.3.2"
+    "yaml": "^2.3.4"
   },
   "devDependencies": {
     "@npmcli/eslint-config": "^4.0.2",
-    "@npmcli/template-oss": "4.19.0",
+    "@npmcli/template-oss": "4.21.3",
     "tap": "^16.3.9"
   },
   "author": "GitHub Inc.",
@@ -39,7 +39,7 @@
   },
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
-    "version": "4.19.0",
+    "version": "4.21.3",
     "content": "./scripts/template-oss"
   },
   "files": [

@@ -1,7 +1,7 @@
-{{> ci }}
+{{> ciYml }}
 
   test-cli-content:
-    {{> jobMatrix jobName="Test CLI Content" }}
+    {{> jobMatrixYml jobName="Test CLI Content" }}
       - name: Check CLI Documentation
         run: npm run build -w cli -- --check-only
         env:
