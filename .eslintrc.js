@@ -43,10 +43,11 @@ module.exports = {
       },
       rules: {
         'no-irregular-whitespace': 'off',
+        'react/no-unescaped-entities': 'off',
       },
     },
     {
-      files: ['*.mdx', 'shared.js', 'src/**/*.js'],
+      files: ['*.mdx', 'src/shared.js', 'src/**/*.js'],
       rules: {
         'react/forbid-elements': [
           'error',
