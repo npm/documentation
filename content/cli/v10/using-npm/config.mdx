@@ -625,6 +625,13 @@ This differs from `--omit=peer`, in that `--omit=peer` will avoid unpacking `pee
 
 Use of `legacy-peer-deps` is not recommended, as it will not enforce the `peerDependencies` contract that meta-dependencies may rely on.
 
+#### `libc`
+
+- Default: null
+- Type: null or String
+
+Override libc of native modules to install. Acceptable values are same as `libc` field of package.json
+
 #### `link`
 
 - Default: false
