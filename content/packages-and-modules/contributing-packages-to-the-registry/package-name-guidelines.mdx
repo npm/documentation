@@ -2,18 +2,14 @@
 title: Package name guidelines
 ---
 
-When choosing a name for your package, choose a name that
+There are a rules the name for your package must follow. Your name should:
 
-- is unique
-- is descriptive
-- meets [npm policy guidelines][policies]. For example, do not give your package an offensive name, and do not use someone else's trademarked name or violate the [npm trademark policy][npm-trademark].
-
-Additionally, when choosing a name for an [**unscoped** package][create-unscoped], also choose a name that
-
-- is not already owned by someone else
-- is not spelled in a similar way to another package name
-- will not confuse others about authorship
+- Meet npm's [policy guidelines][policies] and [trademark policy][npm-trademark].
+- Be less than or equal to 214 characters. This includes the scope for scoped packages.
+- Not begin with a dot (`.`) or underscore (`_`), if unscoped.
+- Not have uppercase letters in the name.
+- Not contain any non-URL-safe characters.
+- Not contain only numerical characters.
 
 [policies]: https://www.npmjs.com/policies
 [npm-trademark]: https://docs.npmjs.com/policies/disputes#trademarks
-[create-unscoped]: creating-and-publishing-unscoped-public-packages
