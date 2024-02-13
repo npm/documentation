@@ -47,6 +47,17 @@ GATSBY_CONTENT_IGNORE=cli/v6,cli/v7,cli/v8,cli/v9 npm run develop
 
 ## Updating content
 
+### Commits
+
+We use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+
+When opening a pull request please be sure that either the pull request title, or each commit in the pull request, has one of the following prefixes:
+
+- `feat`: For when introducing a new feature.
+- `fix`: For bug fixes.
+- `docs`: For documentation updates. This specifically means the documentation in and this repo, NOT the contents of the documentation site itself.
+- `chore`: For changes that do not affect the published site. Often these are changes to tests. The result will be _no_ change to the website when it is next published.
+
 ### Documentation content
 
 The documentation content lives in the `content` directory, and is Markdown. (Actually, [MDX](https://mdxjs.com/), a sort of reactive Markdown.)
