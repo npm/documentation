@@ -446,7 +446,7 @@ For `list` this means the output will be based on the tree described by the `pac
 
 #### `foreground-scripts`
 
-- Default: false
+- Default: `false` unless when using `npm pack` or `npm publish` where it defaults to `true`
 - Type: Boolean
 
 Run all build scripts (ie, `preinstall`, `install`, and `postinstall`) scripts for installed packages in the foreground process, sharing standard input, output, and error with the main npm process.

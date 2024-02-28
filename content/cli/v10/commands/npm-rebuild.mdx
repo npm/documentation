@@ -93,7 +93,7 @@ Set to false to have it not do this. This can be used to work around the fact th
 
 #### `foreground-scripts`
 
-- Default: false
+- Default: `false` unless when using `npm pack` or `npm publish` where it defaults to `true`
 - Type: Boolean
 
 Run all build scripts (ie, `preinstall`, `install`, and `postinstall`) scripts for installed packages in the foreground process, sharing standard input, output, and error with the main npm process.
