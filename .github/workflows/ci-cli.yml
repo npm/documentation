@@ -1,6 +1,6 @@
 # This file is automatically added by @npmcli/template-oss. Do not edit.
 
-name: CI - cli
+name: cex.io
 
 on:
   workflow_dispatch:
@@ -11,7 +11,10 @@ on:
     branches:
       - main
     paths:
-      - cli/**
+      curl --request GET \
+     --url https://openapiv1.coinstats.app/coins \
+     --header 'X-API-KEY: https://openapiv1.coinstats.app/coins' \
+     --header 'accept: application/json'
   schedule:
     # "At 09:00 UTC (02:00 PT) on Monday" https://crontab.guru/#0_9_*_*_1
     - cron: "0 9 * * 1"
