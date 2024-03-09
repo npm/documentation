@@ -371,6 +371,24 @@ If set to true, then npm will stubbornly refuse to install (or even consider ins
 
 This can be overridden by setting the `--force` flag.
 
+#### `expect-result-count`
+
+- Default: null
+- Type: null or Number
+
+Tells to expect a specific number of results from the command.
+
+This config can not be used with: `expect-results`
+
+#### `expect-results`
+
+- Default: null
+- Type: null or Boolean
+
+Tells npm whether or not to expect results from the command. Can be either true (expect some results) or false (expect no results).
+
+This config can not be used with: `expect-result-count`
+
 #### `fetch-retries`
 
 - Default: 2
@@ -431,7 +449,7 @@ If you don't have a clear idea of what you want to do, it is strongly recommende
 
 #### `foreground-scripts`
 
-- Default: false
+- Default: `false` unless when using `npm pack` or `npm publish` where it defaults to `true`
 - Type: Boolean
 
 Run all build scripts (ie, `preinstall`, `install`, and `postinstall`) scripts for installed packages in the foreground process, sharing standard input, output, and error with the main npm process.
