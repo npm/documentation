@@ -144,6 +144,26 @@ If you publish your packages with tools that do not directly invoke the `npm pub
 
 In order to establish provenance, you must use a supported cloud CI/CD provider and a cloud-hosted runner to publish your packages. GitLab CI/CD is a supported CI/CD platform that allows you to automate software development tasks. For more information, see [Generating provenance in GitLab CI/CD][gitlab-ci-cd-docs] in the GitLab documentation.
 
+## Verifying provenance attestations
+
+You can use the verify the provenance attestations of downloaded packages with the following `audit` command:
+
+```
+npm audit signatures
+```
+
+Example response showing the count of verified registry signatures and verified attestations for all of the packages in a project:
+
+```
+audited 1267 packages in 6s
+
+1267 packages have verified registry signatures
+
+74 packages have verified attestations
+```
+
+Because provenance attestations are such a new feature, security features may be added to (or changed in) the attestation format over time. To ensure that you're always able to verify attestation signatures check that you're running the latest version of the npm CLI. Please note this often means updating npm beyond the version that ships with Node.js.
+
 [provenance-info]: /searching-for-and-choosing-packages-to-download#package-provenance
 [update-npm]: /try-the-latest-stable-version-of-npm
 [github-provenance]: #publishing-packages-with-provenance-via-github-actions
