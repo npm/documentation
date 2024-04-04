@@ -61,8 +61,8 @@ export const Desktop = props => {
     <Box sx={{position: 'relative'}}>
       <TextInput
         sx={{width: '240px'}}
-        placeholder={`Search ${siteMetadata.title}`}
-        aria-label={`Search ${siteMetadata.title}`}
+        placeholder={`输入搜索内容`}
+        aria-label={`搜索NPM中文网`}
         {...getInputProps()}
       />
       <Box sx={{position: 'absolute', left: 0, right: 0, pt: 1}} {...getMenuProps()}>
@@ -175,8 +175,8 @@ export const Mobile = ({
                     />
                     <TextInput
                       leadingVisual={SearchIcon}
-                      placeholder={`Search ${siteMetadata.title}`}
-                      aria-label={`Search ${siteMetadata.title}`}
+                      placeholder={`输入搜索内容`}
+                      aria-label={`搜索NPM中文网`}
                       sx={{width: '100%'}}
                       {...getInputProps()}
                     />

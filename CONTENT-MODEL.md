@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This content model explains the goals of content in the npm docs, and what to include when you're writing or updating an article. We use a model to ensure that our content consistently, clearly, and comprehensively communicates what people need to achieve their goals with npm. Following a content model creates consistency that helps users and maintainers of the docs.
+This content model explains the goals of content in the NPM中文网, and what to include when you're writing or updating an article. We use a model to ensure that our content consistently, clearly, and comprehensively communicates what people need to achieve their goals with npm. Following a content model creates consistency that helps users and maintainers of the docs.
 
 For style questions, default to https://github.com/github/docs-internal/blob/main/contributing/content-style-guide.md
 
