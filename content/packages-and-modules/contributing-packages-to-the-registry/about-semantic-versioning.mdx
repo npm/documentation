@@ -4,48 +4,30 @@ redirect_from:
   - /getting-started/semantic-versioning/
 ---
 
-To keep the JavaScript ecosystem healthy, reliable, and secure, every time you make significant updates to an npm package you own, we recommend publishing a new version of the package with an updated version number in the [`package.json` file][pkg-json] that follows the [semantic versioning spec][semver-org]. Following the semantic versioning spec helps other developers who depend on your code understand the extent of changes in a given version, and adjust their own code if necessary.
+To keep JavaScript packages healthy and reliable, it's important to update them properly. Every time you make big changes to a package you own, it's a good idea to publish a new version of it. This new version should have a different version number in the [`package.json` file][pkg-json]. This helps other developers who use your package know what's changed and decide if they need to update their own code.
 
-<Note>
+**Note:** If you make a change that breaks how another package works, it's best to increase the version number a lot. We call this a **major number** change. It helps users understand that something big has changed.
 
-**Note:** If you introduce a change that breaks a package dependency, we strongly recommend incrementing the version **major number**; see below for details.
+## How to Number Your Versions
 
-</Note>
+Here's a simple guide to help you decide what version number to use:
 
-## Incrementing semantic versions in published packages
+| Situation             | Stage          | Rule                                                 | Example Version |
+| ----------------------| -------------- | ---------------------------------------------------- | --------------- |
+| First Release         | New Product    | Start with `1.0.0`                                   | 1.0.0           |
+| Fixes for Bugs        | Patch Release  | Increase the last number                              | 1.0.1           |
+| Adds New Features     | Minor Release  | Increase the middle number and set the last to zero   | 1.1.0           |
+| Changes that Break Things | Major Release  | Increase the first number and set the middle and last to zero | 2.0.0           |
 
-To help developers who rely on your code, we recommend starting your package version at `1.0.0` and incrementing as follows:
+## Saying What Versions You Can Use
 
-| Code status | Stage | Rule | Example version |
-| --- | --- | --- | --- |
-| First release | New product | Start with 1.0.0 | 1.0.0 |
-| Backward compatible bug fixes | Patch release | Increment the third digit | 1.0.1 |
-| Backward compatible new features | Minor release | Increment the middle digit and reset last digit to zero | 1.1.0 |
-| Changes that break backward compatibility | Major release | Increment the first digit and reset middle and last digits to zero | 2.0.0 |
+You can tell your package what kind of updates it's okay to use from other packages. You do this in the `package.json` file. Here are some examples:
 
-## Using semantic versioning to specify update types your package can accept
+- Small fixes: `1.0` or `1.0.x` or `~1.0.4`
+- Adding features: `1` or `1.x` or `^1.0.4`
+- Big changes: `*` or `x`
 
-You can specify which update types your package can accept from dependencies in your package's `package.json` file.
-
-For example, to specify acceptable version ranges up to 1.0.4, use the following syntax:
-
-- Patch releases: `1.0` or `1.0.x` or `~1.0.4`
-- Minor releases: `1` or `1.x` or `^1.0.4`
-- Major releases: `*` or `x`
-
-For more information on semantic versioning syntax, see the [npm semver calculator][semver-calc].
-
-### Example
-
-```json
-
-"dependencies": {
-  "my_dep": "^1.0.0",
-  "another_dep": "~2.2.0"
-},
-```
-
-## Resources
+For more help with versioning, you can watch this video:
 
 <YouTube id="kK4Meix58R4" />
 
