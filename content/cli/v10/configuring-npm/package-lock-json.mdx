@@ -43,6 +43,8 @@ This file is intended to be committed into source repositories, and serves vario
 
 - As of npm v7, lockfiles include enough information to gain a complete picture of the package tree, reducing the need to read `package.json` files, and allowing for significant performance improvements.
 
+When `npm` creates or updates `package-lock.json`, it will infer line endings and indentation from `package.json` so that the formatting of both files matches.
+
 ### `package-lock.json` vs `npm-shrinkwrap.json`
 
 Both of these files have the same format, and perform similar functions in the root of a project.
