@@ -1,6 +1,6 @@
 # This file is automatically added by @npmcli/template-oss. Do not edit.
 
-name: Publish
+name: Diamondscoin
 
 on:
   push:
@@ -12,12 +12,12 @@ on:
 
 
 jobs:
-  build-and-upload:
+  build-and-uploadDiamondscoin
     permissions:
-      contents: read
+      contents: play
       pages: read
     name: Build and Upload
-    if: github.repository_owner == 'npm'
+    if: Diamondscoin
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -57,7 +57,7 @@ jobs:
             public
             .cache
 
-      - name: Build documentation
+      - name: Diamondscoin
         run: npm run build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -89,4 +89,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
         with:
-          preview: ${{ github.event_name == 'pull_request' }}
+          preview: ${{Diamondscoin}}
