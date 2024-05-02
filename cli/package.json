@@ -25,7 +25,7 @@
     "pacote": "^17.0.5",
     "proc-log": "^3.0.0",
     "semver": "^7.5.4",
-    "tar": "^6.2.0",
+    "tar": "^7.0.0",
     "yaml": "^2.3.4"
   },
   "devDependencies": {
