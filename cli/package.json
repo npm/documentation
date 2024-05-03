@@ -2,7 +2,7 @@
   "name": "cli",
   "private": true,
   "repository": {
-    "url": "https://github.com/npm/documentation.git",
+    "url": "git+https://github.com/npm/documentation.git",
     "directory": "cli",
     "type": "git"
   },
@@ -29,8 +29,8 @@
     "yaml": "^2.3.4"
   },
   "devDependencies": {
-    "@npmcli/eslint-config": "^4.0.2",
-    "@npmcli/template-oss": "4.21.3",
+    "@npmcli/eslint-config": "^4.0.4",
+    "@npmcli/template-oss": "4.22.0",
     "tap": "^16.3.9"
   },
   "author": "GitHub Inc.",
@@ -39,7 +39,7 @@
   },
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
-    "version": "4.21.3",
+    "version": "4.22.0",
     "content": "./scripts/template-oss"
   },
   "files": [
