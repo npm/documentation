@@ -7,6 +7,7 @@ module.exports = {
       '.github/ISSUE_TEMPLATE/bug.yml': false,
       '.commitlintrc.js': false,
       '.github/settings.yml': false,
+      '.github/dependabot.yml': 'dependabot-yml.hbs',
     },
   },
   rootModule: {
@@ -20,6 +21,7 @@ module.exports = {
   workspaceRepo: {
     add: {
       '.github/settings.yml': false,
+      '.github/dependabot.yml': false,
     },
   },
   workspaceModule: {
