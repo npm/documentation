@@ -1,4 +1,4 @@
-const { log } = require('proc-log')
+const {log} = require('proc-log')
 const SYMBOL = Symbol('doc-log')
 
 module.exports = Object.fromEntries(Object.entries(log).map(([k, v]) => [k, (...a) => v(SYMBOL, ...a)]))

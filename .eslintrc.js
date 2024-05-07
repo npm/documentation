@@ -19,6 +19,11 @@ module.exports = {
     'react/prop-types': 'off',
     'primer-react/no-system-props': ['error', {includeUtilityComponents: true}],
   },
+  settings: {
+    'import/resolver': {
+      typescript: {},
+    },
+  },
   overrides: [
     {
       files: ['*.js'],
