@@ -1,21 +1,21 @@
 * @npm/cli-team
 
 # Content
-/.github/CODEOWNERS   @MylesBorins @monishcm @lukekarrys
-/content/             @MylesBorins @monishcm @lukekarrys
-/src/                 @MylesBorins @monishcm @lukekarrys
-/static/              @MylesBorins @monishcm @lukekarrys
-/CONTENT-MODEL.md     @MylesBorins @monishcm @lukekarrys
+/.github/CODEOWNERS   @leobalter @monishcm @wraithgar
+/content/             @leobalter @monishcm @wraithgar
+/src/                 @leobalter @monishcm @wraithgar
+/static/              @leobalter @monishcm @wraithgar
+/CONTENT-MODEL.md     @leobalter @monishcm @wraithgar
 
 # Policies
-/content/policies/    @MylesBorins
-/CODE_OF_CONDUCT.md   @MylesBorins
+/content/policies/    @leobalter
+/CODE_OF_CONDUCT.md   @leobalter
 
 # Licensing
-/.reuse/              @MylesBorins @lukekarrys
-/LICENSES/            @MylesBorins
-/LICENSE              @MylesBorins
-/LICENSE-CODE         @MylesBorins
+/.reuse/              @leobalter @wraithgar
+/LICENSES/            @leobalter
+/LICENSE              @leobalter
+/LICENSE-CODE         @leobalter
 
 # CLI
 /content/cli/         @npm/cli-team
