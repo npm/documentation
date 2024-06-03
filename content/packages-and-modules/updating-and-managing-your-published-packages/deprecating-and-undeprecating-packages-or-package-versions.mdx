@@ -74,7 +74,13 @@ If you have two-factor auth, add a one-time password to the command, `--otp=1234
 
 To undeprecate a package, replace `"<message>"` with `""` (an empty string) in one of the above commands.
 
-For example, to undeprecate a package version, run the following command, replacing `<package-name>` with the name of your package, and `<version>` with your version number:
+For example, to undeprecate an entire package, run the following command, replacing `<package-name>` with the name of your package, and `<version>` with your version number:
+
+```
+npm deprecate <package-name> ""
+```
+
+Or to undeprecate only a single package version, run the following command, replacing `<package-name>` with the name of your package, and `<version>` with your version number:
 
 ```
 npm deprecate <package-name>@<version> ""
