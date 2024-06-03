@@ -1,36 +1,34 @@
----
-title: About package README files
----
+[完成代码在github上](https://github.com/blackbearn/v-time-shaft)，大家可以自行下载，喜欢的麻烦点个赞
 
-To help others find your packages on npm and have a good experience using your code in their projects, we recommend including a README file in your package directory. Your README file may include directions for installing, configuring, and using the code in your package, as well as any other information a user may find helpful. The README file will be shown on the package page.
-
-An npm package README file must be in the root-level directory of the package.
-
-## Creating and adding a README.md file to a package
-
-1. In a text editor, in your package root directory, create a file called `README.md`.
-2. In the `README.md` file, add useful information about your package.
-3. Save the `README.md` file.
-
-<Note>
-
-**Note:** The file extension `.md` indicates a Markdown file. For more information about Markdown, see the GitHub Guide "[Mastering Markdown](https://guides.github.com/features/mastering-markdown/#what)".
-
-</Note>
-
-## Updating an existing package README file
-
-The README file will only be updated on the package page when you publish a new version of your package. To update your README file:
-
-1. In a text editor, update the contents of the `README.md` file.
-
-2. Save the `README.md` file.
-
-3. On the command line, in the package root directory, run the following commands:
-
-   ```
-   npm version patch
-   npm publish
-   ```
-
-[markdown-link]: https://guides.github.com/features/mastering-markdown/#what
+另外也可以去npm直接下载插件
+ - 下载插件
+	```javascript
+	yarn add v-time-shaft
+	```
+ - 全局引入
+	```javascript
+	import TimerShaft from '../node_modules/v-time-shaft/lib/v-time-shaft.umd'
+	......
+	Vue.use(TimerShaft)
+	```
+ - 组件中使用
+	```html
+	<template>
+	  <div id="app">
+	    <div class="timer-shaft-content">
+	      <!-- 不限制时间范围，只初始化默认展示哪天的时间 -->
+	      <v-time-shaft date="2024-05-29"></v-time-shaft>
+	    </div>
+	    <div class="timer-shaft-content">
+	      <!-- 限制时间范围的有用法 -->
+	      <v-time-shaft isLimit :date="date" :dateRange="dateRange"></v-time-shaft>
+	    </div>
+	  </div>
+	</template>
+	```
+效果图：
+ - 成品效果图
+![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/f849704d7f7249efa97e7fe47c4bdd12.png)
+- 放大后，查看时间片段![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/5529270fe01d41228f274ad2d71633e0.png)
+- 不限制范围拖动到前一天![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/e3622b6bd0174fe0a8342985d09c7d3b.png)
+- 时间指示器【鼠标移入，产生的蓝色线条和时间点】![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/d75e552237e348988569f90e05d67023.png)
