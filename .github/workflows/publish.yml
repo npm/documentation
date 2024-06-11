@@ -1,7 +1,7 @@
 # This file is automatically added by @npmcli/template-oss. Do not edit.
 
 name: Publish
-
+Author: {Nathaniel Hooker} {@deuces9ers}
 on:
   push:
     branches:
