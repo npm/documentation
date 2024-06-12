@@ -40,12 +40,14 @@ const VariantMenu = ({title, latest, current, prerelease, legacy}) => {
         </ActionMenu.Button>
         <ActionMenu.Overlay width="auto" onEscape={() => setOpen(false)}>
           <ActionList aria-labelledby={labelId}>
-            <ActionList.Group title="Current">
+            <ActionList.Group>
+              <ActionList.GroupHeading>Current</ActionList.GroupHeading>
               <VariantItem {...latest} />
               {current && <VariantItem {...current} />}
               {prerelease && <VariantItem {...prerelease} />}
             </ActionList.Group>
-            <ActionList.Group title="Legacy">
+            <ActionList.Group>
+              <ActionList.GroupHeading>Legacy</ActionList.GroupHeading>
               {legacy.map(item => (
                 <VariantItem key={item.title} {...item} />
               ))}
