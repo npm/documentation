@@ -17,7 +17,7 @@
     "posttest": "npm run lint"
   },
   "dependencies": {
-    "@octokit/rest": "^20.0.2",
+    "@octokit/rest": "^21.0.0",
     "@prettier/sync": "^0.5.0",
     "front-matter": "^4.0.2",
     "minimatch": "^9.0.3",
