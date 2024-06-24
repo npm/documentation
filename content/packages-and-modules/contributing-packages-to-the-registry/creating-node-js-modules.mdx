@@ -25,7 +25,7 @@ For more information on `package.json` files, see "[Creating a package.json file
 
 ## Create the file that will be loaded when your module is required by another application
 
-In the file, add a function as a property of the `exports` object. This will make the function available to other code:
+Create a file with the same name you provided in the `main` field. In that file, add a function as a property of the `exports` object. This will make the function available to other code:
 
 ```
 exports.printMsg = function() {
