@@ -25,7 +25,7 @@ This is the documentation for [https://docs.npmjs.com/](https://docs.npmjs.com/)
 
 First, `npm install` the dependencies. This will install Gatsby, et al.
 
-Next, `npm run develop` to start the test server to view your changes. The Gatsby server will be started on port 8000. You can navigate to `http://localhost:8000` to view the site live.
+Next, `npm run develop` to start the test server to view your changes. The Gatsby server will be started on port 8000. You can navigate to `http://localhost:8000` to view the site live. If you're on Windows, change the syntax for setting environment variables in the `package.json` file based on your terminal before running this command. The syntax for command prompt is `set ENV_VAR=value & command`.
 
 In order to cut down on the time it takes `npm run develop` to complete, you can use the environment variables `GATSBY_CONTENT_ALLOW` and `GATSBY_CONTENT_IGNORE` to only build some pages.
 
