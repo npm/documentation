@@ -83,7 +83,7 @@ export const Desktop = withTableOfContents(({items}) => (
       sx={{
         // extra pixels to account for table of contents title height
         maxHeight: `calc(100% - 24px)`,
-        overflowY: 'scroll',
+        overflowY: 'auto',
       }}
     >
       <TableOfContents aria-labelledby="toc-heading" items={items} sx={{ml: -2}} />
