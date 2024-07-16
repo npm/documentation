@@ -35,8 +35,8 @@ jobs:
         uses: actions/setup-node@v4
         id: node
         with:
-          node-version: 18.x
-          check-latest: contains('18.x', '.x')
+          node-version: 22.x
+          check-latest: contains('22.x', '.x')
           cache: npm
       - name: Install Latest npm
         uses: ./.github/actions/install-latest-npm
@@ -62,7 +62,7 @@ jobs:
             os: ubuntu-latest
             shell: bash
         node-version:
-          - 18.x
+          - 22.x
     runs-on: ${{ matrix.platform.os }}
     defaults:
       run:
