@@ -41,7 +41,7 @@ The `content/cli` directory has the most pages so it tends to be most helpful to
 GATSBY_CONTENT_IGNORE=cli/v6,cli/v7,cli/v8,cli/v9 npm run develop
 ```
 
-**For best results use Node 18 and npm 9+**
+**For best results use The latest versions of Node.js and npm**
 
 **Gatsby will watch your filesystem looking for updates.** Any content changes you make should be reflected in the site immediately.
 
