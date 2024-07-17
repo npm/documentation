@@ -2,14 +2,12 @@
 
 # ignore everything in the root
 /*
-# transient test directories
-tap-testdir*/
 
-# keep these
 !**/.gitignore
 !/.commitlintrc.js
 !/.eslintrc.js
 !/.eslintrc.local.*
+!/.git-blame-ignore-revs
 !/.github/
 !/.gitignore
 !/.npmrc
@@ -42,4 +40,5 @@ tap-testdir*/
 !/test/
 !/tsconfig.json
 !/webpack.config.js
+tap-testdir*/
 !/cli/
