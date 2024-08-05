@@ -48,9 +48,6 @@
     "lib/"
   ],
   "tap": {
-    "nyc-arg": [
-      "--exclude",
-      "tap-snapshots/**"
-    ]
+    "allow-incomplete-coverage": true
   }
 }
