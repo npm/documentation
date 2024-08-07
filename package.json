@@ -33,7 +33,7 @@
     "@mdx-js/react": "^3.0.1",
     "@octokit/plugin-retry": "^7.1.1",
     "@octokit/plugin-throttling": "^9.3.0",
-    "@octokit/rest": "^21.0.0",
+    "@octokit/rest": "^21.0.1",
     "@primer/octicons-react": "^19.11.0",
     "@primer/react": "^36.5.0",
     "babel-plugin-styled-components": "^2.1.4",
