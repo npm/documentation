@@ -60,7 +60,7 @@
     "react-focus-on": "^3.9.3",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.0",
-    "styled-components": "^6.1.11",
+    "styled-components": "^6.1.12",
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
