@@ -66,7 +66,7 @@ const mockBuild = async (t, {releases = getReleases(), packument = {}, testdir: 
     return yaml.stringify(children).replace(new RegExp(`/cli/${id}/`, 'g'), '/')
   }
 
-  const build = t.mock('../lib/build', {
+  const build = t.mockRequire('../lib/build', {
     pacote: {
       ...pacote,
       packument: async () => {
