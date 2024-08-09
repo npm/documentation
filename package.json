@@ -1,35 +1,35 @@
 {
-  "name": "documentation",
-  "version": "1.0.0",
+  "name": "documentation",  // The name of the package.
+  "version": "1.0.0",  // The version of the package following semantic versioning.
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/npm/documentation.git"
+    "type": "git",  // The type of the repository. Valid options: "git", "svn".
+    "url": "git+https://github.com/npm/documentation.git"  // The URL of the repository.
   },
-  "private": true,
-  "scripts": {
-    "//": "https://github.com/parcel-bundler/parcel/issues/7702",
-    "gatsby": "PARCEL_WORKERS=0 gatsby",
-    "develop": "npm run gatsby -- develop",
-    "develop:ssr": "GATSBY_DEV_SSR=true npm run develop",
-    "build": "npm run gatsby -- build --verbose --log-pages",
-    "clean": "npm run gatsby -- clean",
-    "serve": "npm run gatsby -- serve",
-    "lint": "eslint \"**/*.{js,mjs,mdx}\"",
-    "postlint": "template-oss-check",
-    "template-oss-apply": "template-oss-apply --force",
-    "lintfix": "npm run eslint -- --fix",
-    "test": "jest",
-    "posttest": "npm run lint",
-    "test-all": "npm run test -ws -iwr --if-present",
-    "lint-all": "npm run lint -ws -iwr --if-present",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "eslint": "eslint \"**/*.{js,cjs,ts,mjs,jsx,tsx}\""
+  "private": true,  // If true, prevents the package from being published. Valid options: true, false.
+  "scripts": {  // Scripts to run various commands.
+    "//": "https://github.com/parcel-bundler/parcel/issues/7702",  // Description or URL related to the script.
+    "gatsby": "PARCEL_WORKERS=0 gatsby",  // Command to run Gatsby with Parcel workers disabled.
+    "develop": "npm run gatsby -- develop",  // Command to start Gatsby in development mode.
+    "develop:ssr": "GATSBY_DEV_SSR=true npm run develop",  // Command to start Gatsby with server-side rendering in development mode.
+    "build": "npm run gatsby -- build --verbose --log-pages",  // Command to build the Gatsby site with verbose output and page logging.
+    "clean": "npm run gatsby -- clean",  // Command to clean Gatsby cache.
+    "serve": "npm run gatsby -- serve",  // Command to serve the built Gatsby site.
+    "lint": "eslint \"**/*.{js,mjs,mdx}\"",  // Command to run ESLint on JavaScript, MJS, and MDX files.
+    "postlint": "template-oss-check",  // Command to run template-oss-check after linting.
+    "template-oss-apply": "template-oss-apply --force",  // Command to force apply template-oss.
+    "lintfix": "npm run eslint -- --fix",  // Command to fix linting issues.
+    "test": "jest",  // Command to run Jest tests.
+    "posttest": "npm run lint",  // Command to run linting after tests.
+    "test-all": "npm run test -ws -iwr --if-present",  // Command to run all tests.
+    "lint-all": "npm run lint -ws -iwr --if-present",  // Command to run linting on all workspaces.
+    "format": "prettier --write .",  // Command to format code with Prettier.
+    "format:check": "prettier --check .",  // Command to check code formatting with Prettier.
+    "eslint": "eslint \"**/*.{js,cjs,ts,mjs,jsx,tsx}\""  // Command to run ESLint on various file types.
   },
   "workspaces": [
-    "cli/"
+    "cli/"  // List of workspaces. Valid options: array of workspace paths.
   ],
-  "dependencies": {
+  "dependencies": {  // List of package dependencies.
     "@mdx-js/mdx": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
     "@octokit/plugin-retry": "^7.1.1",
@@ -64,7 +64,7 @@
     "styled-components": "^5.3.11",
     "styled-system": "^5.1.5"
   },
-  "devDependencies": {
+  "devDependencies": {  // List of development dependencies.
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@github/prettier-config": "^0.0.6",
     "@npmcli/eslint-config": "^4.0.4",
@@ -91,13 +91,13 @@
     "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.1.1"
   },
-  "author": "GitHub Inc.",
+  "author": "GitHub Inc.",  // The author of the package.
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=22.0.0"  // The version of Node.js required.
   },
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
-    "version": "4.23.1",
-    "content": "./scripts/template-oss"
+    "version": "4.23.1",  // The version of template-oss.
+    "content": "./scripts/template-oss"  // The path to template-oss content.
   }
 }
