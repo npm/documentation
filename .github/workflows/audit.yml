@@ -27,8 +27,8 @@ jobs:
         uses: actions/setup-node@v4
         id: node
         with:
-          node-version: 18.x
-          check-latest: contains('18.x', '.x')
+          node-version: 22.x
+          check-latest: contains('22.x', '.x')
           cache: npm
       - name: Install Latest npm
         uses: ./.github/actions/install-latest-npm

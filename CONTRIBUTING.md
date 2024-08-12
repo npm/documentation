@@ -25,7 +25,7 @@ This is the documentation for [https://docs.npmjs.com/](https://docs.npmjs.com/)
 
 First, `npm install` the dependencies. This will install Gatsby, et al.
 
-Next, `npm run develop` to start the test server to view your changes. The Gatsby server will be started on port 8000. You can navigate to `http://localhost:8000` to view the site live.
+Next, `npm run develop` to start the test server to view your changes. The Gatsby server will be started on port 8000. You can navigate to `http://localhost:8000` to view the site live. This npm script doesn't work on Windows terminals, run it manually using appropriate syntax for your terminal. The syntax for command prompt is `set PARCEL_WORKERS=0 & npm run gatsby develop`.
 
 In order to cut down on the time it takes `npm run develop` to complete, you can use the environment variables `GATSBY_CONTENT_ALLOW` and `GATSBY_CONTENT_IGNORE` to only build some pages.
 
@@ -41,7 +41,7 @@ The `content/cli` directory has the most pages so it tends to be most helpful to
 GATSBY_CONTENT_IGNORE=cli/v6,cli/v7,cli/v8,cli/v9 npm run develop
 ```
 
-**For best results use Node 18 and npm 9+**
+**For best results use The latest versions of Node.js and npm**
 
 **Gatsby will watch your filesystem looking for updates.** Any content changes you make should be reflected in the site immediately.
 

@@ -28,8 +28,8 @@ jobs:
         uses: actions/setup-node@v4
         id: node
         with:
-          node-version: 18.x
-          check-latest: contains('18.x', '.x')
+          node-version: 22.x
+          check-latest: contains('22.x', '.x')
           cache: npm
       - name: Install Latest npm
         uses: ./.github/actions/install-latest-npm
@@ -50,7 +50,7 @@ jobs:
         id: flags
         run: |
           dependabot_dir="${{ steps.metadata.outputs.directory }}"
-          if [[ "$dependabot_dir" == "/" ]]; then
+          if [[ "$dependabot_dir" == "/" || "$dependabot_dir" == "/main" ]]; then
             echo "workspace=-iwr" >> $GITHUB_OUTPUT
           else
             # strip leading slash from directory so it works as a
