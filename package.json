@@ -69,6 +69,7 @@
     "@github/prettier-config": "^0.0.6",
     "@npmcli/eslint-config": "^4.0.4",
     "@npmcli/template-oss": "4.23.2",
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^16.0.0",
     "babel-jest": "^29.7.0",
