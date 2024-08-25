@@ -81,7 +81,7 @@ This example workflow publishes a package to the npm registry with provenance.
 name: Publish Package to npmjs
 on:
   release:
-    types: [created]
+    types: [published]
 jobs:
   build:
     runs-on: ubuntu-latest
