@@ -27,11 +27,11 @@ jobs:
         run: npm rebuild
 
       - name: Setup Pages
-        uses: actions/configure-pages@v1
+        uses: actions/configure-pages@v4
       
       - name: Restore cache
         id: cache-gatsby
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           key: $\{{ runner.os }}-gatsby-$\{{ github.ref_name }}
           path: |
@@ -44,7 +44,7 @@ jobs:
           GITHUB_TOKEN: $\{{ secrets.GITHUB_TOKEN }}
 
       - name: Save cache
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
         with:
           key: $\{{ steps.cache-gatsby.outputs.cache-primary-key }}
           path: |
@@ -52,13 +52,14 @@ jobs:
             .cache
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: './public'
 
   deploy:
     permissions:
       pages: write
+      actions: read
       id-token: write
     environment:
       name: github-pages
@@ -68,6 +69,6 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
         with:
           preview: $\{{ github.event_name == 'pull_request' }}
