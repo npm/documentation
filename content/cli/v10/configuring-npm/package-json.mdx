@@ -512,6 +512,7 @@ See [semver](https://github.com/npm/node-semver#versions) for more details about
 - `user/repo` See 'GitHub URLs' below
 - `tag` A specific version tagged and published as `tag` See [`npm dist-tag`](/cli/v10/commands/npm-dist-tag)
 - `path/path/path` See [Local Paths](#local-paths) below
+- `npm:@scope/pkg@version` Custom alias for a pacakge See [`package-spec`](/cli/v10/using-npm/package-spec#aliases)
 
 For example, these are all valid:
 
@@ -529,7 +530,8 @@ For example, these are all valid:
     "two": "2.x",
     "thr": "3.3.x",
     "lat": "latest",
-    "dyl": "file:../dyl"
+    "dyl": "file:../dyl",
+    "kpg": "npm:pkg@1.0.0"
   }
 }
 ```
