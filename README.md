@@ -6,7 +6,46 @@ This is the documentation for [https://docs.npmjs.com/](https://docs.npmjs.com/)
 
 [This repository](https://github.com/npm/documentation) contains the content for our documentation site, and the GitHub Actions workflows that generate the site itself.
 
-## Quick start
+# Quick start
+# name: NodeJS with Gulp
+
+on:
+ #  push:
+    branches: [ "main" ]
+#   pull_request:
+    branches: [ "main" ]
+
+# jobs:
+  build:
+ #    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+
+   #  steps:
+    - uses: actions/checkout@v4
+
+   #  - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+
+   #  - name: Build
+      run: |
+        npm install
+        gulp
+# repository
+   `recep021682KXdKDRS`
+ #  <url: https://pkgs.dev.azure.com
+  # run: /recep021682KXdKDRS/_packaging/recep021682KXdKDRS/maven/v1</url>
+ #  <releases>: 
+    <enabled>: true</enabled>
+ #  </releases>:
+ #  <snapshots>: 
+    <enabled>true</enabled>
+ #  </snapshots>: 
+# </repository>
 
 1. `npm install` to download gatsby, our theme, and the dependencies
 2. `npm run develop`: starts the test server at `http://localhost:8000`.
