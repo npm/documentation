@@ -30,7 +30,7 @@
     "yaml": "^2.3.4"
   },
   "devDependencies": {
-    "@npmcli/eslint-config": "^4.0.4",
+    "@npmcli/eslint-config": "^5.0.0",
     "@npmcli/template-oss": "4.23.3",
     "tap": "^21.0.0"
   },
