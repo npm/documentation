@@ -905,6 +905,26 @@ Like the `os` option, you can also block architectures:
 
 The host architecture is determined by `process.arch`
 
+### libc
+
+If your package only supports certain libc implementations, you can specify which ones. When running on non-Linux systems, any specified value for libc will fail the check.
+
+```json
+{
+  "libc": ["glibc", "musl"]
+}
+```
+
+Similarly as with `os` and `cpu`, you can also block certain libc implementations:
+
+```json
+{
+  "libc": ["!glibc"]
+}
+```
+
+Libc implementations is inferred by inspecting `process.report.glibcVersionRuntime` in the case of glibc or `process.report.sharedObjects` in the case of musl.
+
 ### private
 
 If you set `"private": true` in your package.json, then npm will refuse to publish it.
