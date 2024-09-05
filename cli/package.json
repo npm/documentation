@@ -24,7 +24,7 @@
     "minimatch": "^10.0.1",
     "minipass": "^7.0.4",
     "pacote": "^18.0.3",
-    "proc-log": "^4.2.0",
+    "proc-log": "^5.0.0",
     "semver": "^7.5.4",
     "tar": "^7.0.1",
     "yaml": "^2.3.4"
