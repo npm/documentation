@@ -4,6 +4,9 @@ import deepmerge from 'deepmerge'
 
 export const NPM_RED = '#cb0000'
 
+export const NPM_LINK_RED = '#cf2b2b' // Asscessibility contrast ratio issue #9165
+
+
 export const npmTheme = deepmerge(theme, {
   colors: {
     logoBg: NPM_RED,
@@ -12,7 +15,7 @@ export const npmTheme = deepmerge(theme, {
     light: {
       colors: {
         accent: {
-          fg: NPM_RED,
+          fg: NPM_LINK_RED,
           emphasis: NPM_RED,
         },
       },
