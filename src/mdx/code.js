@@ -114,7 +114,14 @@ function Code({className = '', prompt, children}) {
           {tokens.map((line, i) => (
             <Box key={i} {...getLineProps({line, key: i})}>
               {line.map((token, key) => (
-                <MonoText key={key} {...getTokenProps({token, key})} />
+                <MonoText 
+                key={key} 
+                {...{
+                  ...getTokenProps({ token, key }),
+                  style: getTokenProps({ token, key }).className === 'token comment' 
+                    ? { ...getTokenProps({ token, key }).style, color: '#747459' } 
+                    : getTokenProps({ token, key }).style
+                }} />
               ))}
             </Box>
           ))}
