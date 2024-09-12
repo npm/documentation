@@ -2,7 +2,7 @@ import React from 'react'
 import {ThemeProvider as Provider, theme, Box} from '@primer/react'
 import deepmerge from 'deepmerge'
 
-export const NPM_RED = '#cb0000'
+export const NPM_RED = '#cb3837'
 
 export const npmTheme = deepmerge(theme, {
   colors: {
