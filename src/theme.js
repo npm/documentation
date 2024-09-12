@@ -2,7 +2,7 @@ import React from 'react'
 import {ThemeProvider as Provider, theme, Box} from '@primer/react'
 import deepmerge from 'deepmerge'
 
-export const NPM_RED = '#cf2b2b' // Asscessibility contrast ratio issue #9165
+export const NPM_RED = '#cf2b2b'
 
 export const npmTheme = deepmerge(theme, {
   colors: {
