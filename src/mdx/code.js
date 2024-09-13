@@ -120,7 +120,7 @@ function Code({className = '', prompt, children}) {
                     ...getTokenProps({token, key}),
                     style:
                       getTokenProps({token, key}).className === 'token comment'
-                        ? {...getTokenProps({token, key}).style, color: '#747459'}
+                        ? {...getTokenProps({token, key}).style, color: '#747458'}
                         : getTokenProps({token, key}).style,
                   }}
                 />
