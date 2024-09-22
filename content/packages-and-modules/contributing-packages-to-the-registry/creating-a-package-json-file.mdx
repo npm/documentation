@@ -43,7 +43,7 @@ Your Name <email@example.com> (http://example.com)
 {
   "name": "my-awesome-package",
   "version": "1.0.0",
-  "author": "Your Name <email@example.com>"
+  "author": "Your Name <email@example.com> (http://example.com)"
 }
 ```
 
@@ -116,7 +116,7 @@ Wrote to /home/monatheoctocat/my_package/package.json:
 
 {
   "name": "my_package",
-  "description": "",
+  "description": "make your package easier to find on the npm website",
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -139,7 +139,7 @@ Wrote to /home/monatheoctocat/my_package/package.json:
 
 - `name`: the current directory name
 - `version`: always `1.0.0`
-- `description`: info from the README, or an empty string `""`
+- `description`: info about the package, or an empty string `""`
 - `scripts`: by default creates an empty `test` script
 - `keywords`: empty
 - `author`: empty
@@ -149,7 +149,7 @@ Wrote to /home/monatheoctocat/my_package/package.json:
 
 ### Setting config options for the init command
 
-You can set default config options for the init command. For example, to set the default author email, author name, and license, on the command line, run the following commands:
+You can set default config options for the `npm init` command. For example, to set the default author email, author name, and license, on the command line, run the following commands:
 
 ```
 > npm set init-author-email "example-user@example.com"
