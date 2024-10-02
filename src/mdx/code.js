@@ -118,10 +118,15 @@ function Code({className = '', prompt, children}) {
                   key={key}
                   {...{
                     ...getTokenProps({token, key}),
-                    style:
-                      getTokenProps({token, key}).className === 'token comment'
-                        ? {...getTokenProps({token, key}).style, color: '#747458'}
-                        : getTokenProps({token, key}).style,
+                    style: {
+                      ...getTokenProps({token, key}).style,
+                      color:
+                        getTokenProps({token, key}).className === 'token comment'
+                          ? '#747458'
+                          : getTokenProps({token, key}).className === 'token parameter variable'
+                            ? '#277d7b'
+                            : getTokenProps({token, key}).style.color,
+                    },
                   }}
                 />
               ))}
