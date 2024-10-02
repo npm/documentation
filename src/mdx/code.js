@@ -98,6 +98,8 @@ function getCustomTokenStyle(tokenProps) {
       return {...style, color: '#747458'}
     case 'token parameter variable':
       return {...style, color: '#277d7b'}
+    case 'token function':
+      return {...style, color: '#cf3846'}
     default:
       return style
   }
