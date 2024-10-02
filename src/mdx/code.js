@@ -91,6 +91,18 @@ const CodeBlock = ({children, code, className, style}) => (
   </Box>
 )
 
+function getCustomTokenStyle(tokenProps) {
+  const {className, style} = tokenProps
+  switch (className) {
+    case 'token comment':
+      return {...style, color: '#747458'}
+    case 'token parameter variable':
+      return {...style, color: '#277d7b'}
+    default:
+      return style
+  }
+}
+
 function Code({className = '', prompt, children}) {
   if (prompt) {
     return (
@@ -115,9 +127,7 @@ function Code({className = '', prompt, children}) {
             <Box key={i} {...getLineProps({line, key: i})}>
               {line.map((token, key) => {
                 const tokenProps = getTokenProps({token, key})
-                const tokenStyle =
-                  tokenProps.className === 'token comment' ? {...tokenProps.style, color: '#747458'} : tokenProps.style
-
+                const tokenStyle = getCustomTokenStyle(tokenProps)
                 return <MonoText key={key} {...tokenProps} style={tokenStyle} />
               })}
             </Box>
