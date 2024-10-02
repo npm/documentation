@@ -113,23 +113,13 @@ function Code({className = '', prompt, children}) {
         <CodeBlock className={highlightClassName} style={style} code={code}>
           {tokens.map((line, i) => (
             <Box key={i} {...getLineProps({line, key: i})}>
-              {line.map((token, key) => (
-                <MonoText
-                  key={key}
-                  {...{
-                    ...getTokenProps({token, key}),
-                    style: {
-                      ...getTokenProps({token, key}).style,
-                      color:
-                        getTokenProps({token, key}).className === 'token comment'
-                          ? '#747458'
-                          : getTokenProps({token, key}).className === 'token parameter variable'
-                            ? '#277d7b'
-                            : getTokenProps({token, key}).style.color,
-                    },
-                  }}
-                />
-              ))}
+              {line.map((token, key) => {
+                const tokenProps = getTokenProps({token, key})
+                const tokenStyle =
+                  tokenProps.className === 'token comment' ? {...tokenProps.style, color: '#747458'} : tokenProps.style
+
+                return <MonoText key={key} {...tokenProps} style={tokenStyle} />
+              })}
             </Box>
           ))}
         </CodeBlock>
