@@ -43,6 +43,11 @@ export const InlineCode = styled.code`
   background-color: ${themeGet('colors.neutral.muted')};
   border-radius: ${themeGet('radii.2')};
 `
+const colorMap = {
+  'token comment': '#747458',
+  'token parameter variable': '#277d7b',
+  'token function': '#cf3846',
+}
 
 const MonoText = props => <Text sx={{fontFamily: 'mono', fontSize: 1}} {...props} />
 
@@ -91,16 +96,6 @@ const CodeBlock = ({children, code, className, style}) => (
   </Box>
 )
 
-function getCustomTokenStyle({className, style}) {
-  const colorMap = {
-    'token comment': '#747458',
-    'token parameter variable': '#277d7b',
-    'token function': '#cf3846',
-  }
-
-  return colorMap[className] ? {...style, color: colorMap[className]} : style
-}
-
 function Code({className = '', prompt, children}) {
   if (prompt) {
     return (
@@ -125,7 +120,10 @@ function Code({className = '', prompt, children}) {
             <Box key={i} {...getLineProps({line, key: i})}>
               {line.map((token, key) => {
                 const tokenProps = getTokenProps({token, key})
-                const tokenStyle = getCustomTokenStyle(tokenProps)
+                const tokenStyle = colorMap[tokenProps.className]
+                  ? {...tokenProps.style, color: colorMap[tokenProps.className]}
+                  : tokenProps.style
+
                 return <MonoText key={key} {...tokenProps} style={tokenStyle} />
               })}
             </Box>
