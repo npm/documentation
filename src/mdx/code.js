@@ -45,8 +45,8 @@ export const InlineCode = styled.code`
 `
 const colorMap = {
   'token comment': '#747458',
-  'token parameter variable': '#277d7b',
   'token function': '#cf3846',
+  'token parameter variable': '#277d7b',
 }
 
 const MonoText = props => <Text sx={{fontFamily: 'mono', fontSize: 1}} {...props} />
