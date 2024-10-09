@@ -91,15 +91,14 @@ const CodeBlock = ({children, code, className, style}) => (
   </Box>
 )
 
-function getCustomTokenStyle(tokenProps) {
-  const {className, style} = tokenProps
+function getCustomTokenStyle({className, style}) {
   const colorMap = {
     'token comment': '#747458',
     'token parameter variable': '#277d7b',
     'token function': '#cf3846',
   }
 
-  return className in colorMap ? {...style, color: colorMap[className]} : style
+  return colorMap[className] ? {...style, color: colorMap[className]} : style
 }
 
 function Code({className = '', prompt, children}) {
