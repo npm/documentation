@@ -93,16 +93,13 @@ const CodeBlock = ({children, code, className, style}) => (
 
 function getCustomTokenStyle(tokenProps) {
   const {className, style} = tokenProps
-  switch (className) {
-    case 'token comment':
-      return {...style, color: '#747458'}
-    case 'token parameter variable':
-      return {...style, color: '#277d7b'}
-    case 'token function':
-      return {...style, color: '#cf3846'}
-    default:
-      return style
+  const colorMap = {
+    'token comment': '#747458',
+    'token parameter variable': '#277d7b',
+    'token function': '#cf3846',
   }
+
+  return className in colorMap ? {...style, color: colorMap[className]} : style
 }
 
 function Code({className = '', prompt, children}) {
