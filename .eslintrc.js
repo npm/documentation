@@ -3,6 +3,7 @@ const {getGlobals} = require('eslint-plugin-mdx/lib/helpers')
 module.exports = {
   root: true,
   ignorePatterns: ['.cache/', 'public/'],
+  plugins: ['primer-react', 'github'],
   extends: [
     '@npmcli',
     'react-app',
@@ -10,14 +11,20 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:github/react',
-    'plugin:primer-react/recommended',
     'plugin:react-hooks/recommended',
     'prettier',
   ],
   rules: {
     'max-len': 'off',
     'react/prop-types': 'off',
+    'primer-react/direct-slot-children': 'error',
     'primer-react/no-system-props': ['error', {includeUtilityComponents: true}],
+    'primer-react/a11y-tooltip-interactive-trigger': 'error',
+    'primer-react/new-color-css-vars': 'error',
+    'primer-react/a11y-explicit-heading': 'error',
+    'primer-react/no-deprecated-props': 'warn',
+    'primer-react/a11y-remove-disable-tooltip': 'error',
+    'primer-react/a11y-use-next-tooltip': 'error',
   },
   settings: {
     'import/resolver': {
