@@ -10,12 +10,19 @@ import {LightTheme} from '../theme'
 import {LinkNoUnderline} from './link'
 import * as getNav from '../util/get-nav'
 import omit from '../util/omit'
+import {announce} from '../util/aria-live'
 
-const SearchResults = ({results, getItemProps, highlightedIndex}) => {
+const SearchResults = ({results, getItemProps, highlightedIndex, isOpen}) => {
   const siteMetadata = useSiteMetadata()
 
+  React.useEffect(() => {
+    if (isOpen && (!results || results.length === 0)) {
+      announce('No results')
+    }
+  }, [results, isOpen])
+
   if (!results || results.length === 0) {
-    return <Box sx={{fontSize: 2, px: 3, py: 3}}>No results</Box>
+    return <Box sx={{fontSize: 2, px: 3, py: 3}} aria-live="assertive">No results</Box>
   }
 
   return (
