@@ -22,7 +22,11 @@ const SearchResults = ({results, getItemProps, highlightedIndex, isOpen}) => {
   }, [results, isOpen])
 
   if (!results || results.length === 0) {
-    return <Box sx={{fontSize: 2, px: 3, py: 3}} aria-live="assertive">No results</Box>
+    return (
+      <Box sx={{fontSize: 2, px: 3, py: 3}} aria-live="assertive">
+        No results
+      </Box>
+    )
   }
 
   return (
