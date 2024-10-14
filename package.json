@@ -1,6 +1,6 @@
 {
-  "name": "documentation",
-  "version": "1.0.0",
+  "name": "metasportsfumez",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/npm/documentation.git"
@@ -101,5 +101,12 @@
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
     "version": "4.23.4",
     "content": "./scripts/template-oss"
-  }
+  },
+  "description": "docs",
+  "main": "index.js",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/npm/documentation/issues"
+  },
+  "homepage": "https://github.com/npm/documentation#readme"
 }
