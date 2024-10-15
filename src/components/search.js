@@ -14,16 +14,10 @@ import {announce} from '../util/aria-live'
 
 const SearchResults = ({results, getItemProps, highlightedIndex, isOpen}) => {
   const siteMetadata = useSiteMetadata()
-
-  React.useEffect(() => {
-    if (isOpen && (!results || results.length === 0)) {
-      announce('No results')
-    }
-  }, [results, isOpen])
-
   if (!results || results.length === 0) {
+    announce('No results')
     return (
-      <Box sx={{fontSize: 2, px: 3, py: 3}} aria-live="assertive">
+      <Box sx={{fontSize: 2, px: 3, py: 3}} aria-live="polite">
         No results
       </Box>
     )
