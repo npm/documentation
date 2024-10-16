@@ -12,7 +12,7 @@ import * as getNav from '../util/get-nav'
 import omit from '../util/omit'
 import {announce} from '../util/aria-live'
 
-const SearchResults = ({results, getItemProps, highlightedIndex, isOpen}) => {
+const SearchResults = ({results, getItemProps, highlightedIndex}) => {
   const siteMetadata = useSiteMetadata()
   if (!results || results.length === 0) {
     announce('No results')
