@@ -1403,9 +1403,6 @@
             - title: npm help-search
               url: /cli/v10/commands/npm-help-search
               description: Get help on npm
-            - title: npm hook
-              url: /cli/v10/commands/npm-hook
-              description: Manage registry hooks
             - title: npm init
               url: /cli/v10/commands/npm-init
               description: Create a package.json file
