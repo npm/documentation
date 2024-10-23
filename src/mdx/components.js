@@ -179,7 +179,7 @@ export const UnorderedList = styled.ul`
   }
 
   li {
-    word-wrap: break-all;
+    word-break: break-all;
   }
 
   li > p {
