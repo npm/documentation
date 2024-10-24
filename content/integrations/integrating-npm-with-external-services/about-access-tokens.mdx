@@ -1,61 +1,53 @@
----
-title: About access tokens
-redirect_from:
-  - /getting-started/working_with_tokens
-  - /about-authentication-tokens
----
+About Access Tokens
+Redirect from:
 
+/getting-started/working_with_tokens
+/about-authentication-tokens
 <Note>
-
-**Note:** You must be using npm version 5.5.1 or greater to use access tokens.
+Note: You must have npm version 5.5.1 or higher to use access tokens.
 
 </Note>
+Access tokens provide an alternative to using your username and password for authenticating to npm, whether you're working with the API or the npm command-line interface (CLI). These tokens are hexadecimal strings that let you install or publish modules securely.
 
-An access token is an alternative to using your username and password for authenticating to npm when using the API or the npm command-line interface (CLI). An access token is a hexadecimal string that you can use to authenticate, and which gives you the right to install and/or publish your modules.
+There are two types of access tokens:
 
-There are two types of access tokens available:
+Legacy Tokens
+Granular Access Tokens
+You can create access tokens to allow tools like continuous integration (CI) systems to access your npm packages. For example, you can store tokens as secrets in GitHub Actions to authenticate workflows. This enables npm tasks, such as installing private packages, to be completed automatically.
 
-- [Legacy tokens](#about-legacy-tokens)
-- [Granular access tokens](#about-granular-access-tokens)
+Tokens can be managed either through the web interface or the CLI. Changes made in one environment will reflect in the other.
 
-You can create access tokens to give other tools (such as continuous integration testing environments) access to your npm packages. For example, GitHub Actions provides the ability to store [secrets](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets), such as access tokens, that you can then use to authenticate. When your workflow runs, it will be able to complete npm tasks as you, including installing private packages you can access.
+The npm token commands allow you to:
 
-You can work with tokens from the web or the CLI, whichever is easiest. What you do in each environment will be reflected in the other environment.
+View and manage existing tokens
+Create new legacy tokens
+Restrict access by IP address ranges (CIDR)
+Revoke or delete tokens
+For detailed instructions on creating and managing tokens, see "[Creating and viewing access tokens][create-token]".
 
-npm token commands let you:
+Legacy Tokens
+Legacy tokens grant the same permissions as the user who created them. When you log in via npm login, a publish token is generated automatically.
 
-- View tokens for easier tracking and management
-- Create new legacy tokens
-- Limit access according to IP address ranges (CIDR)
-- Delete/revoke tokens
+There are three types of legacy tokens:
 
-For more information on creating and viewing access tokens on the web and CLI, see "[Creating and viewing access tokens][create-token]".
+Read-only: Used to download packages. Ideal for automation workflows that involve package installation. For better security, use granular access tokens.
 
-## About legacy tokens
+Automation: Used for downloading and publishing packages. Best for CI/CD workflows. Automation tokens bypass 2FA for operations on npm. For enhanced security, we recommend switching to granular access tokens.
 
-Legacy tokens are created with the same permissions as the user who created them. The npm CLI automatically generates and uses a publish token when you run `npm login`.
+Publish: Grants full control—downloading, installing packages, and updating settings. These tokens are suited for interactive workflows, such as working through the CLI. If your account has 2FA enabled, 2FA will be required for sensitive actions using these tokens.
 
-There are three different types of legacy tokens:
+Legacy tokens don't expire, so keeping them secure is critical. For more tips, see "[Securing your token][secure-token]."
 
-- **Read-only**: You can use these tokens to download packages from the registry. These tokens are best for automation and workflows where you are installing packages. For greater security, we recommend using [granular access tokens](#about-granular-access-tokens) instead.
-- **Automation**: You can use these tokens to download packages and install new ones. These tokens are best for automation workflows where you are publishing new packages. Automation tokens do not 2FA for executing operations on npm and are suitable for CI/CD workflows. For greater security, we recommend using [granular access tokens](#about-granular-access-tokens) instead.
-- **Publish**: You can use these tokens to download packages, install packages, and update user and package settings. We recommend using them for interactive workflows such as a CLI. If 2FA is enabled on your account, publish tokens will require 2FA to execute sensitive operations on npm.
+Granular Access Tokens
+Granular access tokens offer more control by allowing you to define specific permissions for the token. With these tokens, you can:
 
-Legacy tokens do not have an expiration date. It is important to be aware of your tokens and keep them protected for account security. For more information, see "[Securing your token][secure-token]."
+Limit access to specific packages or scopes
+Grant access to specific organizations
+Set an expiration date for the token
+Restrict access by IP address ranges
+Choose between read-only or read and write access
+You can create up to 1,000 granular tokens on your npm account, and each can last a minimum of one day. A single token can be used to access up to 50 organizations or a combination of 50 packages and scopes. Granular tokens inherit the user's permissions, meaning the token can't exceed the permissions granted to its owner. If the user loses access to a package or organization, the associated token's access will also be revoked.
 
-## About granular access tokens
+When a token is assigned to an organization, it can only manage the organization's settings, teams, and users. It doesn't grant permission to publish packages for the organization.
 
-Granular access tokens allow you to restrict access provided to the token based on what you want to use the token for. With granular access tokens, you can:
-
-- Restrict which packages and scopes a token has access to
-- Grant tokens access to specific organizations
-- Set a token expiration date
-- Limit token access based on IP address ranges
-- Select between **read-only** or **read and write** access
-
-You can create up to 1000 granular access tokens on your npm account. You can set how long your token is valid for, at least one day in the future. Each token can access up to 50 organizations, and up to either 50 packages, 50 scopes, or a combination of 50 packages and scopes. Access tokens are tied to users’ permission; hence it cannot have more permission than the user at any point in time. If a user has their access revoked from a package or an org., their granular access token also will have its access revoked from those packages or org.
-
-When you give a token access to an organization, the token can only be used for managing organization settings and teams or users associated with the organization. It does not give the token the right to publish packages managed by the organization.
-
-[create-token]: creating-and-viewing-access-tokens
-[secure-token]: using-private-packages-in-a-ci-cd-workflow#securing-your-token
+For more information on securing and managing your tokens, see "[Securing your token][secure-token]."
