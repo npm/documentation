@@ -36,11 +36,13 @@ const Contributors = ({contributors = [], latestCommit}) => {
           {contributors.length} {pluralize('contributor', contributors.length)}
         </Text>
         {contributors.map(login => (
-          <Tooltip key={login} text={login}>
-            <Link href={`https://github.com/${login}`} sx={{lineHeight: 'condensedUltra', mr: 2}}>
-              <Avatar src={`https://github.com/${login}.png?size=40`} alt={login} />
-            </Link>
-          </Tooltip>
+          <li key={login}>
+              <Tooltip key={login} text={login}>
+              <Link href={`https://github.com/${login}`} sx={{lineHeight: 'condensedUltra', mr: 2}}>
+                     <Avatar src={`https://github.com/${login}.png?size=40`} alt={login} />
+              </Link>
+              </Tooltip>
+         </li>
         ))}
       </Box>
       {latestCommit ? (
