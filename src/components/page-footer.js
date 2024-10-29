@@ -37,12 +37,12 @@ const Contributors = ({contributors = [], latestCommit}) => {
         </Text>
         {contributors.map(login => (
           <li key={login}>
-              <Tooltip key={login} text={login}>
+            <Tooltip key={login} text={login}>
               <Link href={`https://github.com/${login}`} sx={{lineHeight: 'condensedUltra', mr: 2}}>
-                     <Avatar src={`https://github.com/${login}.png?size=40`} alt={login} />
+                <Avatar src={`https://github.com/${login}.png?size=40`} alt={login} />
               </Link>
-              </Tooltip>
-         </li>
+            </Tooltip>
+          </li>
         ))}
       </Box>
       {latestCommit ? (
