@@ -39,7 +39,6 @@ const DefaultLayout = ({children}) => {
     <Box
       sx={{
         justifyContent: 'center',
-        flexDirection: 'row-reverse',
         display: 'flex',
         maxWidth: '1200px',
         mx: 'auto',
@@ -47,7 +46,6 @@ const DefaultLayout = ({children}) => {
         p: [4, 5, 6, 7],
       }}
     >
-      <TableOfContents.Desktop />
       <Container as="main">
         <Box sx={{mb: 4}}>
           <Breadcrumbs />
@@ -60,6 +58,7 @@ const DefaultLayout = ({children}) => {
         {children}
         <PageFooter />
       </Container>
+      <TableOfContents.Desktop />
     </Box>
   )
 }
