@@ -31,7 +31,7 @@ const SearchResults = ({results, getItemProps, highlightedIndex}) => {
         // don't all appear the same in the search results
         const variant = getNav.getVariant(getNav.getVariantRoot(item.path), item.path)
         const hierarchy = getNav.getItemBreadcrumbs(item.path)
-        if (!variant || variant !== hierarchy[hierarchy.length - 1].shortName) {
+        if (!variant || variant !== hierarchy[hierarchy.length - 1]?.shortName) {
           hierarchy.pop()
         }
 
