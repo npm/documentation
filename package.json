@@ -96,6 +96,13 @@
   "engines": {
     "node": ">=22.0.0"
   },
+  "overrides": {
+    "body-parser": "1.20.3",
+    "path-to-regexp": "0.1.10",
+    "cookie": "0.7.0",
+    "webpack-dev-middleware": "5.3.4",
+    "axios": "1.7.4"
+  },
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
     "version": "4.23.4",
