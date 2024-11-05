@@ -35,7 +35,7 @@ const PageElement = ({element, props}) => {
       <PageProvider value={page}>
         <Box sx={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
           <Header />
-          <Box sx={{zIndex: 0, display: 'flex', flex: '1 1 auto', flexDirection: 'row'}} role="main">
+          <Box sx={{zIndex: 0, display: 'flex', flex: '1 1 auto', flexDirection: 'row'}}>
             <Box sx={{display: ['none', null, null, 'block']}}>
               <Sidebar />
             </Box>
