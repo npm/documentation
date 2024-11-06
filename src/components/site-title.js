@@ -4,7 +4,7 @@ import Link from './link'
 import useSiteMetadata from '../hooks/use-site-metadata'
 
 const NpmLogo = ({size, sx}) => (
-  <Box sx={{...sx, color: 'logoBg'}} role="banner">
+  <Box sx={{...sx, color: 'logoBg'}}>
     <svg height={size} width={size} viewBox="0 0 700 700" fill="currentColor" aria-hidden="true">
       <polygon fill="currentColor" points="0,700 700,700 700,0 0,0" />
       <polygon fill="#ffffff" points="150,550 350,550 350,250 450,250 450,550 550,550 550,150 150,150 " />
