@@ -182,17 +182,17 @@ Consider also setting `"private": true` to prevent accidental publication.
 
 ### people fields: author, contributors
 
-The "author" is one person. "contributors" is an array of people. A "person" is an object with a "name" field and optionally "url" and "email", like this:
+The self-explanatory "author" field is reserved to only - you guessed it - the _author_ of the package. "contributors" or "maintainers" is an array of people whom have contributed to the package. The "author" field is an object with a "name" field and optionally "url" and "email" fields. Example:
 
 ```json
-{
+"author": {
   "name": "Barney Rubble",
   "email": "b@rubble.com",
   "url": "http://barnyrubble.tumblr.com/"
-}
+},
 ```
 
-Or you can shorten that all into a single string, and npm will parse it for you:
+Or you can shorten that all into a single string and npm will parse it for you:
 
 ```json
 {
@@ -202,7 +202,25 @@ Or you can shorten that all into a single string, and npm will parse it for you:
 
 Both email and url are optional either way.
 
-npm also sets a top-level "maintainers" field with your npm user info.
+npm also sets a top-level optional "maintaners" and "contributors" fields with your npm user info.
+
+```json
+"contributors": [
+    {
+      "name": "Sarkis Kovlekjian",
+      "email": "kovlekjian@gmail.com",
+      "url": "https://github.com/kenshanta"
+    }
+  ],
+
+// Depreciated in favor of "contributors"
+  "maintainers": [
+    {
+      "name": "Ken Shanta",
+      "email": "ken.shanta@example.com"
+    }
+  ],
+```
 
 ### funding
 
