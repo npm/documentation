@@ -179,7 +179,7 @@ export const UnorderedList = styled.ul`
   }
 
   li {
-    word-break: break-all;
+    word-break: break-word;
   }
 
   li > p {
@@ -195,6 +195,7 @@ export const OrderedList = UnorderedList.withComponent('ol')
 
 export const Paragraph = styled.p`
   margin: 0 0 ${themeGet('space.3')};
+  word-break: break-word;
 `
 
 export const Table = styled.table`

@@ -31,7 +31,7 @@ const Contributors = ({contributors = [], latestCommit}) => {
 
   return (
     <>
-      <Box sx={{display: 'flex', alignItems: 'center'}}>
+      <Box sx={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>
         <Text sx={{mr: 2}}>
           {contributors.length} {pluralize('contributor', contributors.length)}
         </Text>
