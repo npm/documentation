@@ -54,7 +54,6 @@ const MonoText = props => <Text sx={{fontFamily: 'mono', fontSize: 1}} {...props
 
 const CodeBlock = ({children, code, className, style}) => (
   <Box
-    role="presentation"
     sx={{
       // Make <pre> adjust to the width of the container
       // https://stackoverflow.com/a/14406386
@@ -65,7 +64,6 @@ const CodeBlock = ({children, code, className, style}) => (
     }}
   >
     <Box
-      role="presentation"
       style={style}
       sx={{
         ...(code ? {display: 'flex', justifyContent: 'space-between', flexDirection: 'row-reverse'} : {}),
