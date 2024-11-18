@@ -1,0 +1,23 @@
+# This file is automatically added by @npmcli/template-oss. Do not edit.
+
+# ignore everything in the root
+/*
+
+!**/.gitignore
+!/.eslintrc.js
+!/.eslintrc.local.*
+!/.git-blame-ignore-revs
+!/.gitignore
+!/bin/
+!/CHANGELOG*
+!/docs/
+!/lib/
+!/LICENSE*
+!/map.js
+!/package.json
+!/README*
+!/releases.json
+!/scripts/
+!/tap-snapshots/
+!/test/
+tap-testdir*/

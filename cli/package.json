@@ -1,0 +1,53 @@
+{
+  "name": "cli",
+  "private": true,
+  "repository": {
+    "url": "git+https://github.com/npm/documentation.git",
+    "directory": "cli",
+    "type": "git"
+  },
+  "scripts": {
+    "build": "node bin/build.js",
+    "lint": "npm run eslint",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run eslint -- --fix",
+    "snap": "tap",
+    "test": "tap",
+    "posttest": "npm run lint",
+    "eslint": "eslint \"**/*.{js,cjs,ts,mjs,jsx,tsx}\""
+  },
+  "dependencies": {
+    "@octokit/rest": "^21.0.0",
+    "@prettier/sync": "^0.5.0",
+    "front-matter": "^4.0.2",
+    "minimatch": "^10.0.1",
+    "minipass": "^7.0.4",
+    "pacote": "^20.0.0",
+    "proc-log": "^5.0.0",
+    "semver": "^7.5.4",
+    "tar": "^7.0.1",
+    "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "@npmcli/eslint-config": "^5.0.0",
+    "@npmcli/template-oss": "4.23.4",
+    "tap": "^21.0.0"
+  },
+  "author": "GitHub Inc.",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.23.4",
+    "content": "./scripts/template-oss"
+  },
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "tap": {
+    "allow-incomplete-coverage": true
+  }
+}

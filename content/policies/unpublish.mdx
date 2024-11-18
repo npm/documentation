@@ -15,11 +15,11 @@ For newly created packages, as long as no other packages in the npm Public Regis
 
 ## Packages published more than 72 hours ago
 
-Regardless of how long ago a package was published, you can unpublish a package that:
+Regardless of how long ago a package was published, you can unpublish a package that meets all of the following conditions:
 
-- no other packages in the npm Public Registry depend on
-- had less than 300 downloads over the last week
-- has a single owner/maintainer
+- no other packages in the npm Public Registry depend on it
+- it had less than 300 downloads over the last week
+- it has a single owner/maintainer
 
 ## How to unpublish
 
@@ -44,12 +44,6 @@ This can be achieved by using one of the following from your command line:
 
 If the entire package is deprecated, the package name will be dropped from our search results.
 
-Once deprecated, if you would also like for the package to be removed from your user profile, it can be [transferred](https://docs.npmjs.com/cli/owner) to our [@npm](https://www.npmjs.com/~npm) account. This can be achieved by using the following from your command line:
-
-- `npm owner add npm <package>`
-- `npm owner rm <your_username> <package>`
-
-
 ## More on our unpublish policy
 
 This document is additive to the [unpublish procedures](https://docs.npmjs.com/unpublishing-packages-from-the-registry), the CLI commands [unpublish documentation](https://docs.npmjs.com/cli/unpublish) and the ["Changes to npm Unpublish Policy - January 2020"](https://blog.npmjs.org/post/190553543620/changes-to-npmunpublish-policy-january-2020) blog post.
@@ -58,22 +52,17 @@ This document is additive to the [unpublish procedures](https://docs.npmjs.com/u
 
 If for some reason your package meets the unpublish policy criteria but the unpublish command fails, or if you need assistance with the deprecate process, please [reach out to our support team](https://npmjs.com/support) where we'll be happy to assist.
 
-If you believe a package violates npm's terms or policies, such as our terms of use, [reach out to our support team](https://www.npmjs.com/support).  If a package infringes your copyright, [refer to npm's DMCA takedown policy][dmca].  If you believe a package violates your privacy rights, [contact our privacy team][contact] as soon as possible.
+If you believe a package violates npm's terms or policies, such as our terms of use, [reach out to our support team](https://www.npmjs.com/support). If a package infringes your copyright, [refer to npm's DMCA takedown policy][dmca]. If you believe a package violates your privacy rights, [contact our privacy team][contact] as soon as possible.
 
 ## Changes
 
-This is a living document and may be updated from time to time.
-Please refer to the [git history for this
-document](https://github.com/npm/documentation/blob/main/content/policies/unpublish.mdx)
-to view the changes.
+This is a living document and may be updated from time to time. Please refer to the [git history for this document](https://github.com/npm/documentation/blob/main/content/policies/unpublish.mdx) to view the changes.
 
 ## License
 
 Copyright (C) npm, Inc., All rights reserved
 
-This document may be reused under a [Creative Commons
-Attribution-ShareAlike
-License](https://creativecommons.org/licenses/by-sa/4.0/).
+This document may be reused under a [Creative Commons Attribution-ShareAlike License](https://creativecommons.org/licenses/by-sa/4.0/).
 
 [dmca]: /policies/dmca
 [contact]: /policies/privacy#contact

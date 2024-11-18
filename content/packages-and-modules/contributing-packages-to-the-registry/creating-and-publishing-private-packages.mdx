@@ -3,7 +3,8 @@ title: Creating and publishing private packages
 redirect_from:
   - /private-modules/intro
 ---
-import shared from '../../../src/shared.js'
+
+import shared from '~/shared.js'
 
 To share your code with a limited set of users or teams, you can publish private user-scoped or organization-scoped packages to the npm registry.
 
@@ -11,10 +12,9 @@ For more information on scopes and private packages, see "[About scopes][scopes]
 
 <Note>
 
-**Note:** Before you can publish private user-scoped npm packages, you must <a href="https://npmjs.com/signup">sign up</a> for a paid npm user account.
+**Note:** Before you can publish private user-scoped npm packages, you must [sign up](https://npmjs.com/signup) for a paid npm user account.
 
-Additionally, to publish private organization-scoped packages, you must <a href="https://npmjs.com/signup">create an npm user account</a>, then <a href="https://www.npmjs.com/signup?next=/org/create">
-create a paid npm organization</a>.
+Additionally, to publish private organization-scoped packages, you must [create an npm user account](https://npmjs.com/signup), then [ create a paid npm organization](https://www.npmjs.com/signup?next=/org/create).
 
 </Note>
 
@@ -22,42 +22,43 @@ create a paid npm organization</a>.
 
 1. If you are using npmrc to [manage accounts on multiple registries][reg-config], on the command line, switch to the appropriate profile:
 
-    ```
-    npmrc <profile-name>
-    ```
+   ```
+   npmrc <profile-name>
+   ```
 
 2. On the command line, create a directory for your package:
 
-    ```
-    mkdir my-test-package
-    ```
+   ```
+   mkdir my-test-package
+   ```
 
 3. Navigate to the root directory of your package:
 
-    ```
-    cd my-test-package
-    ```
+   ```
+   cd my-test-package
+   ```
 
 4. If you are using git to manage your package code, in the package root directory, run the following commands, replacing `git-remote-url` with the git remote URL for your package:
 
-    ```
-    git init
-    git remote add origin git://git-remote-url
-    ```
+   ```
+   git init
+   git remote add origin git://git-remote-url
+   ```
 
 5. In the package root directory, run the `npm init` command and pass the scope to the `scope` flag:
 
-   * For an organization-scoped package, replace `my-org` with the name of your organization:
+   - For an organization-scoped package, replace `my-org` with the name of your organization:
+
      ```
      npm init --scope=@my-org
      ```
 
-   * For a user-scoped package, replace `my-username` with your username:
+   - For a user-scoped package, replace `my-username` with your username:
      ```
      npm init --scope=@my-username
      ```
 
-6. Respond to the prompts to generate a <a href="https://docs.npmjs.com/about-package-json-and-package-lock-json-files">`package.json`</a> file. For help naming your package, see "[Package name guidelines][pkg-name]".
+6. Respond to the prompts to generate a [`package.json`](https://docs.npmjs.com/about-package-json-and-package-lock-json-files) file. For help naming your package, see "[Package name guidelines][pkg-name]".
 
 7. Create a [README file][readme-file] that explains what your package code is and how to use it.
 
@@ -93,7 +94,7 @@ By default, scoped packages are published with private visibility.
    npm publish
    ```
 
-3. To see your private package page, visit https://npmjs.com/package/*package-name*, replacing *package-name* with the name of your package. Private packages will say `private` below the package name on the npm website.
+3. To see your private package page, visit https://npmjs.com/package/*package-name*, replacing *package-name\* with the name of your package. Private packages will say `private` below the package name on the npm website.
 
    <>{shared['organization-package-private'].image}</>
 
@@ -108,3 +109,4 @@ For more information on the `publish` command, see the [CLI documentation][cli-p
 [developers]: /misc/developers#keeping-files-out-of-your-package
 [cli-publish]: /cli/publish
 [reg-config]: configuring-your-registry-settings-as-an-npm-enterprise-user#using-npmrc-to-manage-multiple-profiles-for-different-registries
+[pii]: https://en.wikipedia.org/wiki/Personally_identifiable_information

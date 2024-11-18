@@ -4,87 +4,71 @@ redirect_from:
   - /private-modules/docker-and-private-modules
 ---
 
-To install private npm packages in a Docker container, you will need to use Docker's build-time variables.
+To install private npm packages in a Docker container, you will need to use [Docker build secrets](https://docs.docker.com/develop/develop-images/build_enhancements/#new-docker-build-secret-information).
 
 ## Background: runtime variables
 
-You cannot install private npm packages in a Docker container using only runtime variables.  Consider the following Dockerfile:
+You cannot install private npm packages in a Docker container using only runtime variables. Consider the following Dockerfile:
 
 ```
 FROM node
 
-COPY package.json package.json  
+COPY package.json package.json
 RUN npm install
 
 # Add your source files
-COPY . .  
-CMD npm start  
+COPY . .
+CMD npm start
 ```
 
 Which will use the official [Node.js](https://hub.docker.com/_/node) image, copy the `package.json` into our container, installs dependencies, copies the source files and runs the start command as specified in the `package.json`.
 
 In order to install private packages, you may think that we could just add a line before we run `npm install`, using the [ENV parameter](https://docs.docker.com/engine/reference/builder/#env):
 
-```
+```docker
 ENV NPM_TOKEN=00000000-0000-0000-0000-000000000000
 ```
 
 However, this doesn't work as you would expect, because you want the npm install to occur when you run `docker build`, and in this instance, `ENV` variables aren't used, they are set for runtime only.
 
-Instead of run-time variables, you must use a different way of passing environment variables to Docker, available since Docker 1.9: the [ARG parameter](https://docs.docker.com/engine/reference/builder/#arg).
-
-## Create and check in a project-specific .npmrc file
-
-A complete example that will allow you to use `--build-arg` to pass in your NPM_TOKEN requires adding a `.npmrc` file to the project.
-
-Use a project-specific `.npmrc` file with a variable for your token to securely authenticate your Docker image with npm.
-
-1. In the root directory of your project, create a custom <a href="https://docs.npmjs.com/cli-documentation/files/npmrc">`.npmrc`</a> file with the following contents:
-
-   ```
-   //registry.npmjs.org/:_authToken=${NPM_TOKEN}
-   ```
-
-   **Note:** that you are specifying a literal value of `${NPM_TOKEN}`.  The npm cli will replace this value with the contents of the `NPM_TOKEN` environment variable.  Do **not** put a token in this file.
-
-2. Check in the `.npmrc` file.
+Instead of run-time variables, you must use Docker build secrets.
 
 ## Update the Dockerfile
 
-The Dockerfile that takes advantage of this has a few more lines in it than the earlier example that allows us to use the `.npmrc` file and the `ARG` parameter:
+The Dockerfile that takes advantage of this has a few more lines in it than the earlier example that allows us to use your global `.npmrc` and the access token created when running `npm login` command (if you haven't run it already - do so before moving on).
 
-```
-FROM node
+```dockerfile
+# https://docs.npmjs.com/docker-and-private-modules
+FROM node:18
 
-ARG NPM_TOKEN  
-COPY .npmrc .npmrc  
-COPY package.json package.json  
-RUN npm install  
-RUN rm -f .npmrc
+ENV APP_HOME="/app"
 
-# Add your source files
-COPY . .  
+WORKDIR ${APP_HOME}
+
+COPY package*.json ${APP_HOME}/
+
+RUN --mount=type=secret,id=npmrc,target=/root/.npmrc npm install
+
+COPY . ${APP_HOME}/
+
 CMD npm start
+
 ```
 
-This adds the expected `ARG NPM_TOKEN`, but also copies the `.npmrc` file, and removes it when `npm install` completes.
+This will configure your Dockerfile to receive `.npmrc` file via build secrets, that will leave no trace after npm dependency installation is done.
 
 ## Build the Docker image
 
 To build the image using the above Dockerfile and the npm authentication token, you can run the following command. Note the `.` at the end to give `docker build` the current directory as an argument.
 
-```
-docker build --build-arg NPM_TOKEN=${NPM_TOKEN} .
+```shell
+docker build . -t secure-app-secrets:1.0 --secret id=npmrc,src=$HOME/.npmrc
 ```
 
-This will build the Docker image with the current `NPM_TOKEN` environment variable, so you can run `npm install` inside your container as the current logged-in user.
+This will build the Docker image with the access token coming from your global `.npmrc` file received via build secrets, so you can run `npm install` inside your container as the current logged-in user.
 
 <Note>
 
-**Note:** Even if you delete the `.npmrc` file, it will be kept in the commit history. To clean your secrets entirely, make sure to squash them.
-
-**Note:** You may commit the `.npmrc` file under a different name, e.g. `.npmrc.docker` to prevent local build from using it.
-
-**Note:** You may need to specify a working directory different from the default `/`  otherwise some frameworks like Angular will fail.
+**Note:** You may need to specify a working directory different from the default `/` otherwise some frameworks like Angular will fail.
 
 </Note>

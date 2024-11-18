@@ -11,6 +11,7 @@ You can use the npm search bar to find packages to use in your projects. npm sea
 1. In the search bar, type a search term and press **Enter**. As you type, possible choices will appear.
 
    <Screenshot src="/packages-and-modules/getting-packages-from-the-registry/search-qr.png" alt="Screenshot of a search text box" />
+
    <Screenshot src="/packages-and-modules/getting-packages-from-the-registry/search-qr-results.png" alt="Screenshot of the search text box and search results" />
 
 2. To list packages ranked according to [package search rank criteria](#package-search-rank-criteria), in the left sidebar, under "Sort packages", click the criterion. For example, to sort packages by popularity, click "Popularity".
@@ -36,3 +37,61 @@ Maintenance ranks packages according to the attention they are given by develope
 ### Optimal
 
 Optimal combines the other three criteria (popularity, quality, maintenance) into one score in a meaningful way.
+
+## Package provenance
+
+When packages have been published with provenance, you can:
+
+- Verify where and how a package was published.
+- Validate that an authorized user published a package.
+
+You can use this information to audit packages and determine whether or not you want to consume them. For more information about npm provenance, see "[About npm provenance][about-provenance]."
+
+To view provenance information for a package in the npm registry:
+
+1. In the npm registry, navigate to a package.
+
+2. On the package's page, in the **Version** field to the right of the README, look for a green check mark. If there is a green check mark, this means the package was published with provenance.
+
+   <Screenshot src="/packages-and-modules/getting-packages-from-the-registry/npm-provenance-check-mark.png" alt="Screenshot showing a Version field with a green check mark" />
+
+3. Click on the check mark, then click **View more details**.
+
+4. View the following information for the package:
+
+   - **Build Environment**: The environment used to build the package.
+   - **Build Summary**: A link to the workflow run that built the package.
+   - **Source Commit**: A link to the commit the package was built from.
+   - **Build File**: A link to the workflow file used to build the package.
+   - **Public Ledger**: A link to a transparency log entry attesting an authorized user published the package.
+
+   <Screenshot src="/packages-and-modules/getting-packages-from-the-registry/npm-provenance.png" alt="Screenshot showing npm provenance information for a published package" />
+
+<Note>
+
+**Note:** Whenever you access a package's provenance information on npmjs.com, the linked source commit and repository are checked by npm. If the linked source commit or repository cannot be found, an error message will appear at the top of the page and alongside the provenance information. This is to inform you that the provenance for this package can no longer be established, which may occur when a repository is deleted or made private.
+
+<Screenshot src="/packages-and-modules/getting-packages-from-the-registry/npm-provenance-unreachable-source-commit@2x.png" alt="Screenshot showing a warning when the provenance source commit or repository cannot be found." />
+
+</Note>
+
+### Verifying provenance attestations
+
+When you download a package from the registry, you can verify the provenance of a package with the following CLI command:
+
+```
+npm audit signatures
+```
+
+This command checks the registry signatures and provenance attestations. If a package has missing or invalid signatures or attestations, it returns an error. This could indicate that a package has been tampered with.
+
+<Note>
+
+**Note:** In order to run the audit command to verify package provenance, you must:
+
+- Install npm CLI version `v9.5.0` or later: `npm install -g npm@latest`
+- Install dependencies with `npm install` or `npm ci`
+
+</Note>
+
+[about-provenance]: /generating-provenance-statements#about-npm-provenance

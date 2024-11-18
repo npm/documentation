@@ -1,0 +1,35 @@
+name: Update CLI
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "14 2 * * *"
+
+jobs:
+  update-cli:
+    outputs:
+      has_changes: $\{{ steps.status.outputs.has_changes }}
+    {{> jobYml jobName="Update CLI" }}
+      - name: Build documentation
+        run: npm run build -w cli
+        env:
+          # token is used to get files from `npm/cli` that
+          # are not present in the published tarball
+          GITHUB_TOKEN: $\{{ secrets.GITHUB_TOKEN }}
+      - name: Check for changes
+        id: status
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::set-output name=has_changes::1"
+          fi
+      - name: Check in source updates
+        if: steps.status.outputs.has_changes == '1'
+        run: |
+          git add --verbose .
+          git commit -m 'CLI documentation update from CI'
+          git push origin main
+
+  publish:
+    needs: update-cli
+    if: needs.update-cli.outputs.has_changes == '1'
+    uses: ./.github/workflows/publish.yml

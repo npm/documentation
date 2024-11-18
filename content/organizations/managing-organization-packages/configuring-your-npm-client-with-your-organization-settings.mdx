@@ -3,7 +3,6 @@ title: Configuring your npm client with your organization settings
 redirect_from:
   - /configuring-your-npm-client-with-your-org-settings
 ---
-import shared from '../../../src/shared.js'
 
 As an organization member, you can configure your npm client to:
 
@@ -42,9 +41,9 @@ For packages you do not want to publish with your organization's scope, you must
 
 2. Run the following command, replacing &lt;org-name&gt; with the name of your organization:
 
-    ```
-    npm config set scope <org-name>
-    ```
+   ```
+   npm config set scope <org-name>
+   ```
 
 ## Changing default package visibility to public
 
@@ -63,11 +62,13 @@ You can set a single package to pass `--access public ` to every `npm publish` c
    ```
    cd /path/to/package
 
+   ```
+
 2. Run the following command:
 
-    ```
-    npm config set access public
-    ```
+   ```
+   npm config set access public
+   ```
 
 ### Setting package visibility to public for all packages
 

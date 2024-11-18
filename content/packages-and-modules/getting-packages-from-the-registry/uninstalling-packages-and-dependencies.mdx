@@ -13,6 +13,12 @@ If you no longer need to use a package in your code, we recommend uninstalling i
 
 To remove a package from your node_modules directory, on the command line, use the [`uninstall` command][cli-uninstall]. Include the scope if the package is scoped.
 
+This uninstalls a package, completely removing everything npm installed on its behalf.
+
+It also removes the package from the dependencies, devDependencies, optionalDependencies, and peerDependencies objects in your package.json.
+
+Further, if you have an npm-shrinkwrap.json or package-lock.json, npm will update those files as well.
+
 #### Unscoped package
 
 ```
@@ -32,35 +38,19 @@ npm uninstall <@scope/package_name>
 npm uninstall lodash
 ```
 
-### Removing a local package from the `package.json` dependencies
+### Removing a local package without removing it from package.json
 
-To remove a package from the dependencies in `package.json`, use the `--save` flag. Include the scope if the package is scoped.
+Using the `--no-save` will tell npm not to remove the package from your `package.json`, `npm-shrinkwrap.json`, or `package-lock.json` files.
 
-#### Unscoped package
-
-```
-npm uninstall --save <package_name>
-```
-
-#### Scoped package
+### Example
 
 ```
-npm uninstall --save <@scope/package_name>
-```
-
-#### Example
-
-```
-npm uninstall --save lodash
+npm uninstall --no-save lodash
 ```
 
 <Note>
 
-**Note:** If you installed a package as a "devDependency" (i.e. with `--save-dev`), use `--save-dev` to uninstall it:
-
-```
-npm uninstall --save-dev package_name
-```
+`--save` or `-S` will tell npm to remove the package from your `package.json`, `npm-shrinkwrap.json`, and `package-lock.json` files. **This is the default**, but you may need to use this if you have for instance `save=false` in your `.npmrc` file.
 
 </Note>
 
@@ -99,11 +89,10 @@ npm uninstall -g jshint
 
 ### Uninstalling local packages
 
-<iframe src="https://www.youtube.com/embed/Z-BpYj6cSoQ" frameborder="0" allowfullscreen></iframe>
+<YouTube id="Z-BpYj6cSoQ" />
 
 ### Uninstalling global packages
 
-<iframe src="https://www.youtube.com/embed/XbvjZxUZJGg" frameborder="0" allowfullscreen></iframe>
-
+<YouTube id="XbvjZxUZJGg" />
 
 [cli-uninstall]: /cli/uninstall

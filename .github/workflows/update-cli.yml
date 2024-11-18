@@ -1,70 +1,62 @@
+# This file is automatically added by @npmcli/template-oss. Do not edit.
+
 name: Update CLI
 
 on:
-  schedule:
-  - cron: "14 2 * * *"
   workflow_dispatch:
+  schedule:
+    - cron: "14 2 * * *"
 
 jobs:
-  build:
+  update-cli:
+    outputs:
+      has_changes: ${{ steps.status.outputs.has_changes }}
+    name: Update CLI
+    if: github.repository_owner == 'npm'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
-    # Check out the content (source branch).  Use a deploy key so that
-    # when we push changes, it will trigger the documentation update
-    # workflow run that runs on: push.  (Using the GitHub token would
-    # not run the workflow to prevent infinite recursion.)
-    - name: Check out source
-      uses: actions/checkout@v2
-      with:
-        ssh-key: ${{ secrets.CLI_DEPLOY_KEY }}
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Git User
+        run: |
+          git config --global user.email "npm-cli+bot@github.com"
+          git config --global user.name "npm CLI robot"
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        id: node
+        with:
+          node-version: 22.x
+          check-latest: contains('22.x', '.x')
+          cache: npm
+      - name: Install Latest npm
+        uses: ./.github/actions/install-latest-npm
+        with:
+          node: ${{ steps.node.outputs.node-version }}
+      - name: Install Dependencies
+        run: npm i --no-audit --no-fund
+      - name: Build documentation
+        run: npm run build -w cli
+        env:
+          # token is used to get files from `npm/cli` that
+          # are not present in the published tarball
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check for changes
+        id: status
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::set-output name=has_changes::1"
+          fi
+      - name: Check in source updates
+        if: steps.status.outputs.has_changes == '1'
+        run: |
+          git add --verbose .
+          git commit -m 'CLI documentation update from CI'
+          git push origin main
 
-    # Make sure that the new content didn't break the build.  We don't
-    # want to promote anything that would breaks.
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: 16.x
-
-    # Add the CLI documentation to the content directory.
-    - name: Install npm packages
-      run: npm install
-    - name: Fetch latest documentation
-      run: node cli/cli_fetch.js
-    - name: Clean up old documentation
-      run: rm -rf content/cli
-    - name: Import documentation
-      run: node cli/cli_import.js
-
-    # Check for changes; this avoids publishing a new change to the
-    # dist branch when we made a change to (for example) a unit test.
-    # If there were changes made in the publish step above, then this
-    # will set the variable `has_changes` to `1` for subsequent steps.
-    - name: Check for changes
-      id: status
-      run: |
-        if [ -n "$(git status --porcelain)" ]; then
-          echo "::set-output name=has_changes::1"
-        fi
-
-    # Commit the changes to the dist branch and push the changes up to
-    # GitHub.  (Replace the name and email address with your own.)
-    # This step only runs if the previous step set `has_changes` to `1`.
-    - name: Check in documentation
-      run: |
-        git add --verbose .
-        git config user.name 'CI User'
-        git config user.email 'noreply@npmjs.com'
-        git commit -m 'CLI documentation update from CI'
-      if: steps.status.outputs.has_changes == '1'
-
-    # Before we publish the changes, ensure the site builds so that we
-    # don't break the main branch.
-    - name: Build documentation
-      run: npm run build
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    # Publish the documentation updates.
-    - name: Publish documentation
-      run: git push origin main
-      if: steps.status.outputs.has_changes == '1'
+  publish:
+    needs: update-cli
+    if: needs.update-cli.outputs.has_changes == '1'
+    uses: ./.github/workflows/publish.yml

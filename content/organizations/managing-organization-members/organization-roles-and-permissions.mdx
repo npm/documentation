@@ -3,7 +3,8 @@ title: Organization roles and permissions
 redirect_from:
   - /org-roles-and-permissions
 ---
-import shared from '../../../src/shared.js'
+
+import shared from '~/shared.js'
 
 There are three roles in an organization:
 
@@ -14,16 +15,17 @@ There are three roles in an organization:
 <><strong>On the public registry, you cannot remove the last owner from an organization.</strong> To delete an organization, {shared['contact-support'].text}.</>
 
 | Action                                                | **Owner** | **Admin** | **Member** |
-|:------------------------------------------------------|:---------:|:---------:|:----------:|
-| Manage organization billing                           | X         |         |          |
-| Add members to the organization                       | X         |         |          |
-| Remove members from the organization                  | X         |         |          |
-| Rename an organization                                | X         |         |          |
-| Delete an organization                                | X         |         |          |
-| Change any organization member's role                 | X         |         |          |
-| Create teams                                          | X         | X        |          |
-| Delete teams                                          | X         | X        |          |
-| Add any member to any team                            | X         | X        |          |
-| Remove any member from any team                       | X         | X        |          |
-| Manage team package access                            | X         | X        |          |
-| Create and publish packages in the organization scope | X         | X        | X         |
+| :---------------------------------------------------- | :-------: | :-------: | :--------: |
+| Manage organization billing                           |     X     |           |            |
+| Add members to the organization                       |     X     |           |            |
+| Remove members from the organization                  |     X     |           |            |
+| Rename an organization                                |     X     |           |            |
+| Delete an organization                                |     X     |           |            |
+| Change any organization member's role                 |     X     |           |            |
+| Add org owned packages to other orgs                  |     X     |           |            |
+| Create teams                                          |     X     |     X     |            |
+| Delete teams                                          |     X     |     X     |            |
+| Add any member to any team                            |     X     |     X     |            |
+| Remove any member from any team                       |     X     |     X     |            |
+| Manage team package access                            |     X     |     X     |            |
+| Create and publish packages in the organization scope |     X     |     X     |     X      |

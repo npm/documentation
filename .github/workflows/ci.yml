@@ -1,0 +1,142 @@
+# This file is automatically added by @npmcli/template-oss. Do not edit.
+
+name: CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths-ignore:
+      - cli/**
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - cli/**
+  schedule:
+    # "At 09:00 UTC (02:00 PT) on Monday" https://crontab.guru/#0_9_*_*_1
+    - cron: "0 9 * * 1"
+
+jobs:
+  lint:
+    name: Lint
+    if: github.repository_owner == 'npm'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Git User
+        run: |
+          git config --global user.email "npm-cli+bot@github.com"
+          git config --global user.name "npm CLI robot"
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        id: node
+        with:
+          node-version: 22.x
+          check-latest: contains('22.x', '.x')
+          cache: npm
+      - name: Install Latest npm
+        uses: ./.github/actions/install-latest-npm
+        with:
+          node: ${{ steps.node.outputs.node-version }}
+      - name: Install Dependencies
+        run: npm i --no-audit --no-fund
+      - name: Lint
+        run: npm run lint --ignore-scripts
+      - name: Post Lint
+        run: npm run postlint --ignore-scripts
+      - name: Check Format
+        run: npm run format:check --ignore-scripts --if-present
+
+  test:
+    name: Test - ${{ matrix.platform.name }} - ${{ matrix.node-version }}
+    if: github.repository_owner == 'npm'
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - name: Linux
+            os: ubuntu-latest
+            shell: bash
+        node-version:
+          - 22.x
+    runs-on: ${{ matrix.platform.os }}
+    defaults:
+      run:
+        shell: ${{ matrix.platform.shell }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Git User
+        run: |
+          git config --global user.email "npm-cli+bot@github.com"
+          git config --global user.name "npm CLI robot"
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        id: node
+        with:
+          node-version: ${{ matrix.node-version }}
+          check-latest: contains(matrix.node-version, '.x')
+          cache: npm
+      - name: Install Latest npm
+        uses: ./.github/actions/install-latest-npm
+        with:
+          node: ${{ steps.node.outputs.node-version }}
+      - name: Install Dependencies
+        run: npm i --no-audit --no-fund
+      - name: Add Problem Matcher
+        run: echo "::add-matcher::.github/matchers/tap.json"
+      - name: Test
+        run: npm test --ignore-scripts
+
+  test-cli-content:
+    name: Test CLI Content - ${{ matrix.platform.name }} - ${{ matrix.node-version }}
+    if: github.repository_owner == 'npm'
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - name: Linux
+            os: ubuntu-latest
+            shell: bash
+        node-version:
+          - 22.x
+    runs-on: ${{ matrix.platform.os }}
+    defaults:
+      run:
+        shell: ${{ matrix.platform.shell }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Git User
+        run: |
+          git config --global user.email "npm-cli+bot@github.com"
+          git config --global user.name "npm CLI robot"
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        id: node
+        with:
+          node-version: ${{ matrix.node-version }}
+          check-latest: contains(matrix.node-version, '.x')
+          cache: npm
+      - name: Install Latest npm
+        uses: ./.github/actions/install-latest-npm
+        with:
+          node: ${{ steps.node.outputs.node-version }}
+      - name: Install Dependencies
+        run: npm i --no-audit --no-fund
+      - name: Check CLI Documentation
+        run: npm run build -w cli -- --check-only
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  licenses:
+    name: REUSE Compliance Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: REUSE Compliance Check
+        uses: fsfe/reuse-action@v1

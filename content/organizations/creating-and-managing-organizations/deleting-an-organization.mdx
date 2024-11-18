@@ -3,14 +3,10 @@ title: Deleting an organization
 redirect_from:
   - /deleting-an-org
 ---
-import shared from '../../../src/shared.js'
 
-An organization administrator can delete the organization; packages in
-the organization will also [be deleted](/unpublishing-packages-from-the-registry) if they fulfill the
-[requirements to unpublish packages](/policies/unpublish).  Packages that
-cannot be deleted can be
-[deprecated](/deprecating-and-undeprecating-packages-or-package-versions)
-instead.
+import shared from '~/shared.js'
+
+An organization administrator can delete the organization; packages in the organization will also [be deleted](/unpublishing-packages-from-the-registry) if they fulfill the [requirements to unpublish packages](/policies/unpublish). Packages that cannot be deleted can be [deprecated](/deprecating-and-undeprecating-packages-or-package-versions) instead.
 
 1. <>{shared['user-login'].text}</>
 
@@ -21,18 +17,19 @@ instead.
    <>{shared['account-settings'].image}</>
 
 3. In the left sidebar, click the name of the organization that you want to delete.
-    <Screenshot src="/organizations/creating-and-managing-organizations/left-sidebar.png" alt="Screenshot of left sidebar" />
+
+   <Screenshot src="/organizations/creating-and-managing-organizations/left-sidebar.png" alt="Screenshot of left sidebar" />
 
 4. <>{shared['organization-billing-tab'].text}</>
 
    <>{shared['organization-billing-tab'].image}</>
 
 5. Under "delete organization", click <strong>Delete</strong>.
-    <Screenshot src="/organizations/creating-and-managing-organizations/org-delete-button.png" alt="Screenshot of org delete button" />
 
-6. You will be given an overview of the packages in your organization and what will happen to them when your organization is deleted.  Packages that [can be unpublished](/unpublishing-packages-from-the-registry) will be deleted.
+   <Screenshot src="/organizations/creating-and-managing-organizations/org-delete-button.png" alt="Screenshot of org delete button" />
+
+6. You will be given an overview of the packages in your organization and what will happen to them when your organization is deleted. Packages that [can be unpublished](/unpublishing-packages-from-the-registry) will be deleted.
 
    If you are sure that you want to continue, enter your organization name and click <strong>Delete this organization</strong>.
 
-    <Screenshot src="/organizations/creating-and-managing-organizations/org-delete-plan.png" alt="Screenshot of org delete plan" />
-
+   <Screenshot src="/organizations/creating-and-managing-organizations/org-delete-plan.png" alt="Screenshot of org delete plan" />

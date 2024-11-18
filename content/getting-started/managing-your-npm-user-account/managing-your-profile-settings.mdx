@@ -3,7 +3,8 @@ title: Managing your profile settings
 redirect_from:
   - /getting-started/modifying_your_profile_from_command_line
 ---
-import shared from '../../../src/shared.js'
+
+import shared from '~/shared.js'
 
 You can manage settings for your user account profile from the web or command line.
 
@@ -11,13 +12,13 @@ You can manage settings for your user account profile from the web or command li
 
 From the web, you can change the following user profile settings:
 
-* Avatar
-* Password
-* Full name
-* GitHub user name
-* Twitter user name
-* Email address added to package metadata
-* Two-factor authentication status
+- Avatar
+- Password
+- Full name
+- Link GitHub Account
+- Link Twitter Account
+- Email address added to package metadata
+- Two-factor authentication status
 
 1. <>{shared['user-login'].text}</>
 
@@ -26,6 +27,58 @@ From the web, you can change the following user profile settings:
 2. <>{shared['account-settings'].text}</>
 
    <>{shared['account-settings'].image}</>
+
+### Linking your npm and GitHub accounts
+
+1. On the account settings page, you will find a button to link your GitHub account. Click that.
+
+   <Screenshot src="/getting-started/managing-your-npm-user-account/connect-github.png" alt="Screenshot of linking from Account Setting without any accounts linked" />
+
+2. If you are not currently logged in to GitHub you will be prompted to go through the authentication flow.
+
+   <Screenshot src="/getting-started/managing-your-npm-user-account/github-login.png" alt="GitHub login form" />
+
+3. After successfully logging in, or if you already had an active browser sessions, you will be prompted to "authorize npm account link", click the button.
+
+   <Screenshot src="/getting-started/managing-your-npm-user-account/github-authorize.png" alt="Landing page to authorize the installation of the npm account linking app" />
+
+4. You will be redirected to npm and the link will show as successful in your settings.
+
+   <Screenshot src="/getting-started/managing-your-npm-user-account/github-success.png" alt="Screenshot of linking from Account Setting with successfully linked GitHub account" />
+
+### Linking your npm and Twitter accounts
+
+1. On the account settings page, you will find a button to link your Twitter account. Click that.
+
+   <Screenshot src="/getting-started/managing-your-npm-user-account/connect-twitter.png" alt="Screenshot of linking from Account Setting without any accounts linked" />
+
+2. If you are not currently logged in to Twitter you will be prompted to go through the authentication flow. Click "Log in"
+
+   <Screenshot src="/getting-started/managing-your-npm-user-account/twitter-login.png" alt="Twitter login form" />
+
+3. After successfully logging in, or if you already had an active browser sessions, you will be prompted to "Authorize app", click the button.
+
+   <Screenshot src="/getting-started/managing-your-npm-user-account/twitter-authorize.png" alt="Landing page to authorize the installation of the npm account linking app" />
+
+4. You will be redirected to npm and the link will show as successful in your settings.
+
+   <Screenshot src="/getting-started/managing-your-npm-user-account/twitter-success.png" alt="Screenshot of linking from Account Setting with successfully linked Twitter account" />
+
+### Removing your GitHub account from npm
+
+1. On the account settings page, you will find a button to remove your GitHub account. Click that.
+
+   <Screenshot src="/getting-started/managing-your-npm-user-account/github-remove.png" alt="Screenshot of linking from Account Setting with a cursor hovering over remove button" />
+
+   _Note: Clicking remove will only remove the link from your npm account. You need to `revoke` permissions from your [GitHub app authorization settings](https://github.com/settings/apps/authorizations) to permanently remove the integration from your GitHub account_
+
+### Removing your Twitter account from npm
+
+1. On the account settings page, you will find a button to remove your GitHub account. Click that.
+
+   <Screenshot src="/getting-started/managing-your-npm-user-account/twitter-remove.png" alt="Screenshot of linking from Account Setting with a cursor hovering over remove button" />
+
+   _Note: Clicking remove will only remove the link from your npm account. You need to `revoke` permissions from your [Twitter connect apps management page](https://twitter.com/settings/connected_apps) to permanently remove the integration from your Twitter account_
 
 ## Managing user account profile settings from the command line
 
@@ -49,14 +102,12 @@ npm profile get
 
 From the CLI, you can change the following properties for your user account:
 
-* `email`
-* `two-factor auth`
-* `fullname`
-* `homepage`
-* `freenode`
-* `twitter`
-* `github`
-* `password`
+- `email`
+- `two-factor auth`
+- `fullname`
+- `homepage`
+- `freenode`
+- `password`
 
 1. On the command line, type the following command, replacing `property` with the name of the property, and `value` with the new value:
 
@@ -74,9 +125,9 @@ For more details, see the `profile` [command line documentation](https://docs.np
 
 1. On the command line, type the following command:
 
-  ```
-  npm profile set password
-  ```
+```
+npm profile set password
+```
 
 2. When prompted, provide your current password.
 
@@ -86,10 +137,9 @@ For more details, see the `profile` [command line documentation](https://docs.np
 
 To protect your account, when you reset your password from the command line, it must:
 
-* be longer than 10 characters
-* not contain part of your username
-* not be on [this list of common passwords](https://www.npmjs.com/signup/common-passwords)
-* not be in the "[Have I Been Pwned](https://haveibeenpwned.com/)" breach database
+- be longer than 10 characters
+- not contain part of your username
+- not be in the "[Have I Been Pwned](https://haveibeenpwned.com/)" breach database
 
 </Note>
 

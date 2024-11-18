@@ -1,58 +1,93 @@
+# This file is automatically added by @npmcli/template-oss. Do not edit.
+
 name: Publish
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+
 
 jobs:
-  build:
+  build-and-upload:
+    permissions:
+      contents: read
+      pages: read
+    name: Build and Upload
+    if: github.repository_owner == 'npm'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
-    # Check out the content (source branch)
-    - name: Check out source
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Git User
+        run: |
+          git config --global user.email "npm-cli+bot@github.com"
+          git config --global user.name "npm CLI robot"
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        id: node
+        with:
+          node-version: 22.x
+          check-latest: contains('22.x', '.x')
+          cache: npm
+      - name: Install Latest npm
+        uses: ./.github/actions/install-latest-npm
+        with:
+          node: ${{ steps.node.outputs.node-version }}
+      - name: Install Dependencies
+        run: npm i --no-audit --no-fund
+      - name: Rebuild deps
+        run: npm rebuild
 
-    # Check out the `dist` branch into the `public` directory.
-    - name: Check out documentation branch
-      uses: actions/checkout@v2
-      with:
-        ref: 'dist'
-        path: 'public'
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: 16.x
+      - name: Restore cache
+        id: cache-gatsby
+        uses: actions/cache/restore@v4
+        with:
+          key: ${{ runner.os }}-gatsby-${{ github.ref_name }}
+          path: |
+            public
+            .cache
 
-    # Build the site
-    - name: Install npm packages
-      run: npm install
-    - name: Build documentation
-      run: npm run build
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build documentation
+        run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    # Check for changes; this avoids publishing a new change to the
-    # dist branch when we made a change to (for example) a unit test.
-    # If there were changes made in the publish step above, then this
-    # will set the variable `has_changes` to `1` for subsequent steps.
-    - name: Check for changes
-      id: status
-      run: |
-        if [ -n "$(git status --porcelain)" ]; then
-          echo "::set-output name=has_changes::1"
-        fi
-      working-directory: public
+      - name: Save cache
+        uses: actions/cache/save@v4
+        with:
+          key: ${{ steps.cache-gatsby.outputs.cache-primary-key }}
+          path: |
+            public
+            .cache
 
-    # Commit the changes to the dist branch and push the changes up to
-    # GitHub.  (Replace the name and email address with your own.)
-    # This step only runs if the previous step set `has_changes` to `1`.
-    - name: Publish documentation
-      run: |
-        git add --verbose .
-        git config user.name 'CI User'
-        git config user.email 'noreply@npmjs.com'
-        git commit -m 'Update from CI'
-        git push origin dist
-      if: steps.status.outputs.has_changes == '1'
-      working-directory: public
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './public'
+
+  deploy:
+    permissions:
+      pages: write
+      actions: read
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build-and-upload
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          preview: ${{ github.event_name == 'pull_request' }}

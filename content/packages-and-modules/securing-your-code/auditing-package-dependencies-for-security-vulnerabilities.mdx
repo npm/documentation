@@ -16,7 +16,7 @@ A security audit is an assessment of package dependencies for security vulnerabi
 
 </Note>
 
-The <a href="https://docs.npmjs.com/cli/audit">`npm audit` command</a> submits a description of the dependencies configured in your package to your default registry and asks for a report of known vulnerabilities. `npm audit` checks direct dependencies, devDependencies, bundledDependencies, and optionalDependencies, but does not check peerDependencies.
+The [`npm audit` command](https://docs.npmjs.com/cli/audit) submits a description of the dependencies configured in your package to your default registry and asks for a report of known vulnerabilities. `npm audit` checks direct dependencies, devDependencies, bundledDependencies, and optionalDependencies, but does not check peerDependencies.
 
 `npm audit` automatically runs when you install a package with `npm install`. You can also run `npm audit` manually on your [locally installed packages](downloading-and-installing-packages-locally) to conduct a security audit of the package and produce a report of dependency vulnerabilities and, if available, suggested patches.
 
@@ -29,8 +29,8 @@ The <a href="https://docs.npmjs.com/cli/audit">`npm audit` command</a> submits a
 
 `npm audit` requires packages to have `package.json` and `package-lock.json` files.
 
-* If you get an `EAUDITNOPJSON` error, create a `package.json` file by following the steps in "[Creating a package.json file](creating-a-package-json-file)".
-* If you get an `EAUDITNOLOCK` error, make sure your package has a `package.json` file, then create the package lock file by running `npm i --package-lock-only`.
+- If you get an `EAUDITNOPJSON` error, create a `package.json` file by following the steps in "[Creating a package.json file](creating-a-package-json-file)".
+- If you get an `EAUDITNOLOCK` error, make sure your package has a `package.json` file, then create the package lock file by running `npm i --package-lock-only`.
 
 ## Reviewing and acting on the security audit report
 
@@ -40,8 +40,8 @@ Running `npm audit` will produce a report of security vulnerabilities with the a
 
 If security vulnerabilities are found and updates are available, you can either:
 
-* Run the `npm audit fix` subcommand to automatically install compatible updates to vulnerable dependencies.
-* Run the recommended commands individually to install updates to vulnerable dependencies. (Some updates may be semver-breaking changes; for more information, see "[SEMVER warnings](#semver-warnings)".)
+- Run the `npm audit fix` subcommand to automatically install compatible updates to vulnerable dependencies.
+- Run the recommended commands individually to install updates to vulnerable dependencies. (Some updates may be semver-breaking changes; for more information, see "[SEMVER warnings](#semver-warnings)".)
 
 <Screenshot src="/packages-and-modules/securing-your-code/audit-report-suggested-fixes.png" alt="Screenshot of command-line audit results with suggested fixes" />
 
@@ -57,10 +57,10 @@ If security vulnerabilities are found, but no patches are available, the audit r
 
 To address the vulnerability, you can
 
-* [Check for mitigating factors](#check-for-mitigating-factors)
-* [Update dependent packages if a fix exists](#update-dependent-packages-if-a-fix-exists)
-* [Fix the vulnerability](#fix-the-vulnerability)
-* [Open an issue in the package or dependent package issue tracker](#open-an-issue-in-the-package-or-dependent-package-issue-tracker)
+- [Check for mitigating factors](#check-for-mitigating-factors)
+- [Update dependent packages if a fix exists](#update-dependent-packages-if-a-fix-exists)
+- [Fix the vulnerability](#fix-the-vulnerability)
+- [Open an issue in the package or dependent package issue tracker](#open-an-issue-in-the-package-or-dependent-package-issue-tracker)
 
 #### Check for mitigating factors
 
@@ -118,7 +118,6 @@ npm set audit false
 ```
 
 For more information, see the [`npm-config` management command][cli-config] and the [`npm-config` audit setting][cli-config-audit].
-
 
 [cli-install]: /cli/install
 [cli-config]: /cli/config
