@@ -1,5 +1,6 @@
 import React from 'react'
-import {Box, Text, Button, Octicon, themeGet} from '@primer/react'
+import {Box, Text, Button, themeGet} from '@primer/react'
+import {Octicon} from '@primer/react/deprecated'
 import {Highlight, themes, Prism} from 'prism-react-renderer'
 import styled from 'styled-components'
 import {CheckIcon, CopyIcon} from '@primer/octicons-react'

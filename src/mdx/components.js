@@ -1,5 +1,6 @@
 import React from 'react'
-import {Box, Heading, themeGet, Octicon} from '@primer/react'
+import {Box, Heading, themeGet} from '@primer/react'
+import {Octicon} from '@primer/react/deprecated'
 import styled from 'styled-components'
 import {variant as styledVariant} from 'styled-system'
 import {LinkIcon} from '@primer/octicons-react'
