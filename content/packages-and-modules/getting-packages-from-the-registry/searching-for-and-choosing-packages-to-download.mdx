@@ -4,39 +4,21 @@ redirect_from:
   - /getting-started/searching-for-packages
 ---
 
-You can use the npm search bar to find packages to use in your projects. npm search uses npms and the npms analyzer; for more information on both, see https://npms.io/about.
+You can use the npm search bar to find packages to use in your projects. The search is performed using content from the package's title, description, readme, and keywords and is powered by [opensearch](https://opensearch.org/). Search results are displayed based on keyword matching from the package's title, description, readme, and keywords. No subjective ranking criteria are applied, except for a minimal boost to deprioritize spammy or entirely new packages, aiming to maintain a neutral stance towards all other packages.
 
 ## Searching for a package
 
 1. In the search bar, type a search term and press **Enter**. As you type, possible choices will appear.
 
-   <Screenshot src="/packages-and-modules/getting-packages-from-the-registry/search-qr.png" alt="Screenshot of a search text box" />
+   <Screenshot src="/packages-and-modules/getting-packages-from-the-registry/search-suggestions.png" alt="Screenshot of a search text box with automatic suggestions" />
 
-   <Screenshot src="/packages-and-modules/getting-packages-from-the-registry/search-qr-results.png" alt="Screenshot of the search text box and search results" />
+   <Screenshot src="/packages-and-modules/getting-packages-from-the-registry/search-results.png" alt="Screenshot of the search text box and search results" />
 
-2. To list packages ranked according to [package search rank criteria](#package-search-rank-criteria), in the left sidebar, under "Sort packages", click the criterion. For example, to sort packages by popularity, click "Popularity".
+2. The results display an approximate count of packages found, accompanied by a dropdown menu for sorting options. Users can refine their search by choosing from sorting methods such as keyword matching (Default), download counts, most dependents, and last published date.
+
+   <Screenshot src="/packages-and-modules/getting-packages-from-the-registry/search-sort-options.png" alt="Screenshot of the search Sort by dropdown featuring sorting options" />
 
 3. In the package search results list, click the name of the package.
-
-## Package search rank criteria
-
-Often, there are dozens or even hundreds of packages with similar names and/or similar purposes. To help you decide the best ones to explore, each package has been ranked according to four criteria using the npms analyzer:
-
-### Popularity
-
-Popularity indicates how many times the package has been downloaded. This is a strong indicator of packages that others have found to be useful.
-
-### Quality
-
-Quality includes considerations such as the presence of a README file, stability, tests, up-to-date dependencies, custom website, and code complexity.
-
-### Maintenance
-
-Maintenance ranks packages according to the attention they are given by developers. More frequently maintained packages are more likely to work well with the current or upcoming versions of the npm CLI, for example.
-
-### Optimal
-
-Optimal combines the other three criteria (popularity, quality, maintenance) into one score in a meaningful way.
 
 ## Package provenance
 
@@ -69,7 +51,7 @@ To view provenance information for a package in the npm registry:
 
 <Note>
 
-**Note:** Whenever you access a package's provenance information on npmjs.com, the linked source commit and repository are checked by npm. If the linked source commit or repository cannot be found, an error message will appear at the top of the page and alongside the provenance information. This is to inform you that the provenance for this package can no longer be established, which may occur when a repository is deleted or made private.
+**Note:** Whenever you access a package's provenance information on [npmjs.com](https://npmjs.com), the linked source commit and repository are checked by npm. If the linked source commit or repository cannot be found, an error message will appear at the top of the page and alongside the provenance information. This is to inform you that the provenance for this package can no longer be established, which may occur when a repository is deleted or made private.
 
 <Screenshot src="/packages-and-modules/getting-packages-from-the-registry/npm-provenance-unreachable-source-commit@2x.png" alt="Screenshot showing a warning when the provenance source commit or repository cannot be found." />
 
