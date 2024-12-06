@@ -83,29 +83,6 @@ const mockBuild = async (t, {releases = getReleases(), packument = {}, testdir: 
       },
     },
     '@prettier/sync': {format: s => s},
-    '../lib/cache.js': {
-      CacheVersionSha: class CacheVersionSha {
-        constructor() {
-          this.cache = {}
-        }
-
-        static async load() {
-          return new CacheVersionSha()
-        }
-
-        async save() {
-          return this
-        }
-
-        set() {
-          return this
-        }
-
-        same() {
-          return false
-        }
-      },
-    },
     '../lib/gh.js': {
       getCurrentSha: async () => {
         shaCounter = shaCounter + 1
