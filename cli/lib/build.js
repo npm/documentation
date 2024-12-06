@@ -5,6 +5,7 @@ const semver = require('semver')
 const pacote = require('pacote')
 const extractRelease = require('./extract')
 const log = require('./log')
+const {CacheVersionSha} = require('./cache')
 
 const DOCS_PATH = 'cli'
 
@@ -113,9 +114,13 @@ const main = async ({loglevel, releases: rawReleases, useCurrent, navPath, conte
     }
   })
 
+  const cache = await CacheVersionSha.load()
+
   const updates = await Promise.all(
-    releases.map(r => extractRelease(r, {contentPath, baseNav: navData, prerelease})),
+    releases.map(r => extractRelease(r, {cache, contentPath, baseNav: navData, prerelease})),
   ).then(r => r.filter(Boolean))
+
+  await cache.save()
 
   await updateNav(updates, {nav: navDoc, path: navPath})
 }

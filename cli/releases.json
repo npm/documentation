@@ -1,13 +1,5 @@
 [
   {
-    "id": "v6",
-    "branch": "release/v6"
-  },
-  {
-    "id": "v7",
-    "branch": "release/v7"
-  },
-  {
     "id": "v8",
     "branch": "release/v8"
   },
@@ -17,6 +9,10 @@
   },
   {
     "id": "v10",
+    "branch": "release/v10"
+  },
+  {
+    "id": "v11",
     "branch": "latest"
   }
 ]
