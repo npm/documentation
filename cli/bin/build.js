@@ -28,7 +28,7 @@ const checkContent = () => {
 ;(async () => {
   try {
     await build({
-      cache: await CacheVersionSha.load(join(ROOT, 'cache.json')),
+      cache: await CacheVersionSha.load(join(ROOT, 'cli-cache.json')),
       releases: require('../releases.json'),
       loglevel: process.argv.includes('--debug') || process.env.CI ? 'verbose' : 'info',
       prerelease: false,
