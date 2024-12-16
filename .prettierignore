@@ -5,4 +5,4 @@
 /.reuse/
 .nyc_output/
 coverage/
-cache.json
+cli-cache.json
