@@ -1328,7 +1328,7 @@
       shortName: v10
       url: /cli/v10
       default: true
-      type: latest
+      type: legacy
       children:
         - title: CLI Commands
           shortName: Commands
