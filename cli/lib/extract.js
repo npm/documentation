@@ -138,7 +138,16 @@ const writeChangelog = async ({release, nav, cwd, srcPath, contentPath}) => {
   })
 }
 
-const unpackRelease = async (release, {contentPath, baseNav, prerelease = false}) => {
+const unpackRelease = async (release, {cache, contentPath, baseNav, prerelease = false}) => {
+  if (cache) {
+    const sha = await gh.getCurrentSha(release.branch)
+    if (cache.same(release.id, sha)) {
+      log.info(`Skipping ${release.id} due to cache`)
+      return
+    }
+    cache.set(release.id, sha)
+  }
+
   if (release.prerelease && !prerelease) {
     log.info(`Skipping ${release.id} due to prerelease ${release.version}`)
     return

@@ -55,7 +55,7 @@ const getCurrentVersions = nav => {
   }
 }
 
-const main = async ({loglevel, releases: rawReleases, useCurrent, navPath, contentPath, prerelease}) => {
+const main = async ({loglevel, releases: rawReleases, useCurrent, navPath, contentPath, prerelease, cache}) => {
   /* istanbul ignore next */
   if (loglevel) {
     log.on(loglevel)
@@ -114,8 +114,10 @@ const main = async ({loglevel, releases: rawReleases, useCurrent, navPath, conte
   })
 
   const updates = await Promise.all(
-    releases.map(r => extractRelease(r, {contentPath, baseNav: navData, prerelease})),
+    releases.map(r => extractRelease(r, {cache, contentPath, baseNav: navData, prerelease})),
   ).then(r => r.filter(Boolean))
+
+  await cache?.save()
 
   await updateNav(updates, {nav: navDoc, path: navPath})
 }
