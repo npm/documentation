@@ -12,6 +12,17 @@ class CacheVersionSha {
   }
 
   async save() {
+    const sortedCache = {}
+    Object.keys(this.cache)
+      .sort((a, b) => {
+        const numA = parseInt(a.replace('v', ''), 10)
+        const numB = parseInt(b.replace('v', ''), 10)
+        return numA - numB
+      })
+      .forEach(key => {
+        sortedCache[key] = this.cache[key]
+      })
+    this.cache = sortedCache
     await fs.writeFile(this.path, JSON.stringify(this.cache, null, 2))
     return this
   }
