@@ -2,6 +2,7 @@ const {resolve, relative, join} = require('path')
 const {spawnSync} = require('child_process')
 const build = require('../lib/build.js')
 const {nwo} = require('../lib/gh')
+const {CacheVersionSha} = require('../lib/cache.js')
 
 // check only build with the current versions instead of checking the registry
 // and also fails if any changes are detected. this is used in CI to make sure
@@ -24,21 +25,23 @@ const checkContent = () => {
   }
 }
 
-build({
-  releases: require('../releases.json'),
-  loglevel: process.argv.includes('--debug') || process.env.CI ? 'verbose' : 'info',
-  prerelease: false,
-  useCurrent: checkOnly,
-  contentPath,
-  navPath,
-})
-  .then(() => {
+;(async () => {
+  try {
+    await build({
+      cache: await CacheVersionSha.load(join(ROOT, 'cli-cache.json')),
+      releases: require('../releases.json'),
+      loglevel: process.argv.includes('--debug') || process.env.CI ? 'verbose' : 'info',
+      prerelease: false,
+      useCurrent: checkOnly,
+      contentPath,
+      navPath,
+    })
     if (checkOnly) {
       checkContent()
     }
     return console.log('DONE')
-  })
-  .catch(e => {
+  } catch (e) {
     console.error(e)
     process.exit(1)
-  })
+  }
+})()

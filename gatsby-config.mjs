@@ -66,6 +66,7 @@ const config = {
     DEV_SSR: !!process.env.GATSBY_DEV_SSR,
   },
   plugins: [
+    'gatsby-plugin-postcss',
     'gatsby-plugin-styled-components',
     'gatsby-transformer-yaml',
     {

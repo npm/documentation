@@ -1,5 +1,6 @@
 import React from 'react'
-import {Box, Octicon, Avatar, Text} from '@primer/react'
+import {Box, Avatar, Text} from '@primer/react'
+import {Octicon} from '@primer/react/deprecated'
 import {Tooltip} from '@primer/react/next'
 import {PencilIcon} from '@primer/octicons-react'
 import Link from './link'

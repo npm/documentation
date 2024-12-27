@@ -40,5 +40,6 @@
 !/test/
 !/tsconfig.json
 !/webpack.config.js
+!cli-cache.json
 tap-testdir*/
 !/cli/

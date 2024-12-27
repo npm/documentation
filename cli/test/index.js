@@ -66,6 +66,7 @@ const mockBuild = async (t, {releases = getReleases(), packument = {}, testdir: 
     return yaml.stringify(children).replace(new RegExp(`/cli/${id}/`, 'g'), '/')
   }
 
+  let shaCounter = 0
   const build = t.mockRequire('../lib/build', {
     pacote: {
       ...pacote,
@@ -83,6 +84,10 @@ const mockBuild = async (t, {releases = getReleases(), packument = {}, testdir: 
     },
     '@prettier/sync': {format: s => s},
     '../lib/gh.js': {
+      getCurrentSha: async () => {
+        shaCounter = shaCounter + 1
+        return 'abc' + shaCounter
+      },
       getFile: async ({ref}) => navSection(ref),
       pathExists: async (ref, p) => {
         if (ref.includes('v6') && p.includes('docs/lib/content')) {

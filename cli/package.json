@@ -23,7 +23,7 @@
     "front-matter": "^4.0.2",
     "minimatch": "^10.0.1",
     "minipass": "^7.0.4",
-    "pacote": "^20.0.0",
+    "pacote": "^21.0.0",
     "proc-log": "^5.0.0",
     "semver": "^7.5.4",
     "tar": "^7.0.1",
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@npmcli/eslint-config": "^5.0.0",
-    "@npmcli/template-oss": "4.23.4",
+    "@npmcli/template-oss": "4.23.6",
     "tap": "^21.0.0"
   },
   "author": "GitHub Inc.",
@@ -40,7 +40,7 @@
   },
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
-    "version": "4.23.4",
+    "version": "4.23.6",
     "content": "./scripts/template-oss"
   },
   "files": [

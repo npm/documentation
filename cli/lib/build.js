@@ -55,7 +55,7 @@ const getCurrentVersions = nav => {
   }
 }
 
-const main = async ({loglevel, releases: rawReleases, useCurrent, navPath, contentPath, prerelease}) => {
+const main = async ({loglevel, releases: rawReleases, useCurrent, navPath, contentPath, prerelease, cache}) => {
   /* istanbul ignore next */
   if (loglevel) {
     log.on(loglevel)
@@ -113,9 +113,17 @@ const main = async ({loglevel, releases: rawReleases, useCurrent, navPath, conte
     }
   })
 
+  /**
+   * this voids the cache when a new version is added to release.json / not in the cli-cache.json
+   * this is done so that the previous major versions nav can be reset to legacy and pages can be droped from its variant
+   */
+  cache?.voidOnNewKey(releases.map(v => v.id))
+
   const updates = await Promise.all(
-    releases.map(r => extractRelease(r, {contentPath, baseNav: navData, prerelease})),
+    releases.map(r => extractRelease(r, {cache, contentPath, baseNav: navData, prerelease})),
   ).then(r => r.filter(Boolean))
+
+  await cache?.save()
 
   await updateNav(updates, {nav: navDoc, path: navPath})
 }
