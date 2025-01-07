@@ -1775,6 +1775,9 @@
             - title: npm token
               url: /cli/v11/commands/npm-token
               description: Manage your authentication tokens
+            - title: npm undeprecate
+              url: /cli/v11/commands/npm-undeprecate
+              description: Undeprecate a version of a package
             - title: npm uninstall
               url: /cli/v11/commands/npm-uninstall
               description: Remove a package
