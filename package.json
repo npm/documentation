@@ -103,6 +103,11 @@
   "engines": {
     "node": ">=22.0.0"
   },
+  "overrides": {
+    "gatsby": {
+      "path-to-regexp": "0.1.12"
+    }
+  },
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
     "version": "4.23.6",
