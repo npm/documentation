@@ -46,7 +46,7 @@
     "fuse.js": "^7.0.0",
     "gatsby": "^5.13.1",
     "gatsby-plugin-manifest": "^5.13.0",
-    "gatsby-plugin-mdx": "^5.13.0",
+    "gatsby-plugin-mdx": "^5.14.0",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-styled-components": "^6.13.0",
     "gatsby-source-filesystem": "^5.14.0",
