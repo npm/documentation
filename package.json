@@ -73,7 +73,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@github/prettier-config": "^0.0.6",
     "@npmcli/eslint-config": "^5.0.0",
-    "@npmcli/template-oss": "4.23.6",
+    "@npmcli/template-oss": "4.24.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^16.0.0",
@@ -105,7 +105,7 @@
   },
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
-    "version": "4.23.6",
+    "version": "4.24.0",
     "content": "./scripts/template-oss",
     "allowPaths": [
       "cli-cache.json"
