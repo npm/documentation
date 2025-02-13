@@ -55,7 +55,7 @@ function Header() {
               </Link>
             ))}
           </Box>
-          <Box sx={{display: ['flex', null, null, 'none']}}>
+          <Box sx={{display: ['flex', null, null, 'none'], ml: [4, null, null, 'unset']}}>
             <Search.Mobile {...search} />
             <NavDrawer />
           </Box>
