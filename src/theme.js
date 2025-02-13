@@ -4,7 +4,7 @@ import deepmerge from 'deepmerge'
 
 export const NPM_RED = '#cb3837'
 
-const colorModePreference = localStorage.getItem('root-color-mode') ?? 'auto'
+const colorModePreference = (typeof window !== `undefined` ? localStorage.getItem('root-color-mode') : null) ?? 'auto'
 
 export const npmTheme = deepmerge(theme, {
   colors: {
