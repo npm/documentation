@@ -4,6 +4,8 @@ import deepmerge from 'deepmerge'
 
 export const NPM_RED = '#cb3837'
 
+const colorModePreference = localStorage.getItem('root-color-mode') ?? 'auto'
+
 export const npmTheme = deepmerge(theme, {
   colors: {
     logoBg: NPM_RED,
@@ -37,7 +39,7 @@ export const npmTheme = deepmerge(theme, {
   },
 })
 
-export const ThemeProvider = props => <Provider theme={npmTheme} {...props} />
+export const ThemeProvider = props => <Provider theme={npmTheme} colorMode={colorModePreference} {...props} />
 
 export const Theme = React.forwardRef(function Theme({theme: colorMode, as = Box, ...props}, ref) {
   return (
