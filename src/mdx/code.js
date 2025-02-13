@@ -1,11 +1,12 @@
 import React from 'react'
 import {Box, Text, Button, themeGet} from '@primer/react'
 import {Octicon} from '@primer/react/deprecated'
-import {Highlight, themes, Prism} from 'prism-react-renderer'
+import {Highlight, Prism} from 'prism-react-renderer'
 import styled from 'styled-components'
 import {CheckIcon, CopyIcon} from '@primer/octicons-react'
 import copyToClipboard from 'copy-to-clipboard'
 import {announce} from '../util/aria-live'
+import {usePrismTheme} from '../hooks/use-prism-theme'
 ;(typeof global !== 'undefined' ? global : window).Prism = Prism
 require('prismjs/components/prism-bash')
 
@@ -99,9 +100,10 @@ const CodeBlock = ({children, code, className, style}) => (
 )
 
 function Code({className = '', prompt, children}) {
+  const {theme: codeTheme} = usePrismTheme()
   if (prompt) {
     return (
-      <CodeBlock style={themes.github.plain}>
+      <CodeBlock style={codeTheme.plain}>
         <MonoText>{children}</MonoText>
       </CodeBlock>
     )
@@ -115,7 +117,7 @@ function Code({className = '', prompt, children}) {
   }
 
   return (
-    <Highlight code={code} language={className.replace(/language-/, '') || 'bash'} theme={themes.github}>
+    <Highlight code={code} language={className.replace(/language-/, '') || 'bash'} theme={codeTheme}>
       {({className: highlightClassName, style, tokens, getLineProps, getTokenProps}) => (
         <CodeBlock className={highlightClassName} style={style} code={code}>
           {tokens.map((line, i) => (
