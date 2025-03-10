@@ -59,7 +59,7 @@
     "postcss-loader": "^8.1.1",
     "postcss-preset-env": "^10.1.1",
     "prism-react-renderer": "^2.3.1",
-    "prismjs": "^1.29.0",
+    "prismjs": "^1.30.0",
     "react": "^18.2.0",
     "react-addons-text-content": "^0.0.4",
     "react-dom": "^18.2.0",
