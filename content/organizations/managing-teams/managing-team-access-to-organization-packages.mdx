@@ -7,7 +7,7 @@ redirect_from:
 
 import shared from '~/shared.js'
 
-As an organization owner or team admin, you can add or remove package access to or from teams in your organization.
+As an organization owner or package maintainer, you can add or remove package access to or from teams in your organization.
 
 ## Adding package access to a team
 
@@ -47,7 +47,7 @@ As an organization owner or team admin, you can add or remove package access to 
 
 ### Adding package access to a team using the CLI
 
-As an organization owner or team admin, you can use the CLI `access` command to add package access to a team on the command line:
+As an organization owner or package maintainer, you can use the CLI `access` command to add package access to a team on the command line:
 
 ```
 npm access grant <read-only|read-write> <org:team> [<package>]
@@ -85,7 +85,7 @@ For more information, see "[npm-access][access-cli]".
 
 ### Removing package access from a team using the CLI
 
-As an organization owner or team admin, you can also use the CLI `access` command to revoke package access from a team on the command line:
+As an organization owner or package maintainer, you can also use the CLI `access` command to revoke package access from a team on the command line:
 
 ```
 npm access revoke <org:team> [<package>]
@@ -123,7 +123,7 @@ For more information, see "[npm-access][access-cli]".
 
 ### Changing package access for a team from the CLI
 
-As an organization owner or team admin, you can change package access for a team from the command line:
+As an organization owner or package maintainer, you can change package access for a team from the command line:
 
 ```
 npm access
