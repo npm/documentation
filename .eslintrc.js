@@ -3,14 +3,13 @@ const {getGlobals} = require('eslint-plugin-mdx')
 module.exports = {
   root: true,
   ignorePatterns: ['.cache/', 'public/'],
-  plugins: ['primer-react', 'github'],
+  plugins: ['primer-react'], // github plugin now comes from flat config
   extends: [
     '@npmcli',
     'react-app',
-    // 'react-app/jest',
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:github/react',
+    // 'plugin:github/react',  // REMOVED: now handled by flat config
     'plugin:react-hooks/recommended',
     'prettier',
   ],
