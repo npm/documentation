@@ -1,36 +1,124 @@
+
+# Text Compression
+
+Text Compression, metin verilerini sıkıştırıp ve dekomprese edebileceğiniz bir JavaScript kütüphanesidir. Bu kütüphane, metinlerinizi `gzip` algoritması kullanarak sıkıştırır ve ardından bu sıkıştırılmış veriyi kolayca açmanızı sağlar. Sıkıştırma ve dekompresyon işlemleri asenkron çalışır.
+
 ---
-title: About package README files
+
+## Özellikler
+
+- **Sıkıştırma**: Verilerinizi `gzip` algoritması kullanarak sıkıştırır.
+- **Dekomprese**: Sıkıştırılmış verilerinizi kolayca geri açmanızı sağlar.
+- **Asenkron İletişim**: Her iki işlem de Promises kullanarak asenkron bir şekilde gerçekleştirilir.
+- **Base64 Kodlama**: Sıkıştırılmış veriler, base64 formatında döndürülür, böylece verilerinizi kolayca saklayabilir veya iletebilirsiniz.
+  
 ---
 
-We highly recommend including a `README.md` file in your package directory as it helps developers find your package on npm and have a good experience using your code in their projects. In most cases `README.md` files include directions for _installing_, _configuring_, and _using_ the code in your package; as well as any other information a user may find helpful. Just like in any GitHub repository, the `README.md` file will be rendered on the package's page.
+## Kurulum
 
-An npm package `README.md` file **must** be in the root-level directory of the package.
+### NPM ile Yükleme
 
-## Creating and adding a `README.md` file to a package
+Projeyi kendi projenize dahil etmek için npm kullanabilirsiniz:
 
-1. In a text editor, in your package root directory, create a file called `README.md`.
-2. In the `README.md` file, add useful information about your package.
-3. Save the `README.md` file.
+```bash
+npm install text-compression
+```
 
-<Note>
+### Yalnızca Dosya Yüklemesi
 
-**Note:** The file extension `.md` indicates a Markdown file. For more information about Markdown, see the GitHub Guide "[Mastering Markdown](https://guides.github.com/features/mastering-markdown/#what)".
+Alternatif olarak, `text-compression.js` dosyasını projenize dahil ederek doğrudan kullanabilirsiniz.
 
-</Note>
+---
 
-## Updating an existing package `README.md` file
+## Kullanım
 
-The `README.md` file will only be updated on the package page when you publish a new version of your package. To update your `README.md` file:
+Bu kütüphaneyi kullanarak metin sıkıştırma ve dekompresyon işlemlerini gerçekleştirebilirsiniz.
 
-1. In a text editor, update the contents of the `README.md` file.
+### 1. **Sıkıştırma**
 
-2. Save the `README.md` file.
+Metni sıkıştırmak için `compress()` fonksiyonunu kullanabilirsiniz:
 
-3. On the command line, in the package root directory, run the following commands:
+```javascript
+const { compress } = require('text-compression');
 
-   ```
-   npm version patch
-   npm publish
-   ```
+const text = "Bu, sıkıştırılacak bir metindir.";
 
-[markdown-link]: https://guides.github.com/features/mastering-markdown/#what
+compress(text)
+    .then(compressed => {
+        console.log('Sıkıştırılmış metin:', compressed);
+    })
+    .catch(err => {
+        console.error('Sıkıştırma hatası:', err);
+    });
+```
+
+Bu, metninizi sıkıştırarak base64 formatında döndürecektir.
+
+### 2. **Dekompresyon**
+
+Sıkıştırılmış metni açmak için `decompress()` fonksiyonunu kullanabilirsiniz:
+
+```javascript
+const { decompress } = require('text-compression');
+
+const compressedText = "31,139,8,0,0,0,...";  
+
+decompress(compressedText)
+    .then(decompressed => {
+        console.log('Dekompresyon sonucu:', decompressed);
+    })
+    .catch(err => {
+        console.error('Dekompresyon hatası:', err);
+    });
+```
+
+Bu, sıkıştırılmış veriyi alacak ve orijinal metni geri döndürecektir.
+
+---
+
+## API
+
+### `compress(text: string): Promise<string>`
+
+Verilen metni sıkıştırır ve base64 formatında döndürür.
+
+**Parametreler:**
+- `text` (string): Sıkıştırılacak metin.
+
+**Dönüş Değeri:**
+- Promise<string>: Sıkıştırılmış ve base64'e dönüştürülmüş metin.
+
+---
+
+### `decompress(compressedText: string): Promise<string>`
+
+Verilen base64 formatındaki sıkıştırılmış metni dekomprese eder ve orijinal metni döndürür.
+
+**Parametreler:**
+- `compressedText` (string): Base64 formatında sıkıştırılmış metin.
+
+**Dönüş Değeri:**
+- Promise<string>: Orijinal, dekomprese edilmiş metin.
+
+---
+
+## Testler
+
+Testler, `Jest` test çerçevesi kullanılarak yazılmıştır. Testleri çalıştırmak için aşağıdaki komutları kullanabilirsiniz:
+
+### Testleri Çalıştırma
+
+```bash
+npm test
+```
+
+---
+
+## Katkıda Bulunma
+
+Eğer bu projeye katkıda bulunmak isterseniz, aşağıdaki adımları takip edebilirsiniz:
+
+1. Bu projeyi fork edin.
+2. Yeni bir feature branch'ı oluşturun.
+3. Yaptığınız değişiklikleri commit'leyin.
+4. Pull request gönderin.
