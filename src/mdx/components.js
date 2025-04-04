@@ -179,7 +179,7 @@ export const UnorderedList = styled.ul`
     margin-bottom: 0;
   }
 
-  li {
+  li > code {
     word-break: break-all;
   }
 
