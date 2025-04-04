@@ -928,7 +928,7 @@ The `devEngines` field aids engineers working on a codebase to all be using the 
 
 You can specify a `devEngines` property in your `package.json` which will run before `install`, `ci`, and `run` commands.
 
-> Note: `devEngines` and `engines` differ in object shape and functionality. `devEngines` only impacts developers working directly in the source code of your package, whereas `engines` will also impact consumers who install your package.
+> Note: `devEngines` and `engines` differ in object shape and functionality. `devEngines` is used to declare the intended runtime (node, etc) and/or package manager (npm, etc) to be used by developers working directly in the source code of a project, whereas `engines` is intended for a package to declare the node and/or npm versions it is compatible with.
 
 The supported keys under the `devEngines` property are `cpu`, `os`, `libc`, `runtime`, and `packageManager`. Each property can be an object or an array of objects. Objects must contain `name`, and optionally can specify `version`, and `onFail`. `onFail` can be `warn`, `error`, or `ignore`, and if left undefined is of the same value as `error`. `npm` will assume that you're running with `node`. Here's an example of a project that will fail if the environment is not `node` and `npm`. If you set `runtime.name` or `packageManager.name` to any other string, it will fail within the npm CLI.
 
