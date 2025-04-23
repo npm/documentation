@@ -3,7 +3,7 @@ const fs = require('fs').promises
 const yaml = require('yaml')
 const semver = require('semver')
 const pacote = require('pacote')
-const extractRelease = require('./extract')
+const {unpackRelease} = require('./extract')
 const log = require('./log')
 
 const DOCS_PATH = 'cli'
@@ -120,7 +120,7 @@ const main = async ({loglevel, releases: rawReleases, useCurrent, navPath, conte
   cache?.voidOnNewKey(releases.map(v => v.id))
 
   const updates = await Promise.all(
-    releases.map(r => extractRelease(r, {cache, contentPath, baseNav: navData, prerelease})),
+    releases.map(r => unpackRelease(r, {cache, contentPath, baseNav: navData, prerelease})),
   ).then(r => r.filter(Boolean))
 
   await cache?.save()

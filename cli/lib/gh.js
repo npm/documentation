@@ -15,18 +15,6 @@ const owner = 'npm'
 const repo = 'cli'
 const opts = {owner, repo}
 
-const getCurrentSha = async branch => {
-  if (!octokit) {
-    const {Octokit} = await import('@octokit/rest')
-    octokit = new Octokit({auth: process.env.GITHUB_TOKEN})
-  }
-  const {data} = await octokit.repos.getBranch({
-    ...opts,
-    branch,
-  })
-  return data.commit.sha
-}
-
 const getFile = async ({sha, ref, path}) => {
   if (!octokit) {
     const {Octokit} = await import('@octokit/rest')
@@ -69,6 +57,5 @@ const pathExists = async (ref, path) => {
 module.exports = {
   getFile,
   pathExists,
-  getCurrentSha,
   nwo: `${owner}/${repo}`,
 }

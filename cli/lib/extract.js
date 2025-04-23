@@ -140,12 +140,12 @@ const writeChangelog = async ({release, nav, cwd, srcPath, contentPath}) => {
 
 const unpackRelease = async (release, {cache, contentPath, baseNav, prerelease = false}) => {
   if (cache) {
-    const sha = await gh.getCurrentSha(release.branch)
-    if (cache.same(release.id, sha)) {
+    const currentVersion = await pacote.manifest(`npm@${release.version}`).then(manifest => manifest.version)
+    if (cache.same(release.id, currentVersion)) {
       log.info(`Skipping ${release.id} due to cache`)
       return
     }
-    cache.set(release.id, sha)
+    cache.set(release.id, currentVersion)
   }
 
   if (release.prerelease && !prerelease) {
@@ -231,4 +231,6 @@ const unpackRelease = async (release, {cache, contentPath, baseNav, prerelease =
   }
 }
 
-module.exports = unpackRelease
+module.exports = {
+  unpackRelease,
+}
