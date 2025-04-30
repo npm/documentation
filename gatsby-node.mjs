@@ -180,7 +180,9 @@ const createPage = async (
   // on the page. this is used for policy pages as well as some index pages that don't
   // have any editable content
   if (frontmatter.edit_on_github !== false) {
-    context.editUrl = getRepo(path, frontmatter).replace(`https://github.com/{nwo}/edit/{branch}/{path}`)
+    const repo = getRepo(path, frontmatter)
+    // Use the repo.replace method to ensure the URL tokens are properly replaced
+    context.editUrl = repo.replace(`https://github.com/{nwo}/edit/{branch}/{path}`)
     Object.assign(context, await fetchContributors(path, frontmatter, {reporter, octokit}))
   }
 
