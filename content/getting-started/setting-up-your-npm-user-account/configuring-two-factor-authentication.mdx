@@ -1,7 +1,15 @@
 ---
 title: Configuring two-factor authentication
 ---
+const { RelativeCiAgentWebpackPlugin } = require('@relative-ci/agent');
 
+module.exports = {
+  // ... your webpack config
+  plugins: [
+    // ... other plugins
+    new RelativeCiAgentWebpackPlugin()
+  ]
+};
 import shared from '~/shared.js'
 
 You can enable two-factor authentication (2FA) on your npm user account to protect against unauthorized access to your account and packages, either by using a [security-key][webauthn] or [time-based one-time password (TOTP)][totp] from a mobile app.
