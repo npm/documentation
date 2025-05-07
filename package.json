@@ -35,7 +35,7 @@
     "@octokit/plugin-retry": "^7.1.1",
     "@octokit/plugin-throttling": "^9.4.0",
     "@octokit/rest": "^21.0.0",
-    "@primer/octicons-react": "^19.8.0",
+    "@primer/octicons-react": "^19.15.1",
     "@primer/react": "^36.17.0",
     "babel-plugin-styled-components": "^2.1.4",
     "copy-to-clipboard": "^3.3.3",
