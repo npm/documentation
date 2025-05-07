@@ -1742,8 +1742,8 @@
             - title: npm root
               url: /cli/v11/commands/npm-root
               description: Display npm root
-            - title: npm run-script
-              url: /cli/v11/commands/npm-run-script
+            - title: npm run
+              url: /cli/v11/commands/npm-run
               description: Run arbitrary package scripts
             - title: npm sbom
               url: /cli/v11/commands/npm-sbom
