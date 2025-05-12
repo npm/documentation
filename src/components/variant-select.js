@@ -4,6 +4,15 @@ import * as getNav from '../util/get-nav'
 import usePage from '../hooks/use-page'
 import {LinkNoUnderline} from './link'
 import useLocationChange from '../hooks/use-location-change'
+import styled from 'styled-components'
+
+const StyledOverlay = styled(ActionMenu.Overlay)`
+  background-color: var(--bgColor-default, #ffffff) !important;
+  border-color: var(--borderColor-default, #d0d7de);
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: var(--shadow-resting-medium, 0 3px 6px rgba(140, 149, 159, 0.15));
+`
 
 const VariantItem = ({title, shortName, url, active}) => (
   <ActionList.Item as={LinkNoUnderline} to={url} state={{scrollUpdate: false}} id={shortName} active={active}>
@@ -38,7 +47,7 @@ const VariantMenu = ({title, latest, current, prerelease, legacy}) => {
         <ActionMenu.Button aria-describedby={labelId} sx={{width: ['100%', null, 'auto']}}>
           {title}
         </ActionMenu.Button>
-        <ActionMenu.Overlay width="auto" onEscape={() => setOpen(false)}>
+        <StyledOverlay width="auto" onEscape={() => setOpen(false)}>
           <ActionList aria-labelledby={labelId}>
             <ActionList.Group>
               <ActionList.GroupHeading>Current</ActionList.GroupHeading>
@@ -53,7 +62,7 @@ const VariantMenu = ({title, latest, current, prerelease, legacy}) => {
               ))}
             </ActionList.Group>
           </ActionList>
-        </ActionMenu.Overlay>
+        </StyledOverlay>
       </ActionMenu>
     </>
   )
