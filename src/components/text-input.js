@@ -8,6 +8,7 @@ const TextInput = styled(PrimerTextInput)`
    */
   input {
     font-size: ${themeGet('fontSizes.2')} !important;
+    color: ${themeGet('colors.fg.default')} !important;
   }
 
   input::placeholder {
