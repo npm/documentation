@@ -103,6 +103,12 @@ Generate it without having it ask any questions:
 $ npm init -y
 ```
 
+Set the private flag to `true` in package.json:
+
+```bash
+$ npm init --init-private -y
+```
+
 ### Workspaces support
 
 It's possible to create a new workspace within your project by using the `workspace` config option. When using `npm init -w <dir>` the cli will create the folders and boilerplate expected while also adding a reference to your project `package.json` `"workspaces": []` property in order to make sure that new generated **workspace** is properly set up as such.
@@ -193,6 +199,13 @@ The value that `npm init` should use by default for the package.json type field.
 - Type: SemVer string
 
 The value that `npm init` should use by default for the package version number, if not already set in package.json.
+
+#### `init-private`
+
+- Default: false
+- Type: Boolean
+
+The value `npm init` should use by default for the package's private flag.
 
 #### `yes`
 
