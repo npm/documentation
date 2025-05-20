@@ -60,4 +60,7 @@ module.exports = {
   'using-npm/scope': ({section}) => [join(section, 'npm-scope')],
   'about-pgp-signatures-for-packages-in-the-public-registry': () => ['/about-registry-signatures'],
   'verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry': () => ['/verifying-registry-signatures'],
+
+  // policies
+  'policies/trademark': () => ['policies/logos-and-usage'],
 }
