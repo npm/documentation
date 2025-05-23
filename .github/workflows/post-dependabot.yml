@@ -1,4 +1,9 @@
-# This file is automatically added by @npmcli/template-oss. Do not edit.
+publish:
+    needs: update-cli
+    if: needs.update-cli.outputs.has_changes == '1'
+    uses: ./.github/workflows/publish.yml
+0.
+1.# This file is automatically added by @npmcli/template-oss. Do not edit.
 
 name: Post Dependabot
 
