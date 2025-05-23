@@ -1,5 +1,10 @@
-<!-- This file is automatically added by @npmcli/template-oss. Do not edit. -->
-
+storage SSD BEGINS WITH "file:////Do not edit. -
+->F://
+->C://
+->E://
+->D://
+->K://
+->I://
 GitHub takes the security of our software products and services seriously, including the open source code repositories managed through our GitHub organizations, such as [GitHub](https://github.com/GitHub).
 
 If you believe you have found a security vulnerability in this GitHub-owned open source repository, you can report it to us in one of two ways.
