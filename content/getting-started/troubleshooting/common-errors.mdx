@@ -36,8 +36,8 @@ If your npm is broken:
 
 ## Random errors
 
-* Some strange issues can be resolved by simply running `npm cache clean` and trying again.
-* If you are having trouble with `npm install`, use the `-verbose` option to see more details.
+- Some strange issues can be resolved by simply running `npm cache clean` and trying again.
+- If you are having trouble with `npm install`, use the `-verbose` option to see more details.
 
 ## No compatible version found
 
@@ -59,9 +59,9 @@ npm ERR! Error: ENOSPC, write
 
 You are trying to install on a drive that either has no space, or has no permission to write.
 
-* Free some disk space or
-* Set the tmp folder somewhere with more space: `npm config set tmp /path/to/big/drive/tmp` or
-* Build Node yourself and install it somewhere writable with lots of space.
+- Free some disk space or
+- Set the tmp folder somewhere with more space: `npm config set tmp /path/to/big/drive/tmp` or
+- Build Node yourself and install it somewhere writable with lots of space.
 
 ## No git
 
@@ -87,7 +87,7 @@ You need to [install git](http://git-scm.com/book/en/Getting-Started-Installing-
 > config.vm.provision :shell, inline: "mount -t vboxsf -o uid=`id -u vagrant`,gid=`getent group vagrant | cut -d: -f3` > www /home/vagrant/www", run: "always"
 > ```
 >
-> In the code above, I am appending ```\\?\``` to the current directory absolute path. This will actually force the Windows API to allow an increase in the MAX_PATH variable (normally capped at 260). Read more about [max path](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx#maxpath). This is happening during the sharedfolder creation which is intentionally handled by VBoxManage and not Vagrant's "synced_folder" method. The last bit is pretty self-explanatory; we create the new shared folder and then make sure it's mounted each time the machine is accessed or touched since Vagrant likes to reload its mounts/shared folders on each load.
+> In the code above, I am appending `\\?\` to the current directory absolute path. This will actually force the Windows API to allow an increase in the MAX_PATH variable (normally capped at 260). Read more about [max path](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx#maxpath). This is happening during the sharedfolder creation which is intentionally handled by VBoxManage and not Vagrant's "synced_folder" method. The last bit is pretty self-explanatory; we create the new shared folder and then make sure it's mounted each time the machine is accessed or touched since Vagrant likes to reload its mounts/shared folders on each load.
 
 ## npm only uses `git:` and `ssh+git:` URLs for GitHub repos, breaking proxies
 
@@ -130,11 +130,10 @@ npm ERR! Error: SSL Error: SELF_SIGNED_CERT_IN_CHAIN
 
 Either:
 
-* upgrade your version of npm `npm install npm -g --ca=""`
-* tell your current version of npm to use known registrars `npm config set ca=""`
+- upgrade your version of npm `npm install npm -g --ca=""`
+- tell your current version of npm to use known registrars `npm config set ca=""`
 
-If this does not fix the problem, then you may have an SSL-intercepting proxy.
-(For example, https://github.com/npm/npm/issues/7439#issuecomment-76024878)
+If this does not fix the problem, then you may have an SSL-intercepting proxy. (For example, https://github.com/npm/npm/issues/7439#issuecomment-76024878)
 
 ## SSL-intercepting proxy
 
@@ -152,8 +151,8 @@ npm ERR! Error: 404 Not Found
 npm http 500 https://registry.npmjs.org/phonegap
 ```
 
-* It's most likely a temporary npm registry glitch. Check [npm server status](http://status.npmjs.org/) and try again later.
-* If the error persists, perhaps the published package is corrupt. Contact the package owner and have them publish a new version of the package.
+- It's most likely a temporary npm registry glitch. Check [npm server status](http://status.npmjs.org/) and try again later.
+- If the error persists, perhaps the published package is corrupt. Contact the package owner and have them publish a new version of the package.
 
 ## Invalid JSON
 
@@ -169,12 +168,9 @@ npm ERR! SyntaxError: Unexpected token <
 npm ERR! registry error parsing json
 ```
 
-* Possible temporary npm registry glitch, or corrupted local server cache.
-Run `npm cache clean` and/or try again later.
-* This can be caused by corporate proxies that give HTML
-responses to `package.json` requests. Check npm's proxy [configuration](/misc/config).
-* Check that it's not a problem with a package you're trying to install
-(e.g. invalid `package.json`).
+- Possible temporary npm registry glitch, or corrupted local server cache. Run `npm cache clean` and/or try again later.
+- This can be caused by corporate proxies that give HTML responses to `package.json` requests. Check npm's proxy [configuration](/misc/config).
+- Check that it's not a problem with a package you're trying to install (e.g. invalid `package.json`).
 
 ## Many `ENOENT` / `ENOTEMPTY` errors in output
 
@@ -186,8 +182,7 @@ Take a look at [issue #5920](https://github.com/npm/npm/issues/5920). ~~We're wo
 
 ## `npm login` errors
 
-Sometimes `npm login` fails for no obvious reason.  The first thing to do is to log in at <https://www.npmjs.com/login> and check that your e-mail address on `npmjs.com` matches the
-email address you are giving to `npm login`.
+Sometimes `npm login` fails for no obvious reason. The first thing to do is to log in at [https://www.npmjs.com/login](https://www.npmjs.com/login) and check that your e-mail address on `npmjs.com` matches the email address you are giving to `npm login`.
 
 If that's not the problem, or if you are seeing the message `"may not mix password_sha and pbkdf2"`, then
 
@@ -198,7 +193,7 @@ If that's not the problem, or if you are seeing the message `"may not mix passwo
 
 and it generally seems to work.
 
-See <https://github.com/npm/npm/issues/6641#issuecomment-72984009> for the history of this issue.
+See [https://github.com/npm/npm/issues/6641#issuecomment-72984009](https://github.com/npm/npm/issues/6641#issuecomment-72984009) for the history of this issue.
 
 ## `npm` hangs on Windows at `addRemoteTarball`
 
@@ -208,9 +203,9 @@ Check if you have two temp directories set in your `.npmrc`:
 > npm config ls -l
 ```
 
-Look for lines defining the `tmp` config variable.  If you find more than one, remove all but one of them.
+Look for lines defining the `tmp` config variable. If you find more than one, remove all but one of them.
 
-See <https://github.com/npm/npm/issues/7590> for more about this unusual problem.
+See [https://github.com/npm/npm/issues/7590](https://github.com/npm/npm/issues/7590) for more about this unusual problem.
 
 ## npm not running the latest version on a Windows machine
 

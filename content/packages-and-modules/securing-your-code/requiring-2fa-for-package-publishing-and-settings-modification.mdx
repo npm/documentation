@@ -1,6 +1,7 @@
 ---
 title: Requiring 2FA for package publishing and settings modification
 ---
+
 import shared from '~/shared.js'
 
 To protect your packages, as a package publisher, you can require everyone who has write access to a package to have two-factor authentication (2FA) enabled. This will require that users provide 2FA credentials in addition to their login token when they publish the package. For more information, see "[Configuring two-factor authentication][config-2fa]".
@@ -20,11 +21,12 @@ You may also choose to allow publishing with either two-factor authentication _o
    <Screenshot src="/packages-and-modules/securing-your-code/2fa-package-admin.png" alt="Screenshot showing the admin tab on a package page" />
 
 4. Under "Publishing access", select the requirements to publish a package.
+
    1. **Dont require two-factor authentication**  
       With this option, a maintainer can publish a package or change the package settings whether they have two-factor authentication enabled or not. This is the least secure setting.
 
    2. **Require two-factor authentication or automation tokens or granular access token**  
-      With this option, maintainers must have two-factor authentication enabled for their account.  If they publish a package interactively, using the `npm publish` command, they will be required to enter 2FA credentials when they perform the publish. However, maintainers may also create an [automation token][creating-automation-token] or a [granular access token][creating-granular-access-token] and use that to publish. A second factor is _not_ required when using a token, making it useful for continuous integration and continuous deployment workflows.
+      With this option, maintainers must have two-factor authentication enabled for their account. If they publish a package interactively, using the `npm publish` command, they will be required to enter 2FA credentials when they perform the publish. However, maintainers may also create an [automation token][creating-automation-token] or a [granular access token][creating-granular-access-token] and use that to publish. A second factor is _not_ required when using a token, making it useful for continuous integration and continuous deployment workflows.
 
    3. **Require two-factor authentication and disallow tokens**  
       With this option, a maintainer must have two-factor authentication enabled for their account, and they must publish interactively. Maintainers will be required to enter 2FA credentials when they perform the publish. Automation tokens and granular access tokens cannot be used to publish packages.

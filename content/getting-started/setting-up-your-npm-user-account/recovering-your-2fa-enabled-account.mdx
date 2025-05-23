@@ -1,14 +1,17 @@
 ---
 title: Recovering your 2FA-enabled account
 ---
+
 import shared from '~/shared.js'
 
 When you have two-factor access enabled on your account, and you lose access to your 2FA device, you may be able to recover your account using the following methods.
 
 ## Misplaced second factor device
+
 If you have misplaced the device that provided second-factor authentication, you can use the recovery codes generated when you [enabled 2FA][setup-recovery-codes] to access your account.
 
 ### Using recovery code on the web
+
 1. Locate the recovery codes generated that you have saved.
 
 2. <>{shared['user-login'].text}</>
@@ -23,11 +26,11 @@ If you have misplaced the device that provided second-factor authentication, you
 
 4. Enter an unused recovery code in the "Use a Recovery Code" prompt.
 
-    <Screenshot src="/getting-started/setting-up-your-npm-user-account/user-a-recovery-code.png" alt="Screenshot showing use a recovery code prompt with an input box to enter the recovery code" />
+   <Screenshot src="/getting-started/setting-up-your-npm-user-account/user-a-recovery-code.png" alt="Screenshot showing use a recovery code prompt with an input box to enter the recovery code" />
 
 5. You are now logged into npm.
 
-6. (Optional) To disable 2FA, see "[Disabling 2FA][removing-2fa-on-the-web]". 
+6. (Optional) To disable 2FA, see "[Disabling 2FA][removing-2fa-on-the-web]".
 
 ### Using recovery code from the command line
 
@@ -39,7 +42,7 @@ If you have misplaced the device that provided second-factor authentication, you
 
    <Prompt>Enter one-time password:</Prompt>
 
-4. Once you are logged in, use the below and enter your npm password if prompted.  
+4. Once you are logged in, use the below and enter your npm password if prompted.
 
    ```
    npm profile disable-2fa
@@ -65,7 +68,7 @@ If you are using a [time-based one-time password (TOTP)][totp] mobile app and wa
 
 <Note>
 
-**Note:**  Once you regenerate a set of code, all previous recovery codes become invalid. Each code can be used only once.
+**Note:** Once you regenerate a set of code, all previous recovery codes become invalid. Each code can be used only once.
 
 </Note>
 
@@ -102,19 +105,17 @@ If you have misplaced both your 2FA device and your recovery codes, you can cont
 3. Under the "Use a Recovery Code" form, click **Try recovering your account**.
 
 4. <>{shared['start-account-recovery'].text}</>
-   
+
    <>{shared['start-account-recovery'].image}</>
 
-5. If you have access to your registered email, enter the one-time password sent to your email in the **One-Time Password** field, then click **Verify Email Address**. 
-_If you do not have access to your registered email, select **Skip email verification** at the bottom of the form._
+5. If you have access to your registered email, enter the one-time password sent to your email in the **One-Time Password** field, then click **Verify Email Address**. _If you do not have access to your registered email, select **Skip email verification** at the bottom of the form._
 
 6. <>{shared['support-ticket-form'].text}</>
 
-    * <>{shared['enter-email-address'].text}</> 
-    * In the **How can we help?** section, select **Reset my two-factor authentication (2FA)**.
-    * <>{shared['support-ticket-other'].text}</> 
-    <>{shared['connect-to-accounts'].text}</> 
- 
+   - <>{shared['enter-email-address'].text}</>
+   - In the **How can we help?** section, select **Reset my two-factor authentication (2FA)**.
+   - <>{shared['support-ticket-other'].text}</><>{shared['connect-to-accounts'].text}</>
+
    <Screenshot src="/getting-started/setting-up-your-npm-user-account/recover-account.png" alt="Screenshot showing existing recovery codes and a button to generate set of recovery codes" />
 
 7. <>{shared['submit-support-ticket'].text}</>

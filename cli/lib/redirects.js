@@ -1,4 +1,6 @@
-const { posix: { join } } = require('path')
+const {
+  posix: {join},
+} = require('path')
 
 // An object to generate redirects for a given path.
 // The key is a glob path that is matched by minimatch,
@@ -31,64 +33,31 @@ const { posix: { join } } = require('path')
 
 module.exports = {
   index: () => ['.'],
-  '*/!(index)': ({ section, page }) => [
-    join(section, page),
-    join('/', section, page),
-  ],
-  '*/index': ({ section, page }) => [
-    join(section),
-    join('/', section),
-    join(section, page),
-    join('/', section, page),
-  ],
+  '*/!(index)': ({section, page}) => [join(section, page), join('/', section, page)],
+  '*/index': ({section, page}) => [join(section), join('/', section), join(section, page), join('/', section, page)],
 
   // any page with `-json` -> `.json`
-  '**/*-json*': ({ section, page }) => [
-    join(section, page.replace(/-json/g, '.json')),
-  ],
+  '**/*-json*': ({section, page}) => [join(section, page.replace(/-json/g, '.json'))],
 
   // commands
-  'commands/!(index)': ({ page }) => [
-    page,
-  ],
-  'commands/index': () => [
-    '/cli-documentation/cli',
-  ],
-  'commands/*': ({ page }) => [
-    join('cli-commands', page),
-    join('/', 'cli-commands', page),
-  ],
-  'commands/npm-*': ({ section, page }) => [
-    join(section, page.replace(/^npm-/, '')),
-  ],
+  'commands/!(index)': ({page}) => [page],
+  'commands/index': () => ['/cli-documentation/cli'],
+  'commands/*': ({page}) => [join('cli-commands', page), join('/', 'cli-commands', page)],
+  'commands/npm-*': ({section, page}) => [join(section, page.replace(/^npm-/, ''))],
 
   // configuring npm
-  'configuring-npm/*': ({ page }) => [
-    join('files', page),
-    join('/', 'files', page),
-  ],
-  'configuring-npm/package-locks': ({ section, page, release }) => [
+  'configuring-npm/*': ({page}) => [join('files', page), join('/', 'files', page)],
+  'configuring-npm/package-locks': ({section, page, release}) => [
     // A special case for a path that was deleted in v7, but we still
     // want the old v6 default url to resolve.
-    { path: join('/', section, page), default: release.id === 'v6' },
-    { path: join(section, page), default: release.id === 'v6' },
+    {path: join('/', section, page), default: release.id === 'v6'},
+    {path: join(section, page), default: release.id === 'v6'},
   ],
 
   // using npm
-  'using-npm/*': ({ page }) => [
-    join('misc', page),
-    join('/', 'misc', page),
-  ],
-  'using-npm/removal': ({ section }) => [
-    join(section, 'removing-npm'),
-  ],
-  'using-npm/scope': ({ section }) => [
-    join(section, 'npm-scope'),
-  ],
-  'about-pgp-signatures-for-packages-in-the-public-registry': () => [
-    '/about-registry-signatures',
-  ],
-  'verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry': () => [
-    '/verifying-registry-signatures',
-  ],
+  'using-npm/*': ({page}) => [join('misc', page), join('/', 'misc', page)],
+  'using-npm/removal': ({section}) => [join(section, 'removing-npm')],
+  'using-npm/scope': ({section}) => [join(section, 'npm-scope')],
+  'about-pgp-signatures-for-packages-in-the-public-registry': () => ['/about-registry-signatures'],
+  'verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry': () => ['/verifying-registry-signatures'],
 }

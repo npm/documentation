@@ -8,16 +8,15 @@ For more information on how npm support handles package name disputes between us
 
 <Note>
 
-**Note:** You cannot transfer a scoped package to another user account or organization, because a package's scope _is_ the user account or organization name.  You will need to create a new package in the new scope.
+**Note:** You cannot transfer a scoped package to another user account or organization, because a package's scope _is_ the user account or organization name. You will need to create a new package in the new scope.
 
 </Note>
 
 ## Transferring a package from a user account to another user account on the website
 
-To transfer a package you own or maintain to another user, follow these steps:  
+To transfer a package you own or maintain to another user, follow these steps:
 
-1. Navigate to the package page for the package you want to transfer, replacing `<your-package-name>` with the name of your package:
-`https://www.npmjs.com/package/<your-package-name>`.
+1. Navigate to the package page for the package you want to transfer, replacing `<your-package-name>` with the name of your package: `https://www.npmjs.com/package/<your-package-name>`.
 
 2. On the package Admin tab, under "Maintainers", enter the npm username of the new maintainer.
 
@@ -41,7 +40,7 @@ npm owner add <their-username> <package-name>
 npm owner rm <your-username> <package-name>
 ```
 
-If you have two-factor authentication enabled for writes, add a one-time password to the command, `--otp=123456` (where *123456* is the code from your authenticator application).
+If you have two-factor authentication enabled for writes, add a one-time password to the command, `--otp=123456` (where _123456_ is the code from your authenticator application).
 
 ```
 npm owner add <their-username> <package-name> --otp=123456

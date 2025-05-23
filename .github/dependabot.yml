@@ -16,3 +16,12 @@ updates:
       prefix-development: chore
     labels:
       - "Dependencies"
+    open-pull-requests-limit: 10
+    groups:
+      dependency-updates:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"

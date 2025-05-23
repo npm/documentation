@@ -1,0 +1,3 @@
+{{> defaultStepLintYml }}
+- name: Check Format
+  run: {{ rootNpmPath }} run format:check --ignore-scripts --if-present {{~#if jobRunFlags}} {{ jobRunFlags }}{{/if}}

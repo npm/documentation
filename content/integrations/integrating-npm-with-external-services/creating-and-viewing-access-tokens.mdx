@@ -16,7 +16,6 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 
 </Note>
 
-
 1. In the upper right corner of the page, click your profile picture, then click **Access Tokens**.
 
    <Screenshot src="/integrations/integrating-npm-with-external-services/tokens-profile.png" alt="Screenshot of the account menu with the tokens link selected" />
@@ -29,11 +28,11 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 
 4. Select the type of access token:
 
-   - **Read-only**: A read-only token can only be used to download packages from the registry.  It will have permission to read any private package that you have access to.  This is recommended for automation and workflows where you are installing packages, but not publishing new ones.
+   - **Read-only**: A read-only token can only be used to download packages from the registry. It will have permission to read any private package that you have access to. This is recommended for automation and workflows where you are installing packages, but not publishing new ones.
 
-   - **Automation**: An automation token can download packages and publish new ones, but if you have two-factor authentication (2FA) configured on your account, it will **not** be enforced.  You can use an automation token in continuous integration workflows and other automation systems to publish a package even when you cannot enter a one-time passcode.
+   - **Automation**: An automation token can download packages and publish new ones, but if you have two-factor authentication (2FA) configured on your account, it will **not** be enforced. You can use an automation token in continuous integration workflows and other automation systems to publish a package even when you cannot enter a one-time passcode.
 
-   - **Publish**: A publish token can perform any action on your behalf, including downloading packages, publishing packages, and changing user settings or package settings.  If you have two-factor authentication configured on your account, you will be required to enter a one-time passcode when using a publish token.  This is recommended for interactive workflows such as a CLI.
+   - **Publish**: A publish token can perform any action on your behalf, including downloading packages, publishing packages, and changing user settings or package settings. If you have two-factor authentication configured on your account, you will be required to enter a one-time passcode when using a publish token. This is recommended for interactive workflows such as a CLI.
 
    <Screenshot src="/integrations/integrating-npm-with-external-services/token-level-select.png" alt="Screenshot of the access level selection" />
 
@@ -65,12 +64,13 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 
    - In the **Permissions** dropdown menu, select **No access**, **Read-only**, or **Read and write**.
    - Under **Select Packages**, select either:
-      - **All Packages** to grant the token access to all packages the user account has access to.
-      - **Only select packages and scopes** to choose up to 50 specific packages or scopes to give the token access to. Then select specific packages or scopes from the dropdown menu.
+     - **All Packages** to grant the token access to all packages the user account has access to.
+     - **Only select packages and scopes** to choose up to 50 specific packages or scopes to give the token access to. Then select specific packages or scopes from the dropdown menu.
 
    <Screenshot src="/integrations/integrating-npm-with-external-services/granular-access-token-packages-scopes.png" alt="Screenshot of the packages and scopes section" />
 
 8. (Optional) In the **Organizations** section, configure your token's access to organizations.
+
    - In the **Permissions** dropdown menu, select **No access**, **Read-only**, or **Read and write**.
    - Under **Select organizations**, select the organizations you want to grant your token access to.
 
@@ -78,11 +78,11 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 
    _**Note**: When you give a token access to an organization, the token can only be used for managing organization settings and teams or users associated with the organization. It does not give the token the right to publish packages managed by the organization._
 
-9.  Review the token summary, then click **Generate Token**.
+9. Review the token summary, then click **Generate Token**.
 
-    <Screenshot src="/integrations/integrating-npm-with-external-services/granular-access-token-summary.png" alt="Screenshot of the granular access token summary and the generate token button" />
+   <Screenshot src="/integrations/integrating-npm-with-external-services/granular-access-token-summary.png" alt="Screenshot of the granular access token summary and the generate token button" />
 
-10.  Copy the token from the top of page.
+10. Copy the token from the top of page.
 
 ### Creating tokens with the CLI
 
@@ -97,13 +97,13 @@ You can create tokens with **read-only** permissions or **read and publish** per
 - **Read-only:** Tokens that allow installation and distribution only, but no publishing or other rights associated with your account.
 - **Publish:** The default setting for new tokens, and most permissive token type. Publish tokens allow installation, distribution, modification, publishing, and all rights that you have on your account.
 
-In addition, you can specify that the token is only valid for a specific IPv4 address range, using [CIDR][cidr-wiki] notation.  The token will only be valid when used from the specified IP addresses.
+In addition, you can specify that the token is only valid for a specific IPv4 address range, using [CIDR][cidr-wiki] notation. The token will only be valid when used from the specified IP addresses.
 
 1. To create a new token, on the command line, run:
-   * `npm token create` for a read and publish token
-   * `npm token create --read-only` for a read-only token
-   * `npm token create --cidr=[list]` for a CIDR-restricted read and publish token. For example, `npm token create --cidr=192.0.2.0/24`
-   * `npm token create --read-only --cidr=[list]` for a CIDR-restricted read-only token
+   - `npm token create` for a read and publish token
+   - `npm token create --read-only` for a read-only token
+   - `npm token create --cidr=[list]` for a CIDR-restricted read and publish token. For example, `npm token create --cidr=192.0.2.0/24`
+   - `npm token create --read-only --cidr=[list]` for a CIDR-restricted read-only token
 2. When prompted, enter your password.
 3. If you have enabled [two-factor authentication][tfa], when prompted, enter a one-time password.
 4. Copy the token from the **token** field in the command output.
@@ -147,7 +147,6 @@ npm token list
 - **create:** Date the token was created.
 - **readonly:** If yes, indicates a read-only token. If no, indicates a token with both read and publish permissions.
 - **CIDR whitelist:** Restricts token use by IP address.
-
 
 [tfa]: about-two-factor-authentication
 [cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing

@@ -3,10 +3,11 @@
 # ignore everything in the root
 /*
 
-# keep these
 !**/.gitignore
+!/.eslint.config.js
 !/.eslintrc.js
 !/.eslintrc.local.*
+!/.git-blame-ignore-revs
 !/.gitignore
 !/bin/
 !/CHANGELOG*
@@ -20,3 +21,4 @@
 !/scripts/
 !/tap-snapshots/
 !/test/
+tap-testdir*/

@@ -23,7 +23,6 @@ The certificate authority federates with any OIDC provider that includes verifia
 
 The transparency log service provides a public, verifiable, tamper-evident ledger of signed attestations. This ensures transparency of the public service, as well as providing a way to detect attempts to tamper with a package if a package registry were to be compromised.
 
-
 ## Provenance limitations
 
 - To publish a package with provenance, you must build your package with a supported cloud CI/CD provider using a cloud-hosted runner. Today this includes GitHub Actions and GitLab CI/CD.
@@ -37,7 +36,7 @@ Before you can publish your packages with provenance, you must:
 
 - Install the latest version of the npm CLI (ensure you are on `9.5.0+` as older versions don't support npm provenance). For more information, see "[Try the latest stable version of npm][update-npm]."
 
-- Ensure your `package.json` is configured with a public `repository` that matches where you are publishing with provenance from.
+- Ensure your `package.json` is configured with a public `repository` that matches (case-sensitive) where you are publishing with provenance from.
 
 - Set up automation with a supported CI/CD provider to publish your packages to the npm registry. The following providers are supported:
   - GitHub Actions. For more information, see "[Publishing packages with provenance via GitHub Actions][github-provenance]."
@@ -82,7 +81,7 @@ This example workflow publishes a package to the npm registry with provenance.
 name: Publish Package to npmjs
 on:
   release:
-    types: [created]
+    types: [published]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -90,21 +89,49 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm install -g npm
       - run: npm ci
       - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
+### Using third-party package publishing tools
+
+If you publish your packages with tools that do not directly invoke the `npm publish` command, you can do one of the following in your GitHub Actions workflow to publish your packages with provenance.
+
+- **Configure environment variables:** In your GitHub Actions workflow, you can use an environment variable called `NPM_CONFIG_PROVENANCE`, and set it to `true`.
+- **Configure your `package.json` file:** You can add a `publishConfig` block to your `package.json` file:
+
+  ```json
+  "publishConfig": {
+    "provenance": true
+  },
+  ```
+
+- **Add an `.npmrc` file:** You can add an `.npmrc` file to your project with the following entry:
+
+  ```ini
+  provenance=true
+  ```
+
+<Note>
+
+**Note:** To publish packages with provenance using Yarn, [v4.9.0](https://github.com/yarnpkg/berry/releases/tag/%40yarnpkg%2Fcli%2F4.9.0) or greater is required.
+
+</Note>
+
+## Publishing packages with provenance via GitLab CI/CD
+
+In order to establish provenance, you must use a supported cloud CI/CD provider and a cloud-hosted runner to publish your packages. GitLab CI/CD is a supported CI/CD platform that allows you to automate software development tasks. For more information, see [Generating provenance in GitLab CI/CD][gitlab-ci-cd-docs] in the GitLab documentation.
+
 ### Example GitLab CI job
 
-This example job publishes a package to the npm registry with provenance when a git tag is pushed. Don’t forget to define the `NPM_TOKEN` variable in your GitLab project settings.
+This example job publishes a package to the npm registry with provenance when a git tag is pushed. Don't forget to define the `NPM_TOKEN` variable in your GitLab project settings.
 
 ```yaml
 publish:
@@ -119,32 +146,25 @@ publish:
     - npm publish --provenance --access public
 ```
 
-### Using third-party package publishing tools
+## Verifying provenance attestations
 
-If you publish your packages with tools that do not directly invoke the `npm publish` command, you can do one of the following in your GitHub Actions workflow to publish your packages with provenance.
+You can verify the provenance attestations of downloaded packages with the following `audit` command:
 
-- **Configure environment variables:** In your GitHub Actions workflow, you can use an environment variable called `NPM_CONFIG_PROVENANCE`, and set it to `true`.
-- **Configure your `package.json` file:** You can add a `publishConfig` block to your `package.json` file:
-  ```json
-  "publishConfig": {
-    "provenance": true
-  },
-  ```
-- **Add an `.npmrc` file:** You can add an `.npmrc` file to your project with the following entry:
-  ```ini
-  provenance=true
-  ```
+```
+npm audit signatures
+```
 
-<Note>
+Example response showing the count of verified registry signatures and verified attestations for all of the packages in a project:
 
-**Note:** At this time, `yarn` is not a supported tool for publishing your packages with provenance.
+```
+audited 1267 packages in 6s
 
-</Note>
+1267 packages have verified registry signatures
 
+74 packages have verified attestations
+```
 
-## Publishing packages with provenance via GitLab CI/CD
-
-In order to establish provenance, you must use a supported cloud CI/CD provider and a cloud-hosted runner to publish your packages. GitLab CI/CD is a supported CI/CD platform that allows you to automate software development tasks. For more information, see [Generating provenance in GitLab CI/CD][gitlab-ci-cd-docs] in the GitLab documentation.
+Because provenance attestations are such a new feature, security features may be added to (or changed in) the attestation format over time. To ensure that you're always able to verify attestation signatures check that you're running the latest version of the npm CLI. Please note this often means updating npm beyond the version that ships with Node.js.
 
 [provenance-info]: /searching-for-and-choosing-packages-to-download#package-provenance
 [update-npm]: /try-the-latest-stable-version-of-npm
