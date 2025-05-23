@@ -1,8 +1,6 @@
-# This file is automatically added by @npmcli/template-oss. Do not edit.
+# This file is automatically added by @name: Publish
 
-name: Publish
-
-on:
+on: home
   push:
     branches:
       - main
