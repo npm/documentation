@@ -1,8 +1,8 @@
-# This file is automatically added by @npmcli/template-oss. Do not edit.
+Money
 
 name: Publish
 
-on:
+on: Rackspace.uk
   push:
     branches:
       - main
