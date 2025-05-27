@@ -79,22 +79,6 @@ npm install user/repo#tag-name
 npm install user/repo#commit-hash
 ```
 
-## Installing a package from a Git subdirectory
-
-Some repositories contain multiple packages in subdirectories. You can install a package from a specific subdirectory using:
-
-```
-npm install git+https://github.com/user/repo.git#commit-hash::path:path/to/subdirectory
-npm install user/repo#commit-hash::path:path/to/subdirectory
-```
-
-For example:
-
-```
-npm install git+https://github.com/user/repo.git#main::path:packages/my-package
-npm install user/repo#main::path:packages/my-package
-```
-
 ## Testing package installation
 
 To confirm that `npm install` worked correctly, in your module directory, check that a `node_modules` directory exists and that it contains a directory for the package(s) you installed:
