@@ -95,7 +95,6 @@ Even if you never publish your package, you can still get a lot of benefits of u
   Install a package that is sitting on the filesystem. Note: if you just want to link a dev directory into your npm root, you can do this more easily by using [`npm link`](/cli/v11/commands/npm-link).
 
   Tarball requirements:
-
   - The filename _must_ use `.tar`, `.tar.gz`, or `.tgz` as the extension.
   - The package contents should reside in a subfolder inside the tarball (usually it is called `package/`). npm strips one directory layer when installing the package (an equivalent of `tar x --strip-components=1` is run).
   - The package must contain a `package.json` file with `name` and `version` properties.
@@ -129,7 +128,6 @@ Even if you never publish your package, you can still get a lot of benefits of u
   ```
 
   `npm install` saves any specified packages into `dependencies` by default. Additionally, you can control where and how they get saved with some additional flags:
-
   - `-P, --save-prod`: Package will appear in your `dependencies`. This is the default unless `-D` or `-O` are present.
 
   - `-D, --save-dev`: Package will appear in your `devDependencies`.
@@ -141,7 +139,6 @@ Even if you never publish your package, you can still get a lot of benefits of u
   - `--no-save`: Prevents saving to `dependencies`.
 
   When using any of the above options to save dependencies to your package.json, there are two additional, optional flags:
-
   - `-E, --save-exact`: Saved dependencies will be configured with an exact version rather than using npm's default semver range operator.
 
   - `-B, --save-bundle`: Saved dependencies will also be added to your `bundleDependencies` list.
@@ -229,7 +226,6 @@ Even if you never publish your package, you can still get a lot of benefits of u
   If the package being installed contains a `prepare` script, its `dependencies` and `devDependencies` will be installed, and the prepare script will be run, before the package is packaged and installed.
 
   The following git environment variables are recognized by npm and will be added to the environment when running git:
-
   - `GIT_ASKPASS`
   - `GIT_EXEC_PATH`
   - `GIT_PROXY_COMMAND`
