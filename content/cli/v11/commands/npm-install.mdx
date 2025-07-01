@@ -415,6 +415,17 @@ By default, conflicting `peerDependencies` deep in the dependency graph will be 
 
 When such an override is performed, a warning is printed, explaining the conflict and the packages involved. If `--strict-peer-deps` is set, then this warning is treated as a failure.
 
+#### `legacy-peer-deps`
+
+- Default: false
+- Type: Boolean
+
+When set to `true`, npm completely ignores peerDependencies when building the dependency tree, behaving as it did in npm versions 3 through 6.
+
+This option can help resolve installation issues if a package cannot be installed due to strict or conflicting peerDependencies. Enabling this setting bypasses the stricter peer dependency resolution introduced in npm v7+ and falls back to the older, more permissive algorithm.
+
+> **Note**: Using legacy-peer-deps may result in a dependency tree that does not correctly reflect the intended peer relationships, potentially leading to runtime issues. Use with caution.
+
 #### `prefer-dedupe`
 
 - Default: false
