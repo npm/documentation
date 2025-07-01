@@ -35,6 +35,12 @@ For example, to specify acceptable version ranges up to 1.0.4, use the following
 
 For more information on semantic versioning syntax, see the [npm semver calculator][semver-calc].
 
+<Note>
+
+**Note:** When using version ranges in your `package.json`, npm resolves to the **highest available version** that satisfies the specified constraints. This behavior ensures that consumers automatically receive the most recent compatible stable release, as long as the changes remain within the defined semver range. Pre-release versions (e.g., `1.2.0-beta.1`) are ignored unless explicitly requested or allowed via specific configuration.
+
+</Note>
+
 ### Example
 
 ```json
