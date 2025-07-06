@@ -14,11 +14,16 @@ const StyledOverlay = styled(ActionMenu.Overlay)`
   box-shadow: var(--shadow-resting-medium, 0 3px 6px rgba(140, 149, 159, 0.15));
 `
 
-const VariantItem = ({title, shortName, url, active}) => (
-  <ActionList.Item as={LinkNoUnderline} to={url} state={{scrollUpdate: false}} id={shortName} active={active}>
-    {title}
-  </ActionList.Item>
-)
+const VariantItem = ({title, shortName, url, active}) => {
+  return (
+    <ActionList.Item state= {{scrollUpdate: false}} id={shortName} active={active}>
+      <LinkNoUnderline 
+        to={url}
+      >
+        {title}
+      </LinkNoUnderline>
+  </ActionList.Item>)
+}
 
 const useVariantFocus = () => {
   const locationChange = useLocationChange()
