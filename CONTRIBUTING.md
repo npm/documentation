@@ -147,7 +147,6 @@ This process can, of course, be done manually. This may be useful for editing it
 
 1. Review the configuration  
    The `cli/releases.json` configures how the CLI documentation is included. It is an array of documentation versions, each having the following configuration:
-
    - `id`: A short identifier for the documentation version, eg `v6` or `v7`. This corresponds to a directory containing a version of the CLI repository (using a submodule). This will also be used as the output folder in the content.
    - `branch`: The branch name for the version. This will be used to fetch the latest version of the documentation from GitHub.
    - `spec`: The registry spec for the version. This will be used to fetch the latest version in that range from the registry.
