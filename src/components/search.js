@@ -106,11 +106,22 @@ export const Mobile = ({
   const siteMetadata = useSiteMetadata()
   const getCloseAnimation = exit => (isForceClose ? undefined : {exit})
 
+  const handleSearchToggle = React.useCallback(() => {
+    setMobileSearchOpen(true)
+  }, [setMobileSearchOpen])
+
   return (
     <>
-      <Button aria-label="Search" aria-expanded={isMobileSearchOpen} onClick={() => setMobileSearchOpen(true)}>
-        <SearchIcon />
-      </Button>
+      {!isMobileSearchOpen && (
+        <Button 
+          aria-label="Search" 
+          aria-expanded={isMobileSearchOpen} 
+          onClick={handleSearchToggle}
+        >
+          <SearchIcon />
+        </Button>
+      )}
+
       <AnimatePresence>
         {isMobileSearchOpen ? (
           <FocusOn returnFocus={true} onEscapeKey={() => resetAndClose(true)}>
@@ -157,6 +168,8 @@ export const Mobile = ({
                     borderRightWidth: 0,
                     borderColor: 'border.muted',
                     position: 'relative',
+                    bg: 'canvas.default',
+                    zIndex: 9999, 
                   }}
                 >
                   <motion.div
