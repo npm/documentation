@@ -45,7 +45,6 @@ To get around this, you can do **one** of the following:
 - Option 1: [edit your Windows installation's `PATH`](http://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them) to put `%appdata%\npm` before `%ProgramFiles%\nodejs`. Remember that you'll need to restart `cmd.exe` (and potentially restart Windows) when you make changes to `PATH` or how npm is installed.
 
 - Option 2: remove both of
-
   - `%ProgramFiles%\nodejs\npm`
   - `%ProgramFiles%\nodejs\npm.cmd`
 
@@ -59,7 +58,6 @@ npm install npm@latest
 If you installed npm with the node.js installer, after doing one of the previous steps, do the following.
 
 - Option 1 or 2
-
   - Go into `%ProgramFiles%\nodejs\node_modules\npm` and copy the file named `npmrc` in the new npm folder, which should be `%appdata%\npm\node_modules\npm`. This will tell the new npm where the global installed packages are.
 
 - Option 3

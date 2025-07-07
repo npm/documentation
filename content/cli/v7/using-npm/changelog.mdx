@@ -1468,12 +1468,10 @@ redirect_from:
 
 - [`ed6e6a9d3`](https://github.com/npm/cli/commit/ed6e6a9d3c36ffc5fb77fc25b6d66dbcb26beeb9) `eslint-plugin-standard@4.0.2`
 - [`b737ee999`](https://github.com/npm/cli/commit/b737ee99961364827bacf210a3e5ca5d2b7edad2) [#2009](https://github.com/npm/cli/issues/2009) [#2007](https://github.com/npm/cli/issues/2007) `npm-packlist@2.1.4`:
-
   - Maintain order in package.json files array globs
   - Strip slashes from package files list results
 
 - [`783965508`](https://github.com/npm/cli/commit/783965508d49f8ab0d8ceff38bee700cd0a06a54) [#1997](https://github.com/npm/cli/issues/1997) [#2000](https://github.com/npm/cli/issues/2000) [#2005](https://github.com/npm/cli/issues/2005) `@npmcli/arborist@1.0.4`
-
   - Ensure that root is added when root.meta is set
   - Include all edges in explain() output when a root edge exists
   - Do not conflict on meta-peers that will not be replaced
@@ -1698,26 +1696,22 @@ redirect_from:
 - [`ac5aa709a`](https://github.com/npm/cli/commit/ac5aa709a8609ec2beb7a8c60b3bde18f882f4e8) [#1758](https://github.com/npm/cli/pull/1758) fix scope config
 - [`a36e2537f`](https://github.com/npm/cli/commit/a36e2537fd4c81df53fb6de01900beb9fa4fa0aa) outdated: don't throw on non-version/tag/range dep
 - [`371f0f062`](https://github.com/npm/cli/commit/371f0f06215ad8caf598c20e3d0d38ff597531e9) `@npmcli/arborist@0.0.20`
-
   - Provide explanation objects for `ERESOLVE` errors
   - Support overriding certain classes of `ERESOLVE` errors with `--force`
   - Detect changes to package.json requiring package-lock dependency flag re-evaluation
 
 - [`2a4e2e9ef`](https://github.com/npm/cli/commit/2a4e2e9efecb7f86147e5071c59cfc2461a5a7f5) [#1761](https://github.com/npm/cli/pull/1761) Explain `ERESOLVE` errors
 - [`8e3e83bd4`](https://github.com/npm/cli/commit/8e3e83bd4f816bfed0efb8266985143ee9b94b86) `@npmcli/arborist@0.0.21`
-
   - Remove bin links on prune
   - Remove unnecessary tree walk for workspace projects
   - Install workspaces on update:true
 
 - [`d6b134fd9`](https://github.com/npm/cli/commit/d6b134fd9005d911343831270615f80dfead7e3d) [#1738](https://github.com/npm/cli/pull/1738) [#1734](https://github.com/npm/cli/pull/1734) fix package spec parsing during cache add process ([@mjeanroy](https://github.com/mjeanroy))
 - [`f105eb833`](https://github.com/npm/cli/commit/f105eb8333fa3300c5b47464b129c1b0057ed7bf) `npm-audit-report@2.1.4`:
-
   - Do not crash on cyclical meta-vulnerability references
 
 - [`03a9f569b`](https://github.com/npm/cli/commit/03a9f569b5121a173f14711980db297d4a04ac6b) `opener@1.5.2`
 - [`5616a23b4`](https://github.com/npm/cli/commit/5616a23b4b868d19aa100a6d86d781cc9bfd94f7) `@npmcli/git@2.0.4`
-
   - Support `.git` files, so that git worktrees are respected
 
 ## v7.0.0-beta.8 (2020-09-01)
@@ -1743,27 +1737,21 @@ redirect_from:
 - [`5cb9a1d4d`](https://github.com/npm/cli/commit/5cb9a1d4d985aaa8e988c51fe5ae7f7ed3602811) [#1688](https://github.com/npm/cli/pull/1688) use `@npmcli/config` for configuration ([@isaacs](https://github.com/isaacs))
 
 - [`a4295f5db`](https://github.com/npm/cli/commit/a4295f5db7667e8cc6b83abdad168619ad31a12f) `npm-registry-fetch@8.1.4`:
-
   - Redact passwords from HTTP logs
 
 - [`a5a6a516d`](https://github.com/npm/cli/commit/a5a6a516d16828c1375eaf41d04468d919df4a57) `json-parse-even-better-errors@2.3.0`:
-
   - Adds support for indentation/newline formatting preservation
 
 - [`a14054558`](https://github.com/npm/cli/commit/a1405455843db1b14938596303b29fb3ad4f90f0) `read-package-json-fast@1.2.1`:
-
   - Adds support for indentation/newline formatting preservation
 
 - [`f8603c8af`](https://github.com/npm/cli/commit/f8603c8affefc342d81c109e4676d498a8359b78) `libnpmversion@1.0.4`:
-
   - Adds support for indentation/newline formatting preservation
 
 - [`9891fa71c`](https://github.com/npm/cli/commit/9891fa71c88f425bef8d881c3795e5823d732e1f) `read-package-json@2.1.2`:
-
   - Adds support for indentation/newline formatting preservation
 
 - [`b44768aac`](https://github.com/npm/cli/commit/b44768aace0e9c938ebd6d05a5de1cc4368e2d7d) [#1662](https://github.com/npm/cli/issues/1662) [#1693](https://github.com/npm/cli/issues/1693) [#1690](https://github.com/npm/cli/issues/1690) `@npmcli/arborist@0.0.17`:
-
   - Load root project `package.json` when running loadVirtual.
   - Fetch metadata from registry when loading tree from outdated package-lock.json file. This avoids a situation where a lockfile or shrinkwrap from npm v5 would result in deleting dependencies on install.
   - Preserve `package.json` and `package-lock.json` formatting in all places where these files are written.
