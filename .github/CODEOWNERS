@@ -1,18 +1,18 @@
 * @npm/cli-team
 
 # Content
-/.github/CODEOWNERS   @leobalter @monishcm @wraithgar
-/content/             @leobalter @monishcm @wraithgar
-/src/                 @leobalter @monishcm @wraithgar
-/static/              @leobalter @monishcm @wraithgar
-/CONTENT-MODEL.md     @leobalter @monishcm @wraithgar
+/.github/CODEOWNERS   @leobalter @npm/cli-team
+/content/             @leobalter @npm/cli-team
+/src/                 @leobalter @npm/cli-team
+/static/              @leobalter @npm/cli-team
+/CONTENT-MODEL.md     @leobalter @npm/cli-team
 
 # Policies
 /content/policies/    @leobalter
 /CODE_OF_CONDUCT.md   @leobalter
 
 # Licensing
-/.reuse/              @leobalter @wraithgar
+/.reuse/              @leobalter @npm/cli-team
 /LICENSES/            @leobalter
 /LICENSE              @leobalter
 /LICENSE-CODE         @leobalter
