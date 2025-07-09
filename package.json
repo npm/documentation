@@ -107,6 +107,7 @@
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
     "version": "4.25.0",
     "content": "./scripts/template-oss",
+    "dependabotInterval": "weekly",
     "allowPaths": [
       "cli-cache.json"
     ]
