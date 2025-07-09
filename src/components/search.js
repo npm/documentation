@@ -5,7 +5,7 @@ import {AnimatePresence, motion} from 'framer-motion'
 import {FocusOn} from 'react-focus-on'
 import TextInput from './text-input'
 import useSiteMetadata from '../hooks/use-site-metadata'
-import {HEADER_BAR, HEADER_HEIGHT} from '../constants'
+import {HEADER_BAR, HEADER_HEIGHT, Z_INDEX} from '../constants'
 import {LightTheme} from '../theme'
 import {LinkNoUnderline} from './link'
 import * as getNav from '../util/get-nav'
@@ -132,7 +132,7 @@ export const Mobile = ({
                 left: 0,
                 right: 0,
                 bottom: 0,
-                zIndex: 1,
+                zIndex: Z_INDEX.SEARCH_OVERLAY,
               }}
             >
               <Box
@@ -169,7 +169,7 @@ export const Mobile = ({
                     borderColor: 'border.muted',
                     position: 'relative',
                     bg: 'canvas.default',
-                    zIndex: 9999, 
+                    zIndex: Z_INDEX.SEARCH_OVERLAY + 1, 
                   }}
                 >
                   <motion.div
