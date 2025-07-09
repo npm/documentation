@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@npmcli/eslint-config": "^5.0.0",
-    "@npmcli/template-oss": "4.24.4",
+    "@npmcli/template-oss": "4.25.0",
     "tap": "^21.0.0"
   },
   "author": "GitHub Inc.",
