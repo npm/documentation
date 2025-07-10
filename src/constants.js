@@ -14,5 +14,5 @@ export const CLI_PATH = '/cli'
 
 export const Z_INDEX = {
   HEADER: 10,
-  SEARCH_OVERLAY: 25
+  SEARCH_OVERLAY: 25,
 }

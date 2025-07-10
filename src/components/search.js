@@ -113,11 +113,7 @@ export const Mobile = ({
   return (
     <>
       {!isMobileSearchOpen && (
-        <Button 
-          aria-label="Search" 
-          aria-expanded={isMobileSearchOpen} 
-          onClick={handleSearchToggle}
-        >
+        <Button aria-label="Search" aria-expanded={isMobileSearchOpen} onClick={handleSearchToggle}>
           <SearchIcon />
         </Button>
       )}
@@ -169,7 +165,7 @@ export const Mobile = ({
                     borderColor: 'border.muted',
                     position: 'relative',
                     bg: 'canvas.default',
-                    zIndex: Z_INDEX.SEARCH_OVERLAY + 1, 
+                    zIndex: Z_INDEX.SEARCH_OVERLAY + 1,
                   }}
                 >
                   <motion.div
