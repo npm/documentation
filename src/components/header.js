@@ -5,7 +5,7 @@ import * as Search from './search'
 import NavDrawer from './nav-drawer'
 import Link from './link'
 import useSearch from '../hooks/use-search'
-import {HEADER_HEIGHT, HEADER_BAR} from '../constants'
+import {HEADER_HEIGHT, HEADER_BAR, Z_INDEX} from '../constants'
 import headerNavItems from '../../content/header-nav.yml'
 import {DarkTheme} from '../theme'
 import SiteTitle from './site-title'
@@ -19,7 +19,7 @@ function Header() {
   const search = useSearch()
 
   return (
-    <DarkTheme sx={{top: 0, position: 'sticky', zIndex: 1}}>
+    <DarkTheme sx={{top: 0, position: 'sticky', zIndex: Z_INDEX.HEADER}}>
       <NpmHeaderBar />
       <Box
         as="header"

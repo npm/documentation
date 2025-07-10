@@ -11,3 +11,8 @@ export const SKIP_TO_CONTENT_ID = 'skip-to-content'
 export const SKIP_TO_SEARCH_ID = 'search-box-input'
 
 export const CLI_PATH = '/cli'
+
+export const Z_INDEX = {
+  HEADER: 10,
+  SEARCH_OVERLAY: 25,
+}

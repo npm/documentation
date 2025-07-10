@@ -5,7 +5,7 @@ import {AnimatePresence, motion} from 'framer-motion'
 import {FocusOn} from 'react-focus-on'
 import TextInput from './text-input'
 import useSiteMetadata from '../hooks/use-site-metadata'
-import {HEADER_BAR, HEADER_HEIGHT} from '../constants'
+import {HEADER_BAR, HEADER_HEIGHT, Z_INDEX} from '../constants'
 import {LightTheme} from '../theme'
 import {LinkNoUnderline} from './link'
 import * as getNav from '../util/get-nav'
@@ -106,11 +106,18 @@ export const Mobile = ({
   const siteMetadata = useSiteMetadata()
   const getCloseAnimation = exit => (isForceClose ? undefined : {exit})
 
+  const handleSearchToggle = React.useCallback(() => {
+    setMobileSearchOpen(true)
+  }, [setMobileSearchOpen])
+
   return (
     <>
-      <Button aria-label="Search" aria-expanded={isMobileSearchOpen} onClick={() => setMobileSearchOpen(true)}>
-        <SearchIcon />
-      </Button>
+      {!isMobileSearchOpen && (
+        <Button aria-label="Search" aria-expanded={isMobileSearchOpen} onClick={handleSearchToggle}>
+          <SearchIcon />
+        </Button>
+      )}
+
       <AnimatePresence>
         {isMobileSearchOpen ? (
           <FocusOn returnFocus={true} onEscapeKey={() => resetAndClose(true)}>
@@ -121,7 +128,7 @@ export const Mobile = ({
                 left: 0,
                 right: 0,
                 bottom: 0,
-                zIndex: 1,
+                zIndex: Z_INDEX.SEARCH_OVERLAY,
               }}
             >
               <Box
@@ -157,6 +164,8 @@ export const Mobile = ({
                     borderRightWidth: 0,
                     borderColor: 'border.muted',
                     position: 'relative',
+                    bg: 'canvas.default',
+                    zIndex: Z_INDEX.SEARCH_OVERLAY + 1,
                   }}
                 >
                   <motion.div
