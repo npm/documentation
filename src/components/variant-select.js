@@ -16,13 +16,10 @@ const StyledOverlay = styled(ActionMenu.Overlay)`
 
 const VariantItem = ({title, shortName, url, active}) => {
   return (
-    <ActionList.Item state= {{scrollUpdate: false}} id={shortName} active={active}>
-      <LinkNoUnderline 
-        to={url}
-      >
-        {title}
-      </LinkNoUnderline>
-  </ActionList.Item>)
+    <ActionList.Item state={{scrollUpdate: false}} id={shortName} active={active}>
+      <LinkNoUnderline to={url}>{title}</LinkNoUnderline>
+    </ActionList.Item>
+  )
 }
 
 const useVariantFocus = () => {
@@ -42,6 +39,13 @@ const VariantMenu = ({title, latest, current, prerelease, legacy}) => {
   const [open, setOpen] = React.useState(false)
   const anchorRef = useVariantFocus()
   const labelId = 'label-versions-list-item'
+  const locationChange = useLocationChange()
+
+  React.useEffect(() => {
+    if (locationChange.change && getNav.didVariantChange(locationChange.previous, locationChange.current)) {
+      setOpen(false)
+    }
+  }, [locationChange.change, locationChange.current, locationChange.previous])
 
   return (
     <>
