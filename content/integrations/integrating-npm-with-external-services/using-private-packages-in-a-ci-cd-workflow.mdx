@@ -6,6 +6,16 @@ redirect_from:
 
 You can use access tokens to test private npm packages with continuous integration (CI) systems, or deploy them using continuous deployment (CD) systems.
 
+## Recommended: Use trusted publishing for package publishing
+
+For publishing packages from CI/CD workflows, we recommend using [trusted publishing](/packages-and-modules/securing-your-code/trusted-publishers) instead of access tokens. Trusted publishing uses OpenID Connect (OIDC) to provide secure, token-free publishing that eliminates the security risks associated with long-lived tokens.
+
+Trusted publishing is supported for:
+- [GitHub Actions](https://github.com/features/actions) (GitHub-hosted runners)
+- [GitLab CI/CD](https://docs.gitlab.com/ci/pipelines/) (GitLab.com shared runners)
+
+If you use a different CI/CD provider, or if you need to install private packages (not publish), you can use access tokens as described below.
+
 ## Create a new access token
 
 Create a new access token that will be used only to access npm packages from a CI/CD server.
@@ -24,7 +34,9 @@ For more information on creating access tokens, including CIDR-whitelisted token
 
 ### Continuous deployment
 
-Since continuous deployment environments usually involve the creation of a deploy artifact, you may wish to create an [automation token][create-token] on the website. This will allow you to publish even if you have two-factor authentication enabled on your account.
+For publishing packages in continuous deployment environments, we strongly recommend using [trusted publishing](/packages-and-modules/securing-your-code/trusted-publishers) when available, as it provides enhanced security without requiring token management.
+
+If trusted publishing is not available for your CI/CD provider, you may create an [automation token][create-token] on the website. This will allow you to publish even if you have two-factor authentication enabled on your account.
 
 ### Interactive workflows
 
