@@ -31,7 +31,7 @@ Self-hosted runners are not currently supported but are planned for future relea
 
 Navigate to your package settings on [npmjs.com](https://www.npmjs.com) and find the "__Trusted Publisher__" section. Under "__Select your publisher__", choose your CI/CD provider by clicking either the GitHub Actions or GitLab CI/CD button.
 
-<!-- TODO: Add screenshot of the Trusted Publisher section with "Select your publisher" label and provider buttons -->
+<Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher.png" alt="Screenshot showing the Trusted Publisher section with Select your publisher label and provider buttons" />
 
 #### For GitHub Actions
 
@@ -45,7 +45,7 @@ Configure the following fields:
   - The workflow file must exist in `.github/workflows/` in your repository
 - **Environment name** (optional): If using [GitHub environments](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment) for deployment protection
 
-<!-- TODO: Add screenshot of GitHub Actions trusted publisher configuration form -->
+<Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher-github-actions.png" alt="Screenshot of GitHub Actions trusted publisher configuration form" />
 
 #### For GitLab CI/CD
 
@@ -57,7 +57,7 @@ Configure the following fields:
   - Must include the `.yml` extension
 - **Environment name** (optional): If using [GitLab environments](https://docs.gitlab.com/ee/ci/environments/)
 
-<!-- TODO: Add screenshot of GitLab CI/CD trusted publisher configuration form -->
+<Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher-gitlab.png" alt="Screenshot of GitLab CI/CD trusted publisher configuration form" />
 
 <Note>
 
@@ -152,7 +152,7 @@ You can modify or remove your trusted publisher configuration at any time throug
 
 When you publish using trusted publishing, npm automatically generates and publishes [provenance attestations](./generating-provenance-statements) for your package. This happens by default—you don't need to add the `--provenance` flag to your publish command.
 
-<!-- TODO: Add screenshot showing provenance badge/information on a package page -->
+<Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher-provenance.png" alt="Screenshot showing provenance badge/information on a package page" />
 
 Provenance provides cryptographic proof of where and how your package was built, allowing users to verify its authenticity. This automatic generation only applies when all of these conditions are met:
 
