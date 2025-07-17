@@ -29,7 +29,7 @@ Self-hosted runners are not currently supported but are planned for future relea
 
 ### Step 1: Add a trusted publisher on npmjs.com
 
-Navigate to your package settings on [npmjs.com](https://www.npmjs.com) and find the "__Trusted Publisher__" section. Under "__Select your publisher__", choose your CI/CD provider by clicking either the GitHub Actions or GitLab CI/CD button.
+Navigate to your package settings on [npmjs.com](https://www.npmjs.com) and find the "**Trusted Publisher**" section. Under "**Select your publisher**", choose your CI/CD provider by clicking either the GitHub Actions or GitLab CI/CD button.
 
 <Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher.png" alt="Screenshot showing the Trusted Publisher section with Select your publisher label and provider buttons" />
 
@@ -38,7 +38,7 @@ Navigate to your package settings on [npmjs.com](https://www.npmjs.com) and find
 Configure the following fields:
 
 - **Organization or user** (required): Your GitHub username or organization name
-- **Repository** (required): Your repository name  
+- **Repository** (required): Your repository name
 - **Workflow filename** (required): The filename of your workflow (e.g., `publish.yml`)
   - Enter only the filename, not the full path
   - Must include the `.yml` or `.yaml` extension
@@ -88,12 +88,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
-      
+
       # Ensure npm 11.5.0 or later is installed
       - name: Update npm
         run: npm install -g npm@latest
@@ -171,16 +171,19 @@ Provenance provides cryptographic proof of where and how your package was built,
 While we strongly recommend keeping provenance enabled, you can disable it if needed. Set the `provenance` option to `false` in any of these ways:
 
 **Using environment variable:**
+
 ```bash
 NPM_CONFIG_PROVENANCE=false npm publish
 ```
 
 **In your `.npmrc` file:**
+
 ```ini
 provenance=false
 ```
 
 **In your `package.json`:**
+
 ```json
 {
   "publishConfig": {
