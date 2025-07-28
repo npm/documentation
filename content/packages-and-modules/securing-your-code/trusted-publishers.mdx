@@ -6,7 +6,7 @@ Trusted publishing allows you to publish npm packages directly from your CI/CD w
 
 <Note>
 
-**Note:** Trusted publishing requires [npm CLI](https://docs.npmjs.com/cli/v11) version 11.5.0 or later.
+**Note:** Trusted publishing requires [npm CLI](https://docs.npmjs.com/cli/v11) version 11.5.1 or later.
 
 </Note>
 
@@ -94,7 +94,7 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
 
-      # Ensure npm 11.5.0 or later is installed
+      # Ensure npm 11.5.1 or later is installed
       - name: Update npm
         run: npm install -g npm@latest
       - run: npm ci
@@ -133,7 +133,7 @@ publish:
   stage: publish
   image: node:${NODE_VERSION}
   script:
-    # Ensure npm 11.5.0 or later is installed
+    # Ensure npm 11.5.1 or later is installed
     - npm install -g npm@latest
     - npm ci
     - npm run build --if-present
@@ -216,7 +216,7 @@ While trusted publishing handles the publish operation, you may still need authe
     node-version: '20'
     registry-url: 'https://registry.npmjs.org'
 
-# Ensure npm 11.5.0 or later for trusted publishing
+# Ensure npm 11.5.1 or later for trusted publishing
 - run: npm install -g npm@latest
 
 # Use a read-only token for installing dependencies
