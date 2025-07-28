@@ -347,9 +347,9 @@ redirect_from:
 
 ### ⚠️ BREAKING CHANGES
 
-- Upon publishing, in order to apply a default "latest" dist tag, the command now retrieves all prior versions of the package. It will require that the version you're trying to publish is above the latest semver version in the registry, not including pre-release tags.
-- `npm init` now has a `type` prompt, and sorts the entries the created packages differently
-- `bun.lockb` files are now included in the strict ignore list during packing
+- Upon publishing a package, in order to apply a default "latest" dist tag, the command now retrieves all prior versions of the package and requires  the version that you're trying to publish to be above the latest semver version in the registry, excluding pre-release tags.
+- `npm init` now sorts the entries of the created packages by importance and relevnace, also a `type` prompt is added.
+- `bun.lockb` files are now included in the strict ignore list during packing.
 
 ### Features
 
