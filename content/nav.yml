@@ -156,6 +156,8 @@
           url: /auditing-package-dependencies-for-security-vulnerabilities
         - title: Generating provenance statements
           url: /generating-provenance-statements
+        - title: Trusted publishing with OIDC
+          url: /trusted-publishers
         - title: About ECDSA registry signatures
           url: /about-registry-signatures
         - title: Verifying ECDSA registry signatures
