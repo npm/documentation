@@ -12,7 +12,7 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 
 <Note>
 
-**Note:** For greater security, we recommend using [granular access tokens](#creating-granular-access-tokens-on-the-website) instead of legacy read-only tokens or legacy automation tokens. For CI/CD workflows, consider using [trusted publishing](/packages-and-modules/securing-your-code/trusted-publishers), which eliminates the need for long-lived tokens entirely.
+**Note:** For greater security, we recommend using [granular access tokens](#creating-granular-access-tokens-on-the-website) instead of legacy read-only tokens or legacy automation tokens. For CI/CD workflows, consider using [trusted publishing](/trusted-publishers), which eliminates the need for long-lived tokens entirely.
 
 </Note>
 
@@ -29,7 +29,7 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 4. Select the type of access token:
    - **Read-only**: A read-only token can only be used to download packages from the registry. It will have permission to read any private package that you have access to. This is recommended for automation and workflows where you are installing packages, but not publishing new ones.
 
-   - **Automation**: An automation token can download packages and publish new ones, but if you have two-factor authentication (2FA) configured on your account, it will **not** be enforced. You can use an automation token in continuous integration workflows and other automation systems to publish a package even when you cannot enter a one-time passcode. For enhanced security in CI/CD workflows, consider using [trusted publishing](/packages-and-modules/securing-your-code/trusted-publishers) instead, which eliminates the need for long-lived tokens.
+   - **Automation**: An automation token can download packages and publish new ones, but if you have two-factor authentication (2FA) configured on your account, it will **not** be enforced. You can use an automation token in continuous integration workflows and other automation systems to publish a package even when you cannot enter a one-time passcode. For enhanced security in CI/CD workflows, consider using [trusted publishing](/trusted-publishers) instead, which eliminates the need for long-lived tokens.
 
    - **Publish**: A publish token can perform any action on your behalf, including downloading packages, publishing packages, and changing user settings or package settings. If you have two-factor authentication configured on your account, you will be required to enter a one-time passcode when using a publish token. This is recommended for interactive workflows such as a CLI.
 
