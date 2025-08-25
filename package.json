@@ -111,5 +111,13 @@
     "allowPaths": [
       "cli-cache.json"
     ]
+  },
+  "overrides": {
+    "devcert@1.2.2": {
+      "tmp": "^0.2.5"
+    },
+    "external-editor@3.1.0": {
+      "tmp": "^0.2.5"
+    }
   }
 }
