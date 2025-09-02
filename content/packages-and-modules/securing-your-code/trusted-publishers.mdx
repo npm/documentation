@@ -158,12 +158,6 @@ Once you've configured trusted publishers for your package, we strongly recommen
 2. Select **"Require two-factor authentication and disallow tokens"** 
 3. Save your changes by clicking on **Update Package Settings**
 
-This configuration:
-- **Allows** publishing through trusted publishers (OIDC)
-- **Blocks** all personal access tokens and automation tokens
-- **Reduces** the risk of unauthorized publishing
-- **Maintains** your automated CI/CD workflows through GitHub Actions or GitLab CI/CD.
-
 ### Why this matters
 
 Trusted publishers use short-lived, scoped credentials that are generated on-demand during your CI/CD workflow, eliminating the need for long-lived tokens. By restricting traditional token access while using trusted publishers, you reduce potential security risks associated with credential management.
@@ -175,7 +169,7 @@ Trusted publishers use short-lived, scoped credentials that are generated on-dem
 If you're transitioning from token-based publishing:
 1. Set up trusted publishers first and verify they work
 2. Then restrict token access as described above
-3. Revoke any existing automation tokens that are no longer needed
+3. [Revoke any existing automation tokens](https://docs.npmjs.com/revoking-access-tokens) that are no longer needed
 
 This ensures a smooth transition without disrupting your release process.
 
