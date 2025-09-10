@@ -118,10 +118,6 @@ stages:
 variables:
   NODE_VERSION: '20'
 
-id_tokens:
-  NPM_ID_TOKEN:
-    aud: "npm:registry.npmjs.org"
-
 test:
   stage: test
   image: node:${NODE_VERSION}
@@ -132,6 +128,9 @@ test:
 publish:
   stage: publish
   image: node:${NODE_VERSION}
+  id_tokens:
+    NPM_ID_TOKEN:
+      aud: "npm:registry.npmjs.org"
   script:
     # Ensure npm 11.5.1 or later is installed
     - npm install -g npm@latest
