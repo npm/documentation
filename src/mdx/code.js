@@ -35,6 +35,7 @@ const ClipboardCopy = ({value, ...props}) => {
         '&:focus-visible': {
           outline: '2px solid',
           outlineOffset: '2px',
+          color: 'inherit',
         },
       }}
     >
