@@ -49,6 +49,7 @@ const colorMap = {
   'token function': '#cf3846',
   'token parameter variable': '#277d7b',
   'token assign-left variable': '#277d7b',
+  'token string': '#db1068'
 }
 
 const MonoText = props => <Text sx={{fontFamily: 'mono', fontSize: 1}} {...props} />
