@@ -31,6 +31,14 @@ const ClipboardCopy = ({value, ...props}) => {
         setCopied(true)
         announce(`Copied to clipboard`)
       }}
+      sx={{
+        ...props.sx,
+        '&:focus-visible': {
+          outline: '2px solid',
+          outlineColor: '-webkit-focus-ring-color',
+          outlineOffset: '2px',
+        },
+      }}
     >
       <Octicon icon={copied ? CheckIcon : CopyIcon} sx={{color: copied ? 'success.fg' : 'fg.muted'}} />
     </Button>
