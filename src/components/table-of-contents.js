@@ -53,6 +53,11 @@ export const Mobile = withTableOfContents(({items}) => {
             borderBottomWidth: open ? 1 : 0,
             borderBottomLeftRadius: open ? 0 : 2,
             borderBottomRightRadius: open ? 0 : 2,
+            '&:focus-visible': {
+              outline: '2px solid',
+              outlineColor: '-webkit-focus-ring-color',
+              outlineOffset: '1px',
+            },
           }}
           leadingIcon={open ? ChevronDownIcon : ChevronRightIcon}
         >

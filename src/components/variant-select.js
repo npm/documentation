@@ -53,7 +53,17 @@ const VariantMenu = ({title, latest, current, prerelease, legacy}) => {
         Select CLI Version:
       </Box>
       <ActionMenu anchorRef={anchorRef} open={open} onOpenChange={setOpen}>
-        <ActionMenu.Button aria-describedby={labelId} sx={{width: ['100%', null, 'auto']}}>
+        <ActionMenu.Button
+          aria-describedby={labelId}
+          sx={{
+            width: ['100%', null, 'auto'],
+            '&:focus-visible': {
+              outline: '2px solid',
+              outlineColor: '-webkit-focus-ring-color',
+              outlineOffset: '1px',
+            },
+          }}
+        >
           {title}
         </ActionMenu.Button>
         <StyledOverlay width="auto" onEscape={() => setOpen(false)}>

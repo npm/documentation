@@ -113,7 +113,18 @@ export const Mobile = ({
   return (
     <>
       {!isMobileSearchOpen && (
-        <Button aria-label="Search" aria-expanded={isMobileSearchOpen} onClick={handleSearchToggle}>
+        <Button
+          aria-label="Search"
+          aria-expanded={isMobileSearchOpen}
+          onClick={handleSearchToggle}
+          sx={{
+            '&:focus-visible': {
+              outline: '2px solid',
+              outlineColor: '-webkit-focus-ring-color',
+              outlineOffset: '1px',
+            },
+          }}
+        >
           <SearchIcon />
         </Button>
       )}

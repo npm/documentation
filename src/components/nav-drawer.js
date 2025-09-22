@@ -76,7 +76,19 @@ function NavDrawer() {
 
   return (
     <>
-      <Button aria-label="Menu" aria-expanded={open} onClick={() => setOpen(true)} sx={{ml: 3}}>
+      <Button
+        aria-label="Menu"
+        aria-expanded={open}
+        onClick={() => setOpen(true)}
+        sx={{
+          ml: 3,
+          '&:focus-visible': {
+            outline: '2px solid',
+            outlineColor: '-webkit-focus-ring-color',
+            outlineOffset: '1px',
+          },
+        }}
+      >
         <ThreeBarsIcon />
       </Button>
       <LightTheme as={Drawer} isOpen={open} onDismiss={() => setOpen(false)}>
