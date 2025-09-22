@@ -278,6 +278,8 @@ If your package has private dependencies and `npm install` or `npm ci` is failin
 
 For packages in private repositories, provenance will not be generated even though you're using trusted publishing. This is a [known limitation](https://github.blog/changelog/2023-07-25-publishing-with-npm-provenance-from-private-source-repositories-is-no-longer-supported/) that applies regardless of whether your package itself is public or private.
 
+Some GitHub Actions workflows use `workflow_call` to invoke other workflows that run `npm publish`, or use `workflow_dispatch` for manual publishing. When this happens, validation checks the calling workflow's name instead of the workflow that actually contains the publish command, which can cause configuration mismatches.
+
 ## Limitations and future improvements
 
 Trusted publishing currently supports only cloud-hosted runners. Support for self-hosted runners is intended for a future release. Each package can only have one trusted publisher configured at a time, though you can update this configuration as needed.
