@@ -278,7 +278,7 @@ If your package has private dependencies and `npm install` or `npm ci` is failin
 
 For packages in private repositories, provenance will not be generated even though you're using trusted publishing. This is a [known limitation](https://github.blog/changelog/2023-07-25-publishing-with-npm-provenance-from-private-source-repositories-is-no-longer-supported/) that applies regardless of whether your package itself is public or private.
 
-When using GitHub Actions, some users run the actual `npm publish` command via `workflow_call` — i.e., a workflow calls another workflow that contains the `npm publish` command. As a result, workflow-name validation is performed against the calling (parent) workflow that was executed, not the called (callee) workflow.
+Some GitHub Actions workflows use `workflow_call` to invoke other workflows that run `npm publish`, or use `workflow_dispatch` for manual publishing. When this happens, validation checks the calling workflow's name instead of the workflow that actually contains the publish command, which can cause configuration mismatches.
 
 ## Limitations and future improvements
 
