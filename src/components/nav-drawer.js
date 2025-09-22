@@ -76,7 +76,19 @@ function NavDrawer() {
 
   return (
     <>
-      <Button aria-label="Menu" aria-expanded={open} onClick={() => setOpen(true)} sx={{ml: 3}}>
+      <Button
+        aria-label="Menu"
+        aria-expanded={open}
+        onClick={() => setOpen(true)}
+        sx={{
+          ml: 3,
+          '&:focus-visible': {
+            outline: '2px solid',
+            outlineColor: '-webkit-focus-ring-color',
+            outlineOffset: '1px',
+          },
+        }}
+      >
         <ThreeBarsIcon />
       </Button>
       <LightTheme as={Drawer} isOpen={open} onDismiss={() => setOpen(false)}>
@@ -111,7 +123,17 @@ function NavDrawer() {
               }}
             >
               <SiteTitle />
-              <Button aria-label="Close" onClick={() => setOpen(false)}>
+              <Button
+                aria-label="Close"
+                onClick={() => setOpen(false)}
+                sx={{
+                  '&:focus-visible': {
+                    outline: '2px solid',
+                    outlineColor: 'accent.fg',
+                    outlineOffset: '2px',
+                  },
+                }}
+              >
                 <XIcon />
               </Button>
             </DarkTheme>

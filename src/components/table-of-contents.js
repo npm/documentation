@@ -56,6 +56,7 @@ export const Mobile = withTableOfContents(({items}) => {
             '&:focus-visible': {
               outline: '2px solid',
               outlineColor: '-webkit-focus-ring-color',
+              outlineOffset: '1px',
             },
           }}
           leadingIcon={open ? ChevronDownIcon : ChevronRightIcon}
