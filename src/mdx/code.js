@@ -35,8 +35,7 @@ const ClipboardCopy = ({value, ...props}) => {
         ...props.sx,
         '&:focus-visible': {
           outline: '2px solid',
-          outlineColor: '-webkit-focus-ring-color',
-          outlineOffset: '2px',
+          outlineColor: '-webkit-focus-ring-color'
         },
       }}
     >
