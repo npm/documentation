@@ -123,17 +123,7 @@ function NavDrawer() {
               }}
             >
               <SiteTitle />
-              <Button
-                aria-label="Close"
-                onClick={() => setOpen(false)}
-                sx={{
-                  '&:focus-visible': {
-                    outline: '2px solid',
-                    outlineColor: 'accent.fg',
-                    outlineOffset: '2px',
-                  },
-                }}
-              >
+              <Button aria-label="Close" onClick={() => setOpen(false)}>
                 <XIcon />
               </Button>
             </DarkTheme>
