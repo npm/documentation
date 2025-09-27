@@ -48,7 +48,7 @@ const Sidebar = () => (
         borderColor: 'border.subtle',
       }}
     >
-      <Box sx={{display: 'flex', flexDirection: 'column'}} role="list">
+      <Box sx={{display: 'flex', flexDirection: 'column'}}>
         <NavItems />
       </Box>
     </Box>
