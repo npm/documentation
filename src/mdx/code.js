@@ -48,7 +48,7 @@ const ClipboardCopy = ({value, ...props}) => {
 export const InlineCode = styled.code`
   padding: 0.2em 0.4em;
   font-family: ${themeGet('fonts.mono')};
-  font-size: 85%;
+  font-size: 80%;
   background-color: ${themeGet('colors.neutral.muted')};
   border-radius: ${themeGet('radii.2')};
 `
