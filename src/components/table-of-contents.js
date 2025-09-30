@@ -6,9 +6,15 @@ import usePage from '../hooks/use-page'
 
 const TableOfContentsItems = ({items, depth}) => (
   <>
-    {items.map(item => (
+    {items.map((item, index) => (
       <React.Fragment key={item.title}>
-        <NavList.Item href={item.url} sx={{pl: depth > 1 ? 4 : 2}}>
+        <NavList.Item
+          href={item.url}
+          sx={{pl: depth > 1 ? 4 : 2}}
+          aria-setsize={items.length}
+          aria-posinset={index + 1}
+          aria-level={depth}
+        >
           {item.title}
         </NavList.Item>
         {item.items ? <TableOfContentsItems items={item.items} depth={depth + 1} /> : null}
