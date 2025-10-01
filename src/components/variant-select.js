@@ -11,7 +11,7 @@ const StyledOverlay = styled(ActionMenu.Overlay)`
   border-color: var(--borderColor-default, #d0d7de);
   border-width: 1px;
   border-style: solid;
-  box-shadow: var(--shadow-resting-medium, 0 3px 6px rgba(140, 149, 159, 0.15));
+  box-shadow: var(--shadow-resting-medium, 0 3px 7px rgba(140, 149, 159, 0.15));
 `
 
 const VariantItem = ({title, shortName, url, active}) => {
