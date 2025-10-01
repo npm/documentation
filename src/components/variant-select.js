@@ -15,21 +15,8 @@ const StyledOverlay = styled(ActionMenu.Overlay)`
 `
 
 const VariantItem = ({title, shortName, url, active}) => {
-  const itemRef = React.useRef(null)
-
-  React.useEffect(() => {
-    // Remove tabindex after the component renders
-    if (itemRef.current) {
-      const actionListItem = itemRef.current.closest('[role="listitem"]') || itemRef.current
-      if (actionListItem) {
-        actionListItem.removeAttribute('tabindex')
-        actionListItem.removeAttribute('tabIndex')
-      }
-    }
-  }, [])
-
   return (
-    <ActionList.Item ref={itemRef} state={{scrollUpdate: false}} id={shortName} active={active}>
+    <ActionList.Item state={{scrollUpdate: false}} id={shortName} active={active}>
       <LinkNoUnderline to={url}>{title}</LinkNoUnderline>
     </ActionList.Item>
   )
