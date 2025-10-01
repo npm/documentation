@@ -45,7 +45,7 @@ const VariantMenu = ({title, latest, current, prerelease, legacy}) => {
     if (locationChange.change && getNav.didVariantChange(locationChange.previous, locationChange.current)) {
       setOpen(false)
     }
-  }, [locationChange.change, locationChange.current, locationChange.previous])
+  }, [locationChange])
 
   return (
     <>
