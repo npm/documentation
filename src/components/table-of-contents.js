@@ -81,7 +81,7 @@ export const Desktop = withTableOfContents(({items}) => (
       maxHeight: `calc(100vh - ${SCROLL_MARGIN_TOP}px)`,
     }}
   >
-    <Heading as="h2" sx={{fontSize: 1, display: 'inline-block', fontWeight: 'bold'}} id="toc-headings">
+    <Heading as="h2" sx={{fontSize: 1, display: 'inline-block', fontWeight: 'bold'}} id="toc-heading">
       Table of contents
     </Heading>
     <Box
@@ -91,7 +91,7 @@ export const Desktop = withTableOfContents(({items}) => (
         overflowY: 'auto',
       }}
     >
-      <TableOfContents aria-labelledby="toc-headings" items={items} sx={{ml: -2}} />
+      <TableOfContents aria-labelledby="toc-heading" items={items} sx={{ml: -2}} />
     </Box>
   </Box>
 ))
