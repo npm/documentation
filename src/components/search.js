@@ -44,7 +44,8 @@ const SearchResults = ({results, getItemProps, highlightedIndex}) => {
             as={LinkNoUnderline}
             to={item.path}
             active={highlightedIndex === index}
-            aria-labelledby={null}
+            aria-posinset={index + 1}
+            aria-setsize={results.length}
           >
             <Box sx={{display: 'flex', flexDirection: 'column', flex: '0 0 auto'}}>
               <Text sx={{fontSize: 0}}>
