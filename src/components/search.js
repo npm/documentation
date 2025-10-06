@@ -45,7 +45,10 @@ const SearchResults = ({results, getItemProps, highlightedIndex}) => {
             to={item.path}
             active={highlightedIndex === index}
           >
-            <Box sx={{display: 'flex', flexDirection: 'column', flex: '0 0 auto'}}>
+            <Box
+              sx={{display: 'flex', flexDirection: 'column', flex: '0 0 auto'}}
+              aria-label={`${item.title}${hierarchy.length ? ` in ${hierarchy.map(s => s.shortName || s.title).join(' / ')}` : ` in ${siteMetadata.shortName}`}, ${index + 1} of ${results.length}`}
+            >
               <Text sx={{fontSize: 0}}>
                 {hierarchy.length ? hierarchy.map(s => s.shortName || s.title).join(' / ') : siteMetadata.shortName}
               </Text>
