@@ -6,16 +6,20 @@ import usePage from '../hooks/use-page'
 
 const TableOfContentsItems = ({items, depth}) => (
   <>
-    {items.map(item => (
+    {items.map((item, index) => (
       <React.Fragment key={item.title}>
         <NavList.Item
           href={item.url}
-          sx={{pl: depth > 1 ? 4 : 2}}
-          aria-label={`${item.title}${depth > 1 ? ` in ${item.title}` : ''} 10 of 200`}
+          aria-label={`${item.title}, ${index + 1} of ${items.length}`}
+          aria-labelledby={null}
         >
           {item.title}
+          {item.items ? (
+            <NavList.SubNav>
+              <TableOfContentsItems items={item.items} depth={depth + 1} />
+            </NavList.SubNav>
+          ) : null}
         </NavList.Item>
-        {item.items ? <TableOfContentsItems items={item.items} depth={depth + 1} /> : null}
       </React.Fragment>
     ))}
   </>
