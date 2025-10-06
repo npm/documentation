@@ -8,7 +8,11 @@ const TableOfContentsItems = ({items, depth}) => (
   <>
     {items.map(item => (
       <React.Fragment key={item.title}>
-        <NavList.Item href={item.url} sx={{pl: depth > 1 ? 4 : 2}}>
+        <NavList.Item
+          href={item.url}
+          sx={{pl: depth > 1 ? 4 : 2}}
+          aria-label={`${item.title}${depth > 1 ? ` in ${item.title}` : ''} 10 of 200`}
+        >
           {item.title}
         </NavList.Item>
         {item.items ? <TableOfContentsItems items={item.items} depth={depth + 1} /> : null}
