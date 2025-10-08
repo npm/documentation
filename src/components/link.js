@@ -26,14 +26,19 @@ const GatsbyLinkWithoutSxProps = React.forwardRef(function GatsbyLinkWithoutSxPr
   return <GatsbyLink ref={ref} {...omit(props, 'sx', 'underline', 'hoverColor', 'muted')} />
 })
 
-const Link = React.forwardRef(function Link({to, href, ...props}, ref) {
+const Link = React.forwardRef(function Link({to, href, showUnderline = false, sx, ...props}, ref) {
   const localPath = getLocalPath(href)
 
-  if (to || localPath !== null) {
-    return <PrimerLink ref={ref} as={GatsbyLinkWithoutSxProps} to={to || localPath} {...props} />
+  const linkStyles = {
+    ...sx,
+    ...(showUnderline && {textDecoration: 'underline'}),
   }
 
-  return <PrimerLink ref={ref} href={href} {...props} />
+  if (to || localPath !== null) {
+    return <PrimerLink ref={ref} as={GatsbyLinkWithoutSxProps} to={to || localPath} sx={linkStyles} {...props} />
+  }
+
+  return <PrimerLink ref={ref} href={href} sx={linkStyles} {...props} />
 })
 
 export const LinkNoUnderline = React.forwardRef(function LinkNoUnderline({sx, ...props}, ref) {

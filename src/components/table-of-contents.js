@@ -26,7 +26,14 @@ const TableOfContentsItems = ({items, depth}) => (
 )
 
 const TableOfContents = ({'aria-labelledby': ariaLabelledBy, items, depth = 1, ...props}) => (
-  <NavList aria-labelledby={ariaLabelledBy} {...props}>
+  <NavList
+    aria-labelledby={ariaLabelledBy}
+    {...props}
+    sx={{
+      textDecoration: 'underline',
+      ...props.sx,
+    }}
+  >
     <TableOfContentsItems items={items} depth={depth} />
   </NavList>
 )
