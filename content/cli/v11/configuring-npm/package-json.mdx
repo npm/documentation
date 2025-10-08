@@ -299,7 +299,7 @@ Most of these ignored files can be included specifically if included in the `fil
 - `yarn.lock`
 - `bun.lockb`
 
-These can not be included.
+These cannot be included.
 
 ### exports
 
@@ -359,7 +359,7 @@ would be the same as this:
 }
 ```
 
-Please make sure that your file(s) referenced in `bin` starts with `#!/usr/bin/env node`, otherwise the scripts are started without the node executable!
+Please make sure that your file(s) referenced in `bin` starts with `#!/usr/bin/env node`; otherwise, the scripts are started without the node executable!
 
 Note that you can also set the executable files using [directories.bin](#directoriesbin).
 
@@ -928,7 +928,7 @@ The `devEngines` field aids engineers working on a codebase to all be using the 
 
 You can specify a `devEngines` property in your `package.json` which will run before `install`, `ci`, and `run` commands.
 
-> Note: `engines` and `devEngines` differ in object shape. They also function very differently. `engines` is designed to alert the user when a dependency uses a differening npm or node version that the project it's being used in, whereas `devEngines` is used to alert people interacting with the source code of a project.
+> Note: `engines` and `devEngines` differ in object shape. They also function very differently. `engines` is designed to alert the user when a dependency uses a different npm or node version than the project it's being used in, whereas `devEngines` is used to alert people interacting with the source code of a project.
 
 The supported keys under the `devEngines` property are `cpu`, `os`, `libc`, `runtime`, and `packageManager`. Each property can be an object or an array of objects. Objects must contain `name`, and optionally can specify `version`, and `onFail`. `onFail` can be `warn`, `error`, or `ignore`, and if left undefined is of the same value as `error`. `npm` will assume that you're running with `node`. Here's an example of a project that will fail if the environment is not `node` and `npm`. If you set `runtime.name` or `packageManager.name` to any other string, it will fail within the npm CLI.
 
