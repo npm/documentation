@@ -46,8 +46,14 @@ const Contributors = ({contributors = [], latestCommit}) => {
       </Box>
       {latestCommit ? (
         <Text sx={{fontSize: 1, mt: 1}}>
-          Last edited by <Link href={`https://github.com/${latestCommit.login}`}>{latestCommit.login}</Link> on{' '}
-          <Link href={latestCommit.url}>{format(new Date(latestCommit.date))}</Link>
+          Last edited by{' '}
+          <Link href={`https://github.com/${latestCommit.login}`} showUnderline={true}>
+            {latestCommit.login}
+          </Link>{' '}
+          on{' '}
+          <Link href={latestCommit.url} showUnderline={true}>
+            {format(new Date(latestCommit.date))}
+          </Link>
         </Text>
       ) : null}
     </>
