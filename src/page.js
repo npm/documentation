@@ -5,7 +5,7 @@ import Slugger from 'github-slugger'
 import Header from './components/header'
 import Sidebar from './components/sidebar'
 import {SkipBox, SkipLink} from './components/skip-nav'
-import {SKIP_TO_CONTENT_ID, SKIP_TO_SEARCH_ID} from './constants'
+import {SKIP_TO_CONTENT_ID, SKIP_TO_SEARCH_ID, SKIP_TO_TOC_ID} from './constants'
 
 import {PageProvider} from './hooks/use-page'
 import Layout from './layout'
@@ -25,12 +25,17 @@ const PageElement = ({element, props}) => {
     path: props.location.pathname,
     slugger: new Slugger(),
   }
+
+  // Check if table of contents is available and has items
+  const hasTableOfContents = Boolean(props.pageContext?.tableOfContents?.length)
+
   return (
     <BaseStyles>
       <GlobalStyles />
       <SkipBox>
         <SkipLink href={`#${SKIP_TO_SEARCH_ID}`}>Skip to search</SkipLink>
         <SkipLink href={`#${SKIP_TO_CONTENT_ID}`}>Skip to content</SkipLink>
+        {hasTableOfContents && <SkipLink href={`#${SKIP_TO_TOC_ID}`}>Skip to table of contents</SkipLink>}
       </SkipBox>
       <PageProvider value={page}>
         <Box sx={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>

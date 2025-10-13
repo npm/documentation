@@ -10,6 +10,8 @@ export const SKIP_TO_CONTENT_ID = 'skip-to-content'
 
 export const SKIP_TO_SEARCH_ID = 'search-box-input'
 
+export const SKIP_TO_TOC_ID = 'toc-heading'
+
 export const CLI_PATH = '/cli'
 
 export const Z_INDEX = {
