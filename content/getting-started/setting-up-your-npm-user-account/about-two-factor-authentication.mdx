@@ -10,10 +10,9 @@ redirect_from:
 - Something you have (e.g., an ID badge or a cryptographic key).
 - Something you are (e.g., a fingerprint or other biometric data).
 
-When you enable 2FA, you will be prompted for a second form of authentication before performing certain actions on your account or packages to which you have write access. Depending on your 2FA configuration you will be either prompted to authenticate with a [security-key][webauthn] or a [time-based one-time password (TOTP)][totp].
+When you enable 2FA, you will be prompted for a second form of authentication before performing certain actions on your account or packages to which you have write access. You will be prompted to authenticate with a [security-key][webauthn].
 
 - The security-key flow allows you to use biometric devices such as Apple [Touch ID][touch-id], [Face ID][face-id] or [Windows Hello][windows-hello] as well as physical keys such as [Yubikey][yubikey], [Thetis][thetis] or [Feitian][feitian] as your 2FA.
-- To configure TOTP you will need to install an authenticator application that can generate OTPs such as [Authy][authy], [Google Authenticator][google-authenticator], or [Microsoft Authenticator][microsoft-authenticator] on your mobile device.
 
 <Note>
 
@@ -68,9 +67,6 @@ If you enable 2FA for authorization only. We will request a second form of authe
 [deprecate]: https://docs.npmjs.com/cli/deprecate
 [access]: https://docs.npmjs.com/cli/access
 [pkg-2fa]: /requiring-2fa-for-package-publishing-and-settings-modification
-[authy]: https://authy.com/download/
-[google-authenticator]: https://support.google.com/accounts/answer/1066447
-[microsoft-authenticator]: https://www.microsoft.com/security/mobile-authenticator-app
 [webauthn]: https://webauthn.guide/
 [can-i-use]: https://caniuse.com/#search=webauthn
 [u2f]: https://en.wikipedia.org/wiki/Universal_2nd_Factor
