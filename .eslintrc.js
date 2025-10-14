@@ -4,15 +4,7 @@ module.exports = {
   root: true,
   ignorePatterns: ['.cache/', 'public/'],
   plugins: ['primer-react'], // github plugin now comes from flat config
-  extends: [
-    '@npmcli',
-    'react-app',
-    'eslint:recommended',
-    'plugin:react/recommended',
-    // 'plugin:github/react',  // REMOVED: now handled by flat config
-    'plugin:react-hooks/recommended',
-    'prettier',
-  ],
+  extends: ['@npmcli', 'react-app', 'eslint:recommended', 'plugin:react/recommended', 'prettier'],
   rules: {
     'max-len': 'off',
     'react/prop-types': 'off',
