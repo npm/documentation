@@ -31,8 +31,6 @@ Note: This command is unaware of workspaces.
 
 Verify a user in the specified registry, and save the credentials to the `.npmrc` file. If no registry is specified, the default registry will be used (see [`config`](/cli/v9/using-npm/config)).
 
-When using `legacy` for your `auth-type`, the username and password, are read in from prompts.
-
 To reset your password, go to [https://www.npmjs.com/forgot](https://www.npmjs.com/forgot)
 
 To change your email address, go to [https://www.npmjs.com/email-edit](https://www.npmjs.com/email-edit)
@@ -78,9 +76,6 @@ npm init --scope=@foo --yes
 #### `auth-type`
 
 - Default: "web"
-- Type: "legacy" or "web"
-
-What authentication strategy to use with `login`. Note that if an `otp` config is given, this value will always be set to `legacy`.
 
 ### See Also
 
