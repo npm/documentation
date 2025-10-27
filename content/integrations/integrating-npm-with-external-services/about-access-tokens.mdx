@@ -52,8 +52,11 @@ Granular access tokens allow you to restrict access provided to the token based 
 - Set a token expiration date
 - Limit token access based on IP address ranges
 - Select between **read-only** or **read and write** access
+- Configure whether the token can bypass two-factor authentication (2FA) requirements
 
-You can create up to 1000 granular access tokens on your npm account. You can set how long your token is valid for, at least one day in the future. Each token can access up to 50 organizations, and up to either 50 packages, 50 scopes, or a combination of 50 packages and scopes. Access tokens are tied to users’ permission; hence it cannot have more permission than the user at any point in time. If a user has their access revoked from a package or an org., their granular access token also will have its access revoked from those packages or org.
+You can create up to 1000 granular access tokens on your npm account. You can set how long your token is valid for, at least one day in the future. Each token can access up to 50 organizations, and up to either 50 packages, 50 scopes, or a combination of 50 packages and scopes. Access tokens are tied to users' permission; hence it cannot have more permission than the user at any point in time. If a user has their access revoked from a package or an org., their granular access token also will have its access revoked from those packages or org.
+
+Granular access tokens can be configured to bypass 2FA requirements, making them ideal for CI/CD workflows and automation scenarios where interactive 2FA prompts are not feasible. When a granular access token is set to bypass 2FA, it will not require additional authentication factors when performing operations on npm, similar to automation tokens.
 
 When you give a token access to an organization, the token can only be used for managing organization settings and teams or users associated with the organization. It does not give the token the right to publish packages managed by the organization.
 
