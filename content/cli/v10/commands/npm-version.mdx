@@ -24,7 +24,7 @@ redirect_from:
 ```bash
 npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]
 
-alias: verison
+alias: version
 ```
 
 ### Configuration
