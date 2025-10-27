@@ -33,6 +33,8 @@ Note: This command is unaware of workspaces.
 
 Create a new user in the specified registry, and save the credentials to the `.npmrc` file. If no registry is specified, the default registry will be used (see [`registry`](/cli/v10/using-npm/registry)).
 
+When using `legacy` for your `auth-type`, the username, password, and email are read in from prompts.
+
 ### Configuration
 
 #### `registry`
@@ -72,6 +74,9 @@ npm init --scope=@foo --yes
 #### `auth-type`
 
 - Default: "web"
+- Type: "legacy" or "web"
+
+What authentication strategy to use with `login`. Note that if an `otp` config is given, this value will always be set to `legacy`.
 
 ### See Also
 
