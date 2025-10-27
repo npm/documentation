@@ -158,6 +158,9 @@ The minimum level of vulnerability for `npm audit` to exit with a non-zero exit 
 #### `auth-type`
 
 - Default: "web"
+- Type: "legacy" or "web"
+
+What authentication strategy to use with `login`. Note that if an `otp` config is given, this value will always be set to `legacy`.
 
 #### `before`
 
