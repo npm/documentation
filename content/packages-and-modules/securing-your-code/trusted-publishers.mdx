@@ -91,7 +91,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '20' # Required or `npm install -g npm@latest` will fail with permission error
           registry-url: 'https://registry.npmjs.org'
 
       # Ensure npm 11.5.1 or later is installed
