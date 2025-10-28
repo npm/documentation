@@ -37,23 +37,26 @@ Legacy tokens are created with the same permissions as the user who created them
 
 There are three different types of legacy tokens:
 
-- **Read-only**: You can use these tokens to download packages from the registry. These tokens are best for automation and workflows where you are installing packages. For greater security, we recommend using [granular access tokens](#about-granular-access-tokens) instead.
-- **Automation**: You can use these tokens to download packages and install new ones. These tokens are best for automation workflows where you are publishing new packages. Automation tokens do not 2FA for executing operations on npm and are suitable for CI/CD workflows. For greater security, we recommend using [granular access tokens](#about-granular-access-tokens) instead.
+- **Read-only**: You can use these tokens to download packages from the registry. These tokens are best for automation and workflows where you are installing packages. For greater security, we recommend using [granular access tokens](#about-granular-access-tokens) instead, which offer fine-grained permissions and configurable expiration.
+- **Automation**: You can use these tokens to download packages and install new ones. These tokens are best for automation workflows where you are publishing new packages. Automation tokens automatically bypass 2FA for all operations on npm and are suitable for CI/CD workflows. For greater security and more control, we recommend using [granular access tokens](#about-granular-access-tokens) instead, which allow you to configure 2FA bypass on a per-token basis along with other security features like expiration dates and scope restrictions.
 - **Publish**: You can use these tokens to download packages, install packages, and update user and package settings. We recommend using them for interactive workflows such as a CLI. If 2FA is enabled on your account, publish tokens will require 2FA to execute sensitive operations on npm.
 
 Legacy tokens do not have an expiration date. It is important to be aware of your tokens and keep them protected for account security. For more information, see "[Securing your token][secure-token]."
 
 ## About granular access tokens
 
-Granular access tokens allow you to restrict access provided to the token based on what you want to use the token for. With granular access tokens, you can:
+Granular access tokens are the modern, recommended token type for npm authentication. They allow you to restrict access provided to the token based on what you want to use the token for. With granular access tokens, you can:
 
 - Restrict which packages and scopes a token has access to
 - Grant tokens access to specific organizations
 - Set a token expiration date
 - Limit token access based on IP address ranges
 - Select between **read-only** or **read and write** access
+- Configure whether the token can bypass two-factor authentication (2FA) requirements
 
-You can create up to 1000 granular access tokens on your npm account. You can set how long your token is valid for, at least one day in the future. Each token can access up to 50 organizations, and up to either 50 packages, 50 scopes, or a combination of 50 packages and scopes. Access tokens are tied to users’ permission; hence it cannot have more permission than the user at any point in time. If a user has their access revoked from a package or an org., their granular access token also will have its access revoked from those packages or org.
+Granular access tokens provide enhanced security compared to legacy automation tokens while maintaining the same flexibility for CI/CD workflows. They can be configured to bypass 2FA requirements when needed, making them ideal for CI/CD workflows and automation scenarios where interactive 2FA prompts are not feasible. When a granular access token is set to bypass 2FA, it will not require additional authentication factors when performing operations on npm, providing the same automation benefits as legacy automation tokens but with additional security controls.
+
+You can create up to 1000 granular access tokens on your npm account. You can set how long your token is valid for, at least one day in the future. Each token can access up to 50 organizations, and up to either 50 packages, 50 scopes, or a combination of 50 packages and scopes. Access tokens are tied to users' permission; hence it cannot have more permission than the user at any point in time. If a user has their access revoked from a package or an org., their granular access token also will have its access revoked from those packages or org.
 
 When you give a token access to an organization, the token can only be used for managing organization settings and teams or users associated with the organization. It does not give the token the right to publish packages managed by the organization.
 
