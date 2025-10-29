@@ -25,20 +25,21 @@ npm gets its configuration values from the following sources, sorted by priority
 
 #### Command Line Flags
 
-A flag, also known as a switch or command-line option, is a parameter provided to the CLI to act upon. 
+A flag, also known as a switch or command-line option, is a parameter provided to the CLI to act upon.
 
 _**Note:** In this document `foo` and `bar` are used as placeholders to represent generic examples of parameter names and values. They are not literal parameters._
 
 Using `--` by itself tells the CLI parser to stop interpreting further arguments (such as `foo`) as flags.
 
-Instead, using `--foo` without any further value will set the value of  `foo` to `true`.
+Instead, using `--foo` without any further value will set the value of `foo` to `true`.
 
 Alternatively, using `--foo bar` with `bar` as the supplied value will set the value of `--foo` to `bar`.
 
 **Example:**
-* Using `--flag1 --flag2` will set both configuration parameters `flag1` and `flag2` to `true` as no further value is provided for either.
-* Using `--flag1 --flag2 bar` will set the value of `flag1` to `true`, and the value of `flag2` to `bar`.
-* Using `--flag1 --flag2 -- bar` will  set the values of both `flag1` and `flag2` to `true`,  while `bar` is treated as a regular command argument.
+
+- Using `--flag1 --flag2` will set both configuration parameters `flag1` and `flag2` to `true` as no further value is provided for either.
+- Using `--flag1 --flag2 bar` will set the value of `flag1` to `true`, and the value of `flag2` to `bar`.
+- Using `--flag1 --flag2 -- bar` will set the values of both `flag1` and `flag2` to `true`, while `bar` is treated as a regular command argument.
 
 #### Environment Variables
 
