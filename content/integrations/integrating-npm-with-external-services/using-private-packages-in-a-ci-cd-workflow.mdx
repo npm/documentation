@@ -25,6 +25,8 @@ Create a new access token that will be used only to access npm packages from a C
 
 When generating an access token for use in a continuous integration environment, we recommend using a granular access token with limited access to provide greater security.
 
+If you use a legacy token instead, by default, `npm token create` will generate a token with both read and write permissions. We recommend creating a read-only token:
+
 <Note>
 
 **Warning:** Legacy access tokens are deprecated as of November 2025.
