@@ -27,6 +27,12 @@ When generating an access token for use in a continuous integration environment,
 
 If you use a legacy token instead, by default, `npm token create` will generate a token with both read and write permissions. We recommend creating a read-only token:
 
+<Note variant="danger">
+
+**Warning:** Legacy access tokens are removed as of November 2025.
+
+</Note>
+
 ```
 npm token create --read-only
 ```
