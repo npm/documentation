@@ -37,7 +37,7 @@ For more information on creating access tokens, including CIDR-whitelisted token
 
 For publishing packages in continuous deployment environments, we strongly recommend using [trusted publishing](/trusted-publishers) when available, as it provides enhanced security without requiring token management.
 
-If trusted publishing is not available for your CI/CD provider, you may create a [granular access token][create-token] configured to bypass 2FA on the website. Granular access tokens provide the same 2FA bypass capability as legacy automation tokens, but with additional security features like expiration dates, scope restrictions, and IP address limitations. Alternatively, you can use a legacy [automation token][create-token], though granular access tokens are recommended for enhanced security. Both token types will allow you to publish even if you have two-factor authentication enabled on your account.
+If trusted publishing is not available for your CI/CD provider, you may create a [granular access token][create-token] configured to bypass 2FA on the website. **Granular access tokens with 2FA bypass are the recommended replacement for legacy automation tokens**, providing the same 2FA bypass capability with additional security features like expiration dates, scope restrictions, and IP address limitations. Alternatively, you can use a legacy [automation token][create-token], though granular access tokens are recommended for enhanced security. Both token types will allow you to publish even if you have two-factor authentication enabled on your account.
 
 ### Interactive workflows
 
