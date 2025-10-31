@@ -10,6 +10,16 @@ You may also choose to allow publishing with either two-factor authentication _o
 
 For CI/CD workflows, consider using [trusted publishing](/trusted-publishers), which provides secure, token-free publishing that automatically enforces strong authentication without requiring manual token management.
 
+<Note>
+
+**Important notes about granular access tokens:**
+
+- **When bypass2FA is true**: The token will bypass all 2FA requirements at all times, regardless of account-level or package-level 2FA settings
+- **When bypass2FA is false (default)**: The system will check account-level and package-level settings to determine if 2FA is required
+- When "disallow tokens" is selected at the package level, granular access tokens cannot be used regardless of their bypass 2FA setting
+
+</Note>
+
 ## Configuring two-factor authentication
 
 1. <>{shared['user-login'].text}</>
@@ -35,18 +45,6 @@ For CI/CD workflows, consider using [trusted publishing](/trusted-publishers), w
    <Screenshot src="/packages-and-modules/securing-your-code/2fa-package-setting.png" alt="Screenshot showing the require two-factor option for a package" />
 
 5. Click **Update Package Settings**.
-
-## Granular access token behavior with 2FA
-
-<Note>
-
-**Important notes about granular access tokens:**
-
-- **When Bypass2FA is true**: The token will bypass all 2FA requirements at all times, regardless of account-level or package-level 2FA settings
-- **When Bypass2FA is false (default)**: The system will check account-level and package-level settings to determine if 2FA is required
-- When "disallow tokens" is selected at the package level, granular access tokens cannot be used regardless of their bypass 2FA setting
-
-</Note>
 
 [config-2fa]: configuring-two-factor-authentication
 [creating-granular-access-token]: creating-and-viewing-access-tokens#creating-granular-access-tokens-on-the-website
