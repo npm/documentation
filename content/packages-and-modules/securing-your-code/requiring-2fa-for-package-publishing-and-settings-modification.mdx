@@ -14,9 +14,10 @@ For CI/CD workflows, consider using [trusted publishing](/trusted-publishers), w
 
 **Important notes about granular access tokens:**
 
-- **When bypass2FA is true**: The token will bypass all 2FA requirements at all times, regardless of account-level or package-level 2FA settings
-- **When bypass2FA is false (default)**: The system will check account-level and package-level settings to determine if 2FA is required
-- When "disallow tokens" is selected at the package level, granular access tokens cannot be used regardless of their bypass 2FA setting
+- Bypass 2FA configuration is set at token creation
+- When **bypass 2FA is disabled**: The system will check account-level and package-level settings to determine if 2FA is required
+- When **bypass 2FA is enabled**: The token will bypass all 2FA requirements at all times, regardless of account-level or package-level 2FA settings
+- When **Require two-factor authentication and disallow tokens** is selected at the package level, granular access tokens cannot be used regardless of their bypass 2FA setting
 
 </Note>
 
