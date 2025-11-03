@@ -8,37 +8,6 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 
 ## Creating access tokens
 
-### Creating legacy tokens on the website
-
-<Note>
-
-**Note:** For greater security, we recommend using [granular access tokens](#creating-granular-access-tokens-on-the-website) instead of legacy read-only tokens or legacy automation tokens. For CI/CD workflows, consider using [trusted publishing](/trusted-publishers), which eliminates the need for long-lived tokens entirely.
-
-</Note>
-
-1. In the upper right corner of the page, click your profile picture, then click **Access Tokens**.
-
-   <Screenshot src="/integrations/integrating-npm-with-external-services/tokens-profile.png" alt="Screenshot of the account menu with the tokens link selected" />
-
-2. Click **Generate New Token**, then select **legacy token** from the dropdown menu.
-
-   <Screenshot src="/integrations/integrating-npm-with-external-services/create-token.png" alt="Screenshot of the create new token button" />
-
-3. (Optional) Name your token.
-
-4. Select the type of access token:
-   - **Read-only**: A read-only token can only be used to download packages from the registry. It will have permission to read any private package that you have access to. This is recommended for automation and workflows where you are installing packages, but not publishing new ones.
-
-   - **Automation**: An automation token can download packages and publish new ones, but if you have two-factor authentication (2FA) configured on your account, it will **not** be enforced. You can use an automation token in continuous integration workflows and other automation systems to publish a package even when you cannot enter a one-time passcode. For enhanced security in CI/CD workflows, consider using [trusted publishing](/trusted-publishers) instead, which eliminates the need for long-lived tokens.
-
-   - **Publish**: A publish token can perform any action on your behalf, including downloading packages, publishing packages, and changing user settings or package settings. If you have two-factor authentication configured on your account, you will be required to enter a one-time passcode when using a publish token. This is recommended for interactive workflows such as a CLI.
-
-   <Screenshot src="/integrations/integrating-npm-with-external-services/token-level-select.png" alt="Screenshot of the access level selection" />
-
-5. Click **Generate Token**.
-
-6. Copy the token from the top of page.
-
 ### Creating granular access tokens on the website
 
 1. In the upper right corner of the page, click your profile picture, then click **Access Tokens**.
@@ -83,37 +52,11 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 
 ### Creating tokens with the CLI
 
-You can create tokens with **read-only** permissions or **read and publish** permissions with the CLI.
-
 <Note>
 
-**Note:** You cannot create legacy automation tokens or granular access tokens from the CLI. You must use the website to generate these types of tokens. For more information, see "[Creating legacy tokens on the website](#creating-legacy-tokens-on-the-website)" and "[Creating granular access tokens on the website](#creating-granular-access-tokens-on-the-website)."
+**Note:** You cannot create granular access tokens from the CLI. You must use the website to generate these types of tokens. For more information, see "[Creating granular access tokens on the website](#creating-granular-access-tokens-on-the-website)."
 
 </Note>
-
-- **Read-only:** Tokens that allow installation and distribution only, but no publishing or other rights associated with your account.
-- **Publish:** The default setting for new tokens, and most permissive token type. Publish tokens allow installation, distribution, modification, publishing, and all rights that you have on your account.
-
-In addition, you can specify that the token is only valid for a specific IPv4 address range, using [CIDR][cidr-wiki] notation. The token will only be valid when used from the specified IP addresses.
-
-1. To create a new token, on the command line, run:
-   - `npm token create` for a read and publish token
-   - `npm token create --read-only` for a read-only token
-   - `npm token create --cidr=[list]` for a CIDR-restricted read and publish token. For example, `npm token create --cidr=192.0.2.0/24`
-   - `npm token create --read-only --cidr=[list]` for a CIDR-restricted read-only token
-2. When prompted, enter your password.
-3. If you have enabled [two-factor authentication][tfa], when prompted, enter a one-time password.
-4. Copy the token from the **token** field in the command output.
-
-#### CIDR-restricted token errors
-
-If the CIDR string you enter is invalid or in an inappropriate format, you will get an error similar to the one below:
-
-```
-npm ERR! CIDR whitelist contains invalid CIDR entry: X.X.X.X./YY,Z.Z.. . .
-```
-
-Make sure you are using a valid IPv4 range and try creating the token again.
 
 ## Viewing access tokens
 
@@ -141,8 +84,7 @@ npm token list
 
 - **id:** Use the token ID to refer to the token in commands.
 - **token:** The first digits of the actual token.
-- **create:** Date the token was created.
-- **readonly:** If yes, indicates a read-only token. If no, indicates a token with both read and publish permissions.
+- **created:** Date the token was created.
 - **CIDR whitelist:** Restricts token use by IP address.
 
 [tfa]: about-two-factor-authentication
