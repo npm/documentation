@@ -25,7 +25,13 @@ Create a new access token that will be used only to access npm packages from a C
 
 When generating an access token for use in a continuous integration environment, we recommend using a granular access token with limited access to provide greater security.
 
-If you use a legacy token instead, by default, `npm token create` will generate a token with both read and write permissions. We recommend creating a read-only token:
+For most CI workflows that only install dependencies and run tests, a **read-only** granular access token is sufficient and most secure.
+
+<Note>
+
+**Note:** If your CI workflow requires write operations (such as publishing test packages), you may need a granular access token with read and write permissions and bypass 2FA enabled to prevent automated workflows from being blocked by 2FA prompts. However, we strongly recommend using read-only tokens whenever possible and reserving bypass 2FA for deployment workflows only.
+
+</Note>
 
 <Note variant="danger">
 
@@ -33,42 +39,34 @@ If you use a legacy token instead, by default, `npm token create` will generate 
 
 </Note>
 
-```
-npm token create --read-only
-```
-
-For more information on creating access tokens, including CIDR-whitelisted tokens, see "[Creating an access token][create-token]".
+For more information on creating granular access tokens, including CIDR-whitelisted tokens, see "[Creating and viewing access tokens][create-token]".
 
 ### Continuous deployment
 
 For publishing packages in continuous deployment environments, we strongly recommend using [trusted publishing](/trusted-publishers) when available, as it provides enhanced security without requiring token management.
 
-If trusted publishing is not available for your CI/CD provider, you may create an [automation token][create-token] on the website. This will allow you to publish even if you have two-factor authentication enabled on your account.
+If trusted publishing is not available for your CI/CD provider, you can create a [granular access token with bypass 2FA enabled][create-token] on the website. This will allow you to publish even if you have two-factor authentication enabled on your account.
+
+<Note>
+
+**Security considerations for bypass 2FA:**
+
+- Only enable bypass 2FA when necessary for automated publishing workflows
+- Use restrictive permissions and short expiration dates
+- Consider IP address restrictions and regular token rotation
+- Use trusted publishing instead of bypass 2FA tokens whenever possible
+
+</Note>
 
 ### Interactive workflows
 
-If your workflow produces a package, but you publish it manually after validation, then you will want to create a token with read and write permissions, which are granted with the standard token creation command:
-
-```
-npm token create
-```
+If your workflow produces a package, but you publish it manually after validation, then you will want to create a granular access token with read and write permissions. See "[Creating and viewing access tokens][create-token]" for instructions.
 
 ### CIDR whitelists
 
-For increased security, you may use a CIDR-whitelisted token that can only be used from a certain IP address range. You can use a CIDR whitelist with a read and publish token or a read-only token:
+For increased security, you may use a CIDR-whitelisted granular access token that can only be used from a certain IP address range. You can configure IP address restrictions when creating your granular access token on the website.
 
-```
-npm token create --cidr=[list]
-npm token create --read-only --cidr=[list]
-```
-
-Example:
-
-```
-npm token create --cidr=192.0.2.0/24
-```
-
-For more information, see "[Creating and viewing authentication tokens][create-token]".
+For more information, see "[Creating and viewing access tokens][create-token]".
 
 ## Set the token as an environment variable on the CI/CD server
 
