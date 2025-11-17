@@ -14,7 +14,7 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 
    <Screenshot src="/integrations/integrating-npm-with-external-services/tokens-profile.png" alt="Screenshot of the account menu with the tokens link selected" />
 
-2. Click **Generate New Token**, then click **Granular Access Token**.
+2. Click **Generate New Token**.
 
    <Screenshot src="/integrations/integrating-npm-with-external-services/create-token.png" alt="Screenshot of the create new token button" />
 
@@ -26,13 +26,11 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
    - This setting is unchecked (false) by default
    - By checking this box, the token will bypass 2FA for write actions even if 2FA is enabled at the account or package level
 
-6. In the **Expiration** field, enter a token expiration period. The date must be at least 1 day in the future.
-
-7. (Optional) In the **Allowed IP Ranges** field, enter IP address ranges to restrict your access token to. You must use [CIDR][cidr-wiki] notation to enter IP address ranges. To add more than one allowed IP range, click **Add IP Range** and enter an IP range in the new text field.
+6. (Optional) In the **Allowed IP Ranges** field, enter IP address ranges to restrict your access token to. You must use [CIDR][cidr-wiki] notation to enter IP address ranges. To add more than one allowed IP range, click **Add IP Range** and enter an IP range in the new text field.
 
    <Screenshot src="/integrations/integrating-npm-with-external-services/granular-access-token-ip-range.png" alt="Screenshot of the allowed IP ranges section" />
 
-8. (Optional) In the **Packages and scopes** section, configure your token's access to packages and scopes.
+7. (Optional) In the **Packages and scopes** section, configure your token's access to packages and scopes.
    - In the **Permissions** dropdown menu, select **No access**, **Read-only**, or **Read and write**.
    - Under **Select Packages**, select either:
      - **All Packages** to grant the token access to all packages the user account has access to.
@@ -40,13 +38,17 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 
    <Screenshot src="/integrations/integrating-npm-with-external-services/granular-access-token-packages-scopes.png" alt="Screenshot of the packages and scopes section" />
 
-9. (Optional) In the **Organizations** section, configure your token's access to organizations.
+8. (Optional) In the **Organizations** section, configure your token's access to organizations.
    - In the **Permissions** dropdown menu, select **No access**, **Read-only**, or **Read and write**.
    - Under **Select organizations**, select the organizations you want to grant your token access to.
 
    <Screenshot src="/integrations/integrating-npm-with-external-services/granular-access-token-organizations.png" alt="Screenshot of the organizations section" />
 
    _**Note**: When you give a token access to an organization, the token can only be used for managing organization settings and teams or users associated with the organization. It does not give the token the right to publish packages managed by the organization._
+
+9. In the **Expiration** field, select a token expiration period from the dropdown menu. You can choose from predefined options or select Custom to specify a custom expiration date using the date picker.
+
+   _**Note**: The date must be at least 1 day in the future._
 
 10. Review the token summary, then click **Generate Token**.
 
