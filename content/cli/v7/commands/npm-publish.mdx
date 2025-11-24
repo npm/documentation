@@ -32,6 +32,12 @@ Sets tag 'latest' if no --tag specified
 
 Publishes a package to the registry so that it can be installed by name.
 
+**Important:** Publishing to npm requires either:
+- Two-factor authentication (2FA) enabled on your account, OR
+- A granular access token with bypass 2FA enabled (for CI/CD workflows)
+
+For more information, see the npm documentation on [requiring 2FA for package publishing](https://docs.npmjs.com/requiring-2fa-for-package-publishing-and-settings-modification).
+
 By default npm will publish to the public registry. This can be overridden by specifying a different default registry or using a [`scope`](/cli/v7/using-npm/scope) in the name (see [`package.json`](/cli/v7/configuring-npm/package-json)).
 
 - `<folder>`: A folder containing a package.json file
@@ -115,6 +121,8 @@ Note: This is NOT honored by other network related commands, eg `dist-tags`, `ow
 This is a one-time password from a two-factor authenticator. It's needed when publishing or changing package permissions with `npm access`.
 
 If not set, and a registry response fails with a challenge for a one-time password, npm will prompt on the command line for one.
+
+**Note:** As an alternative to using 2FA with OTP, you can publish using a granular access token with bypass 2FA enabled. This is commonly used in CI/CD workflows where interactive authentication is not possible.
 
 #### `workspace`
 
