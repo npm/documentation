@@ -20,6 +20,16 @@ When you enable 2FA, you will be prompted for a second form of authentication be
 
 </Note>
 
+<Note variant="warning">
+
+**Important:** Publishing packages to npm now requires either:
+- Two-factor authentication (2FA) enabled on your account, OR
+- A [granular access token with bypass 2FA enabled][granular-tokens] (for CI/CD workflows)
+
+For more information, see "[Requiring 2FA for package publishing][pkg-2fa]."
+
+</Note>
+
 ## Two-factor authentication on npm
 
 Two-factor authentication on npm can be enabled for authorization and writes, or authorization only.
@@ -63,6 +73,7 @@ If you enable 2FA for authorization only. We will request a second form of authe
 [token-create]: https://docs.npmjs.com/cli/token
 [token-revoke]: https://docs.npmjs.com/cli/token
 [publish]: https://docs.npmjs.com/cli/publish
+[granular-tokens]: /creating-and-viewing-access-tokens
 [unpublish]: https://docs.npmjs.com/cli/unpublish
 [deprecate]: https://docs.npmjs.com/cli/deprecate
 [access]: https://docs.npmjs.com/cli/access
