@@ -25,6 +25,7 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 5. (Optional) Check the **Bypass two-factor authentication** checkbox if you want this token to bypass 2FA requirements for write actions.
    - This setting is unchecked (false) by default
    - By checking this box, the token will bypass 2FA for write actions even if 2FA is enabled at the account or package level
+   - **Note:** For publishing packages, you must have either 2FA enabled on your account OR use a token with bypass 2FA enabled.
 
 6. (Optional) In the **Allowed IP Ranges** field, enter IP address ranges to restrict your access token to. You must use [CIDR][cidr-wiki] notation to enter IP address ranges. To add more than one allowed IP range, click **Add IP Range** and enter an IP range in the new text field.
 
