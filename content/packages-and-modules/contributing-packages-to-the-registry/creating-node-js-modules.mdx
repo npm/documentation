@@ -36,6 +36,13 @@ exports.printMsg = function() {
 ## Test your module
 
 1. Publish your package to npm:
+
+   <Note>
+   
+   **Important:** Before you can publish, you must have either [two-factor authentication (2FA)][config-2fa] enabled on your account, or a [granular access token with bypass 2FA enabled][creating-token] for CI/CD workflows.
+   
+   </Note>
+
    - For [private packages][priv-pkg-pub] and [unscoped packages][unscoped-pkg-pub], use `npm publish`.
    - For [scoped public packages][scoped-pkg-pub], use `npm publish --access public`
 
@@ -73,3 +80,5 @@ exports.printMsg = function() {
 [priv-pkg-pub]: creating-and-publishing-private-packages#publishing-private-packages
 [unscoped-pkg-pub]: creating-and-publishing-unscoped-public-packages#publishing-unscoped-public-packages
 [scoped-pkg-pub]: creating-and-publishing-scoped-public-packages#publishing-scoped-public-packages
+[config-2fa]: /configuring-two-factor-authentication
+[creating-token]: /creating-and-viewing-access-tokens
