@@ -4,9 +4,9 @@ title: Requiring 2FA for package publishing and settings modification
 
 import shared from '~/shared.js'
 
-To protect your packages, as a package publisher, you can require everyone who has write access to a package to have two-factor authentication (2FA) enabled. This will require that users provide 2FA credentials in addition to their login token when they publish the package. For more information, see "[Configuring two-factor authentication][config-2fa]".
+All packages now require two-factor authentication (2FA) for creating and publishing packages. For more information, see "[Configuring two-factor authentication][config-2fa]".
 
-You may also choose to allow publishing with either two-factor authentication _or_ with [granular access tokens with bypass 2FA enabled][creating-granular-access-token]. This lets you configure tokens in a CI/CD workflow, but requires two-factor authentication from interactive publishes.
+You may also choose to publish with [granular access tokens with bypass 2FA enabled][creating-granular-access-token]. This lets you configure tokens in a CI/CD workflow, but requires two-factor authentication from interactive publishes.
 
 For CI/CD workflows, consider using [trusted publishing](/trusted-publishers), which provides secure, token-free publishing that automatically enforces strong authentication without requiring manual token management.
 
