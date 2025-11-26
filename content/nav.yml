@@ -1596,7 +1596,7 @@
             - title: Changelog
               url: /cli/v10/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 11.6.2
+    - title: Version 11.6.4
       shortName: v11
       url: /cli/v11
       default: true
