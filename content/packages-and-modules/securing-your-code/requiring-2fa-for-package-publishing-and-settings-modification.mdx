@@ -36,11 +36,10 @@ For CI/CD workflows, consider using [trusted publishing](/trusted-publishers), w
 4. Under "Publishing access", select the requirements to publish a package.
 
    <Note>
-   
-   **Note:** All packages now require either two-factor authentication or a granular access token with bypass 2FA enabled to publish. This is the default setting for all new packages.
-   
-   </Note>
 
+   **Note:** All packages now require either two-factor authentication or a granular access token with bypass 2FA enabled to publish. This is the default setting for all new packages.
+
+   </Note>
    1. **Require two-factor authentication or granular access tokens** (Default)  
       With this option, maintainers must have two-factor authentication enabled for their account. If they publish a package interactively, using the `npm publish` command, they will be required to enter 2FA credentials when they perform the publish. However, maintainers may also create a [granular access token with bypass 2FA enabled][creating-granular-access-token] and use that to publish. A second factor is _not_ required when using these specific token types, making them useful for continuous integration and continuous deployment workflows.
 
