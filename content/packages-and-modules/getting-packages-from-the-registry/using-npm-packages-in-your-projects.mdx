@@ -8,13 +8,13 @@ Once you have [installed a package][install-pkg] in `node_modules`, you can use 
 
 ### Node.js module
 
-If you are creating a Node.js module, you can use a package in your module by passing it as an argument to the `require` function.
+If you are creating a Node.js module, you can use a package in your module by importing it with the `import` statement.
 
 ```javascript
-var lodash = require('lodash');
+// index.mjs
+import chalk from 'chalk';
 
-var output = lodash.without([1, 2, 3], 1);
-console.log(output);
+console.log(chalk.blue('Hello world!'));
 ```
 
 ### package.json file
@@ -36,7 +36,7 @@ To use a scoped package, simply include the scope wherever you use the package n
 ### Node.js module
 
 ```js
-var projectName = require("@scope/package-name")
+import packageName from "@scope/package-name";
 ```
 
 ### package.json file
@@ -51,15 +51,21 @@ In `package.json`:
 }
 ```
 
+## Resolving "Cannot use import statement outside a module" error
+
+The error message gives you two options to handle this,
+- Add `"type": "module"` field to your `package.json`, or
+- Use `.mjs` file extension instead of `.js`.
+
 ## Resolving "Cannot find module" errors
 
-If you have not properly installed a package, you will receive an error when you try to use it in your code. For example, if you reference the `lodash` package without installing it, you would see the following error:
+If you have not properly installed a package, you will receive an error when you try to use it in your code. For example, if you reference the `chalk` package without installing it, you would see the following error:
 
 ```
 module.js:340
     throw err;
           ^
-Error: Cannot find module 'lodash'
+Error: Cannot find module 'chalk'
 ```
 
 - For scoped packages, run `npm install <@scope/package_name>`
