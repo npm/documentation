@@ -131,6 +131,8 @@ publish:
   id_tokens:
     NPM_ID_TOKEN:
       aud: "npm:registry.npmjs.org"
+    SIGSTORE_ID_TOKEN:
+      aud: sigstore
   script:
     # Ensure npm 11.5.1 or later is installed
     - npm install -g npm@latest
