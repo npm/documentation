@@ -89,10 +89,6 @@ const shared = {
           If you have previously linked a GitHub account to your npm account, select <strong>Connect to GitHub</strong>.
           This will help our support team verify your account.
         </li>
-        <li>
-          If you have previously linked a Twitter account to your npm account, select{' '}
-          <strong>Connect to Twitter</strong>. This will help our support team verify your account.
-        </li>
       </Ul>
     ),
   },
