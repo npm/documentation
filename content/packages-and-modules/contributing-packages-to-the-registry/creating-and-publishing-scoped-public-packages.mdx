@@ -77,14 +77,14 @@ npm install /path/to/my-test-package
 
 By default, scoped packages are published with private visibility. To publish a scoped package with public visibility, use `npm publish --access public`.
 
-<Note>
+<Note variant="warning">
 
-**Important:** Before you can publish, you must have either:
+**Important:** Publishing to npm requires either:
 
-- [Two-factor authentication (2FA)][config-2fa] enabled on your account, OR
-- A [granular access token with bypass 2FA enabled][creating-token] (required for CI/CD workflows)
+- Two-factor authentication (2FA) enabled on your account, OR
+- A granular access token with bypass 2FA enabled
 
-For more information, see "[Requiring 2FA for package publishing][requiring-2fa]."
+For more information, see the npm documentation on [requiring 2FA for package publishing](/requiring-2fa-for-package-publishing-and-settings-modification).
 
 </Note>
 

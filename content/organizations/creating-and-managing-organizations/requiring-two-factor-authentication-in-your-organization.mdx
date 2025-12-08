@@ -6,15 +6,20 @@ import shared from '~/shared.js'
 
 Organization owners can require organization members to enable two-factor authentication for their personal accounts, making it harder for malicious actors to access an organization's packages and settings.
 
+<Note variant="warning">
+
+**Important:** Publishing to npm requires either:
+
+- Two-factor authentication (2FA) enabled on your account, OR
+- A granular access token with bypass 2FA enabled
+
+For more information, see the npm documentation on [requiring 2FA for package publishing](/requiring-2fa-for-package-publishing-and-settings-modification).
+
+</Note>
+
 ## About two-factor authentication for organizations
 
 Two-factor authentication (2FA) is an extra layer of security used when logging into websites or apps. You can require all members in your organization to enable two-factor authentication on npm. For more information about two-factor authentication, see ["Configuring two-factor authentication"][configure-2fa].
-
-<Note>
-
-**Important:** Publishing packages to npm now requires authentication via either two-factor authentication enabled on your account, or a granular access token with bypass 2FA enabled. This requirement applies at the platform level for all packages by default, regardless of organization-level 2FA settings.
-
-</Note>
 
 <Note>
 
