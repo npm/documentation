@@ -268,7 +268,7 @@ Consider implementing these additional security practices:
 
 ## Troubleshooting
 
-If you encounter an "Unable to authenticate" error when publishing, first verify that the workflow filename matches exactly what you configured on [npmjs.com](https://npmjs.com), including the `.yml` extension. The filename is case-sensitive and must be exact. Also ensure you're using GitHub-hosted runners or GitLab.com shared runners, as self-hosted runners are not currently supported. For GitHub Actions specifically, check that the `id-token: write` permission is set in your workflow.
+If you encounter an "Unable to authenticate" error when publishing, first verify that the workflow filename matches exactly what you configured on [npmjs.com](https://npmjs.com), including the `.yml` extension. All fields are case-sensitive and must be exact. Also ensure you're using GitHub-hosted runners or GitLab.com shared runners, as self-hosted runners are not currently supported. For GitHub Actions specifically, check that the `id-token: write` permission is set in your workflow.
 
 <Note>
 
