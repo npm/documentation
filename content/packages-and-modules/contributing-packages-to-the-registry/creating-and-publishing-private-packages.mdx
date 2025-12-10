@@ -81,6 +81,17 @@ npm install my-package
 
 By default, scoped packages are published with private visibility.
 
+<Note variant="warning">
+
+**Important:** Publishing to npm requires either:
+
+- Two-factor authentication (2FA) enabled on your account, OR
+- A granular access token with bypass 2FA enabled
+
+For more information, see the npm documentation on [requiring 2FA for package publishing](/requiring-2fa-for-package-publishing-and-settings-modification).
+
+</Note>
+
 1. On the command line, navigate to the root directory of your package.
 
    ```
@@ -109,3 +120,6 @@ For more information on the `publish` command, see the [CLI documentation][cli-p
 [cli-publish]: /cli/publish
 [reg-config]: configuring-your-registry-settings-as-an-npm-enterprise-user#using-npmrc-to-manage-multiple-profiles-for-different-registries
 [pii]: https://en.wikipedia.org/wiki/Personally_identifiable_information
+[config-2fa]: /configuring-two-factor-authentication
+[creating-token]: /creating-and-viewing-access-tokens
+[requiring-2fa]: /requiring-2fa-for-package-publishing-and-settings-modification

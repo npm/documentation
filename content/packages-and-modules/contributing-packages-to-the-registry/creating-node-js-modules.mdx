@@ -36,8 +36,20 @@ exports.printMsg = function() {
 ## Test your module
 
 1. Publish your package to npm:
-   - For [private packages][priv-pkg-pub] and [unscoped packages][unscoped-pkg-pub], use `npm publish`.
-   - For [scoped public packages][scoped-pkg-pub], use `npm publish --access public`
+
+<Note variant="warning">
+
+**Important:** Publishing to npm requires either:
+
+- Two-factor authentication (2FA) enabled on your account, OR
+- A granular access token with bypass 2FA enabled
+
+For more information, see the npm documentation on [requiring 2FA for package publishing](/requiring-2fa-for-package-publishing-and-settings-modification).
+
+</Note>
+
+- For [private packages][priv-pkg-pub] and [unscoped packages][unscoped-pkg-pub], use `npm publish`.
+- For [scoped public packages][scoped-pkg-pub], use `npm publish --access public`
 
 2. On the command line, create a new test directory outside of your project directory.
 
@@ -73,3 +85,5 @@ exports.printMsg = function() {
 [priv-pkg-pub]: creating-and-publishing-private-packages#publishing-private-packages
 [unscoped-pkg-pub]: creating-and-publishing-unscoped-public-packages#publishing-unscoped-public-packages
 [scoped-pkg-pub]: creating-and-publishing-scoped-public-packages#publishing-scoped-public-packages
+[config-2fa]: /configuring-two-factor-authentication
+[creating-token]: /creating-and-viewing-access-tokens
