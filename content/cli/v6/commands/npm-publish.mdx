@@ -32,17 +32,6 @@ Sets tag 'latest' if no --tag specified
 
 Publishes a package to the registry so that it can be installed by name. All files in the package directory are included if no local `.gitignore` or `.npmignore` file exists. If both files exist and a file is ignored by `.gitignore` but not by `.npmignore` then it will be included. See [`developers`](/cli/v6/using-npm/developers) for full details on what's included in the published package, as well as details on how the package is built.
 
-<Note variant="warning">
-
-**Important:** Publishing to npm requires either:
-
-- Two-factor authentication (2FA) enabled on your account, OR
-- A granular access token with bypass 2FA enabled
-
-For more information, see the npm documentation on [requiring 2FA for package publishing](/requiring-2fa-for-package-publishing-and-settings-modification).
-
-</Note>
-
 By default npm will publish to the public registry. This can be overridden by specifying a different default registry or using a [`scope`](/cli/v6/using-npm/scope) in the name (see [`package.json`](/cli/v6/configuring-npm/package-json)).
 
 - `<folder>`: A folder containing a package.json file

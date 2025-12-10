@@ -4,7 +4,7 @@ title: Requiring 2FA for package publishing and settings modification
 
 import shared from '~/shared.js'
 
-All packages now require two-factor authentication (2FA) or a [granular access tokens with bypass 2FA enabled][creating-granular-access-token] for creating and publishing packages. 
+All packages now require two-factor authentication (2FA) or a [granular access tokens with bypass 2FA enabled][creating-granular-access-token] for creating and publishing packages.
 
 Modifying a package's settings also requires two-factor authentication (2FA).
 
@@ -34,11 +34,9 @@ For CI/CD workflows, consider using [trusted publishing](/trusted-publishers), w
    <Screenshot src="/packages-and-modules/securing-your-code/2fa-package-admin.png" alt="Screenshot showing the admin tab on a package page" />
 
 4. Under "Publishing access", select the requirements to publish a package.
-
    1. **Require two-factor authentication or a granular access token with bypass 2fa enabled** (Default)  
-     This is the default option for all new packages. With this option, maintainers must have two-factor authentication enabled for their account. If they publish a package interactively, using the `npm publish` command, they will be required to respond to a 2FA prompt when they perform the publish. However, maintainers may also create a [granular access token with bypass 2FA enabled][creating-granular-access-token] and use that for a non-interactive publish. 
-   2. **Require two-factor authentication and disallow tokens** (Recommended)
-     With this option, a maintainer must have two-factor authentication enabled for their account, and they must publish interactively. Maintainers will be required to respond to a 2FA prompt when they perform the publish. Granular access tokens cannot be used to publish packages, regardless of their bypass 2FA setting.
+      This is the default option for all new packages. With this option, maintainers must have two-factor authentication enabled for their account. If they publish a package interactively, using the `npm publish` command, they will be required to respond to a 2FA prompt when they perform the publish. However, maintainers may also create a [granular access token with bypass 2FA enabled][creating-granular-access-token] and use that for a non-interactive publish.
+   2. **Require two-factor authentication and disallow tokens** (Recommended) With this option, a maintainer must have two-factor authentication enabled for their account, and they must publish interactively. Maintainers will be required to respond to a 2FA prompt when they perform the publish. Granular access tokens cannot be used to publish packages, regardless of their bypass 2FA setting.
 
    <Screenshot src="/packages-and-modules/securing-your-code/2fa-package-setting.png" alt="Screenshot showing the require two-factor option for a package" />
 

@@ -29,17 +29,6 @@ npm publish <package-spec>
 
 Publishes a package to the registry so that it can be installed by name.
 
-<Note variant="warning">
-
-**Important:** Publishing to npm requires either:
-
-- Two-factor authentication (2FA) enabled on your account, OR
-- A granular access token with bypass 2FA enabled
-
-For more information, see the npm documentation on [requiring 2FA for package publishing](/requiring-2fa-for-package-publishing-and-settings-modification).
-
-</Note>
-
 By default npm will publish to the public registry. This can be overridden by specifying a different default registry or using a [`scope`](/cli/v10/using-npm/scope) in the name, combined with a scope-configured registry (see [`package.json`](/cli/v10/configuring-npm/package-json)).
 
 A `package` is interpreted the same way as other commands (like `npm install`) and can be:
