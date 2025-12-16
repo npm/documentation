@@ -91,12 +91,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
-
-      # Ensure npm 11.5.1 or later is installed
-      - name: Update npm
-        run: npm install -g npm@latest
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
@@ -116,7 +112,7 @@ stages:
   - publish
 
 variables:
-  NODE_VERSION: '20'
+  NODE_VERSION: '24'
 
 test:
   stage: test
@@ -134,8 +130,6 @@ publish:
     SIGSTORE_ID_TOKEN:
       aud: sigstore
   script:
-    # Ensure npm 11.5.1 or later is installed
-    - npm install -g npm@latest
     - npm ci
     - npm run build --if-present
     - npm publish
@@ -240,12 +234,8 @@ While trusted publishing handles the publish operation, you may still need authe
 # GitHub Actions example
 - uses: actions/setup-node@v4
   with:
-    node-version: '20'
+    node-version: '24'
     registry-url: 'https://registry.npmjs.org'
-
-# Ensure npm 11.5.1 or later for trusted publishing
-- run: npm install -g npm@latest
-
 # Use a read-only token for installing dependencies
 - run: npm ci
   env:
