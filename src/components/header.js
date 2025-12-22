@@ -9,6 +9,8 @@ import {HEADER_HEIGHT, HEADER_BAR, Z_INDEX} from '../constants'
 import headerNavItems from '../../content/header-nav.yml'
 import {DarkTheme} from '../theme'
 import SiteTitle from './site-title'
+import {ColorPreferencePicker} from './color-preference-picker'
+import {useColorPreference} from '../hooks/use-color-preference'
 
 const NpmHeaderBar = styled(Box)`
   height: ${HEADER_BAR}px;
@@ -16,6 +18,8 @@ const NpmHeaderBar = styled(Box)`
 `
 
 function Header() {
+  const {preferredColorMode, setColorPreference} = useColorPreference()
+
   const search = useSearch()
 
   return (
@@ -43,6 +47,7 @@ function Header() {
           </Box>
         </Box>
         <Box sx={{display: 'flex'}}>
+          <ColorPreferencePicker preferredColorMode={preferredColorMode} setColorPreference={setColorPreference} />
           <Box sx={{display: ['none', null, null, 'flex'], alignItems: 'center'}}>
             {headerNavItems.map((item, index) => (
               <Link key={index} href={item.url} sx={{display: 'block', ml: 4, color: 'fg.default'}}>
@@ -50,7 +55,7 @@ function Header() {
               </Link>
             ))}
           </Box>
-          <Box sx={{display: ['flex', null, null, 'none']}}>
+          <Box sx={{display: ['flex', null, null, 'none'], ml: [4, null, null, 'unset']}}>
             <Search.Mobile {...search} />
             <NavDrawer />
           </Box>
