@@ -5,10 +5,12 @@ import * as Search from './search'
 import NavDrawer from './nav-drawer'
 import Link from './link'
 import useSearch from '../hooks/use-search'
-import {HEADER_HEIGHT, HEADER_BAR, Z_INDEX} from '../constants'
+import {HEADER_BAR, Z_INDEX} from '../constants'
 import headerNavItems from '../../content/header-nav.yml'
 import {DarkTheme} from '../theme'
 import SiteTitle from './site-title'
+
+import * as styles from './header.module.css'
 
 const NpmHeaderBar = styled(Box)`
   height: ${HEADER_BAR}px;
@@ -19,38 +21,24 @@ function Header() {
   const search = useSearch()
 
   return (
-    <DarkTheme sx={{top: 0, position: 'sticky', zIndex: Z_INDEX.HEADER}}>
+    <DarkTheme style={{zIndex: Z_INDEX.HEADER}} className={styles.DarkTheme}>
       <NpmHeaderBar />
-      <Box
-        as="header"
-        sx={{
-          display: 'flex',
-          height: `${HEADER_HEIGHT}px`,
-          px: [3, null, null, 4],
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          bg: 'canvas.default',
-          border: '1px solid',
-          borderLeftWidth: 0,
-          borderRightWidth: 0,
-          borderColor: 'border.muted',
-        }}
-      >
-        <Box sx={{display: 'flex', alignItems: 'center'}}>
-          <SiteTitle logo={true} sx={{mr: 4}} />
-          <Box sx={{display: ['none', null, null, 'block'], ml: 4}}>
+      <Box as="header" className={styles.headerBox}>
+        <Box className={styles.Box}>
+          <SiteTitle logo={true} className={styles.SiteTitle} />
+          <Box className={styles.searchDesktop}>
             <Search.Desktop {...search} />
           </Box>
         </Box>
-        <Box sx={{display: 'flex'}}>
-          <Box sx={{display: ['none', null, null, 'flex'], alignItems: 'center'}}>
+        <Box className={styles.Box_1}>
+          <Box className={styles.navDesktop}>
             {headerNavItems.map((item, index) => (
-              <Link key={index} href={item.url} sx={{display: 'block', ml: 4, color: 'fg.default'}}>
+              <Link key={index} href={item.url} className={styles.Link}>
                 {item.title}
               </Link>
             ))}
           </Box>
-          <Box sx={{display: ['flex', null, null, 'none']}}>
+          <Box className={styles.navMobile}>
             <Search.Mobile {...search} />
             <NavDrawer />
           </Box>

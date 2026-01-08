@@ -1,0 +1,24 @@
+.Box {
+  margin: 0;
+}
+
+.Box_1 {
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.menuButton {
+  width: 100%;
+}
+
+.menuButton:focus-visible {
+  outline: 2px solid;
+  outline-color: -webkit-focus-ring-color;
+  outline-offset: 1px;
+}
+
+@media (min-width: 768px) {
+  .menuButton {
+    width: auto;
+  }
+}

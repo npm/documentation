@@ -12,12 +12,14 @@ import * as getNav from '../util/get-nav'
 import omit from '../util/omit'
 import {announce} from '../util/aria-live'
 
+import * as styles from './search.module.css'
+
 const SearchResults = ({results, getItemProps, highlightedIndex}) => {
   const siteMetadata = useSiteMetadata()
   if (!results || results.length === 0) {
     announce('No results')
     return (
-      <Box sx={{fontSize: 2, px: 3, py: 3}} aria-live="polite">
+      <Box aria-live="polite" className={styles.Box}>
         No results
       </Box>
     )
@@ -46,10 +48,10 @@ const SearchResults = ({results, getItemProps, highlightedIndex}) => {
             active={highlightedIndex === index}
           >
             <Box
-              sx={{display: 'flex', flexDirection: 'column', flex: '0 0 auto'}}
               aria-label={`${item.title}${hierarchy.length ? ` in ${hierarchy.map(s => s.shortName || s.title).join(' / ')}` : ` in ${siteMetadata.shortName}`}, ${index + 1} of ${results.length}`}
+              className={styles.Box_1}
             >
-              <Text sx={{fontSize: 0}}>
+              <Text className={styles.Text}>
                 {hierarchy.length ? hierarchy.map(s => s.shortName || s.title).join(' / ') : siteMetadata.shortName}
               </Text>
               <Text>{item.title}</Text>
@@ -66,28 +68,16 @@ export const Desktop = props => {
   const {getInputProps, getMenuProps, resultsOpen, ...rest} = props
 
   return (
-    <Box sx={{position: 'relative'}}>
+    <Box className={styles.Box_2}>
       <TextInput
-        sx={{width: '240px'}}
         placeholder={`Search ${siteMetadata.title}`}
         aria-label={`Search ${siteMetadata.title}`}
+        className={styles.TextInput}
         {...getInputProps()}
       />
-      <Box sx={{position: 'absolute', left: 0, right: 0, pt: 1}} {...getMenuProps()}>
+      <Box className={styles.Box_3} {...getMenuProps()}>
         {resultsOpen ? (
-          <LightTheme
-            sx={{
-              overflow: 'auto',
-              minWidth: 300,
-              maxHeight: '70vh',
-              boxShadow: 'shadow.large',
-              borderColor: 'border.muted',
-              bg: 'canvas.overlay',
-              borderRadius: 2,
-              borderWidth: 1,
-              borderStyle: 'solid',
-            }}
-          >
+          <LightTheme className={styles.LightTheme}>
             <SearchResults {...rest} />
           </LightTheme>
         ) : null}
@@ -120,67 +110,43 @@ export const Mobile = ({
           aria-label="Search"
           aria-expanded={isMobileSearchOpen}
           onClick={handleSearchToggle}
-          sx={{
-            '&:focus-visible': {
-              outline: '2px solid',
-              outlineColor: '-webkit-focus-ring-color',
-              outlineOffset: '1px',
-            },
-          }}
+          className={styles.Button}
         >
           <SearchIcon />
         </Button>
       )}
-
       <AnimatePresence>
         {isMobileSearchOpen ? (
           <FocusOn returnFocus={true} onEscapeKey={() => resetAndClose(true)}>
             <Box
-              sx={{
-                position: 'fixed',
+              style={{
                 top: `${HEADER_BAR}px`,
-                left: 0,
-                right: 0,
-                bottom: 0,
                 zIndex: Z_INDEX.SEARCH_OVERLAY,
               }}
+              className={styles.Box_4}
             >
               <Box
-                sx={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  bg: 'overlay.backdrop',
-                  zIndex: -1,
-                }}
                 key="search-backdrop"
                 as={motion.div}
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 transition={{type: 'tween'}}
                 onClick={() => resetAndClose(true)}
+                className={styles.Box_5}
                 {...getCloseAnimation({opacity: 0})}
               />
-              <Box sx={{display: 'flex', flexDirection: 'column', height: resultsOpen ? '100%' : 'auto'}}>
+              <Box
+                style={{
+                  height: resultsOpen ? '100%' : 'auto',
+                }}
+                className={styles.Box_6}
+              >
                 <Box
-                  sx={{
-                    display: 'flex',
-                    color: 'fg.default',
+                  style={{
                     height: `${HEADER_HEIGHT}px`,
-                    flex: '0 0 auto',
-                    px: 3,
-                    alignItems: 'center',
-                    border: '1px solid',
-                    borderTopWidth: 0,
-                    borderLeftWidth: 0,
-                    borderRightWidth: 0,
-                    borderColor: 'border.muted',
-                    position: 'relative',
-                    bg: 'canvas.default',
                     zIndex: Z_INDEX.SEARCH_OVERLAY + 1,
                   }}
+                  className={styles.Box_7}
                 >
                   <motion.div
                     key="search-box"
@@ -190,22 +156,12 @@ export const Mobile = ({
                     transition={{type: 'tween', ease: 'easeOut', duration: 0.2}}
                     style={{width: '100%', originX: '100%'}}
                   >
-                    <Box
-                      sx={{
-                        position: 'absolute',
-                        top: 0,
-                        bottom: 0,
-                        left: 0,
-                        width: '70px',
-                        bg: 'canvas.default',
-                        zIndex: '-1',
-                      }}
-                    />
+                    <Box className={styles.Box_8} />
                     <TextInput
                       leadingVisual={SearchIcon}
                       placeholder={`Search ${siteMetadata.title}`}
                       aria-label={`Search ${siteMetadata.title}`}
-                      sx={{width: '100%'}}
+                      className={styles.TextInput_1}
                       {...getInputProps()}
                     />
                   </motion.div>
@@ -216,15 +172,7 @@ export const Mobile = ({
                     animate={{opacity: 1}}
                     {...getCloseAnimation({scaleX: 0})}
                     transition={{type: 'tween', ease: 'easeOut', duration: 0.2}}
-                    sx={{
-                      position: 'absolute',
-                      top: 0,
-                      bottom: 0,
-                      right: 0,
-                      width: '70px',
-                      bg: 'canvas.default',
-                      zIndex: '-1',
-                    }}
+                    className={styles.Box_9}
                   />
                   <Box
                     key="button"
@@ -234,22 +182,16 @@ export const Mobile = ({
                     {...getCloseAnimation({opacity: 0})}
                     transition={{type: 'tween', ease: 'easeOut', duration: 0.2}}
                   >
-                    <Button sx={{ml: 3}} aria-label="Cancel" onClick={() => resetAndClose(false)}>
+                    <Button aria-label="Cancel" onClick={() => resetAndClose(false)} className={styles.Button_1}>
                       <XIcon />
                     </Button>
                   </Box>
                 </Box>
                 <LightTheme
-                  sx={{
-                    display: 'flex',
-                    bg: 'canvas.default',
-                    flexDirection: 'column',
-                    flex: '1 1 auto',
-                    overflow: 'auto',
-                  }}
                   style={{
                     WebkitOverflowScrolling: 'touch',
                   }}
+                  className={styles.LightTheme_1}
                   {...getMenuProps()}
                 >
                   {resultsOpen ? <SearchResults {...rest} /> : null}

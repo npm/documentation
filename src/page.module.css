@@ -1,0 +1,22 @@
+.Box {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.Box_1 {
+  z-index: 0;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+}
+
+.sidebarContainer {
+  display: none;
+}
+
+@media (min-width: 1012px) {
+  .sidebarContainer {
+    display: block;
+  }
+}

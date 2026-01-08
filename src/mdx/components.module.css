@@ -1,0 +1,14 @@
+.Box {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+.LinkNoUnderline {
+  color: inherit;
+}
+
+.Octicon {
+  margin-left: 8px;
+  color: #656d76;
+  vertical-align: middle !important;
+}

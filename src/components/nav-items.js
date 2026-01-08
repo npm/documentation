@@ -8,6 +8,8 @@ import headerNavItems from '../../content/header-nav.yml'
 import usePage from '../hooks/use-page'
 import useSiteMetadata from '../hooks/use-site-metadata'
 
+import * as styles from './nav-items.module.css'
+
 const NavItem = ({item, path, depth}) => {
   const isCurrent = getNav.isActiveUrl(path, item.url)
   const items = getNav.getHierarchy(item, item.url, {hideVariants: true})
@@ -18,7 +20,7 @@ const NavItem = ({item, path, depth}) => {
       to={item.url}
       defaultOpen={items && isCurrent}
       aria-current={isCurrent ? 'page' : null}
-      sx={{fontSize: depth === 1 ? 2 : 1}}
+      className={depth === 1 ? styles.NavList_Item_depth1 : styles.NavList_Item_depth2}
     >
       {item.title}
       {items ? (
@@ -43,7 +45,7 @@ const NavItems = ({items, path, depth = 1}) => (
 )
 
 const ExternalNavItem = ({title, ...props}) => (
-  <NavList.Item sx={{fontSize: 2}} {...props}>
+  <NavList.Item className={styles.NavList_Item} {...props}>
     {title}
     <NavList.TrailingVisual>
       <LinkExternalIcon />
@@ -63,7 +65,7 @@ const Navigation = () => {
         <NavItems items={items} path={pathname} />
         <NavList.Divider />
         {headerNavItems.map(item => (
-          <Box key={item.title} sx={{display: ['flex', null, null, 'none']}}>
+          <Box key={item.title} className={styles.headerNavItem}>
             <ExternalNavItem title={item.title} href={item.url} />
           </Box>
         ))}

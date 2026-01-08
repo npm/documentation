@@ -6,6 +6,8 @@ import {LinkNoUnderline} from './link'
 import useLocationChange from '../hooks/use-location-change'
 import styled from 'styled-components'
 
+import * as styles from './variant-select.module.css'
+
 const StyledOverlay = styled(ActionMenu.Overlay)`
   background-color: var(--bgColor-default, #ffffff) !important;
   border-color: var(--borderColor-default, #d0d7de);
@@ -45,25 +47,16 @@ const VariantMenu = ({title, latest, current, prerelease, legacy}) => {
     if (locationChange.change && getNav.didVariantChange(locationChange.previous, locationChange.current)) {
       setOpen(false)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- granular deps are intentional; locationChange.current is a URL string, not a ref
   }, [locationChange.change, locationChange.current, locationChange.previous])
 
   return (
     <>
-      <Box as="p" sx={{m: 0}} id={labelId}>
+      <Box as="p" id={labelId} className={styles.Box}>
         Select CLI Version:
       </Box>
       <ActionMenu anchorRef={anchorRef} open={open} onOpenChange={setOpen}>
-        <ActionMenu.Button
-          aria-describedby={labelId}
-          sx={{
-            width: ['100%', null, 'auto'],
-            '&:focus-visible': {
-              outline: '2px solid',
-              outlineColor: '-webkit-focus-ring-color',
-              outlineOffset: '1px',
-            },
-          }}
-        >
+        <ActionMenu.Button aria-describedby={labelId} className={styles.menuButton}>
           {title}
         </ActionMenu.Button>
         <StyledOverlay width="auto" onEscape={() => setOpen(false)}>
@@ -133,7 +126,7 @@ const useVariants = () => {
 const VariantSelect = () => {
   const variants = useVariants()
   return variants ? (
-    <Box sx={{mt: 2, mb: 3}}>
+    <Box className={styles.Box_1}>
       <VariantMenu {...variants} />
     </Box>
   ) : null

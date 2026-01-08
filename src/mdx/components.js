@@ -10,6 +10,10 @@ import usePage from '../hooks/use-page'
 import SiteLink, {LinkNoUnderline} from '../components/link'
 import Code from './code'
 
+import * as styles from './components.module.css'
+
+import {clsx} from 'clsx'
+
 export {Code}
 export {default as Index} from './nav-hierarchy'
 
@@ -42,18 +46,9 @@ const StyledHeading = styled(Heading)`
 
 const HeaderLink = ({autolink, children, ...props}) =>
   autolink ? (
-    <LinkNoUnderline {...props} sx={{color: 'inherit'}}>
+    <LinkNoUnderline {...props} className={styles.LinkNoUnderline}>
       {children}
-      <Octicon
-        icon={LinkIcon}
-        className="octicon-link"
-        sx={{
-          ml: 2,
-          color: 'fg.muted',
-          // !important is needed here to override default icon styles
-          verticalAlign: 'middle !important',
-        }}
-      />
+      <Octicon icon={LinkIcon} className={clsx('octicon-link', styles.Octicon)} />
     </LinkNoUnderline>
   ) : (
     children
@@ -304,10 +299,10 @@ export const Screenshot = styled(RequiredImage)`
 export const YouTube = ({id}) => (
   <Box
     as="iframe"
-    sx={{aspectRatio: '16 / 9', width: '100%'}}
     title="YouTube video"
     src={`https://www.youtube.com/embed/${id}`}
     frameBorder="0"
     allowFullScreen
+    className={styles.Box}
   />
 )

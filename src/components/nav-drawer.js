@@ -9,6 +9,8 @@ import {FocusOn} from 'react-focus-on'
 import {HEADER_BAR, HEADER_HEIGHT} from '../constants'
 import SiteTitle from './site-title'
 
+import * as styles from './nav-drawer.module.css'
+
 const Drawer = ({isOpen, onDismiss, children}) => (
   <AnimatePresence>
     {isOpen ? (
@@ -24,14 +26,6 @@ const Drawer = ({isOpen, onDismiss, children}) => (
       >
         <FocusOn returnFocus={true} onEscapeKey={onDismiss}>
           <Box
-            sx={{
-              position: 'fixed',
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
-              bg: 'overlay.backdrop',
-            }}
             key="overlay"
             as={motion.div}
             initial={{opacity: 0}}
@@ -39,22 +33,17 @@ const Drawer = ({isOpen, onDismiss, children}) => (
             exit={{opacity: 0}}
             transition={{type: 'tween'}}
             onClick={onDismiss}
+            className={styles.Box}
           />
           <Box
-            sx={{
-              position: 'fixed',
-              top: `${HEADER_BAR}px`,
-              right: 0,
-              bottom: 0,
-              width: 300,
-              zIndex: 1,
-            }}
+            style={{top: `${HEADER_BAR}px`}}
             key="drawer"
             as={motion.div}
             initial={{x: '100%'}}
             animate={{x: 0}}
             exit={{x: '100%'}}
             transition={{type: 'tween', duration: 0.2}}
+            className={styles.Box_1}
           >
             {children}
           </Box>
@@ -76,58 +65,19 @@ function NavDrawer() {
 
   return (
     <>
-      <Button
-        aria-label="Menu"
-        aria-expanded={open}
-        onClick={() => setOpen(true)}
-        sx={{
-          ml: 3,
-          '&:focus-visible': {
-            outline: '2px solid',
-            outlineColor: '-webkit-focus-ring-color',
-            outlineOffset: '1px',
-          },
-        }}
-      >
+      <Button aria-label="Menu" aria-expanded={open} onClick={() => setOpen(true)} className={styles.Button}>
         <ThreeBarsIcon />
       </Button>
       <LightTheme as={Drawer} isOpen={open} onDismiss={() => setOpen(false)}>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            height: '100%',
-            bg: 'canvas.backdrop',
-            overflow: 'auto',
-          }}
-          style={{WebkitOverflowScrolling: 'touch'}}
-        >
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              flex: '1 0 auto',
-              color: 'fg.default',
-              bg: 'canvas.default',
-            }}
-          >
-            <DarkTheme
-              sx={{
-                color: 'fg.default',
-                bg: 'canvas.default',
-                height: `${HEADER_HEIGHT}px`,
-                px: 3,
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                display: 'flex',
-              }}
-            >
+        <Box style={{WebkitOverflowScrolling: 'touch'}} className={styles.Box_2}>
+          <Box className={styles.Box_3}>
+            <DarkTheme style={{height: `${HEADER_HEIGHT}px`}} className={styles.DarkTheme}>
               <SiteTitle />
               <Button aria-label="Close" onClick={() => setOpen(false)}>
                 <XIcon />
               </Button>
             </DarkTheme>
-            <Box sx={{display: 'flex', flexDirection: 'column'}}>
+            <Box className={styles.Box_4}>
               <NavItems />
             </Box>
           </Box>

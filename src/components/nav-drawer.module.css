@@ -1,0 +1,57 @@
+.Box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(140, 149, 159, 0.15);
+}
+
+.Box_1 {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  z-index: 1;
+}
+
+.Box_2 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #333333;
+  overflow: auto;
+}
+
+.Box_3 {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  color: #e1e4e8;
+  background: #333333;
+}
+
+.Box_4 {
+  display: flex;
+  flex-direction: column;
+}
+
+.Button {
+  margin-left: 16px;
+}
+
+.Button:focus-visible {
+  outline: 2px solid;
+  outline-color: -webkit-focus-ring-color;
+  outline-offset: 1px;
+}
+
+.DarkTheme {
+  color: #e1e4e8;
+  background: #333333;
+  padding-left: 16px;
+  padding-right: 16px;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+}

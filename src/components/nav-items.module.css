@@ -1,0 +1,21 @@
+.NavList_Item {
+  font-size: 16px;
+}
+
+.NavList_Item_depth1 {
+  font-size: 16px;
+}
+
+.NavList_Item_depth2 {
+  font-size: 14px;
+}
+
+.headerNavItem {
+  display: flex;
+}
+
+@media (min-width: 1012px) {
+  .headerNavItem {
+    display: none;
+  }
+}

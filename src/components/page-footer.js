@@ -6,6 +6,8 @@ import {PencilIcon} from '@primer/octicons-react'
 import Link from './link'
 import usePage from '../hooks/use-page'
 
+import * as styles from './page-footer.module.css'
+
 const months = [
   'January',
   'February',
@@ -32,20 +34,20 @@ const Contributors = ({contributors = [], latestCommit}) => {
 
   return (
     <>
-      <Box sx={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>
-        <Text sx={{mr: 2}}>
+      <Box className={styles.Box}>
+        <Text className={styles.Text}>
           {contributors.length} {pluralize('contributor', contributors.length)}
         </Text>
         {contributors.map(login => (
           <Tooltip key={login} text={login}>
-            <Link href={`https://github.com/${login}`} sx={{lineHeight: 'condensedUltra', mr: 2}}>
+            <Link href={`https://github.com/${login}`} className={styles.Link}>
               <Avatar src={`https://github.com/${login}.png?size=40`} alt={login} />
             </Link>
           </Tooltip>
         ))}
       </Box>
       {latestCommit ? (
-        <Text sx={{fontSize: 1, mt: 1}}>
+        <Text className={styles.Text_1}>
           Last edited by{' '}
           <Link href={`https://github.com/${latestCommit.login}`} showUnderline={true}>
             {latestCommit.login}
@@ -68,21 +70,11 @@ const PageFooter = () => {
   }
 
   return (
-    <Box
-      sx={{
-        borderWidth: 0,
-        borderTopWidth: 1,
-        borderRadius: 0,
-        mt: 8,
-        py: 5,
-        borderStyle: 'solid',
-        borderColor: 'border.default',
-      }}
-    >
-      <Box sx={{display: 'grid', gap: 4}}>
+    <Box className={styles.Box_1}>
+      <Box className={styles.Box_2}>
         {editUrl ? (
           <Link href={editUrl}>
-            <Octicon icon={PencilIcon} sx={{mr: 2}} />
+            <Octicon icon={PencilIcon} className={styles.Text} />
             Edit this page on GitHub
           </Link>
         ) : null}

@@ -5,12 +5,30 @@ import Slugger from 'github-slugger'
 import Header from './components/header'
 import Sidebar from './components/sidebar'
 import {SkipBox, SkipLink} from './components/skip-nav'
-import {SKIP_TO_CONTENT_ID, SKIP_TO_SEARCH_ID} from './constants'
+import {
+  SKIP_TO_CONTENT_ID,
+  SKIP_TO_SEARCH_ID,
+  HEADER_HEIGHT,
+  HEADER_BAR,
+  FULL_HEADER_HEIGHT,
+  SCROLL_MARGIN_TOP,
+  Z_INDEX,
+} from './constants'
 
 import {PageProvider} from './hooks/use-page'
 import Layout from './layout'
 
+import * as styles from './page.module.css'
+
 const GlobalStyles = createGlobalStyle`
+  :root {
+    --header-height: ${HEADER_HEIGHT}px;
+    --header-bar: ${HEADER_BAR}px;
+    --full-header-height: ${FULL_HEADER_HEIGHT}px;
+    --scroll-margin-top: ${SCROLL_MARGIN_TOP}px;
+    --z-index-header: ${Z_INDEX.HEADER};
+    --z-index-search-overlay: ${Z_INDEX.SEARCH_OVERLAY};
+  }
   body {
     color: ${themeGet('colors.fg.default')};
     background-color: ${themeGet('colors.canvas.default')};
@@ -33,10 +51,10 @@ const PageElement = ({element, props}) => {
         <SkipLink href={`#${SKIP_TO_CONTENT_ID}`}>Skip to content</SkipLink>
       </SkipBox>
       <PageProvider value={page}>
-        <Box sx={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
+        <Box className={styles.Box}>
           <Header />
-          <Box sx={{zIndex: 0, display: 'flex', flex: '1 1 auto', flexDirection: 'row'}}>
-            <Box sx={{display: ['none', null, null, 'block']}}>
+          <Box className={styles.Box_1}>
+            <Box className={styles.sidebarContainer}>
               <Sidebar />
             </Box>
             <Layout>{element}</Layout>

@@ -1,0 +1,82 @@
+.Box {
+  display: flex;
+  align-items: center;
+}
+
+.Box_1 {
+  display: flex;
+}
+
+.DarkTheme {
+  top: 0;
+  position: sticky;
+}
+
+/* mr: 4 = 24px */
+.SiteTitle {
+  margin-right: 24px;
+}
+
+/* ml: 4 = 24px */
+/* color: 'fg.default' in dark_dimmed = #E1E4E8 */
+.Link {
+  display: block;
+  margin-left: 24px;
+  color: #e1e4e8;
+}
+
+/* px: [3, null, null, 4] = 16px base, 24px at lg */
+/* bg: 'canvas.default' in dark_dimmed theme = #333333 */
+.headerBox {
+  display: flex;
+  height: 56px;
+  padding-left: 16px;
+  padding-right: 16px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333333;
+  border: 1px solid;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-color: #444d56;
+}
+
+@media (min-width: 1012px) {
+  .headerBox {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* ml: 4 = 24px */
+.searchDesktop {
+  display: none;
+  margin-left: 24px;
+}
+
+@media (min-width: 1012px) {
+  .searchDesktop {
+    display: block;
+  }
+}
+
+.navDesktop {
+  display: none;
+  align-items: center;
+}
+
+@media (min-width: 1012px) {
+  .navDesktop {
+    display: flex;
+  }
+}
+
+.navMobile {
+  display: flex;
+}
+
+@media (min-width: 1012px) {
+  .navMobile {
+    display: none;
+  }
+}

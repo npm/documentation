@@ -4,6 +4,8 @@ import {Link as GatsbyLink} from 'gatsby'
 import * as getNav from '../util/get-nav'
 import usePage from '../hooks/use-page'
 
+import * as styles from './breadcrumbs.module.css'
+
 const BreadcrumbItem = ({item, path}) => {
   const selected = getNav.isPathForItem(path, getNav.getItem(item.url))
 
@@ -23,7 +25,7 @@ const Breadcrumbs = () => {
   }
 
   return (
-    <PrimerBreadcrumbs sx={{mb: 4}}>
+    <PrimerBreadcrumbs className={styles.PrimerBreadcrumbs}>
       {items.map(item => (
         <BreadcrumbItem key={item.url} item={item} path={pathname} />
       ))}
