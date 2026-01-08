@@ -1,0 +1,16 @@
+.Box {
+  color: #cb3837;
+}
+
+.Link {
+  font-weight: bold;
+  font-size: 16px;
+  color: #e1e4e8;
+  display: flex;
+  align-items: center;
+}
+
+.NpmLogo {
+  display: flex;
+  margin-right: 16px;
+}

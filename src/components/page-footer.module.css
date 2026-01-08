@@ -1,0 +1,35 @@
+.Box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.Box_1 {
+  border-width: 0;
+  border-top-width: 1px;
+  border-radius: 0;
+  margin-top: 64px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-style: solid;
+  border-color: #444d56;
+}
+
+.Box_2 {
+  display: grid;
+  gap: 16px;
+}
+
+.Text {
+  margin-right: 8px;
+}
+
+.Link {
+  line-height: 1.25;
+  margin-right: 8px;
+}
+
+.Text_1 {
+  font-size: 14px;
+  margin-top: 4px;
+}

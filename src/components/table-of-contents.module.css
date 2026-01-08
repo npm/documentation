@@ -1,0 +1,97 @@
+.Box {
+  overflow-y: auto;
+  /* extra pixels to account for table of contents title height */
+  max-height: calc(100% - 24px);
+}
+
+.NavList {
+  text-decoration: underline;
+}
+
+/* borderRadius: 2 = 6px */
+.Details {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #444d56;
+  border-radius: 6px;
+}
+
+.Button {
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+}
+
+.Button:focus-visible {
+  outline: 2px solid;
+  outline-color: -webkit-focus-ring-color;
+  outline-offset: 1px;
+}
+
+.buttonOpen {
+  border-bottom-width: 1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* borderRadius: 2 = 6px, but since 0 border, it's effectively a smaller radius for consistency */
+.buttonClosed {
+  border-bottom-width: 0;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+/* fontSize: 1 = 14px */
+.Heading {
+  font-size: 14px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+/* ml: -2 = -8px */
+.TableOfContents {
+  margin-left: -8px;
+}
+
+/* mb: 3 = 16px, mt: 4 = 24px */
+.tocMobile {
+  display: block;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+  .tocMobile {
+    display: none;
+  }
+}
+
+/* marginLeft: [null, 7, 8, 9] = 48px, 64px, 80px */
+.tocDesktop {
+  width: 220px;
+  flex: 0 0 auto;
+  margin-left: 48px;
+  display: none;
+  position: sticky;
+  top: 90px;
+  max-height: calc(100vh - 90px);
+}
+
+@media (min-width: 544px) {
+  .tocDesktop {
+    margin-left: 48px;
+  }
+}
+
+@media (min-width: 768px) {
+  .tocDesktop {
+    display: block;
+    margin-left: 64px;
+  }
+}
+
+@media (min-width: 1012px) {
+  .tocDesktop {
+    margin-left: 80px;
+  }
+}

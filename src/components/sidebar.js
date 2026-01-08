@@ -3,6 +3,8 @@ import React from 'react'
 import NavItems from './nav-items'
 import {FULL_HEADER_HEIGHT} from '../constants'
 
+import * as styles from './sidebar.module.css'
+
 function usePersistentScroll(id) {
   const ref = React.useRef()
 
@@ -30,25 +32,14 @@ function usePersistentScroll(id) {
 const Sidebar = () => (
   <Box
     role="navigation"
-    sx={{
-      position: 'sticky',
+    style={{
       top: `${FULL_HEADER_HEIGHT}px`,
       height: `calc(100vh - ${FULL_HEADER_HEIGHT}px)`,
-      width: 270,
     }}
+    className={styles.Box}
   >
-    <Box
-      {...usePersistentScroll('sidebar')}
-      sx={{
-        overflow: 'auto',
-        borderWidth: 0,
-        borderRightWidth: 1,
-        height: '100%',
-        borderStyle: 'solid',
-        borderColor: 'border.subtle',
-      }}
-    >
-      <Box sx={{display: 'flex', flexDirection: 'column'}}>
+    <Box {...usePersistentScroll('sidebar')} className={styles.Box_1}>
+      <Box className={styles.Box_2}>
         <NavItems />
       </Box>
     </Box>
