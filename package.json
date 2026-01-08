@@ -36,7 +36,7 @@
     "@octokit/plugin-throttling": "^11.0.1",
     "@octokit/rest": "^22.0.0",
     "@primer/octicons-react": "^19.8.0",
-    "@primer/react": "^37.5.0",
+    "@primer/react": "^38.7.0",
     "babel-plugin-styled-components": "^2.1.4",
     "copy-to-clipboard": "^3.3.3",
     "deepmerge": "^4.3.1",
