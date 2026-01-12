@@ -7,12 +7,13 @@ const TextInput = styled(PrimerTextInput)`
    * TODO: Update font-size of TextInput in @primer/react.
    */
   input {
-    font-size: 14px !important;
-    color: var(--fgColor-default) !important;
+    font-size: 16px !important;
+    color: rgb(225, 228, 232) !important;
   }
 
   input::placeholder {
-    color: var(--fgColor-default) !important;
+    color: rgb(225, 228, 232) !important;
+    opacity: 0.7;
   }
 `
 export default TextInput

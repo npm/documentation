@@ -41,9 +41,9 @@ const ClipboardCopy = ({value, ...props}) => {
 
 export const InlineCode = styled.code`
   padding: 0.2em 0.4em;
-  font-family: var(--fontStack-monospace);
+  font-family: var(--fontStack-monospace, ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace);
   font-size: 80%;
-  background-color: var(--bgColor-neutral-muted);
+  background-color: var(--bgColor-neutral-muted, #afb8c133);
   border-radius: 6px;
 `
 const colorMap = {

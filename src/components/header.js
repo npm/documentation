@@ -20,30 +20,32 @@ function Header() {
   const search = useSearch()
 
   return (
-    <DarkTheme style={{zIndex: Z_INDEX.HEADER}} className={styles.DarkTheme}>
-      <NpmHeaderBar />
-      <header className={styles.headerBox}>
-        <div className={styles.Box}>
-          <SiteTitle logo={true} className={styles.SiteTitle} />
-          <div className={styles.searchDesktop}>
-            <Search.Desktop {...search} />
+    <div className={styles.stickyHeader} style={{zIndex: Z_INDEX.HEADER}}>
+      <DarkTheme>
+        <NpmHeaderBar />
+        <header className={styles.headerBox}>
+          <div className={styles.Box}>
+            <SiteTitle logo={true} className={styles.SiteTitle} />
+            <div className={styles.searchDesktop}>
+              <Search.Desktop {...search} />
+            </div>
           </div>
-        </div>
-        <div className={styles.Box_1}>
-          <div className={styles.navDesktop}>
-            {headerNavItems.map((item, index) => (
-              <Link key={index} href={item.url} className={styles.Link}>
-                {item.title}
-              </Link>
-            ))}
+          <div className={styles.Box_1}>
+            <div className={styles.navDesktop}>
+              {headerNavItems.map((item, index) => (
+                <Link key={index} href={item.url} className={styles.Link}>
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+            <div className={styles.navMobile}>
+              <Search.Mobile {...search} />
+              <NavDrawer />
+            </div>
           </div>
-          <div className={styles.navMobile}>
-            <Search.Mobile {...search} />
-            <NavDrawer />
-          </div>
-        </div>
-      </header>
-    </DarkTheme>
+        </header>
+      </DarkTheme>
+    </div>
   )
 }
 

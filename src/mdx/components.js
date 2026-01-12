@@ -1,7 +1,6 @@
 import React from 'react'
 import {Heading} from '@primer/react'
 import styled from 'styled-components'
-import {variant as styledVariant} from 'styled-system'
 import {LinkIcon} from '@primer/octicons-react'
 import textContent from 'react-addons-text-content'
 import {SCROLL_MARGIN_TOP} from '../constants'
@@ -23,7 +22,7 @@ const required = (prop, name) => {
   return prop
 }
 
-export const Link = props => <SiteLink underline {...props} />
+export const Link = props => <SiteLink showUnderline {...props} />
 
 const StyledHeading = styled(Heading)`
   margin-top: 24px;
@@ -88,22 +87,22 @@ const Headings = {
   h1: styled(StyledHeading).attrs({as: 'h1'})`
     padding-bottom: 8px;
     font-size: 32px;
-    border-bottom: 1px solid var(--borderColor-default);
+    border-bottom: 1px solid var(--borderColor-default, #d1d9e0);
     margin-top: 0;
   `,
   h2: styled(StyledHeading).attrs({as: 'h2'})`
     padding-bottom: 8px;
     font-size: 20px;
-    border-bottom: 1px solid var(--borderColor-default);
+    border-bottom: 1px solid var(--borderColor-default, #d1d9e0);
     font-weight: 600;
   `,
   h3: styled(StyledHeading).attrs({as: 'h3'})`
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
   `,
   h4: styled(StyledHeading).attrs({as: 'h4'})`
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
   `,
   h5: styled(StyledHeading).attrs({as: 'h5'})`
     font-size: 12px;
@@ -160,7 +159,7 @@ export const HorizontalRule = styled.hr`
   height: 1px;
   padding: 0;
   margin: 24px 0;
-  background-color: var(--borderColor-default);
+  background-color: var(--borderColor-muted, #d1d9e0);
   border: 0;
 `
 
@@ -203,17 +202,41 @@ export const Table = styled.table`
 
   th {
     font-weight: 600;
-    background-color: var(--bgColor-neutral-subtle);
+    background-color: var(--bgColor-neutral-muted, #afb8c133);
   }
 
   th,
   td {
     padding: 8px 16px;
-    border-color: var(--borderColor-muted);
+    border-color: var(--borderColor-muted, #d0d7de);
     border-style: solid;
     border-width: 0;
     border-left-width: 1px;
     border-top-width: 1px;
+  }
+
+  td a {
+    color: var(--fgColor-default, #1f2328);
+    text-decoration: underline;
+  }
+
+  td a:hover {
+    text-decoration: none;
+  }
+
+  td code a,
+  td a code {
+    color: var(--fgColor-default, #1f2328);
+    text-decoration: underline;
+    font-family: var(--fontStack-monospace, ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace);
+    background-color: var(--bgColor-neutral-muted, #afb8c133);
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+
+  td code a:hover,
+  td a code:hover {
+    text-decoration: none;
   }
 
   tr:last-child td {
@@ -257,25 +280,23 @@ const StyledNote = styled.div`
     margin-bottom: 0;
   }
 
-  ${styledVariant({
-    variants: {
-      info: {
-        borderColor: 'accent.muted',
-        bg: 'accent.subtle',
-      },
-      warning: {
-        borderColor: 'attention.muted',
-        bg: 'attention.subtle',
-      },
-      danger: {
-        borderColor: 'danger.muted',
-        bg: 'danger.subtle',
-      },
-    },
-  })}
+  &[data-variant='info'] {
+    border-left-color: var(--borderColor-accent-muted, #54aeff);
+    background-color: var(--bgColor-accent-subtle, #ddf4ff);
+  }
+
+  &[data-variant='warning'] {
+    border-left-color: var(--borderColor-attention-muted, #d4a72c);
+    background-color: var(--bgColor-attention-subtle, #fff8c5);
+  }
+
+  &[data-variant='danger'] {
+    border-left-color: var(--borderColor-danger-muted, #ff8182);
+    background-color: var(--bgColor-danger-subtle, #ffebe9);
+  }
 `
 
-export const Note = ({variant = 'info', ...props}) => <StyledNote variant={variant} {...props} />
+export const Note = ({variant = 'info', ...props}) => <StyledNote data-variant={variant} {...props} />
 
 export const Prompt = props => <Code prompt={true} {...props} />
 
