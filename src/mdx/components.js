@@ -1,6 +1,5 @@
 import React from 'react'
 import {Heading} from '@primer/react'
-import {Octicon} from '@primer/react/deprecated'
 import styled from 'styled-components'
 import {variant as styledVariant} from 'styled-system'
 import {LinkIcon} from '@primer/octicons-react'
@@ -48,7 +47,7 @@ const HeaderLink = ({autolink, children, ...props}) =>
   autolink ? (
     <LinkNoUnderline {...props} className={styles.LinkNoUnderline}>
       {children}
-      <Octicon icon={LinkIcon} className={clsx('octicon-link', styles.Octicon)} />
+      <LinkIcon className={clsx('octicon-link', styles.Octicon)} />
     </LinkNoUnderline>
   ) : (
     children

@@ -1,6 +1,5 @@
 import React from 'react'
 import {Avatar, Text} from '@primer/react'
-import {Octicon} from '@primer/react/deprecated'
 import {Tooltip} from '@primer/react/next'
 import {PencilIcon} from '@primer/octicons-react'
 import Link from './link'
@@ -74,7 +73,7 @@ const PageFooter = () => {
       <div className={styles.Box_2}>
         {editUrl ? (
           <Link href={editUrl}>
-            <Octicon icon={PencilIcon} className={styles.Text} />
+            <PencilIcon className={styles.Text} />
             Edit this page on GitHub
           </Link>
         ) : null}

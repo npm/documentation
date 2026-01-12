@@ -1,6 +1,5 @@
 import React from 'react'
 import {Text, Button} from '@primer/react'
-import {Octicon} from '@primer/react/deprecated'
 import {Highlight, themes, Prism} from 'prism-react-renderer'
 import styled from 'styled-components'
 import {CheckIcon, CopyIcon} from '@primer/octicons-react'
@@ -35,7 +34,7 @@ const ClipboardCopy = ({value, ...props}) => {
       }}
       className={clsx(styles.Button, props.className)}
     >
-      <Octicon icon={copied ? CheckIcon : CopyIcon} style={{color: copied ? '#1a7f37' : '#656d76'}} />
+      {copied ? <CheckIcon fill="#1a7f37" /> : <CopyIcon fill="#656d76" />}
     </Button>
   )
 }
