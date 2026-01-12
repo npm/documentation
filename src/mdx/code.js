@@ -1,5 +1,5 @@
 import React from 'react'
-import {Text, Button, themeGet} from '@primer/react'
+import {Text, Button} from '@primer/react'
 import {Octicon} from '@primer/react/deprecated'
 import {Highlight, themes, Prism} from 'prism-react-renderer'
 import styled from 'styled-components'
@@ -42,10 +42,10 @@ const ClipboardCopy = ({value, ...props}) => {
 
 export const InlineCode = styled.code`
   padding: 0.2em 0.4em;
-  font-family: ${themeGet('fonts.mono')};
+  font-family: var(--fontStack-monospace);
   font-size: 80%;
-  background-color: ${themeGet('colors.neutral.muted')};
-  border-radius: ${themeGet('radii.2')};
+  background-color: var(--bgColor-neutral-muted);
+  border-radius: 6px;
 `
 const colorMap = {
   'token comment': '#747458',

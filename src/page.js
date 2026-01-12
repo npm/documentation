@@ -1,5 +1,5 @@
 import React from 'react'
-import {BaseStyles, themeGet} from '@primer/react'
+import {BaseStyles} from '@primer/react'
 import {createGlobalStyle} from 'styled-components'
 import Slugger from 'github-slugger'
 import Header from './components/header'
@@ -30,8 +30,8 @@ const GlobalStyles = createGlobalStyle`
     --z-index-search-overlay: ${Z_INDEX.SEARCH_OVERLAY};
   }
   body {
-    color: ${themeGet('colors.fg.default')};
-    background-color: ${themeGet('colors.canvas.default')};
+    color: var(--fgColor-default);
+    background-color: var(--bgColor-default);
   }
 `
 

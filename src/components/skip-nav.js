@@ -1,12 +1,11 @@
 import React from 'react'
-import {themeGet} from '@primer/react'
 import styled from 'styled-components'
 import Link from './link'
 import {SCROLL_MARGIN_TOP, SKIP_TO_CONTENT_ID} from '../constants'
 
 export const SkipLink = styled(Link)`
-  color: ${themeGet('colors.accent.emphasis')};
-  padding: ${themeGet('space.1')};
+  color: var(--fgColor-accent);
+  padding: 4px;
   &:focus {
     text-decoration: underline;
   }
@@ -23,12 +22,12 @@ export const SkipBox = styled.div`
   position: absolute;
   transform: translateY(-100%);
   transition: transform 0.3s;
-  padding: ${themeGet('space.2')};
-  background-color: ${themeGet('colors.canvas.default')};
-  border: 1px solid ${themeGet('colors.accent.emphasis')};
+  padding: 8px;
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--fgColor-accent);
   border-top: 0;
-  font-size: ${themeGet('fontSizes.1')};
-  border-radius: 0 0 ${themeGet('radii.2')} ${themeGet('radii.2')};
+  font-size: 12px;
+  border-radius: 0 0 6px 6px;
   
 
   &:focus-within {
@@ -36,7 +35,7 @@ export const SkipBox = styled.div`
   }
 
   & > * {
-    margin-right: ${themeGet('space.1')};
+    margin-right: 4px;
   }
 
   & > *:last-child {

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Heading, themeGet} from '@primer/react'
+import {Heading} from '@primer/react'
 import {Octicon} from '@primer/react/deprecated'
 import styled from 'styled-components'
 import {variant as styledVariant} from 'styled-system'
@@ -27,10 +27,10 @@ const required = (prop, name) => {
 export const Link = props => <SiteLink underline {...props} />
 
 const StyledHeading = styled(Heading)`
-  margin-top: ${themeGet('space.4')};
-  margin-bottom: ${themeGet('space.3')};
+  margin-top: 24px;
+  margin-bottom: 16px;
   scroll-margin-top: ${SCROLL_MARGIN_TOP}px;
-  line-height: ${themeGet('lineHeights.condensed')};
+  line-height: 1.25;
 
   @media (hover: hover) {
     & .octicon-link {
@@ -87,31 +87,31 @@ const Headings = {
     )
   },
   h1: styled(StyledHeading).attrs({as: 'h1'})`
-    padding-bottom: ${themeGet('space.2')};
-    font-size: ${themeGet('fontSizes.6')};
-    border-bottom: 1px solid ${themeGet('colors.border.default')};
+    padding-bottom: 8px;
+    font-size: 32px;
+    border-bottom: 1px solid var(--borderColor-default);
     margin-top: 0;
   `,
   h2: styled(StyledHeading).attrs({as: 'h2'})`
-    padding-bottom: ${themeGet('space.2')};
-    font-size: ${themeGet('fontSizes.4')};
-    border-bottom: 1px solid ${themeGet('colors.border.default')};
-    font-weight: ${themeGet('fontWeights.semibold')};
+    padding-bottom: 8px;
+    font-size: 20px;
+    border-bottom: 1px solid var(--borderColor-default);
+    font-weight: 600;
   `,
   h3: styled(StyledHeading).attrs({as: 'h3'})`
-    font-size: ${themeGet('fontSizes.3')};
-    font-weight: ${themeGet('fontWeights.semibold')};
+    font-size: 16px;
+    font-weight: 600;
   `,
   h4: styled(StyledHeading).attrs({as: 'h4'})`
-    font-size: ${themeGet('fontSizes.2')};
-    font-weight: ${themeGet('fontWeights.semibold')};
+    font-size: 14px;
+    font-weight: 600;
   `,
   h5: styled(StyledHeading).attrs({as: 'h5'})`
-    font-size: ${themeGet('fontSizes.1')};
+    font-size: 12px;
   `,
   h6: styled(StyledHeading).attrs({as: 'h6'})`
-    font-size: ${themeGet('fontSizes.1')};
-    color: ${themeGet('colors.fg.muted')};
+    font-size: 12px;
+    color: var(--fgColor-muted);
   `,
   wrap(as) {
     return props => <Headings.Markdown as={Headings[as]} {...props} />
@@ -126,10 +126,10 @@ export const H5 = Headings.wrap('h4')
 export const H6 = Headings.wrap('h5')
 
 export const Blockquote = styled.blockquote`
-  margin: 0 0 ${themeGet('space.3')};
-  padding: 0 ${themeGet('space.3')};
-  color: ${themeGet('colors.fg.muted')};
-  border-left: 0.25em solid ${themeGet('colors.border.default')};
+  margin: 0 0 16px;
+  padding: 0 16px;
+  color: var(--fgColor-muted);
+  border-left: 0.25em solid var(--borderColor-default);
 
   > :first-child {
     margin-top: 0;
@@ -145,23 +145,23 @@ export const DescriptionList = styled.dl`
 
   dt {
     padding: 0;
-    margin-top: ${themeGet('space.3')};
+    margin-top: 16px;
     font-size: 1em;
     font-style: italic;
-    font-weight: ${themeGet('fontWeights.bold')};
+    font-weight: 600;
   }
 
   dd {
-    padding: 0 ${themeGet('space.3')};
-    margin: 0 0 ${themeGet('space.3')};
+    padding: 0 16px;
+    margin: 0 0 16px;
   }
 `
 
 export const HorizontalRule = styled.hr`
-  height: ${themeGet('borderWidths.1')};
+  height: 1px;
   padding: 0;
-  margin: ${themeGet('space.4')} 0;
-  background-color: ${themeGet('colors.border.default')};
+  margin: 24px 0;
+  background-color: var(--borderColor-default);
   border: 0;
 `
 
@@ -179,67 +179,67 @@ export const UnorderedList = styled.ul`
   }
 
   li > p {
-    margin-top: ${themeGet('space.3')};
+    margin-top: 16px;
   }
 
   li + li {
-    margin-top: ${themeGet('space.1')};
+    margin-top: 4px;
   }
 `
 
 export const OrderedList = UnorderedList.withComponent('ol')
 
 export const Paragraph = styled.p`
-  margin: 0 0 ${themeGet('space.3')};
+  margin: 0 0 16px;
   word-break: break-word;
 `
 
 export const Table = styled.table`
   display: block;
   width: 100%;
-  margin: 0 0 ${themeGet('space.3')};
+  margin: 0 0 16px;
   overflow: auto;
   border-collapse: separate;
   border-spacing: 0px;
 
   th {
-    font-weight: ${themeGet('fontWeights.bold')};
-    background-color: ${themeGet('colors.neutral.subtle')};
+    font-weight: 600;
+    background-color: var(--bgColor-neutral-subtle);
   }
 
   th,
   td {
-    padding: ${themeGet('space.2')} ${themeGet('space.3')};
-    border-color: ${themeGet('colors.border.muted')};
+    padding: 8px 16px;
+    border-color: var(--borderColor-muted);
     border-style: solid;
     border-width: 0;
-    border-left-width: ${themeGet('borderWidths.1')};
-    border-top-width: ${themeGet('borderWidths.1')};
+    border-left-width: 1px;
+    border-top-width: 1px;
   }
 
   tr:last-child td {
-    border-bottom-width: ${themeGet('borderWidths.1')};
+    border-bottom-width: 1px;
   }
 
   tr td:last-child,
   tr th:last-child {
-    border-right-width: ${themeGet('borderWidths.1')};
+    border-right-width: 1px;
   }
 
   thead th:first-child {
-    border-top-left-radius: ${themeGet('radii.2')};
+    border-top-left-radius: 6px;
   }
 
   thead th:last-child {
-    border-top-right-radius: ${themeGet('radii.2')};
+    border-top-right-radius: 6px;
   }
 
   tbody tr:last-child td:last-child {
-    border-bottom-right-radius: ${themeGet('radii.2')};
+    border-bottom-right-radius: 6px;
   }
 
   tbody tr:last-child td:first-child {
-    border-bottom-left-radius: ${themeGet('radii.2')};
+    border-bottom-left-radius: 6px;
   }
 
   img {
@@ -249,10 +249,10 @@ export const Table = styled.table`
 `
 
 const StyledNote = styled.div`
-  padding: ${themeGet('space.3')};
-  margin-bottom: ${themeGet('space.3')};
-  border-radius: ${themeGet('radii.2')};
-  border-left: ${themeGet('radii.2')} solid;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border-left: 6px solid;
 
   & *:last-child {
     margin-bottom: 0;
@@ -288,11 +288,11 @@ export const Image = styled(RequiredImage)`
 `
 
 export const Screenshot = styled(RequiredImage)`
-  margin-top: ${themeGet('space.3')};
-  margin-bottom: ${themeGet('space.3')};
+  margin-top: 16px;
+  margin-bottom: 16px;
   max-width: min(100%, 525px);
   max-height: 300px;
-  border: 1px solid ${themeGet('colors.border.default')};
+  border: 1px solid var(--borderColor-default);
   display: block;
 `
 
