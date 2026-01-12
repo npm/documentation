@@ -1,5 +1,5 @@
 import React from 'react'
-import {Heading, Box, Details, useDetails, Button, NavList} from '@primer/react'
+import {Heading, Details, useDetails, Button, NavList} from '@primer/react'
 import {ChevronDownIcon, ChevronRightIcon} from '@primer/octicons-react'
 import usePage from '../hooks/use-page'
 
@@ -44,7 +44,7 @@ const withTableOfContents = Component => {
 export const Mobile = withTableOfContents(({items}) => {
   const {getDetailsProps, open} = useDetails({defaultOpen: true})
   return (
-    <Box className={styles.tocMobile}>
+    <div className={styles.tocMobile}>
       <Details {...getDetailsProps()} className={styles.Details}>
         <Button
           as="summary"
@@ -55,17 +55,17 @@ export const Mobile = withTableOfContents(({items}) => {
         </Button>
         <TableOfContents items={items} />
       </Details>
-    </Box>
+    </div>
   )
 })
 
 export const Desktop = withTableOfContents(({items}) => (
-  <Box className={styles.tocDesktop}>
+  <div className={styles.tocDesktop}>
     <Heading as="h2" id="toc-heading" className={styles.Heading}>
       Table of contents
     </Heading>
-    <Box className={styles.Box}>
+    <div className={styles.Box}>
       <TableOfContents aria-labelledby="toc-heading" items={items} className={styles.TableOfContents} />
-    </Box>
-  </Box>
+    </div>
+  </div>
 ))

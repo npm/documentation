@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, themeGet} from '@primer/react'
+import {themeGet} from '@primer/react'
 import styled from 'styled-components'
 import Link from './link'
 import {SCROLL_MARGIN_TOP, SKIP_TO_CONTENT_ID} from '../constants'
@@ -44,7 +44,7 @@ export const SkipBox = styled.div`
   }
 `
 
-const SkipNavBase = props => <Box id={SKIP_TO_CONTENT_ID} {...props} />
+const SkipNavBase = props => <div id={SKIP_TO_CONTENT_ID} {...props} />
 
 export const SkipNav = styled(SkipNavBase)`
   scroll-margin-top: ${SCROLL_MARGIN_TOP}px;

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Heading, themeGet} from '@primer/react'
+import {Heading, themeGet} from '@primer/react'
 import {Octicon} from '@primer/react/deprecated'
 import styled from 'styled-components'
 import {variant as styledVariant} from 'styled-system'
@@ -297,8 +297,7 @@ export const Screenshot = styled(RequiredImage)`
 `
 
 export const YouTube = ({id}) => (
-  <Box
-    as="iframe"
+  <iframe
     title="YouTube video"
     src={`https://www.youtube.com/embed/${id}`}
     frameBorder="0"

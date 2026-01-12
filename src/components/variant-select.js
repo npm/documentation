@@ -1,5 +1,5 @@
 import React from 'react'
-import {ActionList, ActionMenu, Box} from '@primer/react'
+import {ActionList, ActionMenu} from '@primer/react'
 import * as getNav from '../util/get-nav'
 import usePage from '../hooks/use-page'
 import {LinkNoUnderline} from './link'
@@ -52,9 +52,9 @@ const VariantMenu = ({title, latest, current, prerelease, legacy}) => {
 
   return (
     <>
-      <Box as="p" id={labelId} className={styles.Box}>
+      <p id={labelId} className={styles.Box}>
         Select CLI Version:
-      </Box>
+      </p>
       <ActionMenu anchorRef={anchorRef} open={open} onOpenChange={setOpen}>
         <ActionMenu.Button aria-describedby={labelId} className={styles.menuButton}>
           {title}
@@ -126,9 +126,9 @@ const useVariants = () => {
 const VariantSelect = () => {
   const variants = useVariants()
   return variants ? (
-    <Box className={styles.Box_1}>
+    <div className={styles.Box_1}>
       <VariantMenu {...variants} />
-    </Box>
+    </div>
   ) : null
 }
 

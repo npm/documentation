@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Avatar, Text} from '@primer/react'
+import {Avatar, Text} from '@primer/react'
 import {Octicon} from '@primer/react/deprecated'
 import {Tooltip} from '@primer/react/next'
 import {PencilIcon} from '@primer/octicons-react'
@@ -34,7 +34,7 @@ const Contributors = ({contributors = [], latestCommit}) => {
 
   return (
     <>
-      <Box className={styles.Box}>
+      <div className={styles.Box}>
         <Text className={styles.Text}>
           {contributors.length} {pluralize('contributor', contributors.length)}
         </Text>
@@ -45,7 +45,7 @@ const Contributors = ({contributors = [], latestCommit}) => {
             </Link>
           </Tooltip>
         ))}
-      </Box>
+      </div>
       {latestCommit ? (
         <Text className={styles.Text_1}>
           Last edited by{' '}
@@ -70,8 +70,8 @@ const PageFooter = () => {
   }
 
   return (
-    <Box className={styles.Box_1}>
-      <Box className={styles.Box_2}>
+    <div className={styles.Box_1}>
+      <div className={styles.Box_2}>
         {editUrl ? (
           <Link href={editUrl}>
             <Octicon icon={PencilIcon} className={styles.Text} />
@@ -79,8 +79,8 @@ const PageFooter = () => {
           </Link>
         ) : null}
         <Contributors contributors={contributors} latestCommit={latestCommit} />
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }
 

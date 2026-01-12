@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, NavList} from '@primer/react'
+import {NavList} from '@primer/react'
 import {LinkExternalIcon} from '@primer/octicons-react'
 import Link from './link'
 import * as getNav from '../util/get-nav'
@@ -65,9 +65,9 @@ const Navigation = () => {
         <NavItems items={items} path={pathname} />
         <NavList.Divider />
         {headerNavItems.map(item => (
-          <Box key={item.title} className={styles.headerNavItem}>
+          <div key={item.title} className={styles.headerNavItem}>
             <ExternalNavItem title={item.title} href={item.url} />
-          </Box>
+          </div>
         ))}
         <ExternalNavItem title="GitHub" href={repositoryUrl} />
       </NavList>

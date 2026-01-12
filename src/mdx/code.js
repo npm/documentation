@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Text, Button, themeGet} from '@primer/react'
+import {Text, Button, themeGet} from '@primer/react'
 import {Octicon} from '@primer/react/deprecated'
 import {Highlight, themes, Prism} from 'prism-react-renderer'
 import styled from 'styled-components'
@@ -58,16 +58,16 @@ const colorMap = {
 const MonoText = props => <Text className={styles.Text} {...props} />
 
 const CodeBlock = ({children, code, className, style}) => (
-  <Box className={styles.Box}>
-    <Box style={style} className={styles.Box_1}>
+  <div className={styles.Box}>
+    <div style={style} className={styles.Box_1}>
       {code ? <ClipboardCopy value={code} className={styles.ClipboardCopy} /> : null}
-      <Box className={styles.Box_2}>
-        <Box as="pre" className={clsx(className, styles.Box_3)} tabIndex={0}>
+      <div className={styles.Box_2}>
+        <pre className={clsx(className, styles.Box_3)} tabIndex={0}>
           {children}
-        </Box>
-      </Box>
-    </Box>
-  </Box>
+        </pre>
+      </div>
+    </div>
+  </div>
 )
 
 function Code({className = '', prompt, children}) {
@@ -91,7 +91,7 @@ function Code({className = '', prompt, children}) {
       {({className: highlightClassName, style, tokens, getLineProps, getTokenProps}) => (
         <CodeBlock className={highlightClassName} style={style} code={code}>
           {tokens.map((line, i) => (
-            <Box key={i} {...getLineProps({line, key: i})}>
+            <div key={i} {...getLineProps({line, key: i})}>
               {line.map((token, key) => {
                 const tokenProps = getTokenProps({token, key})
                 const tokenStyle = colorMap[tokenProps.className]
@@ -100,7 +100,7 @@ function Code({className = '', prompt, children}) {
 
                 return <MonoText key={key} {...tokenProps} style={tokenStyle} />
               })}
-            </Box>
+            </div>
           ))}
         </CodeBlock>
       )}
