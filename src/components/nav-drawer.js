@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Box} from '@primer/react'
+import {Button} from '@primer/react'
 import {XIcon, ThreeBarsIcon} from '@primer/octicons-react'
 import NavItems from './nav-items'
 import {useIsMobile} from '../hooks/use-breakpoint'
@@ -17,7 +17,7 @@ const Drawer = ({isOpen, onDismiss, children}) => (
       // These event handlers fix a bug that caused links below the fold
       // to be unclickable in macOS Safari.
       // Reference: https://github.com/theKashey/react-focus-lock/issues/79
-      <Box
+      <div
         onMouseDown={event => event.preventDefault()}
         onKeyDown={event => event.target.focus()}
         onClick={event => event.target.focus()}
@@ -25,9 +25,8 @@ const Drawer = ({isOpen, onDismiss, children}) => (
         tabIndex="0"
       >
         <FocusOn returnFocus={true} onEscapeKey={onDismiss}>
-          <Box
+          <motion.div
             key="overlay"
-            as={motion.div}
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
@@ -35,10 +34,9 @@ const Drawer = ({isOpen, onDismiss, children}) => (
             onClick={onDismiss}
             className={styles.Box}
           />
-          <Box
+          <motion.div
             style={{top: `${HEADER_BAR}px`}}
             key="drawer"
-            as={motion.div}
             initial={{x: '100%'}}
             animate={{x: 0}}
             exit={{x: '100%'}}
@@ -46,9 +44,9 @@ const Drawer = ({isOpen, onDismiss, children}) => (
             className={styles.Box_1}
           >
             {children}
-          </Box>
+          </motion.div>
         </FocusOn>
-      </Box>
+      </div>
     ) : null}
   </AnimatePresence>
 )
@@ -69,19 +67,19 @@ function NavDrawer() {
         <ThreeBarsIcon />
       </Button>
       <LightTheme as={Drawer} isOpen={open} onDismiss={() => setOpen(false)}>
-        <Box style={{WebkitOverflowScrolling: 'touch'}} className={styles.Box_2}>
-          <Box className={styles.Box_3}>
+        <div style={{WebkitOverflowScrolling: 'touch'}} className={styles.Box_2}>
+          <div className={styles.Box_3}>
             <DarkTheme style={{height: `${HEADER_HEIGHT}px`}} className={styles.DarkTheme}>
               <SiteTitle />
               <Button aria-label="Close" onClick={() => setOpen(false)}>
                 <XIcon />
               </Button>
             </DarkTheme>
-            <Box className={styles.Box_4}>
+            <div className={styles.Box_4}>
               <NavItems />
-            </Box>
-          </Box>
-        </Box>
+            </div>
+          </div>
+        </div>
       </LightTheme>
     </>
   )

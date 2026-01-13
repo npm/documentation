@@ -1,5 +1,5 @@
 import React from 'react'
-import {BaseStyles, themeGet, Box} from '@primer/react'
+import {BaseStyles} from '@primer/react'
 import {createGlobalStyle} from 'styled-components'
 import Slugger from 'github-slugger'
 import Header from './components/header'
@@ -30,8 +30,8 @@ const GlobalStyles = createGlobalStyle`
     --z-index-search-overlay: ${Z_INDEX.SEARCH_OVERLAY};
   }
   body {
-    color: ${themeGet('colors.fg.default')};
-    background-color: ${themeGet('colors.canvas.default')};
+    color: var(--fgColor-default);
+    background-color: var(--bgColor-default);
   }
 `
 
@@ -51,15 +51,15 @@ const PageElement = ({element, props}) => {
         <SkipLink href={`#${SKIP_TO_CONTENT_ID}`}>Skip to content</SkipLink>
       </SkipBox>
       <PageProvider value={page}>
-        <Box className={styles.Box}>
+        <div className={styles.Box}>
           <Header />
-          <Box className={styles.Box_1}>
-            <Box className={styles.sidebarContainer}>
+          <div className={styles.Box_1}>
+            <div className={styles.sidebarContainer}>
               <Sidebar />
-            </Box>
+            </div>
             <Layout>{element}</Layout>
-          </Box>
-        </Box>
+          </div>
+        </div>
       </PageProvider>
     </BaseStyles>
   )
