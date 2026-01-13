@@ -1,5 +1,4 @@
 import React from 'react'
-import {Box} from '@primer/react'
 import styled from 'styled-components'
 import * as Search from './search'
 import NavDrawer from './nav-drawer'
@@ -12,7 +11,7 @@ import SiteTitle from './site-title'
 
 import * as styles from './header.module.css'
 
-const NpmHeaderBar = styled(Box)`
+const NpmHeaderBar = styled.div`
   height: ${HEADER_BAR}px;
   background-image: linear-gradient(139deg, #fb8817, #ff4b01, #c12127, #e02aff);
 `
@@ -21,30 +20,32 @@ function Header() {
   const search = useSearch()
 
   return (
-    <DarkTheme style={{zIndex: Z_INDEX.HEADER}} className={styles.DarkTheme}>
-      <NpmHeaderBar />
-      <Box as="header" className={styles.headerBox}>
-        <Box className={styles.Box}>
-          <SiteTitle logo={true} className={styles.SiteTitle} />
-          <Box className={styles.searchDesktop}>
-            <Search.Desktop {...search} />
-          </Box>
-        </Box>
-        <Box className={styles.Box_1}>
-          <Box className={styles.navDesktop}>
-            {headerNavItems.map((item, index) => (
-              <Link key={index} href={item.url} className={styles.Link}>
-                {item.title}
-              </Link>
-            ))}
-          </Box>
-          <Box className={styles.navMobile}>
-            <Search.Mobile {...search} />
-            <NavDrawer />
-          </Box>
-        </Box>
-      </Box>
-    </DarkTheme>
+    <div className={styles.stickyHeader} style={{zIndex: Z_INDEX.HEADER}}>
+      <DarkTheme>
+        <NpmHeaderBar />
+        <header className={styles.headerBox}>
+          <div className={styles.Box}>
+            <SiteTitle logo={true} className={styles.SiteTitle} />
+            <div className={styles.searchDesktop}>
+              <Search.Desktop {...search} />
+            </div>
+          </div>
+          <div className={styles.Box_1}>
+            <div className={styles.navDesktop}>
+              {headerNavItems.map((item, index) => (
+                <Link key={index} href={item.url} className={styles.Link}>
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+            <div className={styles.navMobile}>
+              <Search.Mobile {...search} />
+              <NavDrawer />
+            </div>
+          </div>
+        </header>
+      </DarkTheme>
+    </div>
   )
 }
 

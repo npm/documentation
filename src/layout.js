@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Heading, Text} from '@primer/react'
+import {Heading, Text} from '@primer/react'
 import {h1 as H1} from './mdx'
 import PageFooter from './components/page-footer'
 import * as TableOfContents from './components/table-of-contents'
@@ -13,13 +13,13 @@ import {SkipNav} from './components/skip-nav'
 import * as styles from './layout.module.css'
 import {clsx} from 'clsx'
 
-const Container = ({className, ...props}) => <Box className={clsx(styles.Box, className)} {...props} />
+const Container = ({className, ...props}) => <div className={clsx(styles.Box, className)} {...props} />
 
 const HeroLayout = ({children}) => {
   const {title, description} = useSiteMetadata()
 
   return (
-    <Box as="main" className={styles.Box_1}>
+    <main className={styles.Box_1}>
       <DarkTheme className={styles.DarkTheme}>
         <Container className={styles.Container}>
           <Heading as="h1" className={styles.Heading}>
@@ -32,20 +32,20 @@ const HeroLayout = ({children}) => {
       </DarkTheme>
       <SkipNav />
       <Container className={styles.Container}>{children}</Container>
-    </Box>
+    </main>
   )
 }
 
 const DefaultLayout = ({children}) => {
   const {title, description} = usePage().frontmatter
   return (
-    <Box className={styles.Box_2}>
+    <div className={styles.Box_2}>
       <Container as="main">
-        <Box className={styles.Box_3}>
+        <div className={styles.Box_3}>
           <Breadcrumbs />
           <H1 autolink={false}>{title}</H1>
-          {description ? <Box className={styles.Box_4}>{description}</Box> : null}
-        </Box>
+          {description ? <div className={styles.Box_4}>{description}</div> : null}
+        </div>
         <SkipNav />
         <VariantSelect />
         <TableOfContents.Mobile />
@@ -53,7 +53,7 @@ const DefaultLayout = ({children}) => {
         <PageFooter />
       </Container>
       <TableOfContents.Desktop />
-    </Box>
+    </div>
   )
 }
 

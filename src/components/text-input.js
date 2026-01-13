@@ -1,4 +1,4 @@
-import {TextInput as PrimerTextInput, themeGet} from '@primer/react'
+import {TextInput as PrimerTextInput} from '@primer/react'
 import styled from 'styled-components'
 
 const TextInput = styled(PrimerTextInput)`
@@ -7,12 +7,13 @@ const TextInput = styled(PrimerTextInput)`
    * TODO: Update font-size of TextInput in @primer/react.
    */
   input {
-    font-size: ${themeGet('fontSizes.2')} !important;
-    color: ${themeGet('colors.fg.default')} !important;
+    font-size: 16px !important;
+    color: rgb(225, 228, 232) !important;
   }
 
   input::placeholder {
-    color: ${themeGet('colors.fg.default')} !important;
+    color: rgb(225, 228, 232) !important;
+    opacity: 0.7;
   }
 `
 export default TextInput

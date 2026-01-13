@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, ActionList, Box, Text} from '@primer/react'
+import {Button, ActionList, Text} from '@primer/react'
 import {XIcon, SearchIcon} from '@primer/octicons-react'
 import {AnimatePresence, motion} from 'framer-motion'
 import {FocusOn} from 'react-focus-on'
@@ -19,9 +19,9 @@ const SearchResults = ({results, getItemProps, highlightedIndex}) => {
   if (!results || results.length === 0) {
     announce('No results')
     return (
-      <Box aria-live="polite" className={styles.Box}>
+      <div aria-live="polite" className={styles.Box}>
         No results
-      </Box>
+      </div>
     )
   }
 
@@ -47,7 +47,7 @@ const SearchResults = ({results, getItemProps, highlightedIndex}) => {
             to={item.path}
             active={highlightedIndex === index}
           >
-            <Box
+            <div
               aria-label={`${item.title}${hierarchy.length ? ` in ${hierarchy.map(s => s.shortName || s.title).join(' / ')}` : ` in ${siteMetadata.shortName}`}, ${index + 1} of ${results.length}`}
               className={styles.Box_1}
             >
@@ -55,7 +55,7 @@ const SearchResults = ({results, getItemProps, highlightedIndex}) => {
                 {hierarchy.length ? hierarchy.map(s => s.shortName || s.title).join(' / ') : siteMetadata.shortName}
               </Text>
               <Text>{item.title}</Text>
-            </Box>
+            </div>
           </ActionList.Item>
         )
       })}
@@ -68,21 +68,21 @@ export const Desktop = props => {
   const {getInputProps, getMenuProps, resultsOpen, ...rest} = props
 
   return (
-    <Box className={styles.Box_2}>
+    <div className={styles.Box_2}>
       <TextInput
         placeholder={`Search ${siteMetadata.title}`}
         aria-label={`Search ${siteMetadata.title}`}
         className={styles.TextInput}
         {...getInputProps()}
       />
-      <Box className={styles.Box_3} {...getMenuProps()}>
+      <div className={styles.Box_3} {...getMenuProps()}>
         {resultsOpen ? (
           <LightTheme className={styles.LightTheme}>
             <SearchResults {...rest} />
           </LightTheme>
         ) : null}
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }
 
@@ -118,16 +118,15 @@ export const Mobile = ({
       <AnimatePresence>
         {isMobileSearchOpen ? (
           <FocusOn returnFocus={true} onEscapeKey={() => resetAndClose(true)}>
-            <Box
+            <div
               style={{
                 top: `${HEADER_BAR}px`,
                 zIndex: Z_INDEX.SEARCH_OVERLAY,
               }}
               className={styles.Box_4}
             >
-              <Box
+              <motion.div
                 key="search-backdrop"
-                as={motion.div}
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 transition={{type: 'tween'}}
@@ -135,13 +134,13 @@ export const Mobile = ({
                 className={styles.Box_5}
                 {...getCloseAnimation({opacity: 0})}
               />
-              <Box
+              <div
                 style={{
                   height: resultsOpen ? '100%' : 'auto',
                 }}
                 className={styles.Box_6}
               >
-                <Box
+                <div
                   style={{
                     height: `${HEADER_HEIGHT}px`,
                     zIndex: Z_INDEX.SEARCH_OVERLAY + 1,
@@ -156,7 +155,7 @@ export const Mobile = ({
                     transition={{type: 'tween', ease: 'easeOut', duration: 0.2}}
                     style={{width: '100%', originX: '100%'}}
                   >
-                    <Box className={styles.Box_8} />
+                    <div className={styles.Box_8} />
                     <TextInput
                       leadingVisual={SearchIcon}
                       placeholder={`Search ${siteMetadata.title}`}
@@ -165,18 +164,16 @@ export const Mobile = ({
                       {...getInputProps()}
                     />
                   </motion.div>
-                  <Box
+                  <motion.div
                     key="button-blocker"
-                    as={motion.div}
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
                     {...getCloseAnimation({scaleX: 0})}
                     transition={{type: 'tween', ease: 'easeOut', duration: 0.2}}
                     className={styles.Box_9}
                   />
-                  <Box
+                  <motion.div
                     key="button"
-                    as={motion.div}
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
                     {...getCloseAnimation({opacity: 0})}
@@ -185,8 +182,8 @@ export const Mobile = ({
                     <Button aria-label="Cancel" onClick={() => resetAndClose(false)} className={styles.Button_1}>
                       <XIcon />
                     </Button>
-                  </Box>
-                </Box>
+                  </motion.div>
+                </div>
                 <LightTheme
                   style={{
                     WebkitOverflowScrolling: 'touch',
@@ -196,8 +193,8 @@ export const Mobile = ({
                 >
                   {resultsOpen ? <SearchResults {...rest} /> : null}
                 </LightTheme>
-              </Box>
-            </Box>
+              </div>
+            </div>
           </FocusOn>
         ) : null}
       </AnimatePresence>
