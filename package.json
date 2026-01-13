@@ -66,7 +66,7 @@
     "react-dom": "^18.2.0",
     "react-focus-on": "^3.9.1",
     "remark-frontmatter": "^5.0.0",
-    "remark-gfm": "^3.0.1",
+    "remark-gfm": "^4.0.1",
     "styled-components": "^5.3.11",
     "styled-system": "^5.1.5"
   },
