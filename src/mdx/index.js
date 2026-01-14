@@ -23,3 +23,6 @@ export const Prompt = Components.Prompt
 export const Screenshot = Components.Screenshot
 export const Link = Components.Link
 export const YouTube = Components.YouTube
+export const DataTable = Components.DataTable
+export const InlineCode = Components.InlineCode
+export const Strikethrough = Components.Strikethrough

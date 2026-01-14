@@ -16,12 +16,15 @@ To keep the JavaScript ecosystem healthy, reliable, and secure, every time you m
 
 To help developers who rely on your code, we recommend starting your package version at `1.0.0` and incrementing as follows:
 
-| Code status | Stage | Rule | Example version |
-| --- | --- | --- | --- |
-| First release | New product | Start with 1.0.0 | 1.0.0 |
-| Backward compatible bug fixes | Patch release | Increment the third digit | 1.0.1 |
-| Backward compatible new features | Minor release | Increment the middle digit and reset last digit to zero | 1.1.0 |
-| Changes that break backward compatibility | Major release | Increment the first digit and reset middle and last digits to zero | 2.0.0 |
+<DataTable
+  headers={["Code status", "Stage", "Rule", "Example version"]}
+  rows={[
+    ["First release", "New product", "Start with 1.0.0", "1.0.0"],
+    ["Backward compatible bug fixes", "Patch release", "Increment the third digit", "1.0.1"],
+    ["Backward compatible new features", "Minor release", "Increment the middle digit and reset last digit to zero", "1.1.0"],
+    ["Changes that break backward compatibility", "Major release", "Increment the first digit and reset middle and last digits to zero", "2.0.0"]
+  ]}
+/>
 
 ## Using semantic versioning to specify update types your package can accept
 

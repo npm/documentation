@@ -325,3 +325,59 @@ export const YouTube = ({id}) => (
     className={styles.Box}
   />
 )
+
+export const InlineCode = styled.code`
+  font-family: var(--fontStack-monospace, ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace);
+  background-color: var(--bgColor-neutral-muted, #afb8c133);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 85%;
+`
+
+export const Strikethrough = styled.span`
+  text-decoration: line-through;
+`
+
+const Thead = styled.thead``
+const Tbody = styled.tbody``
+const Tr = styled.tr``
+const Th = styled.th``
+const Td = styled.td``
+
+export const DataTable = ({headers, rows, align}) => {
+  const getAlign = index => {
+    if (!align) return undefined
+    const a = align[index]
+    if (a === 'l') return 'left'
+    if (a === 'r') return 'right'
+    if (a === 'c') return 'center'
+    return a
+  }
+
+  return (
+    <Table>
+      {headers && (
+        <Thead>
+          <Tr>
+            {headers.map((header, i) => (
+              <Th key={i} style={{textAlign: getAlign(i)}}>
+                {header}
+              </Th>
+            ))}
+          </Tr>
+        </Thead>
+      )}
+      <Tbody>
+        {rows.map((row, rowIndex) => (
+          <Tr key={rowIndex}>
+            {row.map((cell, cellIndex) => (
+              <Td key={cellIndex} style={{textAlign: getAlign(cellIndex)}}>
+                {cell}
+              </Td>
+            ))}
+          </Tr>
+        ))}
+      </Tbody>
+    </Table>
+  )
+}
