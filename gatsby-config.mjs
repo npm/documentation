@@ -1,6 +1,5 @@
 import path from 'path'
 import fs from 'fs'
-import remarkGfm from 'remark-gfm'
 import remarkFm from 'remark-frontmatter'
 
 const {NODE_ENV, GATSBY_CONTENT_ALLOW, GATSBY_CONTENT_IGNORE, GATSBY_CONTENT_DIR = 'content'} = process.env
@@ -73,7 +72,7 @@ const config = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         mdxOptions: {
-          remarkPlugins: [remarkGfm, remarkFm],
+          remarkPlugins: [remarkFm],
         },
       },
     },
