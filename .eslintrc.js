@@ -1,5 +1,3 @@
-const {getGlobals} = require('eslint-plugin-mdx')
-
 module.exports = {
   root: true,
   ignorePatterns: ['.cache/', 'public/'],
@@ -40,23 +38,25 @@ module.exports = {
       parserOptions: {
         sourceType: 'module',
       },
-      globals: getGlobals([
-        'Index',
-        'Note',
-        'Prompt',
-        'Screenshot',
-        'Link',
-        'YouTube',
-        'DataTable',
-        'InlineCode',
-        'Strikethrough',
-      ]),
+      globals: {
+        Index: 'readonly',
+        Note: 'readonly',
+        Prompt: 'readonly',
+        Screenshot: 'readonly',
+        Link: 'readonly',
+        YouTube: 'readonly',
+        DataTable: 'readonly',
+        InlineCode: 'readonly',
+        Strikethrough: 'readonly',
+        CliLink: 'readonly',
+      },
       settings: {
         'import/resolver': 'webpack',
       },
       rules: {
         'no-irregular-whitespace': 'off',
         'react/no-unescaped-entities': 'off',
+        'react/jsx-key': 'off',
       },
     },
     {
