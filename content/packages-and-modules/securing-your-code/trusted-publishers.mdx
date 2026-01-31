@@ -6,7 +6,7 @@ Trusted publishing allows you to publish npm packages directly from your CI/CD w
 
 <Note>
 
-**Note:** Trusted publishing requires [npm CLI](https://docs.npmjs.com/cli/v11) version 11.5.1 or later.
+**Note:** Trusted publishing requires [npm CLI](https://docs.npmjs.com/cli/v11) version 11.5.1 or later and Node version 22.14.0 or higher.
 
 </Note>
 
@@ -141,7 +141,7 @@ The `id_tokens` configuration tells GitLab to generate an OIDC token for npm. Le
 
 ### Managing trusted publisher configurations
 
-You can modify or remove your trusted publisher configuration at any time through your package settings on [npmjs.com](https://npmjs.com). Each package can only have one trusted publisher connection at a time, but this connection can be edited or deleted as needed. To change providers (for example, switching from GitHub Actions to GitLab CI/CD), simply edit your existing configuration and select the new provider. The change takes effect immediately for future publishes. To remove trusted publishing entirely and return to token-based authentication, delete the trusted publisher configuration from your package settings.
+You can modify or remove your trusted publisher configuration at any time through your package settings on [npmjs.com](https://npmjs.com) → Packages → <your-package> → Settings → Trusted publishing. Each package can only have one trusted publisher connection at a time, but this connection can be edited or deleted as needed. To change providers (for example, switching from GitHub Actions to GitLab CI/CD), simply edit your existing configuration and select the new provider. The change takes effect immediately for future publishes. To remove trusted publishing entirely and return to token-based authentication, delete the trusted publisher configuration from your package settings.
 
 ## Recommended: Restrict token access when using trusted publishers
 
@@ -279,6 +279,10 @@ Trusted publishing currently supports only cloud-hosted runners. Support for sel
 OIDC authentication is currently limited to the publish operation. Other npm commands such as `install`, `view`, or `access` still require traditional authentication methods. The `npm whoami` command will not reflect OIDC authentication status since the authentication occurs only during the publish operation.
 
 We intend to expand trusted publishing support to additional CI/CD providers and enhance the feature based on community feedback.
+
+## Reporting issues
+
+If you encounter issues with trusted publishing or OIDC configuration, please check the [npm CLI GitHub issues](https://github.com/npm/cli/issues).
 
 ## Learn more
 
