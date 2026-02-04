@@ -2,6 +2,7 @@ import js from '@eslint/js'
 import reactPlugin from 'eslint-plugin-react'
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
 import primerReactPlugin from 'eslint-plugin-primer-react'
+import importPlugin from 'eslint-plugin-import'
 import * as mdxPlugin from 'eslint-plugin-mdx'
 import prettierConfig from 'eslint-config-prettier'
 import globals from 'globals'
@@ -82,10 +83,23 @@ export default [
     plugins: {
       'primer-react': primerReactPlugin,
       'react-hooks': reactHooksPlugin,
+      'import': importPlugin,
     },
     rules: {
       'max-len': 'off',
       'react/prop-types': 'off',
+      // Rules from react-app config
+      'array-callback-return': 'warn',
+      'eqeqeq': ['warn', 'smart'],
+      'no-eval': 'warn',
+      'no-implied-eval': 'warn',
+      'no-loop-func': 'warn',
+      'no-self-compare': 'warn',
+      'no-throw-literal': 'warn',
+      // Import plugin rules
+      'import/first': 'error',
+      'import/no-amd': 'error',
+      // primer-react rules
       'primer-react/direct-slot-children': 'error',
       'primer-react/no-system-props': ['error', { includeUtilityComponents: true }],
       'primer-react/a11y-tooltip-interactive-trigger': 'error',
