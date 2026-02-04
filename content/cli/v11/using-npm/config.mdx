@@ -150,6 +150,15 @@ Note: This defaults to not changing the current access level for existing packag
 
 When running `npm outdated` and `npm ls`, setting `--all` will show all outdated or installed packages, rather than only those directly depended upon by the current project.
 
+#### `allow-git`
+
+- Default: "all"
+- Type: "all", "none", or "root"
+
+Limits the ability for npm to fetch dependencies from git references. That is, dependencies that point to a git repo instead of a version or semver range. Please note that this could leave your tree incomplete and some packages may not function as intended or designed.
+
+`all` allows any git dependencies to be fetched and installed. `none` prevents any git dependencies from being fetched and installed. `root` only allows git dependencies defined in your project's package.json to be fetched installed. Also allows git dependencies to be fetched for other commands like `npm view`
+
 #### `allow-same-version`
 
 - Default: false
