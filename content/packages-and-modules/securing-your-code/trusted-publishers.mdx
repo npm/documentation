@@ -22,6 +22,7 @@ Trusted publishing currently supports:
 
 - [GitHub Actions](https://github.com/features/actions) (GitHub-hosted runners)
 - [GitLab CI/CD Pipelines](https://docs.gitlab.com/ci/pipelines/) (GitLab.com shared runners)
+- [CircleCI](https://circleci.com/) (CircleCI cloud)
 
 Self-hosted runners are not currently supported but are planned for future releases.
 
@@ -29,7 +30,7 @@ Self-hosted runners are not currently supported but are planned for future relea
 
 ### Step 1: Add a trusted publisher on npmjs.com
 
-Navigate to your package settings on [npmjs.com](https://www.npmjs.com) and find the "**Trusted Publisher**" section. Under "**Select your publisher**", choose your CI/CD provider by clicking either the GitHub Actions or GitLab CI/CD button.
+Navigate to your package settings on [npmjs.com](https://www.npmjs.com) and find the "**Trusted Publisher**" section. Under "**Select your publisher**", choose your CI/CD provider by clicking the GitHub Actions, GitLab CI/CD, or CircleCI button.
 
 <Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher.png" alt="Screenshot showing the Trusted Publisher section with Select your publisher label and provider buttons" />
 
@@ -58,6 +59,18 @@ Configure the following fields:
 - **Environment name** (optional): If using [GitLab environments](https://docs.gitlab.com/ee/ci/environments/)
 
 <Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher-gitlab.png" alt="Screenshot of GitLab CI/CD trusted publisher configuration form" />
+
+#### For CircleCI
+
+Configure the following fields:
+
+- **Organization ID** (required): Your CircleCI organization ID (UUID format)
+- **Project ID** (required): Your CircleCI project ID (UUID format)
+- **Pipeline definition ID** (required): The pipeline definition ID (UUID format)
+- **VCS origin** (required): The VCS origin for your project (e.g., `github.com/myorg/myrepo`)
+- **Context IDs** (optional): Restrict publishing to jobs using specific CircleCI contexts
+
+<Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher-circleci.png" alt="Screenshot of CircleCI trusted publisher configuration form" />
 
 <Note>
 
@@ -145,6 +158,69 @@ The `id_tokens` configuration tells GitLab to generate an OIDC token for npm. Le
 
 </Note>
 
+#### CircleCI configuration
+
+Configure OIDC token retrieval in your CircleCI pipeline:
+
+```yaml
+version: 2.1
+
+jobs:
+  publish:
+    docker:
+      - image: cimg/node:20.0
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: Run tests
+          command: npm test
+      - run:
+          name: Build
+          command: npm run build --if-present
+      - run:
+          name: Publish to npm with OIDC
+          command: |
+            # Get OIDC token from CircleCI
+            OIDC_TOKEN=$(circleci run oidc get --claims '{"aud": "npm:registry.npmjs.org"}')
+
+            # Get package name from package.json
+            PACKAGE_NAME=$(node -p "require('./package.json').name")
+            ENCODED_PKG=$(echo "$PACKAGE_NAME" | sed 's/@/%40/g; s/\//%2F/g')
+
+            # Exchange OIDC token for npm token
+            EXCHANGE_RESPONSE=$(curl -s -X POST "https://registry.npmjs.org/-/npm/v1/oidc/token/exchange/package/${ENCODED_PKG}" \
+              -H "Content-Type: application/json" \
+              -H "Authorization: Bearer ${OIDC_TOKEN}")
+
+            NPM_TOKEN=$(echo "$EXCHANGE_RESPONSE" | jq -r '.token // empty')
+
+            if [ -z "$NPM_TOKEN" ]; then
+              echo "Failed to exchange OIDC token"
+              exit 1
+            fi
+
+            # Configure npm with the exchanged token
+            npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
+
+            # Publish
+            npm publish --access public
+
+workflows:
+  publish:
+    jobs:
+      - publish:
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
+```
+
+The `circleci run oidc get` command retrieves an OIDC token from CircleCI. The token is then exchanged with the npm registry for a short-lived publish token. Learn more in [CircleCI's OIDC documentation](https://circleci.com/docs/openid-connect-tokens/).
+
 ### Managing trusted publisher configurations
 
 You can modify or remove your trusted publisher configuration at any time through your package settings on [npmjs.com](https://npmjs.com) → Packages → YOUR_PACKAGE → Settings → Trusted publishing. Each package can only have one trusted publisher connection at a time, but this connection can be edited or deleted as needed. To change providers (for example, switching from GitHub Actions to GitLab CI/CD), simply edit your existing configuration and select the new provider. The change takes effect immediately for future publishes. To remove trusted publishing entirely and return to token-based authentication, delete the trusted publisher configuration from your package settings.
@@ -177,7 +253,13 @@ This ensures a smooth transition without disrupting your release process.
 
 ## Automatic provenance generation
 
-When you publish using trusted publishing, npm automatically generates and publishes [provenance attestations](./generating-provenance-statements) for your package. This happens by default—you don't need to add the `--provenance` flag to your publish command.
+When you publish using trusted publishing from GitHub Actions or GitLab CI/CD, npm automatically generates and publishes [provenance attestations](./generating-provenance-statements) for your package. This happens by default—you don't need to add the `--provenance` flag to your publish command.
+
+<Note>
+
+**Note:** Provenance generation is not currently supported for CircleCI. Packages published via CircleCI trusted publishing will not include provenance attestations.
+
+</Note>
 
 <Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher-provenance.png" alt="Screenshot showing provenance badge/information on a package page" />
 
@@ -264,7 +346,7 @@ Consider implementing these additional security practices:
 
 ## Troubleshooting
 
-If you encounter an "Unable to authenticate" error when publishing, first verify that the workflow filename matches exactly what you configured on [npmjs.com](https://npmjs.com), including the `.yml` extension. All fields are case-sensitive and must be exact. Also ensure you're using GitHub-hosted runners or GitLab.com shared runners, as self-hosted runners are not currently supported. For GitHub Actions specifically, check that the `id-token: write` permission is set in your workflow.
+If you encounter an "Unable to authenticate" error when publishing, first verify that the workflow filename matches exactly what you configured on [npmjs.com](https://npmjs.com), including the `.yml` extension. All fields are case-sensitive and must be exact. Also ensure you're using GitHub-hosted runners, GitLab.com shared runners, or CircleCI cloud, as self-hosted runners are not currently supported. For GitHub Actions specifically, check that the `id-token: write` permission is set in your workflow. For CircleCI, verify that you're using `circleci run oidc get` to retrieve the OIDC token.
 
 <Note>
 
@@ -292,4 +374,5 @@ We intend to expand trusted publishing support to additional CI/CD providers and
 - [OpenSSF Trusted Publishers specification](https://repos.openssf.org/trusted-publishers-for-all-package-repositories)
 - [GitHub Actions OIDC documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 - [GitLab CI/CD OIDC documentation](https://docs.gitlab.com/ee/ci/cloud_services/)
+- [CircleCI OIDC documentation](https://circleci.com/docs/openid-connect-tokens/)
 - [API documentation for exchanging OIDC ID token for npm registry token](https://api-docs.npmjs.com/#tag/registry.npmjs.org/operation/exchangeOidcToken)
