@@ -1,36 +1,71 @@
----
-title: About package README files
----
+Courses Filter CLI
 
-We highly recommend including a `README.md` file in your package directory as it helps developers find your package on npm and have a good experience using your code in their projects. In most cases `README.md` files include directions for _installing_, _configuring_, and _using_ the code in your package; as well as any other information a user may find helpful. Just like in any GitHub repository, the `README.md` file will be rendered on the package's page. On [npmjs.com](https://www.npmjs.com/), the `README.md` is rendered as [GitHub Flavored Markdown](https://github.github.com/gfm/) via [GitHub's API](https://docs.github.com/en/rest/markdown/markdown).
+A simple CLI tool that helps you filter, categorize, and display courses in a clean table format directly in the terminal.
 
-An npm package `README.md` file **must** be in the root-level directory of the package.
+Overview
 
-## Creating and adding a `README.md` file to a package
+This CLI allows you to manage and explore courses by:
 
-1. In a text editor, in your package root directory, create a file called `README.md`.
-2. In the `README.md` file, add useful information about your package.
-3. Save the `README.md` file.
+Filtering courses based on price
 
-<Note>
+Grouping courses by title or category
 
-**Note:** The file extension `.md` indicates a Markdown file. For more information about Markdown, see the GitHub Guide "[Mastering Markdown](https://guides.github.com/features/mastering-markdown/#what)".
+Displaying results in well-structured tables
 
-</Note>
+It’s designed to be fast, lightweight, and easy to use without any UI.
 
-## Updating an existing package `README.md` file
+Features
 
-The `README.md` file will only be updated on the package page when you publish a new version of your package. To update your `README.md` file:
+🔍 Filter courses by price
 
-1. In a text editor, update the contents of the `README.md` file.
+Less than a specific price
 
-2. Save the `README.md` file.
+Greater than a specific price
 
-3. On the command line, in the package root directory, run the following commands:
+Between two prices
 
-   ```
-   npm version patch
-   npm publish
-   ```
+🗂️ Categorize courses by title or category
 
-[markdown-link]: https://guides.github.com/features/mastering-markdown/#what
+📊 Display courses in formatted tables in the terminal
+
+⚡ Easy-to-use command-line interface
+
+Usage
+
+Run the CLI command and pass the desired options to filter or categorize courses.
+
+Example (conceptual):
+
+courses-cli --price < 500
+courses-cli --category "Web Development"
+courses-cli --group-by title
+
+Output
+
+The results are displayed as tables showing:
+
+Course Title
+
+Price
+
+Category
+
+This makes it easy to compare courses at a glance.
+
+Use Cases
+
+Quickly explore available courses
+
+Compare prices between different courses
+
+Organize large course lists efficiently
+
+Requirements
+
+Node.js
+
+Terminal / Command Line
+
+License
+
+MIT License
