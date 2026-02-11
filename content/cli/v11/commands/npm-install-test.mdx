@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-install-test.md
 redirect_from:
-  - /cli-commands/install-test
-  - /cli-commands/npm-install-test
-  - /cli-documentation/cli-commands/install-test
-  - /cli-documentation/cli-commands/npm-install-test
-  - /cli-documentation/commands/install-test
-  - /cli-documentation/commands/npm-install-test
-  - /cli-documentation/install-test
-  - /cli-documentation/npm-install-test
   - /cli-documentation/v11/cli-commands/install-test
   - /cli-documentation/v11/cli-commands/npm-install-test
   - /cli-documentation/v11/commands/install-test
   - /cli-documentation/v11/commands/npm-install-test
   - /cli-documentation/v11/install-test
   - /cli-documentation/v11/npm-install-test
-  - /cli/cli-commands/install-test
-  - /cli/cli-commands/npm-install-test
-  - /cli/commands/install-test
-  - /cli/commands/npm-install-test
-  - /cli/install-test
-  - /cli/npm-install-test
   - /cli/v11/cli-commands/install-test
   - /cli/v11/cli-commands/npm-install-test
   - /cli/v11/commands/install-test
   - /cli/v11/install-test
   - /cli/v11/npm-install-test
-  - /commands/install-test
-  - /commands/npm-install-test
 ---
 
 ### Synopsis
@@ -203,6 +187,19 @@ When "true" submit audit reports alongside the current npm command to the defaul
 If passed to `npm install`, will rebuild the npm tree such that only versions that were available **on or before** the given date are installed. If there are no versions available for the current set of dependencies, the command will error.
 
 If the requested version is a `dist-tag` and the given tag does not pass the `--before` filter, the most recent version less than or equal to that tag will be used. For example, `foo@latest` might install `foo@1.2` even though `latest` is `2.0`.
+
+This config cannot be used with: `min-release-age`
+
+#### `min-release-age`
+
+- Default: null
+- Type: null or Number
+
+If set, npm will build the npm tree such that only versions that were available more than the given number of days ago will be installed. If there are no versions available for the current set of dependencies, the command will error.
+
+This flag is a complement to `before`, which accepts an exact date instead of a relative number of days.
+
+This config cannot be used with: `before`
 
 #### `bin-links`
 

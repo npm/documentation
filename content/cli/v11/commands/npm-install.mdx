@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-install.md
 redirect_from:
-  - /cli-commands/install
-  - /cli-commands/npm-install
-  - /cli-documentation/cli-commands/install
-  - /cli-documentation/cli-commands/npm-install
-  - /cli-documentation/commands/install
-  - /cli-documentation/commands/npm-install
-  - /cli-documentation/install
-  - /cli-documentation/npm-install
   - /cli-documentation/v11/cli-commands/install
   - /cli-documentation/v11/cli-commands/npm-install
   - /cli-documentation/v11/commands/install
   - /cli-documentation/v11/commands/npm-install
   - /cli-documentation/v11/install
   - /cli-documentation/v11/npm-install
-  - /cli/cli-commands/install
-  - /cli/cli-commands/npm-install
-  - /cli/commands/install
-  - /cli/commands/npm-install
-  - /cli/install
-  - /cli/npm-install
   - /cli/v11/cli-commands/install
   - /cli/v11/cli-commands/npm-install
   - /cli/v11/commands/install
   - /cli/v11/install
   - /cli/v11/npm-install
-  - /commands/install
-  - /commands/npm-install
 ---
 
 ### Synopsis
@@ -507,6 +491,19 @@ When "true" submit audit reports alongside the current npm command to the defaul
 If passed to `npm install`, will rebuild the npm tree such that only versions that were available **on or before** the given date are installed. If there are no versions available for the current set of dependencies, the command will error.
 
 If the requested version is a `dist-tag` and the given tag does not pass the `--before` filter, the most recent version less than or equal to that tag will be used. For example, `foo@latest` might install `foo@1.2` even though `latest` is `2.0`.
+
+This config cannot be used with: `min-release-age`
+
+#### `min-release-age`
+
+- Default: null
+- Type: null or Number
+
+If set, npm will build the npm tree such that only versions that were available more than the given number of days ago will be installed. If there are no versions available for the current set of dependencies, the command will error.
+
+This flag is a complement to `before`, which accepts an exact date instead of a relative number of days.
+
+This config cannot be used with: `before`
 
 #### `bin-links`
 

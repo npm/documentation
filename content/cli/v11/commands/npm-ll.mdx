@@ -1,53 +1,35 @@
 ---
-title: npm-ls
+title: npm-ll
 section: 1
 description: List installed packages
 github_repo: npm/cli
 github_branch: latest
-github_path: docs/lib/content/commands/npm-ls.md
+github_path: docs/lib/content/commands/npm-ll.md
 redirect_from:
-  - /cli-documentation/v11/cli-commands/ls
-  - /cli-documentation/v11/cli-commands/npm-ls
-  - /cli-documentation/v11/commands/ls
-  - /cli-documentation/v11/commands/npm-ls
-  - /cli-documentation/v11/ls
-  - /cli-documentation/v11/npm-ls
-  - /cli/v11/cli-commands/ls
-  - /cli/v11/cli-commands/npm-ls
-  - /cli/v11/commands/ls
-  - /cli/v11/ls
-  - /cli/v11/npm-ls
+  - /cli-documentation/v11/cli-commands/ll
+  - /cli-documentation/v11/cli-commands/npm-ll
+  - /cli-documentation/v11/commands/ll
+  - /cli-documentation/v11/commands/npm-ll
+  - /cli-documentation/v11/ll
+  - /cli-documentation/v11/npm-ll
+  - /cli/v11/cli-commands/ll
+  - /cli/v11/cli-commands/npm-ll
+  - /cli/v11/commands/ll
+  - /cli/v11/ll
+  - /cli/v11/npm-ll
 ---
 
 ### Synopsis
 
 ```bash
-npm ls <package-spec>
+npm ll [[<@scope>/]<pkg> ...]
 
-alias: list
+alias: la
 ```
 
 ### Description
 
-This command will print to stdout all the versions of packages that are installed, as well as their dependencies when `--all` is specified, in a tree structure.
-
-Note: to get a "bottoms up" view of why a given package is included in the tree at all, use [`npm explain`](/cli/v11/commands/npm-explain).
-
-Positional arguments are `name@version-range` identifiers, which will limit the results to only the paths to the packages named. Note that nested packages will _also_ show the paths to the specified packages. For example, running `npm ls promzard` in npm's source tree will show:
-
-```bash
-npm@11.10.0 /path/to/npm
-└─┬ init-package-json@0.0.4
-  └── promzard@0.1.5
-```
-
-It will print out extraneous, missing, and invalid packages.
-
-If a project specifies git urls for dependencies these are shown in parentheses after the `name@version` to make it easier for users to recognize potential forks of a project.
-
-The tree shown is the logical dependency tree, based on package dependencies, not the physical layout of your `node_modules` folder.
-
-When run as `ll` or `la`, it shows extended information by default.
+List installed packages
 
 ### Configuration
 
@@ -202,14 +184,4 @@ When set file: protocol dependencies will be packed and installed as regular dep
 
 ### See Also
 
-- [package spec](/cli/v11/using-npm/package-spec)
-- [npm explain](/cli/v11/commands/npm-explain)
-- [npm config](/cli/v11/commands/npm-config)
-- [npmrc](/cli/v11/configuring-npm/npmrc)
-- [npm folders](/cli/v11/configuring-npm/folders)
-- [npm explain](/cli/v11/commands/npm-explain)
-- [npm install](/cli/v11/commands/npm-install)
-- [npm link](/cli/v11/commands/npm-link)
-- [npm prune](/cli/v11/commands/npm-prune)
-- [npm outdated](/cli/v11/commands/npm-outdated)
-- [npm update](/cli/v11/commands/npm-update)
+- [npm help config](/cli/v11/commands/npm-config)

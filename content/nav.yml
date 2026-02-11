@@ -1596,11 +1596,11 @@
             - title: Changelog
               url: /cli/v10/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 11.9.0
+    - title: Version 11.10.0
       shortName: v11
       url: /cli/v11
-      default: true
-      type: latest
+      default: false
+      type: legacy
       children:
         - title: CLI Commands
           shortName: Commands
@@ -1608,7 +1608,7 @@
           children:
             - title: npm
               url: /cli/v11/commands/npm
-              description: JavaScript package manager
+              description: javascript package manager
             - title: npm access
               url: /cli/v11/commands/npm-access
               description: Set access level on published packages
@@ -1620,22 +1620,22 @@
               description: Run a security audit
             - title: npm bugs
               url: /cli/v11/commands/npm-bugs
-              description: Bugs for a package in a web browser maybe
+              description: Report bugs for a package in a web browser
             - title: npm cache
               url: /cli/v11/commands/npm-cache
               description: Manipulates packages cache
             - title: npm ci
               url: /cli/v11/commands/npm-ci
-              description: Install a project with a clean slate
+              description: Clean install a project
             - title: npm completion
               url: /cli/v11/commands/npm-completion
-              description: Tab completion for npm
+              description: Tab Completion for npm
             - title: npm config
               url: /cli/v11/commands/npm-config
               description: Manage the npm configuration files
             - title: npm dedupe
               url: /cli/v11/commands/npm-dedupe
-              description: Reduce duplication
+              description: Reduce duplication in the package tree
             - title: npm deprecate
               url: /cli/v11/commands/npm-deprecate
               description: Deprecate a version of a package
@@ -1647,16 +1647,16 @@
               description: Modify package distribution tags
             - title: npm docs
               url: /cli/v11/commands/npm-docs
-              description: Docs for a package in a web browser maybe
+              description: Open documentation for a package in a web browser
             - title: npm doctor
               url: /cli/v11/commands/npm-doctor
-              description: Check your environments
+              description: Check the health of your npm environment
             - title: npm edit
               url: /cli/v11/commands/npm-edit
               description: Edit an installed package
             - title: npm exec
               url: /cli/v11/commands/npm-exec
-              description: Run a command from an npm package
+              description: Run a command from a local or remote npm package
             - title: npm explain
               url: /cli/v11/commands/npm-explain
               description: Explain installed packages
@@ -1669,12 +1669,15 @@
             - title: npm fund
               url: /cli/v11/commands/npm-fund
               description: Retrieve funding information
+            - title: npm get
+              url: /cli/v11/commands/npm-get
+              description: Get a value from the npm configuration
             - title: npm help
               url: /cli/v11/commands/npm-help
-              description: Search npm help documentation
+              description: Get help on npm
             - title: npm help-search
               url: /cli/v11/commands/npm-help-search
-              description: Get help on npm
+              description: Search npm help documentation
             - title: npm init
               url: /cli/v11/commands/npm-init
               description: Create a package.json file
@@ -1690,6 +1693,9 @@
             - title: npm link
               url: /cli/v11/commands/npm-link
               description: Symlink a package folder
+            - title: npm ll
+              url: /cli/v11/commands/npm-ll
+              description: List installed packages
             - title: npm login
               url: /cli/v11/commands/npm-login
               description: Login to a registry user account
@@ -1731,7 +1737,7 @@
               description: Publish a package
             - title: npm query
               url: /cli/v11/commands/npm-query
-              description: Retrieve a filtered list of packages
+              description: Dependency selector query
             - title: npm rebuild
               url: /cli/v11/commands/npm-rebuild
               description: Rebuild a package
@@ -1753,6 +1759,9 @@
             - title: npm search
               url: /cli/v11/commands/npm-search
               description: Search for packages
+            - title: npm set
+              url: /cli/v11/commands/npm-set
+              description: Set a value in the npm configuration
             - title: npm shrinkwrap
               url: /cli/v11/commands/npm-shrinkwrap
               description: Lock down dependency versions for publication
@@ -1777,6 +1786,10 @@
             - title: npm token
               url: /cli/v11/commands/npm-token
               description: Manage your authentication tokens
+            - title: npm trust
+              url: /cli/v11/commands/npm-trust
+              description: Manage trusted publishing relationships between packages and CI/CD
+                providers
             - title: npm undeprecate
               url: /cli/v11/commands/npm-undeprecate
               description: Undeprecate a version of a package
@@ -1791,7 +1804,7 @@
               description: Remove an item from your favorite packages
             - title: npm update
               url: /cli/v11/commands/npm-update
-              description: Update a package
+              description: Update packages
             - title: npm version
               url: /cli/v11/commands/npm-version
               description: Bump a package version
@@ -1803,7 +1816,7 @@
               description: Display npm username
             - title: npx
               url: /cli/v11/commands/npx
-              description: Run a command from an npm package
+              description: Run a command from a local or remote npm package
         - title: Configuring npm
           shortName: Configuring
           url: /cli/v11/configuring-npm

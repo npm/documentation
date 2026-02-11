@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-outdated.md
 redirect_from:
-  - /cli-commands/npm-outdated
-  - /cli-commands/outdated
-  - /cli-documentation/cli-commands/npm-outdated
-  - /cli-documentation/cli-commands/outdated
-  - /cli-documentation/commands/npm-outdated
-  - /cli-documentation/commands/outdated
-  - /cli-documentation/npm-outdated
-  - /cli-documentation/outdated
   - /cli-documentation/v11/cli-commands/npm-outdated
   - /cli-documentation/v11/cli-commands/outdated
   - /cli-documentation/v11/commands/npm-outdated
   - /cli-documentation/v11/commands/outdated
   - /cli-documentation/v11/npm-outdated
   - /cli-documentation/v11/outdated
-  - /cli/cli-commands/npm-outdated
-  - /cli/cli-commands/outdated
-  - /cli/commands/npm-outdated
-  - /cli/commands/outdated
-  - /cli/npm-outdated
-  - /cli/outdated
   - /cli/v11/cli-commands/npm-outdated
   - /cli/v11/cli-commands/outdated
   - /cli/v11/commands/outdated
   - /cli/v11/npm-outdated
   - /cli/v11/outdated
-  - /commands/npm-outdated
-  - /commands/outdated
 ---
 
 ### Synopsis
@@ -159,6 +143,19 @@ This value is not exported to the environment for child processes.
 If passed to `npm install`, will rebuild the npm tree such that only versions that were available **on or before** the given date are installed. If there are no versions available for the current set of dependencies, the command will error.
 
 If the requested version is a `dist-tag` and the given tag does not pass the `--before` filter, the most recent version less than or equal to that tag will be used. For example, `foo@latest` might install `foo@1.2` even though `latest` is `2.0`.
+
+This config cannot be used with: `min-release-age`
+
+#### `min-release-age`
+
+- Default: null
+- Type: null or Number
+
+If set, npm will build the npm tree such that only versions that were available more than the given number of days ago will be installed. If there are no versions available for the current set of dependencies, the command will error.
+
+This flag is a complement to `before`, which accepts an exact date instead of a relative number of days.
+
+This config cannot be used with: `before`
 
 ### See Also
 

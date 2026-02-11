@@ -6,33 +6,17 @@ github_repo: npm/cli
 github_branch: latest
 github_path: docs/lib/content/commands/npm-update.md
 redirect_from:
-  - /cli-commands/npm-update
-  - /cli-commands/update
-  - /cli-documentation/cli-commands/npm-update
-  - /cli-documentation/cli-commands/update
-  - /cli-documentation/commands/npm-update
-  - /cli-documentation/commands/update
-  - /cli-documentation/npm-update
-  - /cli-documentation/update
   - /cli-documentation/v11/cli-commands/npm-update
   - /cli-documentation/v11/cli-commands/update
   - /cli-documentation/v11/commands/npm-update
   - /cli-documentation/v11/commands/update
   - /cli-documentation/v11/npm-update
   - /cli-documentation/v11/update
-  - /cli/cli-commands/npm-update
-  - /cli/cli-commands/update
-  - /cli/commands/npm-update
-  - /cli/commands/update
-  - /cli/npm-update
-  - /cli/update
   - /cli/v11/cli-commands/npm-update
   - /cli/v11/cli-commands/update
   - /cli/v11/commands/update
   - /cli/v11/npm-update
   - /cli/v11/update
-  - /commands/npm-update
-  - /commands/update
 ---
 
 ### Synopsis
@@ -279,6 +263,19 @@ When "true" submit audit reports alongside the current npm command to the defaul
 If passed to `npm install`, will rebuild the npm tree such that only versions that were available **on or before** the given date are installed. If there are no versions available for the current set of dependencies, the command will error.
 
 If the requested version is a `dist-tag` and the given tag does not pass the `--before` filter, the most recent version less than or equal to that tag will be used. For example, `foo@latest` might install `foo@1.2` even though `latest` is `2.0`.
+
+This config cannot be used with: `min-release-age`
+
+#### `min-release-age`
+
+- Default: null
+- Type: null or Number
+
+If set, npm will build the npm tree such that only versions that were available more than the given number of days ago will be installed. If there are no versions available for the current set of dependencies, the command will error.
+
+This flag is a complement to `before`, which accepts an exact date instead of a relative number of days.
+
+This config cannot be used with: `before`
 
 #### `bin-links`
 
