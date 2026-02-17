@@ -102,7 +102,7 @@
   },
   "author": "GitHub Inc.",
   "engines": {
-    "node": ">=22.0.0 <26"
+    "node": ">=22.9.0 <26"
   },
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
