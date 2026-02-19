@@ -21,7 +21,7 @@
     "@octokit/rest": "^22.0.0",
     "@prettier/sync": "^0.6.1",
     "front-matter": "^4.0.2",
-    "minimatch": "^10.0.1",
+    "minimatch": "^10.2.1",
     "minipass": "^7.0.4",
     "pacote": "^21.0.0",
     "proc-log": "^6.0.0",
