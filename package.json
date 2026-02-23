@@ -72,6 +72,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@eslint/compat": "^2.0.2",
     "@github/prettier-config": "^0.0.6",
     "@npmcli/eslint-config": "^6.0.0",
     "@npmcli/template-oss": "4.29.0",
@@ -102,7 +103,7 @@
   },
   "author": "GitHub Inc.",
   "engines": {
-    "node": ">=22.9.0 <26"
+    "node": "^22.13.0 || >=24"
   },
   "templateOSS": {
     "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
@@ -110,7 +111,8 @@
     "content": "./scripts/template-oss",
     "dependabotInterval": "weekly",
     "allowPaths": [
-      "cli-cache.json"
+      "cli-cache.json",
+      "/eslint.config.mjs"
     ]
   },
   "overrides": {

@@ -69,9 +69,9 @@ const unpackTarball = async ({release, cwd, dir}) => {
   await pacote.tarball.stream(
     `npm@${release.version}`,
     stream =>
-      new Promise((res, rej) => {
-        stream.on('end', res)
-        stream.on('error', rej)
+      new Promise((resolve, reject) => {
+        stream.on('end', resolve)
+        stream.on('error', reject)
         stream.pipe(extract())
       }),
   )

@@ -5,7 +5,7 @@ if (!process.env.GITHUB_TOKEN) {
   try {
     // this allows people to run this locally
     process.env.GITHUB_TOKEN = execSync('gh auth token', {encoding: 'utf8'}).trim()
-  } catch (err) {
+  } catch {
     throw new Error('GITHUB_TOKEN env var is required to build CLI docs')
   }
 }

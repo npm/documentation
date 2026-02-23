@@ -24,6 +24,7 @@
 !/content/
 !/CONTRIBUTING.md
 !/docs/
+!/eslint.config.mjs
 !/gatsby-*
 !/jest*.js
 !/lib/
