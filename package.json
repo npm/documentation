@@ -66,8 +66,7 @@
     "react-focus-on": "^3.9.1",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^3.0.1",
-    "styled-components": "^5.3.11",
-    "styled-system": "^5.1.5"
+    "styled-components": "^5.3.11"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
