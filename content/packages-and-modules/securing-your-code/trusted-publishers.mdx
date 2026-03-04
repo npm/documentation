@@ -160,7 +160,7 @@ The `id_tokens` configuration tells GitLab to generate an OIDC token for npm. Le
 
 #### CircleCI configuration
 
-Configure OIDC token retrieval in your CircleCI pipeline:
+Set the `NPM_ID_TOKEN` environment variable with an OIDC token from CircleCI, and npm CLI handles the token exchange automatically. Here's a complete example:
 
 ```yaml
 version: 2.1
@@ -168,7 +168,7 @@ version: 2.1
 jobs:
   publish:
     docker:
-      - image: cimg/node:20.0
+      - image: cimg/node:22.14
     steps:
       - checkout
       - run:
@@ -183,30 +183,9 @@ jobs:
       - run:
           name: Publish to npm with OIDC
           command: |
-            # Get OIDC token from CircleCI
-            OIDC_TOKEN=$(circleci run oidc get --claims '{"aud": "npm:registry.npmjs.org"}')
-
-            # Get package name from package.json
-            PACKAGE_NAME=$(node -p "require('./package.json').name")
-            ENCODED_PKG=$(echo "$PACKAGE_NAME" | sed 's/@/%40/g; s/\//%2F/g')
-
-            # Exchange OIDC token for npm token
-            EXCHANGE_RESPONSE=$(curl -s -X POST "https://registry.npmjs.org/-/npm/v1/oidc/token/exchange/package/${ENCODED_PKG}" \
-              -H "Content-Type: application/json" \
-              -H "Authorization: Bearer ${OIDC_TOKEN}")
-
-            NPM_TOKEN=$(echo "$EXCHANGE_RESPONSE" | jq -r '.token // empty')
-
-            if [ -z "$NPM_TOKEN" ]; then
-              echo "Failed to exchange OIDC token"
-              exit 1
-            fi
-
-            # Configure npm with the exchanged token
-            npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
-
-            # Publish
-            npm publish --access public
+            NPM_AUDIENCE="npm:$(npm config get registry | sed 's|https\?://||;s|/$||')"
+            export NPM_ID_TOKEN=$(circleci run oidc get --claims "{\"aud\": \"$NPM_AUDIENCE\"}")
+            npm publish
 
 workflows:
   publish:
@@ -219,7 +198,7 @@ workflows:
               ignore: /.*/
 ```
 
-The `circleci run oidc get` command retrieves an OIDC token from CircleCI. The token is then exchanged with the npm registry for a short-lived publish token. Learn more in [CircleCI's OIDC documentation](https://circleci.com/docs/openid-connect-tokens/).
+The `circleci run oidc get` command retrieves an OIDC token from CircleCI. When `NPM_ID_TOKEN` is set, the npm CLI automatically exchanges it for a short-lived publish token. Learn more in [CircleCI's OIDC documentation](https://circleci.com/docs/openid-connect-tokens/).
 
 ### Managing trusted publisher configurations
 
@@ -346,7 +325,7 @@ Consider implementing these additional security practices:
 
 ## Troubleshooting
 
-If you encounter an "Unable to authenticate" error when publishing, first verify that the workflow filename matches exactly what you configured on [npmjs.com](https://npmjs.com), including the `.yml` extension. All fields are case-sensitive and must be exact. Also ensure you're using GitHub-hosted runners, GitLab.com shared runners, or CircleCI cloud, as self-hosted runners are not currently supported. For GitHub Actions specifically, check that the `id-token: write` permission is set in your workflow. For CircleCI, verify that you're using `circleci run oidc get` to retrieve the OIDC token.
+If you encounter an "Unable to authenticate" error when publishing, first verify that the workflow filename matches exactly what you configured on [npmjs.com](https://npmjs.com), including the `.yml` extension. All fields are case-sensitive and must be exact. Also ensure you're using GitHub-hosted runners, GitLab.com shared runners, or CircleCI cloud, as self-hosted runners are not currently supported. For GitHub Actions specifically, check that the `id-token: write` permission is set in your workflow. For CircleCI, verify that your Organization ID, Project ID, and Pipeline definition ID match your CircleCI configuration.
 
 <Note>
 
