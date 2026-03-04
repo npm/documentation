@@ -183,8 +183,7 @@ jobs:
       - run:
           name: Publish to npm with OIDC
           command: |
-            NPM_AUDIENCE="npm:$(npm config get registry | sed 's|https\?://||;s|/$||')"
-            export NPM_ID_TOKEN=$(circleci run oidc get --claims "{\"aud\": \"$NPM_AUDIENCE\"}")
+            export NPM_ID_TOKEN=$(circleci run oidc get --claims '{"aud": "npm:registry.npmjs.org"}')
             npm publish
 
 workflows:
