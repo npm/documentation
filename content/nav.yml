@@ -1326,7 +1326,7 @@
             - title: Changelog
               url: /cli/v9/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 10.9.5
+    - title: Version 10.9.6
       shortName: v10
       url: /cli/v10
       default: false
@@ -1596,7 +1596,7 @@
             - title: Changelog
               url: /cli/v10/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 11.11.0
+    - title: Version 11.11.1
       shortName: v11
       url: /cli/v11
       default: true
@@ -1788,7 +1788,8 @@
               description: Manage your authentication tokens
             - title: npm trust
               url: /cli/v11/commands/npm-trust
-              description: Manage trusted publishing relationships between packages and CI/CD providers
+              description: Manage trusted publishing relationships between packages and CI/CD
+                providers
             - title: npm undeprecate
               url: /cli/v11/commands/npm-undeprecate
               description: Undeprecate a version of a package
