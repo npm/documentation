@@ -35,7 +35,7 @@ const updateNav = async (updates, {nav, path}) => {
     }
   }
 
-  return fs.writeFile(path, nav.toString({ lineWidth: 0 }), 'utf-8')
+  return fs.writeFile(path, nav.toString({lineWidth: 0}), 'utf-8')
 }
 
 const getCurrentVersions = nav => {
