@@ -78,7 +78,10 @@ function Code({className = '', prompt, children}) {
     )
   }
 
-  const code = children.trim()
+  const code = children?.trim()
+  if (!code) {
+    return null
+  }
   const isBlock = className.startsWith('language-') || code.includes('\n')
 
   if (!isBlock) {
