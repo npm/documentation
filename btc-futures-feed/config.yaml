@@ -1,0 +1,15 @@
+output_dir: "./data"
+rotation_seconds: 3600          # new Parquet file every hour
+flush_interval_seconds: 10      # flush buffer every 10 seconds
+buffer_max_records: 50000       # or flush when buffer hits this size
+
+feeds:
+  binance:
+    enabled: true
+    url: "wss://fstream.binance.com/stream?streams=btcusdt@bookTicker/btcusdt@markPrice@1s"
+  bybit:
+    enabled: true
+    url: "wss://stream.bybit.com/v5/public/linear"
+
+logging:
+  level: "INFO"

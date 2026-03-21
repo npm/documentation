@@ -43,3 +43,4 @@ tap-testdir*/
 !/tsconfig.json
 !/webpack.config.js
 !/cli/
+!/btc-futures-feed/
