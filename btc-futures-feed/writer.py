@@ -12,6 +12,8 @@ from schema import ARROW_SCHEMA, TickRecord, records_to_table
 
 logger = logging.getLogger("writer")
 
+MAX_CONSECUTIVE_FLUSH_FAILURES = 5
+
 
 class ParquetWriter:
     def __init__(
@@ -36,6 +38,7 @@ class ParquetWriter:
         # Metrics
         self._flush_success: int = 0
         self._flush_fail: int = 0
+        self._consecutive_failures: int = 0
         self._total_records_written: int = 0
 
     async def run(self, queue: asyncio.Queue) -> None:
@@ -90,11 +93,20 @@ class ParquetWriter:
             table = records_to_table(self._buffer)
             self._writer.write_table(table)
             self._flush_success += 1
+            self._consecutive_failures = 0
             self._total_records_written += count
             logger.info("Flushed %d records to %s", count, self._part_path)
         except Exception:
             self._flush_fail += 1
-            logger.exception("Failed to flush %d records", count)
+            self._consecutive_failures += 1
+            logger.exception("Failed to flush %d records (consecutive: %d)", count, self._consecutive_failures)
+            if self._consecutive_failures >= MAX_CONSECUTIVE_FLUSH_FAILURES:
+                logger.critical(
+                    "Flush failed %d times consecutively, discarding %d records to prevent memory exhaustion",
+                    self._consecutive_failures, count,
+                )
+                self._buffer.clear()
+                self._consecutive_failures = 0
             return
         self._buffer.clear()
         self._last_flush = time.time()

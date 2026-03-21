@@ -5,12 +5,13 @@ from __future__ import annotations
 import asyncio
 import logging
 import os
+import platform
 import signal
 import sys
 
 import yaml
 
-from feeds.binance import BinanceFeed
+from feeds.binance import BinanceBookTickerFeed, BinanceMarketFeed
 from feeds.bybit import BybitFeed
 from writer import ParquetWriter
 
@@ -22,11 +23,13 @@ DEFAULT_CONFIG = {
     "feeds": {
         "binance": {
             "enabled": True,
-            "url": "wss://fstream.binance.com/stream?streams=btcusdt@bookTicker/btcusdt@markPrice@1s/btcusdt@aggTrade",
+            "public_url": "wss://fstream.binance.com/public/ws/btcusdt@bookTicker",
+            "market_url": "wss://fstream.binance.com/market/stream?streams=btcusdt@markPrice@1s/btcusdt@aggTrade",
         },
         "bybit": {
             "enabled": True,
             "url": "wss://stream.bybit.com/v5/public/linear",
+            "ping_interval_seconds": 20,
         },
     },
     "logging": {"level": "INFO"},
@@ -74,18 +77,31 @@ async def main() -> None:
         buffer_max_records=config["buffer_max_records"],
     )
 
-    tasks: list[asyncio.Task] = []
+    shutdown_event = asyncio.Event()
+
+    # Signal handling: Unix uses loop signals, Windows falls back to KeyboardInterrupt
+    if platform.system() != "Windows":
+        loop = asyncio.get_running_loop()
+        for sig in (signal.SIGINT, signal.SIGTERM):
+            loop.add_signal_handler(sig, lambda: shutdown_event.set())
+
     feeds_cfg = config["feeds"]
+    tasks: list[asyncio.Task] = []
 
     if feeds_cfg["binance"].get("enabled", True):
-        feed = BinanceFeed("binance", feeds_cfg["binance"]["url"], queue)
-        tasks.append(asyncio.create_task(feed.run()))
-        logger.info("Binance feed enabled")
+        bcfg = feeds_cfg["binance"]
+        book_feed = BinanceBookTickerFeed("binance.public", bcfg["public_url"], queue)
+        market_feed = BinanceMarketFeed("binance.market", bcfg["market_url"], queue)
+        tasks.append(asyncio.create_task(book_feed.run()))
+        tasks.append(asyncio.create_task(market_feed.run()))
+        logger.info("Binance feeds enabled (/public + /market)")
 
     if feeds_cfg["bybit"].get("enabled", True):
-        feed = BybitFeed("bybit", feeds_cfg["bybit"]["url"], queue)
+        bcfg = feeds_cfg["bybit"]
+        ping_interval = bcfg.get("ping_interval_seconds", 20)
+        feed = BybitFeed("bybit", bcfg["url"], queue, ping_interval=ping_interval)
         tasks.append(asyncio.create_task(feed.run()))
-        logger.info("Bybit feed enabled")
+        logger.info("Bybit feed enabled (ping every %ds)", ping_interval)
 
     if not tasks:
         logger.error("No feeds enabled, exiting")
@@ -93,19 +109,12 @@ async def main() -> None:
 
     tasks.append(asyncio.create_task(writer.run(queue)))
 
-    # Graceful shutdown on SIGINT/SIGTERM
-    loop = asyncio.get_running_loop()
-    shutdown_event = asyncio.Event()
+    try:
+        await shutdown_event.wait()
+    except asyncio.CancelledError:
+        pass
 
-    def _signal_handler():
-        logger.info("Shutdown signal received")
-        shutdown_event.set()
-
-    for sig in (signal.SIGINT, signal.SIGTERM):
-        loop.add_signal_handler(sig, _signal_handler)
-
-    await shutdown_event.wait()
-    logger.info("Cancelling tasks...")
+    logger.info("Shutdown signal received, cancelling %d tasks...", len(tasks))
     for t in tasks:
         t.cancel()
     await asyncio.gather(*tasks, return_exceptions=True)
@@ -113,4 +122,7 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        pass

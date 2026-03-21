@@ -7,16 +7,17 @@ from feeds.base import BaseFeed
 from schema import TickRecord, ms_to_datetime, now_utc
 
 SYMBOL = "BTCUSDT"
-PING_INTERVAL = 20  # seconds
+DEFAULT_PING_INTERVAL = 20  # seconds
 
 
 class BybitFeed(BaseFeed):
     """Bybit V5 linear perpetual: tickers stream with snapshot/delta handling."""
 
-    def __init__(self, *args, **kwargs) -> None:
+    def __init__(self, *args, ping_interval: int = DEFAULT_PING_INTERVAL, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         self._last_snapshot: dict | None = None
         self._ping_task: asyncio.Task | None = None
+        self._ping_interval = ping_interval
 
     async def _subscribe(self, ws) -> None:
         self._last_snapshot = None
@@ -24,7 +25,6 @@ class BybitFeed(BaseFeed):
             "op": "subscribe",
             "args": [f"tickers.{SYMBOL}"],
         }))
-        # Start keepalive pinger
         if self._ping_task is not None:
             self._ping_task.cancel()
         self._ping_task = asyncio.create_task(self._ping_loop(ws))
@@ -32,7 +32,7 @@ class BybitFeed(BaseFeed):
     async def _ping_loop(self, ws) -> None:
         try:
             while True:
-                await asyncio.sleep(PING_INTERVAL)
+                await asyncio.sleep(self._ping_interval)
                 await ws.send(json.dumps({"op": "ping"}))
         except asyncio.CancelledError:
             pass

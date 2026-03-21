@@ -8,11 +8,45 @@ from schema import TickRecord, ms_to_datetime, now_utc
 SYMBOL = "BTCUSDT"
 
 
-class BinanceFeed(BaseFeed):
-    """Binance USDS-margined futures: bookTicker + markPrice + aggTrade combined stream."""
+class BinanceBookTickerFeed(BaseFeed):
+    """Binance USDS-M futures /public: bookTicker (high-frequency BBO).
+
+    Single stream via /public/ws/... — data arrives unwrapped (no combined stream wrapper).
+    """
 
     async def _subscribe(self, ws) -> None:
-        # Streams are specified in the URL path, no subscription message needed.
+        pass
+
+    def _parse_message(self, raw: str) -> list[TickRecord] | None:
+        data = json.loads(raw)
+
+        # Single stream: data comes directly, no {"stream":...,"data":...} wrapper
+        if "b" not in data:
+            return None
+
+        ts = now_utc()
+        event_ts = ms_to_datetime(data["E"]) if "E" in data else None
+        tx_ts = ms_to_datetime(data["T"]) if "T" in data else None
+
+        return [TickRecord(
+            timestamp=ts,
+            exchange_event_ts=event_ts,
+            exchange_tx_ts=tx_ts,
+            exchange="binance",
+            symbol=SYMBOL,
+            record_type="bbo",
+            source_stream="bookTicker",
+            best_bid_price=float(data["b"]),
+            best_bid_qty=float(data["B"]),
+            best_ask_price=float(data["a"]),
+            best_ask_qty=float(data["A"]),
+        )]
+
+
+class BinanceMarketFeed(BaseFeed):
+    """Binance USDS-M futures /market: markPrice + aggTrade."""
+
+    async def _subscribe(self, ws) -> None:
         pass
 
     def _parse_message(self, raw: str) -> list[TickRecord] | None:
@@ -24,22 +58,6 @@ class BinanceFeed(BaseFeed):
 
         ts = now_utc()
         event_ts = ms_to_datetime(data["E"]) if "E" in data else None
-        tx_ts = ms_to_datetime(data["T"]) if "T" in data else None
-
-        if stream.endswith("@bookTicker"):
-            return [TickRecord(
-                timestamp=ts,
-                exchange_event_ts=event_ts,
-                exchange_tx_ts=tx_ts,
-                exchange="binance",
-                symbol=SYMBOL,
-                record_type="bbo",
-                source_stream="bookTicker",
-                best_bid_price=float(data["b"]),
-                best_bid_qty=float(data["B"]),
-                best_ask_price=float(data["a"]),
-                best_ask_qty=float(data["A"]),
-            )]
 
         if "markPrice" in stream:
             return [TickRecord(

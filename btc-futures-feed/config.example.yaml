@@ -1,7 +1,7 @@
 output_dir: "./data"
-rotation_seconds: 3600          # new Parquet file every hour
-flush_interval_seconds: 10      # flush buffer every 10 seconds
-buffer_max_records: 50000       # or flush when buffer hits this size
+rotation_seconds: 3600
+flush_interval_seconds: 10
+buffer_max_records: 50000
 
 feeds:
   binance:
