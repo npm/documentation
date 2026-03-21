@@ -13,29 +13,46 @@ from schema import TickRecord
 
 
 class BaseFeed(ABC):
-    def __init__(self, name: str, url: str, queue: asyncio.Queue) -> None:
+    def __init__(
+        self,
+        name: str,
+        url: str,
+        queue: asyncio.Queue,
+        stop_event: asyncio.Event,
+    ) -> None:
         self.name = name
         self.url = url
         self.queue = queue
+        self.stop_event = stop_event
         self.logger = logging.getLogger(name)
         self._msg_count = 0
         self._drop_count = 0
         self._last_recv_time: float = 0
 
     async def run(self) -> None:
-        async for ws in connect(self.url, logger=self.logger):
+        while not self.stop_event.is_set():
             try:
-                self.logger.info("Connected to %s", self.url)
-                self._msg_count = 0
-                await self._subscribe(ws)
-                await self._listen(ws)
-            except ConnectionClosed as e:
-                self.logger.warning("Connection closed: %s. Reconnecting...", e)
+                async for ws in connect(self.url, logger=self.logger):
+                    try:
+                        self.logger.info("Connected to %s", self.url)
+                        self._msg_count = 0
+                        await self._subscribe(ws)
+                        await self._listen(ws)
+                    except ConnectionClosed as e:
+                        self.logger.warning("Connection closed: %s. Reconnecting...", e)
+                    except Exception:
+                        self.logger.exception("Unexpected error. Reconnecting...")
+                    if self.stop_event.is_set():
+                        break
+            except asyncio.CancelledError:
+                raise
             except Exception:
-                self.logger.exception("Unexpected error. Reconnecting...")
+                self.logger.exception("Connection attempt failed. Retrying...")
 
     async def _listen(self, ws) -> None:
         async for raw in ws:
+            if self.stop_event.is_set():
+                return
             try:
                 records = self._parse_message(raw)
             except Exception:
@@ -52,12 +69,14 @@ class BaseFeed(ABC):
                     if self._drop_count % 1000 == 1:
                         self.logger.warning("Queue full, total dropped: %d", self._drop_count)
                 self._msg_count += 1
-                if self._msg_count % 10000 == 0:
-                    self.logger.info(
-                        "Received %d messages (dropped %d, last_recv %.1fs ago)",
-                        self._msg_count, self._drop_count,
-                        time.time() - self._last_recv_time,
-                    )
+
+    def get_stats(self) -> dict:
+        return {
+            "feed": self.name,
+            "received": self._msg_count,
+            "dropped": self._drop_count,
+            "last_recv": self._last_recv_time,
+        }
 
     @abstractmethod
     async def _subscribe(self, ws) -> None:

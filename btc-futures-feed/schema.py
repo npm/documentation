@@ -14,6 +14,7 @@ ARROW_SCHEMA = pa.schema([
     ("symbol", pa.utf8()),
     ("record_type", pa.utf8()),
     ("source_stream", pa.utf8()),
+    ("sequence", pa.int64()),
     ("best_bid_price", pa.float64()),
     ("best_bid_qty", pa.float64()),
     ("best_ask_price", pa.float64()),
@@ -35,6 +36,7 @@ class TickRecord:
     symbol: str = ""
     record_type: str = ""
     source_stream: str = ""
+    sequence: int | None = None
     best_bid_price: float | None = None
     best_bid_qty: float | None = None
     best_ask_price: float | None = None

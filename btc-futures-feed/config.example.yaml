@@ -2,16 +2,36 @@ output_dir: "./data"
 rotation_seconds: 3600
 flush_interval_seconds: 10
 buffer_max_records: 50000
+queue_maxsize: 100000
+
+writer:
+  compression: "snappy"
+  temp_suffix: ".part"
 
 feeds:
   binance:
     enabled: true
-    public_url: "wss://fstream.binance.com/public/ws/btcusdt@bookTicker"
+
+    # Best bid/ask (high-frequency public data)
+    public_url: "wss://fstream.binance.com/public/stream?streams=btcusdt@bookTicker"
+
+    # mark price + funding + last trade (regular market data)
     market_url: "wss://fstream.binance.com/market/stream?streams=btcusdt@markPrice@1s/btcusdt@aggTrade"
+
+    reconnect:
+      initial_backoff_seconds: 1
+      max_backoff_seconds: 30
+
   bybit:
     enabled: true
     url: "wss://stream.bybit.com/v5/public/linear"
+    subscribe_args:
+      - "tickers.BTCUSDT"
     ping_interval_seconds: 20
+    reconnect:
+      initial_backoff_seconds: 1
+      max_backoff_seconds: 30
 
 logging:
   level: "INFO"
+  stats_interval_seconds: 30

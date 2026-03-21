@@ -7,23 +7,32 @@ from feeds.base import BaseFeed
 from schema import TickRecord, ms_to_datetime, now_utc
 
 SYMBOL = "BTCUSDT"
-DEFAULT_PING_INTERVAL = 20  # seconds
+DEFAULT_PING_INTERVAL = 20
 
 
 class BybitFeed(BaseFeed):
     """Bybit V5 linear perpetual: tickers stream with snapshot/delta handling."""
 
-    def __init__(self, *args, ping_interval: int = DEFAULT_PING_INTERVAL, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
+    def __init__(
+        self,
+        name: str,
+        url: str,
+        queue: asyncio.Queue,
+        stop_event: asyncio.Event,
+        subscribe_args: list[str] | None = None,
+        ping_interval: int = DEFAULT_PING_INTERVAL,
+    ) -> None:
+        super().__init__(name, url, queue, stop_event)
+        self._subscribe_args = subscribe_args or [f"tickers.{SYMBOL}"]
+        self._ping_interval = ping_interval
         self._last_snapshot: dict | None = None
         self._ping_task: asyncio.Task | None = None
-        self._ping_interval = ping_interval
 
     async def _subscribe(self, ws) -> None:
         self._last_snapshot = None
         await ws.send(json.dumps({
             "op": "subscribe",
-            "args": [f"tickers.{SYMBOL}"],
+            "args": self._subscribe_args,
         }))
         if self._ping_task is not None:
             self._ping_task.cancel()
@@ -76,6 +85,7 @@ class BybitFeed(BaseFeed):
         state = self._last_snapshot
         ts = now_utc()
         exchange_event_ts = ms_to_datetime(msg["ts"]) if "ts" in msg else None
+        seq = int(msg["cs"]) if "cs" in msg else None
 
         return [TickRecord(
             timestamp=ts,
@@ -84,7 +94,8 @@ class BybitFeed(BaseFeed):
             exchange="bybit",
             symbol=SYMBOL,
             record_type="ticker",
-            source_stream=f"tickers.{SYMBOL}",
+            source_stream=f"bybit:{topic}",
+            sequence=seq,
             best_bid_price=_float_or_none(state.get("bid1Price")),
             best_bid_qty=_float_or_none(state.get("bid1Size")),
             best_ask_price=_float_or_none(state.get("ask1Price")),

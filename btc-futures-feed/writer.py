@@ -22,11 +22,15 @@ class ParquetWriter:
         rotation_seconds: int = 3600,
         flush_interval_seconds: int = 10,
         buffer_max_records: int = 50_000,
+        compression: str = "snappy",
+        temp_suffix: str = ".part",
     ) -> None:
         self.output_dir = output_dir
         self.rotation_seconds = rotation_seconds
         self.flush_interval = flush_interval_seconds
         self.buffer_max = buffer_max_records
+        self.compression = compression
+        self.temp_suffix = temp_suffix
 
         self._buffer: list[TickRecord] = []
         self._writer: pq.ParquetWriter | None = None
@@ -41,45 +45,47 @@ class ParquetWriter:
         self._consecutive_failures: int = 0
         self._total_records_written: int = 0
 
-    async def run(self, queue: asyncio.Queue) -> None:
+    async def run(self, queue: asyncio.Queue, stop_event: asyncio.Event) -> None:
         os.makedirs(self.output_dir, exist_ok=True)
         self._rotate_file()
         self._last_flush = time.time()
 
-        try:
-            while True:
-                try:
-                    record = await asyncio.wait_for(queue.get(), timeout=0.5)
-                    self._buffer.append(record)
-                except asyncio.TimeoutError:
-                    pass
+        while not stop_event.is_set():
+            try:
+                record = await asyncio.wait_for(queue.get(), timeout=0.5)
+                self._buffer.append(record)
+            except asyncio.TimeoutError:
+                pass
 
-                now = time.time()
+            now = time.time()
 
-                # Check rotation
-                if now - self._period_start >= self.rotation_seconds:
-                    self._flush()
-                    self._rotate_file()
+            if now - self._period_start >= self.rotation_seconds:
+                self._flush()
+                self._rotate_file()
+            elif (
+                len(self._buffer) >= self.buffer_max
+                or (self._buffer and now - self._last_flush >= self.flush_interval)
+            ):
+                self._flush()
 
-                # Check flush conditions
-                elif (
-                    len(self._buffer) >= self.buffer_max
-                    or (self._buffer and now - self._last_flush >= self.flush_interval)
-                ):
-                    self._flush()
+        # Drain remaining items from queue
+        while not queue.empty():
+            try:
+                self._buffer.append(queue.get_nowait())
+            except asyncio.QueueEmpty:
+                break
 
-        except asyncio.CancelledError:
-            logger.info("Writer shutting down, flushing remaining %d records", len(self._buffer))
-            self._flush()
-            self._close_writer()
-            self._log_metrics()
+        logger.info("Writer shutting down, flushing remaining %d records", len(self._buffer))
+        self._flush()
+        self._close_writer()
+        self._log_metrics()
 
     def _rotate_file(self) -> None:
         self._close_writer()
         ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
         self._final_path = os.path.join(self.output_dir, f"btcusdt_{ts}.parquet")
-        self._part_path = self._final_path + ".part"
-        self._writer = pq.ParquetWriter(self._part_path, ARROW_SCHEMA, compression="snappy")
+        self._part_path = self._final_path + self.temp_suffix
+        self._writer = pq.ParquetWriter(self._part_path, ARROW_SCHEMA, compression=self.compression)
         self._period_start = time.time()
         logger.info("New file: %s", self._part_path)
 
@@ -99,7 +105,10 @@ class ParquetWriter:
         except Exception:
             self._flush_fail += 1
             self._consecutive_failures += 1
-            logger.exception("Failed to flush %d records (consecutive: %d)", count, self._consecutive_failures)
+            logger.exception(
+                "Failed to flush %d records (consecutive: %d)",
+                count, self._consecutive_failures,
+            )
             if self._consecutive_failures >= MAX_CONSECUTIVE_FLUSH_FAILURES:
                 logger.critical(
                     "Flush failed %d times consecutively, discarding %d records to prevent memory exhaustion",
@@ -119,13 +128,20 @@ class ParquetWriter:
                 logger.exception("Error closing parquet writer")
             self._writer = None
 
-            # Rename .part → final path
             if self._part_path and self._final_path and os.path.exists(self._part_path):
                 try:
                     os.rename(self._part_path, self._final_path)
                     logger.info("Finalized: %s", self._final_path)
                 except OSError:
                     logger.exception("Failed to rename %s -> %s", self._part_path, self._final_path)
+
+    def get_stats(self) -> dict:
+        return {
+            "records_written": self._total_records_written,
+            "flush_success": self._flush_success,
+            "flush_fail": self._flush_fail,
+            "buffer_size": len(self._buffer),
+        }
 
     def _log_metrics(self) -> None:
         logger.info(
