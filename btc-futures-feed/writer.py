@@ -28,9 +28,15 @@ class ParquetWriter:
 
         self._buffer: list[TickRecord] = []
         self._writer: pq.ParquetWriter | None = None
-        self._file_path: str | None = None
+        self._part_path: str | None = None
+        self._final_path: str | None = None
         self._period_start: float = 0
         self._last_flush: float = 0
+
+        # Metrics
+        self._flush_success: int = 0
+        self._flush_fail: int = 0
+        self._total_records_written: int = 0
 
     async def run(self, queue: asyncio.Queue) -> None:
         os.makedirs(self.output_dir, exist_ok=True)
@@ -63,26 +69,32 @@ class ParquetWriter:
             logger.info("Writer shutting down, flushing remaining %d records", len(self._buffer))
             self._flush()
             self._close_writer()
+            self._log_metrics()
 
     def _rotate_file(self) -> None:
         self._close_writer()
         ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
-        self._file_path = os.path.join(self.output_dir, f"btcusdt_{ts}.parquet")
-        self._writer = pq.ParquetWriter(self._file_path, ARROW_SCHEMA, compression="snappy")
+        self._final_path = os.path.join(self.output_dir, f"btcusdt_{ts}.parquet")
+        self._part_path = self._final_path + ".part"
+        self._writer = pq.ParquetWriter(self._part_path, ARROW_SCHEMA, compression="snappy")
         self._period_start = time.time()
-        logger.info("New file: %s", self._file_path)
+        logger.info("New file: %s", self._part_path)
 
     def _flush(self) -> None:
         if not self._buffer:
             return
         if self._writer is None:
             self._rotate_file()
+        count = len(self._buffer)
         try:
             table = records_to_table(self._buffer)
             self._writer.write_table(table)
-            logger.info("Flushed %d records to %s", len(self._buffer), self._file_path)
+            self._flush_success += 1
+            self._total_records_written += count
+            logger.info("Flushed %d records to %s", count, self._part_path)
         except Exception:
-            logger.exception("Failed to flush %d records", len(self._buffer))
+            self._flush_fail += 1
+            logger.exception("Failed to flush %d records", count)
             return
         self._buffer.clear()
         self._last_flush = time.time()
@@ -94,3 +106,19 @@ class ParquetWriter:
             except Exception:
                 logger.exception("Error closing parquet writer")
             self._writer = None
+
+            # Rename .part → final path
+            if self._part_path and self._final_path and os.path.exists(self._part_path):
+                try:
+                    os.rename(self._part_path, self._final_path)
+                    logger.info("Finalized: %s", self._final_path)
+                except OSError:
+                    logger.exception("Failed to rename %s -> %s", self._part_path, self._final_path)
+
+    def _log_metrics(self) -> None:
+        logger.info(
+            "Writer metrics: records_written=%d flush_success=%d flush_fail=%d",
+            self._total_records_written,
+            self._flush_success,
+            self._flush_fail,
+        )

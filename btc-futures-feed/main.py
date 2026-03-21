@@ -22,7 +22,7 @@ DEFAULT_CONFIG = {
     "feeds": {
         "binance": {
             "enabled": True,
-            "url": "wss://fstream.binance.com/stream?streams=btcusdt@bookTicker/btcusdt@markPrice@1s",
+            "url": "wss://fstream.binance.com/stream?streams=btcusdt@bookTicker/btcusdt@markPrice@1s/btcusdt@aggTrade",
         },
         "bybit": {
             "enabled": True,

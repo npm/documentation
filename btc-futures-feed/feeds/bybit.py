@@ -50,7 +50,7 @@ class BybitFeed(BaseFeed):
     def _parse_message(self, raw: str) -> list[TickRecord] | None:
         msg = json.loads(raw)
 
-        # Skip op responses (subscribe confirm, pong)
+        # Skip op responses (subscribe confirm, pong, etc.)
         if "op" in msg:
             return None
 
@@ -75,13 +75,16 @@ class BybitFeed(BaseFeed):
 
         state = self._last_snapshot
         ts = now_utc()
-        exchange_ts = ms_to_datetime(msg.get("ts", 0))
+        exchange_event_ts = ms_to_datetime(msg["ts"]) if "ts" in msg else None
 
         return [TickRecord(
             timestamp=ts,
-            exchange_ts=exchange_ts,
+            exchange_event_ts=exchange_event_ts,
+            exchange_tx_ts=None,
             exchange="bybit",
             symbol=SYMBOL,
+            record_type="ticker",
+            source_stream=f"tickers.{SYMBOL}",
             best_bid_price=_float_or_none(state.get("bid1Price")),
             best_bid_qty=_float_or_none(state.get("bid1Size")),
             best_ask_price=_float_or_none(state.get("ask1Price")),

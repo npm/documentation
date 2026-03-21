@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import time
 from abc import ABC, abstractmethod
 
 from websockets.asyncio.client import connect
@@ -18,6 +19,8 @@ class BaseFeed(ABC):
         self.queue = queue
         self.logger = logging.getLogger(name)
         self._msg_count = 0
+        self._drop_count = 0
+        self._last_recv_time: float = 0
 
     async def run(self) -> None:
         async for ws in connect(self.url, logger=self.logger):
@@ -40,14 +43,21 @@ class BaseFeed(ABC):
                 continue
             if records is None:
                 continue
+            self._last_recv_time = time.time()
             for record in records:
                 try:
                     self.queue.put_nowait(record)
                 except asyncio.QueueFull:
-                    self.logger.warning("Queue full, dropping message")
+                    self._drop_count += 1
+                    if self._drop_count % 1000 == 1:
+                        self.logger.warning("Queue full, total dropped: %d", self._drop_count)
                 self._msg_count += 1
                 if self._msg_count % 10000 == 0:
-                    self.logger.info("Received %d messages", self._msg_count)
+                    self.logger.info(
+                        "Received %d messages (dropped %d, last_recv %.1fs ago)",
+                        self._msg_count, self._drop_count,
+                        time.time() - self._last_recv_time,
+                    )
 
     @abstractmethod
     async def _subscribe(self, ws) -> None:

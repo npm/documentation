@@ -8,14 +8,18 @@ import pyarrow as pa
 
 ARROW_SCHEMA = pa.schema([
     ("timestamp", pa.timestamp("us", tz="UTC")),
-    ("exchange_ts", pa.timestamp("ms", tz="UTC")),
+    ("exchange_event_ts", pa.timestamp("ms", tz="UTC")),
+    ("exchange_tx_ts", pa.timestamp("ms", tz="UTC")),
     ("exchange", pa.utf8()),
     ("symbol", pa.utf8()),
+    ("record_type", pa.utf8()),
+    ("source_stream", pa.utf8()),
     ("best_bid_price", pa.float64()),
     ("best_bid_qty", pa.float64()),
     ("best_ask_price", pa.float64()),
     ("best_ask_qty", pa.float64()),
     ("last_price", pa.float64()),
+    ("last_qty", pa.float64()),
     ("mark_price", pa.float64()),
     ("index_price", pa.float64()),
     ("funding_rate", pa.float64()),
@@ -25,14 +29,18 @@ ARROW_SCHEMA = pa.schema([
 @dataclass(slots=True)
 class TickRecord:
     timestamp: datetime
-    exchange_ts: datetime
-    exchange: str
-    symbol: str
+    exchange_event_ts: datetime | None = None
+    exchange_tx_ts: datetime | None = None
+    exchange: str = ""
+    symbol: str = ""
+    record_type: str = ""
+    source_stream: str = ""
     best_bid_price: float | None = None
     best_bid_qty: float | None = None
     best_ask_price: float | None = None
     best_ask_qty: float | None = None
     last_price: float | None = None
+    last_qty: float | None = None
     mark_price: float | None = None
     index_price: float | None = None
     funding_rate: float | None = None
