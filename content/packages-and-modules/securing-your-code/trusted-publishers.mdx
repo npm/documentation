@@ -332,11 +332,13 @@ If you encounter an "Unable to authenticate" (ENEEDAUTH) error when publishing, 
 
 </Note>
 
+To publish from GitHub, your package's `repository.url` field in `package.json` must exactly match your GitHub repository. This may be an issue for misconfigured packages, but could also impact publication from forks that haven't updated `package.json` to match the forked repo.
+
 If your package has private dependencies and `npm install` or `npm ci` is failing with authentication errors, remember that trusted publishing only applies to the `npm publish` command. You'll still need to provide a read-only token for installing private packages as shown in the examples above.
 
 For packages in private repositories, provenance will not be generated even though you're using trusted publishing. This is a [known limitation](https://github.blog/changelog/2023-07-25-publishing-with-npm-provenance-from-private-source-repositories-is-no-longer-supported/) that applies regardless of whether your package itself is public or private.
 
-Some GitHub Actions workflows use `workflow_call` to invoke other workflows that run `npm publish`, or use `workflow_dispatch` for manual publishing. When this happens, validation checks the calling workflow's name instead of the workflow that actually contains the publish command, which can cause configuration mismatches.
+Some GitHub Actions workflows use `workflow_call` to invoke other workflows that run `npm publish`, or use `workflow_dispatch` for manual publishing. When this happens, validation checks the calling workflow's name instead of the workflow that actually contains the publish command, which can cause configuration mismatches. The `id-token: write` permission must also be given to both parent and child workflows.
 
 ## Limitations and future improvements
 
