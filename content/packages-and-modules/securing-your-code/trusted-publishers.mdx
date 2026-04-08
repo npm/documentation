@@ -106,6 +106,7 @@ jobs:
         with:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
+          package-manager-cache: false  # never use caching in release builds
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
@@ -298,10 +299,11 @@ While trusted publishing handles the publish operation, you may still need authe
 
 ```yaml
 # GitHub Actions example
-- uses: actions/setup-node@v4
+- uses: actions/setup-node@v6
   with:
     node-version: '24'
     registry-url: 'https://registry.npmjs.org'
+    package-manager-cache: false  # never use caching in release builds
 # Use a read-only token for installing dependencies
 - run: npm ci
   env:
