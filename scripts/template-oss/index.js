@@ -30,6 +30,7 @@ module.exports = {
     },
   },
   ciVersions: 'latest',
+  updateNpm: false,
   latestCiVersion: 22,
   macCI: false,
   windowsCI: false,
