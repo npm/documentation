@@ -11,6 +11,8 @@ jobs:
   update-cli:
     outputs:
       has_changes: ${{ steps.status.outputs.has_changes }}
+    permissions:
+      contents: write
     name: Update CLI
     if: github.repository_owner == 'npm'
     runs-on: ubuntu-latest
@@ -43,7 +45,7 @@ jobs:
         id: status
         run: |
           if [ -n "$(git status --porcelain)" ]; then
-            echo "::set-output name=has_changes::1"
+            echo "has_changes=1" >> "$GITHUB_OUTPUT"
           fi
       - name: Check in source updates
         if: steps.status.outputs.has_changes == '1'
@@ -55,4 +57,9 @@ jobs:
   publish:
     needs: update-cli
     if: needs.update-cli.outputs.has_changes == '1'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+      actions: read
     uses: ./.github/workflows/publish.yml
