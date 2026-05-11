@@ -1,11 +1,77 @@
-const t = require('tap')
-const {resolve, join, posix} = require('path')
-const fs = require('fs/promises')
+const {test} = require('node:test')
+const assert = require('node:assert/strict')
+const {resolve, join, posix} = require('node:path')
+const fs = require('node:fs/promises')
+const os = require('node:os')
 const pacote = require('pacote')
 const yaml = require('yaml')
 const semver = require('semver')
 
 const navPath = resolve(__dirname, '..', '..', 'content', 'nav.yml')
+
+const ANCHOR = __dirname
+const SUT_CHAIN = [
+  require.resolve('../lib/build'),
+  require.resolve('../lib/extract'),
+  require.resolve('../lib/transform'),
+]
+
+// Install module mocks into `require.cache`, saving any prior entry so it can
+// be restored on cleanup. Cleanup also evicts the SUT chain so the next test
+// re-evaluates `lib/build` against fresh mocks.
+const installMocks = mocks => {
+  const saved = new Map()
+  const remember = path => {
+    if (!saved.has(path)) {
+      saved.set(path, require.cache[path])
+    }
+  }
+
+  for (const [key, exports] of Object.entries(mocks)) {
+    const resolved = require.resolve(key, {paths: [ANCHOR]})
+    remember(resolved)
+    require.cache[resolved] = {
+      id: resolved,
+      filename: resolved,
+      exports,
+      loaded: true,
+      children: [],
+      paths: [],
+    }
+  }
+
+  for (const path of SUT_CHAIN) {
+    remember(path)
+    delete require.cache[path]
+  }
+
+  return () => {
+    for (const [path, entry] of saved) {
+      if (entry === undefined) {
+        delete require.cache[path]
+      } else {
+        require.cache[path] = entry
+      }
+    }
+  }
+}
+
+// Minimal stand-in for tap's `t.testdir` — only handles the shapes our tests
+// use: top-level string => file, top-level {} => empty directory.
+const makeTestdir = async (t, contents) => {
+  const dir = await fs.mkdtemp(join(os.tmpdir(), 'cli-doc-test-'))
+  t.after(() => fs.rm(dir, {recursive: true, force: true}))
+
+  for (const [name, value] of Object.entries(contents)) {
+    const target = join(dir, name)
+    if (typeof value === 'string') {
+      await fs.writeFile(target, value, 'utf-8')
+    } else if (value && typeof value === 'object') {
+      await fs.mkdir(target, {recursive: true})
+    }
+  }
+  return dir
+}
 
 const getReleases = () => [
   {
@@ -30,7 +96,7 @@ const mockBuild = async (t, {releases = getReleases(), packument = {}, testdir: 
   const rawNav = await fs.readFile(navPath, 'utf-8')
   const nav = yaml.parse(rawNav)
 
-  const testdir = t.testdir({
+  const testdir = await makeTestdir(t, {
     'nav.yml': rawNav,
     content: {},
     ...testdirOpts,
@@ -67,7 +133,7 @@ const mockBuild = async (t, {releases = getReleases(), packument = {}, testdir: 
   }
 
   let shaCounter = 0
-  const build = t.mockRequire('../lib/build', {
+  const restore = installMocks({
     pacote: {
       ...pacote,
       packument: async () => {
@@ -98,6 +164,9 @@ const mockBuild = async (t, {releases = getReleases(), packument = {}, testdir: 
       nwo: `npm/cli`,
     },
   })
+  t.after(restore)
+
+  const build = require('../lib/build')
 
   return {
     testdir,
@@ -112,7 +181,7 @@ const mockBuild = async (t, {releases = getReleases(), packument = {}, testdir: 
   }
 }
 
-t.test('basic', async t => {
+test('basic', async t => {
   const {releases, build, testdir} = await mockBuild(t, {
     testdir: {
       'nav.yml': '- title: cli\n  url: /cli',
@@ -120,29 +189,29 @@ t.test('basic', async t => {
   })
 
   await build()
-  t.strictSame(
+  assert.deepEqual(
     await fs.readdir(join(testdir, 'content')),
     releases.map(r => r.id),
   )
 })
 
-t.test('prereleases', async t => {
+test('prereleases', async t => {
   const {build, releases, testdir} = await mockBuild(t, {
     packument: {versions: ['6.14.18', '7.24.2', '8.19.3', '9.0.0-pre.2'], latest: '8.19.3'},
   })
 
   await build({prerelease: false})
   const expectedReleases = releases.map(r => r.id).filter(r => r !== 'v9')
-  t.strictSame(await fs.readdir(join(testdir, 'content')), expectedReleases)
+  assert.deepEqual(await fs.readdir(join(testdir, 'content')), expectedReleases)
 
   await build({prerelease: true})
-  t.strictSame(
+  assert.deepEqual(
     await fs.readdir(join(testdir, 'content')),
     releases.map(r => r.id),
   )
 })
 
-t.test('earlier release is latest', async t => {
+test('earlier release is latest', async t => {
   const {build} = await mockBuild(t, {
     packument: {latest: '8.19.3'},
   })
@@ -150,13 +219,13 @@ t.test('earlier release is latest', async t => {
   await build()
 })
 
-t.test('can skip fetching latest', async t => {
+test('can skip fetching latest', async t => {
   const {build} = await mockBuild(t)
 
   await build({useCurrent: true})
 })
 
-t.test('add variant to nav', async t => {
+test('add variant to nav', async t => {
   const {build} = await mockBuild(t, {
     testdir: {
       'nav.yml': '- title: cli\n  url: /cli\n  variants:\n    - url: /cli/v0',

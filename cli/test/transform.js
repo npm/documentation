@@ -1,10 +1,23 @@
-const t = require('tap')
+const {test} = require('node:test')
+const assert = require('node:assert/strict')
 const fm = require('front-matter')
 
+// Stub `cli/lib/gh.js` in require.cache before requiring transform — gh.js
+// otherwise tries to read process.env.GITHUB_TOKEN / shell out to `gh auth
+// token` at load time.
+const ghPath = require.resolve('../lib/gh')
+require.cache[ghPath] = {
+  id: ghPath,
+  filename: ghPath,
+  exports: {nwo: 'npm/cli'},
+  loaded: true,
+  children: [],
+  paths: [],
+}
+
+const Transform = require('../lib/transform')
+
 const transform = ({id, path}) => {
-  const Transform = t.mockRequire('../lib/transform', {
-    '../lib/gh.js': {nwo: 'npm/cli'},
-  })
   const transformed = Transform.sync('---\n---\n', {
     release: {
       id: id,
@@ -18,11 +31,11 @@ const transform = ({id, path}) => {
   return fm(transformed).attributes
 }
 
-t.test('v6 default page', async t => {
+test('v6 default page', () => {
   const v6 = transform({id: 'v6', path: 'configuring-npm/package-locks'})
   const v7 = transform({id: 'v7', path: 'configuring-npm/package-locks'})
 
-  t.strictSame(v6.redirect_from, [
+  assert.deepEqual(v6.redirect_from, [
     '/cli/configuring-npm/package-locks',
     '/cli/files/package-locks',
     '/cli/v6/configuring-npm/package-locks',
@@ -30,14 +43,14 @@ t.test('v6 default page', async t => {
     '/configuring-npm/package-locks',
     '/files/package-locks',
   ])
-  t.strictSame(v7.redirect_from, ['/cli/v7/configuring-npm/package-locks', '/cli/v7/files/package-locks'])
+  assert.deepEqual(v7.redirect_from, ['/cli/v7/configuring-npm/package-locks', '/cli/v7/files/package-locks'])
 })
 
-t.test('command', async t => {
+test('command', () => {
   const v7 = transform({id: 'v7', path: 'commands/npm-bin'})
   const v8 = transform({id: 'v8', path: 'commands/npm-bin'})
 
-  t.strictSame(v7.redirect_from, [
+  assert.deepEqual(v7.redirect_from, [
     '/cli/v7/bin',
     '/cli/v7/cli-commands/bin',
     '/cli/v7/cli-commands/npm-bin',
@@ -45,7 +58,7 @@ t.test('command', async t => {
     '/cli/v7/commands/npm-bin',
     '/cli/v7/npm-bin',
   ])
-  t.strictSame(v8.redirect_from, [
+  assert.deepEqual(v8.redirect_from, [
     '/cli-commands/bin',
     '/cli-commands/npm-bin',
     '/cli/bin',
@@ -65,17 +78,17 @@ t.test('command', async t => {
   ])
 })
 
-t.test('package-json files', async t => {
+test('package-json files', () => {
   const v7 = transform({id: 'v7', path: 'configuring-npm/package-json'})
   const v8 = transform({id: 'v8', path: 'configuring-npm/package-json'})
 
-  t.strictSame(v7.redirect_from, [
+  assert.deepEqual(v7.redirect_from, [
     '/cli/v7/configuring-npm/package-json',
     '/cli/v7/configuring-npm/package.json',
     '/cli/v7/files/package-json',
     '/cli/v7/files/package.json',
   ])
-  t.strictSame(v8.redirect_from, [
+  assert.deepEqual(v8.redirect_from, [
     '/cli/configuring-npm/package-json',
     '/cli/configuring-npm/package.json',
     '/cli/files/package-json',
@@ -91,8 +104,8 @@ t.test('package-json files', async t => {
   ])
 })
 
-t.test('registry signatures', async t => {
-  t.strictSame(
+test('registry signatures', () => {
+  assert.deepEqual(
     transform({
       id: 'v8',
       path: 'about-pgp-signatures-for-packages-in-the-public-registry',
@@ -103,7 +116,7 @@ t.test('registry signatures', async t => {
       '/cli/v8/about-pgp-signatures-for-packages-in-the-public-registry',
     ],
   )
-  t.strictSame(
+  assert.deepEqual(
     transform({
       id: 'v8',
       path: 'verifying-the-pgp-signature-for-a-package-from-the-npm-public-registry',
