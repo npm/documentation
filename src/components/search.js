@@ -81,7 +81,10 @@ export const Desktop = props => {
             <SearchResults {...rest} />
           </LightTheme>
         ) : null}
+
       </div>
+            <SearchIcon style={{color: ' rgba(255, 255, 255, 0.6)'}}/>
+
     </div>
   )
 }
@@ -192,6 +195,7 @@ export const Mobile = ({
                   {...getMenuProps()}
                 >
                   {resultsOpen ? <SearchResults {...rest} /> : null}
+
                 </LightTheme>
               </div>
             </div>
