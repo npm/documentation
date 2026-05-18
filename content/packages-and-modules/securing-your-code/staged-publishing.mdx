@@ -1,0 +1,122 @@
+---
+title: Staged publishing for npm packages
+---
+
+Staged publishing adds an approval step before packages go live on the npm registry. Instead of publishing directly with `npm publish`, you can submit packages to a staging area with `npm stage publish`. A maintainer must then review and explicitly approve the staged package — with two-factor authentication (2FA) via the CLI or [npmjs.com](https://www.npmjs.com) — before it becomes publicly available.
+
+Staged publishing is useful when you want an extra review step before a package version becomes available on the registry.
+
+<Note>
+
+**Note:** Staged publishing requires [npm CLI](https://docs.npmjs.com/cli/v11) version 11.15.0 or later and Node version 22.14.0 or higher.
+
+</Note>
+
+## How staged publishing works
+
+Staged publishing has three steps:
+
+1. [Stage a package](#stage-a-package)
+2. [Review a staged package](#review-a-staged-package)
+3. [Approve a staged package](#approve-a-staged-package)
+
+## Prerequisites
+
+Before using staged publishing, ensure the following:
+
+- You have **publish access** to the package
+- The package **already exists** on the npm registry — you cannot stage a brand-new package
+- **2FA is enabled** on your npm account
+
+## Stage a package
+
+1. On the command line, navigate to the root directory of your package.
+
+   ```
+   cd /path/to/package
+   ```
+
+2. To stage your package, run:
+
+   ```
+   npm stage publish
+   ```
+
+   This submits your package to a staging area.
+
+<Note>
+
+**Note:** `npm stage publish` does not require 2FA.
+
+</Note>
+
+## Review a staged package
+
+After you stage a package, you can inspect it in the CLI or on [npmjs.com](https://www.npmjs.com).
+
+#### Using the CLI
+
+To list staged packages you have access to:
+
+```
+npm stage list [<package-spec>]
+```
+
+To view details for a specific staged package:
+
+```
+npm stage view <stage-id>
+```
+
+To download the staged package tarball for inspection:
+
+```
+npm stage download <stage-id>
+```
+
+#### Using npmjs.com
+
+Open the **Staged Packages** tab to review staged packages and find the package you want to approve.
+
+<Screenshot
+   src="/packages-and-modules/securing-your-code/staged-package-tab.png"
+   alt="Screenshot showing the Staged Packages tab on npmjs.com with staged packages ready for review"
+/>
+
+## Approve a staged package
+
+To publish a staged package to the registry, approve it with 2FA.
+
+#### Using the CLI
+
+To approve a staged package and publish it to the live registry:
+
+```
+npm stage approve <stage-id>
+```
+
+#### Using npmjs.com
+
+On [npmjs.com](https://www.npmjs.com), review the staged package in the **Staged Packages** tab, then click **Approve**.
+
+<Screenshot
+   src="/packages-and-modules/securing-your-code/staged-package-approve.png"
+   alt="Screenshot showing a staged package on npmjs.com with the Approve button"
+/>
+
+<Note>
+
+**Note:** You will be prompted for 2FA verification whether you approve the package in the CLI or on [npmjs.com](https://www.npmjs.com).
+
+</Note>
+
+## Using staged publishing with trusted publishers
+
+If you use [trusted publishing (OIDC)](/trusted-publishers) from CI/CD, you can use staged publishing to submit a package for review before it goes live. A maintainer must still review and approve the staged package with 2FA.
+
+For more information on configuring trusted publisher permissions, see "[Trusted publishing for npm packages](/trusted-publishers#configuring-allowed-actions)."
+
+## Learn more
+
+- [Trusted publishing for npm packages](./trusted-publishers)
+- [Generating provenance statements](./generating-provenance-statements)

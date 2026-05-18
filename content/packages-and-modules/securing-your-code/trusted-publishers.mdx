@@ -45,6 +45,7 @@ Configure the following fields:
   - Must include the `.yml` or `.yaml` extension
   - The workflow file must exist in `.github/workflows/` in your repository
 - **Environment name** (optional): If using [GitHub environments](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment) for deployment protection
+- **Allowed actions** (required): Select which actions this trusted publisher can perform — `npm publish`, `npm stage publish`, or both. At least one must be selected. See [Staged publishing for npm packages](/staged-publishing) for more information on staged publishing.
 
 <Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher-github-actions.png" alt="Screenshot of GitHub Actions trusted publisher configuration form" />
 
@@ -57,6 +58,7 @@ Configure the following fields:
 - **Top-level CI file path** (required): The path to your CI file (e.g., `.gitlab-ci.yml`)
   - Must include the `.yml` extension
 - **Environment name** (optional): If using [GitLab environments](https://docs.gitlab.com/ee/ci/environments/)
+- **Allowed actions** (required): Select which actions this trusted publisher can perform — `npm publish`, `npm stage publish`, or both. At least one must be selected.
 
 <Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher-gitlab.png" alt="Screenshot of GitLab CI/CD trusted publisher configuration form" />
 
@@ -69,12 +71,19 @@ Configure the following fields:
 - **Pipeline definition ID** (required): The pipeline definition ID (UUID format). You may find it from your CircleCI Project Settings under Project Setup page.
 - **VCS origin** (required): The VCS origin URL for your project (e.g., `github.com/myorg/myrepo`)
 - **Context IDs** (optional): Restrict publishing to jobs using specific CircleCI contexts. You may find them from your CircleCI Organization Settings Contexts.
+- **Allowed actions** (required): Select which actions this trusted publisher can perform — `npm publish`, `npm stage publish`, or both. At least one must be selected.
 
 <Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher-circleci.png" alt="Screenshot of CircleCI trusted publisher configuration form" />
 
 <Note>
 
 **Note:** Each package can only have one trusted publisher configured at a time.
+
+</Note>
+
+<Note>
+
+**Note:** Trusted publisher configurations created before May 20, 2026 are automatically set to allow `npm publish` only — no behavior change occurs for current workflows. Configurations created after May 20, 2026 require you to explicitly select at least one allowed action.
 
 </Note>
 
@@ -110,7 +119,7 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
-      - run: npm publish
+      - run: npm publish  # Or: npm stage publish
 ```
 
 The critical requirement is the `id-token: write` permission, which allows GitHub Actions to generate OIDC tokens. Learn more in [GitHub's OIDC documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
@@ -146,7 +155,7 @@ publish:
   script:
     - npm ci
     - npm run build --if-present
-    - npm publish
+    - npm publish  # Or: npm stage publish
   only:
     - tags
 ```
@@ -185,7 +194,7 @@ jobs:
           name: Publish to npm with OIDC
           command: |
             export NPM_ID_TOKEN=$(circleci run oidc get --claims '{"aud": "npm:registry.npmjs.org"}')
-            npm publish
+            npm publish  # Or: npm stage publish
 
 workflows:
   publish:
@@ -217,6 +226,8 @@ Once you've configured trusted publishers for your package, we strongly recommen
 ### Why this matters
 
 Trusted publishers use short-lived, scoped credentials that are generated on-demand during your CI/CD workflow, eliminating the need for long-lived tokens. By restricting traditional token access while using trusted publishers, you reduce potential security risks associated with credential management.
+
+For even stronger security, configure your trusted publisher with **stage-only permissions** (allow `npm stage publish` but not `npm publish`). This ensures all CI-automated publishes go through the [staged publishing](/staged-publishing) flow, requiring a maintainer to review and approve each package with 2FA via the CLI or [npmjs.com](https://www.npmjs.com) before it becomes publicly available. Combined with disallowing tokens, this provides the maximum security posture for your packages.
 
 **Note:** The "disallow tokens" setting only affects traditional token authentication. Your trusted publishers will continue to work normally, as they use OIDC tokens.
 
@@ -346,12 +357,13 @@ Some GitHub Actions workflows use `workflow_call` to invoke other workflows that
 
 Trusted publishing currently supports only cloud-hosted runners. Support for self-hosted runners is intended for a future release. Each package can only have one trusted publisher configured at a time, though you can update this configuration as needed.
 
-OIDC authentication is currently limited to the publish operation. Other npm commands such as `install`, `view`, or `access` still require traditional authentication methods. The `npm whoami` command will not reflect OIDC authentication status since the authentication occurs only during the publish operation.
+OIDC authentication supports the `npm publish` and `npm stage publish` commands. Other stage subcommands (`npm stage list`, `npm stage view`, `npm stage approve`, `npm stage reject`) require interactive authentication and cannot use OIDC tokens, as these actions require proof of presence and can only be performed via the CLI or [npmjs.com](https://www.npmjs.com). Other npm commands such as `install`, `view`, or `access` still require traditional authentication methods. The `npm whoami` command will not reflect OIDC authentication status since the authentication occurs only during the publish or stage operation.
 
 We intend to expand trusted publishing support to additional CI/CD providers and enhance the feature based on community feedback.
 
 ## Learn more
 
+- [Staged publishing for npm packages](./staged-publishing)
 - [About npm provenance](./generating-provenance-statements)
 - [OpenSSF Trusted Publishers specification](https://repos.openssf.org/trusted-publishers-for-all-package-repositories)
 - [GitHub Actions OIDC documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
