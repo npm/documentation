@@ -77,16 +77,19 @@ npm install /path/to/my-test-package
 
 By default, scoped packages are published with private visibility. To publish a scoped package with public visibility, use `npm publish --access public`.
 
-<Note variant="warning">
+There are two ways to publish your package to the npm registry:
 
-**Important:** Publishing to npm requires either:
+1. [Direct publishing](#direct-publishing)
+2. [Staged publishing](#staged-publishing)
 
-- Two-factor authentication (2FA) enabled on your account, OR
-- A granular access token with bypass 2FA enabled
+### Direct publishing
+
+To publish directly with `npm publish --access public`, you need either:
+
+- Two-factor authentication (2FA) enabled on your account, or
+- A granular access token (GAT) with bypass 2FA enabled
 
 For more information, see the npm documentation on [requiring 2FA for package publishing](/requiring-2fa-for-package-publishing-and-settings-modification).
-
-</Note>
 
 1. On the command line, navigate to the root directory of your package.
 
@@ -112,6 +115,42 @@ For more information, see the npm documentation on [requiring 2FA for package pu
 
 For more information on the `publish` command, see the [CLI documentation][cli-publish].
 
+### Staged publishing
+
+Instead of publishing directly, you can stage your package and approve it later. Staging the package does not require 2FA, which allows CI workflows to submit a package to the staging area. Before the package becomes publicly available, a maintainer must review and approve it with 2FA.
+
+A GAT with bypass 2FA does not bypass the 2FA check during staged package approval.
+
+1. On the command line, navigate to the root directory of your package.
+
+   ```
+   cd /path/to/my-test-package
+   ```
+
+2. To stage your scoped public package, run:
+
+   ```
+   npm stage publish
+   ```
+
+   This submits your package to a staging area.
+
+3. To check that your package has been staged, use either of the following methods:
+   - In the CLI, run `npm stage list <package-name>` to find the staged package and its stage ID.
+   - On [npmjs.com](https://www.npmjs.com), open the **Staged Packages** tab to review staged packages.
+
+4. To approve and publish the staged package, use one of the following methods:
+   - In the CLI, run the `npm stage approve <stage-id>` command.
+   - On [npmjs.com](https://www.npmjs.com), review the staged package in the **Staged Packages** tab, then click **Approve**.
+
+   <Note>
+
+   **Note:** You will be prompted for 2FA verification regardless of whether you approve the package in the CLI or on [npmjs.com](https://www.npmjs.com). Once approved, the package is published to the live registry.
+
+   </Note>
+
+For the full staged publishing workflow, including reviewing, inspecting, and rejecting staged packages, see [Staged publishing][staged-publishing].
+
 [scopes]: /about-scopes
 [user-signup]: https://www.npmjs.com/signup
 [create-org]: https://www.npmjs.com/signup?next=/org/create
@@ -125,3 +164,4 @@ For more information on the `publish` command, see the [CLI documentation][cli-p
 [config-2fa]: /configuring-two-factor-authentication
 [creating-token]: /creating-and-viewing-access-tokens
 [requiring-2fa]: /requiring-2fa-for-package-publishing-and-settings-modification
+[staged-publishing]: /staged-publishing
