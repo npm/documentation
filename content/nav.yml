@@ -1598,7 +1598,7 @@
             - title: Changelog
               url: /cli/v10/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 11.14.1
+    - title: Version 11.15.0
       shortName: v11
       url: /cli/v11
       default: true
@@ -1761,6 +1761,9 @@
             - title: npm set
               url: /cli/v11/commands/npm-set
               description: Set a value in the npm configuration
+            - title: npm stage
+              url: /cli/v11/commands/npm-stage
+              description: Stage packages for publishing
             - title: npm start
               url: /cli/v11/commands/npm-start
               description: Start a package
