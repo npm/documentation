@@ -215,6 +215,11 @@ export const Table = styled.table`
     border-top-width: 1px;
   }
 
+  td code,
+  th code {
+    white-space: nowrap;
+  }
+
   td a {
     color: var(--fgColor-default, #1f2328);
     text-decoration: underline;

@@ -128,10 +128,11 @@ const transform = (data, {release, path, frontmatter, format = s => s}) => {
   // then do any transformer specific replacements
   body = format(body)
 
-  // prettier again now that we've altered the contents
-  body = prettierFormat(body)
+  // then do any transformer specific replacements
+  body = format(body)
 
-  return `---\n${yaml.stringify(attributes).trim()}\n---\n\n${body}`
+  // prettier on the final assembled output so the committed file passes prettier --check
+  return prettierFormat(`---\n${yaml.stringify(attributes).trim()}\n---\n\n${body}`)
 }
 
 // copied from minipass-collect. collects all chunks into a single
