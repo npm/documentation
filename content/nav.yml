@@ -1598,7 +1598,7 @@
             - title: Changelog
               url: /cli/v10/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 11.15.0
+    - title: Version 11.16.0
       shortName: v11
       url: /cli/v11
       default: true
@@ -1614,6 +1614,9 @@
             - title: npm access
               url: /cli/v11/commands/npm-access
               description: Set access level on published packages
+            - title: npm approve-scripts
+              url: /cli/v11/commands/npm-approve-scripts
+              description: Approve install scripts for specific dependencies
             - title: npm audit
               url: /cli/v11/commands/npm-audit
               description: Run a security audit
@@ -1635,6 +1638,9 @@
             - title: npm dedupe
               url: /cli/v11/commands/npm-dedupe
               description: Reduce duplication in the package tree
+            - title: npm deny-scripts
+              url: /cli/v11/commands/npm-deny-scripts
+              description: Deny install scripts for specific dependencies
             - title: npm deprecate
               url: /cli/v11/commands/npm-deprecate
               description: Deprecate a version of a package
