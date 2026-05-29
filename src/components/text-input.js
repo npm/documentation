@@ -8,12 +8,13 @@ const TextInput = styled(PrimerTextInput)`
    */
   input {
     font-size: 16px !important;
-    color: rgb(225, 228, 232) !important;
+    color: var(--fgColor-default, #1f2328) !important;
+    caret-color: var(--fgColor-default, #1f2328) !important;
   }
 
   input::placeholder {
-    color: rgb(225, 228, 232) !important;
-    opacity: 0.7;
+    color: var(--fgColor-muted, #57606a) !important;
+    opacity: 1;
   }
 `
 export default TextInput
