@@ -73,6 +73,8 @@ Configure the following fields:
 - **Context IDs** (optional): Restrict publishing to jobs using specific CircleCI contexts. You may find them from your CircleCI Organization Settings Contexts.
 - **Allowed actions** (required): Select which actions this trusted publisher can perform — `npm publish`, `npm stage publish`, or both. At least one must be selected.
 
+For more in-depth information see [CircleCI's guide](https://circleci.com/docs/guides/deploy/deploy-to-npm-registry/).
+
 <Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher-circleci.png" alt="Screenshot of CircleCI trusted publisher configuration form" />
 
 <Note>
@@ -369,4 +371,5 @@ We intend to expand trusted publishing support to additional CI/CD providers and
 - [GitHub Actions OIDC documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 - [GitLab CI/CD OIDC documentation](https://docs.gitlab.com/ee/ci/cloud_services/)
 - [CircleCI OIDC documentation](https://circleci.com/docs/openid-connect-tokens/)
+- [CircleCI guide to setting up npm trusted publishing](https://circleci.com/docs/guides/deploy/deploy-to-npm-registry/)
 - [API documentation for exchanging OIDC ID token for npm registry token](https://api-docs.npmjs.com/#tag/registry.npmjs.org/operation/exchangeOidcToken)
