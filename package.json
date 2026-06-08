@@ -107,7 +107,7 @@
     "content": "./scripts/template-oss",
     "dependabotInterval": "weekly",
     "updateNpm": false,
-    "version": "5.0.0"
+    "version": "5.1.0"
   },
   "overrides": {
     "gatsby@^5.16.0": {
