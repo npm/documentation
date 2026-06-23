@@ -1834,6 +1834,9 @@
             - title: package-lock.json
               url: /cli/v11/configuring-npm/package-lock-json
               description: A manifestation of the manifest
+            - title: .npm-extension
+              url: /cli/v11/configuring-npm/npm-extension
+              description: Imperative, root-owned manifest repairs
         - title: Using npm
           shortName: Using
           url: /cli/v11/using-npm
