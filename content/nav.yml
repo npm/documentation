@@ -1692,6 +1692,9 @@
             - title: npm install-ci-test
               url: /cli/v11/commands/npm-install-ci-test
               description: Install a project with a clean slate and run tests
+            - title: npm install-scripts
+              url: /cli/v11/commands/npm-install-scripts
+              description: Manage install-script approvals for dependencies
             - title: npm install-test
               url: /cli/v11/commands/npm-install-test
               description: Install package(s) and run tests
