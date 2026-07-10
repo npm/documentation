@@ -13,6 +13,10 @@
   },
   {
     "id": "v11",
+    "branch": "release/v11"
+  },
+  {
+    "id": "v12",
     "branch": "latest"
   }
 ]
