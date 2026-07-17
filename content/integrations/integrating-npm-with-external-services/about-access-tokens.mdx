@@ -46,7 +46,7 @@ The Bypass 2FA capability applies to tokens with write access and is set to fals
 
 ### Account-identity actions require an interactive 2FA challenge
 
-Starting July 2026, tokens with **Bypass 2FA** enabled can no longer be used to perform account-identity or account-governance actions. These actions always require an interactive 2FA challenge, regardless of the token's Bypass 2FA setting:
+Starting August 2026, tokens with **Bypass 2FA** enabled can no longer be used to perform account-identity or account-governance actions. These actions always require using a token with an interactive 2FA challenge:
 
 - Change email or password
 - Modify or disable 2FA configuration
@@ -54,7 +54,7 @@ Starting July 2026, tokens with **Bypass 2FA** enabled can no longer be used to 
 - Create, escalate, or manage access tokens
 - Add or remove package maintainers, or other account/package-governance changes
 
-Bypass-2FA tokens can still be used for direct publishing and other package automation actions permitted by their scopes. If you have automation that relies on any of the actions above (for example, programmatic token rotation or maintainer-management scripts), you must migrate it to use an interactive 2FA challenge. For CI/CD publishing, consider adopting [trusted publishing](/trusted-publishers) instead.
+Bypass-2FA tokens can still be used for direct publishing. For CI/CD publishing, consider adopting [trusted publishing](/trusted-publishers) instead.
 
 [create-token]: creating-and-viewing-access-tokens
 [secure-token]: using-private-packages-in-a-ci-cd-workflow#securing-your-token

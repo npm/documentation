@@ -22,7 +22,7 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 
 4. (Optional) In the **Description** field, enter a description for your token.
 
-5. (Optional) Check the **Bypass two-factor authentication** checkbox if you want this token to bypass 2FA requirements for package and automation write actions such as publishing.
+5. (Optional) Check the **Bypass two-factor authentication** checkbox if you want this token to bypass 2FA requirements for package publishing.
    - This setting is unchecked (false) by default
    - By checking this box, the token will bypass 2FA for publishing and other package write actions even if 2FA is enabled at the account or package level
    - Bypass 2FA does **not** apply to account-identity actions (changing email or password, modifying 2FA configuration, viewing or generating recovery codes, creating or escalating tokens, or adding and removing maintainers). Those actions always require an interactive 2FA challenge, regardless of this setting. For more information, see "[About access tokens](about-access-tokens#account-identity-actions-require-an-interactive-2fa-challenge)."
