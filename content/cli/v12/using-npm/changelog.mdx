@@ -49,7 +49,7 @@ redirect_from:
 - `npm` now supports node `^22.22.2 || ^24.15.0 || >=26.0.0`
 - allow-git and allow-remote now default to "none"; set them to "all" (or "root") to install git or user-supplied tarball-URL dependencies.
 - root \`preinstall\` now runs before dependencies are installed.
-- unknown configs in .npmrc, unknown CLI flags, abbreviated flags, and single-hyphen multi-char shorthands now throw instead of warning.
+- unknown CLI flags, abbreviated flags, and single-hyphen multi-char shorthands now throw instead of warning. (Unknown `.npmrc` configs still warn by default; opt into erroring with the new `strict-npmrc` config.)
 
 ### Chores
 
