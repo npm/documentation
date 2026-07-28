@@ -1,0 +1,88 @@
+---
+title: npm Dual-Use Content Policy
+edit_on_github: false
+---
+
+{/* TODO: Replace last-updated date for every published change */}
+
+This npm Dual-Use Content Policy (this _Policy_) describes how npm treats security-relevant "dual-use" content published to the npm Public Registry, and the requirements that apply to maintainers who publish it. This Policy supplements the [npm Open Source Terms][open-source-terms] and the [npm Acceptable Use Policies][acceptable-use]. Capitalized terms not defined here have the meaning given in the [npm Open Source Terms][open-source-terms].
+
+npm last updated this Policy on July 28, 2026.
+
+## What is Dual-Use Content
+
+Some legitimate Packages include security-relevant capabilities that can resemble malicious software to automated scanning. Examples include penetration-testing tools, security research utilities, code-obfuscation tools, and similar software whose capabilities have both legitimate and potentially harmful uses. npm refers to this as _dual-use content_.
+
+Dual-use content is permitted on the npm Public Registry. This Policy exists so that maintainers can declare such content, so that npm can apply scanning suited to it, and so that legitimate dual-use Packages are not blocked by default.
+
+## Why Declaration is Required
+
+npm, like GitHub, assumes positive intent behind dual-use content. Declaration is required because npm Packages are typically installed and executed automatically — often as transitive dependencies — rather than browsed for research. Declaration lets npm distinguish legitimate security tools from malicious Packages without requiring manual review of every publish.
+
+This Policy does not permit malicious code. Content that is itself malware, or that exists primarily to cause harm, remains prohibited under the [npm Acceptable Use Policies][acceptable-use] regardless of any declaration made under this Policy.
+
+## Declaring Dual-Use Content
+
+Maintainers who publish dual-use content must declare it in two ways.
+
+### 1. Metadata in `package.json`
+
+Add a `contentPolicy` field to the Package's `package.json`:
+
+```json
+{
+  "contentPolicy": {
+    "class": "dual-use"
+  }
+}
+```
+
+### 2. A `DISCLOSURE` file
+
+Include a `DISCLOSURE` file in the Package, at the root of the published tarball, alongside files such as `LICENSE`. The `DISCLOSURE` file is free-form text. It should describe the dual-use functionality the Package provides and its intended legitimate use.
+
+npm's Trust & Safety team may use the `DISCLOSURE` file when reviewing dual-use Packages.
+
+## Effect of Declaring Dual-Use Content
+
+Declaring dual-use content may trigger additional automated scanning suited to dual-use content when needed.
+
+Declaring dual-use content does not automatically grant publication. npm's Trust & Safety team may review dual-use Packages on a case-by-case basis, consistent with the [npm Acceptable Use Policies][acceptable-use].
+
+## Publishing Requirements for Dual-Use Packages
+
+The following requirements apply to Packages that declare dual-use content. In every case, publishing must enforce two-factor authentication — either at publish time (interactive) or at promotion (staged).
+
+### Acceptable publishing methods
+
+- **Interactive publishing with two-factor authentication** — a local publish, or a granular access token used with two-factor authentication, where 2FA is enforced at publish time.
+- **Staged publishing** — staging a package for publishing and promoting it, where 2FA is enforced at promotion. Any credential may be used to stage, including trusted publishing (OIDC), a granular access token with bypass-2FA, or a local session.
+
+### Publishing methods that are not permitted
+
+- **Direct publishing with a granular access token that bypasses two-factor authentication.**
+- **Direct publishing via trusted publishing (OIDC).** Trusted publishing is permitted for dual-use packages only when staging a package for publishing, not as a direct publish.
+
+In short: a dual-use package may be published directly only through an interactive, two-factor-authenticated session. All other methods — including trusted publishing and bypass-2FA tokens — must go through staged publishing.
+
+### Persistent declaration
+
+Once a Package is published with dual-use metadata, the declaration must persist across versions. New versions of the Package may not remove the `contentPolicy` field or the `DISCLOSURE` file. Publishes that remove them may be rejected. Removing a dual-use declaration requires review by npm's Trust & Safety team.
+
+## Enforcement
+
+npm is enforcing this Policy progressively over time. npm is reaching out directly by email to maintainers of dual-use Packages that need to add this metadata to avoid being blocked by default.
+
+npm blocks the malware it can detect and continues to work to improve detection coverage and reduce scan time. For what is and isn't permitted on the npm Public Registry, see the [npm Acceptable Use Policies][acceptable-use].
+
+npm will continue to apply its judgment when deciding what content is acceptable, and expects you to apply your own judgment when choosing what to publish. The examples in this Policy are illustrative, not exhaustive.
+
+## Questions
+
+Follow along and ask questions in the [community discussion](https://github.com/orgs/community/discussions/categories/npm).
+
+You may send questions about the policies governing npm products and services to [legal-support@github.com](mailto:legal-support@github.com).
+
+[open-source-terms]: /policies/open-source-terms
+[acceptable-use]: /policies/open-source-terms#acceptable-use
+[conduct]: /policies/conduct
