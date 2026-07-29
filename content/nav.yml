@@ -1330,7 +1330,7 @@
             - title: Changelog
               url: /cli/v9/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 10.9.8
+    - title: Version 10.9.9
       shortName: v10
       url: /cli/v10
       default: false
@@ -1600,7 +1600,7 @@
             - title: Changelog
               url: /cli/v10/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 11.18.0
+    - title: Version 11.19.0
       shortName: v11
       url: /cli/v11
       default: false
@@ -1894,7 +1894,7 @@
             - title: Changelog
               url: /cli/v11/using-npm/changelog
               description: Changelog notes for each version
-    - title: Version 12.0.1
+    - title: Version 12.0.2
       shortName: v12
       url: /cli/v12
       default: true
