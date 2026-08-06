@@ -1,0 +1,78 @@
+---
+title: npm-set
+section: 1
+description: Set a value in the npm configuration
+github_repo: npm/cli
+github_branch: latest
+github_path: docs/lib/content/commands/npm-set.md
+redirect_from:
+  - /cli-commands/npm-set
+  - /cli-commands/set
+  - /cli-documentation/cli-commands/npm-set
+  - /cli-documentation/cli-commands/set
+  - /cli-documentation/commands/npm-set
+  - /cli-documentation/commands/set
+  - /cli-documentation/npm-set
+  - /cli-documentation/set
+  - /cli-documentation/v12/cli-commands/npm-set
+  - /cli-documentation/v12/cli-commands/set
+  - /cli-documentation/v12/commands/npm-set
+  - /cli-documentation/v12/commands/set
+  - /cli-documentation/v12/npm-set
+  - /cli-documentation/v12/set
+  - /cli/cli-commands/npm-set
+  - /cli/cli-commands/set
+  - /cli/commands/npm-set
+  - /cli/commands/set
+  - /cli/npm-set
+  - /cli/set
+  - /cli/v12/cli-commands/npm-set
+  - /cli/v12/cli-commands/set
+  - /cli/v12/commands/set
+  - /cli/v12/npm-set
+  - /cli/v12/set
+  - /commands/npm-set
+  - /commands/set
+---
+
+### Synopsis
+
+```bash
+npm set <key>=<value> [<key>=<value> ...] (See `npm config`)
+```
+
+Note: This command is unaware of workspaces.
+
+### Description
+
+Set a value in the npm configuration
+
+### Configuration
+
+#### `global`
+
+- Default: false
+- Type: Boolean
+
+Operates in "global" mode, so that packages are installed into the `prefix` folder instead of the current working directory. See [folders](/cli/v12/configuring-npm/folders) for more on the differences in behavior.
+
+- packages are installed into the `{prefix}/lib/node_modules` folder, instead of the current working directory.
+- bin files are linked to `{prefix}/bin`
+- man pages are linked to `{prefix}/share/man`
+
+#### `location`
+
+- Default: "user" unless `--global` is passed, which will also set this value to "global"
+- Type: "global", "user", or "project"
+
+When passed to `npm config` this refers to which config file to use.
+
+When set to "global" mode, packages are installed into the `prefix` folder instead of the current working directory. See [folders](/cli/v12/configuring-npm/folders) for more on the differences in behavior.
+
+- packages are installed into the `{prefix}/lib/node_modules` folder, instead of the current working directory.
+- bin files are linked to `{prefix}/bin`
+- man pages are linked to `{prefix}/share/man`
+
+### See Also
+
+- [npm help config](/cli/v12/commands/npm-config)
