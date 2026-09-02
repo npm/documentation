@@ -79,7 +79,7 @@ For more in-depth information see [CircleCI's guide](https://circleci.com/docs/g
 
 <Note>
 
-**Note:** Each package can have multiple trusted publishers configured at the same time, so you can publish from different CI/CD providers or workflows for the same package.
+**Note:** Each package can have up to 10 trusted publishers configured at the same time, so you can publish from different CI/CD providers or workflows for the same package.
 
 </Note>
 
@@ -365,7 +365,7 @@ Some GitHub Actions workflows use `workflow_call` to invoke other workflows that
 
 ## Limitations and future improvements
 
-Trusted publishing currently supports only cloud-hosted runners. Support for self-hosted runners is intended for a future release. Each package can have multiple trusted publishers configured at the same time. Existing trusted publisher connections cannot be changed. To change them, delete the connection and create a new one.
+Trusted publishing currently supports only cloud-hosted runners. Support for self-hosted runners is intended for a future release. Each package can have up to 10 trusted publishers configured at the same time. Existing trusted publisher connections cannot be changed. To change them, delete the connection and create a new one.
 
 OIDC authentication supports the `npm publish` and `npm stage publish` commands. Other stage subcommands (`npm stage list`, `npm stage view`, `npm stage approve`, `npm stage reject`) require interactive authentication and cannot use OIDC tokens, as these actions require proof of presence and can only be performed via the CLI or [npmjs.com](https://www.npmjs.com). Other npm commands such as `install`, `view`, or `access` still require traditional authentication methods. The `npm whoami` command will not reflect OIDC authentication status since the authentication occurs only during the publish or stage operation.
 
