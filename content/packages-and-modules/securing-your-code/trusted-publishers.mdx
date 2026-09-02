@@ -28,7 +28,7 @@ Self-hosted runners are not currently supported but are planned for future relea
 
 ## Configuring trusted publishing
 
-### Step 1: Add a trusted publisher on npmjs.com
+### Step 1: Add a first trusted publisher on npmjs.com
 
 Navigate to your package settings on [npmjs.com](https://www.npmjs.com) and find the "**Trusted Publisher**" section. Under "**Select your publisher**", choose your CI/CD provider by clicking the GitHub Actions, GitLab CI/CD, or CircleCI button.
 
@@ -45,7 +45,7 @@ Configure the following fields:
   - Must include the `.yml` or `.yaml` extension
   - The workflow file must exist in `.github/workflows/` in your repository
 - **Environment name** (optional): If using [GitHub environments](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment) for deployment protection
-- **Allowed actions** (required): Select which actions this trusted publisher can perform — `npm publish`, `npm stage publish`, or both. At least one must be selected. See [Staged publishing for npm packages](/staged-publishing) for more information on staged publishing.
+- **Allowed actions** (optional): `npm stage publish` is always allowed. Choose whether this trusted publisher can also publish directly with `npm publish`. See [Staged publishing for npm packages](/staged-publishing) for more information on staged publishing.
 
 <Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher-github-actions.png" alt="Screenshot of GitHub Actions trusted publisher configuration form" />
 
@@ -58,7 +58,7 @@ Configure the following fields:
 - **Top-level CI file path** (required): The path to your CI file (e.g., `.gitlab-ci.yml`)
   - Must include the `.yml` extension
 - **Environment name** (optional): If using [GitLab environments](https://docs.gitlab.com/ee/ci/environments/)
-- **Allowed actions** (required): Select which actions this trusted publisher can perform — `npm publish`, `npm stage publish`, or both. At least one must be selected.
+- **Allowed actions** (optional): `npm stage publish` is always allowed. Choose whether this trusted publisher can also publish directly with `npm publish`.
 
 <Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher-gitlab.png" alt="Screenshot of GitLab CI/CD trusted publisher configuration form" />
 
@@ -71,7 +71,7 @@ Configure the following fields:
 - **Pipeline definition ID** (required): The pipeline definition ID (UUID format). You may find it from your CircleCI Project Settings under Project Setup page.
 - **VCS origin** (required): The VCS origin URL for your project (e.g., `github.com/myorg/myrepo`)
 - **Context IDs** (optional): Restrict publishing to jobs using specific CircleCI contexts. You may find them from your CircleCI Organization Settings Contexts.
-- **Allowed actions** (required): Select which actions this trusted publisher can perform — `npm publish`, `npm stage publish`, or both. At least one must be selected.
+- **Allowed actions** (optional): `npm stage publish` is always allowed. Choose whether this trusted publisher can also publish directly with `npm publish`.
 
 For more in-depth information see [CircleCI's guide](https://circleci.com/docs/guides/deploy/deploy-to-npm-registry/).
 
@@ -79,13 +79,13 @@ For more in-depth information see [CircleCI's guide](https://circleci.com/docs/g
 
 <Note>
 
-**Note:** Each package can only have one trusted publisher configured at a time.
+**Note:** Each package can have multiple trusted publishers configured at the same time, so you can publish from different CI/CD providers or workflows for the same package.
 
 </Note>
 
 <Note>
 
-**Note:** Trusted publisher configurations created before May 20, 2026 are automatically set to allow `npm publish` only — no behavior change occurs for current workflows. Configurations created after May 20, 2026 require you to explicitly select at least one allowed action.
+**Note:** Trusted publisher configurations created before May 20, 2026 are automatically set to allow `npm publish` only — no behavior change occurs for current workflows. Configurations created before Sep 03, 2026 require you to explicitly select at least one allowed action — no behavior change occurs for current workflows. Configurations created after Sep 03, 2026 are automatically set to allow `npm stage publish`, and you can choose whether to also permit direct publishing with `npm publish`.
 
 </Note>
 
@@ -213,7 +213,15 @@ The `circleci run oidc get` command retrieves an OIDC token from CircleCI. When 
 
 ### Managing trusted publisher configurations
 
-You can modify or remove your trusted publisher configuration at any time through your package settings on [npmjs.com](https://npmjs.com) → Packages → YOUR_PACKAGE → Settings → Trusted publishing. Each package can only have one trusted publisher connection at a time, but this connection can be edited or deleted as needed. To change providers (for example, switching from GitHub Actions to GitLab CI/CD), simply edit your existing configuration and select the new provider. The change takes effect immediately for future publishes. To remove trusted publishing entirely and return to token-based authentication, delete the trusted publisher configuration from your package settings.
+You can add or remove your trusted publisher configurations at any time through your package settings on [npmjs.com](https://npmjs.com) → Packages → YOUR_PACKAGE → Settings → Trusted publishing. Each package can have multiple trusted publisher connections at the same time, and each connection can be added or deleted independently as needed. To add another provider (for example, publishing from both GitHub Actions and GitLab CI/CD), click the Add trusted publisher button and select the provider.
+
+<Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher-multiple.png" alt="Screenshot of the Add trusted publisher option for configuring multiple trusted publishers" />
+
+<Note>
+
+**Note:** Existing trusted publisher connections cannot be changed. The provider and required fields for a connection are fixed once it's created. To change them, delete the connection and create a new one.
+
+</Note>
 
 ## Recommended: Restrict token access when using trusted publishers
 
@@ -357,7 +365,7 @@ Some GitHub Actions workflows use `workflow_call` to invoke other workflows that
 
 ## Limitations and future improvements
 
-Trusted publishing currently supports only cloud-hosted runners. Support for self-hosted runners is intended for a future release. Each package can only have one trusted publisher configured at a time, though you can update this configuration as needed.
+Trusted publishing currently supports only cloud-hosted runners. Support for self-hosted runners is intended for a future release. Each package can have multiple trusted publishers configured at the same time. Existing trusted publisher connections cannot be changed. To change them, delete the connection and create a new one.
 
 OIDC authentication supports the `npm publish` and `npm stage publish` commands. Other stage subcommands (`npm stage list`, `npm stage view`, `npm stage approve`, `npm stage reject`) require interactive authentication and cannot use OIDC tokens, as these actions require proof of presence and can only be performed via the CLI or [npmjs.com](https://www.npmjs.com). Other npm commands such as `install`, `view`, or `access` still require traditional authentication methods. The `npm whoami` command will not reflect OIDC authentication status since the authentication occurs only during the publish or stage operation.
 
