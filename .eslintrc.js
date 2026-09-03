@@ -49,6 +49,8 @@ module.exports = {
         InlineCode: 'readonly',
         Strikethrough: 'readonly',
         CliLink: 'readonly',
+        TrustedPublisherSwitcher: 'readonly',
+        TrustedPublisherOption: 'readonly',
       },
       settings: {
         'import/resolver': 'webpack',

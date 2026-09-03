@@ -413,23 +413,25 @@ const useSelectedPublisherMode = defaultName => {
 
 const StyledTrustedPublisherSwitcher = styled.div`
   margin: 0 0 16px;
-
-  label {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-  }
-
-  select {
-    font: inherit;
-    padding: 4px 8px;
-    border-radius: 6px;
-    border: 1px solid var(--borderColor-default, #d1d9e0);
-    background-color: var(--bgColor-default, #ffffff);
-    color: var(--fgColor-default, #1f2328);
-  }
 `
+
+const SwitcherLabel = styled.label`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+`
+
+const SwitcherSelect = styled.select`
+  font: inherit;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--borderColor-default, #d1d9e0);
+  background-color: var(--bgColor-default, #ffffff);
+  color: var(--fgColor-default, #1f2328);
+`
+
+const SwitcherOption = styled.option``
 
 const getOptionName = child => child?.props?.name
 
@@ -449,16 +451,16 @@ export const TrustedPublisherSwitcher = ({
   const activeChild = options.find(child => getOptionName(child) === active)
 
   const selectEl = (
-    <label>
+    <SwitcherLabel>
       {label}
-      <select value={active} onChange={event => setSelectedPublisherMode(event.target.value)}>
+      <SwitcherSelect value={active} onChange={event => setSelectedPublisherMode(event.target.value)}>
         {names.map(name => (
-          <option key={name} value={name}>
+          <SwitcherOption key={name} value={name}>
             {name}
-          </option>
+          </SwitcherOption>
         ))}
-      </select>
-    </label>
+      </SwitcherSelect>
+    </SwitcherLabel>
   )
 
   if (control) {
