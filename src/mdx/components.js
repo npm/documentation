@@ -386,3 +386,89 @@ export const DataTable = ({headers, rows, align}) => {
     </Table>
   )
 }
+
+// Shared store so every TrustedPublisherSwitcher on a page stays in sync.
+const publisherModeListeners = new Set()
+let selectedPublisherMode = null
+
+const setSelectedPublisherMode = name => {
+  selectedPublisherMode = name
+  for (const listener of publisherModeListeners) listener(name)
+}
+
+const useSelectedPublisherMode = defaultName => {
+  const [value, setValue] = React.useState(selectedPublisherMode ?? defaultName)
+
+  React.useEffect(() => {
+    if (selectedPublisherMode == null && defaultName != null) {
+      selectedPublisherMode = defaultName
+    }
+    const listener = name => setValue(name)
+    publisherModeListeners.add(listener)
+    return () => publisherModeListeners.delete(listener)
+  }, [defaultName])
+
+  return value
+}
+
+const StyledTrustedPublisherSwitcher = styled.div`
+  margin: 0 0 16px;
+
+  label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+  }
+
+  select {
+    font: inherit;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--borderColor-default, #d1d9e0);
+    background-color: var(--bgColor-default, #ffffff);
+    color: var(--fgColor-default, #1f2328);
+  }
+`
+
+const getOptionName = child => child?.props?.name
+
+export const TrustedPublisherOption = ({children}) => <React.Fragment>{children}</React.Fragment>
+
+export const TrustedPublisherSwitcher = ({
+  label = 'Trusted publisher setup:',
+  control = false,
+  hideControl = false,
+  children,
+}) => {
+  const options = React.Children.toArray(children).filter(child => getOptionName(child))
+  const names = options.map(getOptionName)
+  const defaultName = names[0]
+  const selected = useSelectedPublisherMode(defaultName)
+  const active = names.includes(selected) ? selected : defaultName
+  const activeChild = options.find(child => getOptionName(child) === active)
+
+  const selectEl = (
+    <label>
+      {label}
+      <select value={active} onChange={event => setSelectedPublisherMode(event.target.value)}>
+        {names.map(name => (
+          <option key={name} value={name}>
+            {name}
+          </option>
+        ))}
+      </select>
+    </label>
+  )
+
+  if (control) {
+    return <StyledTrustedPublisherSwitcher>{selectEl}</StyledTrustedPublisherSwitcher>
+  }
+
+  return (
+    <StyledTrustedPublisherSwitcher>
+      {!hideControl && selectEl}
+      <div>{activeChild}</div>
+    </StyledTrustedPublisherSwitcher>
+  )
+}
