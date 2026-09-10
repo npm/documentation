@@ -32,7 +32,9 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
    <Screenshot src="/integrations/integrating-npm-with-external-services/granular-access-token-ip-range.png" alt="Screenshot of the allowed IP ranges section" />
 
 7. (Optional) In the **Packages and scopes** section, configure your token's access to packages and scopes.
-   - In the **Permissions** dropdown menu, select **No access**, **Read-only**, or **Read and write**.
+   - In the **Permissions** dropdown menu, select **No access**, **Read-only**, **Read and write (publish and stage)**, or **Read and write (stage only)**.
+     - **Read and write (publish and stage)** lets the token publish new package versions directly to the registry.
+     - **Read and write (stage only)** lets the token stage new versions for a maintainer to review and promote, but not publish them directly. This is a safer option for automation such as CI/CD. For more information, see "[About stage-only tokens](/about-access-tokens#about-stage-only-tokens)."
    - Under **Select Packages**, select either:
      - **All Packages** to grant the token access to all packages the user account has access to.
      - **Only select packages and scopes** to choose up to 50 specific packages or scopes to give the token access to. Then select specific packages or scopes from the dropdown menu.
