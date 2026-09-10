@@ -35,7 +35,7 @@ Granular access tokens allow you to restrict access provided to the token based 
 - Grant tokens access to specific organizations
 - Set a token expiration date
 - Limit token access based on IP address ranges
-- Select between **read-only** or **read and write** access. For packages and scopes, **read and write** access can either **publish and stage** new versions or be **stage only** (see "[About stage-only tokens](#about-stage-only-tokens)")
+- Select between **Read-only** or **Read and write** access. For packages and scopes, **Read and write** access can either **publish and stage** new versions or be **stage only** (see "[About stage-only tokens](#about-stage-only-tokens)").
 - Configure a token to **Bypass 2FA** requirements
 
 You can create up to 1000 granular access tokens on your npm account. You can set how long your token is valid for, at least one day in the future. Each token can access up to 50 organizations, and up to either 50 packages, 50 scopes, or a combination of 50 packages and scopes. Access tokens are tied to users’ permission; hence it cannot have more permission than the user at any point in time. If a user has their access revoked from a package or an org., their granular access token will also have its access revoked from those packages or org.
@@ -51,7 +51,7 @@ When a granular access token has **Read and write** access to packages and scope
 - **Read and write (publish and stage)**: the token can publish new package versions directly to the registry.
 - **Read and write (stage only)**: the token _cannot_ publish new package versions directly. Instead, it stages a version for a package maintainer to review and promote.
 
-Stage-only tokens are a safer on-ramp for automation such as continuous integration and deployment (CI/CD). Because promoting a staged version always requires a maintainer with two-factor authentication (2FA), a leaked or misused stage-only token cannot push a new version live on its own.
+Stage-only tokens are a safer on-ramp for automation such as continuous integration and deployment (CI/CD). Because a stage-only token can't publish a new version directly — each staged version must be reviewed and promoted by a maintainer with two-factor authentication (2FA) — a leaked or misused token can't get a new version onto the registry without that maintainer approval. This narrows the risk of direct publishing; it does not otherwise restrict the token's write capabilities.
 
 A stage-only token **can**:
 
@@ -80,7 +80,7 @@ When you publish a new version with a stage-only token, the registry does not pu
 
 #### Direct publishing is being deprecated
 
-Direct-publish tokens are being deprecated. The ability to publish new package versions directly with a granular access token will be removed in **January 2027**. To prepare, switch automation that publishes new versions to a **Read and write (stage only)** token together with the staging workflow described above. See also "[Account-identity actions require an interactive 2FA challenge](#account-identity-actions-require-an-interactive-2fa-challenge)" for related changes to bypass-2FA tokens.
+Bypass-2FA tokens with direct-publish access are being deprecated. The ability to publish new package versions directly with a granular access token will be removed in **January 2027**. To prepare, switch automation that publishes new versions to a **Read and write (stage only)** token together with the staging workflow described above. See also "[Account-identity actions require an interactive 2FA challenge](#account-identity-actions-require-an-interactive-2fa-challenge)" for related changes to bypass-2FA tokens.
 
 ### Account-identity actions require an interactive 2FA challenge
 
