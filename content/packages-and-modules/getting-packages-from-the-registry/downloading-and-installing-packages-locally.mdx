@@ -41,6 +41,44 @@ npm install @scope/package-name
 npm install @scope/private-package-name
 ```
 
+## Installing a package from Git
+
+You can install a package directly from a Git repository using the following format:
+
+```
+npm install <git-remote-url>
+```
+
+For example, to install a package from a GitHub repository, run:
+
+```
+npm install git+https://github.com/user/repo.git
+```
+
+If you need a specific branch, tag, or commit, you can specify it after the `#` symbol:
+
+```
+npm install git+https://github.com/user/repo.git#branch-name
+npm install git+https://github.com/user/repo.git#tag-name
+npm install git+https://github.com/user/repo.git#commit-hash
+```
+
+## Installing a package from a GitHub shortcut
+
+npm allows shorthand notation for installing from GitHub:
+
+```
+npm install user/repo
+```
+
+To install from a specific branch, tag, or commit:
+
+```
+npm install user/repo#branch-name
+npm install user/repo#tag-name
+npm install user/repo#commit-hash
+```
+
 ## Testing package installation
 
 To confirm that `npm install` worked correctly, in your module directory, check that a `node_modules` directory exists and that it contains a directory for the package(s) you installed:
