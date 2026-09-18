@@ -716,9 +716,9 @@ Each package can only have one trusted publisher configured at a time, though yo
 
 To allow a workflow to manage your package's [distribution tags](/adding-dist-tags-to-packages), select **Allow npm dist-tag** for its trusted publisher configuration in your package settings. This option is disabled by default.
 
-Dist-tag access is independent of direct publishing. You can allow a configuration to stage packages and manage dist-tags without allowing `npm publish`. The permission applies to all dist-tags for that package; you cannot restrict it to specific tag names. Enabling or disabling it on one configuration does not change the permissions of other configurations.
+Dist-tag access is independent of direct publishing. You can allow a configuration to stage packages and manage dist-tags without allowing `npm publish`. Enabling or disabling it on one configuration does not change the permissions of other configurations.
 
-After configuring trusted publishing for your package and CI/CD workflow, run `npm dist-tag` commands directly in that workflow. The npm CLI authenticates automatically using your CI/CD provider's OIDC identity. You do not need to create a granular access token or configure an authentication token in `.npmrc` for these commands.
+After configuring trusted publishing for your package and CI/CD workflow, run `npm dist-tag` commands directly in that workflow. The npm CLI authenticates automatically using your CI/CD provider's OIDC identity.
 
 For example, list the tags, point `next` to version `2.1.0`, and check the result:
 
@@ -730,7 +730,7 @@ npm dist-tag ls example-package
 
 To remove a tag, run `npm dist-tag rm example-package beta` in the same workflow. Reading a private package's tags with trusted publishing also requires dist-tag permission; public tags remain readable without authentication.
 
-If a tag operation reports that the trusted publisher cannot manage dist-tags, ask a package maintainer to enable **Allow npm dist-tag** for the configuration used by your workflow. Permission to publish or stage a package does not grant this access automatically. Existing token-based dist-tag workflows are unchanged.
+If a tag operation reports that the trusted publisher cannot manage dist-tags, ask a package maintainer to enable **Allow npm dist-tag** for the configuration used by your workflow. Permission to publish or stage a package does not grant this access automatically.
 
 OIDC authentication supports `npm publish`, `npm stage publish`, and the dist-tag operations described above. Other stage subcommands (`npm stage list`, `npm stage view`, `npm stage approve`, `npm stage reject`) require interactive authentication and cannot use OIDC tokens, as these actions require proof of presence and can only be performed via the CLI or [npmjs.com](https://www.npmjs.com). Other npm commands such as `install`, `view`, or `access` still require traditional authentication methods. The `npm whoami` command is not a check of trusted publishing permissions; verify them using the operation you intend to perform.
 
