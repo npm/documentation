@@ -6,6 +6,8 @@ Staged publishing adds an approval step before packages go live on the npm regis
 
 Staged publishing is useful when you want an extra review step before a package version becomes available on the registry.
 
+A package can be created via staged publishing if it does not already exist. Staged publishing also works for packages that have already been created.
+
 <Note>
 
 **Note:** Staged publishing requires [npm CLI](https://docs.npmjs.com/cli/v11) version 11.15.0 or later and Node version 22.14.0 or higher.
@@ -25,7 +27,6 @@ Staged publishing has three steps:
 Before using staged publishing, ensure the following:
 
 - You have **publish access** to the package
-- The package can be **brand-new or already published** — staging a package that doesn't yet exist on the npm registry creates it when the staged version is approved
 - **2FA is enabled** on your npm account
 
 ## Stage a package
