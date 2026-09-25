@@ -49,7 +49,7 @@ Configure the following fields:
   - Must include the `.yml` or `.yaml` extension
   - The workflow file must exist in `.github/workflows/` in your repository
 - **Environment name** (optional): If using [GitHub environments](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment) for deployment protection
-- **Allowed actions** (optional): `npm stage publish` is always allowed. Choose whether this trusted publisher can also publish directly with `npm publish`. See [Staged publishing for npm packages](/staged-publishing) for more information on staged publishing.
+- **Allowed actions** (optional): `npm stage publish` is always allowed. Choose whether this trusted publisher can also publish directly with `npm publish` or [manage dist-tags](#managing-dist-tags-with-trusted-publishing) with `npm dist-tag`. These permissions are independent. See [Staged publishing for npm packages](/staged-publishing) for more information on staged publishing.
 
 <Screenshot src="/packages-and-modules/securing-your-code/multiple-trusted-publisher-github-actions.png" alt="Screenshot of GitHub Actions multiple trusted publisher configuration form" />
 
@@ -62,7 +62,7 @@ Configure the following fields:
 - **Top-level CI file path** (required): The path to your CI file (e.g., `.gitlab-ci.yml`)
   - Must include the `.yml` extension
 - **Environment name** (optional): If using [GitLab environments](https://docs.gitlab.com/ee/ci/environments/)
-- **Allowed actions** (optional): `npm stage publish` is always allowed. Choose whether this trusted publisher can also publish directly with `npm publish`.
+- **Allowed actions** (optional): `npm stage publish` is always allowed. Choose whether this trusted publisher can also publish directly with `npm publish` or [manage dist-tags](#managing-dist-tags-with-trusted-publishing) with `npm dist-tag`. These permissions are independent.
 
 <Screenshot src="/packages-and-modules/securing-your-code/multiple-trusted-publisher-gitlab.png" alt="Screenshot of GitLab CI/CD multiple trusted publisher configuration form" />
 
@@ -75,7 +75,7 @@ Configure the following fields:
 - **Pipeline definition ID** (required): The pipeline definition ID (UUID format). You may find it from your CircleCI Project Settings under Project Setup page.
 - **VCS origin** (required): The VCS origin URL for your project (e.g., `github.com/myorg/myrepo`)
 - **Context IDs** (optional): Restrict publishing to jobs using specific CircleCI contexts. You may find them from your CircleCI Organization Settings Contexts.
-- **Allowed actions** (optional): `npm stage publish` is always allowed. Choose whether this trusted publisher can also publish directly with `npm publish`.
+- **Allowed actions** (optional): `npm stage publish` is always allowed. Choose whether this trusted publisher can also publish directly with `npm publish` or [manage dist-tags](#managing-dist-tags-with-trusted-publishing) with `npm dist-tag`. These permissions are independent.
 
 For more in-depth information see [CircleCI's guide](https://circleci.com/docs/guides/deploy/deploy-to-npm-registry/).
 
@@ -361,7 +361,7 @@ If you encounter an "Unable to authenticate" (ENEEDAUTH) error when publishing, 
 
 To publish from GitHub, your package's `repository.url` field in `package.json` must exactly match your GitHub repository. This may be an issue for misconfigured packages, but could also impact publication from forks that haven't updated `package.json` to match the forked repo.
 
-If your package has private dependencies and `npm install` or `npm ci` is failing with authentication errors, remember that trusted publishing only applies to the `npm publish` command. You'll still need to provide a read-only token for installing private packages as shown in the examples above.
+If your package has private dependencies and `npm install` or `npm ci` is failing with authentication errors, remember that trusted publishing is not intended for `npm install`. You'll still need to provide a read-only token for installing private packages as shown in the examples above.
 
 For packages in private repositories, provenance will not be generated even though you're using trusted publishing. This is a [known limitation](https://github.blog/changelog/2023-07-25-publishing-with-npm-provenance-from-private-source-repositories-is-no-longer-supported/) that applies regardless of whether your package itself is public or private.
 
@@ -696,7 +696,7 @@ If you encounter an "Unable to authenticate" (ENEEDAUTH) error when publishing, 
 
 To publish from GitHub, your package's `repository.url` field in `package.json` must exactly match your GitHub repository. This may be an issue for misconfigured packages, but could also impact publication from forks that haven't updated `package.json` to match the forked repo.
 
-If your package has private dependencies and `npm install` or `npm ci` is failing with authentication errors, remember that trusted publishing only applies to the `npm publish` command. You'll still need to provide a read-only token for installing private packages as shown in the examples above.
+If your package has private dependencies and `npm install` or `npm ci` is failing with authentication errors, remember that trusted publishing is not intended for `npm install`. You'll still need to provide a read-only token for installing private packages as shown in the examples above.
 
 For packages in private repositories, provenance will not be generated even though you're using trusted publishing. This is a [known limitation](https://github.blog/changelog/2023-07-25-publishing-with-npm-provenance-from-private-source-repositories-is-no-longer-supported/) that applies regardless of whether your package itself is public or private.
 
@@ -712,7 +712,27 @@ Each package can only have one trusted publisher configured at a time, though yo
 
 </TrustedPublisherSwitcher>
 
-OIDC authentication supports the `npm publish` and `npm stage publish` commands. Other stage subcommands (`npm stage list`, `npm stage view`, `npm stage approve`, `npm stage reject`) require interactive authentication and cannot use OIDC tokens, as these actions require proof of presence and can only be performed via the CLI or [npmjs.com](https://www.npmjs.com). Other npm commands such as `install`, `view`, or `access` still require traditional authentication methods. The `npm whoami` command will not reflect OIDC authentication status since the authentication occurs only during the publish or stage operation.
+## Managing dist-tags with trusted publishing
+
+To allow a workflow to manage your package's [distribution tags](/adding-dist-tags-to-packages), select **Allow npm dist-tag** for its trusted publisher configuration in your package settings. This option is disabled by default.
+
+Dist-tag access is independent of direct publishing. You can allow a configuration to stage packages and manage dist-tags without allowing `npm publish`. Enabling or disabling it on one configuration does not change the permissions of other configurations.
+
+After configuring trusted publishing for your package and CI/CD workflow, run `npm dist-tag` commands directly in that workflow. The npm CLI authenticates automatically using your CI/CD provider's OIDC identity.
+
+For example, list the tags, point `next` to version `2.1.0`, and check the result:
+
+```bash
+npm dist-tag ls example-package
+npm dist-tag add example-package@2.1.0 next
+npm dist-tag ls example-package
+```
+
+To remove a tag, run `npm dist-tag rm example-package beta` in the same workflow. Reading a private package's tags with trusted publishing also requires dist-tag permission; public tags remain readable without authentication.
+
+If a tag operation reports that the trusted publisher cannot manage dist-tags, ask a package maintainer to enable **Allow npm dist-tag** for the configuration used by your workflow. Permission to publish or stage a package does not grant this access automatically.
+
+OIDC authentication supports `npm publish`, `npm stage publish`, and the dist-tag operations described above. Other stage subcommands (`npm stage list`, `npm stage view`, `npm stage approve`, `npm stage reject`) require interactive authentication and cannot use OIDC tokens, as these actions require proof of presence and can only be performed via the CLI or [npmjs.com](https://www.npmjs.com). Other npm commands such as `install`, `view`, or `access` still require traditional authentication methods. The `npm whoami` command is not a check of trusted publishing permissions; verify them using the operation you intend to perform.
 
 We intend to expand trusted publishing support to additional CI/CD providers and enhance the feature based on community feedback.
 

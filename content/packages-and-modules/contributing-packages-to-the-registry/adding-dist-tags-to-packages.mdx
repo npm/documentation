@@ -8,6 +8,8 @@ Distribution tags (dist-tags) are human-readable labels that you can use to orga
 
 For more information, see the [`dist-tag` CLI documentation][dist-tag].
 
+CI/CD workflows can also manage dist-tags with [trusted publishing](/trusted-publishers#managing-dist-tags-with-trusted-publishing). Enable **Allow npm dist-tag** for the workflow's trusted publisher configuration. This permission is disabled by default and is separate from direct-publish permission.
+
 <Note>
 
 **Note:** Since dist-tags share a namespace with semantic versions, avoid dist-tags that conflict with existing version numbers. We recommend avoiding dist-tags that start with a number or the letter "v".
