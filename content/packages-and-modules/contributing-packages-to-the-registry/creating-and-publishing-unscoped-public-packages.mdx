@@ -98,6 +98,8 @@ For more information on the `publish` command, see the [CLI documentation][cli-p
 
 Instead of publishing directly, you can stage your package and approve it later. Staging the package does not require 2FA, which allows CI workflows to submit a package to the staging area. Before the package becomes publicly available, a maintainer must review and approve it with 2FA.
 
+If the package does not yet exist, staging it publishes a placeholder package that is publicly available. The staged version and its contents are not publicly available until the staged package is approved.
+
 A GAT with bypass 2FA does not bypass the 2FA check during staged package approval.
 
 1. On the command line, navigate to the root directory of your package.
