@@ -6,7 +6,7 @@ Staged publishing adds an approval step before packages go live on the npm regis
 
 Staged publishing is useful when you want an extra review step before a package version becomes available on the registry.
 
-A package can be created via staged publishing if it does not already exist. Staged publishing also works for packages that have already been created.
+You can use staged publishing for both new and existing packages. When you stage a package that does not yet exist, npm publishes a placeholder package with the version number `0.0.0-stage`. This placeholder version is publicly available, but the staged version and its contents are not publicly available until a maintainer approves the staged package. After approval, the staged version is published to the package page.
 
 <Note>
 
