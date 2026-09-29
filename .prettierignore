@@ -6,6 +6,3 @@
 .nyc_output/
 coverage/
 cli-cache.json
-# Generated from the npm/cli repo via the update-cli workflow; must match the
-# generator output exactly, so it is not subject to Prettier formatting.
-/content/cli/
