@@ -61,14 +61,14 @@ Before using `npm stage` commands, ensure the following requirements are met:
 
 ### 2FA Requirements by Subcommand
 
-| Command              | Requires 2FA | Notes                                                    |
-| -------------------- | ------------ | -------------------------------------------------------- |
-| `npm stage publish`  | No           | Designed for automated workflows; defers 2FA to approval |
-| `npm stage list`     | No           | View staged packages                                     |
-| `npm stage view`     | No           | View staged package details                              |
-| `npm stage approve`  | Yes          | Prompts for 2FA to publish the staged package            |
-| `npm stage reject`   | Yes          | Prompts for 2FA to permanently remove the staged package |
-| `npm stage download` | No           | Downloads the tarball for local inspection               |
+| Command | Requires 2FA | Notes |
+| --- | --- | --- |
+| `npm stage publish` | No | Designed for automated workflows; defers 2FA to approval |
+| `npm stage list` | No | View staged packages |
+| `npm stage view` | No | View staged package details |
+| `npm stage approve` | Yes | Prompts for 2FA to publish the staged package |
+| `npm stage reject` | Yes | Prompts for 2FA to permanently remove the staged package |
+| `npm stage download` | No | Downloads the tarball for local inspection |
 
 ### Tag Behavior
 
@@ -80,12 +80,12 @@ The tag is an immutable property of the staged package. Once a package is staged
 
 The key difference with staged publishing is that `npm stage publish` never requires a 2FA prompt, regardless of token type. This is what makes it suitable for automated workflows. The goal of `npm stage publish` is deferring proof-of-presence to a later point in time.
 
-| Token Type         | `npm stage publish`    | `npm publish`                                         |
-| ------------------ | ---------------------- | ----------------------------------------------------- |
-| GAT with bypass    | Can stage              | Can publish (if allowed by package publishing access) |
-| GAT without bypass | Can stage              | 2FA prompt (if allowed by package publishing access)  |
-| Session token      | Can stage              | 2FA prompt                                            |
-| Trust token (OIDC) | Can stage (if allowed) | Can publish (if allowed)                              |
+| Token Type | `npm stage publish` | `npm publish` |
+| --- | --- | --- |
+| GAT with bypass | Can stage | Can publish (if allowed by package publishing access) |
+| GAT without bypass | Can stage | 2FA prompt (if allowed by package publishing access) |
+| Session token | Can stage | 2FA prompt |
+| Trust token (OIDC) | Can stage (if allowed) | Can publish (if allowed) |
 
 ### Trust Relationship Permissions
 
