@@ -36,7 +36,7 @@ Self-hosted runners are not currently supported but are planned for future relea
 
 Navigate to your package settings on [npmjs.com](https://www.npmjs.com) and find the "**Trusted Publisher**" section. Under "**Select your publisher**", choose your CI/CD provider by clicking the GitHub Actions, GitLab CI/CD, or CircleCI button.
 
-<Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher.png" alt="Screenshot showing the Trusted Publisher section with Select your publisher label and provider buttons" />
+<Screenshot src="/packages-and-modules/securing-your-code/trusted-publisher.jpg" alt="Screenshot showing the Trusted Publisher section with Select your publisher label and provider buttons" />
 
 #### For GitHub Actions
 
@@ -51,7 +51,7 @@ Configure the following fields:
 - **Environment name** (optional): If using [GitHub environments](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment) for deployment protection
 - **Allowed actions** (optional): `npm stage publish` is always allowed. Choose whether this trusted publisher can also publish directly with `npm publish` or [manage dist-tags](#managing-dist-tags-with-trusted-publishing) with `npm dist-tag`. These permissions are independent. See [Staged publishing for npm packages](/staged-publishing) for more information on staged publishing.
 
-<Screenshot src="/packages-and-modules/securing-your-code/multiple-trusted-publisher-github-actions.png" alt="Screenshot of GitHub Actions multiple trusted publisher configuration form" />
+<Screenshot src="/packages-and-modules/securing-your-code/multiple-trusted-publisher-github-actions.jpg" alt="Screenshot of GitHub Actions multiple trusted publisher configuration form" />
 
 #### For GitLab CI/CD
 
@@ -64,7 +64,7 @@ Configure the following fields:
 - **Environment name** (optional): If using [GitLab environments](https://docs.gitlab.com/ee/ci/environments/)
 - **Allowed actions** (optional): `npm stage publish` is always allowed. Choose whether this trusted publisher can also publish directly with `npm publish` or [manage dist-tags](#managing-dist-tags-with-trusted-publishing) with `npm dist-tag`. These permissions are independent.
 
-<Screenshot src="/packages-and-modules/securing-your-code/multiple-trusted-publisher-gitlab.png" alt="Screenshot of GitLab CI/CD multiple trusted publisher configuration form" />
+<Screenshot src="/packages-and-modules/securing-your-code/multiple-trusted-publisher-gitlab.jpg" alt="Screenshot of GitLab CI/CD multiple trusted publisher configuration form" />
 
 #### For CircleCI
 
