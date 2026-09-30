@@ -714,6 +714,12 @@ Each package can only have one trusted publisher configured at a time, though yo
 
 ## Managing dist-tags with trusted publishing
 
+<Note>
+
+**Note:** dist-tags with OIDC Trusted publishing requires npm CLI version 11.20.1 (or later) and 12.1.1 (or later).
+
+</Note>
+
 To allow a workflow to manage your package's [distribution tags](/adding-dist-tags-to-packages), select **Allow npm dist-tag** for its trusted publisher configuration in your package settings. This option is disabled by default.
 
 Dist-tag access is independent of direct publishing. You can allow a configuration to stage packages and manage dist-tags without allowing `npm publish`. Enabling or disabling it on one configuration does not change the permissions of other configurations.
