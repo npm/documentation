@@ -3,6 +3,7 @@
 /package-lock.json
 /SECURITY.md
 /.reuse/
+/content/cli/
 .nyc_output/
 coverage/
 cli-cache.json
