@@ -8,10 +8,10 @@ This is the documentation for [https://docs.npmjs.com/](https://docs.npmjs.com/)
 
 ## Quick start
 
-1. `npm install` to download gatsby, our theme, and the dependencies
-2. `npm run develop`: starts the test server at `http://localhost:8000`.
-3. Update the content - it's Mdx, which is like markdown - in the `content` directory.
-4. Review your content at `http://localhost:8000`. (Gatsby watches the filesystem and will reload your content changes immediately.)
+1. `npm install` to download [doc-kit](https://github.com/nodejs/doc-kit), our theme, and the dependencies
+2. `npm run develop`: builds the site and starts the test server at `http://localhost:8000`.
+3. Update the content - it's MDX, which is like markdown - in the `content` directory.
+4. Review your content at `http://localhost:8000`. (The site is rebuilt whenever the content changes; reload the page to see your changes.)
 5. Once you're happy, commit it and open a pull request at https://github.com/npm/documentation.
 6. A CI workflow run will publish your PR to a GitHub Preview Page.
 7. Once the content is reviewed, merge the pull request. That will [deploy the site](https://github.com/npm/documentation/actions/workflows/publish.yml).

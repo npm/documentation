@@ -2,8 +2,6 @@
 title: Unpublishing packages from the registry
 ---
 
-import shared from '~/shared.js'
-
 As a package owner or collaborator, if your package has no dependents, you can permanently remove it from the npm registry by using the CLI. You can [unpublish](https://docs.npmjs.com/cli/commands/npm-unpublish) within 72 hours of the initial publish; beyond 72 hours, you can still unpublish your package if [it meets certain criteria](https://www.npmjs.com/policies/unpublish).
 
 These criteria are set to avoid damaging the JavaScript package ecosystem. If you cannot unpublish your package, you can [deprecate it instead](/deprecating-and-undeprecating-packages-or-package-versions).
@@ -22,9 +20,9 @@ To unpublish a package, you must meet the requirements of the [package unpublish
 
 ### Using the website
 
-1.  <>{shared['user-login'].text}</>
+1.  <Shared id="user-login" />
 
-    <>{shared['user-login'].image}</>
+    <Shared id="user-login" image />
 
 2.  Navigate to the package page for the package you want to unpublish, replacing `<your-package-name>` with the name of your package: `https://www.npmjs.com/package/<your-package-name>`.
 
@@ -56,7 +54,7 @@ npm unpublish <package-name> -f
 
 If you have [two-factor authentication][two-factor-auth] enabled for writes, you will need to add a one-time password to the `unpublish` command, `--otp=123456` (where _123456_ is the code from your authenticator app).
 
-If you need help unpublishing your package, please <>{shared['contact-support'].text}</>. If you are an Enterprise customer, please <>{shared['contact-enterprise-support'].text}</>.
+If you need help unpublishing your package, please <Shared id="contact-support" />. If you are an Enterprise customer, please <Shared id="contact-enterprise-support" />.
 
 <Note>
 

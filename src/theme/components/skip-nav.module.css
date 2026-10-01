@@ -1,0 +1,40 @@
+.SkipLink {
+  color: #0969da;
+  padding: 4px;
+}
+
+.SkipLink:focus {
+  text-decoration: underline;
+}
+
+.SkipBox {
+  display: inline-flex;
+  z-index: 20;
+  left: 10px;
+  gap: 3px;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  padding: 8px;
+  background-color: #ffffff;
+  border: 1px solid #0969da;
+  border-top: 0;
+  font-size: 12px;
+  border-radius: 0 0 6px 6px;
+}
+
+.SkipBox:focus-within {
+  transform: translateY(0%);
+}
+
+.SkipBox > * {
+  margin-right: 4px;
+}
+
+.SkipBox > *:last-child {
+  margin-right: 0;
+}
+
+.SkipNav {
+  scroll-margin-top: var(--scroll-margin-top);
+}

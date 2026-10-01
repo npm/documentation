@@ -1,0 +1,383 @@
+/*
+ * The rendered Markdown: what the MDX components used to render.
+ */
+
+/* Links in prose are underlined; the <Link> component underlines itself. */
+.markdown a:not([class]) {
+  color: #0969da;
+  text-decoration: underline;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6,
+.page-title {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  scroll-margin-top: var(--scroll-margin-top);
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+/* Headings are wrapped in a <div> by doc-kit; keep that wrapper inert. */
+.markdown div:has(> h1, > h2, > h3, > h4, > h5, > h6) {
+  display: block;
+}
+
+.markdown h1,
+.page-title {
+  padding-bottom: 8px;
+  font-size: 32px;
+  border-bottom: 1px solid #d1d9e0;
+  margin-top: 0;
+}
+
+/* The CLI content starts its headings at ###, so h2 and h3 look the same. */
+.markdown h2,
+.markdown h3 {
+  padding-bottom: 8px;
+  font-size: 20px;
+  border-bottom: 1px solid #d1d9e0;
+  font-weight: 600;
+}
+
+.markdown h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.markdown h5 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.markdown h6 {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.markdown :is(h1, h2, h3, h4, h5, h6) > .anchor {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown :is(h1, h2, h3, h4, h5, h6) > .anchor::after {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  vertical-align: middle;
+  background-color: #656d76;
+  mask: center / contain no-repeat
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z'/%3E%3C/svg%3E");
+}
+
+@media (hover: hover) {
+  .markdown :is(h1, h2, h3, h4, h5, h6) > .anchor::after {
+    visibility: hidden;
+  }
+
+  .markdown :is(h1, h2, h3, h4, h5, h6):hover > .anchor::after,
+  .markdown :is(h1, h2, h3, h4, h5, h6):focus-within > .anchor::after {
+    visibility: visible;
+  }
+}
+
+.markdown p {
+  margin: 0 0 16px;
+  word-break: break-word;
+}
+
+.markdown ul,
+.markdown ol {
+  padding-left: 2em;
+}
+
+.markdown ul ul,
+.markdown ul ol,
+.markdown ol ul,
+.markdown ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown li {
+  word-break: break-word;
+}
+
+.markdown li > p {
+  margin-top: 16px;
+}
+
+.markdown li + li {
+  margin-top: 4px;
+}
+
+.markdown blockquote {
+  margin: 0 0 16px;
+  padding: 0 16px;
+  color: #59636e;
+  border-left: 0.25em solid #d1d9e0;
+}
+
+.markdown blockquote > :first-child {
+  margin-top: 0;
+}
+
+.markdown blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown dl {
+  padding: 0;
+}
+
+.markdown dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown dl dd {
+  padding: 0 16px;
+  margin: 0 0 16px;
+}
+
+.markdown hr {
+  height: 1px;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #d1d9e0;
+  border: 0;
+}
+
+.markdown img {
+  max-width: 100%;
+  box-sizing: content-box;
+}
+
+.markdown table {
+  display: block;
+  width: 100%;
+  margin: 0 0 16px;
+  overflow: auto;
+  border-collapse: separate;
+  border-spacing: 0px;
+}
+
+.markdown th {
+  font-weight: 600;
+  background-color: #afb8c133;
+}
+
+.markdown th,
+.markdown td {
+  padding: 8px 16px;
+  border-color: #d0d7de;
+  border-style: solid;
+  border-width: 0;
+  border-left-width: 1px;
+  border-top-width: 1px;
+}
+
+.markdown td code,
+.markdown th code {
+  white-space: nowrap;
+}
+
+.markdown td a {
+  color: #1f2328;
+  text-decoration: underline;
+}
+
+.markdown td a:hover {
+  text-decoration: none;
+}
+
+.markdown td code a,
+.markdown td a code {
+  color: #1f2328;
+  text-decoration: underline;
+  font-family: var(--fontStack-monospace);
+  background-color: #afb8c133;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.markdown td code a:hover,
+.markdown td a code:hover {
+  text-decoration: none;
+}
+
+.markdown tr:last-child td {
+  border-bottom-width: 1px;
+}
+
+.markdown tr td:last-child,
+.markdown tr th:last-child {
+  border-right-width: 1px;
+}
+
+.markdown thead th:first-child {
+  border-top-left-radius: 6px;
+}
+
+.markdown thead th:last-child {
+  border-top-right-radius: 6px;
+}
+
+.markdown tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 6px;
+}
+
+.markdown tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 6px;
+}
+
+.markdown table img {
+  background-color: transparent;
+  vertical-align: middle;
+}
+
+/* Inline code */
+.markdown :not(pre) > code {
+  padding: 0.2em 0.4em;
+  font-family: var(--fontStack-monospace);
+  font-size: 80%;
+  background-color: #afb8c133;
+  border-radius: 6px;
+}
+
+/* Notes */
+.markdown .note {
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border-left: 6px solid;
+}
+
+.markdown .note *:last-child {
+  margin-bottom: 0;
+}
+
+.markdown .note[data-variant='info'] {
+  border-left-color: #54aeff;
+  background-color: #ddf4ff;
+}
+
+.markdown .note[data-variant='warning'] {
+  border-left-color: #d4a72c;
+  background-color: #fff8c5;
+}
+
+.markdown .note[data-variant='danger'] {
+  border-left-color: #ff8182;
+  background-color: #ffebe9;
+}
+
+/* Screenshots */
+.markdown .screenshot {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  max-width: min(100%, 525px);
+  max-height: 300px;
+  border: 1px solid #d1d9e0;
+  display: block;
+}
+
+/* Embedded videos */
+.markdown .youtube {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+/* Code blocks */
+.markdown .code-block {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.markdown .code-block-frame {
+  position: relative;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  color: #393a34;
+  background-color: #f6f8fa;
+}
+
+.markdown .code-block-scroll {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+}
+
+.markdown .code-block pre {
+  margin: 0;
+  background: transparent !important;
+  font-family: var(--fontStack-monospace);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.markdown .code-block pre code {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+.markdown .code-block pre:focus-visible {
+  outline: 2px solid #0969da;
+  outline-offset: -2px;
+}
+
+.markdown .code-block-copy {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  border-radius: 0;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.markdown .code-block-copy:focus-visible {
+  outline: 2px solid;
+  outline-color: -webkit-focus-ring-color;
+  outline-offset: 1px;
+}
+
+/* Index pages (<Index />) */
+.markdown .nav-hierarchy-description {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+/* <TrustedPublisherSwitcher /> */
+.markdown .publisher-switcher {
+  margin: 0 0 16px;
+}
+
+.markdown .publisher-switcher-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.markdown .publisher-switcher-select {
+  font: inherit;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #d1d9e0;
+  background-color: #ffffff;
+  color: #1f2328;
+}

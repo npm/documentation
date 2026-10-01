@@ -41,41 +41,33 @@ Two-factor authentication on npm can be enabled for authorization and writes, or
 
 By default, 2FA is enabled for authorization and writes. We will request a second form of authentication for certain authorized actions, as well as write actions.
 
-<DataTable
-  headers={["Action", "CLI command"]}
-  align={["l", "l"]}
-  rows={[
-    ["Log in to npm", <Link key="login" href="https://docs.npmjs.com/cli/adduser"><InlineCode>npm login</InlineCode></Link>],
-    ["Change profile settings (including your password)", <Link key="profile-set" href="https://docs.npmjs.com/cli/profile"><InlineCode>npm profile set</InlineCode></Link>],
-    ["Change 2FA modes for your user account", <Link key="2fa-enable" href="https://docs.npmjs.com/cli/profile"><InlineCode>npm profile enable-2fa auth-and-writes</InlineCode></Link>],
-    ["Disable 2FA for your user account", <Link key="2fa-disable" href="https://docs.npmjs.com/cli/profile"><InlineCode>npm profile disable-2fa</InlineCode></Link>],
-    ["Create tokens", <Link key="token-create" href="https://docs.npmjs.com/cli/token"><InlineCode>npm token create</InlineCode></Link>],
-    ["Revoke tokens", <Link key="token-revoke" href="https://docs.npmjs.com/cli/token"><InlineCode>npm token revoke</InlineCode></Link>],
-    ["Publish packages", <Link key="publish" href="https://docs.npmjs.com/cli/publish"><InlineCode>npm publish</InlineCode></Link>],
-    ["Unpublish packages", <Link key="unpublish" href="https://docs.npmjs.com/cli/unpublish"><InlineCode>npm unpublish</InlineCode></Link>],
-    ["Deprecate packages", <Link key="deprecate" href="https://docs.npmjs.com/cli/deprecate"><InlineCode>npm deprecate</InlineCode></Link>],
-    ["Change package visibility", <Link key="access-visibility" href="https://docs.npmjs.com/cli/access"><InlineCode>npm access public/restricted</InlineCode></Link>],
-    ["Change user and team package access", <Link key="access-grant" href="https://docs.npmjs.com/cli/access"><InlineCode>npm access grant/revoke</InlineCode></Link>],
-    [<Link key="pkg-2fa" href="/requiring-2fa-for-package-publishing-and-settings-modification">Change package 2FA requirements</Link>, <Link key="access-2fa" href="https://docs.npmjs.com/cli/access"><InlineCode>npm access 2fa-required/2fa-not-required</InlineCode></Link>]
-  ]}
-/>
+| Action | CLI command |
+| :-- | :-- |
+| Log in to npm | [`npm login`](https://docs.npmjs.com/cli/adduser) |
+| Change profile settings (including your password) | [`npm profile set`](https://docs.npmjs.com/cli/profile) |
+| Change 2FA modes for your user account | [`npm profile enable-2fa auth-and-writes`](https://docs.npmjs.com/cli/profile) |
+| Disable 2FA for your user account | [`npm profile disable-2fa`](https://docs.npmjs.com/cli/profile) |
+| Create tokens | [`npm token create`](https://docs.npmjs.com/cli/token) |
+| Revoke tokens | [`npm token revoke`](https://docs.npmjs.com/cli/token) |
+| Publish packages | [`npm publish`](https://docs.npmjs.com/cli/publish) |
+| Unpublish packages | [`npm unpublish`](https://docs.npmjs.com/cli/unpublish) |
+| Deprecate packages | [`npm deprecate`](https://docs.npmjs.com/cli/deprecate) |
+| Change package visibility | [`npm access public/restricted`](https://docs.npmjs.com/cli/access) |
+| Change user and team package access | [`npm access grant/revoke`](https://docs.npmjs.com/cli/access) |
+| [Change package 2FA requirements](/requiring-2fa-for-package-publishing-and-settings-modification) | [`npm access 2fa-required/2fa-not-required`](https://docs.npmjs.com/cli/access) |
 
 ### Authorization only
 
 If you enable 2FA for authorization only. We will request a second form of authentication only for certain authorized actions.
 
-<DataTable
-  headers={["Action", "CLI command"]}
-  align={["l", "l"]}
-  rows={[
-    ["Log in to npm", <Link key="login" href="https://docs.npmjs.com/cli/adduser"><InlineCode>npm login</InlineCode></Link>],
-    ["Change profile settings (including your password)", <Link key="profile-set" href="https://docs.npmjs.com/cli/profile"><InlineCode>npm profile set</InlineCode></Link>],
-    ["Change 2FA modes for your user account", <Link key="2fa-enable" href="https://docs.npmjs.com/cli/profile"><InlineCode>npm profile enable-2fa auth-only</InlineCode></Link>],
-    ["Disable 2FA for your user account", <Link key="2fa-disable" href="https://docs.npmjs.com/cli/profile"><InlineCode>npm profile disable-2fa</InlineCode></Link>],
-    ["Create tokens", <Link key="token-create" href="https://docs.npmjs.com/cli/token"><InlineCode>npm token create</InlineCode></Link>],
-    ["Revoke tokens", <Link key="token-revoke" href="https://docs.npmjs.com/cli/token"><InlineCode>npm token revoke</InlineCode></Link>]
-  ]}
-/>
+| Action | CLI command |
+| :-- | :-- |
+| Log in to npm | [`npm login`](https://docs.npmjs.com/cli/adduser) |
+| Change profile settings (including your password) | [`npm profile set`](https://docs.npmjs.com/cli/profile) |
+| Change 2FA modes for your user account | [`npm profile enable-2fa auth-only`](https://docs.npmjs.com/cli/profile) |
+| Disable 2FA for your user account | [`npm profile disable-2fa`](https://docs.npmjs.com/cli/profile) |
+| Create tokens | [`npm token create`](https://docs.npmjs.com/cli/token) |
+| Revoke tokens | [`npm token revoke`](https://docs.npmjs.com/cli/token) |
 
 [webauthn]: https://webauthn.guide/
 [can-i-use]: https://caniuse.com/#search=webauthn

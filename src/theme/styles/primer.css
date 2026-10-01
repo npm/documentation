@@ -1,0 +1,610 @@
+/*
+ * The Primer React components the site used to render, as plain CSS. The
+ * values are the ones Primer falls back to without its design tokens, which
+ * is how the site has always been rendered.
+ */
+
+/* Link */
+
+.Link {
+  color: #0969da;
+  text-decoration: none;
+  text-underline-offset: 0.05rem;
+}
+
+.Link:hover {
+  text-decoration: underline;
+}
+
+.Link--underline {
+  text-decoration: underline;
+}
+
+.Link--noUnderline:hover,
+.Link--noUnderline:focus {
+  text-decoration: none;
+}
+
+/* Heading */
+
+.Heading {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Button */
+
+.Button {
+  align-items: center;
+  appearance: none;
+  background-color: #f6f8fa;
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+  box-shadow: 0 1px 0 0 #1f23280a;
+  color: #25292e;
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  gap: 0.5rem;
+  height: 2rem;
+  justify-content: space-between;
+  min-width: max-content;
+  padding: 0 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  transition: 80ms cubic-bezier(0.65, 0, 0.35, 1);
+  transition-property: color, fill, background-color, border-color;
+  user-select: none;
+}
+
+.Button:hover {
+  background-color: #eff2f5;
+  border-color: #d1d9e0;
+  transition-duration: 80ms;
+}
+
+.Button:active,
+.Button[aria-expanded='true'] {
+  background-color: #e6eaef;
+  border-color: #d1d9e0;
+  transition: none;
+}
+
+.Button:focus-visible {
+  box-shadow: none;
+  outline: 2px solid #0969da;
+  outline-offset: -2px;
+}
+
+.Button--small {
+  font-size: 0.75rem;
+  gap: 0.25rem;
+  height: 1.75rem;
+  padding: 0 0.5rem;
+}
+
+.Button-content {
+  align-content: center;
+  align-items: center;
+  display: grid;
+  flex: 1 0 auto;
+  grid-template-areas: 'leadingVisual text trailingVisual';
+  grid-template-columns: min-content minmax(0, auto) min-content;
+  justify-content: center;
+}
+
+.Button-content > :not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.Button--small .Button-content > :not(:last-child) {
+  margin-right: 0.25rem;
+}
+
+.Button-leadingVisual {
+  grid-area: leadingVisual;
+}
+
+.Button-label {
+  grid-area: text;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.Button--small .Button-label {
+  line-height: 1.625;
+}
+
+.Button-visual {
+  color: #59636e;
+  display: flex;
+  pointer-events: none;
+}
+
+summary.Button {
+  list-style: none;
+}
+
+summary.Button::-webkit-details-marker {
+  display: none;
+}
+
+/* TextInput */
+
+.TextInput {
+  align-items: stretch;
+  background-color: #ffffff;
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 0 #1f23280a;
+  color: #1f2328;
+  cursor: text;
+  display: inline-flex;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  min-height: 2rem;
+  outline: none;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.TextInput:focus-within {
+  border-color: #0969da;
+  outline: 2px solid #0969da;
+  outline-offset: -1px;
+}
+
+.TextInput > :not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.TextInput--leadingVisual {
+  padding-left: 0.5rem;
+}
+
+.TextInput-icon {
+  align-self: center;
+  color: #59636e;
+  display: flex;
+  flex-shrink: 0;
+}
+
+.TextInput-input {
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  width: 100%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-family: inherit;
+  /* The font-size of inputs should never be less than 16px.
+   * Otherwise, iOS browsers will zoom in when the input is focused. */
+  font-size: 16px;
+  color: #1f2328;
+  caret-color: #1f2328;
+}
+
+.TextInput--leadingVisual .TextInput-input {
+  padding-left: 0;
+  padding-right: 0.5rem;
+}
+
+.TextInput-input:focus {
+  outline: 0;
+}
+
+.TextInput-input::placeholder {
+  color: #59636e;
+  opacity: 1;
+}
+
+/* ActionList (also the basis of NavList) */
+
+.ActionList,
+.ActionList ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ActionList--inset {
+  padding-block: 0.5rem;
+}
+
+.ActionList--inset .ActionList-item {
+  margin-inline: 0.5rem;
+}
+
+.ActionList .ActionList-divider:first-child {
+  display: none;
+}
+
+.ActionList-divider {
+  background: #d1d9e0b3;
+  border: 0;
+  display: block;
+  height: 1px;
+  list-style: none;
+  margin-block-end: 0.5rem;
+  margin-block-start: calc(0.5rem - 1px);
+  padding: 0;
+}
+
+.ActionList-item {
+  background-color: transparent;
+  border-radius: 6px;
+  list-style: none;
+  position: relative;
+}
+
+@media (hover: hover) {
+  .ActionList-item:not([data-has-subitem]):hover {
+    background-color: #818b981a;
+    cursor: pointer;
+  }
+}
+
+.ActionList-item:not([data-has-subitem]):active {
+  background-color: #818b9826;
+}
+
+.ActionList-item[data-active]:not([data-has-subitem]),
+.ActionList-item[data-active] > .ActionList-content[aria-expanded='false'] {
+  background: #818b9826;
+  outline: 2px solid transparent;
+}
+
+.ActionList-item[data-active]:not([data-has-subitem]) .ActionList-label,
+.ActionList-item[data-active] > .ActionList-content[aria-expanded='false'] .ActionList-label {
+  color: #25292e;
+  font-weight: 600;
+}
+
+@media (hover: hover) {
+  .ActionList-item[data-active]:not([data-has-subitem]):hover {
+    background-color: #818b981a;
+  }
+}
+
+.ActionList-item[data-active]:not([data-has-subitem])::after,
+.ActionList-item[data-active] > .ActionList-content[aria-expanded='false']::after {
+  background: #0969da;
+  border-radius: 6px;
+  content: '';
+  height: calc(100% - 0.5rem);
+  left: -0.5rem;
+  position: absolute;
+  top: 0.25rem;
+  width: 0.25rem;
+}
+
+.ActionList-item[data-has-subitem] > .ActionList-content {
+  z-index: 1;
+}
+
+@media (hover: hover) {
+  .ActionList-item[data-has-subitem] > .ActionList-content:hover {
+    background-color: #818b981a;
+    cursor: pointer;
+  }
+}
+
+.ActionList-item[data-has-subitem] > .ActionList-content:active {
+  background-color: #818b9826;
+}
+
+.ActionList-item[data-has-subitem] .ActionList-spacer {
+  display: block;
+}
+
+.ActionList-content {
+  --subitem-depth: 0;
+  align-items: start;
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  color: #25292e;
+  cursor: pointer;
+  display: grid;
+  font: inherit;
+  grid-template-areas: 'spacer leadingAction leadingVisual content';
+  grid-template-columns: min-content min-content min-content minmax(0, auto);
+  grid-template-rows: min-content;
+  padding-block: 0.375rem;
+  padding-inline: 0.5rem;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: background 33.333ms linear;
+  user-select: none;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ActionList-content > :not(:last-child, .ActionList-spacer) {
+  margin-right: 0.5rem;
+}
+
+.ActionList-content:hover {
+  text-decoration: none;
+}
+
+.ActionList-content:focus-visible {
+  box-shadow: none;
+  outline: 2px solid #0969da;
+  outline-offset: 0;
+}
+
+.ActionList-content[aria-expanded='true'] .ActionList-expandIcon {
+  transform: scaleY(-1);
+}
+
+.ActionList-content[aria-expanded='false'] .ActionList-expandIcon {
+  transform: scaleY(1);
+}
+
+.ActionList-content[aria-expanded='false'] ~ .ActionList-subGroup {
+  display: none;
+}
+
+.ActionList-subContent {
+  align-items: start;
+  display: grid;
+  grid-area: content;
+  grid-template-areas: 'label trailingVisual trailingAction';
+  grid-template-columns: minmax(0, auto) min-content min-content;
+  grid-template-rows: min-content;
+  position: relative;
+  width: 100%;
+}
+
+.ActionList-subContent > :not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.ActionList-spacer {
+  display: none;
+  grid-area: spacer;
+  width: max(0px, var(--subitem-depth) * 8px);
+}
+
+.ActionList-trailingVisual {
+  font-size: 0.875rem;
+  grid-area: trailingVisual;
+}
+
+.ActionList-visualWrap {
+  align-items: center;
+  color: #59636e;
+  display: flex;
+  fill: #59636e;
+  line-height: 20px;
+  min-height: 1.25rem;
+  min-width: max-content;
+  pointer-events: none;
+}
+
+.ActionList-label {
+  color: #1f2328;
+  font-size: 0.875rem;
+  font-weight: 400;
+  grid-area: label;
+  line-height: 20px;
+  position: relative;
+  word-break: break-word;
+}
+
+.ActionList-subGroup .ActionList-label {
+  font-size: 0.75rem;
+}
+
+.ActionList-subGroup .ActionList-item {
+  margin-inline: 0;
+}
+
+.ActionList-group {
+  list-style: none;
+}
+
+.ActionList-group:not(:first-child) {
+  margin-block-start: 0.5rem;
+}
+
+.ActionList-groupList {
+  padding-inline-start: 0;
+}
+
+.ActionList-groupHeadingWrap {
+  color: #59636e;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 18px;
+  padding-block: 0.375rem;
+  padding-inline: 1rem;
+}
+
+.ActionList-groupHeading {
+  align-self: flex-start;
+  color: #59636e;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Overlay (ActionMenu) */
+
+@keyframes overlay-appear {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.Overlay {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 1px #d1d9e080,
+    0 6px 12px -3px #25292e0a,
+    0 6px 18px 0 #25292e1f;
+  height: auto;
+  max-height: 100vh;
+  max-width: calc(100vw - 2rem);
+  min-width: 192px;
+  overflow: auto;
+  position: absolute;
+  width: auto;
+  z-index: 1;
+}
+
+.Overlay:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Overlay {
+    animation: overlay-appear 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+  }
+}
+
+/* Breadcrumbs */
+
+.Breadcrumbs {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Breadcrumbs-list {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.Breadcrumbs-itemWrapper {
+  list-style: none;
+}
+
+.Breadcrumbs-itemWrapper,
+.Breadcrumbs-itemWrapper::after {
+  display: inline-block;
+  font-size: 0.875rem;
+}
+
+.Breadcrumbs-itemWrapper::after {
+  border-right: 0.1em solid #59636e;
+  content: '';
+  height: 0.8em;
+  margin: 0 0.5em;
+  transform: rotate(15deg) translateY(0.0625em);
+}
+
+.Breadcrumbs-itemWrapper:first-child {
+  margin-left: 0;
+}
+
+.Breadcrumbs-itemWrapper:last-child::after {
+  content: none;
+}
+
+.Breadcrumbs-item {
+  color: #0969da;
+  display: inline-block;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.Breadcrumbs-item:not([aria-current]):hover {
+  text-decoration: underline;
+}
+
+.Breadcrumbs-item:focus-visible {
+  border-radius: 3px;
+  box-shadow: none;
+  outline: 2px solid #0969da;
+  outline-offset: 2px;
+  text-decoration: none;
+}
+
+.Breadcrumbs-item[aria-current] {
+  color: #1f2328;
+}
+
+/* Avatar */
+
+.Avatar {
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #1f232826;
+  display: inline-block;
+  height: 20px;
+  line-height: 1;
+  overflow: hidden;
+  vertical-align: middle;
+  width: 20px;
+}
+
+/* Tooltip */
+
+.Tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.Tooltip::after {
+  background: #25292e;
+  border-radius: 6px;
+  bottom: calc(100% + 0.25rem);
+  color: #ffffff;
+  content: attr(data-tooltip);
+  font: 400 0.75rem/1.625 var(--fontStack-system);
+  left: 50%;
+  max-width: 250px;
+  opacity: 0;
+  padding: 0.25rem 0.5rem;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  width: max-content;
+  z-index: 1;
+}
+
+.Tooltip:hover::after,
+.Tooltip:focus-within::after {
+  opacity: 1;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .Tooltip:hover::after,
+  .Tooltip:focus-within::after {
+    animation: overlay-appear 0.1s ease-in;
+  }
+}
+
+/* Details */
+
+.Details > summary {
+  list-style: none;
+}
+
+.Details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Octicons */
+
+.octicon {
+  display: inline-block;
+  overflow: visible;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}

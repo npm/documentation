@@ -2,8 +2,6 @@
 title: Recovering your 2FA-enabled account
 ---
 
-import shared from '~/shared.js'
-
 When you have two-factor access enabled on your account, and you lose access to your 2FA device, you may be able to recover your account using the following methods.
 
 When you use a recovery code to log in, npm places a temporary 72-hour security hold on your account. The hold expires automatically 72 hours after it begins and is not extended if you use another recovery code during that period.
@@ -34,13 +32,13 @@ If you have misplaced the device that provided second-factor authentication, you
 
 1. Locate the recovery codes generated that you have saved.
 
-2. <>{shared['user-login'].text}</>
+2. <Shared id="user-login" />
 
-   <>{shared['user-login'].image}</>
+   <Shared id="user-login" image />
 
-3. <>{shared['use-recovery-code'].text}</>
+3. <Shared id="use-recovery-code" />
 
-   <>{shared['use-recovery-code'].image}</>
+   <Shared id="use-recovery-code" image />
 
 4. Enter an unused recovery code in the "Use a Recovery Code" prompt.
 
@@ -56,13 +54,13 @@ If you have misplaced the device that provided second-factor authentication, you
 
 </Note>
 
-1. <>{shared['user-login'].text}</>
+1. <Shared id="user-login" />
 
-   <>{shared['user-login'].image}</>
+   <Shared id="user-login" image />
 
-2. <>{shared['account-settings'].text}</>
+2. <Shared id="account-settings" />
 
-   <>{shared['account-settings'].image}</>
+   <Shared id="account-settings" image />
 
 3. On the account settings page, under "Two-Factor Authentication", click **Modify 2FA**.
 
@@ -78,31 +76,31 @@ If you have misplaced the device that provided second-factor authentication, you
 
 If you have misplaced both your 2FA device and your recovery codes, you can contact our support team to attempt to recover your account. Provide as much information as possible to help us expedite the request faster.
 
-1. <>{shared['user-login'].text}</>
+1. <Shared id="user-login" />
 
-   <>{shared['user-login'].image}</>
+   <Shared id="user-login" image />
 
-2. <>{shared['use-recovery-code'].text}</>
+2. <Shared id="use-recovery-code" />
 
-   <>{shared['use-recovery-code'].image}</>
+   <Shared id="use-recovery-code" image />
 
 3. Under the "Use a Recovery Code" form, click **Try recovering your account**.
 
-4. <>{shared['start-account-recovery'].text}</>
+4. <Shared id="start-account-recovery" />
 
-   <>{shared['start-account-recovery'].image}</>
+   <Shared id="start-account-recovery" image />
 
 5. If you have access to your registered email, enter the one-time password sent to your email in the **One-Time Password** field, then click **Verify Email Address**. _If you do not have access to your registered email, select **Skip email verification** at the bottom of the form._
 
-6. <>{shared['support-ticket-form'].text}</>
+6. <Shared id="support-ticket-form" />
 
-- <>{shared['enter-email-address'].text}</>
+- <Shared id="enter-email-address" />
 - In the **How can we help?** section, select **Reset my two-factor authentication (2FA)**.
-- <>{shared['support-ticket-other'].text}</><>{shared['connect-to-accounts'].text}</>
+- <Shared id="support-ticket-other" /><Shared id="connect-to-accounts" />
 
    <Screenshot src="/getting-started/setting-up-your-npm-user-account/recover-account.png" alt="Screenshot showing existing recovery codes and a button to generate set of recovery codes" />
 
-7. <>{shared['submit-support-ticket'].text}</>
+7. <Shared id="submit-support-ticket" />
 
 [contact-support]: https://www.npmjs.com/support
 [configuring-two-factor-authentication]: /configuring-two-factor-authentication
