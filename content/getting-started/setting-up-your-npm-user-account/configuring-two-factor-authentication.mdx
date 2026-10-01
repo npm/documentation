@@ -2,8 +2,6 @@
 title: Configuring two-factor authentication
 ---
 
-import shared from '~/shared.js'
-
 You can enable two-factor authentication (2FA) on your npm user account to protect against unauthorized access to your account and packages using a [security-key][webauthn].
 
 <Note variant="warning">
@@ -30,13 +28,13 @@ For more information on supported 2FA methods, see "[About two-factor authentica
 
 ### Enabling 2FA
 
-1. <>{shared['user-login'].text}</>
+1. <Shared id="user-login" />
 
-   <>{shared['user-login'].image}</>
+   <Shared id="user-login" image />
 
-2. <>{shared['account-settings'].text}</>
+2. <Shared id="account-settings" />
 
-   <>{shared['account-settings'].image}</>
+   <Shared id="account-settings" image />
 
 3. On the account settings page, under "Two-Factor Authentication", click **Enable 2FA**.
 
@@ -81,13 +79,13 @@ If you have 2FA enabled, you can remove it from your account settings page.
 
 </Note>
 
-1. <>{shared['user-login'].text}</>
+1. <Shared id="user-login" />
 
-   <>{shared['user-login'].image}</>
+   <Shared id="user-login" image />
 
-2. <>{shared['account-settings'].text}</>
+2. <Shared id="account-settings" />
 
-   <>{shared['account-settings'].image}</>
+   <Shared id="account-settings" image />
 
 3. On the account settings page, under "Two-Factor Authentication", click **Modify 2FA**.
 
@@ -146,7 +144,9 @@ If you have enabled 2FA auth-and-writes, authentication will be handled automati
 
 3. When prompted, enter your npm password:
 
-   <Prompt>npm password:</Prompt>
+   ```
+   npm password:
+   ```
 
 4. You will be prompted to authenticate with your configured 2FA method to complete the removal.
 
@@ -154,13 +154,13 @@ If you have enabled 2FA auth-and-writes, authentication will be handled automati
 
 When you enable 2FA on your npm user account, we strongly recommend you link your GitHub account to your npm user account. In the event you lose access to your 2FA device and recovery codes, this linked account can be used to verify your identity and expedite the recovery of your npm account.
 
-1. <>{shared['user-login'].text}</>
+1. <Shared id="user-login" />
 
-   <>{shared['user-login'].image}</>
+   <Shared id="user-login" image />
 
-2. <>{shared['account-settings'].text}</>
+2. <Shared id="account-settings" />
 
-   <>{shared['account-settings'].image}</>
+   <Shared id="account-settings" image />
 
 3. To [link your GitHub][advanced-github-setup] account, on the account settings page, under "Linked Accounts & Recovery Option", click **Link with GitHub**.
 

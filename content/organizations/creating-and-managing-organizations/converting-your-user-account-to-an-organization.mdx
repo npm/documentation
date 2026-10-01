@@ -4,8 +4,6 @@ redirect_from:
   - /converting-your-user-account-to-an-org
 ---
 
-import shared from '~/shared.js'
-
 If you have an npm user account, you can convert your user account to an organization. When you convert your user account to an organization, we will:
 
 - Create a new organization with the name of your user account.
@@ -17,13 +15,13 @@ If you have an npm user account, you can convert your user account to an organiz
 
 **Note:** Once your old user account has been converted to an organization, you will no longer be able to sign in to npm with your old user account.
 
-1. <>{shared['user-login'].text}</>
+1. <Shared id="user-login" />
 
-   <>{shared['user-login'].image}</>
+   <Shared id="user-login" image />
 
-2. <>{shared['organization-create'].text}</>
+2. <Shared id="organization-create" />
 
-   <>{shared['organization-create'].image}</>
+   <Shared id="organization-create" image />
 
 3. Below the account creation form, click **Convert**.
 
@@ -39,6 +37,6 @@ If you have an npm user account, you can convert your user account to an organiz
 
 6. On the plan selection page, select either the "Unlimited private packages" paid plan or the "Unlimited public packages" free plan, then click **Buy** or **Create**.
 
-   <>{shared['billing-organization-plans'].image}</>
+   <Shared id="billing-organization-plans" image />
 
 7. If you selected to use the unlimited private packages plan, in the payment dialog, provide the email, name, address, and credit card information for the card that will be used to pay for the organization.

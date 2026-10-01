@@ -2,8 +2,6 @@
 title: Deprecating and undeprecating packages or package versions
 ---
 
-import shared from '~/shared.js'
-
 If you no longer wish to maintain a package, or if you would like to encourage users to update to a new or different version, you can [deprecate][deprecate-cli] it. Deprecating a package or version will print a message to the terminal when a user installs it.
 
 A deprecation warning or message can say anything. You may wish to include a message encouraging users to update to a specific version, or an alternate, supported package.
@@ -24,9 +22,9 @@ Deprecating a package is an alternative to deleting a package if your package do
 
 ### Using the website
 
-1. <>{shared['user-login'].text}</>
+1. <Shared id="user-login" />
 
-   <>{shared['user-login'].image}</>
+   <Shared id="user-login" image />
 
 2. Navigate to the package page for the package you want to deprecate, replacing `<your-package-name>` with the name of your package: `https://www.npmjs.com/package/<your-package-name>`.
 

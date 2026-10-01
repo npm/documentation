@@ -7,3 +7,5 @@
 .nyc_output/
 coverage/
 cli-cache.json
+# A JavaScript template literal, not HTML
+src/theme/template.html

@@ -1,0 +1,120 @@
+.Box {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.Box_1 {
+  z-index: 0;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+}
+
+.sidebarContainer {
+  display: none;
+}
+
+@media (min-width: 1012px) {
+  .sidebarContainer {
+    display: block;
+  }
+}
+
+/* mb: 4 = 24px */
+.titleBox {
+  margin-bottom: 24px;
+}
+
+/* fontSize: 3 = 20px, mb: 3 = 16px */
+.description {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.Container {
+  width: 100%;
+  max-width: 960px;
+}
+
+.Hero {
+  width: 100%;
+}
+
+/* DefaultLayout wrapper - p: [4, 5, 6, 7] = 24px, 32px, 40px, 48px */
+.Default {
+  justify-content: center;
+  display: flex;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 24px;
+}
+
+@media (min-width: 544px) {
+  .Default {
+    padding: 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  .Default {
+    padding: 40px;
+  }
+}
+
+@media (min-width: 1012px) {
+  .Default {
+    padding: 48px;
+  }
+}
+
+/* bg: 'canvas.inset', py: [0, 4, 5, 6] = 0, 24px, 32px, 40px */
+/* canvas.inset in dark mode - slightly darker than #333333 */
+.DarkTheme {
+  background-color: #292929;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+@media (min-width: 544px) {
+  .DarkTheme {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .DarkTheme {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+@media (min-width: 1012px) {
+  .DarkTheme {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+/* p: 5 = 32px, mx: auto */
+.HeroContainer {
+  padding: 32px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* color: 'fg.default' in dark_dimmed = #E1E4E8, fontSize: 7 = 48px, m: 0 */
+.Heading {
+  color: #e1e4e8;
+  font-size: 48px;
+  margin: 0;
+}
+
+/* m: 0, color: 'fg.onEmphasis' = white, fontSize: 4 = 24px */
+.Text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 24px;
+}

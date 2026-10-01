@@ -1,0 +1,9 @@
+.headerNavItem {
+  display: flex;
+}
+
+@media (min-width: 1012px) {
+  .headerNavItem {
+    display: none;
+  }
+}

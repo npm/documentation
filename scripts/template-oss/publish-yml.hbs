@@ -23,33 +23,14 @@ jobs:
         shell: bash
     steps:
       {{> stepsSetupYml }}
-      - name: Rebuild deps
-        run: npm rebuild
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      
-      - name: Restore cache
-        id: cache-gatsby
-        uses: actions/cache/restore@v4
-        with:
-          key: $\{{ runner.os }}-gatsby-$\{{ github.ref_name }}
-          path: |
-            public
-            .cache
 
       - name: Build documentation
         run: npm run build
         env:
           GITHUB_TOKEN: $\{{ secrets.GITHUB_TOKEN }}
-
-      - name: Save cache
-        uses: actions/cache/save@v4
-        with:
-          key: $\{{ steps.cache-gatsby.outputs.cache-primary-key }}
-          path: |
-            public
-            .cache
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

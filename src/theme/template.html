@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>${metadata.head.title}</title>
+    <meta name="description" content="${metadata.head.description}" />
+    <meta property="og:title" content="${metadata.head.title}" />
+    <meta property="og:description" content="${metadata.head.description}" />
+    <meta property="og:image" content="${config.site.imageUrl}" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <!-- The site is served from the root of its domain; root-relative URLs keep
+         working wherever GitHub Pages serves 404.html from. -->
+    ${assets.split(`"${root}`).join('"/')}
+    <script type="speculationrules">
+      {"prefetch": [{"where": {"and": [{"href_matches": "/*"}, {"not": {"selector_matches": "[rel~=nofollow]"}}]}, "eagerness": "moderate"}]}
+    </script>
+  </head>
+  <body>
+    <div id="root">${dehydrated}</div>
+  </body>
+</html>
