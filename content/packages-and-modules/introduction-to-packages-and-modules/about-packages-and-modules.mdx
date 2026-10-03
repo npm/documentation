@@ -50,7 +50,7 @@ To be loaded by the Node.js `require()` function, a module must be one of the fo
 - A folder with a `package.json` file containing a `"main"` field.
 - A JavaScript file.
 
-To use the `import` syntax, a module should also include `"type": "module"` in its `package.json` file:
+Modern JavaScript projects can also use ES module syntax with `import` and `export`. In Node.js, ES modules are commonly enabled by setting `"type": "module"` in `package.json` or by using the `.mjs` file extension. For example, a `package.json` file can include:
 
 ```json
 {
