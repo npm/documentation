@@ -227,6 +227,12 @@ You can add or remove your trusted publisher configurations at any time through 
 
 </Note>
 
+### Trusted publisher configuration expiry
+
+A newly created trusted publisher configuration must complete its first successful publish within 2 days. The first successful publish validates the configuration and binds it to the repository's immutable identity.
+
+If the configuration is not validated within 2 days, it expires and can no longer be used or edited. To continue using trusted publishing, delete the expired configuration, create a new one, and complete the first publish within 2 days.
+
 ## Recommended: Restrict token access when using trusted publishers
 
 Once you've configured trusted publishers for your package, we strongly recommend restricting traditional token-based publishing access for enhanced security.
