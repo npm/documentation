@@ -4,8 +4,6 @@ redirect_from:
   - /creating-and-publishing-an-org-scoped-package
 ---
 
-import shared from '~/shared.js'
-
 As an organization member, you can create and publish public and private packages within the organization's scope.
 
 ## Creating an organization scoped package
@@ -38,7 +36,7 @@ By default, any scoped package is published as private. However, if you have an 
 
 Private packages will say `private` below the package name on the npm website.
 
-<>{shared['organization-package-private'].image}</>
+<Shared id="organization-package-private" image />
 
 ## Publishing a public organization scoped package
 
@@ -50,4 +48,4 @@ To publish an organization scoped package as public, use `npm publish --access p
 
 Public packages will say `public` below the package name on the npm website.
 
-<>{shared['organization-package-public'].image}</>
+<Shared id="organization-package-public" image />

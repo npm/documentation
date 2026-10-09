@@ -2,8 +2,6 @@
 title: Requiring 2FA for package publishing and settings modification
 ---
 
-import shared from '~/shared.js'
-
 All packages now require two-factor authentication (2FA) or a [granular access tokens with bypass 2FA enabled][creating-granular-access-token] for creating and publishing packages.
 
 Modifying a package's settings also requires two-factor authentication (2FA).
@@ -24,9 +22,9 @@ For CI/CD workflows, consider using [trusted publishing](/trusted-publishers), w
 
 ## Configuring two-factor authentication on package settings
 
-1. <>{shared['user-login'].text}</>
+1. <Shared id="user-login" />
 
-   <>{shared['user-login'].image}</>
+   <Shared id="user-login" image />
 
 2. Navigate to the package on which you want to require a second factor to publish or modify settings.
 

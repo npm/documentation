@@ -5,8 +5,6 @@ redirect_from:
   - /creating-an-org
 ---
 
-import shared from '~/shared.js'
-
 Any npm user can create an organization to manage contributor access to packages governed by the organization.
 
 <Note>
@@ -15,13 +13,13 @@ Any npm user can create an organization to manage contributor access to packages
 
 </Note>
 
-1. <>{shared['user-login'].text}</>
+1. <Shared id="user-login" />
 
-   <>{shared['user-login'].image}</>
+   <Shared id="user-login" image />
 
-1. <>{shared['organization-create'].text}</>
+1. <Shared id="organization-create" />
 
-   <>{shared['organization-create'].image}</>
+   <Shared id="organization-create" image />
 
 1. On the organization creation page, in the **Name** field, type a name for your organization. Your organization name will also be your organization scope.
 
@@ -29,7 +27,7 @@ Any npm user can create an organization to manage contributor access to packages
 
 1. Under the **Name** field, choose either the "Unlimited private packages" paid plan or the "Unlimited public packages" free plan and click **Buy** or **Create**.
 
-   <>{shared['billing-organization-plans'].image}</>
+   <Shared id="billing-organization-plans" image />
 
 1. (Optional) On the organization invitation page, type the npm username or email address of a person you would like to add to your organization as a member and select a team to invite them to, then click **Invite**.
 

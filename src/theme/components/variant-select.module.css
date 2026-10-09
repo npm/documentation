@@ -1,0 +1,36 @@
+.Box {
+  margin: 0;
+}
+
+.Box_1 {
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.menu {
+  position: relative;
+}
+
+.menuButton {
+  width: 100%;
+}
+
+.menuButton:focus-visible {
+  outline: 2px solid;
+  outline-color: -webkit-focus-ring-color;
+  outline-offset: 1px;
+}
+
+@media (min-width: 768px) {
+  .menuButton {
+    width: auto;
+  }
+}
+
+.Overlay {
+  top: calc(100% + 4px);
+  left: 0;
+  background-color: #ffffff !important;
+  border: 1px solid #d0d7de;
+  box-shadow: 0 3px 6px rgba(140, 149, 159, 0.15);
+}

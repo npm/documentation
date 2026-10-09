@@ -4,6 +4,6 @@ export default [
   github.getFlatConfigs().react,
   {
     // This lets your .eslintrc.js handle most configuration
-    ignores: ['.cache/**', 'public/**'],
+    ignores: ['public/**'],
   },
 ]

@@ -4,8 +4,6 @@ redirect_from:
   - /private-modules/intro
 ---
 
-import shared from '~/shared.js'
-
 To share your code with a limited set of users or teams, you can publish private user-scoped or organization-scoped packages to the npm registry.
 
 For more information on scopes and private packages, see "[About scopes][scopes]" and "[About private packages][private-pkgs]".
@@ -109,7 +107,7 @@ For more information, see the npm documentation on [requiring 2FA for package pu
 
 3. To see your private package page, visit https://npmjs.com/package/*package-name*, replacing *package-name\* with the name of your package. Private packages will say `private` below the package name on the npm website.
 
-   <>{shared['organization-package-private'].image}</>
+   <Shared id="organization-package-private" image />
 
 For more information on the `publish` command, see the [CLI documentation][cli-publish].
 

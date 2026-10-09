@@ -1,0 +1,73 @@
+/*
+ * Base styles: what Primer's BaseStyles used to provide, plus the site's
+ * global custom properties.
+ */
+
+:root {
+  --header-height: 56px;
+  --header-bar: 10px;
+  --full-header-height: 66px;
+  --scroll-margin-top: 90px;
+  --z-index-header: 10;
+  --z-index-search-overlay: 25;
+
+  --fontStack-system:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji';
+  --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  color: #1f2328;
+  background-color: #ffffff;
+  font-family: var(--fontStack-system);
+  line-height: 1.5;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+[data-color-mode='light'] input {
+  color-scheme: light;
+}
+
+[data-color-mode='dark'] input {
+  color-scheme: dark;
+}
+
+[role='button']:focus:not(:focus-visible),
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+summary:focus:not(:focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+/* Interactive components are hydrated in place; their wrappers are invisible. */
+is-land,
+island-slot {
+  display: contents;
+}
+
+/** Visually hide an element, but keep it accessible to screen readers. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

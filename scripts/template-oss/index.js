@@ -36,7 +36,7 @@ module.exports = {
   windowsCI: false,
   lockfile: true,
   // these need to be allowed since they need to installed explicitly since
-  // the repo uses legacy-peer-deps to avoid gatsby errors
+  // the repo uses legacy-peer-deps
   allowedPackages: ['eslint', 'eslint-plugin-import', 'eslint-plugin-node', 'eslint-plugin-promise'],
   requiredPackages: {
     devDependencies: [],
@@ -50,11 +50,9 @@ module.exports = {
     '/CONTENT-MODEL.md',
     '/content/',
     '/CONTRIBUTING.md',
-    '/gatsby-*',
-    '/jest*.js',
+    '/doc-kit.config.mjs',
     '/LICENSE*',
     '/src',
     '/static/',
-    '/webpack.config.js',
   ],
 }

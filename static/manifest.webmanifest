@@ -1,0 +1,14 @@
+{
+  "name": "npm Docs",
+  "short_name": "npm",
+  "description": "Documentation for the npm registry, website, and command-line interface",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "1000x1000",
+      "type": "image/png"
+    }
+  ]
+}

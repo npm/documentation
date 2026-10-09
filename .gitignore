@@ -23,9 +23,8 @@
 !/CONTENT-MODEL.md
 !/content/
 !/CONTRIBUTING.md
+!/doc-kit.config.mjs
 !/docs/
-!/gatsby-*
-!/jest*.js
 !/lib/
 !/LICENSE*
 !/map.js
@@ -40,7 +39,6 @@
 !/tap-snapshots/
 !/test/
 !/tsconfig.json
-!/webpack.config.js
 !cli-cache.json
 tap-testdir*/
 !/cli/
