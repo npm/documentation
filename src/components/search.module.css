@@ -42,8 +42,6 @@
   flex-direction: column;
 }
 
-/* Primer's ThemeProvider wraps LightTheme content in a <div data-color-mode>. Let that wrapper
-   shrink to the remaining height so the results list scrolls instead of overflowing the viewport. */
 .Box_6 > [data-color-mode] {
   display: flex;
   flex-direction: column;

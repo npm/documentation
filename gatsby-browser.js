@@ -14,9 +14,6 @@ const toHtmlNamespace = node => {
   return element
 }
 
-// Gatsby renders the Head export inside an <svg> to avoid React 19 metadata hoisting, so the
-// <title>/<meta> nodes it copies into <head> are created in the SVG namespace. Browsers and
-// assistive technology ignore an SVG <title> for document.title, so recreate them as HTML elements.
 const fixHeadNamespaces = () => {
   for (const node of document.head.querySelectorAll('[data-gatsby-head]')) {
     if (node.namespaceURI !== HTML_NAMESPACE) {
