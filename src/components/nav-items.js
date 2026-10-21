@@ -13,6 +13,7 @@ import * as styles from './nav-items.module.css'
 const NavItem = ({item, path, depth, position, total}) => {
   const isCurrent = getNav.isActiveUrl(path, item.url)
   const items = getNav.getHierarchy(item, item.url, {hideVariants: true})
+  const positionLabel = items ? {} : {'aria-label': `${item.title}, ${position} of ${total}`, 'aria-labelledby': null}
 
   return (
     <NavList.Item
@@ -20,8 +21,7 @@ const NavItem = ({item, path, depth, position, total}) => {
       to={item.url}
       defaultOpen={items && isCurrent}
       aria-current={isCurrent ? 'page' : null}
-      aria-label={`${item.title}, ${position} of ${total}`}
-      aria-labelledby={null}
+      {...positionLabel}
       className={depth === 1 ? styles.NavList_Item_depth1 : styles.NavList_Item_depth2}
     >
       {item.title}
