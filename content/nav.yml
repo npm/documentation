@@ -1897,8 +1897,8 @@
     - title: Version 12.2.1
       shortName: v12
       url: /cli/v12
-      default: false
-      type: legacy
+      default: true
+      type: latest
       children:
         - title: CLI Commands
           shortName: Commands
