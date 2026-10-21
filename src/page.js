@@ -17,6 +17,7 @@ import {
 
 import {PageProvider} from './hooks/use-page'
 import Layout from './layout'
+import {ThemeProvider} from './theme'
 
 import * as styles from './page.module.css'
 
@@ -44,24 +45,26 @@ const PageElement = ({element, props}) => {
     slugger: new Slugger(),
   }
   return (
-    <BaseStyles>
-      <GlobalStyles />
-      <SkipBox>
-        <SkipLink href={`#${SKIP_TO_SEARCH_ID}`}>Skip to search</SkipLink>
-        <SkipLink href={`#${SKIP_TO_CONTENT_ID}`}>Skip to content</SkipLink>
-      </SkipBox>
-      <PageProvider value={page}>
-        <div className={styles.Box}>
-          <Header />
-          <div className={styles.Box_1}>
-            <div className={styles.sidebarContainer}>
-              <Sidebar />
+    <ThemeProvider>
+      <BaseStyles>
+        <GlobalStyles />
+        <SkipBox>
+          <SkipLink href={`#${SKIP_TO_SEARCH_ID}`}>Skip to search</SkipLink>
+          <SkipLink href={`#${SKIP_TO_CONTENT_ID}`}>Skip to content</SkipLink>
+        </SkipBox>
+        <PageProvider value={page}>
+          <div className={styles.Box}>
+            <Header />
+            <div className={styles.Box_1}>
+              <div className={styles.sidebarContainer}>
+                <Sidebar />
+              </div>
+              <Layout>{element}</Layout>
             </div>
-            <Layout>{element}</Layout>
           </div>
-        </div>
-      </PageProvider>
-    </BaseStyles>
+        </PageProvider>
+      </BaseStyles>
+    </ThemeProvider>
   )
 }
 

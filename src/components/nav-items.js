@@ -10,9 +10,10 @@ import useSiteMetadata from '../hooks/use-site-metadata'
 
 import * as styles from './nav-items.module.css'
 
-const NavItem = ({item, path, depth}) => {
+const NavItem = ({item, path, depth, position, total}) => {
   const isCurrent = getNav.isActiveUrl(path, item.url)
   const items = getNav.getHierarchy(item, item.url, {hideVariants: true})
+  const positionLabel = items ? {} : {'aria-label': `${item.title}, ${position} of ${total}`, 'aria-labelledby': null}
 
   return (
     <NavList.Item
@@ -20,6 +21,7 @@ const NavItem = ({item, path, depth}) => {
       to={item.url}
       defaultOpen={items && isCurrent}
       aria-current={isCurrent ? 'page' : null}
+      {...positionLabel}
       className={depth === 1 ? styles.NavList_Item_depth1 : styles.NavList_Item_depth2}
     >
       {item.title}
@@ -34,11 +36,11 @@ const NavItem = ({item, path, depth}) => {
 
 const NavItems = ({items, path, depth = 1}) => (
   <>
-    {items.map(item =>
+    {items.map((item, index) =>
       React.createElement(
         depth === 1 ? NavList.Group : React.Fragment,
         {key: item.title},
-        <NavItem item={item} path={path} depth={depth} />,
+        <NavItem item={item} path={path} depth={depth} position={index + 1} total={items.length} />,
       ),
     )}
   </>

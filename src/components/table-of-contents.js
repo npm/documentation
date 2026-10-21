@@ -48,7 +48,7 @@ export const Mobile = withTableOfContents(({items}) => {
       <Details {...getDetailsProps()} className={styles.Details}>
         <Button
           as="summary"
-          leadingIcon={open ? ChevronDownIcon : ChevronRightIcon}
+          leadingVisual={open ? ChevronDownIcon : ChevronRightIcon}
           className={`${styles.Button} ${open ? styles.buttonOpen : styles.buttonClosed}`}
         >
           Table of contents
