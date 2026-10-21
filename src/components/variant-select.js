@@ -18,11 +18,16 @@ const StyledOverlay = styled(ActionMenu.Overlay)`
 
 const VariantItem = ({title, shortName, url, active}) => {
   return (
-    <ActionList.Item state={{scrollUpdate: false}} id={shortName} active={active} tabIndex={null}>
-      <LinkNoUnderline to={url} className={styles.variantLink}>
-        {title}
-      </LinkNoUnderline>
-    </ActionList.Item>
+    <ActionList.LinkItem
+      as={LinkNoUnderline}
+      to={url}
+      state={{scrollUpdate: false}}
+      id={shortName}
+      active={active}
+      className={styles.variantItem}
+    >
+      {title}
+    </ActionList.LinkItem>
   )
 }
 

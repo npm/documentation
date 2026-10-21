@@ -11,7 +11,7 @@
   width: 100%;
 }
 
-a.variantLink {
+.variantItem a {
   color: var(--fgColor-default, #1f2328);
 }
 
