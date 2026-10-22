@@ -83,7 +83,7 @@ const main = async ({loglevel, releases: rawReleases, useCurrent, navPath, conte
           ...release,
           version: version.toString(),
           // the default release is always controlled by the latest dist-tag
-          default: semver.eq(version, pack.latest),
+          default: semver.major(version) === semver.major(pack.latest),
           prerelease: version.prerelease.length > 0,
         }
       )
