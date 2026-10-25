@@ -18,55 +18,86 @@ const StyledOverlay = styled(ActionMenu.Overlay)`
 
 const VariantItem = ({title, shortName, url, active}) => {
   return (
-    <ActionList.Item state={{scrollUpdate: false}} id={shortName} active={active} tabIndex={null}>
-      <LinkNoUnderline to={url}>{title}</LinkNoUnderline>
-    </ActionList.Item>
+    <ActionList.LinkItem
+      as={LinkNoUnderline}
+      to={url}
+      state={{scrollUpdate: false}}
+      id={shortName}
+      active={active}
+      className={styles.variantItem}
+    >
+      {title}
+    </ActionList.LinkItem>
   )
 }
 
-const useVariantFocus = () => {
-  const locationChange = useLocationChange()
-  const anchorRef = React.useRef(null)
-
-  React.useEffect(() => {
-    if (locationChange.change && getNav.didVariantChange(locationChange.previous, locationChange.current)) {
-      anchorRef.current.focus()
-    }
-  }, [locationChange])
-
-  return anchorRef
-}
+const isPlainActivation = event =>
+  !event.metaKey &&
+  !event.ctrlKey &&
+  !event.shiftKey &&
+  !event.altKey &&
+  (event.type === 'click' ? event.button === 0 : event.key === 'Enter')
 
 const VariantMenu = ({title, latest, current, prerelease, legacy}) => {
   const [open, setOpen] = React.useState(false)
-  const anchorRef = useVariantFocus()
+  const anchorRef = React.useRef(null)
+  const selectingRef = React.useRef(false)
+  const focusAnchorRef = React.useRef(false)
   const labelId = 'label-versions-list-item'
   const locationChange = useLocationChange()
 
   React.useEffect(() => {
+    selectingRef.current = false
     if (locationChange.change && getNav.didVariantChange(locationChange.previous, locationChange.current)) {
+      focusAnchorRef.current = true
       setOpen(false)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- granular deps are intentional; locationChange.current is a URL string, not a ref
   }, [locationChange.change, locationChange.current, locationChange.previous])
+
+  React.useEffect(() => {
+    if (!open && focusAnchorRef.current) {
+      focusAnchorRef.current = false
+      anchorRef.current?.focus()
+    }
+  }, [open, locationChange])
+
+  const handleOpenChange = React.useCallback(nextOpen => {
+    if (!nextOpen && selectingRef.current) {
+      return
+    }
+    setOpen(nextOpen)
+  }, [])
+
+  const trackSelection = React.useCallback(event => {
+    const item = event.target.closest?.('[role="menuitem"]')
+    selectingRef.current = Boolean(item && !item.hasAttribute('aria-current') && isPlainActivation(event))
+  }, [])
+
+  const closeMenu = React.useCallback(() => {
+    selectingRef.current = false
+    setOpen(false)
+  }, [])
 
   return (
     <>
       <p id={labelId} className={styles.Box}>
         Select CLI Version:
       </p>
-      <ActionMenu anchorRef={anchorRef} open={open} onOpenChange={setOpen}>
+      <ActionMenu anchorRef={anchorRef} open={open} onOpenChange={handleOpenChange}>
         <ActionMenu.Button aria-describedby={labelId} className={styles.menuButton}>
           {title}
         </ActionMenu.Button>
-        <StyledOverlay width="auto" onEscape={() => setOpen(false)}>
-          <ActionList aria-labelledby={labelId}>
-            <ActionList.Group>
-              <ActionList.GroupHeading>Current</ActionList.GroupHeading>
-              <VariantItem {...latest} />
-              {current && <VariantItem {...current} />}
-              {prerelease && <VariantItem {...prerelease} />}
-            </ActionList.Group>
+        <StyledOverlay width="auto" onEscape={closeMenu}>
+          <ActionList aria-labelledby={labelId} onClickCapture={trackSelection} onKeyDownCapture={trackSelection}>
+            {latest || current || prerelease ? (
+              <ActionList.Group>
+                <ActionList.GroupHeading>Current</ActionList.GroupHeading>
+                {latest && <VariantItem {...latest} />}
+                {current && <VariantItem {...current} />}
+                {prerelease && <VariantItem {...prerelease} />}
+              </ActionList.Group>
+            ) : null}
             <ActionList.Group>
               <ActionList.GroupHeading>Legacy</ActionList.GroupHeading>
               {legacy.map(item => (

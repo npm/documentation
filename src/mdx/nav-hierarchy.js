@@ -5,12 +5,12 @@ import usePage from '../hooks/use-page'
 
 import * as styles from './nav-hierarchy.module.css'
 
-const HierarchyItem = ({item, maxDepth, depth, hideVariants}) => {
+const HierarchyItem = ({item, maxDepth, depth, hideVariants, position, total}) => {
   const hierarchy = getNav.getHierarchy(item, null, {hideVariants})
 
   return (
     <li key={item.url}>
-      <Link key={item.title} to={item.url}>
+      <Link key={item.title} to={item.url} aria-label={`${item.title}, ${position} of ${total}`}>
         {item.title}
       </Link>
       {item.description ? <div className={styles.Box}>{item.description}</div> : null}
@@ -28,8 +28,16 @@ const Hierarchy = ({items, maxDepth, depth, hideVariants}) => {
 
   return (
     <ul>
-      {items.map(item => (
-        <HierarchyItem key={item.url} item={item} maxDepth={maxDepth} depth={depth} hideVariants={hideVariants} />
+      {items.map((item, index) => (
+        <HierarchyItem
+          key={item.url}
+          item={item}
+          maxDepth={maxDepth}
+          depth={depth}
+          hideVariants={hideVariants}
+          position={index + 1}
+          total={items.length}
+        />
       ))}
     </ul>
   )

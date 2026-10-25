@@ -42,6 +42,13 @@
   flex-direction: column;
 }
 
+.Box_6 > [data-color-mode] {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
 .Box_7 {
   display: flex;
   color: #1f2328;

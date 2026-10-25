@@ -6,6 +6,26 @@ import shared from '~/shared.js'
 
 When you have two-factor access enabled on your account, and you lose access to your 2FA device, you may be able to recover your account using the following methods.
 
+When you use a recovery code to log in, npm places a temporary 72-hour security hold on your account. The hold expires automatically 72 hours after it begins and is not extended if you use another recovery code during that period.
+
+While the security hold is active, you can:
+
+- Log in to your account.
+- Browse, view, download, and install packages.
+- Change your password.
+- Add a new 2FA method to secure your account.
+
+You cannot:
+
+- Publish or unpublish packages.
+- Create access tokens.
+- Change package settings or maintainers.
+- Change organization or team membership.
+- Change billing information or account settings.
+- Change existing 2FA methods.
+
+The security hold cannot be lifted early and expires automatically after 72 hours, with no action required. If you did not use a recovery code, [contact npm Support][contact-support] immediately because your account may have been compromised.
+
 ## Misplaced second factor device
 
 If you have misplaced the device that provided second-factor authentication, you can use the recovery codes generated when you [enabled 2FA][setup-recovery-codes] to access your account.
@@ -24,11 +44,9 @@ If you have misplaced the device that provided second-factor authentication, you
 
 4. Enter an unused recovery code in the "Use a Recovery Code" prompt.
 
-   <Screenshot src="/getting-started/setting-up-your-npm-user-account/user-a-recovery-code.png" alt="Screenshot showing use a recovery code prompt with an input box to enter the recovery code" />
+   <Screenshot src="/getting-started/setting-up-your-npm-user-account/use-a-recovery-code.png" alt="Screenshot showing use a recovery code prompt with an input box to enter the recovery code" />
 
 5. You are now logged into npm.
-
-6. (Optional) To disable 2FA, see "[Disabling 2FA][removing-2fa-on-the-web]".
 
 ## Viewing and regenerating recovery code
 
@@ -89,6 +107,5 @@ If you have misplaced both your 2FA device and your recovery codes, you can cont
 [contact-support]: https://www.npmjs.com/support
 [configuring-two-factor-authentication]: /configuring-two-factor-authentication
 [setup-recovery-codes]: /configuring-two-factor-authentication#enabling-2fa-on-the-web
-[removing-2fa-on-the-web]: /configuring-two-factor-authentication#disabling-2fa
 [using-recovery-code-on-the-web]: /recovering-your-2fa-enabled-account#using-recovery-code-on-the-web
 [viewing-and-regenerating-recovery-code]: #viewing-and-regenerating-recovery-code

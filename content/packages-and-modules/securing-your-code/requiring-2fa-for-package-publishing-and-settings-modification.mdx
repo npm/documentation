@@ -16,7 +16,8 @@ For CI/CD workflows, consider using [trusted publishing](/trusted-publishers), w
 
 - Bypass 2FA configuration is set at token creation
 - When **bypass 2FA is disabled**: The system will check account-level and package-level settings to determine if 2FA is required
-- When **bypass 2FA is enabled**: The token will bypass all 2FA requirements at all times, regardless of account-level or package-level 2FA settings
+- When **bypass 2FA is enabled**: The token will bypass 2FA requirements for publishing, regardless of account-level or package-level 2FA settings
+- As of August 2026, bypass-2FA tokens cannot be used for account-identity or account-governance actions. Those actions always require an interactive 2FA challenge. For more information, see "[About access tokens](/about-access-tokens#account-identity-actions-require-an-interactive-2fa-challenge)."
 - When **Require two-factor authentication and disallow tokens** is selected at the package level, granular access tokens cannot be used regardless of their bypass 2FA setting
 
 </Note>

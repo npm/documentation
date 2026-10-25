@@ -26,3 +26,5 @@ export const YouTube = Components.YouTube
 export const DataTable = Components.DataTable
 export const InlineCode = Components.InlineCode
 export const Strikethrough = Components.Strikethrough
+export const TrustedPublisherSwitcher = Components.TrustedPublisherSwitcher
+export const TrustedPublisherOption = Components.TrustedPublisherOption

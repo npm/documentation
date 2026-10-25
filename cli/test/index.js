@@ -219,6 +219,26 @@ test('earlier release is latest', async t => {
   await build()
 })
 
+test('major containing the latest dist-tag stays latest when a newer patch is not tagged yet', async t => {
+  const {build, testdir, releases} = await mockBuild(t, {
+    packument: {versions: ['6.14.18', '7.24.2', '8.19.3', '9.0.0', '9.0.1'], latest: '9.0.0'},
+  })
+
+  await build()
+
+  const nav = yaml.parse(await fs.readFile(join(testdir, 'nav.yml'), 'utf-8'))
+  const builtUrls = releases.map(r => `/cli/${r.id}`)
+  const variants = nav.find(c => c.url === '/cli').variants.filter(v => builtUrls.includes(v.url))
+  const v9 = variants.find(v => v.url === '/cli/v9')
+  assert.equal(v9.title, 'Version 9.0.1')
+  assert.equal(v9.type, 'latest')
+  assert.equal(v9.default, true)
+  assert.deepEqual(
+    variants.filter(v => v.type === 'latest').map(v => v.url),
+    ['/cli/v9'],
+  )
+})
+
 test('can skip fetching latest', async t => {
   const {build} = await mockBuild(t)
 
