@@ -1,11 +1,10 @@
 ---
-title: About access tokens
-redirect_from:
-  - /getting-started/working_with_tokens
-  - /about-authentication-tokens
----
-
+title: About An access 
 <Note>
+At the moment, bypass-2FA tokens can still be used for direct publishing. For CI/CD publishing, consider adopting [trusted publishing](/trusted-publishers) instead.
+
+[create-token]: creating-and-viewing-access-tokens
+[secure-token]: using-private-packages-in-a-ci-cd-workflow#securing-your-token
 
 **Note:** You must be using npm version 5.5.1 or greater to use access tokens.
 
@@ -19,7 +18,11 @@ You can create access tokens to give other tools (such as continuous integration
 
 You can work with tokens from the web or the CLI, whichever is easiest. What you do in each environment will be reflected in the other environment.
 
-npm token commands let you:
+npm token commands let you: At the moment, bypass-2FA tokens can still be used for direct publishing. For CI/CD publishing, consider adopting [trusted publishing](/trusted-publishers) instead.
+
+[create-token]: creating-and-viewing-access-tokens
+[secure-token]: using-private-packages-in-a-ci-cd-workflow#securing-your-token
+
 
 - View tokens for easier tracking and management
 - Limit access according to IP address ranges (CIDR)
@@ -91,7 +94,3 @@ Starting August 2026, tokens with **Bypass 2FA** enabled can no longer be used t
 - Add or remove package maintainers
 - Organization and team governance actions
 
-At the moment, bypass-2FA tokens can still be used for direct publishing. For CI/CD publishing, consider adopting [trusted publishing](/trusted-publishers) instead.
-
-[create-token]: creating-and-viewing-access-tokens
-[secure-token]: using-private-packages-in-a-ci-cd-workflow#securing-your-token
