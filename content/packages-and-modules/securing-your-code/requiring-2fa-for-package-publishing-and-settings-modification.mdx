@@ -4,7 +4,7 @@ title: Requiring 2FA for package publishing and settings modification
 
 import shared from '~/shared.js'
 
-All packages now require two-factor authentication (2FA) or a [granular access tokens with bypass 2FA enabled][creating-granular-access-token] for creating and publishing packages.
+Package publishing requires authenticated access and the applicable two-factor authentication (2FA) checks. Starting in January 2027, [granular access tokens with bypass 2FA enabled][creating-granular-access-token] cannot publish new versions directly, including the first version of a new package. Use staged publishing with human-2FA approval or trusted publishing for automation.
 
 Modifying a package's settings also requires two-factor authentication (2FA).
 
@@ -16,7 +16,7 @@ For CI/CD workflows, consider using [trusted publishing](/trusted-publishers), w
 
 - Bypass 2FA configuration is set at token creation
 - When **bypass 2FA is disabled**: The system will check account-level and package-level settings to determine if 2FA is required
-- When **bypass 2FA is enabled**: The token will bypass 2FA requirements for publishing, regardless of account-level or package-level 2FA settings
+- When **bypass 2FA is enabled**: The token can skip 2FA only for permitted operations. From the January 2027 cutover, it cannot publish new versions directly. A stage-only bypass token can stage versions, but a maintainer must complete human 2FA to approve them.
 - As of August 2026, bypass-2FA tokens cannot be used for account-identity or account-governance actions. Those actions always require an interactive 2FA challenge. For more information, see "[About access tokens](/about-access-tokens#account-identity-actions-require-an-interactive-2fa-challenge)."
 - When **Require two-factor authentication and disallow tokens** is selected at the package level, granular access tokens cannot be used regardless of their bypass 2FA setting
 
@@ -36,7 +36,7 @@ For CI/CD workflows, consider using [trusted publishing](/trusted-publishers), w
 
 4. Under "Publishing access", select the requirements to publish a package.
    1. **Require two-factor authentication or a granular access token with bypass 2fa enabled** (Default)  
-      This is the default option for all new packages. With this option, maintainers must have two-factor authentication enabled for their account. If they publish a package interactively, using the `npm publish` command, they will be required to respond to a 2FA prompt when they perform the publish. However, maintainers may also create a [granular access token with bypass 2FA enabled][creating-granular-access-token] and use that for a non-interactive publish.
+      This is the default option for all new packages. If maintainers publish interactively using `npm publish`, they must complete the applicable 2FA challenge. For automation, use trusted publishing or a stage-only token followed by human-2FA approval. This package setting does not restore direct publishing for bypass-2FA tokens after the January 2027 cutover.
    2. **Require two-factor authentication and disallow tokens** (Recommended) With this option, a maintainer must have two-factor authentication enabled for their account, and they must publish interactively. Maintainers will be required to respond to a 2FA prompt when they perform the publish. Granular access tokens cannot be used to publish packages, regardless of their bypass 2FA setting.
 
    <Screenshot src="/packages-and-modules/securing-your-code/2fa-package-setting.png" alt="Screenshot showing the require two-factor option for a package" />

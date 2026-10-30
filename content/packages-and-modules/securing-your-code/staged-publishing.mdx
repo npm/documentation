@@ -2,15 +2,15 @@
 title: Staged publishing for npm packages
 ---
 
-Staged publishing adds an approval step before packages go live on the npm registry. Instead of publishing directly with `npm publish`, you can submit packages to a staging area with `npm stage publish`. A maintainer must then review and explicitly approve the staged package — with two-factor authentication (2FA) via the CLI or [npmjs.com](https://www.npmjs.com) — before it becomes publicly available.
+Staged publishing adds an approval step before packages go live on the npm registry. Instead of publishing directly with `npm publish`, you can submit packages to a staging area with `npm stage publish`. A maintainer must then review and explicitly approve the staged package — with two-factor authentication (2FA) via the CLI or [npmjs.com](https://www.npmjs.com) — before it is published.
 
 Staged publishing is useful when you want an extra review step before a package version becomes available on the registry.
 
-You can use staged publishing for both new and existing packages. When you stage a package that does not yet exist, npm publishes a placeholder version of the package with the version `0.0.0-stage`. This placeholder version is publicly available, but the staged version and its contents are not publicly available until a maintainer approves the staged package. After approval, the staged version is published to the package page.
+You can use staged publishing for both new and existing packages. When you stage a package that does not yet exist, npm publishes a placeholder version of the package with the version `0.0.0-stage`. This placeholder follows the package's visibility. The staged version is not published until a maintainer approves it. After approval, the staged version is published to the package page.
 
 <Note>
 
-**Note:** Staged publishing requires [npm CLI](https://docs.npmjs.com/cli/v11) version 11.15.0 or later and Node version 22.14.0 or higher.
+**Note:** Use [npm CLI](https://docs.npmjs.com/cli) version 12.1.0 or newer and Node version 22.14.0 or higher for the workflow below, including stage-only token creation.
 
 </Note>
 
@@ -110,6 +110,12 @@ On [npmjs.com](https://www.npmjs.com), review the staged package in the **Staged
 **Note:** You will be prompted for 2FA verification whether you approve the package in the CLI or on [npmjs.com](https://www.npmjs.com).
 
 </Note>
+
+## Using stage-only tokens in CI/CD
+
+For unattended staging, create a granular access token with **Read and write (stage only)** package access and **Bypass 2FA** enabled. Store it as a CI/CD secret and run `npm stage publish` instead of `npm publish`. Keep approval as a separate step performed by a maintainer with 2FA; the token cannot bypass that approval challenge.
+
+Starting in January 2027, bypass-2FA tokens cannot publish new package versions directly, and existing direct-publish bypass tokens will be revoked rather than converted to stage-only. Create replacement tokens and update your workflows before the cutover. See "[Creating tokens with the CLI](/creating-and-viewing-access-tokens#creating-tokens-with-the-cli)" and "[Direct publishing is being deprecated](/about-access-tokens#direct-publishing-is-being-deprecated)."
 
 ## Using staged publishing with trusted publishers
 

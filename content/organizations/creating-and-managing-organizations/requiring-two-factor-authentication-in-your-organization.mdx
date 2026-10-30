@@ -8,10 +8,9 @@ Organization owners can require organization members to enable two-factor authen
 
 <Note variant="warning">
 
-**Important:** Publishing to npm requires either:
+**Important:** For direct publishing, use an interactive publishing session or a granular access token with direct-publish access and bypass 2FA disabled. Complete the applicable 2FA challenge.
 
-- Two-factor authentication (2FA) enabled on your account, OR
-- A granular access token with bypass 2FA enabled
+Starting in January 2027, bypass-2FA tokens cannot publish new package versions directly. Use [trusted publishing](/trusted-publishers) or a stage-only token with human-2FA approval for automation.
 
 For more information, see the npm documentation on [requiring 2FA for package publishing](/requiring-2fa-for-package-publishing-and-settings-modification).
 
