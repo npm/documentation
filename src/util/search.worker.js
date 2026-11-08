@@ -36,7 +36,14 @@ class Fuse {
     const items = this.allItems.filter(item =>
       item.path.startsWith(this.cliVersion.root) ? item.path.startsWith(this.cliVersion.current) : true,
     )
-    this.instances.set(this.cliVersion.current, new FuseJs(items, {threshold: 0.2, keys: ['title', 'body']}))
+    this.instances.set(
+      this.cliVersion.current,
+      new FuseJs(items, {
+        threshold: 0.2,
+        ignoreLocation: true,
+        keys: ['title', 'headings', 'body'],
+      }),
+    )
   }
 
   setItems(items) {
