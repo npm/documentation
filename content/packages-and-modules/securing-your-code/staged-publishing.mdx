@@ -111,6 +111,65 @@ On [npmjs.com](https://www.npmjs.com), review the staged package in the **Staged
 
 </Note>
 
+## Approve or reject staged packages in batches
+
+On [npmjs.com](https://www.npmjs.com), you can approve or reject multiple staged package versions with one confirmation and one 2FA challenge. Each batch applies the same action to every selected version.
+
+<Note>
+
+**Note:** Batch actions are rolling out gradually and may not be available on your account yet.
+
+</Note>
+
+### Select package versions
+
+1. Sign in to [npmjs.com](https://www.npmjs.com) and open the **Staged Packages** tab in your account settings.
+2. Review the package names, versions, dist-tags, publishers, and SHASUMs. Inspect or download the staged contents as needed before approving them.
+3. Select **Add to batch** on each version you want to include. Use **Filter by package** or **Load more** to find versions.
+4. Review the selected versions in the **Batched** section. Unselected versions appear under **Available**.
+
+To remove a version from the batch, clear its **In batch** checkbox.
+
+<Note>
+
+**Batch limits:**
+
+- A batch can contain up to **100 package versions**.
+- You can select **only one version per package**. To select a different version of the same package, remove the selected version first.
+- Wait for automated validation to finish before submitting a batch. **Approve** is disabled while a selected version is still validating. When validation finishes, refresh the page to update the status and enable approval.
+
+</Note>
+
+### Confirm the batch action
+
+1. Click **Approve (N)** or **Reject (N)**, where `N` is the number of selected versions.
+   - **Approve** publishes the selected versions to the registry.
+   - **Reject** removes the selected staged versions without publishing them.
+2. Review every package name and version in the confirmation dialog.
+3. Click **Approve packages** or **Reject packages** to continue. Click **Cancel** to return without starting the batch.
+4. Complete the 2FA challenge for the batch. You do not need a separate challenge for each version.
+
+### Monitor progress and handle failures
+
+Keep the page open while the batch runs. The progress dialog shows a completion count and a status for each version:
+
+- **Waiting**: The version has not started processing, or its result could not be confirmed. If a message appears, follow it before starting a new batch.
+- **Processing**: The version is being approved or rejected.
+- **Succeeded**: The version was published or removed successfully.
+- **Failed**: The action failed. Review the message shown for that version.
+
+When processing finishes, review the results and click **Close** to refresh the staged package list. Successfully published or rejected versions no longer appear in the list.
+
+<Note>
+
+**Note:** Batch actions are independent. If one version fails, other versions can still succeed. Successful actions are not rolled back.
+
+</Note>
+
+Try failed versions individually for more details. If the dialog reports an expired authorization or an unconfirmed result, refresh the page and check the current state before starting a new batch. If the dialog offers **Retry** because the results could not be finalized, click it to check completion again.
+
+If a problem continues, contact [npm Support](https://www.npmjs.com/support) with the package name and version.
+
 ## Using staged publishing with trusted publishers
 
 If you use [trusted publishing (OIDC)](/trusted-publishers) from CI/CD, you can use staged publishing to submit a package for review before it goes live. A maintainer must still review and approve the staged package with 2FA.
