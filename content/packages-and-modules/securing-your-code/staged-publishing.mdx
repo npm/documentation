@@ -115,6 +115,12 @@ On [npmjs.com](https://www.npmjs.com), review the staged package in the **Staged
 
 On [npmjs.com](https://www.npmjs.com), you can approve or reject multiple staged package versions with one confirmation and one 2FA challenge. Each batch applies the same action to every selected version.
 
+<Note>
+
+**Note:** Batch actions are rolling out gradually and may not be available on your account yet.
+
+</Note>
+
 ### Select package versions
 
 1. Sign in to [npmjs.com](https://www.npmjs.com) and open the **Staged Packages** tab in your account settings.
@@ -130,7 +136,7 @@ To remove a version from the batch, clear its **In batch** checkbox.
 
 - A batch can contain up to **100 package versions**.
 - You can select **only one version per package**. To select a different version of the same package, remove the selected version first.
-- Wait for automated validation to finish before submitting a batch. **Approve** is disabled while a selected version is still validating.
+- Wait for automated validation to finish before submitting a batch. **Approve** is disabled while a selected version is still validating. When validation finishes, refresh the page to update the status and enable approval.
 
 </Note>
 
@@ -147,7 +153,7 @@ To remove a version from the batch, clear its **In batch** checkbox.
 
 Keep the page open while the batch runs. The progress dialog shows a completion count and a status for each version:
 
-- **Waiting**: The version has not started processing.
+- **Waiting**: The version has not started processing, or its result could not be confirmed. If a message appears, follow it before starting a new batch.
 - **Processing**: The version is being approved or rejected.
 - **Succeeded**: The version was published or removed successfully.
 - **Failed**: The action failed. Review the message shown for that version.
