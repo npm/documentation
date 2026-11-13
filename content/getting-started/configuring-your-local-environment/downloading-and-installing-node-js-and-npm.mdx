@@ -1,74 +1,682 @@
----
-title: Downloading and installing Node.js and npm
-redirect_from:
-  - /getting-started/installing-node
----
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ظلّ على حافة النور | الرواية التفاعلية</title>
+    <!-- خطوط عربية فاخرة (Amiri & Cairo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* === 1. المتغيرات والألوان الأساسية (Design Tokens) === */
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: #141414;
+            --text-color: #d4af37; /* ذهبي معتم للمقاطع والقراءة لتريح العين */
+            --text-muted: #a68b44;
+            --gold-shiny: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --gold-solid: #d4af37;
+            --gold-bright: #ffd700;
+            --border-gold: rgba(212, 175, 55, 0.3);
+            --font-title: 'Cairo', sans-serif;
+            --font-body: 'Amiri', serif;
+            --font-size: 1.25rem;
+            --line-height: 2.1;
+        }
 
-To publish and install packages to and from the public npm registry or a private npm registry, you must install Node.js and the npm command line interface using either a Node version manager or a Node installer. **We strongly recommend using a Node version manager like [nvm](https://github.com/nvm-sh/nvm) to install Node.js and npm.** We do not recommend using a Node installer, since the Node installation process installs npm in a directory with local permissions and can cause permissions errors when you run npm packages globally.
+        /* وضع القراءة الخالص OLED Black */
+        body.oled-mode {
+            --bg-color: #000000;
+            --card-bg: #080808;
+        }
 
-<Note>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
 
-**Note:** to download the latest version of npm, on the command line, run the following command:
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: var(--line-height);
+            transition: background-color 0.3s ease;
+            overflow-x: hidden;
+        }
 
-```
-npm install -g npm
-```
+        /* === 2. الترويسة وشريط تقدم القراءة === */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold-shiny);
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.1s;
+        }
 
-</Note>
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-gold);
+            z-index: 999;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-## Overview
+        .logo {
+            font-family: var(--font-title);
+            font-weight: 800;
+            font-size: 1.3rem;
+            background: var(--gold-shiny);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-- [Checking your version of npm and Node.js](#checking-your-version-of-npm-and-nodejs)
-- [Using a Node version manager to install Node.js and npm](#using-a-node-version-manager-to-install-nodejs-and-npm)
-- [Using a Node installer to install Node.js and npm](#using-a-node-installer-to-install-nodejs-and-npm)
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-family: var(--font-title);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
 
-## Checking your version of npm and Node.js
+        nav a:hover {
+            color: var(--gold-bright);
+        }
 
-To see if you already have Node.js and npm installed and check the installed version, run the following commands:
+        /* === 3. الأزرار العامة والتأثيرات === */
+        .btn-gold {
+            background: var(--gold-shiny);
+            color: #000;
+            border: none;
+            padding: 0.7rem 1.8rem;
+            font-family: var(--font-title);
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-```
-node -v
-npm -v
-```
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
 
-## Using a Node version manager to install Node.js and npm
+        .btn-outline {
+            background: transparent;
+            color: var(--gold-solid);
+            border: 1px solid var(--gold-solid);
+            padding: 0.5rem 1rem;
+            font-family: var(--font-title);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-Node version managers allow you to install and switch between multiple versions of Node.js and npm on your system so you can test your applications on multiple versions of npm to ensure they work for users on different versions.
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
 
-### macOS or Linux Node version managers
+        /* === 4. الواجهة الرئيسية (Hero Section) === */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, rgba(13,13,13,1) 70%);
+            border-bottom: 1px solid var(--border-gold);
+        }
 
-- [nvm](https://github.com/creationix/nvm)
-- [n](https://github.com/tj/n)
+        .hero h1 {
+            font-family: var(--font-title);
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            background: var(--gold-shiny);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-### Windows Node version managers
+        .hero p.subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
 
-- [nodist](https://github.com/marcelklehr/nodist)
-- [nvm-windows](https://github.com/coreybutler/nvm-windows)
+        .quote-box {
+            max-width: 700px;
+            border-right: 3px solid var(--gold-solid);
+            border-left: 3px solid var(--gold-solid);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background: rgba(20, 20, 20, 0.6);
+            font-size: 1.2rem;
+            animation: fadeIn 2s ease-in-out;
+        }
 
-## Using a Node installer to install Node.js and npm
+        .synopsis {
+            max-width: 800px;
+            margin: 2rem auto;
+            color: #ccc;
+            font-size: 1.15rem;
+            text-align: justify;
+        }
 
-If you are unable to use a Node version manager, you can use a Node installer to install both Node.js and npm on your system.
+        /* === 5. التحكم في القراءة والتأثيرات (Reader Toolbar) === */
+        .reader-tools {
+            position: sticky;
+            top: 60px;
+            background: var(--card-bg);
+            padding: 0.8rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-gold);
+            z-index: 98;
+            flex-wrap: wrap;
+        }
 
-- [Node.js installer](https://nodejs.org/en/download/)
-- [NodeSource installer](https://github.com/nodesource/distributions)
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
 
-If you use Linux, we recommend that you use a NodeSource installer.
+        .chapter {
+            display: none;
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-gold);
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
 
-### macOS or Windows Node installers
+        .chapter.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
 
-If you're using macOS or Windows, use one of the installers from the [Node.js download page](https://nodejs.org/en/download/). Be sure to install the version labeled **LTS**. Other versions have not yet been tested with npm.
+        .chapter h2 {
+            font-family: var(--font-title);
+            color: var(--gold-bright);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border-gold);
+            padding-bottom: 0.5rem;
+        }
 
-### Linux or other operating systems Node installers
+        .chapter p {
+            margin-bottom: 1.5rem;
+            font-size: var(--font-size);
+            text-align: justify;
+        }
 
-If you're using Linux or another operating system, use one of the following installers:
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
 
-- [NodeSource installer](https://github.com/nodesource/distributions) (recommended)
-- One of the installers on the [Node.js download page](https://nodejs.org/en/download/)
+        /* === 6. دليل الشخصيات (Lore & Characters Wiki) === */
+        .wiki-section {
+            padding: 4rem 1.5rem;
+            background: rgba(20, 20, 20, 0.3);
+            border-top: 1px solid var(--border-gold);
+        }
 
-Or see [this page](https://nodejs.org/en/download/package-manager/) to install npm for Linux in the way many Linux developers prefer.
+        .section-title {
+            text-align: center;
+            font-family: var(--font-title);
+            font-size: 2rem;
+            color: var(--gold-solid);
+            margin-bottom: 2.5rem;
+        }
 
-### Less-common operating systems
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
-For more information on installing Node.js on a variety of operating systems, see [this page][pkg-mgr].
+        .char-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s;
+        }
 
-[pkg-mgr]: https://nodejs.org/en/download/package-manager/
+        .char-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .char-card h3 {
+            font-family: var(--font-title);
+            color: var(--gold-bright);
+            margin-bottom: 0.5rem;
+        }
+
+        .char-card .role {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .spoiler-btn {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-solid);
+            border: 1px dashed var(--gold-solid);
+            padding: 0.4rem 0.8rem;
+            width: 100%;
+            cursor: pointer;
+            font-family: var(--font-title);
+            font-size: 0.85rem;
+            margin-top: 0.8rem;
+            border-radius: 4px;
+        }
+
+        .spoiler-content {
+            display: none;
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px rgba(255,255,255,0.1) solid;
+            font-size: 0.95rem;
+            color: #bbb;
+        }
+
+        /* === 7. الإحصائيات والتصوت والتعليقات === */
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            max-width: 850px;
+            margin: 3rem auto;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-gold);
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            color: var(--gold-bright);
+        }
+
+        .poll-section, .contact-section {
+            max-width: 850px;
+            margin: 3rem auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-gold);
+        }
+
+        .poll-option {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-gold);
+            padding: 0.8rem 1rem;
+            margin: 0.8rem 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .poll-option:hover {
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        /* النماذج */
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0 1rem 0;
+            background: #000;
+            border: 1px solid var(--border-gold);
+            color: #fff;
+            border-radius: 4px;
+            font-family: var(--font-title);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-gold);
+            color: var(--text-muted);
+            font-family: var(--font-title);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط تقدم القراءة -->
+    <div id="progress-bar"></div>
+
+    <!-- الترويسة العليا -->
+    <header>
+        <div class="logo">ظلّ على حافة النور</div>
+        <nav>
+            <a href="#hero">الرئيسية</a>
+            <a href="#reader">القراءة</a>
+            <a href="#characters">الشخصيات</a>
+            <a href="#poll">التصويت</a>
+            <a href="#contact">التواصل</a>
+        </nav>
+    </header>
+
+    <!-- الواجهة الرئيسية -->
+    <section class="hero" id="hero">
+        <h1>ظلّ على حافة النور</h1>
+        <p class="subtitle">حين يُزهر الوفاء ويذبل القلب</p>
+        
+        <div class="quote-box">
+            "لم تكن الحكاية وليدة ركنٍ هادئ؛ بل انبعثت من شقّ الهاوية، حيث أذاب شابٌ روحه في غربةٍ لا تنتهي، ليغرس حجر الأساس لمستقبلٍ ظنّ أنه يشيّده لامرأةٍ رآها المعنى الأخير لوجوده..."
+        </div>
+
+        <div class="synopsis">
+            سيرة رجل اختار أن يحمل أوزار العالم على كتفيه، ويتقبّل تهمة القسوة والخطأ بصمتٍ مطبق، فقط لتبقى صورة حبيبته بيضاء نقية من أي شائبة. قصة تضحية، وقوانين مجحفة، ومرارة اغتراب وانكسارات حقيقية بين دمشق ولبنان.
+        </div>
+
+        <a href="#reader" class="btn-gold" onclick="showChapter(0)">ابدأ القراءة الآن</a>
+    </section>
+
+    <!-- شريط أدوات القارئ -->
+    <div class="reader-tools" id="reader">
+        <button class="btn-outline" onclick="changeFontSize(1)">تكبير الخط +</button>
+        <button class="btn-outline" onclick="changeFontSize(-1)">تصغير الخط -</button>
+        <button class="btn-outline" onclick="toggleOLED()">وضع OLED الداكن</button>
+        <button class="btn-outline" onclick="saveBookmark()">حفظ الإشارة المرجعية 🔖</button>
+        <button class="btn-outline" onclick="loadBookmark()">الانتقال للإشارة المرجعية 📍</button>
+    </div>
+
+    <!-- قسم الفصول والقراءة -->
+    <div class="container">
+        
+        <!-- المُستَهَلّ -->
+        <article class="chapter active" id="chap-0">
+            <h2>المُستَهَلّ: وجع البدايات المعطوبة</h2>
+            <p>لم تكن الحكاية وليدة ركنٍ هادئ أو صدفة عابرة؛ بل انبعثت من شقّ الهاوية، حيث أذاب شابٌ روحه في غربةٍ لا تنتهي، ليغرس حجر الأساس لمستقبلٍ ظنّ أنه يشيّده لامرأةٍ رآها المعنى الأخير لوجوده. هي سيرة رجلٍ اختار أن يحمل أوزار العالم على كتفيه، ويتقبّل تهمة القسوة والخطأ بصمتٍ مطبق، فقط لتبقى صورة حبيبته بيضاء نقية من أي شائبة، غير مدركٍ أن رياح الظنون وقسوة العالم قادرة على اقتلاع أجمل بساتين العمر حين يُترك العطر بلا حراسة.</p>
+            <p>عاش "أحمد" —الذي احتفظ باسم "ميار" كسرٍّ دفين يعود لذكورته الأولى في ذاكرة العائلة— ثلاث سنوات من العشق الصادق لـ "ماري". لم تكن أنثى عادية في عينيه، بل كانت النافذة الوحيدة التي يطلّ منها على طمأنينة العالم. غير أن سيف الخدمة العسكرية كان مصلتاً كالمقصلة فوق عنق شبابه، فدُفع مرغماً إلى مهاجر القسوة، مستلذاً بالمرّ علّ أتعابه تليق بمقامها.</p>
+            <p>في لبنان، بين ضجيج المصانع الموحشة ورطوبة المخازن، أذاب شبابه في ساعات عملٍ تمتد من السابعة صباحاً حتى الثانية بعد منتصف الليل. سبعة أشهر متواصلة من العرق والتراب، كان يرمم فيها جدران مستقبله ومستقبلها، وكلما اشتدّ عليه الإنهاك، كان يتوسّد طيفها ليستمدّ الدفء.</p>
+            <div class="chapter-nav">
+                <button class="btn-outline" disabled>السابق</button>
+                <button class="btn-gold" onclick="showChapter(1)">الفصل التالي</button>
+            </div>
+        </article>
+
+        <!-- الفصل 1 -->
+        <article class="chapter" id="chap-1">
+            <h2>الفصل الأوّل: ثقوب القانون.. ومرارة الطلاق الصوري</h2>
+            <p>لم يكن أحمد يتخبط في غربته بلا وجهة؛ ففي دمشق، كان والده بقلبه الرؤوف يستشعر الخطر المحدق بولده. ولأن قانون التجنيد لا يرحم، تبلورت الخطة المؤلمة لإنقاذ الابن الوحيد عبر الحصول على "تأجيل معيل".</p>
+            <p>وهناك، بين أروقة المحكمة ذات الجدران الرطبة ورائحة الحبر القديم، اتخذ الأب قراره الجارح: أن يُطلق زوجته "شهد" (أم أحمد) رسمياً، ليمنح ولده السند القانوني الأوحد للبيت. لم يكن الأمر إجراءً إدارياً عابراً كما يظن العابرون؛ لقد كان طعنةً صامتة في صميم الكرامة العائلية. عاشت الأم بوجع الوصمة الخفية، تكابد مرارة لقب "المطلقة" في مجتمع لا يرحم التفاصيل، بينما حمل الأب وزر نظرات الجيران وهمساتهم. كان بيتهم الصغير معلقاً بحبلٍ دقيق من الأوراق الرسمية، وكتمت الأسرة كلها نزيفها الداخلي ليبقى أحمد في أمانٍ وهمي خلف الحدود.</p>
+            <p>وفي ذروة ذلك الإنهاك في لبنان، رفع أحمد السماعة ليتصل بعمّه (والد ماري)، سابحاً في أمل كلمة طيبة تلملم شتات روحه. لكن نبرة العم جاءت كالجليد: رفضٌ قاطع لسفر ابنته أو اقترابها من مهجره.</p>
+            <p>انخلع قلب أحمد، وضاقت به الأنفاس؛ فلم يتحمل البقاء. هرع في رحلة عودة مجنونة، وعلى شريط أسود من الإسفلت الموحش في عتمة الليل، اعترضت طريقه زمرة من قطاع الطرق. سلبوه كل ما جناه من عرق سبعة أشهر، وتركوه على حافة الإسفلت، عارياً إلا من خيبته ودموعه المكتومة.</p>
+            <p>وصل إلى دمشق مكبلاً بالذهول، شاحب الوجه، يخشى مكالمة ماري لئلا يرى في عينيه صورة الرجل المهزوم. وحين أفرغ مكابدته لأبيه عبر الهاتف، جاءه صوت (أبي أحمد) كالسدّ المنيع:<br>— «أنا معك يا بنيّ.. ما دمتُ حيّاً فأنت في أمان».</p>
+            <div class="chapter-nav">
+                <button class="btn-gold" onclick="showChapter(0)">الفصل السابق</button>
+                <button class="btn-gold" onclick="showChapter(2)">الفصل التالي</button>
+            </div>
+        </article>
+
+        <!-- الفصل 2 -->
+        <article class="chapter" id="chap-2">
+            <h2>الفصل الثاني: PTSD.. صخب الخارج وانكسار الداخل</h2>
+            <p>حين عاد أحمد إلى بيته، لم يعد ذلك الشاب المليء بالحيوية؛ لقد ترك نصف روحه على طرقات الشتات وتحت وطأة صدمة السلب والقهر. هنا بدأت جذور اضطراب ما بعد الصدمة تتغلغل في أعصابه.</p>
+            <p>لم تكن ثورات غضبه العارمة، وتكسيره للأشياء، وصراخه المفاجئ في عتمة الليل، طبعاً سليماً، بل كانت صرخات جسدٍ ونفسٍ أنهكهما التراكم: ساعات العمل المضنية، رعب فقدان المستقبل، وصدمة النهب في طريق العودة. كان يحمل طاقة هائلة من التوتر المكبوت، ينفجر كبركان خفي حين يضغطه القلق.</p>
+            <p>لكن التناقض المؤلم كان يكمن في الداخل: الصلابة الفولاذية التي يظهر بها أمام العالم دفاعاً عن كرامته، تتبعها فوراً نوبات انهيار طفولية داخل البيت؛ يركع على ركبتيه أمام ماري، يدفن رأسه في حضنها، ويبكي بندم مرير مشتعلًا بالخوف من أن يخسرها، مرتعش اليدين، مستجدياً غفرانها عن صراخه الذي لم تقوَ على فهم جذوره.</p>
+            <p>ومع ذلك، لم تسلم ماري من مخاوفها الخاصة. لم تكن شريرة أو ناكرة للجميل كما تصورها البعض، بل كانت روحاً هشة، تحاصرهما معاً أمّها (لمى) التي ملأت قلب ابنتها بسموم الخوف على المستقبل، مسربة ظنّاً مسموماً: "الرجل الذي يقدم كل شيء بلا مقابل، يخفي خلف كرمه عيباً أو غاية".</p>
+            <p>تذبذب أحمد العاطفي وثوراته المفاجئة، رغم ندمه اللاحق، بنى جداراً من الجليد حول قلب ماري. كان خوفها على أمانها ومستقبل طفلتها "رقية" هو الدافع الخفي خلف قرار الابتعاد، لا كرهًا فيه، بل هرعاً من مستقبل مبهم.</p>
+            <div class="chapter-nav">
+                <button class="btn-gold" onclick="showChapter(1)">الفصل السابق</button>
+                <button class="btn-gold" onclick="showChapter(3)">الفصل التالي</button>
+            </div>
+        </article>
+
+        <!-- الفصل 3 -->
+        <article class="chapter" id="chap-3">
+            <h2>الفصل الثالث: رحيل الأب.. ونهاية المعمار</h2>
+            <p>مضت عشرة أشهر من الكدح المتواصل لتأثيث بيت الزوجية؛ المال يترشح من عرق أحمد، والجهد الميداني يتولاه أبوه المنهك بصمت.</p>
+            <p>وفي ليلة وفاته، جاء صوت الأب عبر الهاتف دافئاً حانياً يحمل غصة الوداع الأخير:<br>— «ألا تريد دفع عربون الأثاث يا بنيّ؟.. أسرع في زواجك لترى أبهى أعراس الشام».<br>ثم أردف بخفوت مريب حفر في صدر أحمد رعباً أبدياً:<br>— «سامحني يا بنيّ.. ما قدمت لك شيئاً يُذكر.. ولكن الله يعلم بالحال».</p>
+            <p>في تمام الساعة الرابعة فجراً، اخترق سكون الليل رنين هاتف مفزوع. جاء صوت الأم (شهد) مخنوقاً بالدموع:<br>— «الحقني يا بني.. أبوك رحل!»</p>
+            <p>هرع أحمد كالذبيح. دفع باب الغرفة بخطوات تتخبط في الظلام؛ كان جسد الأب ساجياً بسكينة ملائكية. جثا أحمد عند رأسه، طبع قبلة طويلة على جبينه البارد، كأنه يستنجد بدفء يديه الأخير. ثم خرج ينزف صمتاً نحو خطيبته ماري، ليرتمي على كتفها مبكياً حزنه العاري عند الوحيدة التي ظنّها ملاذه.</p>
+            <div class="chapter-nav">
+                <button class="btn-gold" onclick="showChapter(2)">الفصل السابق</button>
+                <button class="btn-gold" onclick="showChapter(4)">الفصل التالي</button>
+            </div>
+        </article>
+
+        <!-- الفصل 4 -->
+        <article class="chapter" id="chap-4">
+            <h2>الفصل الرابع: بياض القلب وسواد الظنون</h2>
+            <p>تم الزفاف وسط غيمة من الشجن. أحبّ ماري كمن يعود من الموت، متفانياً في حراسة طمأنينتها. وحين كانت أمه شهد تتدخل بفضول غريزي موحش نتيجة فراغها بعد رحيل الزوج، كان أحمد ينتفض بحزم حنون:<br>— «حياتي مع ماري خط أحمر يا أمي.. لا أسمح لأي كلمة أن تكدر صفوها».</p>
+            <p>لكن سموم أم ماري كانت أعمق أثراً. بدأت ماري تنظر إلى حرص أحمد المبالغ فيه على حزنها بعين الريبة، متأثرة بهواجيس أمها. حتى انفجرت الأزمة حين غادرت البيت حردانة إلى بيت أهلها، متذرعة بأيام معدودة.</p>
+            <p>خمسة عشر يوماً عاشها أحمد في جحيم الانتظار. كسر كبرياءه ثلاث مرات على عتبة بابها، ليعود في كل مرة بخطوات منكسرة. وحين عادت ماري في اليوم الخامس عشر، لم تعُد بقلبها، بل عادت مدفوعة بخوفها القاتل من أن تُرغم على التخلي عن ابنتها الصغيرة (رقية).</p>
+            <p>وقفت في وسط الغرفة كغريبة، بينما كان أحمد يردد بانكسار يدمي الحجر:<br>— «تعالي.. وكل شيء سيتغير كما ترغبين.. أنا أفقت على خطئي».</p>
+            <div class="chapter-nav">
+                <button class="btn-gold" onclick="showChapter(3)">الفصل السابق</button>
+                <button class="btn-gold" onclick="showChapter(5)">الفصل التالي</button>
+            </div>
+        </article>
+
+        <!-- الفصل 5 -->
+        <article class="chapter" id="chap-5">
+            <h2>الفصل الخامس: الجسد المنهك والقلب الذي يصرخ</h2>
+            <p>أحد عشر يوماً مرّت لم يذق فيها أحمد طعم النوم. كان الأرق النفسي ينهش عظامه، وجفونه تعلن العصيان. في غرفته المعتمة، كانت رعشات غريبة تجتاح صدره، يضغط بيده المرتعشة على قلبه المريض، وهمس لصديقه الوفي (عبد - أبو ميار) في الدكان:<br>— «أحس أن قلبي سيتوقف يا أبو ميار.. نبضه ليس بخير».</p>
+            <p>لكن عبد، باسترخاء الصديق الواثق، كان يبتسم مجيباً: "شد حيلك يا رجل، ما بك أصبحت درامياً؟".. ولم يدرك أحد أن وريد هذا الرجل كان ينزف في الخفاء.</p>
+            <p>حين اتصلت به أمه شهد، سألته بقلق: "صوتك متعب يا بني! هل ضايقتك ماري؟"<br>فأبى أحمد إلا أن يبرّئ ماري حتى في رمقه الأخير:<br>— «لا يا أمي.. ماري لا تفعل شيئاً، أنا الذي فعلت وكل الخطأ عندي.. الله يعينها على عقلي».</p>
+            <p>وفي ليلة حالكة، انطفأ أحمد بصمت. توقف القلب الذي أثقله العطاء، وسكتت أنفاس الرجل الذي وهب حياته لمن لم تدرك قيمته إلا حين استحال طيفاً.</p>
+            <div class="chapter-nav">
+                <button class="btn-gold" onclick="showChapter(4)">الفصل السابق</button>
+                <button class="btn-gold" onclick="showChapter(6)">الفصل الأخير</button>
+            </div>
+        </article>
+
+        <!-- الفصل 6 -->
+        <article class="chapter" id="chap-6">
+            <h2>الفصل السادس والأخير: صدمة الدفتر والرسائل.. ودين البراءة المشتعل</h2>
+            <p>بعد موته، انقلبت أسطح العالم في وجه ماري. في البداية، تنفست بارتياح مزيف، لكن صمت البيت الثقيل كان أثقل من الجبال. حين وصل الخبر إلى عبد، سقط في فخ ذنب رهيب؛ تذكر استهزاءَه بوجع صديقه وتركه يواجه الموت وحيداً.</p>
+            <p>لكن الصدمة الكبرى انقضت حين بدأت ماري تفتش في أمتعته وأدراج دكانه الخاصة؛ عثرت على دفتر قديم ورسائل مطوية بعناية. هنا وقعت الواقعة:</p>
+            <p>وجدت تفاصيل التسوية القانونية بخط يده، ووثائق طلاق والديه (شهد وأحمد الأب) لإنقاذه من السوق العسكري، وحجم التضحيات الجبارة التي دفعاها من كرامتهما وسلامهما النفسي. ووجدت في الرسائل توثيقاً لكل قرش سلبه قطاع الطرق، وكل دمعة كتمها حتى لا ينكسر خاطرها، وكل خطة رسمها ليبني لها وطناً آمناً.</p>
+            <p>أدركت ماري الهول المفزع لما فعلت: إنها لم تكتشف مجرد تضحية عادية، بل أدركت أنها أصبحت مسجونة للأبد في براءتها التي اشتراها زوجها الميت بعمره وسجله العائلي. تحولت براءتها أمام الناس إلى دَيْن مقدّس ونار تشتعل في قلبها، دَيْن لا يمكن سداده لأن الدائن رحل إلى الأبد.</p>
+            <p>كلما نظرت إلى وجنتَي ابنتها (رقية)، رأت عيني أحمد تنظران إليها بصدق مطلق. أصبحت الطفلة مرآة حية تعكس خطيئتها الكبرى. باتت تصرخ في غرفتها المغلقة، تعانق فراغه القاتل، مدركة بعد فوات الأوان أن النور الذي كان يحرس ظلها قد انطفأ، وأن أعظم ما يملكه الإنسان قد يكون بين يديه.. وهو يبحث عنه في ظنون الآخرين.</p>
+            <div class="chapter-nav">
+                <button class="btn-gold" onclick="showChapter(5)">الفصل السابق</button>
+                <button class="btn-outline" disabled>النهاية</button>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- قسم الإحصائيات -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <h4 id="read-count">12,450</h4>
+            <p>قراءة</p>
+        </div>
+        <div class="stat-item">
+            <h4 id="like-count">3,890</h4>
+            <p>إعجاب</p>
+        </div>
+        <div class="stat-item">
+            <h4>★ 4.9</h4>
+            <p>تقييم القراء</p>
+        </div>
+    </div>
+
+    <!-- دليل الشخصيات (Wiki & Lore) -->
+    <section class="wiki-section" id="characters">
+        <h2 class="section-title">دليل الشخصيات والأثر النفسي</h2>
+        <div class="character-grid">
+            <div class="char-card">
+                <h3>أحمد (ميار)</h3>
+                <div class="role">البطل الرئيسي - الرمزية والوفاء</div>
+                <p>شاب يذيب نفسه في غربة العمل الشاق بلبنان لبناء مستقبل حبيبته. يعاني من صدمات متتالية واضطراب ما بعد الصدمة (PTSD).</p>
+                <button class="spoiler-btn" onclick="toggleSpoiler(this)">كشف التفاصيل (تحذير حرق) ⚠️</button>
+                <div class="spoiler-content">
+                    يخفي وثائق التضحية الكبرى وتفاصيل طلاق والديه الصوري لحمايته، وينتهي مطافه بوفاة صامتة نتيجة إرهاق عضلة القلب من شدة الضغط النفسي.
+                </div>
+            </div>
+
+            <div class="char-card">
+                <h3>ماري</h3>
+                <div class="role">الزوجة - صراع الخوف والظنون</div>
+                <p>امرأة رقيقة ولكنها هشّة، تقع تحت تأثير والديها والظنون المسمومة التي تبني جداراً عازلاً بينها وبين حقيقة أحمد.</p>
+                <button class="spoiler-btn" onclick="toggleSpoiler(this)">كشف التفاصيل (تحذير حرق) ⚠️</button>
+                <div class="spoiler-content">
+                    تكتشف الدفتر والرسائل بعد رحيله وتتحول براءتها إلى دَيْن وثقل نفسي أزلي تحمله وهي تنظر لوجه طفلتها رقية.
+                </div>
+            </div>
+
+            <div class="char-card">
+                <h3>والد أحمد</h3>
+                <div class="role">الأب والسند الحقيقي</div>
+                <p>رجل ضحى بكرامته العائلية وعقد طلاقاً صورياً مع زوجته شهد ليمنح أحمد تأجيلاً قانونياً كـ "معيل الوحيد".</p>
+                <button class="spoiler-btn" onclick="toggleSpoiler(this)">كشف التفاصيل (تحذير حرق) ⚠️</button>
+                <div class="spoiler-content">
+                    يموت في الرابعة فجراً بعد أن أنهك جسده في تأثيث شقة ابنه وتأمين مستقبله.
+                </div>
+            </div>
+
+            <div class="char-card">
+                <h3>عبد (أبو ميار)</h3>
+                <div class="role">الصديق المقرب</div>
+                <p>صديق أحمد في الدكان، يمثل الصوت الاجتماعي غير المكتف بالعمق الذي كان يعيشه أحمد.</p>
+                <button class="spoiler-btn" onclick="toggleSpoiler(this)">كشف التفاصيل (تحذير حرق) ⚠️</button>
+                <div class="spoiler-content">
+                    يعيش بعقدة ذنب طيلة حياته لاستخفافه بشكوى أحمد من ألم قلبه قبل وفاته بأيام.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التصويت تفاعلي -->
+    <section class="poll-section" id="poll">
+        <h2 class="section-title">تصويت القراء حول الأحداث</h2>
+        <p style="text-align: center; margin-bottom: 1rem; color: #aaa;">ما هي أشد لحظة أثرت في وجدانك أثناء قراءة الحكاية؟</p>
+        <div class="poll-option" onclick="vote(this)">
+            <span>مرارة الطلاق الصوري بين الأب والأم</span>
+            <span class="votes">42%</span>
+        </div>
+        <div class="poll-option" onclick="vote(this)">
+            <span>لحظة اكتشاف ماري للدفتر والرسائل السرية</span>
+            <span class="votes">45%</span>
+        </div>
+        <div class="poll-option" onclick="vote(this)">
+            <span>حادثة قطع الطريق وسلب عرق سبعة أشهر</span>
+            <span class="votes">13%</span>
+        </div>
+    </section>
+
+    <!-- قسم التواصل والانضمام للمجتمع -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">مجتمع الرواية والتواصل</h2>
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <p style="margin-bottom: 1rem;">انضم إلى قناة الرواية الرسمية على تلغرام لتلقي المقتطفات والنقاشات:</p>
+            <a href="https://t.me/" target="_blank" class="btn-gold">انضم لمجتمع تلغرام 📢</a>
+        </div>
+        <form onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح إلى الكاتب!');">
+            <h3 style="font-family: var(--font-title); color: var(--gold-bright); margin-bottom: 0.5rem;">تواصل مع الكاتب مباشرة</h3>
+            <input type="text" placeholder="الاسم" required>
+            <input type="email" placeholder="البريد الإلكتروني" required>
+            <textarea rows="4" placeholder="اكتب انطباعك أو رسالتك للكاتب..." required></textarea>
+            <button type="submit" class="btn-gold" style="width: 100%;">إرسال الرسالة</button>
+        </form>
+    </section>
+
+    <footer>
+        جميع الحقوق محفوظة © 2026 | رواية "ظلّ على حافة النور"
+    </footer>
+
+    <!-- JavaScript الخاص بالتفاعلية -->
+    <script>
+        // 1. التحكم في التنقل بين الفصول
+        let currentChapter = 0;
+        const chapters = document.querySelectorAll('.chapter');
+
+        function showChapter(index) {
+            chapters.forEach(chap => chap.classList.remove('active'));
+            chapters[index].classList.add('active');
+            currentChapter = index;
+            window.scrollTo({ top: document.getElementById('reader').offsetTop - 20, behavior: 'smooth' });
+        }
+
+        // 2. شريط تقدم القراءة
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+
+        // 3. تغيير حجم الخط
+        let currentFontSize = 1.25;
+        function changeFontSize(delta) {
+            currentFontSize += delta * 0.1;
+            if(currentFontSize < 0.9) currentFontSize = 0.9;
+            if(currentFontSize > 2.0) currentFontSize = 2.0;
+            document.documentElement.style.setProperty('--font-size', currentFontSize + 'rem');
+        }
+
+        // 4. وضع OLED الداكن
+        function toggleOLED() {
+            document.body.classList.toggle('oled-mode');
+        }
+
+        // 5. الإشارات المرجعية (Bookmarks) عبر LocalStorage
+        function saveBookmark() {
+            localStorage.setItem('saved_chapter', currentChapter);
+            alert('تم حفظ الفصل الحالي (' + (currentChapter == 0 ? 'المستهل' : 'الفصل ' + currentChapter) + ') كإشارة مرجعية في متصفحك! 🔖');
+        }
+
+        function loadBookmark() {
+            const saved = localStorage.getItem('saved_chapter');
+            if (saved !== null) {
+                showChapter(parseInt(saved));
+            } else {
+                alert('لا توجد إشارة مرجعية محفوظة بعد.');
+            }
+        }
+
+        // 6. حجب وإظهار الحرق (Spoiler Tags)
+        function toggleSpoiler(btn) {
+            const content = btn.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                btn.innerText = "كشف التفاصيل (تحذير حرق) ⚠️";
+            } else {
+                content.style.display = "block";
+                btn.innerText = "إخفاء التنبيه 🔒";
+            }
+        }
+
+        // 7. تصويت محاكي
+        function vote(element) {
+            alert('شكراً لتصويتك! تم تسجيل رأيك بنجاح.');
+        }
+    </script>
+</body>
+</html>
