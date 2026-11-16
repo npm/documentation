@@ -10,7 +10,7 @@ You can use staged publishing for both new and existing packages. When you stage
 
 <Note>
 
-**Note:** Use [npm CLI](https://docs.npmjs.com/cli) version 12.1.0 or newer and Node version 22.14.0 or higher for the workflow below, including stage-only token creation.
+**Note:** Staged publishing requires [npm CLI](https://docs.npmjs.com/cli/v11) version 11.15.0 or later and Node version 22.14.0 or higher. To create stage-only tokens with the CLI, use npm CLI version 11.20.0 or later, or version 12.1.0 or later.
 
 </Note>
 
@@ -111,11 +111,70 @@ On [npmjs.com](https://www.npmjs.com), review the staged package in the **Staged
 
 </Note>
 
+## Approve or reject staged packages in batches
+
+On [npmjs.com](https://www.npmjs.com), you can approve or reject multiple staged package versions with one confirmation and one 2FA challenge. Each batch applies the same action to every selected version.
+
+<Note>
+
+**Note:** Batch actions are rolling out gradually and may not be available on your account yet.
+
+</Note>
+
+### Select package versions
+
+1. Sign in to [npmjs.com](https://www.npmjs.com) and open the **Staged Packages** tab in your account settings.
+2. Review the package names, versions, dist-tags, publishers, and SHASUMs. Inspect or download the staged contents as needed before approving them.
+3. Select **Add to batch** on each version you want to include. Use **Filter by package** or **Load more** to find versions.
+4. Review the selected versions in the **Batched** section. Unselected versions appear under **Available**.
+
+To remove a version from the batch, clear its **In batch** checkbox.
+
+<Note>
+
+**Batch limits:**
+
+- A batch can contain up to **100 package versions**.
+- You can select **only one version per package**. To select a different version of the same package, remove the selected version first.
+- Wait for automated validation to finish before submitting a batch. **Approve** is disabled while a selected version is still validating. When validation finishes, refresh the page to update the status and enable approval.
+
+</Note>
+
+### Confirm the batch action
+
+1. Click **Approve (N)** or **Reject (N)**, where `N` is the number of selected versions.
+   - **Approve** publishes the selected versions to the registry.
+   - **Reject** removes the selected staged versions without publishing them.
+2. Review every package name and version in the confirmation dialog.
+3. Click **Approve packages** or **Reject packages** to continue. Click **Cancel** to return without starting the batch.
+4. Complete the 2FA challenge for the batch. You do not need a separate challenge for each version.
+
+### Monitor progress and handle failures
+
+Keep the page open while the batch runs. The progress dialog shows a completion count and a status for each version:
+
+- **Waiting**: The version has not started processing, or its result could not be confirmed. If a message appears, follow it before starting a new batch.
+- **Processing**: The version is being approved or rejected.
+- **Succeeded**: The version was published or removed successfully.
+- **Failed**: The action failed. Review the message shown for that version.
+
+When processing finishes, review the results and click **Close** to refresh the staged package list. Successfully published or rejected versions no longer appear in the list.
+
+<Note>
+
+**Note:** Batch actions are independent. If one version fails, other versions can still succeed. Successful actions are not rolled back.
+
+</Note>
+
+Try failed versions individually for more details. If the dialog reports an expired authorization or an unconfirmed result, refresh the page and check the current state before starting a new batch. If the dialog offers **Retry** because the results could not be finalized, click it to check completion again.
+
+If a problem continues, contact [npm Support](https://www.npmjs.com/support) with the package name and version.
+
 ## Using stage-only tokens in CI/CD
 
-For unattended staging, create a granular access token with **Read and write (stage only)** package access and **Bypass 2FA** enabled. Store it as a CI/CD secret and run `npm stage publish` instead of `npm publish`. Keep approval as a separate step performed by a maintainer with 2FA; the token cannot bypass that approval challenge.
+For unattended staging, create a granular access token with **Read and write (stage only)** package access. Store it as a CI/CD secret and run `npm stage publish` instead of `npm publish`. Staging does not require 2FA, so the token does not need **Bypass two-factor authentication (2FA)**. Keep approval as a separate step performed by a maintainer with 2FA; a token cannot bypass that approval challenge.
 
-Starting in January 2027, bypass-2FA tokens cannot publish new package versions directly, and existing direct-publish bypass tokens will be revoked rather than converted to stage-only. Create replacement tokens and update your workflows before the cutover. See "[Creating tokens with the CLI](/creating-and-viewing-access-tokens#creating-tokens-with-the-cli)" and "[Direct publishing is being deprecated](/about-access-tokens#direct-publishing-is-being-deprecated)."
+Starting in January 2027, granular access tokens with bypass 2FA cannot publish new package versions directly, and existing direct-publish bypass tokens will be revoked rather than converted to stage-only. Create replacement tokens and update your workflows before the cutover. See "[Creating tokens with the CLI](/creating-and-viewing-access-tokens#creating-tokens-with-the-cli)" and "[Direct publishing is being deprecated](/about-access-tokens#direct-publishing-is-being-deprecated)."
 
 ## Using staged publishing with trusted publishers
 
