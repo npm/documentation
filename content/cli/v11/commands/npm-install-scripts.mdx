@@ -36,7 +36,7 @@ Note: This command is unaware of workspaces.
 
 Manages the `allowScripts` field in your project's `package.json`, which records which of your dependencies are permitted to run install scripts (`preinstall`, `install`, `postinstall`, and `prepare` for non-registry sources). This is the recommended way to maintain that field.
 
-Dependency install scripts are blocked by default. Install commands silently skip lifecycle scripts for any dependency that does not have a matching entry in `allowScripts`, and end with a list of the packages whose scripts were skipped so you can review them here.
+Dependency install scripts are blocked by default. Install commands silently skip lifecycle scripts for any dependency that does not have a matching entry in `allowScripts`, and end with a list of the packages whose scripts were skipped so you can review them here. These warnings omit disconnected unused entries that installation cannot build. Local link targets that can still be rebuilt remain subject to the policy.
 
 This command only works inside a project that has a `package.json`. Running it with `--global` (`-g`) fails with an `EGLOBAL` error, since global installs (`npm install -g`) and one-off executions (`npm exec` / `npx`) have no project `package.json` to write to. To allow install scripts in those contexts, use the `--allow-scripts` flag at install time (for example `npm install -g --allow-scripts=canvas,sharp`) or persist the setting with `npm config set allow-scripts=canvas,sharp --location=user`.
 
@@ -55,7 +55,7 @@ npm install-scripts prune
 
 `deny` records an explicit denial for the named packages (a name-only `false` entry), which survives `npm install-scripts approve --all` and excludes the package from any future blanket approval. `--all` denies every package with unreviewed install scripts.
 
-`ls` is read-only: it lists every package whose install scripts are not yet covered by `allowScripts`, without modifying `package.json`.
+`ls` is read-only: it lists every package whose install scripts are not yet covered by `allowScripts`, without modifying `package.json`. This includes unreviewed extraneous packages, which are installed but not required by any dependency. These packages can still cause `npm rebuild --strict-allow-scripts` to fail.
 
 `prune` removes `allowScripts` entries that no longer match an installed package with an install script, either because the package is no longer installed (a transitive dependency changed, or a pinned `pkg@1.2.3` was upgraded) or because it no longer has an install script. Both approvals (`true`) and denials (`false`) are removed. It edits only the `allowScripts` field in `package.json`, never `.npmrc` or `--allow-scripts`. Pass `--dry-run` to preview without writing. Unparseable keys are left alone.
 
