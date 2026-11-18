@@ -24,10 +24,10 @@
     "front-matter": "^4.0.2",
     "minimatch": "^10.2.5",
     "minipass": "^7.0.4",
-    "pacote": "^21.0.0",
+    "pacote": "^21.5.1",
     "proc-log": "^6.0.0",
     "semver": "^7.8.2",
-    "tar": "^7.5.16",
+    "tar": "^7.5.21",
     "yaml": "^2.9.0"
   },
   "devDependencies": {
