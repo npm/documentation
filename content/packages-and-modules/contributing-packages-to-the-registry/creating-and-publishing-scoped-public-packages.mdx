@@ -84,10 +84,9 @@ There are two ways to publish your package to the npm registry:
 
 ### Direct publishing
 
-To publish directly with `npm publish --access public`, you need either:
+For direct publishing with `npm publish --access public`, use an interactive publishing session or a granular access token (GAT) with **Read and write (publish and stage)** access and bypass 2FA disabled. Complete the applicable two-factor authentication (2FA) challenge.
 
-- Two-factor authentication (2FA) enabled on your account, or
-- A granular access token (GAT) with bypass 2FA enabled
+Bypass-2FA tokens can no longer publish new versions directly, including the first version of a new package. For automation, use [trusted publishing](/trusted-publishers) or the staged publishing workflow below.
 
 For more information, see the npm documentation on [requiring 2FA for package publishing](/requiring-2fa-for-package-publishing-and-settings-modification).
 
@@ -122,6 +121,8 @@ Instead of publishing directly, you can stage your package and approve it later.
 If the package does not yet exist, staging it publishes a placeholder version of the package that is publicly available. The staged version and its contents are not publicly available until the staged package is approved.
 
 A GAT with bypass 2FA does not bypass the 2FA check during staged package approval.
+
+For CI/CD, create a token with **Read and write (stage only)** access and enable bypass 2FA for unattended staging. Use npm 12.1.0 or newer when [creating stage-only tokens from the CLI](/creating-and-viewing-access-tokens#creating-tokens-with-the-cli).
 
 1. On the command line, navigate to the root directory of your package.
 

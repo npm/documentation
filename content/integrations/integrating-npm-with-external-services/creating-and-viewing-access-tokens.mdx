@@ -22,9 +22,9 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 
 4. (Optional) In the **Description** field, enter a description for your token.
 
-5. (Optional) Check the **Bypass two-factor authentication** checkbox if you want this token to bypass 2FA requirements for package publishing.
+5. (Optional) Check the **Bypass two-factor authentication** checkbox for permitted automation, such as staging package versions.
    - This setting is unchecked (false) by default
-   - By checking this box, the token will bypass 2FA for publishing even if 2FA is enabled at the account or package level
+   - Bypass-2FA tokens can no longer publish new package versions directly. For automation that stages versions, choose **Read and write (stage only)**. Human 2FA is still required to approve a staged version.
    - Starting August 2026, the Bypass 2FA setting does **not** apply to account-identity or account-governance actions. Those actions always require an interactive 2FA challenge. For more information, see "[About access tokens](/about-access-tokens#account-identity-actions-require-an-interactive-2fa-challenge)."
 
 6. (Optional) In the **Allowed IP Ranges** field, enter IP address ranges to restrict your access token to. You must use [CIDR][cidr-wiki] notation to enter IP address ranges. To add more than one allowed IP range, click **Add IP Range** and enter an IP range in the new text field.
@@ -32,9 +32,9 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
    <Screenshot src="/integrations/integrating-npm-with-external-services/granular-access-token-ip-range.png" alt="Screenshot of the allowed IP ranges section" />
 
 7. (Optional) In the **Packages and scopes** section, configure your token's access to packages and scopes.
-   - In the **Permissions** dropdown menu, select **No access**, **Read-only**, **Read and write (publish and stage)**, or **Read and write (stage only)**.
-     - **Read and write (publish and stage)** lets the token publish new package versions directly to the registry.
-     - **Read and write (stage only)** lets the token stage new versions for a maintainer to review and promote, but not publish them directly. This is a safer option for automation such as CI/CD. For more information, see "[About stage-only tokens](/about-access-tokens#about-stage-only-tokens)."
+   - Under **Permissions**, select **No access**, **Read-only**, **Read and write (publish and stage)**, or **Read and write (stage only)**.
+     - **Read and write (publish and stage)** lets the token publish new package versions directly to the registry. This choice is unavailable while **Bypass two-factor authentication** is checked. If it was selected before checking bypass, the selection resets to **No access**.
+   - **Read and write (stage only)** lets the token stage new versions for a maintainer to review and promote, but not publish them directly. This is a safer option for automation such as CI/CD. For more information, see "[About stage-only tokens](/about-access-tokens#about-stage-only-tokens)."
    - Under **Select Packages**, select either:
      - **All Packages** to grant the token access to all packages the user account has access to.
      - **Only select packages and scopes** to choose up to 50 specific packages or scopes to give the token access to. Then select specific packages or scopes from the dropdown menu.
@@ -63,9 +63,21 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 
 <Note>
 
-**Note:** You cannot create granular access tokens from the CLI currently. You must use the website to generate these types of tokens. Support for creating granular access tokens via `npm token` CLI command will be added in the future. For more information, see "[Creating granular access tokens on the website](#creating-granular-access-tokens-on-the-website)."
+**Note:** Use **npm 12.1.0 or newer** to create stage-only tokens. Older versions can ignore the `read-write-stage-only` permission value and create a token with different permissions than intended.
 
 </Note>
+
+Sign in with `npm login`, then use `npm token create`. For example, create a token for staging releases of a specific package:
+
+```shell
+npm token create --name=ci-staging --packages=@myorg/release-tools --packages-and-scopes-permission=read-write-stage-only --bypass-2fa --expires=7
+```
+
+Replace the package name with a package you can access. Complete the password and authentication prompts. The token can stage versions with `npm stage publish`; a maintainer must approve them with 2FA before publication.
+
+For installs only, choose `--packages-and-scopes-permission=read-only`. The `--bypass-2fa` option remains supported. Combining it with `--packages-and-scopes-permission=read-write` is rejected. To publish directly with a token, leave bypass 2FA disabled and complete the applicable authentication requirements.
+
+Existing bypass-2FA tokens with direct-publish access were revoked. They were not automatically converted to stage-only tokens. Create replacement tokens and update your CI/CD secrets. See "[Direct publishing with bypass-2FA tokens](/about-access-tokens#direct-publishing-with-bypass-2fa-tokens)."
 
 ## Viewing access tokens
 
