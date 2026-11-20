@@ -24,7 +24,7 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 
 5. (Optional) Check the **Bypass two-factor authentication** checkbox for permitted automation, such as staging package versions.
    - This setting is unchecked (false) by default
-   - From the January 2027 cutover, bypass-2FA tokens cannot publish new package versions directly. For automation that stages versions, choose **Read and write (stage only)**. Human 2FA is still required to approve a staged version.
+   - Bypass-2FA tokens can no longer publish new package versions directly. For automation that stages versions, choose **Read and write (stage only)**. Human 2FA is still required to approve a staged version.
    - Starting August 2026, the Bypass 2FA setting does **not** apply to account-identity or account-governance actions. Those actions always require an interactive 2FA challenge. For more information, see "[About access tokens](/about-access-tokens#account-identity-actions-require-an-interactive-2fa-challenge)."
 
 6. (Optional) In the **Allowed IP Ranges** field, enter IP address ranges to restrict your access token to. You must use [CIDR][cidr-wiki] notation to enter IP address ranges. To add more than one allowed IP range, click **Add IP Range** and enter an IP range in the new text field.
@@ -33,7 +33,7 @@ You can [create](#creating-access-tokens) and [view](#viewing-access-tokens) acc
 
 7. (Optional) In the **Packages and scopes** section, configure your token's access to packages and scopes.
     - Under **Permissions**, select **No access**, **Read-only**, **Read and write (publish and stage)**, or **Read and write (stage only)**.
-       - **Read and write (publish and stage)** lets the token publish new package versions directly to the registry. From the January 2027 cutover, this choice is unavailable while **Bypass two-factor authentication** is checked. If it was selected before checking bypass, the selection resets to **No access**.
+       - **Read and write (publish and stage)** lets the token publish new package versions directly to the registry. This choice is unavailable while **Bypass two-factor authentication** is checked. If it was selected before checking bypass, the selection resets to **No access**.
      - **Read and write (stage only)** lets the token stage new versions for a maintainer to review and promote, but not publish them directly. This is a safer option for automation such as CI/CD. For more information, see "[About stage-only tokens](/about-access-tokens#about-stage-only-tokens)."
    - Under **Select Packages**, select either:
      - **All Packages** to grant the token access to all packages the user account has access to.
@@ -75,9 +75,9 @@ npm token create --name=ci-staging --packages=@myorg/release-tools --packages-an
 
 Replace the package name with a package you can access. Complete the password and authentication prompts. The token can stage versions with `npm stage publish`; a maintainer must approve them with 2FA before publication.
 
-For installs only, choose `--packages-and-scopes-permission=read-only`. The `--bypass-2fa` option remains supported. From the January 2027 cutover, combining it with `--packages-and-scopes-permission=read-write` is rejected. To publish directly with a token, leave bypass 2FA disabled and complete the applicable authentication requirements.
+For installs only, choose `--packages-and-scopes-permission=read-only`. The `--bypass-2fa` option remains supported. Combining it with `--packages-and-scopes-permission=read-write` is rejected. To publish directly with a token, leave bypass 2FA disabled and complete the applicable authentication requirements.
 
-Existing bypass-2FA tokens with direct-publish access will be revoked at the cutover. Create replacement tokens and update your CI/CD secrets beforehand; existing tokens are not automatically converted to stage-only. See "[Direct publishing is being deprecated](/about-access-tokens#direct-publishing-is-being-deprecated)."
+Existing bypass-2FA tokens with direct-publish access were revoked. They were not automatically converted to stage-only tokens. Create replacement tokens and update your CI/CD secrets. See "[Direct publishing with bypass-2FA tokens](/about-access-tokens#direct-publishing-with-bypass-2fa-tokens)."
 
 ## Viewing access tokens
 

@@ -29,7 +29,7 @@ For most CI workflows that only install dependencies and run tests, a **read-onl
 
 <Note>
 
-**Note:** For workflows that prepare package releases, use trusted publishing or a **Read and write (stage only)** token. A stage-only token with bypass 2FA can upload a version using `npm stage publish`, but publication still requires a maintainer's human-2FA approval. Starting in January 2027, bypass-2FA tokens cannot publish new versions directly. Keep install-only workflows on read-only tokens.
+**Note:** For workflows that prepare package releases, use trusted publishing or a **Read and write (stage only)** token. A stage-only token with bypass 2FA can upload a version using `npm stage publish`, but publication still requires a maintainer's human-2FA approval. Bypass-2FA tokens can no longer publish new versions directly. Keep install-only workflows on read-only tokens.
 
 </Note>
 
@@ -47,7 +47,7 @@ For publishing packages in continuous deployment environments, we strongly recom
 
 If trusted publishing is not available for your CI/CD provider, [create a granular access token][create-token] with **Read and write (stage only)** package access and **Bypass 2FA** enabled. Change the release command from `npm publish` to `npm stage publish`, then have a maintainer review and approve the staged version with 2FA. This supports staging the first version of a new package as well as later versions.
 
-From the January 2027 cutover, bypass-2FA tokens cannot publish new versions directly, and existing direct-publish bypass tokens will be revoked. Replace those tokens and update CI/CD secrets before the cutover; they are not converted to stage-only tokens. Read-only and stage-only bypass tokens are not revoked by this change.
+Bypass-2FA tokens can no longer publish new versions directly. Existing direct-publish bypass tokens were revoked. They were not converted to stage-only tokens. Replace those tokens and update CI/CD secrets. Read-only and stage-only bypass tokens were not revoked by this change.
 
 For stage-only token creation from the CLI, use **npm 12.1.0 or newer**. Older clients can ignore the stage-only permission value. See "[Creating tokens with the CLI](/creating-and-viewing-access-tokens#creating-tokens-with-the-cli)."
 

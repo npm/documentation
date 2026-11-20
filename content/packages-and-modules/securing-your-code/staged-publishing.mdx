@@ -174,7 +174,7 @@ If a problem continues, contact [npm Support](https://www.npmjs.com/support) wit
 
 For unattended staging, create a granular access token with **Read and write (stage only)** package access. Store it as a CI/CD secret and run `npm stage publish` instead of `npm publish`. Staging does not require 2FA, so the token does not need **Bypass two-factor authentication (2FA)**. Keep approval as a separate step performed by a maintainer with 2FA; a token cannot bypass that approval challenge.
 
-Starting in January 2027, granular access tokens with bypass 2FA cannot publish new package versions directly, and existing direct-publish bypass tokens will be revoked rather than converted to stage-only. Create replacement tokens and update your workflows before the cutover. See "[Creating tokens with the CLI](/creating-and-viewing-access-tokens#creating-tokens-with-the-cli)" and "[Direct publishing is being deprecated](/about-access-tokens#direct-publishing-is-being-deprecated)."
+Granular access tokens with bypass 2FA can no longer publish new package versions directly. Existing direct-publish bypass tokens were revoked. They were not converted to stage-only tokens. Create replacement tokens and update your workflows. See "[Creating tokens with the CLI](/creating-and-viewing-access-tokens#creating-tokens-with-the-cli)" and "[Direct publishing with bypass-2FA tokens](/about-access-tokens#direct-publishing-with-bypass-2fa-tokens)."
 
 ## Using staged publishing with trusted publishers
 

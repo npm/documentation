@@ -42,13 +42,13 @@ You can create up to 1000 granular access tokens on your npm account. You can se
 
 When you give a token access to an organization, the token can only be used for managing organization settings and teams or users associated with the organization. It does not give the token the right to publish packages managed by the organization.
 
-Bypass 2FA is disabled by default at token creation. Enable it only for permitted automation, such as staging package versions. It does not grant additional package permissions or bypass the human 2FA challenge required to approve a staged version. Starting in January 2027, bypass-2FA tokens will no longer be able to publish new package versions directly. See "[Direct publishing is being deprecated](#direct-publishing-is-being-deprecated)."
+Bypass 2FA is disabled by default at token creation. Enable it only for permitted automation, such as staging package versions. It does not grant additional package permissions or bypass the human 2FA challenge required to approve a staged version. Bypass-2FA tokens can no longer publish new package versions directly. See "[Direct publishing with bypass-2FA tokens](#direct-publishing-with-bypass-2fa-tokens)."
 
 ### About stage-only tokens
 
 When a granular access token has **Read and write** access to packages and scopes, you can choose how it is allowed to publish:
 
-- **Read and write (publish and stage)**: the token can publish new package versions directly to the registry. From the January 2027 cutover, this option cannot be combined with **Bypass 2FA**.
+- **Read and write (publish and stage)**: the token can publish new package versions directly to the registry. This option cannot be combined with **Bypass 2FA**.
 - **Read and write (stage only)**: the token _cannot_ publish new package versions directly. Instead, it stages a version for a package maintainer to review and promote.
 
 Stage-only tokens are a safer on-ramp for automation such as continuous integration and deployment (CI/CD). Because a stage-only token can't publish a new version directly — each staged version must be reviewed and promoted by a maintainer with two-factor authentication (2FA) — a leaked or misused token can't get a new version onto the registry without that maintainer approval. This narrows the risk of direct publishing; it does not otherwise restrict the token's write capabilities.
@@ -77,13 +77,13 @@ When you publish a new version with a stage-only token, the registry does not pu
 2. **Review the stage.** A maintainer can list pending stages with `npm stage list` and inspect one with `npm stage view <stage-id>` or `npm stage download <stage-id>`.
 3. **Promote the version.** A maintainer with 2FA enabled promotes the staged version to the registry with `npm stage approve <stage-id> --otp <code>`, or discards it with `npm stage reject <stage-id>`.
 
-#### Direct publishing is being deprecated
+#### Direct publishing with bypass-2FA tokens
 
-In **January 2027**, creating and using bypass-2FA tokens with direct-publish access will stop on the same cutover day. Existing bypass-2FA tokens with direct-publish package access will be **revoked**, not converted to stage-only tokens. Revoked tokens cannot be used for any operation.
+You can no longer create or use bypass-2FA tokens with direct-publish package access. Existing tokens with these permissions were **revoked**. They were not converted to stage-only tokens. Revoked tokens cannot be used for any operation.
 
-Before the cutover, replace affected tokens with **Read and write (stage only)** tokens and change automation from `npm publish` to `npm stage publish`, followed by human-2FA approval. Alternatively, use [trusted publishing](/trusted-publishers) for token-free publishing from supported CI/CD providers.
+Replace affected tokens with **Read and write (stage only)** tokens and change automation from `npm publish` to `npm stage publish`, followed by human-2FA approval. Alternatively, use [trusted publishing](/trusted-publishers) for token-free publishing from supported CI/CD providers.
 
-The **Bypass 2FA** checkbox and CLI `--bypass-2fa` option remain available for read-only and stage-only tokens. Those tokens are not revoked by this change. Tokens without bypass 2FA, trusted publishing, and interactive publishing are unaffected. Dist-tags, deprecating versions, star/unstar, reads and private installs retain their existing behavior for valid tokens.
+The **Bypass 2FA** checkbox and CLI `--bypass-2fa` option remain available for read-only and stage-only tokens. Those tokens were not revoked by this change. Tokens without bypass 2FA, trusted publishing, and interactive publishing are unaffected. Dist-tags, deprecating versions, star/unstar, reads and private installs retain their existing behavior for valid tokens.
 
 For CLI stage-only token creation, use **npm 12.1.0 or newer**. See "[Creating tokens with the CLI](/creating-and-viewing-access-tokens#creating-tokens-with-the-cli)."
 
