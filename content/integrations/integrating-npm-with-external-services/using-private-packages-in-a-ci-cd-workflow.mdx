@@ -29,7 +29,7 @@ For most CI workflows that only install dependencies and run tests, a **read-onl
 
 <Note>
 
-**Note:** If your CI workflow requires write operations (such as publishing test packages), you may need a granular access token with read and write permissions and bypass 2FA enabled to prevent automated workflows from being blocked by 2FA prompts. However, we strongly recommend using read-only tokens whenever possible and reserving bypass 2FA for deployment workflows only.
+**Note:** For workflows that prepare package releases, use trusted publishing or a **Read and write (stage only)** token. A stage-only token with bypass 2FA can upload a version using `npm stage publish`, but publication still requires a maintainer's human-2FA approval. Bypass-2FA tokens can no longer publish new versions directly. Keep install-only workflows on read-only tokens.
 
 </Note>
 
@@ -45,13 +45,17 @@ For more information on creating granular access tokens, including CIDR-whitelis
 
 For publishing packages in continuous deployment environments, we strongly recommend using [trusted publishing](/trusted-publishers) when available, as it provides enhanced security without requiring token management.
 
-If trusted publishing is not available for your CI/CD provider, you must create a [granular access token with bypass 2FA enabled][create-token] on the website. This will allow you to publish in your CI/CD workflows even if you have two-factor authentication enabled on your account.
+If trusted publishing is not available for your CI/CD provider, [create a granular access token][create-token] with **Read and write (stage only)** package access and **Bypass 2FA** enabled. Change the release command from `npm publish` to `npm stage publish`, then have a maintainer review and approve the staged version with 2FA. This supports staging the first version of a new package as well as later versions.
+
+Bypass-2FA tokens can no longer publish new versions directly. Existing direct-publish bypass tokens were revoked. They were not converted to stage-only tokens. Replace those tokens and update CI/CD secrets. Read-only and stage-only bypass tokens were not revoked by this change.
+
+For stage-only token creation from the CLI, use **npm 12.1.0 or newer**. Older clients can ignore the stage-only permission value. See "[Creating tokens with the CLI](/creating-and-viewing-access-tokens#creating-tokens-with-the-cli)."
 
 <Note>
 
 **Security considerations for bypass 2FA:**
 
-- Only enable bypass 2FA when necessary for automated publishing workflows
+- Only enable bypass 2FA when necessary for permitted automation, such as staging releases; it does not bypass the approval challenge
 - Use restrictive permissions and short expiration dates
 - Consider IP address restrictions and regular token rotation
 - Use trusted publishing instead of bypass 2FA tokens whenever possible
@@ -60,7 +64,7 @@ If trusted publishing is not available for your CI/CD provider, you must create 
 
 ### Interactive workflows
 
-If your workflow produces a package, but you publish it manually after validation, then you will want to create a granular access token with read and write permissions. See "[Creating and viewing access tokens][create-token]" for instructions.
+If your workflow produces a package but you publish it manually after validation, use an interactive publishing session or a granular access token with **Read and write (publish and stage)** access and bypass 2FA disabled. Complete the applicable 2FA challenge when publishing. See "[Creating and viewing access tokens][create-token]" for instructions.
 
 ### CIDR whitelists
 

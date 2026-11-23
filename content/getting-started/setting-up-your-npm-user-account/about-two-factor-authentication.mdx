@@ -22,10 +22,9 @@ When you enable 2FA, you will be prompted for a second form of authentication be
 
 <Note variant="warning">
 
-**Important:** Publishing to npm requires either:
+**Important:** For direct publishing, use an interactive publishing session or a granular access token with direct-publish access and bypass 2FA disabled. Complete the applicable 2FA challenge.
 
-- Two-factor authentication (2FA) enabled on your account, OR
-- A granular access token with bypass 2FA enabled
+Bypass-2FA tokens can no longer publish new package versions directly. Use [trusted publishing](/trusted-publishers) or a stage-only token with human-2FA approval for automation.
 
 Starting August 2026, account-identity and account-governance actions cannot be performed with a bypass-2FA token.
 

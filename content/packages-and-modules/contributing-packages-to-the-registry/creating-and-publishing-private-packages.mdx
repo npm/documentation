@@ -88,10 +88,9 @@ There are two ways to publish your package to the npm registry:
 
 ### Direct publishing
 
-To publish directly with `npm publish`, you need either:
+For direct publishing with `npm publish`, use an interactive publishing session or a granular access token (GAT) with **Read and write (publish and stage)** access and bypass 2FA disabled. Complete the applicable two-factor authentication (2FA) challenge.
 
-- Two-factor authentication (2FA) enabled on your account, or
-- A granular access token (GAT) with bypass 2FA enabled
+Bypass-2FA tokens can no longer publish new versions directly, including the first version of a new package. For automation, use [trusted publishing](/trusted-publishers) or the staged publishing workflow below.
 
 For more information, see the npm documentation on [requiring 2FA for package publishing](/requiring-2fa-for-package-publishing-and-settings-modification).
 
@@ -117,9 +116,11 @@ For more information on the `publish` command, see the [CLI documentation][cli-p
 
 Instead of publishing directly, you can stage your package and approve it later. Staging the package does not require 2FA, which allows CI workflows to submit a package to the staging area. Before the package is published to the registry, a maintainer must review and approve it with 2FA.
 
-If the package does not yet exist, staging it publishes a placeholder version of the package that is publicly available. The staged version and its contents are not available until the staged package is approved.
+If the package does not yet exist, staging it creates a placeholder that reserves the package name and follows the package's visibility. The staged version is not published until a maintainer approves it.
 
 A GAT with bypass 2FA does not bypass the 2FA check during staged package approval.
+
+For CI/CD, create a token with **Read and write (stage only)** access and enable bypass 2FA for unattended staging. Use npm 12.1.0 or newer when [creating stage-only tokens from the CLI](/creating-and-viewing-access-tokens#creating-tokens-with-the-cli).
 
 1. On the command line, navigate to the root directory of your package.
 
