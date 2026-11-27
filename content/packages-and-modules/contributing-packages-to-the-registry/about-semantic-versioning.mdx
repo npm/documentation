@@ -30,7 +30,15 @@ To help developers who rely on your code, we recommend starting your package ver
 
 You can specify which update types your package can accept from dependencies in your package's `package.json` file.
 
-For example, to specify acceptable version ranges up to 1.0.4, use the following syntax:
+For example, to specify which dependency updates npm may accept, use semantic version ranges.
+
+Assuming the minimum desired version is **1.0.4**:
+
+- **Patch releases:** `~1.0.4` Accept versions `>=1.0.4` and `<1.1.0`.
+- **Minor releases:** `^1.0.4` Accept versions `>=1.0.4` and `<2.0.0`.
+- **Major, minor, and patch updates:** `>=1.0.4` Accept version `1.0.4` and all newer versions.
+
+Alternatively, wildcard ranges or omitting the respective entry can be used when a specific minimum version is not required:
 
 - Patch releases: `1.0` or `1.0.x` or `~1.0.4`
 - Minor releases: `1` or `1.x` or `^1.0.4`
