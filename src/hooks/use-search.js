@@ -6,6 +6,15 @@ import usePage from './use-page'
 import * as getNav from '../util/get-nav'
 import {CLI_PATH} from '../constants'
 
+export const flattenHeadings = items => {
+  if (!items) return []
+  return items.reduce((acc, item) => {
+    if (item.title) acc.push(item.title)
+    if (item.items) acc.push(...flattenHeadings(item.items))
+    return acc
+  }, [])
+}
+
 const useSearchData = () => {
   const data = useStaticQuery(graphql`
     {
@@ -15,6 +24,7 @@ const useSearchData = () => {
           frontmatter {
             title
           }
+          tableOfContents
           body
         }
       }
@@ -40,6 +50,7 @@ const useSearchData = () => {
         return {
           path: node.path,
           title: mdxNode.frontmatter.title,
+          headings: flattenHeadings(mdxNode.tableOfContents?.items).join(' '),
           body: mdxNode.body,
         }
       })
